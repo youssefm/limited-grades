@@ -26,6 +26,10 @@ export async function getCards(
   let cards: ApiCard[] = await response.json();
   cards = cards.filter((card) => card.game_count >= 400);
 
+  if (cards.length === 0) {
+    return [];
+  }
+
   const winrates = cards.map((card) => card.drawn_improvement_win_rate);
   const normalDistribution = new NormalDistribution(
     mean(winrates),
