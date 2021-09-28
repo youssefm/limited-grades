@@ -1,8 +1,8 @@
 export enum Expansion {
   MIDNIGHT_HUNT = "mid",
-  // FORGOTTEN_REALM = "afr",
-  // STRIXHAVEN = "stx",
-  // KALDHEIM = "khm",
+  FORGOTTEN_REALM = "afr",
+  STRIXHAVEN = "stx",
+  KALDHEIM = "khm",
 }
 
 export enum Deck {
