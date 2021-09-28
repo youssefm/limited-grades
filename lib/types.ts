@@ -2,7 +2,7 @@ export enum Expansion {
   MIDNIGHT_HUNT = "mid",
   FORGOTTEN_REALM = "afr",
   STRIXHAVEN = "stx",
-  KALDHEIM = "khm",
+  // KALDHEIM = "khm",
 }
 
 export enum Deck {
