@@ -79,11 +79,11 @@ const TierList = ({
           The table below uses{" "}
           <a href="https://www.17lands.com/card_ratings">17Lands</a> Premier
           Draft data to assign letter grades to cards. It infers a normal
-          distribution from the &quot;Improvement when drawn&quot; statistic and
+          distribution from the &quot;Games in Hand Win Rate&quot; statistic and
           uses that distribution to assign a grade to each card. For example, a
-          card with an IWD statistic that is one standard deviation higher than
-          the mean would get a B+. Cards with fewer than 400 games are not
-          included.
+          card with an GIH winrate statistic that is one standard deviation
+          higher than the mean would get a B+. Cards with fewer than 400 games
+          are not included.
         </p>
       </div>
       <div className="row justify-content-center mb-2">

@@ -30,7 +30,7 @@ export async function getCards(
     return [];
   }
 
-  const winrates = cards.map((card) => card.drawn_improvement_win_rate);
+  const winrates = cards.map((card) => card.ever_drawn_win_rate);
   const normalDistribution = new NormalDistribution(
     mean(winrates),
     std(winrates)
@@ -42,8 +42,7 @@ export async function getCards(
       column = apiCard.color.length == 0 ? Column.COLORLESS : Column.MULTICOLOR;
     }
 
-    const grade =
-      normalDistribution.cdf(apiCard.drawn_improvement_win_rate) * 100;
+    const grade = normalDistribution.cdf(apiCard.ever_drawn_win_rate) * 100;
     const tier: Tier = find<[Tier, number]>(
       TIER_THRESHOLDS,
       ([tier, threshold]) => grade >= threshold
