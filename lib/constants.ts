@@ -1,18 +1,18 @@
 import { Column, Tier, Rarity, Deck } from "./types";
 
 export const TIER_THRESHOLDS: [Tier, number][] = [
-  [Tier.A_PLUS, 99.5],
+  [Tier.A_PLUS, 99],
   [Tier.A, 95],
   [Tier.A_MINUS, 90],
-  [Tier.B_PLUS, 80],
-  [Tier.B, 65],
-  [Tier.B_MINUS, 55],
-  [Tier.C_PLUS, 45],
-  [Tier.C, 35],
-  [Tier.C_MINUS, 30],
-  [Tier.D_PLUS, 25],
-  [Tier.D, 15],
-  [Tier.D_MINUS, 5],
+  [Tier.B_PLUS, 85],
+  [Tier.B, 75],
+  [Tier.B_MINUS, 70],
+  [Tier.C_PLUS, 60],
+  [Tier.C, 50],
+  [Tier.C_MINUS, 40],
+  [Tier.D_PLUS, 30],
+  [Tier.D, 20],
+  [Tier.D_MINUS, 10],
   [Tier.F, 0],
 ];
 
