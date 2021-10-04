@@ -1,5 +1,8 @@
 import Head from "next/head";
 import { FC } from "react";
+import { config, dom } from "@fortawesome/fontawesome-svg-core";
+
+config.autoAddCss = false;
 
 const Layout: FC = ({ children }) => {
   return (
@@ -12,6 +15,7 @@ const Layout: FC = ({ children }) => {
           integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
           crossOrigin="anonymous"
         />
+        <style>{dom.css()}</style>
       </Head>
 
       <main>{children}</main>

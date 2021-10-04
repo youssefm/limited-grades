@@ -26,6 +26,8 @@ export interface ApiCard {
   ever_drawn_win_rate: number;
   game_count: number;
   rarity: Rarity;
+  url: string;
+  url_back: string;
 }
 
 export enum Column {
@@ -67,4 +69,6 @@ export interface Card {
   grade: number;
   tier: Tier;
   rarity: Rarity;
+  cardUrl: string;
+  cardBackUrl: string;
 }

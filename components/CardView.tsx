@@ -1,7 +1,11 @@
+import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import styled from "styled-components";
 import { Card, Rarity } from "../lib/types";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEye } from "@fortawesome/free-regular-svg-icons";
+import { forwardRef } from "react";
 
-const CARD_BY_RARITY = {
+const CARD_TEXT_BY_RARITY = {
   [Rarity.COMMON]: styled.div`
     color: black;
   `,
@@ -16,9 +20,30 @@ const CARD_BY_RARITY = {
   `,
 };
 
+const FaEye = forwardRef((props, ref) => (
+  <FontAwesomeIcon forwardedRef={ref} icon={faEye} size="sm" {...props} />
+));
+FaEye.displayName = "FaEye";
+
 const CardView = ({ card }: { card: Card }) => {
-  const Card = CARD_BY_RARITY[card.rarity] || CARD_BY_RARITY[Rarity.COMMON];
-  return <Card>{card.name}</Card>;
+  const CardText =
+    CARD_TEXT_BY_RARITY[card.rarity] || CARD_TEXT_BY_RARITY[Rarity.COMMON];
+
+  return (
+    <CardText>
+      <OverlayTrigger
+        placement="bottom-start"
+        overlay={
+          <Tooltip>
+            <img src={card.cardUrl} alt={card.name} width="240" height="340" />
+          </Tooltip>
+        }
+      >
+        <FaEye />
+      </OverlayTrigger>{" "}
+      {card.name}
+    </CardText>
+  );
 };
 
 export default CardView;

@@ -54,6 +54,8 @@ export async function getCards(
       grade: grade,
       tier: tier,
       rarity: apiCard.rarity,
+      cardUrl: apiCard.url,
+      cardBackUrl: apiCard.url_back,
     };
   });
 }
