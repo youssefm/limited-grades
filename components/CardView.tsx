@@ -33,6 +33,14 @@ const CardView = ({ card }: { card: Card }) => {
         overlay={
           <Tooltip>
             <img src={card.cardUrl} alt={card.name} width="240" height="340" />
+            {card.cardBackUrl && (
+              <img
+                src={card.cardBackUrl}
+                alt={card.name}
+                width="240"
+                height="340"
+              />
+            )}
           </Tooltip>
         }
       >
