@@ -2,7 +2,7 @@ import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import styled from "styled-components";
 import { Card, Rarity } from "../lib/types";
 
-const CardText = styled.div`
+const CardText = styled.span`
   cursor: pointer;
 `;
 
@@ -27,16 +27,18 @@ const CardView = ({ card }: { card: Card }) => {
     CARD_TEXT_BY_RARITY[card.rarity] || CARD_TEXT_BY_RARITY[Rarity.COMMON];
 
   return (
-    <OverlayTrigger
-      placement="bottom-start"
-      overlay={
-        <Tooltip>
-          <img src={card.cardUrl} alt={card.name} width="240" height="340" />
-        </Tooltip>
-      }
-    >
-      <CardText>{card.name}</CardText>
-    </OverlayTrigger>
+    <div>
+      <OverlayTrigger
+        placement="bottom-start"
+        overlay={
+          <Tooltip>
+            <img src={card.cardUrl} alt={card.name} width="240" height="340" />
+          </Tooltip>
+        }
+      >
+        <CardText>{card.name}</CardText>
+      </OverlayTrigger>
+    </div>
   );
 };
 
