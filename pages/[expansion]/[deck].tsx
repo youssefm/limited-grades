@@ -47,8 +47,8 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
       cards: await getCards(expansion, deck),
       lastUpdatedAtTicks: new Date().getTime(),
     },
-    // Rebuild pages from 17Lands data every hour
-    revalidate: 3600,
+    // Rebuild pages from 17Lands data every four hours
+    revalidate: 4 * 60 * 60,
   };
 };
 
