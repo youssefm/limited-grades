@@ -2,7 +2,15 @@ export enum Expansion {
   MIDNIGHT_HUNT = "mid",
   FORGOTTEN_REALM = "afr",
   STRIXHAVEN = "stx",
-  // KALDHEIM = "khm",
+  KALDHEIM = "khm",
+  ZENDIKAR = "znr",
+  IKORIA = "iko",
+  WAR_OF_THE_SPARK = "war",
+  RAVNICA_ALLEGIANCE = "rna",
+  GUILDS_OF_RAVNICA = "grn",
+  DOMINARIA = "dom",
+  AMONKHET = "akr",
+  KALADESH = "klr",
 }
 
 export enum Deck {

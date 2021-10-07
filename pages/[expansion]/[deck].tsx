@@ -6,7 +6,11 @@ import { Column, Deck, Expansion, Tier } from "../../lib/types";
 import { capitalize, groupBy, sortBy } from "lodash";
 import React from "react";
 import CardView from "../../components/CardView";
-import { DECK_LABELS, RARITY_SORT_KEY } from "../../lib/constants";
+import {
+  DECK_LABELS,
+  EXPANSION_LABELS,
+  RARITY_SORT_KEY,
+} from "../../lib/constants";
 import { useRouter } from "next/dist/client/router";
 
 const TierNameColumn = styled.th`
@@ -100,7 +104,7 @@ const TierList = ({
           >
             {Object.values(Expansion).map((expansion) => (
               <option key={expansion} value={expansion}>
-                {expansion.toUpperCase()}
+                {EXPANSION_LABELS[expansion]}
               </option>
             ))}
           </Form.Select>
@@ -141,7 +145,7 @@ const TierList = ({
               {Object.values(Column).map((column) => (
                 <td key={column}>
                   {cardsByGroup[column + "," + tier]?.map((card) => (
-                    <CardView key={card.name} card={card} />
+                    <CardView key={card.cardUrl} card={card} />
                   ))}
                 </td>
               ))}

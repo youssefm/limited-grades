@@ -9,7 +9,7 @@ export async function getCards(
   deck: Deck
 ): Promise<Card[]> {
   const endDate = new Date().toISOString().substring(0, 10);
-  let url = `https://www.17lands.com/card_ratings/data?expansion=${expansion}&format=PremierDraft&start_date=2021-01-01&end_date=${endDate}`;
+  let url = `https://www.17lands.com/card_ratings/data?expansion=${expansion}&format=PremierDraft&start_date=2020-04-16&end_date=${endDate}`;
   if (deck !== Deck.ALL) {
     url = url.concat(`&colors=${deck}`);
   }
