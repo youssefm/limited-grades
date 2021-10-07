@@ -18,6 +18,10 @@ const TierCardsColumn = styled.th`
   width: 12%;
 `;
 
+const Footer = styled.div`
+  margin-top: 300px;
+`;
+
 export const getStaticPaths = async () => {
   const paths = [];
   for (const expansion of Object.values(Expansion)) {
@@ -145,11 +149,15 @@ const TierList = ({
           ))}
         </tbody>
       </Table>
-      <p>
-        <em>
-          Last updated at: {new Date(lastUpdatedAtTicks).toLocaleString()}
-        </em>
-      </p>
+      <Footer className="border-top border-secondary pt-2">
+        Developed using Next.js by{" "}
+        <a href="https://github.com/youssefm">youssefm</a>
+        <div>
+          <em>
+            Last updated at: {new Date(lastUpdatedAtTicks).toLocaleString()}
+          </em>
+        </div>
+      </Footer>
     </Container>
   );
 };
