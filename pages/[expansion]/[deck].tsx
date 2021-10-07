@@ -13,6 +13,10 @@ import {
 } from "../../lib/constants";
 import { useRouter } from "next/dist/client/router";
 
+const PageContainer = styled(Container)`
+  overflow: auto;
+`;
+
 const TierNameColumn = styled.th`
   width: 4%;
 `;
@@ -75,7 +79,7 @@ const TierList = ({
   );
 
   return (
-    <Container fluid>
+    <PageContainer fluid>
       <h1 className="text-center p-4">17Lands Tier List</h1>
       <Row className="justify-content-center">
         <Col md="6">
@@ -162,7 +166,7 @@ const TierList = ({
           </em>
         </div>
       </Footer>
-    </Container>
+    </PageContainer>
   );
 };
 
