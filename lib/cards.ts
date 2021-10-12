@@ -3,6 +3,7 @@ import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
 import { find } from "lodash";
 import { COLUMNS_BY_COLOR, TIER_THRESHOLDS } from "./constants";
+import * as lockfile from "proper-lockfile";
 
 export async function getCards(
   expansion: Expansion,
@@ -14,14 +15,21 @@ export async function getCards(
     url = url.concat(`&colors=${deck}`);
   }
 
+  // We serialize API calls to 17lands to avoid DoSing them
+  // Otherise requests start failing with 503s
+  const release = await lockfile.lock("lockfile", {
+    retries: { retries: 100, factor: 1, minTimeout: 3000, randomize: true },
+  });
+
   console.log(`Making API request to ${url}`);
   let response = await fetch(url);
   while (!response.ok) {
-    console.log("request failed");
-    await new Promise((resolve) => setTimeout(resolve, Math.random() * 30000));
+    console.log("request failed, retrying in a little bit");
+    await new Promise((resolve) => setTimeout(resolve, 20000));
     response = await fetch(url);
   }
   console.log("request succeeded");
+  setTimeout(release, 10000);
 
   let cards: ApiCard[] = await response.json();
   cards = cards.filter((card) => card.game_count >= 400);
