@@ -21,10 +21,10 @@ export enum Deck {
   RED_GREEN = "rg",
   WHITE_GREEN = "wg",
   WHITE_BLACK = "wb",
-  BLACK_GREEN = "bg",
-  BLUE_GREEN = "ug",
   BLUE_RED = "ur",
+  BLACK_GREEN = "bg",
   WHITE_RED = "wr",
+  BLUE_GREEN = "ug",
 }
 
 export interface ApiCard {

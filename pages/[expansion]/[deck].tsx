@@ -158,8 +158,8 @@ const TierList = ({
         </tbody>
       </Table>
       <Footer className="border-top border-secondary pt-2">
-        Developed using Next.js by{" "}
-        <a href="https://github.com/youssefm">youssefm</a>
+        Developed by <a href="https://github.com/youssefm">youssefm</a> using
+        Next.js
         <div>
           <em>
             Last updated at: {new Date(lastUpdatedAtTicks).toLocaleString()}

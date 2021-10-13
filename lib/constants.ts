@@ -39,10 +39,10 @@ export const DECK_LABELS: Record<Deck, string> = {
   [Deck.RED_GREEN]: "Gruul (RG)",
   [Deck.WHITE_GREEN]: "Selesnya (WG)",
   [Deck.WHITE_BLACK]: "Orzhov (WB)",
-  [Deck.BLACK_GREEN]: "Golgari (BG)",
-  [Deck.BLUE_GREEN]: "Simic (UG)",
   [Deck.BLUE_RED]: "Izzet (UR)",
+  [Deck.BLACK_GREEN]: "Golgari (BG)",
   [Deck.WHITE_RED]: "Boros (WR)",
+  [Deck.BLUE_GREEN]: "Simic (UG)",
 };
 
 export const EXPANSION_LABELS: Record<Expansion, string> = {
