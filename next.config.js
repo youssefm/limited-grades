@@ -9,8 +9,8 @@ module.exports = {
         permanent: false,
       },
       {
-        source: "/:expansion",
-        destination: "/:expansion/all",
+        source: "/:set",
+        destination: "/:set/all",
         permanent: true,
       },
     ];

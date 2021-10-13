@@ -2,15 +2,11 @@ import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import styled from "styled-components";
 import { Col, Container, Form, Row, Table } from "react-bootstrap";
 import { getCards } from "../../lib/cards";
-import { Column, Deck, Expansion, Tier } from "../../lib/types";
+import { Column, Deck, Set, Tier } from "../../lib/types";
 import { capitalize, groupBy, sortBy } from "lodash";
 import React from "react";
 import CardView from "../../components/CardView";
-import {
-  DECK_LABELS,
-  EXPANSION_LABELS,
-  RARITY_SORT_KEY,
-} from "../../lib/constants";
+import { DECK_LABELS, SET_LABELS, RARITY_SORT_KEY } from "../../lib/constants";
 import { useRouter } from "next/dist/client/router";
 
 const PageContainer = styled(Container)`
@@ -32,11 +28,11 @@ const Footer = styled.div`
 
 export const getStaticPaths = async () => {
   const paths = [];
-  for (const expansion of Object.values(Expansion)) {
+  for (const set of Object.values(Set)) {
     for (const deck of Object.values(Deck)) {
       paths.push({
         params: {
-          expansion: expansion,
+          set: set,
           deck: deck,
         },
       });
@@ -50,13 +46,13 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
-  const expansion = context.params!.expansion as Expansion;
+  const set = context.params!.set as Set;
   const deck = context.params!.deck as Deck;
   return {
     props: {
-      expansion,
+      expansion: set,
       deck,
-      cards: await getCards(expansion, deck),
+      cards: await getCards(set, deck),
       lastUpdatedAtTicks: new Date().getTime(),
     },
     // Rebuild pages from 17Lands data every four hours
@@ -106,9 +102,9 @@ const TierList = ({
             }
             size="sm"
           >
-            {Object.values(Expansion).map((expansion) => (
+            {Object.values(Set).map((expansion) => (
               <option key={expansion} value={expansion}>
-                {EXPANSION_LABELS[expansion]}
+                {SET_LABELS[expansion]}
               </option>
             ))}
           </Form.Select>

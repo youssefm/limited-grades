@@ -1,4 +1,4 @@
-import { Column, Tier, Rarity, Deck, Expansion } from "./types";
+import { Column, Tier, Rarity, Deck, Set } from "./types";
 
 export const TIER_THRESHOLDS: [Tier, number][] = [
   [Tier.A_PLUS, 99],
@@ -45,17 +45,17 @@ export const DECK_LABELS: Record<Deck, string> = {
   [Deck.BLUE_GREEN]: "Simic (UG)",
 };
 
-export const EXPANSION_LABELS: Record<Expansion, string> = {
-  [Expansion.MIDNIGHT_HUNT]: "Midnight Hunt",
-  [Expansion.FORGOTTEN_REALM]: "Forgotten Realms",
-  [Expansion.STRIXHAVEN]: "Strixhaven",
-  [Expansion.KALDHEIM]: "Kaldheim",
-  [Expansion.ZENDIKAR]: "Zendikar Rising",
-  [Expansion.IKORIA]: "Ikoria",
-  [Expansion.WAR_OF_THE_SPARK]: "War of the Spark",
-  [Expansion.RAVNICA_ALLEGIANCE]: "Ravnica Allegiance",
-  [Expansion.GUILDS_OF_RAVNICA]: "Guilds of Ravnica",
-  [Expansion.DOMINARIA]: "Dominaria",
-  [Expansion.AMONKHET]: "Amonkhet",
-  [Expansion.KALADESH]: "Kaladesh",
+export const SET_LABELS: Record<Set, string> = {
+  [Set.MIDNIGHT_HUNT]: "Midnight Hunt",
+  [Set.FORGOTTEN_REALM]: "Forgotten Realms",
+  [Set.STRIXHAVEN]: "Strixhaven",
+  [Set.KALDHEIM]: "Kaldheim",
+  [Set.ZENDIKAR]: "Zendikar Rising",
+  [Set.IKORIA]: "Ikoria",
+  [Set.WAR_OF_THE_SPARK]: "War of the Spark",
+  [Set.RAVNICA_ALLEGIANCE]: "Ravnica Allegiance",
+  [Set.GUILDS_OF_RAVNICA]: "Guilds of Ravnica",
+  [Set.DOMINARIA]: "Dominaria",
+  [Set.AMONKHET]: "Amonkhet",
+  [Set.KALADESH]: "Kaladesh",
 };

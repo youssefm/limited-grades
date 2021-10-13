@@ -1,4 +1,4 @@
-export enum Expansion {
+export enum Set {
   MIDNIGHT_HUNT = "mid",
   FORGOTTEN_REALM = "afr",
   STRIXHAVEN = "stx",

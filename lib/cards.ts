@@ -1,16 +1,13 @@
-import { ApiCard, Card, Column, Deck, Expansion, Tier } from "./types";
+import { ApiCard, Card, Column, Deck, Set, Tier } from "./types";
 import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
 import { find } from "lodash";
 import { COLUMNS_BY_COLOR, TIER_THRESHOLDS } from "./constants";
 import * as lockfile from "proper-lockfile";
 
-export async function getCards(
-  expansion: Expansion,
-  deck: Deck
-): Promise<Card[]> {
+export async function getCards(set: Set, deck: Deck): Promise<Card[]> {
   const endDate = new Date().toISOString().substring(0, 10);
-  let url = `https://www.17lands.com/card_ratings/data?expansion=${expansion}&format=PremierDraft&start_date=2020-04-16&end_date=${endDate}`;
+  let url = `https://www.17lands.com/card_ratings/data?expansion=${set}&format=PremierDraft&start_date=2020-04-16&end_date=${endDate}`;
   if (deck !== Deck.ALL) {
     url = url.concat(`&colors=${deck}`);
   }
