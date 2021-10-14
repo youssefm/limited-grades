@@ -15,7 +15,7 @@ export async function getCards(set: Set, deck: Deck): Promise<Card[]> {
   // We serialize API calls to 17lands to avoid DoSing them
   // Otherise requests start failing with 503s
   const release = await lockfile.lock("lockfile", {
-    retries: { retries: 100, factor: 1, minTimeout: 3000, randomize: true },
+    retries: { retries: 10000, factor: 1, minTimeout: 3000, randomize: true },
   });
 
   console.log(`Making API request to ${url}`);
