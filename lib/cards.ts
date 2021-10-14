@@ -26,7 +26,7 @@ export async function getCards(set: Set, deck: Deck): Promise<Card[]> {
     response = await fetch(url);
   }
   console.log("request succeeded");
-  setTimeout(release, 10000);
+  release();
 
   let cards: ApiCard[] = await response.json();
   cards = cards.filter((card) => card.game_count >= 400);
