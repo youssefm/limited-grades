@@ -50,7 +50,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   const deck = context.params!.deck as Deck;
   return {
     props: {
-      expansion: set,
+      set,
       deck,
       cards: await getCards(set, deck),
       lastUpdatedAtTicks: new Date().getTime(),
@@ -61,7 +61,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 };
 
 const TierList = ({
-  expansion,
+  set,
   deck,
   cards,
   lastUpdatedAtTicks,
@@ -94,7 +94,7 @@ const TierList = ({
       <Row className="justify-content-center mb-2">
         <Col md="auto">
           <Form.Select
-            value={expansion}
+            value={set}
             onChange={(event) =>
               router.push(
                 `/${(event.target as HTMLInputElement).value}/${deck}`
@@ -102,9 +102,9 @@ const TierList = ({
             }
             size="sm"
           >
-            {Object.values(Set).map((expansion) => (
-              <option key={expansion} value={expansion}>
-                {SET_LABELS[expansion]}
+            {Object.values(Set).map((set) => (
+              <option key={set} value={set}>
+                {SET_LABELS[set]}
               </option>
             ))}
           </Form.Select>
@@ -113,9 +113,7 @@ const TierList = ({
           <Form.Select
             value={deck}
             onChange={(event) =>
-              router.push(
-                `/${expansion}/${(event.target as HTMLInputElement).value}`
-              )
+              router.push(`/${set}/${(event.target as HTMLInputElement).value}`)
             }
             size="sm"
           >
