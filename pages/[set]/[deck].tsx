@@ -88,9 +88,9 @@ const TierList = ({
               Games in Hand Win Rate
             </a>{" "}
             statistic and uses that distribution to assign a grade to each card.
-            For example, a card with a GIH winrate statistic that is one
-            standard deviation higher than the mean would get a B. Cards with
-            fewer than 400 games are not included.
+            For example, a card with a GIH winrate that is one standard
+            deviation higher than the mean would get a B. Cards with fewer than
+            400 games are not included.
           </p>
         </Col>
       </Row>
