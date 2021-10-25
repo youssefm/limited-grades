@@ -68,7 +68,7 @@ const TierList = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
 
-  const sortedCards = sortBy(cards, (card) => RARITY_SORT_KEY[card.rarity]);
+  const sortedCards = sortBy(cards, (card) => -card.grade);
   const cardsByGroup = groupBy(
     sortedCards,
     (card) => card.column + "," + card.tier
