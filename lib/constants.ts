@@ -46,6 +46,7 @@ export const DECK_LABELS: Record<Deck, string> = {
 };
 
 export const SET_LABELS: Record<Set, string> = {
+  [Set.CRIMSON_VOW]: "Crimson Vow",
   [Set.MIDNIGHT_HUNT]: "Midnight Hunt",
   [Set.FORGOTTEN_REALM]: "Forgotten Realms",
   [Set.STRIXHAVEN]: "Strixhaven",

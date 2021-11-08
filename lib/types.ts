@@ -1,4 +1,5 @@
 export enum Set {
+  CRIMSON_VOW = "vow",
   MIDNIGHT_HUNT = "mid",
   FORGOTTEN_REALM = "afr",
   STRIXHAVEN = "stx",
