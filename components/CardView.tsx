@@ -7,18 +7,17 @@ const CardText = styled.span`
 `;
 
 const CARD_TEXT_BY_RARITY = {
-  [Rarity.COMMON]: CardText,
+  [Rarity.COMMON]: styled(CardText)`
+    color: #1a1718;
+  `,
   [Rarity.UNCOMMON]: styled(CardText)`
     color: #707883;
-    cursor: pointer;
   `,
   [Rarity.RARE]: styled(CardText)`
     color: #a58e4a;
-    cursor: pointer;
   `,
   [Rarity.MYTHIC]: styled(CardText)`
     color: #bf4427;
-    cursor: pointer;
   `,
 };
 
