@@ -89,7 +89,7 @@ const TierList = ({
             </a>{" "}
             statistic and uses that distribution to assign a grade to each card.
             For example, a card with a winrate that is one standard deviation
-            higher than the mean would get a B. Cards with fewer than 400 games
+            higher than the mean would get a B. Cards with fewer than 200 games
             are not included.
           </p>
         </Col>

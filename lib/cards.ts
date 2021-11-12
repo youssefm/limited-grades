@@ -22,7 +22,7 @@ export async function getCards(set: Set, deck: Deck): Promise<Card[]> {
 
   let cards: ApiCard[] = await response.json();
   cards = cards.filter(
-    (card) => card.game_count >= 400 && card.ever_drawn_win_rate
+    (card) => card.game_count >= 200 && card.ever_drawn_win_rate
   );
 
   if (cards.length <= 1) {
