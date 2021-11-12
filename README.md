@@ -9,3 +9,12 @@ npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+
+## To Do
+
+- Center Grades
+- Add expansion symbols to sets
+- Add mana symbols to decks
+- Switch to a darker theme
+- Add card rarity filters
+- See card winrate across decks?

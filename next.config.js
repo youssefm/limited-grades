@@ -5,7 +5,7 @@ module.exports = {
     return [
       {
         source: "/",
-        destination: "/mid",
+        destination: "/vow",
         permanent: false,
       },
       {
