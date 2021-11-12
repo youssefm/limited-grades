@@ -25,7 +25,7 @@ export async function getCards(set: Set, deck: Deck): Promise<Card[]> {
     (card) => card.game_count >= 400 && card.ever_drawn_win_rate
   );
 
-  if (cards.length === 0) {
+  if (cards.length <= 1) {
     return [];
   }
 
