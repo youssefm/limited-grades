@@ -6,7 +6,7 @@ import { Column, Deck, Set, Tier } from "../../lib/types";
 import { groupBy, sortBy } from "lodash";
 import React from "react";
 import CardView from "../../components/CardView";
-import { DECK_LABELS, SET_LABELS, RARITY_SORT_KEY } from "../../lib/constants";
+import { DECK_LABELS, SET_LABELS } from "../../lib/constants";
 import { useRouter } from "next/dist/client/router";
 
 const PageContainer = styled(Container)`
@@ -16,11 +16,13 @@ const PageContainer = styled(Container)`
 const TierNameColumn = styled.th`
   width: 3%;
   vertical-align: middle;
+  background-color: #f0f1f2 !important;
 `;
 
 const TierCardsColumn = styled.th`
   text-align: center;
   width: 14%;
+  background-color: #f0f1f2 !important;
 `;
 
 const Footer = styled.div`
@@ -132,26 +134,26 @@ const TierList = ({
       <Table>
         <thead>
           <tr>
-            <TierNameColumn></TierNameColumn>
-            <TierCardsColumn className="table-secondary">
+            <th></th>
+            <TierCardsColumn>
               <i className="ms ms-w ms-cost"></i>
             </TierCardsColumn>
-            <TierCardsColumn className="table-secondary">
+            <TierCardsColumn>
               <i className="ms ms-u ms-cost"></i>
             </TierCardsColumn>
-            <TierCardsColumn className="table-secondary">
+            <TierCardsColumn>
               <i className="ms ms-b ms-cost"></i>
             </TierCardsColumn>
-            <TierCardsColumn className="table-secondary">
+            <TierCardsColumn>
               <i className="ms ms-r ms-cost"></i>
             </TierCardsColumn>
-            <TierCardsColumn className="table-secondary">
+            <TierCardsColumn>
               <i className="ms ms-g ms-cost"></i>
             </TierCardsColumn>
-            <TierCardsColumn className="table-secondary">
+            <TierCardsColumn>
               <i className="ms ms-multicolor ms-duo ms-duo-color ms-grad"></i>
             </TierCardsColumn>
-            <TierCardsColumn className="table-secondary">
+            <TierCardsColumn>
               <i className="ms ms-c ms-cost"></i>
             </TierCardsColumn>
           </tr>
@@ -159,9 +161,7 @@ const TierList = ({
         <tbody>
           {Object.values(Tier).map((tier) => (
             <tr key={tier}>
-              <TierNameColumn className="table-secondary">
-                {tier}
-              </TierNameColumn>
+              <TierNameColumn>{tier}</TierNameColumn>
               {Object.values(Column).map((column) => (
                 <td key={column}>
                   {cardsByGroup[column + "," + tier]?.map((card) => (
