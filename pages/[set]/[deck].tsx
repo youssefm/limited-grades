@@ -29,6 +29,16 @@ const Footer = styled.div`
   margin-top: 300px;
 `;
 
+const COLUMN_ICONS = {
+  [Column.WHITE]: "ms ms-w ms-cost",
+  [Column.BLUE]: "ms ms-u ms-cost",
+  [Column.BLACK]: "ms ms-b ms-cost",
+  [Column.RED]: "ms ms-r ms-cost",
+  [Column.GREEN]: "ms ms-g ms-cost",
+  [Column.MULTICOLOR]: "ms ms-multicolor ms-duo ms-duo-color ms-grad",
+  [Column.COLORLESS]: "ms ms-c ms-cost",
+};
+
 export const getStaticPaths = async () => {
   const paths = [];
   for (const set of Object.values(Set)) {
@@ -135,27 +145,11 @@ const TierList = ({
         <thead>
           <tr>
             <th></th>
-            <TierCardsColumn>
-              <i className="ms ms-w ms-cost"></i>
-            </TierCardsColumn>
-            <TierCardsColumn>
-              <i className="ms ms-u ms-cost"></i>
-            </TierCardsColumn>
-            <TierCardsColumn>
-              <i className="ms ms-b ms-cost"></i>
-            </TierCardsColumn>
-            <TierCardsColumn>
-              <i className="ms ms-r ms-cost"></i>
-            </TierCardsColumn>
-            <TierCardsColumn>
-              <i className="ms ms-g ms-cost"></i>
-            </TierCardsColumn>
-            <TierCardsColumn>
-              <i className="ms ms-multicolor ms-duo ms-duo-color ms-grad"></i>
-            </TierCardsColumn>
-            <TierCardsColumn>
-              <i className="ms ms-c ms-cost"></i>
-            </TierCardsColumn>
+            {Object.values(Column).map((column) => (
+              <TierCardsColumn key={column}>
+                <i className={COLUMN_ICONS[column]}></i>
+              </TierCardsColumn>
+            ))}
           </tr>
         </thead>
         <tbody>
