@@ -132,11 +132,27 @@ const TierList = ({
         <thead>
           <tr>
             <TierNameColumn></TierNameColumn>
-            {Object.values(Column).map((column) => (
-              <TierCardsColumn key={column}>
-                {capitalize(column)}
-              </TierCardsColumn>
-            ))}
+            <TierCardsColumn>
+              <i className="ms ms-w ms-cost"></i>
+            </TierCardsColumn>
+            <TierCardsColumn>
+              <i className="ms ms-u ms-cost"></i>
+            </TierCardsColumn>
+            <TierCardsColumn>
+              <i className="ms ms-b ms-cost"></i>
+            </TierCardsColumn>
+            <TierCardsColumn>
+              <i className="ms ms-r ms-cost"></i>
+            </TierCardsColumn>
+            <TierCardsColumn>
+              <i className="ms ms-g ms-cost"></i>
+            </TierCardsColumn>
+            <TierCardsColumn>
+              <i className="ms ms-multicolor ms-duo ms-duo-color ms-grad"></i>
+            </TierCardsColumn>
+            <TierCardsColumn>
+              <i className="ms ms-c ms-cost"></i>
+            </TierCardsColumn>
           </tr>
         </thead>
         <tbody>
