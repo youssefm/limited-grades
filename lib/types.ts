@@ -31,7 +31,6 @@ export enum Deck {
 export interface ApiCard {
   name: string;
   color: string;
-  avg_pick: number;
   drawn_improvement_win_rate: number;
   ever_drawn_win_rate: number;
   game_count: number;

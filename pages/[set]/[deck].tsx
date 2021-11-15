@@ -100,10 +100,10 @@ const TierList = ({
             <a href="https://www.17lands.com/metrics_definitions">
               Games in Hand Win Rate
             </a>{" "}
-            statistic, adjusts it by pick order, and uses that distribution to
-            assign a grade to each card. For example, a card with an adjusted
-            winrate that is one standard deviation higher than the mean would
-            get a B. Cards with fewer than 200 games are not included.
+            statistic and uses that distribution to assign a grade to each card.
+            For example, a card with a winrate that is one standard deviation
+            higher than the mean would get a B. Cards with fewer than 200 games
+            are not included.
           </p>
         </Col>
       </Row>
