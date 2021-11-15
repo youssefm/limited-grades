@@ -94,10 +94,20 @@ const TierList = ({
         <Col md="6">
           <p>
             The table below uses{" "}
-            <a href="https://www.17lands.com/card_ratings">17Lands</a> Premier
-            Draft data to assign letter grades to cards. It infers a normal
-            distribution from the{" "}
-            <a href="https://www.17lands.com/metrics_definitions">
+            <a
+              href="https://www.17lands.com/card_ratings"
+              target="_blank"
+              rel="noreferrer"
+            >
+              17Lands
+            </a>{" "}
+            Premier Draft data to assign letter grades to cards. It infers a
+            normal distribution from the{" "}
+            <a
+              href="https://www.17lands.com/metrics_definitions"
+              target="_blank"
+              rel="noreferrer"
+            >
               Games in Hand Win Rate
             </a>{" "}
             statistic and uses that distribution to assign a grade to each card.
@@ -168,13 +178,24 @@ const TierList = ({
         </tbody>
       </Table>
       <Footer className="border-top border-secondary pt-2">
-        Developed by <a href="https://github.com/youssefm">youssefm</a> using
-        Next.js
+        Developed by{" "}
+        <a href="https://github.com/youssefm" target="_blank" rel="noreferrer">
+          youssefm
+        </a>{" "}
+        using Next.js
         <br />
-        Made possible thanks to <a href="https://www.17lands.com">
+        Made possible thanks to{" "}
+        <a href="https://www.17lands.com" target="_blank" rel="noreferrer">
           17Lands
-        </a>, <a href="https://scryfall.com">Scryfall</a>, and{" "}
-        <a href="https://mana.andrewgioia.com">Mana</a>
+        </a>
+        ,{" "}
+        <a href="https://scryfall.com" target="_blank" rel="noreferrer">
+          Scryfall
+        </a>
+        , and{" "}
+        <a href="https://mana.andrewgioia.com" target="_blank" rel="noreferrer">
+          Mana
+        </a>
         <br />
         <em>
           Last updated at: {new Date(lastUpdatedAtTicks).toLocaleString()}
