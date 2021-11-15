@@ -170,6 +170,11 @@ const TierList = ({
       <Footer className="border-top border-secondary pt-2">
         Developed by <a href="https://github.com/youssefm">youssefm</a> using
         Next.js
+        <br />
+        Made possible thanks to <a href="https://www.17lands.com">
+          17Lands
+        </a>, <a href="https://scryfall.com">Scryfall</a>, and{" "}
+        <a href="https://mana.andrewgioia.com">Mana</a>
         <div>
           <em>
             Last updated at: {new Date(lastUpdatedAtTicks).toLocaleString()}
