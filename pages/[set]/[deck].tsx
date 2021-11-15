@@ -175,11 +175,10 @@ const TierList = ({
           17Lands
         </a>, <a href="https://scryfall.com">Scryfall</a>, and{" "}
         <a href="https://mana.andrewgioia.com">Mana</a>
-        <div>
-          <em>
-            Last updated at: {new Date(lastUpdatedAtTicks).toLocaleString()}
-          </em>
-        </div>
+        <br />
+        <em>
+          Last updated at: {new Date(lastUpdatedAtTicks).toLocaleString()}
+        </em>
       </Footer>
     </PageContainer>
   );
