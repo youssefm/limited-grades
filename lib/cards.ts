@@ -4,6 +4,12 @@ import NormalDistribution from "normal-distribution";
 import { find } from "lodash";
 import { COLUMNS_BY_COLOR, TIER_THRESHOLDS } from "./constants";
 
+const computeAdjustedWinrateStatistic = (card: ApiCard): number => {
+  // Credit to /u/arthurmauk for suggesting to adjust the winrate by the ATA
+  // see https://www.reddit.com/r/lrcast/comments/q6mlzz/neonates_rush_vs_moonragers_slash_or_why_gih/
+  return card.ever_drawn_win_rate - 0.008 * card.avg_pick;
+};
+
 export async function getCards(set: Set, deck: Deck): Promise<Card[]> {
   const endDate = new Date().toISOString().substring(0, 10);
   let url = `https://www.17lands.com/card_ratings/data?expansion=${set}&format=PremierDraft&start_date=2020-04-16&end_date=${endDate}`;
@@ -29,7 +35,7 @@ export async function getCards(set: Set, deck: Deck): Promise<Card[]> {
     return [];
   }
 
-  const winrates = cards.map((card) => card.ever_drawn_win_rate);
+  const winrates = cards.map(computeAdjustedWinrateStatistic);
   const normalDistribution = new NormalDistribution(
     mean(winrates),
     std(winrates)
@@ -41,7 +47,8 @@ export async function getCards(set: Set, deck: Deck): Promise<Card[]> {
       column = apiCard.color.length == 0 ? Column.COLORLESS : Column.MULTICOLOR;
     }
 
-    const grade = normalDistribution.cdf(apiCard.ever_drawn_win_rate) * 100;
+    const grade =
+      normalDistribution.cdf(computeAdjustedWinrateStatistic(apiCard)) * 100;
     const tier: Tier = find<[Tier, number]>(
       TIER_THRESHOLDS,
       ([tier, threshold]) => grade >= threshold
