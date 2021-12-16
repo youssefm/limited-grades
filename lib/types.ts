@@ -32,6 +32,7 @@ export interface ApiCard {
   name: string;
   color: string;
   drawn_improvement_win_rate: number;
+  ever_drawn_game_count: number;
   ever_drawn_win_rate: number;
   game_count: number;
   rarity: Rarity;

@@ -104,7 +104,7 @@ const TierList = ({
             Premier Draft data to assign letter grades to cards. It infers a
             normal distribution from the{" "}
             <a
-              href="https://www.17lands.com/metrics_definitions"
+              href="https://www.17lands.com/metrics_definitions#:~:text=Games%20in%20Hand%20Win%20Rate%20(GIH%20WR)"
               target="_blank"
               rel="noreferrer"
             >
@@ -112,7 +112,7 @@ const TierList = ({
             </a>{" "}
             statistic and uses that distribution to assign a grade to each card.
             For example, a card with a winrate that is one standard deviation
-            higher than the mean would get a B. Cards with fewer than 200 games
+            higher than the mean would get a B. Cards drawn fewer than 200 times
             are not included.
           </p>
         </Col>
