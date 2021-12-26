@@ -2,12 +2,13 @@ import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import styled from "styled-components";
 import { Col, Container, Form, Row, Table } from "react-bootstrap";
 import { getCards } from "../../lib/cards";
-import { Column, Deck, Set, Tier } from "../../lib/types";
+import { Column, Deck, Rarity, Set as MagicSet, Tier } from "../../lib/types";
 import { groupBy, sortBy } from "lodash";
-import React from "react";
+import React, { useState } from "react";
 import CardView from "../../components/CardView";
 import { DECK_LABELS, SET_LABELS } from "../../lib/constants";
 import { useRouter } from "next/dist/client/router";
+import RarityFilter from "../../components/RarityFilter";
 
 const PageContainer = styled(Container)`
   overflow: auto;
@@ -41,7 +42,7 @@ const COLUMN_ICONS = {
 
 export const getStaticPaths = async () => {
   const paths = [];
-  for (const set of Object.values(Set)) {
+  for (const set of Object.values(MagicSet)) {
     for (const deck of Object.values(Deck)) {
       paths.push({
         params: {
@@ -59,7 +60,7 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
-  const set = context.params!.set as Set;
+  const set = context.params!.set as MagicSet;
   const deck = context.params!.deck as Deck;
   return {
     props: {
@@ -80,6 +81,9 @@ const TierList = ({
   lastUpdatedAtTicks,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
+  const [visibleRarities, setVisibleRarities] = useState(
+    new Set(Object.values(Rarity))
+  );
 
   const sortedCards = sortBy(cards, (card) => -card.grade);
   const cardsByGroup = groupBy(
@@ -128,7 +132,7 @@ const TierList = ({
             }
             size="sm"
           >
-            {Object.values(Set).map((set) => (
+            {Object.values(MagicSet).map((set) => (
               <option key={set} value={set}>
                 {SET_LABELS[set]}
               </option>
@@ -150,6 +154,13 @@ const TierList = ({
             ))}
           </Form.Select>
         </Col>
+        <Col md="auto">
+          <RarityFilter
+            set={set}
+            values={visibleRarities}
+            setValues={setVisibleRarities}
+          />
+        </Col>
       </Row>
       <Table>
         <thead>
@@ -168,9 +179,11 @@ const TierList = ({
               <TierNameColumn>{tier}</TierNameColumn>
               {Object.values(Column).map((column) => (
                 <td key={column}>
-                  {cardsByGroup[column + "," + tier]?.map((card) => (
-                    <CardView key={card.cardUrl} card={card} />
-                  ))}
+                  {cardsByGroup[column + "," + tier]
+                    ?.filter((card) => visibleRarities.has(card.rarity))
+                    .map((card) => (
+                      <CardView key={card.cardUrl} card={card} />
+                    ))}
                 </td>
               ))}
             </tr>

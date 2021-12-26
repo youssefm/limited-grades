@@ -15,5 +15,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - Add expansion symbols to sets
 - Add mana symbols to decks
 - Switch to a darker theme
-- Add card rarity filters
+- Add card type filter? (creature/non-creature/land)
+- Allow seeing the winrate in some kind of detailed data view
 - See card winrate across decks?
