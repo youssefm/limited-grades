@@ -11,6 +11,7 @@ import CardView from "../../components/CardView";
 import RarityFilter from "../../components/RarityFilter";
 import SetSelector from "../../components/SetSelector";
 import DeckSelector from "../../components/DeckSelector";
+import { COLUMN_ICONS } from "../../lib/constants";
 
 const PageContainer = styled(Container)`
   overflow: auto;
@@ -31,16 +32,6 @@ const TierCardsColumn = styled.th`
 const Footer = styled.div`
   margin-top: 300px;
 `;
-
-const COLUMN_ICONS = {
-  [Column.WHITE]: "ms ms-w ms-cost",
-  [Column.BLUE]: "ms ms-u ms-cost",
-  [Column.BLACK]: "ms ms-b ms-cost",
-  [Column.RED]: "ms ms-r ms-cost",
-  [Column.GREEN]: "ms ms-g ms-cost",
-  [Column.MULTICOLOR]: "ms ms-multicolor ms-duo ms-duo-color ms-grad",
-  [Column.COLORLESS]: "ms ms-c ms-cost",
-};
 
 export const getStaticPaths = async () => {
   const paths = [];
