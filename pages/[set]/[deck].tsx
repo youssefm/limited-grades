@@ -9,9 +9,18 @@ import CardView from "../../components/CardView";
 import { DECK_LABELS, SET_LABELS } from "../../lib/constants";
 import { useRouter } from "next/dist/client/router";
 import RarityFilter from "../../components/RarityFilter";
+import Select from "react-select";
 
 const PageContainer = styled(Container)`
   overflow: auto;
+`;
+
+const SetSelect = styled(Select)`
+  min-width: 250px;
+`;
+
+const DeckSelect = styled(Select)`
+  min-width: 175px;
 `;
 
 const TierNameColumn = styled.th`
@@ -95,7 +104,7 @@ const TierList = ({
     <PageContainer fluid>
       <h1 className="text-center p-4">17Lands Tier List</h1>
       <Row className="justify-content-center">
-        <Col md="6">
+        <Col xl="6">
           <p>
             The table below uses{" "}
             <a
@@ -123,36 +132,34 @@ const TierList = ({
       </Row>
       <Row className="justify-content-center mb-2">
         <Col md="auto">
-          <Form.Select
-            value={set}
-            onChange={(event) =>
-              router.push(
-                `/${(event.target as HTMLInputElement).value}/${deck}`
-              )
-            }
-            size="sm"
-          >
-            {Object.values(MagicSet).map((set) => (
-              <option key={set} value={set}>
-                {SET_LABELS[set]}
-              </option>
-            ))}
-          </Form.Select>
+          <SetSelect
+            value={{ value: set, label: SET_LABELS[set] }}
+            onChange={(selectedOption) => {
+              if (selectedOption) {
+                router.push(`/${selectedOption.value}/${deck}`);
+              }
+            }}
+            options={Object.values(MagicSet).map((set) => ({
+              value: set,
+              label: SET_LABELS[set],
+            }))}
+            instanceId="set-select"
+          />
         </Col>
         <Col md="auto">
-          <Form.Select
-            value={deck}
-            onChange={(event) =>
-              router.push(`/${set}/${(event.target as HTMLInputElement).value}`)
-            }
-            size="sm"
-          >
-            {Object.values(Deck).map((deck) => (
-              <option key={deck} value={deck}>
-                {DECK_LABELS[deck]}
-              </option>
-            ))}
-          </Form.Select>
+          <DeckSelect
+            value={{ value: deck, label: DECK_LABELS[deck] }}
+            onChange={(selectedOption) => {
+              if (selectedOption) {
+                router.push(`/${set}/${selectedOption.value}`);
+              }
+            }}
+            options={Object.values(Deck).map((deck) => ({
+              value: deck,
+              label: DECK_LABELS[deck],
+            }))}
+            instanceId="deck-select"
+          />
         </Col>
         <Col md="auto">
           <RarityFilter
