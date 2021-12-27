@@ -1,26 +1,19 @@
+import { groupBy, sortBy } from "lodash";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
+import { useRouter } from "next/dist/client/router";
+import React, { useState } from "react";
+import { Col, Container, Row, Table } from "react-bootstrap";
 import styled from "styled-components";
-import { Col, Container, Form, Row, Table } from "react-bootstrap";
+
 import { getCards } from "../../lib/cards";
 import { Column, Deck, Rarity, Set as MagicSet, Tier } from "../../lib/types";
-import { groupBy, sortBy } from "lodash";
-import React, { useState } from "react";
 import CardView from "../../components/CardView";
-import { DECK_LABELS, SET_LABELS } from "../../lib/constants";
-import { useRouter } from "next/dist/client/router";
 import RarityFilter from "../../components/RarityFilter";
-import Select from "react-select";
+import SetSelector from "../../components/SetSelector";
+import DeckSelector from "../../components/DeckSelector";
 
 const PageContainer = styled(Container)`
   overflow: auto;
-`;
-
-const SetSelect = styled(Select)`
-  min-width: 250px;
-`;
-
-const DeckSelect = styled(Select)`
-  min-width: 175px;
 `;
 
 const TierNameColumn = styled.th`
@@ -132,33 +125,19 @@ const TierList = ({
       </Row>
       <Row className="justify-content-center mb-2">
         <Col md="auto">
-          <SetSelect
-            value={{ value: set, label: SET_LABELS[set] }}
-            onChange={(selectedOption) => {
-              if (selectedOption) {
-                router.push(`/${selectedOption.value}/${deck}`);
-              }
+          <SetSelector
+            value={set}
+            onChange={(newValue) => {
+              router.push(`/${newValue}/${deck}`);
             }}
-            options={Object.values(MagicSet).map((set) => ({
-              value: set,
-              label: SET_LABELS[set],
-            }))}
-            instanceId="set-select"
           />
         </Col>
         <Col md="auto">
-          <DeckSelect
-            value={{ value: deck, label: DECK_LABELS[deck] }}
-            onChange={(selectedOption) => {
-              if (selectedOption) {
-                router.push(`/${set}/${selectedOption.value}`);
-              }
+          <DeckSelector
+            value={deck}
+            onChange={(newValue) => {
+              router.push(`/${set}/${newValue}`);
             }}
-            options={Object.values(Deck).map((deck) => ({
-              value: deck,
-              label: DECK_LABELS[deck],
-            }))}
-            instanceId="deck-select"
           />
         </Col>
         <Col md="auto">
