@@ -33,14 +33,17 @@ const OptionLabel = styled.span`
 
 type SetOption = { value: Set; label: string };
 
-const SingleValue = ({ children, ...props }: SingleValueProps<SetOption>) => (
+const SingleValue = ({
+  children,
+  ...props
+}: SingleValueProps<SetOption, false>) => (
   <components.SingleValue {...props}>
     <i className={`ss ss-fw ss-${props.data.value}`} />
     <OptionLabel>{children}</OptionLabel>
   </components.SingleValue>
 );
 
-const Option = (props: OptionProps<SetOption>) => (
+const Option = (props: OptionProps<SetOption, false>) => (
   <components.Option {...props}>
     <i className={`ss ss-fw ss-${props.data.value}`} />
     <OptionLabel>{props.data.label}</OptionLabel>
@@ -67,6 +70,7 @@ const SetSelector = (props: Props) => {
         value: set,
         label: SET_LABELS[set],
       }))}
+      isMulti={false}
       components={{ Option, SingleValue }}
       instanceId="set-select"
     />

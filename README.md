@@ -12,6 +12,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## To Do
 
+- Introduce Tailwind CSS and get rid of Bootstrap?
 - Switch to a darker theme
 - Add card type filter? (creature/non-creature/land)
 - Allow seeing the winrate in some kind of detailed data view

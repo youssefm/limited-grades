@@ -1,4 +1,3 @@
-import { propTypes } from "react-bootstrap/esm/Image";
 import Select, {
   components,
   OptionProps,
@@ -47,8 +46,11 @@ const OptionLabel = styled.span`
 
 type DeckOption = { value: Deck; label: string };
 
-const SingleValue = ({ children, ...props }: SingleValueProps<DeckOption>) => {
-  const { value, label } = props.data;
+const SingleValue = ({
+  children,
+  ...props
+}: SingleValueProps<DeckOption, false>) => {
+  const { value } = props.data;
   const deckColors = DECK_COLORS[value];
 
   return (
@@ -67,7 +69,7 @@ const SingleValue = ({ children, ...props }: SingleValueProps<DeckOption>) => {
   );
 };
 
-const Option = (props: OptionProps<DeckOption>) => {
+const Option = (props: OptionProps<DeckOption, false>) => {
   const { value, label } = props.data;
   const deckColors = DECK_COLORS[value];
 
@@ -107,6 +109,7 @@ const DeckSelector = (props: Props) => {
         value: deck,
         label: DECK_LABELS[deck],
       }))}
+      isMulti={false}
       components={{ Option, SingleValue }}
       instanceId="deck-select"
     />
