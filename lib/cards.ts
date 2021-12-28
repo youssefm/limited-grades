@@ -5,22 +5,7 @@ import { find } from "lodash";
 import { COLUMNS_BY_COLOR, TIER_THRESHOLDS } from "./constants";
 
 export async function getCards(set: Set, deck: Deck): Promise<Card[]> {
-  const endDate = new Date().toISOString().substring(0, 10);
-  let url = `https://www.17lands.com/card_ratings/data?expansion=${set}&format=PremierDraft&start_date=2020-04-16&end_date=${endDate}`;
-  if (deck !== Deck.ALL) {
-    url = url.concat(`&colors=${deck}`);
-  }
-
-  console.log(`Making API request to ${url}`);
-  let response = await fetch(url);
-  while (!response.ok) {
-    console.log("request failed, retrying in a little bit");
-    await new Promise((resolve) => setTimeout(resolve, 20000));
-    response = await fetch(url);
-  }
-  console.log("request succeeded");
-
-  let cards: ApiCard[] = await response.json();
+  let cards: ApiCard[] = await fetchCards(set, deck);
   cards = cards.filter(
     (card) => card.ever_drawn_game_count >= 200 && card.ever_drawn_win_rate
   );
@@ -57,4 +42,23 @@ export async function getCards(set: Set, deck: Deck): Promise<Card[]> {
       cardBackUrl: apiCard.url_back,
     };
   });
+}
+
+async function fetchCards(set: Set, deck: Deck): Promise<ApiCard[]> {
+  const endDate = new Date().toISOString().substring(0, 10);
+  let url = `https://www.17lands.com/card_ratings/data?expansion=${set}&format=PremierDraft&start_date=2020-04-16&end_date=${endDate}`;
+  if (deck !== Deck.ALL) {
+    url = url.concat(`&colors=${deck}`);
+  }
+
+  console.log(`Making API request to ${url}`);
+  let response = await fetch(url);
+  while (!response.ok) {
+    console.log("request failed, retrying in a little bit");
+    await new Promise((resolve) => setTimeout(resolve, 20000));
+    response = await fetch(url);
+  }
+  console.log("request succeeded");
+
+  return await response.json();
 }
