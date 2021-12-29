@@ -6,6 +6,12 @@ const CardText = styled.span`
   cursor: pointer;
 `;
 
+const CustomTooltip = styled(Tooltip)`
+  @media only screen and (max-width: 1366px) {
+    display: none;
+  }
+`;
+
 const CARD_TEXT_BY_RARITY = {
   [Rarity.COMMON]: styled(CardText)`
     color: #1a1718;
@@ -37,7 +43,7 @@ const CardView = (props: Props) => {
       <OverlayTrigger
         placement="bottom-start"
         overlay={
-          <Tooltip>
+          <CustomTooltip>
             <img src={card.cardUrl} alt={card.name} width="240" height="340" />
             {card.cardBackUrl && (
               <img
@@ -47,17 +53,10 @@ const CardView = (props: Props) => {
                 height="340"
               />
             )}
-          </Tooltip>
+          </CustomTooltip>
         }
       >
-        <CardText
-          onClick={(event) => {
-            event.stopPropagation();
-            onClick();
-          }}
-        >
-          {card.name}
-        </CardText>
+        <CardText onClick={onClick}>{card.name}</CardText>
       </OverlayTrigger>
     </div>
   );
