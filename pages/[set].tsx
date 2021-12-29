@@ -20,6 +20,7 @@ import SetSelector from "../components/SetSelector";
 import DeckSelector from "../components/DeckSelector";
 import { COLUMN_ICONS } from "../lib/constants";
 import CardDetailModal from "../components/CardDetailModal";
+import Footer from "../components/Footer";
 
 const PageContainer = styled(Container)`
   overflow: auto;
@@ -35,10 +36,6 @@ const CardColumnHeader = styled.th`
   text-align: center;
   width: 14%;
   background-color: #f0f1f2 !important;
-`;
-
-const Footer = styled.div`
-  margin-top: 300px;
 `;
 
 export const getStaticPaths = async () => {
@@ -168,57 +165,7 @@ const Page = ({
         card={modalCard}
         handleClose={() => setModalCard(undefined)}
       />
-      <Footer className="border-top border-secondary pt-2">
-        Developed by{" "}
-        <a href="https://github.com/youssefm" target="_blank" rel="noreferrer">
-          youssefm
-        </a>{" "}
-        using Next.js
-        <br />
-        Made possible thanks to{" "}
-        <a href="https://www.17lands.com" target="_blank" rel="noreferrer">
-          17Lands
-        </a>
-        ,{" "}
-        <a href="https://scryfall.com" target="_blank" rel="noreferrer">
-          Scryfall
-        </a>
-        ,
-        <a
-          href="https://keyrune.andrewgioia.com"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Keyrune
-        </a>
-        , and{" "}
-        <a href="https://mana.andrewgioia.com" target="_blank" rel="noreferrer">
-          Mana
-        </a>
-        <br />
-        Favicon designed by{" "}
-        <a
-          href="https://www.flaticon.com/authors/freepik"
-          title="Freepik"
-          target="_blank"
-          rel="noreferrer"
-        >
-          Freepik
-        </a>{" "}
-        from{" "}
-        <a
-          href="https://www.flaticon.com/"
-          title="Flaticon"
-          target="_blank"
-          rel="noreferrer"
-        >
-          flaticon
-        </a>
-        <br />
-        <em>
-          Last updated at: {new Date(lastUpdatedAtTicks).toLocaleString()}
-        </em>
-      </Footer>
+      <Footer lastUpdatedAtTicks={lastUpdatedAtTicks} />
     </PageContainer>
   );
 };
