@@ -76,7 +76,7 @@ const TierList = ({
 
   return (
     <PageContainer fluid>
-      <h1 className="text-center p-4">17Lands Tier List</h1>
+      <h1 className="text-center p-4">Limited Grades</h1>
       <Row className="justify-content-center">
         <Col xl="6">
           <p>
@@ -167,9 +167,36 @@ const TierList = ({
         <a href="https://scryfall.com" target="_blank" rel="noreferrer">
           Scryfall
         </a>
+        ,
+        <a
+          href="https://keyrune.andrewgioia.com"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Keyrune
+        </a>
         , and{" "}
         <a href="https://mana.andrewgioia.com" target="_blank" rel="noreferrer">
           Mana
+        </a>
+        <br />
+        Favicon designed by{" "}
+        <a
+          href="https://www.flaticon.com/authors/freepik"
+          title="Freepik"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Freepik
+        </a>{" "}
+        from{" "}
+        <a
+          href="https://www.flaticon.com/"
+          title="Flaticon"
+          target="_blank"
+          rel="noreferrer"
+        >
+          flaticon
         </a>
         <br />
         <em>
