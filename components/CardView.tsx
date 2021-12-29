@@ -50,7 +50,14 @@ const CardView = (props: Props) => {
           </Tooltip>
         }
       >
-        <CardText onClick={onClick}>{card.name}</CardText>
+        <CardText
+          onClick={(event) => {
+            event.stopPropagation();
+            onClick();
+          }}
+        >
+          {card.name}
+        </CardText>
       </OverlayTrigger>
     </div>
   );
