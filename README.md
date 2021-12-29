@@ -12,7 +12,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## To Do
 
-- Allow seeing the winrate in some kind of detailed data view
-- See card winrate across decks?
 - Switch to a darker theme
 - Add card type filter? (creature/non-creature/land)

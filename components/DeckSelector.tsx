@@ -4,23 +4,9 @@ import Select, {
   SingleValueProps,
 } from "react-select";
 import styled from "styled-components";
-import { COLUMN_ICONS } from "../lib/constants";
 
+import { COLUMN_ICONS, DECK_LABELS } from "../lib/constants";
 import { Column, Deck } from "../lib/types";
-
-const DECK_LABELS: Record<Deck, string> = {
-  [Deck.ALL]: "All decks",
-  [Deck.WHITE_BLUE]: "Azorius",
-  [Deck.BLUE_BLACK]: "Dimir",
-  [Deck.BLACK_RED]: "Rakdos",
-  [Deck.RED_GREEN]: "Gruul",
-  [Deck.WHITE_GREEN]: "Selesnya",
-  [Deck.WHITE_BLACK]: "Orzhov",
-  [Deck.BLUE_RED]: "Izzet",
-  [Deck.BLACK_GREEN]: "Golgari",
-  [Deck.WHITE_RED]: "Boros",
-  [Deck.BLUE_GREEN]: "Simic",
-};
 
 const DECK_COLORS: Record<Deck, Column[]> = {
   [Deck.ALL]: [],

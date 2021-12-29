@@ -21,7 +21,14 @@ const CARD_TEXT_BY_RARITY = {
   `,
 };
 
-const CardView = ({ card }: { card: Card }) => {
+interface Props {
+  card: Card;
+  onClick: () => void;
+}
+
+const CardView = (props: Props) => {
+  const { card, onClick } = props;
+
   const CardText =
     CARD_TEXT_BY_RARITY[card.rarity] || CARD_TEXT_BY_RARITY[Rarity.COMMON];
 
@@ -43,7 +50,7 @@ const CardView = ({ card }: { card: Card }) => {
           </Tooltip>
         }
       >
-        <CardText>{card.name}</CardText>
+        <CardText onClick={onClick}>{card.name}</CardText>
       </OverlayTrigger>
     </div>
   );

@@ -1,4 +1,4 @@
-import { Column, Grade, Rarity } from "./types";
+import { Column, Deck, Grade, Rarity } from "./types";
 
 export const GRADE_THRESHOLDS: [Grade, number][] = [
   [Grade.A_PLUS, 99],
@@ -39,4 +39,18 @@ export const COLUMN_ICONS = {
   [Column.GREEN]: "ms ms-g ms-cost",
   [Column.MULTICOLOR]: "ms ms-multicolor ms-duo ms-duo-color ms-grad",
   [Column.COLORLESS]: "ms ms-c ms-cost",
+};
+
+export const DECK_LABELS: Record<Deck, string> = {
+  [Deck.ALL]: "All decks",
+  [Deck.WHITE_BLUE]: "Azorius",
+  [Deck.BLUE_BLACK]: "Dimir",
+  [Deck.BLACK_RED]: "Rakdos",
+  [Deck.RED_GREEN]: "Gruul",
+  [Deck.WHITE_GREEN]: "Selesnya",
+  [Deck.WHITE_BLACK]: "Orzhov",
+  [Deck.BLUE_RED]: "Izzet",
+  [Deck.BLACK_GREEN]: "Golgari",
+  [Deck.WHITE_RED]: "Boros",
+  [Deck.BLUE_GREEN]: "Simic",
 };

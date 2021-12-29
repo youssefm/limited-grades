@@ -6,24 +6,32 @@ import { Col, Container, Row, Table } from "react-bootstrap";
 import styled from "styled-components";
 
 import { getCards } from "../lib/cards";
-import { Column, Deck, Rarity, Set as MagicSet, Grade } from "../lib/types";
+import {
+  Column,
+  Deck,
+  Rarity,
+  Set as MagicSet,
+  Grade,
+  Card,
+} from "../lib/types";
 import CardView from "../components/CardView";
 import RarityFilter from "../components/RarityFilter";
 import SetSelector from "../components/SetSelector";
 import DeckSelector from "../components/DeckSelector";
 import { COLUMN_ICONS } from "../lib/constants";
+import CardDetailModal from "../components/CardDetailModal";
 
 const PageContainer = styled(Container)`
   overflow: auto;
 `;
 
-const GradeColumn = styled.th`
+const GradeRowHeader = styled.th`
   width: 3%;
   vertical-align: middle;
   background-color: #f0f1f2 !important;
 `;
 
-const CardsColumn = styled.th`
+const CardColumnHeader = styled.th`
   text-align: center;
   width: 14%;
   background-color: #f0f1f2 !important;
@@ -63,8 +71,8 @@ const Page = ({
   const [visibleRarities, setVisibleRarities] = useState(
     new Set(Object.values(Rarity))
   );
+  const [modalCard, setModalCard] = useState<Card>();
 
-  debugger;
   const sortedCards = sortBy(
     cards.filter((card) => deck in card.stats),
     (card) => -card.stats[deck]!.score
@@ -98,7 +106,7 @@ const Page = ({
               Games in Hand Win Rate
             </a>{" "}
             statistic and uses that distribution to assign a grade to each card.
-            For example, a card with a winrate that is one standard deviation
+            For example, a card with a win rate that is one standard deviation
             higher than the mean would get a B. Cards drawn fewer than 200 times
             are not included.
           </p>
@@ -129,22 +137,26 @@ const Page = ({
           <tr>
             <th></th>
             {Object.values(Column).map((column) => (
-              <CardsColumn key={column}>
+              <CardColumnHeader key={column}>
                 <i className={COLUMN_ICONS[column]}></i>
-              </CardsColumn>
+              </CardColumnHeader>
             ))}
           </tr>
         </thead>
         <tbody>
           {Object.values(Grade).map((grade) => (
             <tr key={grade}>
-              <GradeColumn>{grade}</GradeColumn>
+              <GradeRowHeader>{grade}</GradeRowHeader>
               {Object.values(Column).map((column) => (
                 <td key={column}>
                   {cardsByGroup[column + "," + grade]
                     ?.filter((card) => visibleRarities.has(card.rarity))
                     .map((card) => (
-                      <CardView key={card.cardUrl} card={card} />
+                      <CardView
+                        key={card.cardUrl}
+                        card={card}
+                        onClick={() => setModalCard(card)}
+                      />
                     ))}
                 </td>
               ))}
@@ -152,6 +164,10 @@ const Page = ({
           ))}
         </tbody>
       </Table>
+      <CardDetailModal
+        card={modalCard}
+        handleClose={() => setModalCard(undefined)}
+      />
       <Footer className="border-top border-secondary pt-2">
         Developed by{" "}
         <a href="https://github.com/youssefm" target="_blank" rel="noreferrer">
