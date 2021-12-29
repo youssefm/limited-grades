@@ -1,19 +1,19 @@
-import { Column, Tier, Rarity } from "./types";
+import { Column, Grade, Rarity } from "./types";
 
-export const TIER_THRESHOLDS: [Tier, number][] = [
-  [Tier.A_PLUS, 99],
-  [Tier.A, 95],
-  [Tier.A_MINUS, 90],
-  [Tier.B_PLUS, 85],
-  [Tier.B, 76],
-  [Tier.B_MINUS, 68],
-  [Tier.C_PLUS, 57],
-  [Tier.C, 45],
-  [Tier.C_MINUS, 36],
-  [Tier.D_PLUS, 27],
-  [Tier.D, 17],
-  [Tier.D_MINUS, 5],
-  [Tier.F, 0],
+export const GRADE_THRESHOLDS: [Grade, number][] = [
+  [Grade.A_PLUS, 99],
+  [Grade.A, 95],
+  [Grade.A_MINUS, 90],
+  [Grade.B_PLUS, 85],
+  [Grade.B, 76],
+  [Grade.B_MINUS, 68],
+  [Grade.C_PLUS, 57],
+  [Grade.C, 45],
+  [Grade.C_MINUS, 36],
+  [Grade.D_PLUS, 27],
+  [Grade.D, 17],
+  [Grade.D_MINUS, 5],
+  [Grade.F, 0],
 ];
 
 export const COLUMNS_BY_COLOR: { [key in string]: Column } = {

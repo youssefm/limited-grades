@@ -6,7 +6,7 @@ import { Col, Container, Row, Table } from "react-bootstrap";
 import styled from "styled-components";
 
 import { getCards } from "../lib/cards";
-import { Column, Deck, Rarity, Set as MagicSet, Tier } from "../lib/types";
+import { Column, Deck, Rarity, Set as MagicSet, Grade } from "../lib/types";
 import CardView from "../components/CardView";
 import RarityFilter from "../components/RarityFilter";
 import SetSelector from "../components/SetSelector";
@@ -17,13 +17,13 @@ const PageContainer = styled(Container)`
   overflow: auto;
 `;
 
-const TierNameColumn = styled.th`
+const GradeColumn = styled.th`
   width: 3%;
   vertical-align: middle;
   background-color: #f0f1f2 !important;
 `;
 
-const TierCardsColumn = styled.th`
+const CardsColumn = styled.th`
   text-align: center;
   width: 14%;
   background-color: #f0f1f2 !important;
@@ -53,7 +53,7 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
   };
 };
 
-const TierList = ({
+const Page = ({
   set,
   cards,
   lastUpdatedAtTicks,
@@ -67,11 +67,11 @@ const TierList = ({
   debugger;
   const sortedCards = sortBy(
     cards.filter((card) => deck in card.stats),
-    (card) => -card.stats[deck]!.grade
+    (card) => -card.stats[deck]!.score
   );
   const cardsByGroup = groupBy(
     sortedCards,
-    (card) => card.column + "," + card.stats[deck]!.tier
+    (card) => card.column + "," + card.stats[deck]!.grade
   );
 
   return (
@@ -129,19 +129,19 @@ const TierList = ({
           <tr>
             <th></th>
             {Object.values(Column).map((column) => (
-              <TierCardsColumn key={column}>
+              <CardsColumn key={column}>
                 <i className={COLUMN_ICONS[column]}></i>
-              </TierCardsColumn>
+              </CardsColumn>
             ))}
           </tr>
         </thead>
         <tbody>
-          {Object.values(Tier).map((tier) => (
-            <tr key={tier}>
-              <TierNameColumn>{tier}</TierNameColumn>
+          {Object.values(Grade).map((grade) => (
+            <tr key={grade}>
+              <GradeColumn>{grade}</GradeColumn>
               {Object.values(Column).map((column) => (
                 <td key={column}>
-                  {cardsByGroup[column + "," + tier]
+                  {cardsByGroup[column + "," + grade]
                     ?.filter((card) => visibleRarities.has(card.rarity))
                     .map((card) => (
                       <CardView key={card.cardUrl} card={card} />
@@ -207,4 +207,4 @@ const TierList = ({
   );
 };
 
-export default TierList;
+export default Page;

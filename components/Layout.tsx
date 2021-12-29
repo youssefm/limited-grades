@@ -46,7 +46,7 @@ const Layout: FC = ({ children }) => {
         {/* Adapted from https://tholman.com/github-corners/ */}
         <div>
           <a
-            href="https://github.com/youssefm/17lands-tierlist"
+            href="https://github.com/youssefm/limited-grades"
             className="github-corner"
             aria-label="View source on GitHub"
           >

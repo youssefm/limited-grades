@@ -1,8 +1,8 @@
-import { ApiCard, Card, Column, Deck, Set, Tier } from "./types";
+import { ApiCard, Card, Column, Deck, Set, Grade } from "./types";
 import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
 import { find } from "lodash";
-import { COLUMNS_BY_COLOR, TIER_THRESHOLDS } from "./constants";
+import { COLUMNS_BY_COLOR, GRADE_THRESHOLDS } from "./constants";
 
 export async function getCards(set: Set): Promise<Card[]> {
   const cards: { [key: string]: Card } = {};
@@ -43,18 +43,18 @@ export async function getCards(set: Set): Promise<Card[]> {
         cards[cardUrl] = card;
       }
 
-      const grade = normalDistribution.cdf(apiCard.ever_drawn_win_rate) * 100;
-      const tier: Tier = find<[Tier, number]>(
-        TIER_THRESHOLDS,
-        ([tier, threshold]) => grade >= threshold
+      const score = normalDistribution.cdf(apiCard.ever_drawn_win_rate) * 100;
+      const grade: Grade = find<[Grade, number]>(
+        GRADE_THRESHOLDS,
+        ([grade, threshold]) => score >= threshold
       )![0];
 
       card.stats[deck] = {
         winrate: apiCard.ever_drawn_win_rate,
         improvementWhenDrawn: apiCard.drawn_improvement_win_rate,
         gameCount: apiCard.game_count,
+        score: score,
         grade: grade,
-        tier: tier,
       };
     }
   }

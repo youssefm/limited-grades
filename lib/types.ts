@@ -50,7 +50,7 @@ export enum Column {
   COLORLESS = "colorless",
 }
 
-export enum Tier {
+export enum Grade {
   A_PLUS = "A+",
   A = "A",
   A_MINUS = "A-",
@@ -86,6 +86,6 @@ interface CardStats {
   winrate: number;
   improvementWhenDrawn: number;
   gameCount: number;
-  grade: number;
-  tier: Tier;
+  score: number;
+  grade: Grade;
 }
