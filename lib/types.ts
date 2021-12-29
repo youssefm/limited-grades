@@ -76,9 +76,15 @@ export enum Rarity {
 export interface Card {
   name: string;
   column: Column;
-  grade: number;
-  tier: Tier;
   rarity: Rarity;
   cardUrl: string;
   cardBackUrl: string;
+  stats: Partial<Record<Deck, CardStats>>;
+}
+
+interface CardStats {
+  winrate: number;
+  improvement_when_drawn: number;
+  grade: number;
+  tier: Tier;
 }

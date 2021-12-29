@@ -5,13 +5,13 @@ import React, { useState } from "react";
 import { Col, Container, Row, Table } from "react-bootstrap";
 import styled from "styled-components";
 
-import { getCards } from "../../lib/cards";
-import { Column, Deck, Rarity, Set as MagicSet, Tier } from "../../lib/types";
-import CardView from "../../components/CardView";
-import RarityFilter from "../../components/RarityFilter";
-import SetSelector from "../../components/SetSelector";
-import DeckSelector from "../../components/DeckSelector";
-import { COLUMN_ICONS } from "../../lib/constants";
+import { getCards } from "../lib/cards";
+import { Column, Deck, Rarity, Set as MagicSet, Tier } from "../lib/types";
+import CardView from "../components/CardView";
+import RarityFilter from "../components/RarityFilter";
+import SetSelector from "../components/SetSelector";
+import DeckSelector from "../components/DeckSelector";
+import { COLUMN_ICONS } from "../lib/constants";
 
 const PageContainer = styled(Container)`
   overflow: auto;
@@ -34,32 +34,18 @@ const Footer = styled.div`
 `;
 
 export const getStaticPaths = async () => {
-  const paths = [];
-  for (const set of Object.values(MagicSet)) {
-    for (const deck of Object.values(Deck)) {
-      paths.push({
-        params: {
-          set: set,
-          deck: deck,
-        },
-      });
-    }
-  }
-
   return {
-    paths: paths,
+    paths: Object.values(MagicSet).map((set) => ({ params: { set } })),
     fallback: false,
   };
 };
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
   const set = context.params!.set as MagicSet;
-  const deck = context.params!.deck as Deck;
   return {
     props: {
       set,
-      deck,
-      cards: await getCards(set, deck),
+      cards: await getCards(set),
       lastUpdatedAtTicks: new Date().getTime(),
     },
     // Rebuild pages from 17Lands data every twelve hours
@@ -69,19 +55,23 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 
 const TierList = ({
   set,
-  deck,
   cards,
   lastUpdatedAtTicks,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
+  const [deck, setDeck] = useState(Deck.ALL);
   const [visibleRarities, setVisibleRarities] = useState(
     new Set(Object.values(Rarity))
   );
 
-  const sortedCards = sortBy(cards, (card) => -card.grade);
+  debugger;
+  const sortedCards = sortBy(
+    cards.filter((card) => deck in card.stats),
+    (card) => -card.stats[deck]!.grade
+  );
   const cardsByGroup = groupBy(
     sortedCards,
-    (card) => card.column + "," + card.tier
+    (card) => card.column + "," + card.stats[deck]!.tier
   );
 
   return (
@@ -119,17 +109,12 @@ const TierList = ({
           <SetSelector
             value={set}
             onChange={(newValue) => {
-              router.push(`/${newValue}/${deck}`);
+              router.push(`/${newValue}`);
             }}
           />
         </Col>
         <Col md="auto">
-          <DeckSelector
-            value={deck}
-            onChange={(newValue) => {
-              router.push(`/${set}/${newValue}`);
-            }}
-          />
+          <DeckSelector value={deck} onChange={setDeck} />
         </Col>
         <Col md="auto">
           <RarityFilter

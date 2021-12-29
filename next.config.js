@@ -8,11 +8,6 @@ module.exports = {
         destination: "/vow",
         permanent: false,
       },
-      {
-        source: "/:set",
-        destination: "/:set/all",
-        permanent: true,
-      },
     ];
   },
 };

@@ -4,44 +4,61 @@ import NormalDistribution from "normal-distribution";
 import { find } from "lodash";
 import { COLUMNS_BY_COLOR, TIER_THRESHOLDS } from "./constants";
 
-export async function getCards(set: Set, deck: Deck): Promise<Card[]> {
-  let cards: ApiCard[] = await fetchCards(set, deck);
-  cards = cards.filter(
-    (card) => card.ever_drawn_game_count >= 200 && card.ever_drawn_win_rate
-  );
+export async function getCards(set: Set): Promise<Card[]> {
+  const cards: { [key: string]: Card } = {};
 
-  if (cards.length <= 1) {
-    return [];
-  }
+  for (const deck of Object.values(Deck)) {
+    let apiCards: ApiCard[] = await fetchCards(set, deck);
+    apiCards = apiCards.filter(
+      (card) => card.ever_drawn_game_count >= 200 && card.ever_drawn_win_rate
+    );
 
-  const winrates = cards.map((card) => card.ever_drawn_win_rate);
-  const normalDistribution = new NormalDistribution(
-    mean(winrates),
-    std(winrates)
-  );
-
-  return cards.map((apiCard) => {
-    let column: Column = COLUMNS_BY_COLOR[apiCard.color];
-    if (!column) {
-      column = apiCard.color.length == 0 ? Column.COLORLESS : Column.MULTICOLOR;
+    if (apiCards.length <= 1) {
+      continue;
     }
 
-    const grade = normalDistribution.cdf(apiCard.ever_drawn_win_rate) * 100;
-    const tier: Tier = find<[Tier, number]>(
-      TIER_THRESHOLDS,
-      ([tier, threshold]) => grade >= threshold
-    )![0];
+    const winrates = apiCards.map((card) => card.ever_drawn_win_rate);
+    const normalDistribution = new NormalDistribution(
+      mean(winrates),
+      std(winrates)
+    );
 
-    return {
-      name: apiCard.name,
-      column: column,
-      grade: grade,
-      tier: tier,
-      rarity: apiCard.rarity,
-      cardUrl: apiCard.url,
-      cardBackUrl: apiCard.url_back,
-    };
-  });
+    for (const apiCard of apiCards) {
+      const cardUrl = apiCard.url;
+      let card = cards[cardUrl];
+      if (!card) {
+        let column: Column = COLUMNS_BY_COLOR[apiCard.color];
+        if (!column) {
+          column =
+            apiCard.color.length == 0 ? Column.COLORLESS : Column.MULTICOLOR;
+        }
+        card = {
+          name: apiCard.name,
+          column: column,
+          rarity: apiCard.rarity,
+          cardUrl: apiCard.url,
+          cardBackUrl: apiCard.url_back,
+          stats: {},
+        };
+        cards[cardUrl] = card;
+      }
+
+      const grade = normalDistribution.cdf(apiCard.ever_drawn_win_rate) * 100;
+      const tier: Tier = find<[Tier, number]>(
+        TIER_THRESHOLDS,
+        ([tier, threshold]) => grade >= threshold
+      )![0];
+
+      card.stats[deck] = {
+        winrate: apiCard.ever_drawn_win_rate,
+        improvement_when_drawn: apiCard.drawn_improvement_win_rate,
+        grade: grade,
+        tier: tier,
+      };
+    }
+  }
+
+  return Object.values(cards);
 }
 
 async function fetchCards(set: Set, deck: Deck): Promise<ApiCard[]> {
