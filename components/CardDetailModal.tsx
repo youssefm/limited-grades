@@ -1,7 +1,7 @@
 import { sortBy } from "lodash";
 import { Col, Modal, Row, Table } from "react-bootstrap";
 
-import { DECK_LABELS } from "../lib/constants";
+import { COLUMN_ICONS, DECK_COLORS, DECK_LABELS } from "../lib/constants";
 import { Card, Deck } from "../lib/types";
 
 interface Props {
@@ -43,18 +43,34 @@ const CardDetailModal = (props: Props) => {
                 {sortBy(
                   Object.entries(card.stats),
                   ([deck, stats]) => -stats.gameCount
-                ).map(([deck, stats]) => (
-                  <tr key={deck}>
-                    <th>{DECK_LABELS[deck as Deck]}</th>
-                    <td>
-                      {Number(stats.winrate).toLocaleString(undefined, {
-                        style: "percent",
-                        minimumFractionDigits: 1,
-                      })}
-                    </td>
-                    <td>{stats.grade}</td>
-                  </tr>
-                ))}
+                ).map(([deck, stats]) => {
+                  const deckColors = DECK_COLORS[deck as Deck];
+                  return (
+                    <tr key={deck}>
+                      <th>
+                        {deckColors.length > 0 ? (
+                          <>
+                            {deckColors.map((column) => (
+                              <i
+                                key={column}
+                                className={COLUMN_ICONS[column]}
+                              />
+                            ))}
+                          </>
+                        ) : (
+                          DECK_LABELS[deck as Deck]
+                        )}
+                      </th>
+                      <td>
+                        {Number(stats.winrate).toLocaleString(undefined, {
+                          style: "percent",
+                          minimumFractionDigits: 1,
+                        })}
+                      </td>
+                      <td>{stats.grade}</td>
+                    </tr>
+                  );
+                })}
               </thead>
             </Table>
           </Col>

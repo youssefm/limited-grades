@@ -54,3 +54,17 @@ export const DECK_LABELS: Record<Deck, string> = {
   [Deck.WHITE_RED]: "Boros",
   [Deck.BLUE_GREEN]: "Simic",
 };
+
+export const DECK_COLORS: Record<Deck, Column[]> = {
+  [Deck.ALL]: [],
+  [Deck.WHITE_BLUE]: [Column.WHITE, Column.BLUE],
+  [Deck.BLUE_BLACK]: [Column.BLUE, Column.BLACK],
+  [Deck.BLACK_RED]: [Column.BLACK, Column.RED],
+  [Deck.RED_GREEN]: [Column.RED, Column.GREEN],
+  [Deck.WHITE_GREEN]: [Column.WHITE, Column.GREEN],
+  [Deck.WHITE_BLACK]: [Column.WHITE, Column.BLACK],
+  [Deck.BLUE_RED]: [Column.BLUE, Column.RED],
+  [Deck.BLACK_GREEN]: [Column.BLACK, Column.GREEN],
+  [Deck.WHITE_RED]: [Column.WHITE, Column.RED],
+  [Deck.BLUE_GREEN]: [Column.BLUE, Column.GREEN],
+};
