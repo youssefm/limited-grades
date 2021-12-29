@@ -33,7 +33,7 @@ const CardDetailModal = (props: Props) => {
             <img src={card.cardUrl} alt={card.name} width="240" height="340" />
           </Col>
           <Col>
-            <Table borderless>
+            <Table>
               <thead>
                 <tr>
                   <th></th>
