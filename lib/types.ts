@@ -84,7 +84,7 @@ export interface Card {
 
 interface CardStats {
   winrate: number;
-  improvement_when_drawn: number;
+  improvementWhenDrawn: number;
   grade: number;
   tier: Tier;
 }

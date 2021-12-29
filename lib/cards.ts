@@ -51,7 +51,7 @@ export async function getCards(set: Set): Promise<Card[]> {
 
       card.stats[deck] = {
         winrate: apiCard.ever_drawn_win_rate,
-        improvement_when_drawn: apiCard.drawn_improvement_win_rate,
+        improvementWhenDrawn: apiCard.drawn_improvement_win_rate,
         grade: grade,
         tier: tier,
       };
