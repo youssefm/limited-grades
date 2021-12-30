@@ -41,7 +41,7 @@ const RarityFilter = (props: Props) => {
             }}
           ></HiddenInput>
           <SetIcon
-            title={`Show or hide ${rarity}s`}
+            title={values.has(rarity) ? `Hide ${rarity}s` : `Show ${rarity}s`}
             className={`ss ss-2x ss-fw ss-${set} ss-${rarity}`}
           />
         </label>
