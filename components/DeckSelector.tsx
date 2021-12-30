@@ -1,3 +1,4 @@
+import { ReactNode } from "react";
 import Select, {
   components,
   OptionProps,
@@ -18,45 +19,36 @@ const OptionLabel = styled.span`
 
 type DeckOption = { value: Deck; label: string };
 
+const formatDeckOption = (deck: Deck, label: ReactNode) => {
+  const deckColors = DECK_COLORS[deck];
+  if (deckColors.length === 0) {
+    return label;
+  } else {
+    return (
+      <>
+        {deckColors.map((column) => (
+          <i key={column} className={COLUMN_ICONS[column]} />
+        ))}
+        <OptionLabel>{label}</OptionLabel>
+      </>
+    );
+  }
+};
+
 const SingleValue = ({
   children,
   ...props
-}: SingleValueProps<DeckOption, false>) => {
-  const { value } = props.data;
-  const deckColors = DECK_COLORS[value];
-
-  return (
-    <components.SingleValue {...props}>
-      {deckColors.length > 0 ? (
-        <>
-          {deckColors.map((column) => (
-            <i key={column} className={COLUMN_ICONS[column]} />
-          ))}
-          <OptionLabel>{children}</OptionLabel>
-        </>
-      ) : (
-        children
-      )}
-    </components.SingleValue>
-  );
-};
+}: SingleValueProps<DeckOption, false>) => (
+  <components.SingleValue {...props}>
+    {formatDeckOption(props.data.value, children)}
+  </components.SingleValue>
+);
 
 const Option = (props: OptionProps<DeckOption, false>) => {
   const { value, label } = props.data;
-  const deckColors = DECK_COLORS[value];
-
   return (
     <components.Option {...props}>
-      {deckColors.length > 0 ? (
-        <>
-          {deckColors.map((column) => (
-            <i key={column} className={COLUMN_ICONS[column]} />
-          ))}
-          <OptionLabel>{label}</OptionLabel>
-        </>
-      ) : (
-        label
-      )}
+      {formatDeckOption(value, label)}
     </components.Option>
   );
 };
