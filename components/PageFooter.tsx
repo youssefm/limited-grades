@@ -8,7 +8,7 @@ interface Props {
   lastUpdatedAtTicks: number;
 }
 
-const Footer = ({ lastUpdatedAtTicks }: Props) => (
+const PageFooter = ({ lastUpdatedAtTicks }: Props) => (
   <Container className="border-top border-secondary pt-2">
     Developed by{" "}
     <a href="https://github.com/youssefm" target="_blank" rel="noreferrer">
@@ -56,4 +56,4 @@ const Footer = ({ lastUpdatedAtTicks }: Props) => (
   </Container>
 );
 
-export default Footer;
+export default PageFooter;
