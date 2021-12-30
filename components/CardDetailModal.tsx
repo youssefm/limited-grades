@@ -40,6 +40,8 @@ const CardDetailModal = (props: Props) => {
                   <th>Win Rate</th>
                   <th>Grade</th>
                 </tr>
+              </thead>
+              <tbody>
                 {sortBy(
                   Object.entries(card.stats),
                   ([deck, stats]) => -stats.gameCount
@@ -71,7 +73,7 @@ const CardDetailModal = (props: Props) => {
                     </tr>
                   );
                 })}
-              </thead>
+              </tbody>
             </Table>
           </Col>
         </Row>
