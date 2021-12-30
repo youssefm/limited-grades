@@ -1,8 +1,10 @@
+/* Boostrap override */
 .tooltip-inner {
   max-width: none !important;
   padding: 0 !important;
 }
 
+/* Github corner */
 .github-corner:hover .octo-arm {
   animation: octocat-wave 560ms ease-in-out;
 }
@@ -41,4 +43,27 @@
   .github-corner .octo-arm {
     animation: octocat-wave 560ms ease-in-out;
   }
+}
+
+/* Shape divider */
+.shape-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.shape-divider svg {
+  position: relative;
+  display: block;
+  width: calc(165% + 1.3px);
+  height: 61px;
+  transform: rotateY(180deg);
+}
+
+.shape-divider .shape-fill {
+  fill: #ffffff;
 }
