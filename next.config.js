@@ -8,6 +8,11 @@ module.exports = {
         destination: "/vow",
         permanent: false,
       },
+      {
+        source: "/:set/:deck",
+        destination: "/:set",
+        permanent: false,
+      },
     ];
   },
   staticPageGenerationTimeout: 600,
