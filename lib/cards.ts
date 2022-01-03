@@ -1,8 +1,10 @@
-import { ApiCard, Card, Column, Deck, Set, Grade, Rarity } from "./types";
+import { find } from "lodash";
 import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
-import { find } from "lodash";
-import { COLUMNS_BY_COLOR, GRADE_THRESHOLDS } from "./constants";
+
+import { GRADE_THRESHOLDS } from "./constants";
+import { ApiCard, Card, Deck, Set, Grade, Rarity } from "./types";
+import { getCardColumn } from "./scryfall";
 
 export async function getCards(set: Set): Promise<Card[]> {
   const cards: { [key: string]: Card } = {};
@@ -27,14 +29,11 @@ export async function getCards(set: Set): Promise<Card[]> {
       const cardUrl = apiCard.url;
       let card = cards[cardUrl];
       if (!card) {
-        let column: Column = COLUMNS_BY_COLOR[apiCard.color];
-        if (!column) {
-          column =
-            apiCard.color.length == 0 ? Column.COLORLESS : Column.MULTICOLOR;
-        }
+        // For some reason, Amonkhet split cards are mistakently referenced by 17lands with three slashes
+        const cardName = apiCard.name.replace("///", "//");
         card = {
-          name: apiCard.name,
-          column: column,
+          name: cardName,
+          column: await getCardColumn(cardName),
           rarity: apiCard.rarity === "basic" ? Rarity.COMMON : apiCard.rarity,
           cardUrl: apiCard.url,
           cardBackUrl: apiCard.url_back,

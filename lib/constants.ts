@@ -16,14 +16,6 @@ export const GRADE_THRESHOLDS: [Grade, number][] = [
   [Grade.F, 0],
 ];
 
-export const COLUMNS_BY_COLOR: { [key in string]: Column } = {
-  W: Column.WHITE,
-  U: Column.BLUE,
-  B: Column.BLACK,
-  R: Column.RED,
-  G: Column.GREEN,
-};
-
 export const RARITY_SORT_KEY: Record<Rarity, number> = {
   [Rarity.COMMON]: 3,
   [Rarity.UNCOMMON]: 2,
