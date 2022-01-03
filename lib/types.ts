@@ -35,7 +35,7 @@ export interface ApiCard {
   ever_drawn_game_count: number;
   ever_drawn_win_rate: number;
   game_count: number;
-  rarity: Rarity;
+  rarity: Rarity | "basic";
   url: string;
   url_back: string;
 }

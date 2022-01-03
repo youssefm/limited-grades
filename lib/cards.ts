@@ -1,4 +1,4 @@
-import { ApiCard, Card, Column, Deck, Set, Grade } from "./types";
+import { ApiCard, Card, Column, Deck, Set, Grade, Rarity } from "./types";
 import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
 import { find } from "lodash";
@@ -35,7 +35,7 @@ export async function getCards(set: Set): Promise<Card[]> {
         card = {
           name: apiCard.name,
           column: column,
-          rarity: apiCard.rarity,
+          rarity: apiCard.rarity === "basic" ? Rarity.COMMON : apiCard.rarity,
           cardUrl: apiCard.url,
           cardBackUrl: apiCard.url_back,
           stats: {},
