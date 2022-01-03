@@ -1,7 +1,7 @@
 import { AppProps } from "next/dist/shared/lib/router/router";
 import React from "react";
 import Layout from "../components/Layout";
-import "../styles.css";
+import "../styles/global.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import "../node_modules/keyrune/css/keyrune.min.css";
 import "../node_modules/mana-font/css/mana.min.css";
