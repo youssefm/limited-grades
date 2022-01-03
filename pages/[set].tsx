@@ -72,7 +72,9 @@ const Page = ({
   const [modalCard, setModalCard] = useState<Card>();
 
   const sortedCards = sortBy(
-    cards.filter((card) => deck in card.stats),
+    cards
+      .filter((card) => deck in card.stats)
+      .filter((card) => visibleRarities.has(card.rarity)),
     (card) => -card.stats[deck]!.score
   );
   const cardsByGroup = groupBy(
@@ -120,15 +122,13 @@ const Page = ({
               <GradeRowHeader>{grade}</GradeRowHeader>
               {Object.values(Column).map((column) => (
                 <td key={column}>
-                  {cardsByGroup[column + "," + grade]
-                    ?.filter((card) => visibleRarities.has(card.rarity))
-                    .map((card) => (
-                      <CardView
-                        key={card.cardUrl}
-                        card={card}
-                        onClick={() => setModalCard(card)}
-                      />
-                    ))}
+                  {cardsByGroup[column + "," + grade]?.map((card) => (
+                    <CardView
+                      key={card.cardUrl}
+                      card={card}
+                      onClick={() => setModalCard(card)}
+                    />
+                  ))}
                 </td>
               ))}
             </tr>
