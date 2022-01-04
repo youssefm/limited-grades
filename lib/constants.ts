@@ -1,4 +1,6 @@
-import { Column, Deck, Grade, Rarity } from "./types";
+import { Column, Deck, Grade, Rarity, Set } from "./types";
+
+export const LATEST_SET = Set.CRIMSON_VOW;
 
 export const GRADE_THRESHOLDS: [Grade, number][] = [
   [Grade.A_PLUS, 99],
