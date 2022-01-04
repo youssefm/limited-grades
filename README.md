@@ -10,6 +10,13 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Instructions for adding a new set
+
+1. Add the new set to the `Set` enum
+2. Once Scryfall is updated, download the Oracle Cards data file [here](https://scryfall.com/docs/api/bulk-data) and update `data/oracle-cards.json` in the repo
+3. Update the root redirect in `next.config.js` to redirect to the latest set
+4. Push to Github
+
 ## To Do
 
 - Switch to a darker theme
