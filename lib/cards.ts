@@ -88,13 +88,6 @@ async function fetchApiCards(set: Set, deck: Deck): Promise<ApiCard[]> {
     url = url.concat(`&colors=${deck}`);
   }
 
-  if (inProd()) {
-    console.log("in prod: waiting 5-10 seconds before making the request");
-    await new Promise((resolve) =>
-      setTimeout(resolve, 5000 + Math.random() * 5000)
-    );
-  }
-
   console.log(`Making API request to ${url}`);
   let response = await fetch(url);
   while (!response.ok) {
