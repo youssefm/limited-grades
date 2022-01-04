@@ -2,15 +2,17 @@ import { find } from "lodash";
 import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
 
-import { GRADE_THRESHOLDS } from "./constants";
+import { GRADE_THRESHOLDS, LATEST_SET } from "./constants";
 import { ApiCard, Card, Deck, Set, Grade, Rarity } from "./types";
 import { getCardColumn } from "./scryfall";
+import { inProd } from "./util";
+import { readFile, writeFile } from "fs/promises";
 
 export async function getCards(set: Set): Promise<Card[]> {
   const cards: { [key: string]: Card } = {};
 
   for (const deck of Object.values(Deck)) {
-    let apiCards: ApiCard[] = await fetchCards(set, deck);
+    let apiCards: ApiCard[] = await getApiCards(set, deck);
     apiCards = apiCards.filter(
       (card) => card.ever_drawn_game_count >= 200 && card.ever_drawn_win_rate
     );
@@ -61,14 +63,32 @@ export async function getCards(set: Set): Promise<Card[]> {
   return Object.values(cards);
 }
 
-async function fetchCards(set: Set, deck: Deck): Promise<ApiCard[]> {
+async function getApiCards(set: Set, deck: Deck): Promise<ApiCard[]> {
+  if (inProd() && set === LATEST_SET) {
+    return await fetchApiCards(set, deck);
+  }
+
+  const filePath = `./data/${set}-${deck}.json`;
+  try {
+    return JSON.parse(await readFile(filePath, "utf8"));
+  } catch (error: any) {
+    if (error.code === "ENOENT") {
+      const cards = await fetchApiCards(set, deck);
+      await writeFile(filePath, JSON.stringify(cards), "utf8");
+      return cards;
+    }
+    throw error;
+  }
+}
+
+async function fetchApiCards(set: Set, deck: Deck): Promise<ApiCard[]> {
   const endDate = new Date().toISOString().substring(0, 10);
   let url = `https://www.17lands.com/card_ratings/data?expansion=${set}&format=PremierDraft&start_date=2020-04-16&end_date=${endDate}`;
   if (deck !== Deck.ALL) {
     url = url.concat(`&colors=${deck}`);
   }
 
-  if (process.env.NODE_ENV === "production") {
+  if (inProd()) {
     console.log("in prod: waiting 5-10 seconds before making the request");
     await new Promise((resolve) =>
       setTimeout(resolve, 5000 + Math.random() * 5000)
