@@ -65,12 +65,10 @@ export async function getCardColumn(cardName: string): Promise<Column> {
   return COLUMNS_BY_COLOR[colors[0]];
 }
 
-export async function getCardTypes(cardName: string): Promise<Set<CardType>> {
+export async function getCardTypes(cardName: string): Promise<CardType[]> {
   const scryfallCard = await lookupCard(cardName);
-  return new Set(
-    Object.values(CardType).filter((cardType) =>
-      scryfallCard.type_line.includes(upperFirst(cardType))
-    )
+  return Object.values(CardType).filter((cardType) =>
+    scryfallCard.type_line.includes(upperFirst(cardType))
   );
 }
 
