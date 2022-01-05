@@ -6,14 +6,7 @@ import { Col, Container, Row, Table } from "react-bootstrap";
 import styled from "styled-components";
 
 import { getCards } from "../lib/cards";
-import {
-  Column,
-  Deck,
-  Rarity,
-  Set as MagicSet,
-  Grade,
-  Card,
-} from "../lib/types";
+import { Column, Deck, Rarity, MagicSet, Grade, Card } from "../lib/types";
 import CardView from "../components/CardView";
 import RarityFilter from "../components/RarityFilter";
 import SetSelector from "../components/SetSelector";

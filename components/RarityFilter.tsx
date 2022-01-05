@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Set as MagicSet, Rarity } from "../lib/types";
+import { MagicSet, Rarity } from "../lib/types";
 
 const SetIcon = styled.i`
   cursor: pointer;
