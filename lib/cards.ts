@@ -68,7 +68,7 @@ async function getApiCards(set: Set, deck: Deck): Promise<ApiCard[]> {
     return await fetchApiCards(set, deck);
   }
 
-  const filePath = `./data/${set}-${deck}.json`;
+  const filePath = `./data/17lands/${set}-${deck}.json`;
   try {
     return JSON.parse(await readFile(filePath, "utf8"));
   } catch (error: any) {
