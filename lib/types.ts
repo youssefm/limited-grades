@@ -76,7 +76,7 @@ export interface Card {
   name: string;
   column: Column;
   rarity: Rarity;
-  cardTypes: Set<CardType>;
+  cardTypes: CardType[];
   cardUrl: string;
   cardBackUrl: string;
   stats: Partial<Record<Deck, CardStats>>;
