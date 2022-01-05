@@ -1,5 +1,6 @@
 import { readFile } from "fs/promises";
-import { Column } from "./types";
+import { upperFirst } from "lodash";
+import { CardType, Column } from "./types";
 
 interface ScryfallCard {
   name: string;
@@ -51,12 +52,7 @@ async function buildIndex() {
 }
 
 export async function getCardColumn(cardName: string): Promise<Column> {
-  await buildIndex();
-  const scryfallCard = CARD_INDEX!.get(cardName);
-  if (!scryfallCard) {
-    throw `Card named '${cardName}' could not be found in the Scryfall DB`;
-  }
-
+  const scryfallCard = await lookupCard(cardName);
   const colors: ScryfallColor[] =
     scryfallCard.colors || scryfallCard.card_faces![0].colors!;
 
@@ -67,4 +63,22 @@ export async function getCardColumn(cardName: string): Promise<Column> {
     return Column.MULTICOLOR;
   }
   return COLUMNS_BY_COLOR[colors[0]];
+}
+
+export async function getCardTypes(cardName: string): Promise<Set<CardType>> {
+  const scryfallCard = await lookupCard(cardName);
+  return new Set(
+    Object.values(CardType).filter((cardType) =>
+      scryfallCard.type_line.includes(upperFirst(cardType))
+    )
+  );
+}
+
+async function lookupCard(cardName: string): Promise<ScryfallCard> {
+  await buildIndex();
+  const scryfallCard = CARD_INDEX!.get(cardName);
+  if (!scryfallCard) {
+    throw `Card named '${cardName}' could not be found in the Scryfall DB`;
+  }
+  return scryfallCard;
 }
