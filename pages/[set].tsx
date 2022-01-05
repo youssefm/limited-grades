@@ -6,7 +6,15 @@ import { Col, Container, Row, Table } from "react-bootstrap";
 import styled from "styled-components";
 
 import { getCards } from "../lib/cards";
-import { Column, Deck, Rarity, MagicSet, Grade, Card } from "../lib/types";
+import {
+  Column,
+  Deck,
+  Rarity,
+  MagicSet,
+  Grade,
+  Card,
+  CardType,
+} from "../lib/types";
 import CardView from "../components/CardView";
 import RarityFilter from "../components/RarityFilter";
 import SetSelector from "../components/SetSelector";
@@ -15,6 +23,7 @@ import { COLUMN_ICONS } from "../lib/constants";
 import CardDetailModal from "../components/CardDetailModal";
 import PageFooter from "../components/PageFooter";
 import PageHeader from "../components/PageHeader";
+import CardTypeFilter from "../components/CardTypeFilter";
 
 const PageContainer = styled(Container)`
   overflow: auto;
@@ -62,12 +71,18 @@ const Page = ({
   const [visibleRarities, setVisibleRarities] = useState(
     new Set(Object.values(Rarity))
   );
+  const [visibleCardTypes, setVisibleCardTypes] = useState(
+    new Set(Object.values(CardType))
+  );
   const [modalCard, setModalCard] = useState<Card>();
 
   const sortedCards = sortBy(
     cards
       .filter((card) => deck in card.stats)
-      .filter((card) => visibleRarities.has(card.rarity)),
+      .filter((card) => visibleRarities.has(card.rarity))
+      .filter((card) =>
+        card.cardTypes.some((cardType) => visibleCardTypes.has(cardType))
+      ),
     (card) => -card.stats[deck]!.score
   );
   const cardsByGroup = groupBy(
@@ -95,6 +110,12 @@ const Page = ({
             set={set}
             values={visibleRarities}
             setValues={setVisibleRarities}
+          />
+        </Col>
+        <Col md="auto">
+          <CardTypeFilter
+            values={visibleCardTypes}
+            setValues={setVisibleCardTypes}
           />
         </Col>
       </Row>
