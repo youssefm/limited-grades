@@ -5,22 +5,22 @@ import Select, {
 } from "react-select";
 import styled from "styled-components";
 
-import { Set } from "../lib/types";
+import { MagicSet } from "../lib/types";
 
-const SET_LABELS: Record<Set, string> = {
-  [Set.CRIMSON_VOW]: "Crimson Vow",
-  [Set.MIDNIGHT_HUNT]: "Midnight Hunt",
-  [Set.FORGOTTEN_REALM]: "Forgotten Realms",
-  [Set.STRIXHAVEN]: "Strixhaven",
-  [Set.KALDHEIM]: "Kaldheim",
-  [Set.ZENDIKAR]: "Zendikar Rising",
-  [Set.IKORIA]: "Ikoria",
-  [Set.WAR_OF_THE_SPARK]: "War of the Spark",
-  [Set.RAVNICA_ALLEGIANCE]: "Ravnica Allegiance",
-  [Set.GUILDS_OF_RAVNICA]: "Guilds of Ravnica",
-  [Set.DOMINARIA]: "Dominaria",
-  [Set.AMONKHET]: "Amonkhet",
-  [Set.KALADESH]: "Kaladesh",
+const SET_LABELS: Record<MagicSet, string> = {
+  [MagicSet.CRIMSON_VOW]: "Crimson Vow",
+  [MagicSet.MIDNIGHT_HUNT]: "Midnight Hunt",
+  [MagicSet.FORGOTTEN_REALM]: "Forgotten Realms",
+  [MagicSet.STRIXHAVEN]: "Strixhaven",
+  [MagicSet.KALDHEIM]: "Kaldheim",
+  [MagicSet.ZENDIKAR]: "Zendikar Rising",
+  [MagicSet.IKORIA]: "Ikoria",
+  [MagicSet.WAR_OF_THE_SPARK]: "War of the Spark",
+  [MagicSet.RAVNICA_ALLEGIANCE]: "Ravnica Allegiance",
+  [MagicSet.GUILDS_OF_RAVNICA]: "Guilds of Ravnica",
+  [MagicSet.DOMINARIA]: "Dominaria",
+  [MagicSet.AMONKHET]: "Amonkhet",
+  [MagicSet.KALADESH]: "Kaladesh",
 };
 
 const SetSelect = styled(Select)`
@@ -31,7 +31,7 @@ const OptionLabel = styled.span`
   margin-left: 8px;
 `;
 
-type SetOption = { value: Set; label: string };
+type SetOption = { value: MagicSet; label: string };
 
 const SingleValue = ({
   children,
@@ -51,8 +51,8 @@ const Option = (props: OptionProps<SetOption, false>) => (
 );
 
 interface Props {
-  value: Set;
-  onChange: (selectedValue: Set) => void;
+  value: MagicSet;
+  onChange: (selectedValue: MagicSet) => void;
 }
 
 const SetSelector = (props: Props) => {
@@ -66,7 +66,7 @@ const SetSelector = (props: Props) => {
           onChange(selectedOption.value);
         }
       }}
-      options={Object.values(Set).map((set) => ({
+      options={Object.values(MagicSet).map((set) => ({
         value: set,
         label: SET_LABELS[set],
       }))}

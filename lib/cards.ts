@@ -3,12 +3,12 @@ import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
 
 import { GRADE_THRESHOLDS, LATEST_SET } from "./constants";
-import { ApiCard, Card, Deck, Set, Grade, Rarity } from "./types";
+import { ApiCard, Card, Deck, MagicSet, Grade, Rarity } from "./types";
 import { getCardColumn } from "./scryfall";
 import { inProd } from "./util";
 import { readFile, writeFile } from "fs/promises";
 
-export async function getCards(set: Set): Promise<Card[]> {
+export async function getCards(set: MagicSet): Promise<Card[]> {
   const cards: { [key: string]: Card } = {};
 
   for (const deck of Object.values(Deck)) {
@@ -63,7 +63,7 @@ export async function getCards(set: Set): Promise<Card[]> {
   return Object.values(cards);
 }
 
-async function getApiCards(set: Set, deck: Deck): Promise<ApiCard[]> {
+async function getApiCards(set: MagicSet, deck: Deck): Promise<ApiCard[]> {
   if (inProd() && set === LATEST_SET) {
     return await fetchApiCards(set, deck);
   }
@@ -81,7 +81,7 @@ async function getApiCards(set: Set, deck: Deck): Promise<ApiCard[]> {
   }
 }
 
-async function fetchApiCards(set: Set, deck: Deck): Promise<ApiCard[]> {
+async function fetchApiCards(set: MagicSet, deck: Deck): Promise<ApiCard[]> {
   const endDate = new Date().toISOString().substring(0, 10);
   let url = `https://www.17lands.com/card_ratings/data?expansion=${set}&format=PremierDraft&start_date=2020-04-16&end_date=${endDate}`;
   if (deck !== Deck.ALL) {

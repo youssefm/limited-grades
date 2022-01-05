@@ -1,4 +1,4 @@
-export enum Set {
+export enum MagicSet {
   CRIMSON_VOW = "vow",
   MIDNIGHT_HUNT = "mid",
   FORGOTTEN_REALM = "afr",
