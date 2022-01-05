@@ -6,6 +6,7 @@ interface ScryfallCard {
   card_faces?: ScryfallCardFace[];
   colors?: ScryfallColor[];
   layout: string;
+  type_line: string;
 }
 
 interface ScryfallCardFace {
