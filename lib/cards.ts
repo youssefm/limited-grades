@@ -1,12 +1,12 @@
+import { readFile, writeFile } from "fs/promises";
 import { find } from "lodash";
 import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
 
 import { GRADE_THRESHOLDS, LATEST_SET } from "./constants";
 import { ApiCard, Card, Deck, MagicSet, Grade, Rarity } from "./types";
-import { getCardColumn } from "./scryfall";
+import { getCardColumn, getCardTypes } from "./scryfall";
 import { inProd } from "./util";
-import { readFile, writeFile } from "fs/promises";
 
 export async function getCards(set: MagicSet): Promise<Card[]> {
   const cards: { [key: string]: Card } = {};
@@ -37,6 +37,7 @@ export async function getCards(set: MagicSet): Promise<Card[]> {
           name: cardName,
           column: await getCardColumn(cardName),
           rarity: apiCard.rarity === "basic" ? Rarity.COMMON : apiCard.rarity,
+          cardTypes: await getCardTypes(cardName),
           cardUrl: apiCard.url,
           cardBackUrl: apiCard.url_back,
           stats: {},

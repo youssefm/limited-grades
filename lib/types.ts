@@ -76,6 +76,7 @@ export interface Card {
   name: string;
   column: Column;
   rarity: Rarity;
+  cardTypes: Set<CardType>;
   cardUrl: string;
   cardBackUrl: string;
   stats: Partial<Record<Deck, CardStats>>;
@@ -87,4 +88,14 @@ interface CardStats {
   gameCount: number;
   score: number;
   grade: Grade;
+}
+
+export enum CardType {
+  CREATURE = "creature",
+  INSTANT = "instant",
+  SORCERY = "sorcery",
+  ARTIFACT = "artifact",
+  ENCHANTMENT = "enchantment",
+  PLANESWALKER = "planeswalker",
+  LAND = "land",
 }
