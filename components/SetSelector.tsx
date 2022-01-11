@@ -21,6 +21,7 @@ const SET_LABELS: Record<MagicSet, string> = {
   [MagicSet.DOMINARIA]: "Dominaria",
   [MagicSet.AMONKHET]: "Amonkhet",
   [MagicSet.KALADESH]: "Kaladesh",
+  [MagicSet.ARENA_CUBE]: "Arena Cube",
 };
 
 const SetSelect = styled(Select)`
