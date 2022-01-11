@@ -12,6 +12,7 @@ export enum MagicSet {
   DOMINARIA = "dom",
   AMONKHET = "akr",
   KALADESH = "klr",
+  ARENA_CUBE = "cube",
 }
 
 export enum Deck {
