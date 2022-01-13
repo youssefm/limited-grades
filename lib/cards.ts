@@ -85,6 +85,9 @@ async function getApiCards(set: MagicSet, deck: Deck): Promise<ApiCard[]> {
 async function fetchApiCards(set: MagicSet, deck: Deck): Promise<ApiCard[]> {
   const endDate = new Date().toISOString().substring(0, 10);
   let url = `https://www.17lands.com/card_ratings/data?expansion=${set}&format=PremierDraft&start_date=2020-04-16&end_date=${endDate}`;
+  if (set == MagicSet.ARENA_CUBE) {
+    url = `https://www.17lands.com/card_ratings/data?expansion=${set}&format=PremierDraft&start_date=2022-01-01&end_date=${endDate}`;
+  }
   if (deck !== Deck.ALL) {
     url = url.concat(`&colors=${deck}`);
   }
