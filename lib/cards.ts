@@ -8,7 +8,7 @@ import { ApiCard, Card, Deck, MagicSet, Grade, Rarity } from "./types";
 import { getCardColumn, getCardTypes } from "./scryfall";
 import { inProd } from "./util";
 
-const SET_START_DATES: Record<MagicSet, string> = {
+const SET_START_DATES: Partial<Record<MagicSet, string>> = {
   [MagicSet.CRIMSON_VOW]: "2021-11-11",
   [MagicSet.MIDNIGHT_HUNT]: "2021-09-16",
   [MagicSet.FORGOTTEN_REALM]: "2021-07-08",
@@ -16,10 +16,6 @@ const SET_START_DATES: Record<MagicSet, string> = {
   [MagicSet.KALDHEIM]: "2021-01-28",
   [MagicSet.ZENDIKAR]: "2020-09-17",
   [MagicSet.IKORIA]: "2020-04-16",
-  [MagicSet.WAR_OF_THE_SPARK]: "2020-04-16",
-  [MagicSet.RAVNICA_ALLEGIANCE]: "2020-04-16",
-  [MagicSet.GUILDS_OF_RAVNICA]: "2020-04-16",
-  [MagicSet.DOMINARIA]: "2020-04-16",
   [MagicSet.AMONKHET]: "2020-08-13",
   [MagicSet.KALADESH]: "2020-11-12",
   [MagicSet.ARENA_CUBE]: "2022-01-06",
@@ -103,7 +99,7 @@ async function fetchApiCards(set: MagicSet, deck: Deck): Promise<ApiCard[]> {
   const urlParams: Record<string, string> = {
     expansion: set,
     format: "PremierDraft",
-    start_date: SET_START_DATES[set],
+    start_date: SET_START_DATES[set] || "2020-04-16",
     end_date: new Date().toISOString().substring(0, 10),
   };
 
