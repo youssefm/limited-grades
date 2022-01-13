@@ -8,6 +8,11 @@ export default async function handler(
 ) {
   const { set } = request.query;
 
+  // Temporarily disabling this
+  // getCards currently throws exceptions in production because the data files are not available
+  response.status(503).json({ error: "not available" });
+  return;
+
   if (!(Object.values(MagicSet) as string[]).includes(set as string)) {
     response.status(404).json({ error: "set not recognized" });
     return;
