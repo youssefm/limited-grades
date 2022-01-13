@@ -8,6 +8,23 @@ import { ApiCard, Card, Deck, MagicSet, Grade, Rarity } from "./types";
 import { getCardColumn, getCardTypes } from "./scryfall";
 import { inProd } from "./util";
 
+const SET_START_DATES: Record<MagicSet, string> = {
+  [MagicSet.CRIMSON_VOW]: "2021-11-11",
+  [MagicSet.MIDNIGHT_HUNT]: "2021-09-16",
+  [MagicSet.FORGOTTEN_REALM]: "2021-07-08",
+  [MagicSet.STRIXHAVEN]: "2021-04-15",
+  [MagicSet.KALDHEIM]: "2021-01-28",
+  [MagicSet.ZENDIKAR]: "2020-09-17",
+  [MagicSet.IKORIA]: "2020-04-16",
+  [MagicSet.WAR_OF_THE_SPARK]: "2020-04-16",
+  [MagicSet.RAVNICA_ALLEGIANCE]: "2020-04-16",
+  [MagicSet.GUILDS_OF_RAVNICA]: "2020-04-16",
+  [MagicSet.DOMINARIA]: "2020-04-16",
+  [MagicSet.AMONKHET]: "2020-08-13",
+  [MagicSet.KALADESH]: "2020-11-12",
+  [MagicSet.ARENA_CUBE]: "2022-01-06",
+};
+
 export async function getCards(set: MagicSet): Promise<Card[]> {
   const cards: { [key: string]: Card } = {};
 
@@ -65,7 +82,7 @@ export async function getCards(set: MagicSet): Promise<Card[]> {
 }
 
 async function getApiCards(set: MagicSet, deck: Deck): Promise<ApiCard[]> {
-  if (inProd() && set === LATEST_SET) {
+  if (inProd() && (set === LATEST_SET || set === MagicSet.ARENA_CUBE)) {
     return await fetchApiCards(set, deck);
   }
 
@@ -83,14 +100,19 @@ async function getApiCards(set: MagicSet, deck: Deck): Promise<ApiCard[]> {
 }
 
 async function fetchApiCards(set: MagicSet, deck: Deck): Promise<ApiCard[]> {
-  const endDate = new Date().toISOString().substring(0, 10);
-  let url = `https://www.17lands.com/card_ratings/data?expansion=${set}&format=PremierDraft&start_date=2020-04-16&end_date=${endDate}`;
-  if (set == MagicSet.ARENA_CUBE) {
-    url = `https://www.17lands.com/card_ratings/data?expansion=${set}&format=PremierDraft&start_date=2022-01-01&end_date=${endDate}`;
-  }
+  const urlParams: Record<string, string> = {
+    expansion: set,
+    format: "PremierDraft",
+    start_date: SET_START_DATES[set],
+    end_date: new Date().toISOString().substring(0, 10),
+  };
+
   if (deck !== Deck.ALL) {
-    url = url.concat(`&colors=${deck}`);
+    urlParams.colors = deck;
   }
+
+  const queryString = new URLSearchParams(urlParams).toString();
+  const url = `https://www.17lands.com/card_ratings/data?${queryString}`;
 
   console.log(`Making API request to ${url}`);
   let response = await fetch(url);
