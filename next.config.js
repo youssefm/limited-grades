@@ -9,11 +9,10 @@ module.exports = {
         permanent: false,
       },
       {
-        source: "/:set/:deck",
+        source: "/:set/all",
         destination: "/:set",
         permanent: false,
       },
     ];
   },
-  staticPageGenerationTimeout: 600,
 };

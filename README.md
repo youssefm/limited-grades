@@ -20,5 +20,5 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## To Do
 
+- Store card ratings in a database
 - Switch to a darker theme
-- Add card type filter? (creature/non-creature/land)
