@@ -33,7 +33,7 @@ async function buildIndex() {
     for (const card of JSON.parse(
       await readFile("./data/oracle-cards.json", "utf8")
     ) as ScryfallCard[]) {
-      if (card.layout === "art_series") {
+      if (card.layout === "art_series" || card.layout === "token") {
         continue;
       }
 
