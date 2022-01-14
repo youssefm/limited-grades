@@ -13,6 +13,7 @@ export async function connect() {
     socket: {
       tls: true,
       rejectUnauthorized: false,
+      keepAlive: false,
     },
   });
 
