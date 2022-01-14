@@ -1,4 +1,5 @@
 import type { NextApiRequest, NextApiResponse } from "next";
+
 import { getCards } from "../../../lib/cards";
 import { MagicSet } from "../../../lib/types";
 
