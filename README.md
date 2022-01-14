@@ -29,7 +29,3 @@ REDIS_URL=<your Redis connection URL>
 3. Once Scryfall is updated, download the Oracle Cards data file [here](https://scryfall.com/docs/api/bulk-data) and update `data/oracle-cards.json` in the repo
 4. Update the root redirect in `next.config.js` to redirect to the latest set
 5. Push to Github
-
-## To Do
-
-- Switch to a darker theme
