@@ -3,10 +3,37 @@ import { find } from "lodash";
 import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
 
-import { GRADE_THRESHOLDS, LATEST_SET } from "./constants";
-import { ApiCard, Card, Deck, MagicSet, Grade, Rarity } from "./types";
+import { LATEST_SET } from "./constants";
+import { Card, Deck, MagicSet, Grade, Rarity } from "./types";
 import { getCardColumn, getCardTypes } from "./scryfall";
 import { inProd } from "./util";
+
+interface ApiCard {
+  name: string;
+  drawn_improvement_win_rate: number;
+  ever_drawn_game_count: number;
+  ever_drawn_win_rate: number;
+  game_count: number;
+  rarity: Rarity | "basic";
+  url: string;
+  url_back: string;
+}
+
+const GRADE_THRESHOLDS: [Grade, number][] = [
+  [Grade.A_PLUS, 99],
+  [Grade.A, 95],
+  [Grade.A_MINUS, 90],
+  [Grade.B_PLUS, 85],
+  [Grade.B, 76],
+  [Grade.B_MINUS, 68],
+  [Grade.C_PLUS, 57],
+  [Grade.C, 45],
+  [Grade.C_MINUS, 36],
+  [Grade.D_PLUS, 27],
+  [Grade.D, 17],
+  [Grade.D_MINUS, 5],
+  [Grade.F, 0],
+];
 
 const SET_START_DATES: Partial<Record<MagicSet, string>> = {
   [MagicSet.CRIMSON_VOW]: "2021-11-11",
