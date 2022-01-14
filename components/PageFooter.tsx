@@ -25,31 +25,20 @@ const PageFooter = ({ lastUpdatedAtTicks }: Props) => (
       Scryfall
     </a>
     ,{" "}
+    <a
+      href="https://www.flaticon.com/authors/freepik"
+      target="_blank"
+      rel="noreferrer"
+    >
+      Freepik
+    </a>
+    ,{" "}
     <a href="https://keyrune.andrewgioia.com" target="_blank" rel="noreferrer">
       Keyrune
     </a>
     , and{" "}
     <a href="https://mana.andrewgioia.com" target="_blank" rel="noreferrer">
       Mana
-    </a>
-    <br />
-    Favicon made by{" "}
-    <a
-      href="https://www.flaticon.com/authors/freepik"
-      title="Freepik"
-      target="_blank"
-      rel="noreferrer"
-    >
-      Freepik
-    </a>{" "}
-    from{" "}
-    <a
-      href="https://www.flaticon.com/"
-      title="Flaticon"
-      target="_blank"
-      rel="noreferrer"
-    >
-      flaticon
     </a>
     <br />
     <em>Last updated at: {new Date(lastUpdatedAtTicks).toLocaleString()}</em>
