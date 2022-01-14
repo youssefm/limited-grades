@@ -1,4 +1,3 @@
-import { readFile, writeFile } from "fs/promises";
 import { find } from "lodash";
 import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
@@ -6,7 +5,10 @@ import NormalDistribution from "normal-distribution";
 import { LATEST_SET } from "./constants";
 import { Card, Deck, MagicSet, Grade, Rarity } from "./types";
 import { getCardColumn, getCardTypes } from "./scryfall";
-import { inProd } from "./util";
+import {
+  connect as connectToCache,
+  IS_ENABLED as CACHE_IS_ENABLED,
+} from "./cache";
 
 interface ApiCard {
   name: string;
@@ -18,6 +20,8 @@ interface ApiCard {
   url: string;
   url_back: string;
 }
+
+type ApiCardStore = Record<Deck, ApiCard[]>;
 
 const GRADE_THRESHOLDS: [Grade, number][] = [
   [Grade.A_PLUS, 99],
@@ -49,10 +53,11 @@ const SET_START_DATES: Partial<Record<MagicSet, string>> = {
 };
 
 export async function getCards(set: MagicSet): Promise<Card[]> {
-  const cards: { [key: string]: Card } = {};
+  const apiCardStore = await getApiCardStore(set);
 
+  const cards: { [key: string]: Card } = {};
   for (const deck of Object.values(Deck)) {
-    let apiCards: ApiCard[] = await getApiCards(set, deck);
+    let apiCards: ApiCard[] = apiCardStore[deck];
     apiCards = apiCards.filter(
       (card) => card.ever_drawn_game_count >= 200 && card.ever_drawn_win_rate
     );
@@ -104,22 +109,35 @@ export async function getCards(set: MagicSet): Promise<Card[]> {
   return Object.values(cards);
 }
 
-async function getApiCards(set: MagicSet, deck: Deck): Promise<ApiCard[]> {
-  if (inProd() && (set === LATEST_SET || set === MagicSet.ARENA_CUBE)) {
-    return await fetchApiCards(set, deck);
+async function getApiCardStore(set: MagicSet): Promise<ApiCardStore> {
+  if (!CACHE_IS_ENABLED) {
+    return await buildApiCardStore(set);
   }
 
-  const filePath = `./data/17lands/${set}-${deck}.json`;
-  try {
-    return JSON.parse(await readFile(filePath, "utf8"));
-  } catch (error: any) {
-    if (error.code === "ENOENT") {
-      const cards = await fetchApiCards(set, deck);
-      await writeFile(filePath, JSON.stringify(cards), "utf8");
-      return cards;
-    }
-    throw error;
+  const client = await connectToCache();
+  console.log(`attempting to fetch 17lands data for ${set} from cache`);
+  const cacheHit = await client.get(set);
+  if (cacheHit) {
+    console.log("cache hit");
+    return JSON.parse(cacheHit);
   }
+  console.log("cache miss");
+
+  const apiCardStore = await buildApiCardStore(set);
+  const expirationInHours =
+    set === LATEST_SET || set === MagicSet.ARENA_CUBE ? 12 : 24 * 7;
+  await client.set(set, JSON.stringify(apiCardStore), expirationInHours);
+  await client.disconnect();
+  return apiCardStore;
+}
+
+async function buildApiCardStore(set: MagicSet): Promise<ApiCardStore> {
+  const store: Partial<ApiCardStore> = {};
+  for (const deck of Object.values(Deck)) {
+    const apiCards = await fetchApiCards(set, deck);
+    store[deck] = apiCards;
+  }
+  return store as ApiCardStore;
 }
 
 async function fetchApiCards(set: MagicSet, deck: Deck): Promise<ApiCard[]> {
