@@ -29,17 +29,6 @@ export enum Deck {
   BLUE_GREEN = "ug",
 }
 
-export interface ApiCard {
-  name: string;
-  drawn_improvement_win_rate: number;
-  ever_drawn_game_count: number;
-  ever_drawn_win_rate: number;
-  game_count: number;
-  rarity: Rarity | "basic";
-  url: string;
-  url_back: string;
-}
-
 export enum Column {
   WHITE = "white",
   BLUE = "blue",

@@ -1,24 +1,8 @@
-import { Column, Deck, Grade, Rarity, MagicSet } from "./types";
+import { Column, Deck, MagicSet } from "./types";
 
 export const LATEST_SET = MagicSet.CRIMSON_VOW;
 
-export const GRADE_THRESHOLDS: [Grade, number][] = [
-  [Grade.A_PLUS, 99],
-  [Grade.A, 95],
-  [Grade.A_MINUS, 90],
-  [Grade.B_PLUS, 85],
-  [Grade.B, 76],
-  [Grade.B_MINUS, 68],
-  [Grade.C_PLUS, 57],
-  [Grade.C, 45],
-  [Grade.C_MINUS, 36],
-  [Grade.D_PLUS, 27],
-  [Grade.D, 17],
-  [Grade.D_MINUS, 5],
-  [Grade.F, 0],
-];
-
-export const COLUMN_ICONS = {
+export const COLUMN_ICONS: Record<Column, string> = {
   [Column.WHITE]: "ms ms-w ms-cost",
   [Column.BLUE]: "ms ms-u ms-cost",
   [Column.BLACK]: "ms ms-b ms-cost",
