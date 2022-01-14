@@ -18,13 +18,6 @@ export const GRADE_THRESHOLDS: [Grade, number][] = [
   [Grade.F, 0],
 ];
 
-export const RARITY_SORT_KEY: Record<Rarity, number> = {
-  [Rarity.COMMON]: 3,
-  [Rarity.UNCOMMON]: 2,
-  [Rarity.RARE]: 1,
-  [Rarity.MYTHIC]: 0,
-};
-
 export const COLUMN_ICONS = {
   [Column.WHITE]: "ms ms-w ms-cost",
   [Column.BLUE]: "ms ms-u ms-cost",
