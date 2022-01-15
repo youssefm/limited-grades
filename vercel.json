@@ -1,0 +1,10 @@
+{
+  "functions": {
+    "pages/api/[set].ts": {
+      "includeFiles": "data/oracle_cards.json"
+    },
+    "pages/[set].tsx": {
+      "includeFiles": "data/oracle_cards.json"
+    }
+  }
+}
