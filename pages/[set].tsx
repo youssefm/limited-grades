@@ -176,6 +176,6 @@ const Page = ({
 
 export default Page;
 
-export const config = {
-  unstable_includeFiles: ["data/oracle-cards.json"],
-};
+// export const config = {
+//   unstable_includeFiles: ["data/oracle-cards.json"],
+// };
