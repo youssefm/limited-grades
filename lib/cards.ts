@@ -116,9 +116,7 @@ async function buildCardStore(set: MagicSet): Promise<Card[]> {
 
       card.stats[deck] = {
         winrate: round(apiCard.ever_drawn_win_rate, 4),
-        improvementWhenDrawn: round(apiCard.drawn_improvement_win_rate, 4),
         gameCount: apiCard.game_count,
-        score: round(score, 2),
         grade: grade,
       };
     }

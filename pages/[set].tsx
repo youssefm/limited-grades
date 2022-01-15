@@ -96,7 +96,7 @@ const Page = ({
       .filter((card) =>
         card.cardTypes.some((cardType) => visibleCardTypes.has(cardType))
       ),
-    (card) => -card.stats[deck]!.score
+    (card) => -card.stats[deck]!.winrate
   );
   const cardsByGroup = groupBy(
     sortedCards,
