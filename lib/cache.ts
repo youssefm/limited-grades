@@ -17,6 +17,7 @@ export async function connect() {
     socket: {
       tls: true,
       rejectUnauthorized: false,
+      reconnectStrategy: (retries) => Math.min(retries * 1000, 10000),
     },
   });
 
