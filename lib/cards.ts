@@ -1,4 +1,4 @@
-import { find } from "lodash";
+import { find, round } from "lodash";
 import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
 
@@ -115,10 +115,10 @@ async function buildCardStore(set: MagicSet): Promise<Card[]> {
       )![0];
 
       card.stats[deck] = {
-        winrate: apiCard.ever_drawn_win_rate,
-        improvementWhenDrawn: apiCard.drawn_improvement_win_rate,
+        winrate: round(apiCard.ever_drawn_win_rate, 4),
+        improvementWhenDrawn: round(apiCard.drawn_improvement_win_rate, 4),
         gameCount: apiCard.game_count,
-        score: score,
+        score: round(score, 2),
         grade: grade,
       };
     }
