@@ -32,7 +32,7 @@ async function buildIndex() {
   if (!CARD_INDEX) {
     CARD_INDEX = new Map();
     for (const card of JSON.parse(
-      await readFile("./data/oracle-cards.json", "utf8")
+      await readFile(`${process.cwd()}/data/oracle-cards.json`, "utf8")
     ) as ScryfallCard[]) {
       if (card.layout === "art_series" || card.layout === "token") {
         continue;
