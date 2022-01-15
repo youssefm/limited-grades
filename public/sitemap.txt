@@ -1,3 +1,4 @@
+https://limited-grades.vercel.app
 https://limited-grades.vercel.app/vow
 https://limited-grades.vercel.app/mid
 https://limited-grades.vercel.app/afr
