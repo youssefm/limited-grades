@@ -68,6 +68,7 @@ const Page = ({
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
   const [selectedSet, setSelectedSet] = useState(set);
+  const [loading, setLoading] = useState(false);
   const [deck, setDeck] = useState(Deck.ALL);
   const [visibleRarities, setVisibleRarities] = useState(
     new Set(Object.values(Rarity))
@@ -79,15 +80,29 @@ const Page = ({
   const [showPlaceholders, setShowPlaceholders] = useState(false);
 
   useEffect(() => {
-    if (selectedSet !== set) {
-      router.push(`/${selectedSet}`);
+    if (selectedSet === set) {
+      if (loading) {
+        setLoading(false);
+        setShowPlaceholders(false);
+      }
+    } else {
+      if (loading) {
+        router.push(`/${selectedSet}`);
+      } else {
+        setSelectedSet(set);
+      }
+    }
+  }, [selectedSet, set, loading, router]);
+
+  useEffect(() => {
+    if (loading) {
       // Add small delay before showing placeholders to prevent screen stuttering
       const timer = setTimeout(() => setShowPlaceholders(true), 300);
       return () => clearTimeout(timer);
-    } else if (showPlaceholders) {
+    } else {
       setShowPlaceholders(false);
     }
-  }, [selectedSet, set, router, showPlaceholders]);
+  }, [loading]);
 
   const sortedCards = sortBy(
     cards
@@ -108,7 +123,13 @@ const Page = ({
       <PageHeader />
       <Row className="justify-content-center mb-2">
         <Col md="auto">
-          <SetSelector value={selectedSet} onChange={setSelectedSet} />
+          <SetSelector
+            value={selectedSet}
+            onChange={(newValue) => {
+              setSelectedSet(newValue);
+              setLoading(true);
+            }}
+          />
         </Col>
         <Col md="auto">
           <DeckSelector value={deck} onChange={setDeck} />
