@@ -1,5 +1,6 @@
 import { readFile } from "fs/promises";
 import { upperFirst } from "lodash";
+import path from "path";
 
 import { CardType, Column } from "lib/types";
 
@@ -32,7 +33,10 @@ async function buildIndex() {
   if (!CARD_INDEX) {
     CARD_INDEX = new Map();
     for (const card of JSON.parse(
-      await readFile(`${process.cwd()}/data/oracle-cards.json`, "utf8")
+      await readFile(
+        path.join(process.cwd(), "data", "oracle-cards.json"),
+        "utf8"
+      )
     ) as ScryfallCard[]) {
       if (card.layout === "art_series" || card.layout === "token") {
         continue;
