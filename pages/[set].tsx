@@ -76,12 +76,18 @@ const Page = ({
     new Set(Object.values(CardType))
   );
   const [modalCard, setModalCard] = useState<Card>();
+  const [showPlaceholders, setShowPlaceholders] = useState(false);
 
   useEffect(() => {
     if (selectedSet !== set) {
       router.push(`/${selectedSet}`);
+      // Add small delay before showing placeholders to prevent screen stuttering
+      const timer = setTimeout(() => setShowPlaceholders(true), 250);
+      return () => clearTimeout(timer);
+    } else if (showPlaceholders) {
+      setShowPlaceholders(false);
     }
-  }, [selectedSet, set, router]);
+  }, [selectedSet, set, router, showPlaceholders]);
 
   const sortedCards = sortBy(
     cards
@@ -139,14 +145,14 @@ const Page = ({
               {Object.values(Column).map((column) => (
                 <td key={column}>
                   {cardsByGroup[column + "," + grade]?.map((card) =>
-                    selectedSet === set ? (
+                    showPlaceholders ? (
+                      <Placeholder className="w-75" bg="light" />
+                    ) : (
                       <CardView
                         key={card.cardUrl}
                         card={card}
                         onClick={() => setModalCard(card)}
                       />
-                    ) : (
-                      <Placeholder className="w-75" bg="light" />
                     )
                   )}
                 </td>
