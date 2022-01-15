@@ -146,9 +146,7 @@ const Page = ({
                         onClick={() => setModalCard(card)}
                       />
                     ) : (
-                      <Placeholder key={card.cardUrl} animation="glow">
-                        <Placeholder className="w-75" />
-                      </Placeholder>
+                      <Placeholder className="w-75" bg="light" />
                     )
                   )}
                 </td>
