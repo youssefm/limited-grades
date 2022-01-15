@@ -82,7 +82,7 @@ const Page = ({
     if (selectedSet !== set) {
       router.push(`/${selectedSet}`);
       // Add small delay before showing placeholders to prevent screen stuttering
-      const timer = setTimeout(() => setShowPlaceholders(true), 250);
+      const timer = setTimeout(() => setShowPlaceholders(true), 300);
       return () => clearTimeout(timer);
     } else if (showPlaceholders) {
       setShowPlaceholders(false);
@@ -146,7 +146,11 @@ const Page = ({
                 <td key={column}>
                   {cardsByGroup[column + "," + grade]?.map((card) =>
                     showPlaceholders ? (
-                      <Placeholder className="w-75" bg="light" />
+                      <Placeholder
+                        key={card.cardUrl}
+                        className="w-75"
+                        bg="light"
+                      />
                     ) : (
                       <CardView
                         key={card.cardUrl}
