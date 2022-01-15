@@ -17,7 +17,3 @@ export default async function handler(
   const cards = await getCards(set as MagicSet);
   response.status(200).json(cards);
 }
-
-export const config = {
-  unstable_includeFiles: ["data/oracle-cards.json"],
-};

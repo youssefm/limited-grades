@@ -1,0 +1,7 @@
+{
+  "functions": {
+    "pages/api/[set].ts": {
+      "includeFiles": "data/oracle_cards.json"
+    }
+  }
+}
