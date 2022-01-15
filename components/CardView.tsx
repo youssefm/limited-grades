@@ -1,6 +1,7 @@
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import styled from "styled-components";
-import { Card, Rarity } from "../lib/types";
+
+import { Card, Rarity } from "lib/types";
 
 const CardText = styled.span`
   cursor: pointer;

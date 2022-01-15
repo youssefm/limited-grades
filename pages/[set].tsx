@@ -5,7 +5,7 @@ import React, { useEffect, useState } from "react";
 import { Col, Container, Placeholder, Row, Table } from "react-bootstrap";
 import styled from "styled-components";
 
-import { getCards } from "../lib/cards";
+import { getCards } from "lib/cards";
 import {
   Column,
   Deck,
@@ -14,16 +14,16 @@ import {
   Grade,
   Card,
   CardType,
-} from "../lib/types";
-import CardView from "../components/CardView";
-import RarityFilter from "../components/RarityFilter";
-import SetSelector from "../components/SetSelector";
-import DeckSelector from "../components/DeckSelector";
-import { COLUMN_ICONS } from "../lib/constants";
-import CardDetailModal from "../components/CardDetailModal";
-import PageFooter from "../components/PageFooter";
-import PageHeader from "../components/PageHeader";
-import CardTypeFilter from "../components/CardTypeFilter";
+} from "lib/types";
+import CardView from "components/CardView";
+import RarityFilter from "components/RarityFilter";
+import SetSelector from "components/SetSelector";
+import DeckSelector from "components/DeckSelector";
+import { COLUMN_ICONS } from "lib/constants";
+import CardDetailModal from "components/CardDetailModal";
+import PageFooter from "components/PageFooter";
+import PageHeader from "components/PageHeader";
+import CardTypeFilter from "components/CardTypeFilter";
 
 const PageContainer = styled(Container)`
   overflow: auto;

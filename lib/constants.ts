@@ -1,4 +1,4 @@
-import { Column, Deck, MagicSet } from "./types";
+import { Column, Deck, MagicSet } from "lib/types";
 
 export const LATEST_SET = MagicSet.CRIMSON_VOW;
 

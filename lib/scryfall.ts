@@ -1,6 +1,7 @@
 import { readFile } from "fs/promises";
 import { upperFirst } from "lodash";
-import { CardType, Column } from "./types";
+
+import { CardType, Column } from "lib/types";
 
 interface ScryfallCard {
   name: string;

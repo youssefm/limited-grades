@@ -1,8 +1,8 @@
 import { sortBy } from "lodash";
 import { Col, Modal, Row, Table } from "react-bootstrap";
 
-import { COLUMN_ICONS, DECK_COLORS, DECK_LABELS } from "../lib/constants";
-import { Card, Deck } from "../lib/types";
+import { COLUMN_ICONS, DECK_COLORS, DECK_LABELS } from "lib/constants";
+import { Card, Deck } from "lib/types";
 
 interface Props {
   card: Card | undefined;
