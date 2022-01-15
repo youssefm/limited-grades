@@ -74,9 +74,7 @@ export interface Card {
 
 interface CardStats {
   winrate: number;
-  improvementWhenDrawn: number;
   gameCount: number;
-  score: number;
   grade: Grade;
 }
 
