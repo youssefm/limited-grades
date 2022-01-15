@@ -1,8 +1,8 @@
 import { groupBy, sortBy } from "lodash";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { useRouter } from "next/dist/client/router";
-import React, { useState } from "react";
-import { Col, Container, Row, Table } from "react-bootstrap";
+import React, { useEffect, useState } from "react";
+import { Col, Container, Placeholder, Row, Table } from "react-bootstrap";
 import styled from "styled-components";
 
 import { getCards } from "../lib/cards";
@@ -67,6 +67,7 @@ const Page = ({
   lastUpdatedAtTicks,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
+  const [selectedSet, setSelectedSet] = useState(set);
   const [deck, setDeck] = useState(Deck.ALL);
   const [visibleRarities, setVisibleRarities] = useState(
     new Set(Object.values(Rarity))
@@ -75,6 +76,12 @@ const Page = ({
     new Set(Object.values(CardType))
   );
   const [modalCard, setModalCard] = useState<Card>();
+
+  useEffect(() => {
+    if (selectedSet !== set) {
+      router.push(`/${selectedSet}`);
+    }
+  }, [selectedSet, set, router]);
 
   const sortedCards = sortBy(
     cards
@@ -95,12 +102,7 @@ const Page = ({
       <PageHeader />
       <Row className="justify-content-center mb-2">
         <Col md="auto">
-          <SetSelector
-            value={set}
-            onChange={(newValue) => {
-              router.push(`/${newValue}`);
-            }}
-          />
+          <SetSelector value={selectedSet} onChange={setSelectedSet} />
         </Col>
         <Col md="auto">
           <DeckSelector value={deck} onChange={setDeck} />
@@ -136,13 +138,19 @@ const Page = ({
               <GradeRowHeader>{grade}</GradeRowHeader>
               {Object.values(Column).map((column) => (
                 <td key={column}>
-                  {cardsByGroup[column + "," + grade]?.map((card) => (
-                    <CardView
-                      key={card.cardUrl}
-                      card={card}
-                      onClick={() => setModalCard(card)}
-                    />
-                  ))}
+                  {cardsByGroup[column + "," + grade]?.map((card) =>
+                    selectedSet === set ? (
+                      <CardView
+                        key={card.cardUrl}
+                        card={card}
+                        onClick={() => setModalCard(card)}
+                      />
+                    ) : (
+                      <Placeholder key={card.cardUrl} animation="glow">
+                        <Placeholder className="w-75" />
+                      </Placeholder>
+                    )
+                  )}
                 </td>
               ))}
             </tr>
