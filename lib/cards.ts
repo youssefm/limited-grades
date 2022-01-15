@@ -2,13 +2,13 @@ import { find } from "lodash";
 import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
 
-import { LATEST_SET } from "./constants";
-import { Card, Deck, MagicSet, Grade, Rarity } from "./types";
-import { getCardColumn, getCardTypes } from "./scryfall";
+import { LATEST_SET } from "lib/constants";
+import { Card, Deck, MagicSet, Grade, Rarity } from "lib/types";
+import { getCardColumn, getCardTypes } from "lib/scryfall";
 import {
   connect as connectToCache,
   IS_ENABLED as CACHE_IS_ENABLED,
-} from "./cache";
+} from "lib/cache";
 
 interface ApiCard {
   name: string;

@@ -5,7 +5,7 @@ import Select, {
 } from "react-select";
 import styled from "styled-components";
 
-import { MagicSet } from "../lib/types";
+import { MagicSet } from "lib/types";
 
 const SET_LABELS: Record<MagicSet, string> = {
   [MagicSet.CRIMSON_VOW]: "Crimson Vow",

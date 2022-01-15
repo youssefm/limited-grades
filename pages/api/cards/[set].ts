@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { getCards } from "../../../lib/cards";
-import { MagicSet } from "../../../lib/types";
+import { getCards } from "lib/cards";
+import { MagicSet } from "lib/types";
 
 export default async function handler(
   request: NextApiRequest,

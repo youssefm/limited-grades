@@ -6,8 +6,8 @@ import Select, {
 } from "react-select";
 import styled from "styled-components";
 
-import { COLUMN_ICONS, DECK_COLORS, DECK_LABELS } from "../lib/constants";
-import { Deck } from "../lib/types";
+import { COLUMN_ICONS, DECK_COLORS, DECK_LABELS } from "lib/constants";
+import { Deck } from "lib/types";
 
 const DeckSelect = styled(Select)`
   min-width: 175px;

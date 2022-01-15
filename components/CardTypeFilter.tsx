@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-import { CardType } from "../lib/types";
+import { CardType } from "lib/types";
 
 const CardTypeIcon = styled.i`
   cursor: pointer;
