@@ -4,7 +4,7 @@ import Script from "next/script";
 import React, { useEffect } from "react";
 
 import Layout from "components/Layout";
-import { GA_TRACKING_ID, pageview } from "lib/gtag";
+import { GA_TRACKING_ID, GA_TRACKING_ENABLED, pageview } from "lib/gtag";
 
 import "styles/global.css";
 import "node_modules/bootstrap/dist/css/bootstrap.min.css";
@@ -26,17 +26,17 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   return (
     <>
       {/* Global Site Tag (gtag.js) - Google Analytics */}
-      (GA_TRACKING_ENABLED && (
-      <>
-        <Script
-          strategy="afterInteractive"
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-        />
-        <Script
-          id="gtag-init"
-          strategy="afterInteractive"
-          dangerouslySetInnerHTML={{
-            __html: `
+      {GA_TRACKING_ENABLED && (
+        <>
+          <Script
+            strategy="afterInteractive"
+            src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+          />
+          <Script
+            id="gtag-init"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
@@ -44,10 +44,10 @@ export default function MyApp({ Component, pageProps }: AppProps) {
               page_path: window.location.pathname,
             });
           `,
-          }}
-        />
-      </>
-      )
+            }}
+          />
+        </>
+      )}
       <Layout>
         <Component {...pageProps} />
       </Layout>
