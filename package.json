@@ -25,6 +25,7 @@
     "styled-components": "^5.3.1"
   },
   "devDependencies": {
+    "@types/gtag.js": "^0.0.8",
     "@types/lodash": "^4.14.174",
     "@types/node": "^17.0.5",
     "@types/proper-lockfile": "^4.1.2",
