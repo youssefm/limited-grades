@@ -29,7 +29,7 @@ const FILTERS = [
     icon: "ms ms-2x ms-instant",
   },
   {
-    label: "other permanents",
+    label: "artifacts, enchantments, and planeswalkers",
     values: [CardType.ARTIFACT, CardType.ENCHANTMENT, CardType.PLANESWALKER],
     icon: "ms ms-2x ms-enchantment",
   },
