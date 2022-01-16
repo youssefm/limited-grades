@@ -1,6 +1,7 @@
 import { groupBy, sortBy } from "lodash";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { useRouter } from "next/dist/client/router";
+import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import { Col, Container, Placeholder, Row, Table } from "react-bootstrap";
 import styled from "styled-components";
@@ -19,7 +20,7 @@ import CardView from "components/CardView";
 import RarityFilter from "components/RarityFilter";
 import SetSelector from "components/SetSelector";
 import DeckSelector from "components/DeckSelector";
-import { COLUMN_ICONS } from "lib/constants";
+import { COLUMN_ICONS, SET_LABELS } from "lib/constants";
 import CardDetailModal from "components/CardDetailModal";
 import PageFooter from "components/PageFooter";
 import PageHeader from "components/PageHeader";
@@ -120,6 +121,9 @@ const Page = ({
 
   return (
     <PageContainer fluid>
+      <Head>
+        <title>Limited Grades – {SET_LABELS[selectedSet]}</title>
+      </Head>
       <PageHeader />
       <Row className="justify-content-center mb-2">
         <Col md="auto">

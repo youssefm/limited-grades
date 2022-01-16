@@ -5,24 +5,8 @@ import Select, {
 } from "react-select";
 import styled from "styled-components";
 
+import { SET_LABELS } from "lib/constants";
 import { MagicSet } from "lib/types";
-
-const SET_LABELS: Record<MagicSet, string> = {
-  [MagicSet.CRIMSON_VOW]: "Crimson Vow",
-  [MagicSet.MIDNIGHT_HUNT]: "Midnight Hunt",
-  [MagicSet.FORGOTTEN_REALM]: "Forgotten Realms",
-  [MagicSet.STRIXHAVEN]: "Strixhaven",
-  [MagicSet.KALDHEIM]: "Kaldheim",
-  [MagicSet.ZENDIKAR]: "Zendikar Rising",
-  [MagicSet.IKORIA]: "Ikoria",
-  [MagicSet.WAR_OF_THE_SPARK]: "War of the Spark",
-  [MagicSet.RAVNICA_ALLEGIANCE]: "Ravnica Allegiance",
-  [MagicSet.GUILDS_OF_RAVNICA]: "Guilds of Ravnica",
-  [MagicSet.DOMINARIA]: "Dominaria",
-  [MagicSet.AMONKHET]: "Amonkhet",
-  [MagicSet.KALADESH]: "Kaladesh",
-  [MagicSet.ARENA_CUBE]: "Arena Cube",
-};
 
 const SetSelect = styled(Select)`
   min-width: 250px;
