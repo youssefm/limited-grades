@@ -1,13 +1,9 @@
-// const Container = styled.div`
-//   margin-top: 300px;
-// `;
-
 interface Props {
   lastUpdatedAtTicks: number;
 }
 
 const PageFooter = ({ lastUpdatedAtTicks }: Props) => (
-  <div>
+  <div className="mt-[300px] border-t-[1px] border-zinc-400 pt-1">
     Developed by{" "}
     <a href="https://github.com/youssefm" target="_blank" rel="noreferrer">
       youssefm
