@@ -1,9 +1,3 @@
-/* Boostrap override */
-.tooltip-inner {
-  max-width: none !important;
-  padding: 0 !important;
-}
-
 /* Github corner */
 .github-corner:hover .octo-arm {
   animation: octocat-wave 560ms ease-in-out;

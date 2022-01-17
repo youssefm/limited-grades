@@ -9,7 +9,7 @@ interface Props {
 }
 
 const PageFooter = ({ lastUpdatedAtTicks }: Props) => (
-  <Container className="border-top border-secondary pt-2">
+  <Container>
     Developed by{" "}
     <a href="https://github.com/youssefm" target="_blank" rel="noreferrer">
       youssefm
