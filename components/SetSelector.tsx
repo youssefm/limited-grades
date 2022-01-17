@@ -7,14 +7,6 @@ import Select, {
 import { SET_LABELS } from "lib/constants";
 import { MagicSet } from "lib/types";
 
-// const SetSelect = styled(Select)`
-//   min-width: 250px;
-// ` as typeof Select;
-
-// const OptionLabel = styled.span`
-//   margin-left: 8px;
-// `;
-
 type SetOption = { value: MagicSet; label: string };
 
 const SingleValue = ({
@@ -23,14 +15,14 @@ const SingleValue = ({
 }: SingleValueProps<SetOption, false>) => (
   <components.SingleValue {...props}>
     <i className={`ss ss-fw ss-${props.data.value}`} />
-    <span>{children}</span>
+    <span className="ml-2">{children}</span>
   </components.SingleValue>
 );
 
 const Option = (props: OptionProps<SetOption, false>) => (
   <components.Option {...props}>
     <i className={`ss ss-fw ss-${props.data.value}`} />
-    <span>{props.data.label}</span>
+    <span className="ml-2">{props.data.label}</span>
   </components.Option>
 );
 
@@ -57,6 +49,7 @@ const SetSelector = (props: Props) => {
       isMulti={false}
       components={{ Option, SingleValue }}
       instanceId="set-select"
+      className="w-[250px]"
     />
   );
 };
