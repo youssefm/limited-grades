@@ -1,4 +1,3 @@
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
 import styled from "styled-components";
 
 import { Card, Rarity } from "lib/types";
@@ -6,13 +5,6 @@ import { Card, Rarity } from "lib/types";
 const CardText = styled.span`
   cursor: pointer;
 `;
-
-const CustomTooltip = styled(Tooltip)`
-  @media only screen and (max-width: 1366px) {
-    display: none;
-  }
-`;
-
 const CARD_TEXT_BY_RARITY = {
   [Rarity.COMMON]: styled(CardText)`
     color: #1a1718;
@@ -40,26 +32,17 @@ const CardView = (props: Props) => {
     CARD_TEXT_BY_RARITY[card.rarity] || CARD_TEXT_BY_RARITY[Rarity.COMMON];
 
   return (
-    <div>
-      <OverlayTrigger
-        placement="bottom-start"
-        overlay={
-          <CustomTooltip>
-            <img src={card.cardUrl} alt={card.name} width="240" height="340" />
-            {card.cardBackUrl && (
-              <img
-                src={card.cardBackUrl}
-                alt={card.name}
-                width="240"
-                height="340"
-              />
-            )}
-          </CustomTooltip>
-        }
-      >
-        <CardText onClick={onClick}>{card.name}</CardText>
-      </OverlayTrigger>
-    </div>
+    // TODO: Re-enable hover functionality
+    // <img src={card.cardUrl} alt={card.name} width="240" height="340" />
+    // {card.cardBackUrl && (
+    //   <img
+    //     src={card.cardBackUrl}
+    //     alt={card.name}
+    //     width="240"
+    //     height="340"
+    //   />
+    // )}
+    <CardText onClick={onClick}>{card.name}</CardText>
   );
 };
 

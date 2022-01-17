@@ -3,7 +3,6 @@ import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import { Col, Container, Placeholder, Row, Table } from "react-bootstrap";
 import styled from "styled-components";
 
 import { getCards } from "lib/cards";
@@ -26,9 +25,9 @@ import PageFooter from "components/PageFooter";
 import PageHeader from "components/PageHeader";
 import CardTypeFilter from "components/CardTypeFilter";
 
-const PageContainer = styled(Container)`
-  overflow: auto;
-`;
+// const PageContainer = styled(Container)`
+//   overflow: auto;
+// `;
 
 const GradeRowHeader = styled.th`
   width: 3%;
@@ -78,13 +77,13 @@ const Page = ({
     new Set(Object.values(CardType))
   );
   const [modalCard, setModalCard] = useState<Card>();
-  const [showPlaceholders, setShowPlaceholders] = useState(false);
+  const [showSkeletons, setShowSkeletons] = useState(false);
 
   useEffect(() => {
     if (selectedSet === set) {
       if (loading) {
         setLoading(false);
-        setShowPlaceholders(false);
+        setShowSkeletons(false);
       }
     } else {
       if (loading) {
@@ -98,10 +97,10 @@ const Page = ({
   useEffect(() => {
     if (loading) {
       // Add small delay before showing placeholders to prevent screen stuttering
-      const timer = setTimeout(() => setShowPlaceholders(true), 300);
+      const timer = setTimeout(() => setShowSkeletons(true), 300);
       return () => clearTimeout(timer);
     } else {
-      setShowPlaceholders(false);
+      setShowSkeletons(false);
     }
   }, [loading]);
 
@@ -120,39 +119,29 @@ const Page = ({
   );
 
   return (
-    <PageContainer fluid>
+    <div>
       <Head>
         <title>Limited Grades – {SET_LABELS[selectedSet]}</title>
       </Head>
       <PageHeader />
-      <Row className="justify-content-center mb-2">
-        <Col md="auto">
-          <SetSelector
-            value={selectedSet}
-            onChange={(newValue) => {
-              setSelectedSet(newValue);
-              setLoading(true);
-            }}
-          />
-        </Col>
-        <Col md="auto">
-          <DeckSelector value={deck} onChange={setDeck} />
-        </Col>
-        <Col md="auto">
-          <RarityFilter
-            set={set}
-            values={visibleRarities}
-            setValues={setVisibleRarities}
-          />
-        </Col>
-        <Col md="auto">
-          <CardTypeFilter
-            values={visibleCardTypes}
-            setValues={setVisibleCardTypes}
-          />
-        </Col>
-      </Row>
-      <Table>
+      <SetSelector
+        value={selectedSet}
+        onChange={(newValue) => {
+          setSelectedSet(newValue);
+          setLoading(true);
+        }}
+      />
+      <DeckSelector value={deck} onChange={setDeck} />
+      <RarityFilter
+        set={set}
+        values={visibleRarities}
+        setValues={setVisibleRarities}
+      />
+      <CardTypeFilter
+        values={visibleCardTypes}
+        setValues={setVisibleCardTypes}
+      />
+      <table>
         <thead>
           <tr>
             <th></th>
@@ -169,33 +158,26 @@ const Page = ({
               <GradeRowHeader>{grade}</GradeRowHeader>
               {Object.values(Column).map((column) => (
                 <td key={column}>
-                  {cardsByGroup[column + "," + grade]?.map((card) =>
-                    showPlaceholders ? (
-                      <Placeholder
-                        key={card.cardUrl}
-                        className="w-75"
-                        bg="light"
-                      />
-                    ) : (
-                      <CardView
-                        key={card.cardUrl}
-                        card={card}
-                        onClick={() => setModalCard(card)}
-                      />
-                    )
-                  )}
+                  {/* TODO: Re-enable skeletons */}
+                  {cardsByGroup[column + "," + grade]?.map((card) => (
+                    <CardView
+                      key={card.cardUrl}
+                      card={card}
+                      onClick={() => setModalCard(card)}
+                    />
+                  ))}
                 </td>
               ))}
             </tr>
           ))}
         </tbody>
-      </Table>
+      </table>
       <CardDetailModal
         card={modalCard}
         handleClose={() => setModalCard(undefined)}
       />
       <PageFooter lastUpdatedAtTicks={lastUpdatedAtTicks} />
-    </PageContainer>
+    </div>
   );
 };
 
