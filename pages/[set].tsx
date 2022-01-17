@@ -24,22 +24,6 @@ import PageFooter from "components/PageFooter";
 import PageHeader from "components/PageHeader";
 import CardTypeFilter from "components/CardTypeFilter";
 
-// const PageContainer = styled(Container)`
-//   overflow: auto;
-// `;
-
-// const GradeRowHeader = styled.th`
-//   width: 3%;
-//   vertical-align: middle;
-//   background-color: #f0f1f2 !important;
-// `;
-
-// const CardColumnHeader = styled.th`
-//   text-align: center;
-//   width: 14%;
-//   background-color: #f0f1f2 !important;
-// `;
-
 export const getStaticPaths = async () => {
   return {
     paths: Object.values(MagicSet).map((set) => ({ params: { set } })),
@@ -118,34 +102,40 @@ const Page = ({
   );
 
   return (
-    <div>
+    <div className="p-2 overflow-auto">
       <Head>
         <title>Limited Grades – {SET_LABELS[selectedSet]}</title>
       </Head>
-      <PageHeader />
-      <SetSelector
-        value={selectedSet}
-        onChange={(newValue) => {
-          setSelectedSet(newValue);
-          setLoading(true);
-        }}
-      />
-      <DeckSelector value={deck} onChange={setDeck} />
-      <RarityFilter
-        set={set}
-        values={visibleRarities}
-        setValues={setVisibleRarities}
-      />
-      <CardTypeFilter
-        values={visibleCardTypes}
-        setValues={setVisibleCardTypes}
-      />
-      <table>
+      {/* TODO: Reintroduce page header info */}
+      {/* <PageHeader /> */}
+      <div className="px-8 py-2 bg-zinc-200 rounded-t-lg">
+        <SetSelector
+          value={selectedSet}
+          onChange={(newValue) => {
+            setSelectedSet(newValue);
+            setLoading(true);
+          }}
+        />
+        <DeckSelector value={deck} onChange={setDeck} />
+        <RarityFilter
+          set={set}
+          values={visibleRarities}
+          setValues={setVisibleRarities}
+        />
+        <CardTypeFilter
+          values={visibleCardTypes}
+          setValues={setVisibleCardTypes}
+        />
+      </div>
+      <table className="w-full table-fixed">
         <thead>
           <tr>
-            <th></th>
+            <th className="w-16 h-11 bg-zinc-100 min-w-[10%] max-w-[20%]"></th>
             {Object.values(Column).map((column) => (
-              <th key={column}>
+              <th
+                key={column}
+                className="h-11 bg-zinc-100 min-w-[10%] max-w-[20%]"
+              >
                 <i className={COLUMN_ICONS[column]}></i>
               </th>
             ))}
@@ -154,9 +144,11 @@ const Page = ({
         <tbody>
           {Object.values(Grade).map((grade) => (
             <tr key={grade}>
-              <th>{grade}</th>
+              <th className="w-16 bg-zinc-100 text-2xl text-left pl-4">
+                {grade}
+              </th>
               {Object.values(Column).map((column) => (
-                <td key={column}>
+                <td key={column} className="p-2">
                   {/* TODO: Re-enable skeletons */}
                   {cardsByGroup[column + "," + grade]?.map((card) => (
                     <CardView

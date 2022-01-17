@@ -69,7 +69,7 @@ const Layout: FC = ({ children }) => {
             </svg>
           </a>
         </div>
-        <h1>Limited Grades</h1>
+        <h1 className="text-2xl px-8 py-4">Limited Grades</h1>
         {children}
       </main>
     </>

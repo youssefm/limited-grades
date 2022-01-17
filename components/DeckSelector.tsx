@@ -8,14 +8,6 @@ import Select, {
 import { COLUMN_ICONS, DECK_COLORS, DECK_LABELS } from "lib/constants";
 import { Deck } from "lib/types";
 
-// const DeckSelect = styled(Select)`
-//   min-width: 175px;
-// ` as typeof Select;
-
-// const OptionLabel = styled.span`
-//   margin-left: 8px;
-// `;
-
 type DeckOption = { value: Deck; label: string };
 
 const formatDeckOption = (deck: Deck, label: ReactNode) => {
@@ -28,7 +20,7 @@ const formatDeckOption = (deck: Deck, label: ReactNode) => {
         {deckColors.map((column) => (
           <i key={column} className={COLUMN_ICONS[column]} />
         ))}
-        <span>{label}</span>
+        <span className="ml-2">{label}</span>
       </>
     );
   }
@@ -75,6 +67,7 @@ const DeckSelector = (props: Props) => {
       isMulti={false}
       components={{ Option, SingleValue }}
       instanceId="deck-select"
+      className="w-[175px]"
     />
   );
 };

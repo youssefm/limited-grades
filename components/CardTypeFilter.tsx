@@ -1,20 +1,5 @@
 import { CardType } from "lib/types";
 
-// const CardTypeIcon = styled.i`
-//   cursor: pointer;
-//   opacity: 90%;
-//   width: 1.28571429em;
-//   text-align: center;
-// `;
-
-// const HiddenInput = styled.input`
-//   display: none;
-
-//   :not(:checked) + i {
-//     opacity: 30%;
-//   }
-// `;
-
 const FILTERS = [
   {
     label: "creatures",
@@ -66,10 +51,11 @@ const CardTypeFilter = (props: Props) => {
                 }
                 setValues(newValues);
               }}
+              className="peer hidden"
             ></input>
             <i
               title={checked ? `Hide ${filter.label}` : `Show ${filter.label}`}
-              className={filter.icon}
+              className={`${filter.icon} cursor-pointer opacity-30 peer-checked:opacity-90 w-[1.28571429em] text-center`}
             />
           </label>
         );
