@@ -1,21 +1,19 @@
-import styled from "styled-components";
-
 import { CardType } from "lib/types";
 
-const CardTypeIcon = styled.i`
-  cursor: pointer;
-  opacity: 90%;
-  width: 1.28571429em;
-  text-align: center;
-`;
+// const CardTypeIcon = styled.i`
+//   cursor: pointer;
+//   opacity: 90%;
+//   width: 1.28571429em;
+//   text-align: center;
+// `;
 
-const HiddenInput = styled.input`
-  display: none;
+// const HiddenInput = styled.input`
+//   display: none;
 
-  :not(:checked) + i {
-    opacity: 30%;
-  }
-`;
+//   :not(:checked) + i {
+//     opacity: 30%;
+//   }
+// `;
 
 const FILTERS = [
   {
@@ -54,7 +52,7 @@ const CardTypeFilter = (props: Props) => {
         const checked = filter.values.every((cardType) => values.has(cardType));
         return (
           <label key={index}>
-            <HiddenInput
+            <input
               type="checkbox"
               checked={checked}
               onChange={() => {
@@ -68,8 +66,8 @@ const CardTypeFilter = (props: Props) => {
                 }
                 setValues(newValues);
               }}
-            ></HiddenInput>
-            <CardTypeIcon
+            ></input>
+            <i
               title={checked ? `Hide ${filter.label}` : `Show ${filter.label}`}
               className={filter.icon}
             />

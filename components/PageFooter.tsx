@@ -1,15 +1,13 @@
-import styled from "styled-components";
-
-const Container = styled.div`
-  margin-top: 300px;
-`;
+// const Container = styled.div`
+//   margin-top: 300px;
+// `;
 
 interface Props {
   lastUpdatedAtTicks: number;
 }
 
 const PageFooter = ({ lastUpdatedAtTicks }: Props) => (
-  <Container>
+  <div>
     Developed by{" "}
     <a href="https://github.com/youssefm" target="_blank" rel="noreferrer">
       youssefm
@@ -42,7 +40,7 @@ const PageFooter = ({ lastUpdatedAtTicks }: Props) => (
     </a>
     <br />
     <em>Last updated at: {new Date(lastUpdatedAtTicks).toLocaleString()}</em>
-  </Container>
+  </div>
 );
 
 export default PageFooter;

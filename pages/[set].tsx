@@ -3,7 +3,6 @@ import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import styled from "styled-components";
 
 import { getCards } from "lib/cards";
 import {
@@ -29,17 +28,17 @@ import CardTypeFilter from "components/CardTypeFilter";
 //   overflow: auto;
 // `;
 
-const GradeRowHeader = styled.th`
-  width: 3%;
-  vertical-align: middle;
-  background-color: #f0f1f2 !important;
-`;
+// const GradeRowHeader = styled.th`
+//   width: 3%;
+//   vertical-align: middle;
+//   background-color: #f0f1f2 !important;
+// `;
 
-const CardColumnHeader = styled.th`
-  text-align: center;
-  width: 14%;
-  background-color: #f0f1f2 !important;
-`;
+// const CardColumnHeader = styled.th`
+//   text-align: center;
+//   width: 14%;
+//   background-color: #f0f1f2 !important;
+// `;
 
 export const getStaticPaths = async () => {
   return {
@@ -146,16 +145,16 @@ const Page = ({
           <tr>
             <th></th>
             {Object.values(Column).map((column) => (
-              <CardColumnHeader key={column}>
+              <th key={column}>
                 <i className={COLUMN_ICONS[column]}></i>
-              </CardColumnHeader>
+              </th>
             ))}
           </tr>
         </thead>
         <tbody>
           {Object.values(Grade).map((grade) => (
             <tr key={grade}>
-              <GradeRowHeader>{grade}</GradeRowHeader>
+              <th>{grade}</th>
               {Object.values(Column).map((column) => (
                 <td key={column}>
                   {/* TODO: Re-enable skeletons */}

@@ -3,18 +3,17 @@ import Select, {
   OptionProps,
   SingleValueProps,
 } from "react-select";
-import styled from "styled-components";
 
 import { SET_LABELS } from "lib/constants";
 import { MagicSet } from "lib/types";
 
-const SetSelect = styled(Select)`
-  min-width: 250px;
-` as typeof Select;
+// const SetSelect = styled(Select)`
+//   min-width: 250px;
+// ` as typeof Select;
 
-const OptionLabel = styled.span`
-  margin-left: 8px;
-`;
+// const OptionLabel = styled.span`
+//   margin-left: 8px;
+// `;
 
 type SetOption = { value: MagicSet; label: string };
 
@@ -24,14 +23,14 @@ const SingleValue = ({
 }: SingleValueProps<SetOption, false>) => (
   <components.SingleValue {...props}>
     <i className={`ss ss-fw ss-${props.data.value}`} />
-    <OptionLabel>{children}</OptionLabel>
+    <span>{children}</span>
   </components.SingleValue>
 );
 
 const Option = (props: OptionProps<SetOption, false>) => (
   <components.Option {...props}>
     <i className={`ss ss-fw ss-${props.data.value}`} />
-    <OptionLabel>{props.data.label}</OptionLabel>
+    <span>{props.data.label}</span>
   </components.Option>
 );
 
@@ -44,7 +43,7 @@ const SetSelector = (props: Props) => {
   const { value, onChange } = props;
 
   return (
-    <SetSelect
+    <Select
       value={{ value: value, label: SET_LABELS[value] }}
       onChange={(selectedOption) => {
         if (selectedOption) {
