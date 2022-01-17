@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  a {
+    @apply underline;
+  }
+}
+
 /* Github corner */
 .github-corner:hover .octo-arm {
   animation: octocat-wave 560ms ease-in-out;
