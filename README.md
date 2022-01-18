@@ -33,6 +33,5 @@ REDIS_URL=<your Redis connection URL>
 # To Do
 
 - Re-introduce about this page as a tooltip
-- Add a close button to the modal
 - Add filter labels
 - Add logo to title
