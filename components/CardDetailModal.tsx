@@ -1,4 +1,5 @@
 import { sortBy } from "lodash";
+import { IoClose } from "react-icons/io5";
 
 import { COLUMN_ICONS, DECK_COLORS, DECK_LABELS } from "lib/constants";
 import { Card, Deck } from "lib/types";
@@ -27,18 +28,10 @@ const CardDetailModal = (props: Props) => {
         <div>
           <Dialog.Title className="p-4 border-b-[1px] flex w-full items-center">
             <span className="flex-grow text-2xl font-medium">{card.name}</span>
-            <svg
-              className="w-6 h-6 hover:text-zinc-500 hover:cursor-pointer"
-              stroke="currentColor"
+            <IoClose
               onClick={handleClose}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                d="M6 18L18 6M6 6l12 12"
-              ></path>
-            </svg>
+              className="text-2xl hover:text-zinc-500 hover:cursor-pointer"
+            />
           </Dialog.Title>
           <div className="p-4 gap-6 sm:flex">
             <img
