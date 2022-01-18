@@ -1,31 +1,14 @@
-import { OverlayTrigger, Tooltip } from "react-bootstrap";
-import styled from "styled-components";
+import { Tooltip } from "react-tippy";
 
 import { Card, Rarity } from "lib/types";
 
-const CardText = styled.span`
-  cursor: pointer;
-`;
-
-const CustomTooltip = styled(Tooltip)`
-  @media only screen and (max-width: 1366px) {
-    display: none;
-  }
-`;
-
-const CARD_TEXT_BY_RARITY = {
-  [Rarity.COMMON]: styled(CardText)`
-    color: #1a1718;
-  `,
-  [Rarity.UNCOMMON]: styled(CardText)`
-    color: #707883;
-  `,
-  [Rarity.RARE]: styled(CardText)`
-    color: #a58e4a;
-  `,
-  [Rarity.MYTHIC]: styled(CardText)`
-    color: #bf4427;
-  `,
+// Note: if we try to use string interpolation to create these,
+// TailwindCSS stops recognizing them and purges them from the CSS
+const TEXT_COLORS = {
+  [Rarity.COMMON]: "text-common",
+  [Rarity.UNCOMMON]: "text-uncommon",
+  [Rarity.RARE]: "text-rare",
+  [Rarity.MYTHIC]: "text-mythic",
 };
 
 interface Props {
@@ -36,15 +19,13 @@ interface Props {
 const CardView = (props: Props) => {
   const { card, onClick } = props;
 
-  const CardText =
-    CARD_TEXT_BY_RARITY[card.rarity] || CARD_TEXT_BY_RARITY[Rarity.COMMON];
+  const tooltipWidthClass = card.cardBackUrl ? `w-[480px]` : `w-[240px]`;
 
   return (
     <div>
-      <OverlayTrigger
-        placement="bottom-start"
-        overlay={
-          <CustomTooltip>
+      <Tooltip
+        html={
+          <div className={`flex ${tooltipWidthClass}`}>
             <img src={card.cardUrl} alt={card.name} width="240" height="340" />
             {card.cardBackUrl && (
               <img
@@ -54,11 +35,19 @@ const CardView = (props: Props) => {
                 height="340"
               />
             )}
-          </CustomTooltip>
+          </div>
         }
+        position="bottom-start"
+        arrow
+        hideOnClick
       >
-        <CardText onClick={onClick}>{card.name}</CardText>
-      </OverlayTrigger>
+        <span
+          onClick={onClick}
+          className={`cursor-pointer ${TEXT_COLORS[card.rarity]}`}
+        >
+          {card.name}
+        </span>
+      </Tooltip>
     </div>
   );
 };

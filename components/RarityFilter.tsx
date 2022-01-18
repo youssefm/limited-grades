@@ -1,18 +1,4 @@
-import styled from "styled-components";
 import { MagicSet, Rarity } from "lib/types";
-
-const SetIcon = styled.i`
-  cursor: pointer;
-  opacity: 90%;
-`;
-
-const HiddenInput = styled.input`
-  display: none;
-
-  :not(:checked) + i {
-    opacity: 30%;
-  }
-`;
 
 interface Props {
   set: MagicSet;
@@ -27,7 +13,7 @@ const RarityFilter = (props: Props) => {
     <div>
       {Object.values(Rarity).map((rarity) => (
         <label key={rarity}>
-          <HiddenInput
+          <input
             type="checkbox"
             checked={values.has(rarity)}
             onChange={() => {
@@ -39,10 +25,11 @@ const RarityFilter = (props: Props) => {
               }
               setValues(newValues);
             }}
-          ></HiddenInput>
-          <SetIcon
+            className="peer hidden"
+          ></input>
+          <i
             title={values.has(rarity) ? `Hide ${rarity}s` : `Show ${rarity}s`}
-            className={`ss ss-2x ss-fw ss-${set} ss-${rarity}`}
+            className={`ss ss-2x ss-fw ss-${set} ss-${rarity} cursor-pointer opacity-30 peer-checked:opacity-90`}
           />
         </label>
       ))}

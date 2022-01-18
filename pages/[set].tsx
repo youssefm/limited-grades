@@ -3,8 +3,6 @@ import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
-import { Col, Container, Placeholder, Row, Table } from "react-bootstrap";
-import styled from "styled-components";
 
 import { getCards } from "lib/cards";
 import {
@@ -23,24 +21,7 @@ import DeckSelector from "components/DeckSelector";
 import { COLUMN_ICONS, SET_LABELS } from "lib/constants";
 import CardDetailModal from "components/CardDetailModal";
 import PageFooter from "components/PageFooter";
-import PageHeader from "components/PageHeader";
 import CardTypeFilter from "components/CardTypeFilter";
-
-const PageContainer = styled(Container)`
-  overflow: auto;
-`;
-
-const GradeRowHeader = styled.th`
-  width: 3%;
-  vertical-align: middle;
-  background-color: #f0f1f2 !important;
-`;
-
-const CardColumnHeader = styled.th`
-  text-align: center;
-  width: 14%;
-  background-color: #f0f1f2 !important;
-`;
 
 export const getStaticPaths = async () => {
   return {
@@ -78,13 +59,13 @@ const Page = ({
     new Set(Object.values(CardType))
   );
   const [modalCard, setModalCard] = useState<Card>();
-  const [showPlaceholders, setShowPlaceholders] = useState(false);
+  const [showSkeletons, setShowSkeletons] = useState(false);
 
   useEffect(() => {
     if (selectedSet === set) {
       if (loading) {
         setLoading(false);
-        setShowPlaceholders(false);
+        setShowSkeletons(false);
       }
     } else {
       if (loading) {
@@ -98,10 +79,10 @@ const Page = ({
   useEffect(() => {
     if (loading) {
       // Add small delay before showing placeholders to prevent screen stuttering
-      const timer = setTimeout(() => setShowPlaceholders(true), 300);
+      const timer = setTimeout(() => setShowSkeletons(true), 300);
       return () => clearTimeout(timer);
     } else {
-      setShowPlaceholders(false);
+      setShowSkeletons(false);
     }
   }, [loading]);
 
@@ -120,61 +101,58 @@ const Page = ({
   );
 
   return (
-    <PageContainer fluid>
+    <div className="p-2 overflow-auto">
       <Head>
         <title>Limited Grades – {SET_LABELS[selectedSet]}</title>
       </Head>
-      <PageHeader />
-      <Row className="justify-content-center mb-2">
-        <Col md="auto">
-          <SetSelector
-            value={selectedSet}
-            onChange={(newValue) => {
-              setSelectedSet(newValue);
-              setLoading(true);
-            }}
-          />
-        </Col>
-        <Col md="auto">
-          <DeckSelector value={deck} onChange={setDeck} />
-        </Col>
-        <Col md="auto">
+      <div className="px-4 py-4 bg-zinc-200 rounded-t-lg flex gap-2 flex-col lg:px-8 lg:flex-row lg:gap-4">
+        <SetSelector
+          value={selectedSet}
+          onChange={(newValue) => {
+            setSelectedSet(newValue);
+            setLoading(true);
+          }}
+        />
+        <DeckSelector value={deck} onChange={setDeck} />
+        <div className="flex gap-4">
           <RarityFilter
             set={set}
             values={visibleRarities}
             setValues={setVisibleRarities}
           />
-        </Col>
-        <Col md="auto">
           <CardTypeFilter
             values={visibleCardTypes}
             setValues={setVisibleCardTypes}
           />
-        </Col>
-      </Row>
-      <Table>
+        </div>
+      </div>
+      <table className="w-full lg:table-fixed">
         <thead>
-          <tr>
-            <th></th>
+          <tr className="border-b-2 border-zinc-800">
+            <th className="w-16 h-11 bg-zinc-100 min-w-[10%] max-w-[20%]"></th>
             {Object.values(Column).map((column) => (
-              <CardColumnHeader key={column}>
+              <th
+                key={column}
+                className="h-11 bg-zinc-100 min-w-[10%] max-w-[20%]"
+              >
                 <i className={COLUMN_ICONS[column]}></i>
-              </CardColumnHeader>
+              </th>
             ))}
           </tr>
         </thead>
         <tbody>
           {Object.values(Grade).map((grade) => (
-            <tr key={grade}>
-              <GradeRowHeader>{grade}</GradeRowHeader>
+            <tr key={grade} className="border-b-[1px] border-zinc-200">
+              <th className="w-16 bg-zinc-100 text-xl text-left lg:pl-4">
+                {grade}
+              </th>
               {Object.values(Column).map((column) => (
-                <td key={column}>
+                <td key={column} className="p-2 align-top">
                   {cardsByGroup[column + "," + grade]?.map((card) =>
-                    showPlaceholders ? (
-                      <Placeholder
+                    showSkeletons ? (
+                      <div
                         key={card.cardUrl}
-                        className="w-75"
-                        bg="light"
+                        className="w-3/4 h-4 my-1 bg-zinc-200 rounded-2xl animate-pulse"
                       />
                     ) : (
                       <CardView
@@ -189,13 +167,13 @@ const Page = ({
             </tr>
           ))}
         </tbody>
-      </Table>
+      </table>
       <CardDetailModal
         card={modalCard}
         handleClose={() => setModalCard(undefined)}
       />
       <PageFooter lastUpdatedAtTicks={lastUpdatedAtTicks} />
-    </PageContainer>
+    </div>
   );
 };
 

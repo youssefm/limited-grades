@@ -1,7 +1,26 @@
-/* Boostrap override */
-.tooltip-inner {
-  max-width: none !important;
-  padding: 0 !important;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  a {
+    @apply underline hover:text-blue-600;
+  }
+}
+
+/* Tippy overrides */
+.tippy-popper {
+  @apply max-w-none !important;
+}
+
+.tippy-tooltip {
+  @apply p-0 !important;
+}
+
+@media only screen and (max-width: 1366px) {
+  .tippy-popper {
+    display: none;
+  }
 }
 
 /* Github corner */
@@ -43,27 +62,4 @@
   .github-corner .octo-arm {
     animation: octocat-wave 560ms ease-in-out;
   }
-}
-
-/* Shape divider */
-.shape-divider {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  overflow: hidden;
-  line-height: 0;
-  transform: rotate(180deg);
-}
-
-.shape-divider svg {
-  position: relative;
-  display: block;
-  width: calc(165% + 1.3px);
-  height: 61px;
-  transform: rotateY(180deg);
-}
-
-.shape-divider .shape-fill {
-  fill: #ffffff;
 }
