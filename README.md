@@ -35,3 +35,4 @@ REDIS_URL=<your Redis connection URL>
 - Re-introduce about this page as a tooltip
 - Add filter labels
 - Add logo to title
+- Add a dark mode toggle?
