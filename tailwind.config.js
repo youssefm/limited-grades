@@ -11,6 +11,9 @@ module.exports = {
         rare: "#a58e4a",
         mythic: "#bf4427",
       },
+      fontFamily: {
+        belerenSmallCaps: "Beleren SmallCaps Bold",
+      },
     },
   },
   plugins: [],
