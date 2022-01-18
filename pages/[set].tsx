@@ -105,7 +105,7 @@ const Page = ({
       <Head>
         <title>Limited Grades – {SET_LABELS[selectedSet]}</title>
       </Head>
-      <div className="px-4 py-4 bg-zinc-200 rounded-t-lg flex gap-2 flex-col lg:px-8 lg:flex-row lg:gap-4">
+      <div className="px-4 py-4 bg-zinc-100 rounded-t-lg flex gap-2 flex-col lg:px-8 lg:flex-row lg:gap-4">
         <SetSelector
           value={selectedSet}
           onChange={(newValue) => {
@@ -129,9 +129,9 @@ const Page = ({
       <table className="w-full lg:table-fixed">
         <thead>
           <tr className="border-b-2 border-zinc-800">
-            <th className="w-16 h-11 bg-zinc-100"></th>
+            <th className="w-16 h-11 bg-zinc-200"></th>
             {Object.values(Column).map((column) => (
-              <th key={column} className="h-11 bg-zinc-100">
+              <th key={column} className="h-11 bg-zinc-200">
                 <i className={COLUMN_ICONS[column]}></i>
               </th>
             ))}
@@ -140,11 +140,11 @@ const Page = ({
         <tbody>
           {Object.values(Grade).map((grade) => (
             <tr key={grade} className="border-b-[1px] border-zinc-200">
-              <th className="w-16 bg-zinc-100 text-xl text-left lg:pl-4">
+              <th className="w-16 bg-zinc-200 text-xl text-left lg:pl-4">
                 {grade}
               </th>
               {Object.values(Column).map((column) => (
-                <td key={column} className="px-1 py-2 align-top bg-zinc-50">
+                <td key={column} className="px-1 py-2 align-top bg-zinc-100">
                   {cardsByGroup[column + "," + grade]?.map((card) =>
                     showSkeletons ? (
                       <div
