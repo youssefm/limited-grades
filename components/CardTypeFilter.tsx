@@ -1,3 +1,5 @@
+import { FC } from "react";
+
 import { CardType } from "lib/types";
 
 const FILTERS = [
@@ -28,7 +30,7 @@ interface Props {
   setValues: (cardTypes: Set<CardType>) => void;
 }
 
-const CardTypeFilter = (props: Props) => {
+const CardTypeFilter: FC<Props> = (props) => {
   const { values, setValues } = props;
 
   return (

@@ -1,3 +1,4 @@
+import { FC } from "react";
 import Select, {
   components,
   OptionProps,
@@ -19,7 +20,7 @@ const SingleValue = ({
   </components.SingleValue>
 );
 
-const Option = (props: OptionProps<SetOption, false>) => (
+const Option: FC<OptionProps<SetOption, false>> = (props) => (
   <components.Option {...props}>
     <i className={`ss ss-fw ss-${props.data.value}`} />
     <span className="ml-2">{props.data.label}</span>
@@ -31,7 +32,7 @@ interface Props {
   onChange: (selectedValue: MagicSet) => void;
 }
 
-const SetSelector = (props: Props) => {
+const SetSelector: FC<Props> = (props) => {
   const { value, onChange } = props;
 
   return (

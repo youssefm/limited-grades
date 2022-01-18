@@ -1,4 +1,5 @@
 import { sortBy } from "lodash";
+import { FC } from "react";
 
 import { Modal } from "components/Modal";
 import { COLUMN_ICONS, DECK_COLORS, DECK_LABELS } from "lib/constants";
@@ -9,7 +10,7 @@ interface Props {
   onClose: () => void;
 }
 
-const CardDetailModal = (props: Props) => {
+const CardDetailModal: FC<Props> = (props) => {
   const { card, onClose } = props;
 
   if (!card) {

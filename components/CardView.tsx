@@ -1,3 +1,5 @@
+import { FC } from "react";
+
 import { LazyTippy } from "components/LazyTippy";
 import { Card, Rarity } from "lib/types";
 
@@ -15,7 +17,7 @@ interface Props {
   onClick: () => void;
 }
 
-const CardView = (props: Props) => {
+const CardView: FC<Props> = (props) => {
   const { card, onClick } = props;
 
   const tooltipWidthClass = card.cardBackUrl ? `w-[480px]` : `w-[240px]`;

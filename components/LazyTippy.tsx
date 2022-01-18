@@ -3,9 +3,9 @@
 // Will only render the `content` or `render` elements if the tippy is mounted to the DOM.
 // Replace <Tippy /> with <LazyTippy /> component and it should work the same.
 import Tippy, { TippyProps } from "@tippyjs/react";
-import { useState } from "react";
+import { FC, useState } from "react";
 
-export const LazyTippy = (props: TippyProps) => {
+export const LazyTippy: FC<TippyProps> = (props) => {
   const [mounted, setMounted] = useState(false);
 
   const lazyPlugin = {
