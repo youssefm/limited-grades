@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.4.3",
+    "@saeris/typeface-beleren-bold": "^1.0.1",
     "@tippyjs/react": "^4.2.6",
     "keyrune": "^3.8.4",
     "lodash": "^4.17.21",

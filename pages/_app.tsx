@@ -7,9 +7,10 @@ import Layout from "components/Layout";
 import { GA_TRACKING_ID, GA_TRACKING_ENABLED, pageview } from "lib/gtag";
 
 import "styles/global.css";
-import "tippy.js/dist/tippy.css";
+import "@saeris/typeface-beleren-bold";
 import "keyrune/css/keyrune.min.css";
 import "mana-font/css/mana.min.css";
+import "tippy.js/dist/tippy.css";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();

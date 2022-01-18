@@ -34,6 +34,5 @@ REDIS_URL=<your Redis connection URL>
 
 - Re-introduce about this page as a tooltip
 - Add a close button to the modal
-- Use Beleren font for limited grades header
 - Add filter labels
 - Add logo to title
