@@ -105,7 +105,7 @@ const Page = ({
       <Head>
         <title>Limited Grades – {SET_LABELS[selectedSet]}</title>
       </Head>
-      <div className="px-4 py-4 mb-2 bg-zinc-200 rounded-lg flex gap-2 flex-col lg:px-8 lg:flex-row lg:gap-4">
+      <div className="px-4 py-4 mb-0.5 bg-zinc-200 rounded-t-lg flex gap-2 flex-col lg:px-8 lg:flex-row lg:gap-4">
         <SetSelector
           value={selectedSet}
           onChange={(newValue) => {
@@ -129,9 +129,9 @@ const Page = ({
       <table className="w-full lg:table-fixed">
         <thead>
           <tr>
-            <th className="w-16 h-11 bg-zinc-200 rounded-tl-lg"></th>
+            <th className="w-16 h-11 bg-zinc-200"></th>
             {Object.values(Column).map((column) => (
-              <th key={column} className="h-11 bg-zinc-200 last:rounded-tr-lg">
+              <th key={column} className="h-11 bg-zinc-200">
                 <i className={COLUMN_ICONS[column]}></i>
               </th>
             ))}
