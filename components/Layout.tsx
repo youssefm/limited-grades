@@ -41,8 +41,8 @@ const Layout: FC = ({ children }) => {
             rel="noreferrer"
           >
             <svg
-              width={80}
-              height={80}
+              width={64}
+              height={64}
               viewBox="0 0 250 250"
               style={{
                 fill: "#151513",
