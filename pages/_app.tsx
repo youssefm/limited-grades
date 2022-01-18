@@ -7,9 +7,9 @@ import Layout from "components/Layout";
 import { GA_TRACKING_ID, GA_TRACKING_ENABLED, pageview } from "lib/gtag";
 
 import "styles/global.css";
-import "node_modules/bootstrap/dist/css/bootstrap.min.css";
-import "node_modules/keyrune/css/keyrune.min.css";
-import "node_modules/mana-font/css/mana.min.css";
+import "react-tippy/dist/tippy.css";
+import "keyrune/css/keyrune.min.css";
+import "mana-font/css/mana.min.css";
 
 export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();

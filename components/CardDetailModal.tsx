@@ -1,8 +1,8 @@
 import { sortBy } from "lodash";
-import { Col, Modal, Row, Table } from "react-bootstrap";
 
 import { COLUMN_ICONS, DECK_COLORS, DECK_LABELS } from "lib/constants";
 import { Card, Deck } from "lib/types";
+import { Dialog } from "@headlessui/react";
 
 interface Props {
   card: Card | undefined;
@@ -17,28 +17,31 @@ const CardDetailModal = (props: Props) => {
   }
 
   return (
-    <Modal
-      show={card}
-      onHide={handleClose}
-      size="lg"
-      centered
-      animation={false}
+    <Dialog
+      open
+      onClose={handleClose}
+      className="fixed inset-0 flex justify-center items-center"
     >
-      <Modal.Header className="text-center" closeButton>
-        <Modal.Title>{card.name}</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <Row>
-          <Col md="auto" className="align-self-center">
-            <img src={card.cardUrl} alt={card.name} width="240" height="340" />
-          </Col>
-          <Col>
-            <Table>
+      <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-50 z-10" />
+      <div className="bg-white rounded-lg shadow-xl z-20 sm:max-w-3xl sm:w-full">
+        <div>
+          <Dialog.Title className="p-4 text-2xl font-medium border-b-[1px]">
+            {card.name}
+          </Dialog.Title>
+          <div className="p-4 sm:flex gap-6">
+            <img
+              src={card.cardUrl}
+              alt={card.name}
+              width="240"
+              height="340"
+              className="sm:self-center"
+            />
+            <table className="sm:flex-grow sm:self-start">
               <thead>
-                <tr>
-                  <th></th>
-                  <th>Win Rate</th>
-                  <th>Grade</th>
+                <tr className="border-b-2 border-zinc-800">
+                  <th className="p-2"></th>
+                  <th className="p-2 text-left">Win Rate</th>
+                  <th className="p-2 text-left">Grade</th>
                 </tr>
               </thead>
               <tbody>
@@ -48,8 +51,8 @@ const CardDetailModal = (props: Props) => {
                 ).map(([deck, stats]) => {
                   const deckColors = DECK_COLORS[deck as Deck];
                   return (
-                    <tr key={deck}>
-                      <th>
+                    <tr key={deck} className="border-b-[1px] border-zinc-200">
+                      <th className="p-2 text-left">
                         {deckColors.length > 0 ? (
                           <>
                             {deckColors.map((column) => (
@@ -63,22 +66,22 @@ const CardDetailModal = (props: Props) => {
                           DECK_LABELS[deck as Deck]
                         )}
                       </th>
-                      <td>
+                      <td className="p-2">
                         {Number(stats.winrate).toLocaleString(undefined, {
                           style: "percent",
                           minimumFractionDigits: 1,
                         })}
                       </td>
-                      <td>{stats.grade}</td>
+                      <td className="p-2">{stats.grade}</td>
                     </tr>
                   );
                 })}
               </tbody>
-            </Table>
-          </Col>
-        </Row>
-      </Modal.Body>
-    </Modal>
+            </table>
+          </div>
+        </div>
+      </div>
+    </Dialog>
   );
 };
 
