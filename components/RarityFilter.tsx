@@ -1,3 +1,5 @@
+import { FC } from "react";
+
 import { MagicSet, Rarity } from "lib/types";
 
 interface Props {
@@ -6,7 +8,7 @@ interface Props {
   setValues: (rarities: Set<Rarity>) => void;
 }
 
-const RarityFilter = (props: Props) => {
+const RarityFilter: FC<Props> = (props) => {
   const { set, values, setValues } = props;
 
   return (

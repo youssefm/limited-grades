@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { FC, ReactNode } from "react";
 import Select, {
   components,
   OptionProps,
@@ -35,7 +35,7 @@ const SingleValue = ({
   </components.SingleValue>
 );
 
-const Option = (props: OptionProps<DeckOption, false>) => {
+const Option: FC<OptionProps<DeckOption, false>> = (props) => {
   const { value, label } = props.data;
   return (
     <components.Option {...props}>
@@ -49,7 +49,7 @@ interface Props {
   onChange: (selectedValue: Deck) => void;
 }
 
-const DeckSelector = (props: Props) => {
+const DeckSelector: FC<Props> = (props) => {
   const { value, onChange } = props;
 
   return (
