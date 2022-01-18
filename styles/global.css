@@ -8,6 +8,12 @@
   }
 }
 
+@layer components {
+  .card-bubble {
+    @apply w-full bg-white py-0.5 px-2 rounded border-l-[3px] mb-1 last:mb-0 cursor-pointer text-[15px] hover:text-zinc-500;
+  }
+}
+
 /* Tippy overrides */
 .tippy-box {
   @apply max-w-none !important;
