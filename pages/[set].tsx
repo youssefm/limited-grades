@@ -167,7 +167,7 @@ const Page = ({
       </table>
       <CardDetailModal
         card={modalCard}
-        handleClose={() => setModalCard(undefined)}
+        onClose={() => setModalCard(undefined)}
       />
       <PageFooter lastUpdatedAtTicks={lastUpdatedAtTicks} />
     </div>
