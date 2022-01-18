@@ -7,7 +7,7 @@ import Layout from "components/Layout";
 import { GA_TRACKING_ID, GA_TRACKING_ENABLED, pageview } from "lib/gtag";
 
 import "styles/global.css";
-import "react-tippy/dist/tippy.css";
+import "tippy.js/dist/tippy.css";
 import "keyrune/css/keyrune.min.css";
 import "mana-font/css/mana.min.css";
 
