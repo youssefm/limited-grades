@@ -49,7 +49,7 @@ const SetSelector = (props: Props) => {
       isMulti={false}
       components={{ Option, SingleValue }}
       instanceId="set-select"
-      className="w-[250px]"
+      className="min-w-[250px]"
     />
   );
 };

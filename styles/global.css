@@ -8,6 +8,15 @@
   }
 }
 
+/* Tippy override */
+.tippy-popper {
+  @apply max-w-none !important;
+}
+
+.tippy-tooltip {
+  @apply p-0 !important;
+}
+
 /* Github corner */
 .github-corner:hover .octo-arm {
   animation: octocat-wave 560ms ease-in-out;

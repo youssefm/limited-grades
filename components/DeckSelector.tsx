@@ -67,7 +67,7 @@ const DeckSelector = (props: Props) => {
       isMulti={false}
       components={{ Option, SingleValue }}
       instanceId="deck-select"
-      className="w-[175px]"
+      className="min-w-[175px]"
     />
   );
 };
