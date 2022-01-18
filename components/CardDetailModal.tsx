@@ -25,10 +25,10 @@ const CardDetailModal = (props: Props) => {
       <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-50 z-10" />
       <div className="bg-white rounded-lg shadow-xl z-20 sm:max-w-3xl sm:w-full">
         <div>
-          <Dialog.Title className="p-4 border-b-[1px] flex w-full">
+          <Dialog.Title className="p-4 border-b-[1px] flex w-full items-center">
             <span className="flex-grow text-2xl font-medium">{card.name}</span>
             <svg
-              className="w-6 h-6 self-center hover:text-zinc-500 hover:cursor-pointer"
+              className="w-6 h-6 hover:text-zinc-500 hover:cursor-pointer"
               stroke="currentColor"
               onClick={handleClose}
             >
@@ -40,7 +40,7 @@ const CardDetailModal = (props: Props) => {
               ></path>
             </svg>
           </Dialog.Title>
-          <div className="p-4 sm:flex gap-6">
+          <div className="p-4 gap-6 sm:flex">
             <img
               src={card.cardUrl}
               alt={card.name}
