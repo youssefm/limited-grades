@@ -8,7 +8,10 @@ const PageFooter = ({ lastUpdatedAtTicks }: Props) => (
     <a href="https://github.com/youssefm" target="_blank" rel="noreferrer">
       youssefm
     </a>{" "}
-    using Next.js
+    using{" "}
+    <a href="https://nextjs.org/" target="_blank" rel="noreferrer">
+      Next.js
+    </a>
     <br />
     Made possible thanks to{" "}
     <a href="https://www.17lands.com" target="_blank" rel="noreferrer">
