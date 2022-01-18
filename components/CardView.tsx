@@ -1,4 +1,6 @@
 import { Card, Rarity } from "lib/types";
+import { useState } from "react";
+import { isDesktop, isMobile } from "react-device-detect";
 import { Tooltip } from "react-tippy";
 
 // Note: if we try to use string interpolation to create these,
@@ -17,11 +19,14 @@ interface Props {
 
 const CardView = (props: Props) => {
   const { card, onClick } = props;
+  const [showTooltip, setShowTooltip] = useState(false);
+
   const tooltipWidthClass = card.cardBackUrl ? `w-[480px]` : `w-[240px]`;
 
   return (
     <div>
       <Tooltip
+        open={showTooltip}
         html={
           <div className={`flex ${tooltipWidthClass}`}>
             <img src={card.cardUrl} alt={card.name} width="240" height="340" />
@@ -37,8 +42,18 @@ const CardView = (props: Props) => {
         }
         position="bottom-start"
         arrow
+        trigger="manual"
+        onRequestClose={() => setShowTooltip(false)}
       >
         <span
+          onMouseEnter={() => {
+            if (isDesktop) {
+              setShowTooltip(true);
+            }
+          }}
+          onMouseLeave={() => {
+            setShowTooltip(false);
+          }}
           onClick={onClick}
           className={`cursor-pointer ${TEXT_COLORS[card.rarity]}`}
         >

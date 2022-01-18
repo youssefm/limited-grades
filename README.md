@@ -32,14 +32,8 @@ REDIS_URL=<your Redis connection URL>
 
 # To Do
 
-## Enough to Ship
-
-- Re-enable card detail modal
-- Make sure hover doesn't show on mobile
-
-## Extra
-
 - Re-introduce about this page as a tooltip
+- Add a close button to the modal
 - Add filter labels
 - Use Beleren font for limited grades header
 - Add logo to title

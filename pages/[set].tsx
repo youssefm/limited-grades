@@ -106,8 +106,6 @@ const Page = ({
       <Head>
         <title>Limited Grades – {SET_LABELS[selectedSet]}</title>
       </Head>
-      {/* TODO: Reintroduce page header info */}
-      {/* <PageHeader /> */}
       <div className="px-4 py-4 bg-zinc-200 rounded-t-lg flex gap-2 flex-col lg:px-8 lg:flex-row lg:gap-4">
         <SetSelector
           value={selectedSet}
