@@ -40,7 +40,7 @@ const CardView = (props: Props) => {
       >
         <div
           onClick={onClick}
-          className="flex rounded cursor-pointer overflow-hidden hover:text-blue-500"
+          className="flex rounded cursor-pointer overflow-hidden hover:text-zinc-500"
         >
           <div className={`w-[3px] ${BG_COLORS[card.rarity]} shrink-0`} />
           <div className="w-full bg-white py-0.5 px-2">
