@@ -5,11 +5,11 @@ import { Card, Rarity } from "lib/types";
 
 // Note: if we try to use string interpolation to create these,
 // TailwindCSS stops recognizing them and purges them from the CSS
-const BG_COLORS = {
-  [Rarity.COMMON]: "bg-common",
-  [Rarity.UNCOMMON]: "bg-uncommon",
-  [Rarity.RARE]: "bg-rare",
-  [Rarity.MYTHIC]: "bg-mythic",
+const BORDER_COLORS = {
+  [Rarity.COMMON]: "border-common",
+  [Rarity.UNCOMMON]: "border-uncommon",
+  [Rarity.RARE]: "border-rare",
+  [Rarity.MYTHIC]: "border-mythic",
 };
 
 interface Props {
@@ -42,12 +42,11 @@ const CardView: FC<Props> = (props) => {
       >
         <div
           onClick={onClick}
-          className="flex rounded cursor-pointer overflow-hidden hover:text-zinc-500"
+          className={`w-full bg-white py-0.5 px-2 rounded border-l-[3px] cursor-pointer text-sm hover:text-zinc-500 ${
+            BORDER_COLORS[card.rarity]
+          }`}
         >
-          <div className={`w-[3px] ${BG_COLORS[card.rarity]} shrink-0`} />
-          <div className="w-full bg-white py-0.5 px-2">
-            <span className="text-sm">{card.name}</span>
-          </div>
+          {card.name}
         </div>
       </LazyTippy>
     </div>
