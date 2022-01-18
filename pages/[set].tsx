@@ -21,7 +21,6 @@ import DeckSelector from "components/DeckSelector";
 import { COLUMN_ICONS, SET_LABELS } from "lib/constants";
 import CardDetailModal from "components/CardDetailModal";
 import PageFooter from "components/PageFooter";
-import PageHeader from "components/PageHeader";
 import CardTypeFilter from "components/CardTypeFilter";
 
 export const getStaticPaths = async () => {
