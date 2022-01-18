@@ -1,4 +1,4 @@
-import Tippy from "@tippyjs/react";
+import { LazyTippy } from "components/LazyTippy";
 import { Card, Rarity } from "lib/types";
 
 // Note: if we try to use string interpolation to create these,
@@ -22,7 +22,7 @@ const CardView = (props: Props) => {
 
   return (
     <div>
-      <Tippy
+      <LazyTippy
         content={
           <div className={`flex ${tooltipWidthClass}`}>
             <img src={card.cardUrl} alt={card.name} width="240" height="340" />
@@ -44,7 +44,7 @@ const CardView = (props: Props) => {
         >
           {card.name}
         </span>
-      </Tippy>
+      </LazyTippy>
     </div>
   );
 };
