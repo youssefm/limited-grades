@@ -1,5 +1,4 @@
-import { Tooltip } from "react-tippy";
-
+import Tippy from "@tippyjs/react";
 import { Card, Rarity } from "lib/types";
 
 // Note: if we try to use string interpolation to create these,
@@ -23,8 +22,8 @@ const CardView = (props: Props) => {
 
   return (
     <div>
-      <Tooltip
-        html={
+      <Tippy
+        content={
           <div className={`flex ${tooltipWidthClass}`}>
             <img src={card.cardUrl} alt={card.name} width="240" height="340" />
             {card.cardBackUrl && (
@@ -37,9 +36,7 @@ const CardView = (props: Props) => {
             )}
           </div>
         }
-        position="bottom-start"
-        arrow
-        hideOnClick
+        placement="bottom-start"
       >
         <span
           onClick={onClick}
@@ -47,7 +44,7 @@ const CardView = (props: Props) => {
         >
           {card.name}
         </span>
-      </Tooltip>
+      </Tippy>
     </div>
   );
 };

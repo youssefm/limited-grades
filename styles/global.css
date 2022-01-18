@@ -9,16 +9,16 @@
 }
 
 /* Tippy overrides */
-.tippy-popper {
+.tippy-box {
   @apply max-w-none !important;
 }
 
-.tippy-tooltip {
+.tippy-content {
   @apply p-0 !important;
 }
 
 @media only screen and (max-width: 1366px) {
-  .tippy-popper {
+  .tippy-box {
     display: none;
   }
 }
