@@ -3,11 +3,11 @@ import { Card, Rarity } from "lib/types";
 
 // Note: if we try to use string interpolation to create these,
 // TailwindCSS stops recognizing them and purges them from the CSS
-const TEXT_COLORS = {
-  [Rarity.COMMON]: "text-common",
-  [Rarity.UNCOMMON]: "text-uncommon",
-  [Rarity.RARE]: "text-rare",
-  [Rarity.MYTHIC]: "text-mythic",
+const BG_COLORS = {
+  [Rarity.COMMON]: "bg-common",
+  [Rarity.UNCOMMON]: "bg-uncommon",
+  [Rarity.RARE]: "bg-rare",
+  [Rarity.MYTHIC]: "bg-mythic",
 };
 
 interface Props {
@@ -21,7 +21,7 @@ const CardView = (props: Props) => {
   const tooltipWidthClass = card.cardBackUrl ? `w-[480px]` : `w-[240px]`;
 
   return (
-    <div>
+    <div className="mb-1 last:mb-0">
       <LazyTippy
         content={
           <div className={`flex ${tooltipWidthClass}`}>
@@ -38,12 +38,15 @@ const CardView = (props: Props) => {
         }
         placement="bottom-start"
       >
-        <span
+        <div
           onClick={onClick}
-          className={`cursor-pointer ${TEXT_COLORS[card.rarity]}`}
+          className="flex rounded cursor-pointer overflow-hidden hover:text-blue-500"
         >
-          {card.name}
-        </span>
+          <div className={`w-[3px] ${BG_COLORS[card.rarity]} shrink-0`} />
+          <div className="w-full bg-white py-0.5 px-2">
+            <span className="text-sm">{card.name}</span>
+          </div>
+        </div>
       </LazyTippy>
     </div>
   );

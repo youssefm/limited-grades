@@ -105,7 +105,7 @@ const Page = ({
       <Head>
         <title>Limited Grades – {SET_LABELS[selectedSet]}</title>
       </Head>
-      <div className="px-4 py-4 bg-zinc-200 rounded-t-lg flex gap-2 flex-col lg:px-8 lg:flex-row lg:gap-4">
+      <div className="px-4 py-4 mb-2 bg-zinc-200 rounded-lg flex gap-2 flex-col lg:px-8 lg:flex-row lg:gap-4">
         <SetSelector
           value={selectedSet}
           onChange={(newValue) => {
@@ -128,13 +128,10 @@ const Page = ({
       </div>
       <table className="w-full lg:table-fixed">
         <thead>
-          <tr className="border-b-2 border-zinc-800">
-            <th className="w-16 h-11 bg-zinc-100 min-w-[10%] max-w-[20%]"></th>
+          <tr>
+            <th className="w-16 h-11 bg-zinc-200 rounded-tl-lg"></th>
             {Object.values(Column).map((column) => (
-              <th
-                key={column}
-                className="h-11 bg-zinc-100 min-w-[10%] max-w-[20%]"
-              >
+              <th key={column} className="h-11 bg-zinc-200 last:rounded-tr-lg">
                 <i className={COLUMN_ICONS[column]}></i>
               </th>
             ))}
@@ -143,16 +140,16 @@ const Page = ({
         <tbody>
           {Object.values(Grade).map((grade) => (
             <tr key={grade} className="border-b-[1px] border-zinc-200">
-              <th className="w-16 bg-zinc-100 text-xl text-left lg:pl-4">
+              <th className="w-16 bg-zinc-200 text-xl text-left lg:pl-4">
                 {grade}
               </th>
               {Object.values(Column).map((column) => (
-                <td key={column} className="p-2 align-top">
+                <td key={column} className="p-1 align-top bg-zinc-100">
                   {cardsByGroup[column + "," + grade]?.map((card) =>
                     showSkeletons ? (
                       <div
                         key={card.cardUrl}
-                        className="w-3/4 h-4 my-1 bg-zinc-200 rounded-2xl animate-pulse"
+                        className="h-[29px] mb-1 last:mb-0 bg-zinc-200 rounded animate-pulse"
                       />
                     ) : (
                       <CardView
