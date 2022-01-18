@@ -1,4 +1,5 @@
 import { Card, Rarity } from "lib/types";
+import { Tooltip } from "react-tippy";
 
 // Note: if we try to use string interpolation to create these,
 // TailwindCSS stops recognizing them and purges them from the CSS
@@ -16,25 +17,34 @@ interface Props {
 
 const CardView = (props: Props) => {
   const { card, onClick } = props;
+  const tooltipWidthClass = card.cardBackUrl ? `w-[480px]` : `w-[240px]`;
 
   return (
-    // TODO: Re-enable hover functionality
-    // <img src={card.cardUrl} alt={card.name} width="240" height="340" />
-    // {card.cardBackUrl && (
-    //   <img
-    //     src={card.cardBackUrl}
-    //     alt={card.name}
-    //     width="240"
-    //     height="340"
-    //   />
-    // )}
     <div>
-      <span
-        onClick={onClick}
-        className={`cursor-pointer ${TEXT_COLORS[card.rarity]}`}
+      <Tooltip
+        html={
+          <div className={`flex ${tooltipWidthClass}`}>
+            <img src={card.cardUrl} alt={card.name} width="240" height="340" />
+            {card.cardBackUrl && (
+              <img
+                src={card.cardBackUrl}
+                alt={card.name}
+                width="240"
+                height="340"
+              />
+            )}
+          </div>
+        }
+        position="bottom-start"
+        arrow
       >
-        {card.name}
-      </span>
+        <span
+          onClick={onClick}
+          className={`cursor-pointer ${TEXT_COLORS[card.rarity]}`}
+        >
+          {card.name}
+        </span>
+      </Tooltip>
     </div>
   );
 };

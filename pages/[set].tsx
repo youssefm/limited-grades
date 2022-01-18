@@ -108,7 +108,7 @@ const Page = ({
       </Head>
       {/* TODO: Reintroduce page header info */}
       {/* <PageHeader /> */}
-      <div className="px-8 py-2 bg-zinc-200 rounded-t-lg">
+      <div className="px-4 py-4 bg-zinc-200 rounded-t-lg flex gap-2 flex-col lg:px-8 lg:flex-row lg:gap-4">
         <SetSelector
           value={selectedSet}
           onChange={(newValue) => {
@@ -117,19 +117,21 @@ const Page = ({
           }}
         />
         <DeckSelector value={deck} onChange={setDeck} />
-        <RarityFilter
-          set={set}
-          values={visibleRarities}
-          setValues={setVisibleRarities}
-        />
-        <CardTypeFilter
-          values={visibleCardTypes}
-          setValues={setVisibleCardTypes}
-        />
+        <div className="flex gap-4">
+          <RarityFilter
+            set={set}
+            values={visibleRarities}
+            setValues={setVisibleRarities}
+          />
+          <CardTypeFilter
+            values={visibleCardTypes}
+            setValues={setVisibleCardTypes}
+          />
+        </div>
       </div>
-      <table className="w-full table-fixed">
+      <table className="w-full lg:table-fixed">
         <thead>
-          <tr>
+          <tr className="border-b-2 border-zinc-800">
             <th className="w-16 h-11 bg-zinc-100 min-w-[10%] max-w-[20%]"></th>
             {Object.values(Column).map((column) => (
               <th
@@ -143,20 +145,26 @@ const Page = ({
         </thead>
         <tbody>
           {Object.values(Grade).map((grade) => (
-            <tr key={grade}>
-              <th className="w-16 bg-zinc-100 text-2xl text-left pl-4">
+            <tr key={grade} className="border-b-[1px] border-zinc-200">
+              <th className="w-16 bg-zinc-100 text-xl text-left lg:pl-4">
                 {grade}
               </th>
               {Object.values(Column).map((column) => (
-                <td key={column} className="p-2">
-                  {/* TODO: Re-enable skeletons */}
-                  {cardsByGroup[column + "," + grade]?.map((card) => (
-                    <CardView
-                      key={card.cardUrl}
-                      card={card}
-                      onClick={() => setModalCard(card)}
-                    />
-                  ))}
+                <td key={column} className="p-2 align-top">
+                  {cardsByGroup[column + "," + grade]?.map((card) =>
+                    showSkeletons ? (
+                      <div
+                        key={card.cardUrl}
+                        className="w-3/4 h-4 my-1 bg-zinc-200 rounded-2xl animate-pulse"
+                      />
+                    ) : (
+                      <CardView
+                        key={card.cardUrl}
+                        card={card}
+                        onClick={() => setModalCard(card)}
+                      />
+                    )
+                  )}
                 </td>
               ))}
             </tr>
