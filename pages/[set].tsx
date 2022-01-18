@@ -139,7 +139,7 @@ const Page = ({
         </thead>
         <tbody>
           {Object.values(Grade).map((grade) => (
-            <tr key={grade} className="border-b-[1px] border-zinc-200">
+            <tr key={grade} className="border-b-2 border-zinc-200">
               <th className="w-16 bg-zinc-200 text-xl text-left lg:pl-4">
                 {grade}
               </th>
