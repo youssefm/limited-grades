@@ -10,7 +10,7 @@
 
 @layer components {
   .card-bubble {
-    @apply w-full bg-white py-1 px-2 border-l-[3px] mb-1 last:mb-0 cursor-pointer text-sm hover:text-zinc-500;
+    @apply w-full bg-white py-1 px-2 border-l-[3px] mb-1 last:mb-0 cursor-pointer hover:text-zinc-500;
   }
 }
 
