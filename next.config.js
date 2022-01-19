@@ -10,7 +10,7 @@ module.exports = {
         permanent: false,
       },
       {
-        source: "/:set/all",
+        source: "/:set/(all|wu|ub|br|rg|wg|wb|ur|bg|wr|ug)",
         destination: "/:set",
         permanent: false,
       },
