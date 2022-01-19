@@ -149,7 +149,7 @@ const Page = ({
                     showSkeletons ? (
                       <div
                         key={card.cardUrl}
-                        className="h-[28px] mb-1 last:mb-0 bg-zinc-200 animate-pulse"
+                        className="h-8 mb-1 last:mb-0 bg-zinc-200 animate-pulse"
                       />
                     ) : (
                       <CardView
