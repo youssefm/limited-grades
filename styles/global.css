@@ -16,9 +16,3 @@
 .tippy-content {
   @apply p-0 !important;
 }
-
-@media only screen and (max-width: 1366px) {
-  .tippy-box {
-    display: none;
-  }
-}
