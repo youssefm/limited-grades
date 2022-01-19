@@ -1,5 +1,6 @@
 import { FC } from "react";
 
+import FilterLabel from "components/FilterLabel";
 import { MagicSet, Rarity } from "lib/types";
 
 interface Props {
@@ -13,7 +14,7 @@ const RarityFilter: FC<Props> = (props) => {
 
   return (
     <div>
-      <div className="text-sm mb-2 hidden lg:block">Rarity</div>
+      <FilterLabel>Rarity</FilterLabel>
       <div>
         {Object.values(Rarity).map((rarity) => (
           <label key={rarity}>

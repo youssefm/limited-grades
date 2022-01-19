@@ -5,6 +5,7 @@ import Select, {
   SingleValueProps,
 } from "react-select";
 
+import FilterLabel from "components/FilterLabel";
 import { COLUMN_ICONS, DECK_COLORS, DECK_LABELS } from "lib/constants";
 import { Deck } from "lib/types";
 
@@ -54,7 +55,7 @@ const DeckSelector: FC<Props> = (props) => {
 
   return (
     <label>
-      <div className="text-sm mb-2 hidden lg:block">Deck</div>
+      <FilterLabel>Deck</FilterLabel>
       <Select
         value={{ value: value, label: DECK_LABELS[value] }}
         onChange={(selectedOption) => {
