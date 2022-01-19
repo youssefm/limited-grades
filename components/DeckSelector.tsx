@@ -53,22 +53,25 @@ const DeckSelector: FC<Props> = (props) => {
   const { value, onChange } = props;
 
   return (
-    <Select
-      value={{ value: value, label: DECK_LABELS[value] }}
-      onChange={(selectedOption) => {
-        if (selectedOption) {
-          onChange(selectedOption.value);
-        }
-      }}
-      options={Object.values(Deck).map((deck) => ({
-        value: deck,
-        label: DECK_LABELS[deck],
-      }))}
-      isMulti={false}
-      components={{ Option, SingleValue }}
-      instanceId="deck-select"
-      className="min-w-[175px]"
-    />
+    <label>
+      <div className="text-sm mb-2 hidden lg:block">Deck</div>
+      <Select
+        value={{ value: value, label: DECK_LABELS[value] }}
+        onChange={(selectedOption) => {
+          if (selectedOption) {
+            onChange(selectedOption.value);
+          }
+        }}
+        options={Object.values(Deck).map((deck) => ({
+          value: deck,
+          label: DECK_LABELS[deck],
+        }))}
+        isMulti={false}
+        components={{ Option, SingleValue }}
+        instanceId="deck-select"
+        className="min-w-[175px]"
+      />
+    </label>
   );
 };
 

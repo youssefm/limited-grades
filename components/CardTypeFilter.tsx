@@ -35,33 +35,40 @@ const CardTypeFilter: FC<Props> = (props) => {
 
   return (
     <div>
-      {FILTERS.map((filter, index) => {
-        const checked = filter.values.every((cardType) => values.has(cardType));
-        return (
-          <label key={index}>
-            <input
-              type="checkbox"
-              checked={checked}
-              onChange={() => {
-                const newValues = new Set(values);
-                for (const cardType of filter.values) {
-                  if (newValues.has(cardType)) {
-                    newValues.delete(cardType);
-                  } else {
-                    newValues.add(cardType);
+      <div className="text-sm mb-2 hidden lg:block">Type</div>
+      <div>
+        {FILTERS.map((filter, index) => {
+          const checked = filter.values.every((cardType) =>
+            values.has(cardType)
+          );
+          return (
+            <label key={index}>
+              <input
+                type="checkbox"
+                checked={checked}
+                onChange={() => {
+                  const newValues = new Set(values);
+                  for (const cardType of filter.values) {
+                    if (newValues.has(cardType)) {
+                      newValues.delete(cardType);
+                    } else {
+                      newValues.add(cardType);
+                    }
                   }
+                  setValues(newValues);
+                }}
+                className="peer hidden"
+              ></input>
+              <i
+                title={
+                  checked ? `Hide ${filter.label}` : `Show ${filter.label}`
                 }
-                setValues(newValues);
-              }}
-              className="peer hidden"
-            ></input>
-            <i
-              title={checked ? `Hide ${filter.label}` : `Show ${filter.label}`}
-              className={`${filter.icon} cursor-pointer opacity-30 peer-checked:opacity-90 w-[1.28571429em] text-center`}
-            />
-          </label>
-        );
-      })}
+                className={`${filter.icon} cursor-pointer opacity-30 peer-checked:opacity-90 w-[1.28571429em] text-center`}
+              />
+            </label>
+          );
+        })}
+      </div>
     </div>
   );
 };
