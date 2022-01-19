@@ -5,7 +5,7 @@
 import Tippy, { TippyProps } from "@tippyjs/react";
 import { FC, useState } from "react";
 
-export const LazyTippy: FC<TippyProps> = (props) => {
+const LazyTippy: FC<TippyProps> = (props) => {
   const [mounted, setMounted] = useState(false);
 
   const lazyPlugin = {
@@ -28,3 +28,5 @@ export const LazyTippy: FC<TippyProps> = (props) => {
 
   return <Tippy {...computedProps} />;
 };
+
+export default LazyTippy;

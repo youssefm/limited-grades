@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { FC } from "react";
 
-import { TitleBar } from "components/TitleBar";
+import TitleBar from "components/TitleBar";
 
 const Layout: FC = ({ children }) => {
   return (
