@@ -5,6 +5,7 @@ import Select, {
   SingleValueProps,
 } from "react-select";
 
+import FilterLabel from "components/FilterLabel";
 import { SET_LABELS } from "lib/constants";
 import { MagicSet } from "lib/types";
 
@@ -37,7 +38,7 @@ const SetSelector: FC<Props> = (props) => {
 
   return (
     <label>
-      <div className="text-sm mb-2 hidden lg:block">Set</div>
+      <FilterLabel>Set</FilterLabel>
       <Select
         value={{ value: value, label: SET_LABELS[value] }}
         onChange={(selectedOption) => {

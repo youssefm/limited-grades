@@ -1,5 +1,6 @@
 import { FC } from "react";
 
+import FilterLabel from "components/FilterLabel";
 import { CardType } from "lib/types";
 
 const FILTERS = [
@@ -35,7 +36,7 @@ const CardTypeFilter: FC<Props> = (props) => {
 
   return (
     <div>
-      <div className="text-sm mb-2 hidden lg:block">Type</div>
+      <FilterLabel>Type</FilterLabel>
       <div>
         {FILTERS.map((filter, index) => {
           const checked = filter.values.every((cardType) =>
