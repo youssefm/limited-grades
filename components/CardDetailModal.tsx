@@ -1,4 +1,5 @@
 import { sortBy } from "lodash";
+import Image from "next/image";
 import { FC } from "react";
 
 import { Modal } from "components/Modal";
@@ -20,7 +21,7 @@ const CardDetailModal: FC<Props> = (props) => {
   return (
     <Modal title={card.name} open onClose={onClose}>
       <div className="sm:flex sm:gap-6">
-        <img
+        <Image
           src={card.cardUrl}
           alt={card.name}
           width="240"
