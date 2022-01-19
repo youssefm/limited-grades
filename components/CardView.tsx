@@ -9,9 +9,7 @@ interface Props {
   onClick: () => void;
 }
 
-const CardView: FC<Props> = (props) => {
-  const { card, onClick } = props;
-
+const CardView: FC<Props> = ({ card, onClick }) => {
   let cardView = <CardBubble card={card} onClick={onClick} />;
 
   if (

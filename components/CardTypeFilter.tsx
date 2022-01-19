@@ -31,9 +31,7 @@ interface Props {
   setValues: (cardTypes: Set<CardType>) => void;
 }
 
-const CardTypeFilter: FC<Props> = (props) => {
-  const { values, setValues } = props;
-
+const CardTypeFilter: FC<Props> = ({ values, setValues }) => {
   return (
     <div>
       <FilterLabel>Type</FilterLabel>

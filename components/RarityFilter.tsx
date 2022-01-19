@@ -9,9 +9,7 @@ interface Props {
   setValues: (rarities: Set<Rarity>) => void;
 }
 
-const RarityFilter: FC<Props> = (props) => {
-  const { set, values, setValues } = props;
-
+const RarityFilter: FC<Props> = ({ set, values, setValues }) => {
   return (
     <div>
       <FilterLabel>Rarity</FilterLabel>
