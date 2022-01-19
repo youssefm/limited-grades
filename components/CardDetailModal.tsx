@@ -26,6 +26,7 @@ const CardDetailModal: FC<Props> = (props) => {
           alt={card.name}
           width="240"
           height="340"
+          unoptimized
           className="sm:self-center"
         />
         <table className="sm:flex-grow sm:self-start">
