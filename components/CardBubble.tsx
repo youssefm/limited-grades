@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { forwardRef } from "react";
 
 import { Card, Rarity } from "lib/types";
 
@@ -16,7 +16,7 @@ interface Props {
   onClick: () => void;
 }
 
-const CardBubble: FC<Props> = (props) => {
+const CardBubble = forwardRef<HTMLDivElement, Props>((props, ref) => {
   const { card, onClick } = props;
 
   return (
@@ -25,10 +25,13 @@ const CardBubble: FC<Props> = (props) => {
       className={`w-full bg-white py-1 px-2 mb-1 last:mb-0 border-l-[3px] ${
         BORDER_COLORS[card.rarity]
       } cursor-pointer hover:text-zinc-500`}
+      ref={ref}
     >
       {card.name}
     </div>
   );
-};
+});
+
+CardBubble.displayName = "CardBubble";
 
 export default CardBubble;
