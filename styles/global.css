@@ -2,12 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base {
-  a {
-    @apply underline hover:text-blue-500;
-  }
-}
-
 /* Tippy overrides */
 .tippy-box {
   @apply max-w-none !important;
