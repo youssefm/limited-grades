@@ -101,7 +101,7 @@ const Page = ({
   );
 
   return (
-    <div className="p-2 overflow-auto">
+    <div className="px-2 overflow-auto">
       <Head>
         <title>Limited Grades – {SET_LABELS[selectedSet]}</title>
       </Head>
