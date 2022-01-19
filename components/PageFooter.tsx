@@ -4,7 +4,11 @@ interface Props {
 
 const PageFooter = ({ lastUpdatedAtTicks }: Props) => (
   <div className="mt-32 border-t-[1px] border-zinc-400 pt-1">
-    Developed by{" "}
+    Designed by{" "}
+    <a href="https://github.com/BodyCopy" target="_blank" rel="noreferrer">
+      BodyCopy
+    </a>{" "}
+    and developed by{" "}
     <a href="https://github.com/youssefm" target="_blank" rel="noreferrer">
       youssefm
     </a>{" "}
