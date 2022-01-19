@@ -36,22 +36,25 @@ const SetSelector: FC<Props> = (props) => {
   const { value, onChange } = props;
 
   return (
-    <Select
-      value={{ value: value, label: SET_LABELS[value] }}
-      onChange={(selectedOption) => {
-        if (selectedOption) {
-          onChange(selectedOption.value);
-        }
-      }}
-      options={Object.values(MagicSet).map((set) => ({
-        value: set,
-        label: SET_LABELS[set],
-      }))}
-      isMulti={false}
-      components={{ Option, SingleValue }}
-      instanceId="set-select"
-      className="min-w-[250px]"
-    />
+    <label>
+      <div className="text-sm mb-2 hidden lg:block">Set</div>
+      <Select
+        value={{ value: value, label: SET_LABELS[value] }}
+        onChange={(selectedOption) => {
+          if (selectedOption) {
+            onChange(selectedOption.value);
+          }
+        }}
+        options={Object.values(MagicSet).map((set) => ({
+          value: set,
+          label: SET_LABELS[set],
+        }))}
+        isMulti={false}
+        components={{ Option, SingleValue }}
+        instanceId="set-select"
+        className="min-w-[250px]"
+      />
+    </label>
   );
 };
 
