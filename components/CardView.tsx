@@ -41,7 +41,9 @@ const CardView: FC<Props> = (props) => {
     >
       <div
         onClick={onClick}
-        className={`card-bubble ${BORDER_COLORS[card.rarity]}`}
+        className={`w-full bg-white py-1 px-2 mb-1 last:mb-0 border-l-[3px] ${
+          BORDER_COLORS[card.rarity]
+        } cursor-pointer hover:text-zinc-500`}
       >
         {card.name}
       </div>

@@ -35,4 +35,5 @@ REDIS_URL=<your Redis connection URL>
 - Add filter labels
 - Add logo to title
 - Add a dark mode toggle?
+- Improvements to card detail view?
 - Search feature?
