@@ -17,7 +17,7 @@ const TitleBar = () => {
         className="hover:text-blue-500 flex gap-1 justify-center items-center"
       >
         <FaInfoCircle className="inline" />
-        <span>About this project</span>
+        <span className="hidden md:inline">About this project</span>
       </button>
 
       <Modal
