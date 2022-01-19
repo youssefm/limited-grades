@@ -12,13 +12,14 @@ interface Props {
 const CardView: FC<Props> = (props) => {
   const { card, onClick } = props;
 
-  const tooltipWidthClass = card.cardBackUrl ? `w-[480px]` : `w-[240px]`;
+  let cardView = <CardBubble card={card} onClick={onClick} />;
 
   if (
     typeof window !== "undefined" &&
     window.matchMedia("(hover: hover)").matches
   ) {
-    return (
+    const tooltipWidthClass = card.cardBackUrl ? `w-[480px]` : `w-[240px]`;
+    cardView = (
       <LazyTippy
         content={
           <div className={`flex ${tooltipWidthClass}`}>
@@ -35,12 +36,12 @@ const CardView: FC<Props> = (props) => {
         }
         placement="bottom-start"
       >
-        <CardBubble card={card} onClick={onClick} />
+        {cardView}
       </LazyTippy>
     );
   }
 
-  return <CardBubble card={card} onClick={onClick} />;
+  return cardView;
 };
 
 export default CardView;
