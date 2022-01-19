@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { useState } from "react";
 import { FaInfoCircle } from "react-icons/fa";
 
@@ -8,7 +9,15 @@ const TitleBar = () => {
   const [showInfoModal, setShowInfoModal] = useState(false);
 
   return (
-    <div className="flex px-8 py-4">
+    <div className="flex px-8 py-4 items-center">
+      <div className="mr-2">
+        <Image
+          src="/apple-touch-icon.png"
+          alt="Limited Grades"
+          height={32}
+          width={32}
+        />
+      </div>
       <h1 className="text-2xl font-belerenSmallCaps flex-auto">
         Limited Grades
       </h1>
