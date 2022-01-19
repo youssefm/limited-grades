@@ -18,7 +18,7 @@ const CardDetailModal: FC<Props> = (props) => {
   }
 
   return (
-    <Modal title={card.name} open onClose={onClose}>
+    <Modal title={card.name} onClose={onClose}>
       <div className="sm:flex sm:gap-6">
         <img
           src={card.cardUrl}
