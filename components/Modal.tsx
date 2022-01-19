@@ -7,8 +7,7 @@ interface Props {
   onClose: () => void;
 }
 
-const Modal: FC<Props> = (props) => {
-  const { title, onClose, children } = props;
+const Modal: FC<Props> = ({ title, onClose, children }) => {
   const completeButtonRef = useRef(null);
 
   return (

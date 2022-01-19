@@ -50,9 +50,7 @@ interface Props {
   onChange: (selectedValue: Deck) => void;
 }
 
-const DeckSelector: FC<Props> = (props) => {
-  const { value, onChange } = props;
-
+const DeckSelector: FC<Props> = ({ value, onChange }) => {
   return (
     <label>
       <FilterLabel>Deck</FilterLabel>

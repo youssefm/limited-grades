@@ -10,9 +10,7 @@ interface Props {
   onClose: () => void;
 }
 
-const CardDetailModal: FC<Props> = (props) => {
-  const { card, onClose } = props;
-
+const CardDetailModal: FC<Props> = ({ card, onClose }) => {
   if (!card) {
     return null;
   }

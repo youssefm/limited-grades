@@ -33,9 +33,7 @@ interface Props {
   onChange: (selectedValue: MagicSet) => void;
 }
 
-const SetSelector: FC<Props> = (props) => {
-  const { value, onChange } = props;
-
+const SetSelector: FC<Props> = ({ value, onChange }) => {
   return (
     <label>
       <FilterLabel>Set</FilterLabel>
