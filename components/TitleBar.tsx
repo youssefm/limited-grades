@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { FaInfoCircle } from "react-icons/fa";
 
-import { Modal } from "components/Modal";
+import Modal from "components/Modal";
 
-export const TitleBar = () => {
+const TitleBar = () => {
   const [showInfoModal, setShowInfoModal] = useState(false);
 
   return (
@@ -67,3 +67,5 @@ export const TitleBar = () => {
     </div>
   );
 };
+
+export default TitleBar;

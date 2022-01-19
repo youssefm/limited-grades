@@ -8,7 +8,7 @@ interface Props {
   onClose: () => void;
 }
 
-export const Modal: FC<Props> = (props) => {
+const Modal: FC<Props> = (props) => {
   const { title, open, onClose, children } = props;
 
   return (
@@ -33,3 +33,5 @@ export const Modal: FC<Props> = (props) => {
     </Dialog>
   );
 };
+
+export default Modal;
