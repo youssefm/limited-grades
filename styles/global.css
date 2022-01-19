@@ -4,7 +4,7 @@
 
 @layer base {
   a {
-    @apply underline outline-none hover:text-blue-500;
+    @apply underline hover:text-blue-500;
   }
 }
 
