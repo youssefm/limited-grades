@@ -4,16 +4,15 @@ import { IoClose } from "react-icons/io5";
 
 interface Props {
   title?: string;
-  open: boolean;
   onClose: () => void;
 }
 
 const Modal: FC<Props> = (props) => {
-  const { title, open, onClose, children } = props;
+  const { title, onClose, children } = props;
 
   return (
     <Dialog
-      open={open}
+      open
       onClose={onClose}
       className="fixed inset-0 flex justify-center items-center"
     >
