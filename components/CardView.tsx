@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { FC } from "react";
 
 import { LazyTippy } from "components/LazyTippy";
@@ -26,9 +27,9 @@ const CardView: FC<Props> = (props) => {
     <LazyTippy
       content={
         <div className={`flex ${tooltipWidthClass}`}>
-          <img src={card.cardUrl} alt={card.name} width="240" height="340" />
+          <Image src={card.cardUrl} alt={card.name} width="240" height="340" />
           {card.cardBackUrl && (
-            <img
+            <Image
               src={card.cardBackUrl}
               alt={card.name}
               width="240"

@@ -1,5 +1,8 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
+  images: {
+    domains: ["c1.scryfall.com"],
+  },
   outputFileTracing: true,
   reactStrictMode: true,
   redirects: async () => {
