@@ -1,4 +1,3 @@
-import { groupBy, sortBy } from "lodash";
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
@@ -13,6 +12,7 @@ import CardTypeFilter from "components/CardTypeFilter";
 import { getCards } from "lib/cards";
 import { Deck, Rarity, MagicSet, CardType } from "lib/types";
 import CardTable from "components/CardTable";
+import { CardTableDictionary } from "lib/table";
 
 export const getStaticPaths = async () => {
   return {
@@ -76,19 +76,12 @@ const Page = ({
     }
   }, [loading]);
 
-  const sortedCards = sortBy(
-    cards
-      .filter((card) => deck in card.stats)
-      .filter((card) => visibleRarities.has(card.rarity))
-      .filter((card) =>
-        card.cardTypes.some((cardType) => visibleCardTypes.has(cardType))
-      ),
-    (card) => -card.stats[deck]!.winrate
-  );
-  const cardsByGroup = groupBy(
-    sortedCards,
-    (card) => card.column + "," + card.stats[deck]!.grade
-  );
+  const filteredCards = cards
+    .filter((card) => visibleRarities.has(card.rarity))
+    .filter((card) =>
+      card.cardTypes.some((cardType) => visibleCardTypes.has(cardType))
+    );
+  const cardDictionary = new CardTableDictionary(filteredCards, deck);
 
   return (
     <div className="px-2 overflow-auto">
@@ -116,7 +109,10 @@ const Page = ({
           />
         </div>
       </div>
-      <CardTable cardsByGroup={cardsByGroup} showSkeletons={showSkeletons} />
+      <CardTable
+        cardDictionary={cardDictionary}
+        showSkeletons={showSkeletons}
+      />
       <PageFooter lastUpdatedAtTicks={lastUpdatedAtTicks} />
     </div>
   );
