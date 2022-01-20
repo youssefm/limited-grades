@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .border-spacing-0 {
+    border-spacing: 0;
+  }
+}
+
 /* Tippy overrides */
 .tippy-box {
   @apply max-w-none !important;

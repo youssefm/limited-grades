@@ -3,11 +3,12 @@ import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 
+import DeckSelector from "components/DeckSelector";
+import PageFooter from "components/PageFooter";
 import RarityFilter from "components/RarityFilter";
 import SetSelector from "components/SetSelector";
-import DeckSelector from "components/DeckSelector";
+import TitleBar from "components/TitleBar";
 import { SET_LABELS } from "lib/constants";
-import PageFooter from "components/PageFooter";
 import CardTypeFilter from "components/CardTypeFilter";
 import { getCards } from "lib/cards";
 import { Deck, Rarity, MagicSet, CardType } from "lib/types";
@@ -84,10 +85,11 @@ const Page = ({
   const cardDictionary = new CardTableDictionary(filteredCards, deck);
 
   return (
-    <div className="px-2 overflow-auto">
+    <div className="px-2 h-screen overflow-x-auto">
       <Head>
         <title>Limited Grades – {SET_LABELS[selectedSet]}</title>
       </Head>
+      <TitleBar />
       <div className="px-4 py-4 bg-zinc-100 rounded-t-lg flex gap-2 flex-col lg:px-8 lg:flex-row lg:gap-4">
         <SetSelector
           value={selectedSet}
