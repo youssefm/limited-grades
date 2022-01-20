@@ -17,15 +17,15 @@ const CardDetailModal: FC<Props> = ({ card, onClose }) => {
 
   return (
     <Modal title={card.name} onClose={onClose}>
-      <div className="sm:flex sm:gap-6">
+      <div className="flex gap-6">
         <img
           src={card.cardUrl}
           alt={card.name}
           width="240"
           height="340"
-          className="sm:self-center"
+          className="self-center hidden sm:inline"
         />
-        <table className="sm:flex-grow sm:self-start">
+        <table className="flex-grow self-start">
           <thead>
             <tr className="border-b-2 border-zinc-800">
               <th className="p-2"></th>
