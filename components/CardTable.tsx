@@ -1,17 +1,17 @@
-import { Dictionary } from "lodash";
 import { FC, useState } from "react";
 
 import CardDetailModal from "components/CardDetailModal";
 import CardView from "components/CardView";
 import { COLUMN_ICONS } from "lib/constants";
 import { Card, Column, Grade } from "lib/types";
+import { CardTableDictionary } from "lib/table";
 
 interface Props {
-  cardsByGroup: Dictionary<Card[]>;
+  cardDictionary: CardTableDictionary;
   showSkeletons: boolean;
 }
 
-const CardTable: FC<Props> = ({ cardsByGroup, showSkeletons }) => {
+const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
   const [modalCard, setModalCard] = useState<Card>();
 
   return (
@@ -35,20 +35,22 @@ const CardTable: FC<Props> = ({ cardsByGroup, showSkeletons }) => {
               </th>
               {Object.values(Column).map((column) => (
                 <td key={column} className="px-1 py-2 align-top bg-zinc-100">
-                  {cardsByGroup[column + "," + grade]?.map((card) =>
-                    showSkeletons ? (
-                      <div
-                        key={card.cardUrl}
-                        className="h-8 mb-1 last:mb-0 bg-zinc-200 animate-pulse"
-                      />
-                    ) : (
-                      <CardView
-                        key={card.cardUrl}
-                        card={card}
-                        onClick={() => setModalCard(card)}
-                      />
-                    )
-                  )}
+                  {cardDictionary
+                    .get(column, grade)
+                    .map((card) =>
+                      showSkeletons ? (
+                        <div
+                          key={card.cardUrl}
+                          className="h-8 bg-zinc-200 mb-1 last:mb-0 animate-pulse"
+                        />
+                      ) : (
+                        <CardView
+                          key={card.cardUrl}
+                          card={card}
+                          onClick={() => setModalCard(card)}
+                        />
+                      )
+                    )}
                 </td>
               ))}
             </tr>
