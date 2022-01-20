@@ -18,7 +18,7 @@ const Modal: FC<Props> = ({ title, onClose, children }) => {
       initialFocus={completeButtonRef}
     >
       <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-50 z-10" />
-      <div className="bg-white rounded-lg shadow-xl z-20 w-full max-w-3xl max-h-screen overflow-auto">
+      <div className="bg-white rounded-lg shadow-xl z-20 w-full max-w-3xl max-h-screen">
         <Dialog.Title className="p-4 border-b-[1px] flex w-full items-center">
           <span className="flex-grow text-2xl font-medium">{title}</span>
           <button onClick={onClose} ref={completeButtonRef}>

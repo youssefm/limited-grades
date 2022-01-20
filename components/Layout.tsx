@@ -1,8 +1,6 @@
 import Head from "next/head";
 import { FC } from "react";
 
-import TitleBar from "components/TitleBar";
-
 const Layout: FC = ({ children }) => {
   return (
     <>
@@ -32,10 +30,7 @@ const Layout: FC = ({ children }) => {
         <link rel="manifest" href="manifest.json" />
       </Head>
 
-      <main>
-        <TitleBar />
-        {children}
-      </main>
+      <main>{children}</main>
     </>
   );
 };
