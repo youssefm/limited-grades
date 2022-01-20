@@ -21,7 +21,7 @@ const CardBubble = forwardRef<HTMLDivElement, Props>(
     return (
       <div
         onClick={onClick}
-        className={`w-full bg-white py-1 px-2 mb-1 last:mb-0 border-l-[3px] ${
+        className={`w-full bg-white px-2 mb-1 last:mb-0 border-l-[3px] ${
           BORDER_COLORS[card.rarity]
         } cursor-pointer hover:text-zinc-500`}
         ref={ref}
