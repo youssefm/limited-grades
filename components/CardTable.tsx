@@ -41,7 +41,7 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
                       showSkeletons ? (
                         <div
                           key={card.cardUrl}
-                          className="h-8 bg-zinc-200 mb-1 last:mb-0 animate-pulse"
+                          className="h-6 bg-zinc-200 mb-1 last:mb-0 animate-pulse"
                         />
                       ) : (
                         <CardView
