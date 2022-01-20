@@ -30,7 +30,7 @@ const Layout: FC = ({ children }) => {
         <link rel="manifest" href="manifest.json" />
       </Head>
 
-      <main>{children}</main>
+      {children}
     </>
   );
 };
