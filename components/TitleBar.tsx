@@ -8,31 +8,34 @@ const TitleBar = () => {
   const [showInfoModal, setShowInfoModal] = useState(false);
 
   return (
-    <div className="flex px-8 py-4 items-center">
-      <div className="mr-2">
-        <Image
-          src="/apple-touch-icon.png"
-          alt="Limited Grades"
-          height={32}
-          width={32}
-        />
-      </div>
-      <h1 className="text-2xl font-belerenSmallCaps flex-auto">
-        Limited Grades
-      </h1>
+    <>
+      <div className="flex px-8 py-4 items-center">
+        <div className="mr-2">
+          <Image
+            src="/apple-touch-icon.png"
+            alt="Limited Grades"
+            height={32}
+            width={32}
+          />
+        </div>
 
-      <button
-        onClick={() => setShowInfoModal(true)}
-        className="hover:text-blue-500 flex gap-1 justify-center items-center"
-      >
-        <FaInfoCircle />
-        <span className="hidden md:inline">About this project</span>
-      </button>
+        <h1 className="text-2xl font-belerenSmallCaps flex-auto">
+          Limited Grades
+        </h1>
+
+        <button
+          onClick={() => setShowInfoModal(true)}
+          className="hover:text-blue-500 flex gap-1 justify-center items-center"
+        >
+          <FaInfoCircle />
+          <span className="hidden md:inline">About this project</span>
+        </button>
+      </div>
 
       {showInfoModal && (
         <AboutProjectModal onClose={() => setShowInfoModal(false)} />
       )}
-    </div>
+    </>
   );
 };
 

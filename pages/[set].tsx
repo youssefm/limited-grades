@@ -4,24 +4,15 @@ import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 
-import { getCards } from "lib/cards";
-import {
-  Column,
-  Deck,
-  Rarity,
-  MagicSet,
-  Grade,
-  Card,
-  CardType,
-} from "lib/types";
-import CardView from "components/CardView";
 import RarityFilter from "components/RarityFilter";
 import SetSelector from "components/SetSelector";
 import DeckSelector from "components/DeckSelector";
-import { COLUMN_ICONS, SET_LABELS } from "lib/constants";
-import CardDetailModal from "components/CardDetailModal";
+import { SET_LABELS } from "lib/constants";
 import PageFooter from "components/PageFooter";
 import CardTypeFilter from "components/CardTypeFilter";
+import { getCards } from "lib/cards";
+import { Deck, Rarity, MagicSet, CardType } from "lib/types";
+import CardTable from "components/CardTable";
 
 export const getStaticPaths = async () => {
   return {
@@ -58,7 +49,6 @@ const Page = ({
   const [visibleCardTypes, setVisibleCardTypes] = useState(
     new Set(Object.values(CardType))
   );
-  const [modalCard, setModalCard] = useState<Card>();
   const [showSkeletons, setShowSkeletons] = useState(false);
 
   useEffect(() => {
@@ -126,49 +116,7 @@ const Page = ({
           />
         </div>
       </div>
-      <table className="w-full lg:table-fixed">
-        <thead>
-          <tr className="border-b-2 border-zinc-800">
-            <th className="w-16 h-11 bg-zinc-200"></th>
-            {Object.values(Column).map((column) => (
-              <th key={column} className="h-11 bg-zinc-200">
-                <i className={COLUMN_ICONS[column]}></i>
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {Object.values(Grade).map((grade) => (
-            <tr key={grade} className="border-b-[1px] border-zinc-200">
-              <th className="w-16 bg-zinc-200 text-xl text-left lg:pl-4">
-                {grade}
-              </th>
-              {Object.values(Column).map((column) => (
-                <td key={column} className="px-1 py-2 align-top bg-zinc-100">
-                  {cardsByGroup[column + "," + grade]?.map((card) =>
-                    showSkeletons ? (
-                      <div
-                        key={card.cardUrl}
-                        className="h-8 mb-1 last:mb-0 bg-zinc-200 animate-pulse"
-                      />
-                    ) : (
-                      <CardView
-                        key={card.cardUrl}
-                        card={card}
-                        onClick={() => setModalCard(card)}
-                      />
-                    )
-                  )}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <CardDetailModal
-        card={modalCard}
-        onClose={() => setModalCard(undefined)}
-      />
+      <CardTable cardsByGroup={cardsByGroup} showSkeletons={showSkeletons} />
       <PageFooter lastUpdatedAtTicks={lastUpdatedAtTicks} />
     </div>
   );
