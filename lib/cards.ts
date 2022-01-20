@@ -5,10 +5,7 @@ import NormalDistribution from "normal-distribution";
 import { LATEST_SET } from "lib/constants";
 import { Card, Deck, MagicSet, Grade, Rarity } from "lib/types";
 import { getCardColumn, getCardTypes } from "lib/scryfall";
-import {
-  connect as connectToCache,
-  IS_ENABLED as CACHE_IS_ENABLED,
-} from "lib/cache";
+import { IS_ENABLED as CACHE_IS_ENABLED, RedisCacheClient } from "lib/cache";
 
 interface ApiCard {
   name: string;
@@ -55,7 +52,7 @@ export async function getCards(set: MagicSet): Promise<Card[]> {
     return await buildCardStore(set);
   }
 
-  const client = await connectToCache();
+  const client = new RedisCacheClient();
   console.log(`attempting to fetch 17lands data for ${set} from cache`);
   const cacheHit = await client.get(set);
   if (cacheHit) {
@@ -68,7 +65,6 @@ export async function getCards(set: MagicSet): Promise<Card[]> {
   const expirationInHours =
     set === LATEST_SET || set === MagicSet.ARENA_CUBE ? 12 : 24 * 7;
   await client.set(set, JSON.stringify(cards), expirationInHours);
-  await client.disconnect();
   return cards;
 }
 

@@ -5,46 +5,44 @@ import {
   RedisScripts,
 } from "redis";
 
-export const IS_ENABLED = process.env.REDIS_URL !== undefined;
+type RedisClient = RedisClientType<RedisModules, RedisScripts>;
 
-export async function connect() {
+export const IS_ENABLED = process.env.REDIS_URL !== undefined;
+let REDIS_CLIENT: RedisClient | null;
+
+async function initializeRedisClient(): Promise<void> {
   if (!IS_ENABLED) {
     throw "Cannot connect to cache when it is not enabled";
   }
 
-  const redisClient = createClient({
-    url: process.env.REDIS_URL,
-    socket: {
-      tls: true,
-      rejectUnauthorized: false,
-      reconnectStrategy: (retries) => Math.min(retries * 1000, 10000),
-    },
-  });
+  if (!REDIS_CLIENT) {
+    REDIS_CLIENT = createClient({
+      url: process.env.REDIS_URL,
+      socket: {
+        tls: true,
+        rejectUnauthorized: false,
+        reconnectStrategy: (retries) => Math.min(retries * 1000, 10000),
+      },
+    });
 
-  redisClient.on("error", (error) => console.log("Redis Client Error:", error));
+    REDIS_CLIENT.on("error", (error) =>
+      console.log("Redis Client Error:", error)
+    );
 
-  await redisClient.connect();
-  return new CacheClient(redisClient);
+    await REDIS_CLIENT.connect();
+  }
 }
 
-class CacheClient {
-  redisClient: RedisClientType<RedisModules, RedisScripts>;
-
-  constructor(redisClient: RedisClientType<RedisModules, RedisScripts>) {
-    this.redisClient = redisClient;
-  }
-
+export class RedisCacheClient {
   async get(key: string) {
-    return await this.redisClient.get(key);
+    await initializeRedisClient();
+    return await REDIS_CLIENT!.get(key);
   }
 
   async set(key: string, value: string, expirationInHours: number) {
-    return await this.redisClient.set(key, value, {
+    await initializeRedisClient();
+    return await REDIS_CLIENT!.set(key, value, {
       EX: expirationInHours * 60 * 60,
     });
-  }
-
-  async disconnect() {
-    await this.redisClient.quit();
   }
 }
