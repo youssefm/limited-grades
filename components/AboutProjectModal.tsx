@@ -28,9 +28,9 @@ const AboutProjectModal: FC<Props> = ({ onClose }) => (
         a breakdown of how well the card does in different archetypes.
       </p>
       <p>
-        The source code for this site can be found at{" "}
+        The source code for this site can be found on{" "}
         <LinkOut url="https://github.com/youssefm/limited-grades">
-          https://github.com/youssefm/limited-grades
+          GitHub
         </LinkOut>
         .
       </p>
