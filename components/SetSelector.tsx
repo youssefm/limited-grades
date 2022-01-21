@@ -16,8 +16,10 @@ const SingleValue = ({
   ...props
 }: SingleValueProps<SetOption, false>) => (
   <components.SingleValue {...props}>
-    <i className={`ss ss-fw ss-${props.data.value}`} />
-    <span className="ml-2">{children}</span>
+    <div className="flex items-center">
+      <i className={`ss ss-fw ss-${props.data.value}`} />
+      <span className="ml-2">{children}</span>
+    </div>
   </components.SingleValue>
 );
 
@@ -27,8 +29,10 @@ const Option: FC<OptionProps<SetOption, false>> = (props) => {
   } = props;
   return (
     <components.Option {...props}>
-      <i className={`ss ss-fw ss-${value}`} />
-      <span className="ml-2">{label}</span>
+      <div className="flex items-center">
+        <i className={`ss ss-fw ss-${value}`} />
+        <span className="ml-2">{label}</span>
+      </div>
     </components.Option>
   );
 };

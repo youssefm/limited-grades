@@ -17,12 +17,12 @@ const formatDeckOption = (deck: Deck, label: ReactNode) => {
     return label;
   }
   return (
-    <>
+    <div className="flex items-center">
       {deckColors.map((column) => (
         <i key={column} className={COLUMN_ICONS[column]} />
       ))}
       <span className="ml-2">{label}</span>
-    </>
+    </div>
   );
 };
 

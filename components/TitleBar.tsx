@@ -25,7 +25,7 @@ const TitleBar = () => {
 
         <button
           onClick={() => setShowInfoModal(true)}
-          className="hover:text-blue-500 flex gap-1 justify-center items-center"
+          className="hover:text-blue-500 flex gap-1 items-center"
           type="button"
         >
           <FaInfoCircle />
