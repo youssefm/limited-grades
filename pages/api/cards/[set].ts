@@ -4,10 +4,7 @@ import { getCards } from "lib/cards";
 import { ALL_SETS } from "lib/constants";
 import { MagicSet } from "lib/types";
 
-export default async function handler(
-  request: NextApiRequest,
-  response: NextApiResponse
-) {
+const handler = async (request: NextApiRequest, response: NextApiResponse) => {
   const { set } = request.query;
 
   if (!(ALL_SETS as string[]).includes(set as string)) {
@@ -17,7 +14,9 @@ export default async function handler(
 
   const cards = await getCards(set as MagicSet);
   response.status(200).json(cards);
-}
+};
+
+export default handler;
 
 export const config = {
   unstable_includeFiles: ["data/oracle-cards.json"],

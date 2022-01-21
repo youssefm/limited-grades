@@ -47,7 +47,7 @@ const SET_START_DATES: Partial<Record<MagicSet, string>> = {
   [MagicSet.ARENA_CUBE]: "2022-01-06",
 };
 
-async function fetchApiCards(set: MagicSet, deck: Deck): Promise<ApiCard[]> {
+const fetchApiCards = async (set: MagicSet, deck: Deck): Promise<ApiCard[]> => {
   const urlParams: Record<string, string> = {
     expansion: set,
     format: "PremierDraft",
@@ -74,9 +74,9 @@ async function fetchApiCards(set: MagicSet, deck: Deck): Promise<ApiCard[]> {
   console.log("request succeeded");
 
   return response.json();
-}
+};
 
-async function buildCardStore(set: MagicSet): Promise<Card[]> {
+const buildCardStore = async (set: MagicSet): Promise<Card[]> => {
   const cards: { [key: string]: Card } = {};
   const apiCardStore = await Promise.all(
     ALL_DECKS.map((deck) => fetchApiCards(set, deck))
@@ -130,10 +130,10 @@ async function buildCardStore(set: MagicSet): Promise<Card[]> {
   }
 
   return Object.values(cards);
-}
+};
 
 // eslint-disable-next-line import/prefer-default-export
-export async function getCards(set: MagicSet): Promise<Card[]> {
+export const getCards = async (set: MagicSet): Promise<Card[]> => {
   if (!CACHE_IS_ENABLED) {
     return buildCardStore(set);
   }
@@ -151,4 +151,4 @@ export async function getCards(set: MagicSet): Promise<Card[]> {
     set === LATEST_SET || set === MagicSet.ARENA_CUBE ? 12 : 24 * 7;
   await RedisCacheClient.set(set, JSON.stringify(cards), expirationInHours);
   return cards;
-}
+};
