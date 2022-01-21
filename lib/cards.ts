@@ -2,10 +2,10 @@ import { find, round } from "lodash";
 import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
 
-import { LATEST_SET } from "lib/constants";
-import { Card, Deck, MagicSet, Grade, Rarity } from "lib/types";
-import { getCardColumn, getCardTypes } from "lib/scryfall";
 import { IS_ENABLED as CACHE_IS_ENABLED, RedisCacheClient } from "lib/cache";
+import { LATEST_SET } from "lib/constants";
+import { getCardColumn, getCardTypes } from "lib/scryfall";
+import { Card, Deck, Grade, MagicSet, Rarity } from "lib/types";
 
 interface ApiCard {
   name: string;
