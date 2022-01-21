@@ -18,7 +18,7 @@ const SetSelector: FC<Props> = ({ value, onChange }) => (
       onChange={onChange}
       options={ALL_SETS}
       getLabel={(set) => SET_LABELS[set]}
-      getIcon={(set) => `ss ss-fw ss-${set}`}
+      getIcons={(set) => [`ss ss-fw ss-${set}`]}
       instanceId="set-select"
       className="min-w-[250px]"
     />
