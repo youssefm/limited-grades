@@ -14,16 +14,13 @@ import "styles/global.css";
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
   useEffect(() => {
-    if (GA_TRACKING_ENABLED) {
-      const handleRouteChange = (url: string) => {
-        pageview(url);
-      };
-      router.events.on("routeChangeComplete", handleRouteChange);
-      return () => {
-        router.events.off("routeChangeComplete", handleRouteChange);
-      };
-    }
-    return undefined;
+    const handleRouteChange = (url: string) => {
+      pageview(url);
+    };
+    router.events.on("routeChangeComplete", handleRouteChange);
+    return () => {
+      router.events.off("routeChangeComplete", handleRouteChange);
+    };
   }, [router.events]);
 
   return (
