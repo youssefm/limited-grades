@@ -1,6 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
 import { getCards } from "lib/cards";
+import { ALL_SETS } from "lib/constants";
 import { MagicSet } from "lib/types";
 
 export default async function handler(
@@ -9,7 +10,7 @@ export default async function handler(
 ) {
   const { set } = request.query;
 
-  if (!(Object.values(MagicSet) as string[]).includes(set as string)) {
+  if (!(ALL_SETS as string[]).includes(set as string)) {
     response.status(404).json({ error: "set not recognized" });
     return;
   }

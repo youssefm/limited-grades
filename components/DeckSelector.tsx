@@ -6,7 +6,12 @@ import Select, {
 } from "react-select";
 
 import FilterLabel from "components/FilterLabel";
-import { COLUMN_ICONS, DECK_COLORS, DECK_LABELS } from "lib/constants";
+import {
+  ALL_DECKS,
+  COLUMN_ICONS,
+  DECK_COLORS,
+  DECK_LABELS,
+} from "lib/constants";
 import { Deck } from "lib/types";
 
 type DeckOption = { value: Deck; label: string };
@@ -61,7 +66,7 @@ const DeckSelector: FC<Props> = ({ value, onChange }) => (
           onChange(selectedOption.value);
         }
       }}
-      options={Object.values(Deck).map((deck) => ({
+      options={ALL_DECKS.map((deck) => ({
         value: deck,
         label: DECK_LABELS[deck],
       }))}
