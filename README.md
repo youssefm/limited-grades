@@ -32,8 +32,10 @@ REDIS_URL=<your Redis connection URL>
 
 # To Do
 
-- minor: select icons are not perfectly aligned
 - parallelize 17lands API requests
+- combine implementations of deck selector and set selector?
+- combine implementations of rarity filter and card type filter?
+- minor: select icons are not perfectly aligned
 - Add a dark mode toggle?
 - Improvements to card detail view?
 - Search feature?
