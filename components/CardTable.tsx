@@ -16,53 +16,55 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
 
   return (
     <>
-      <table className="w-full lg:table-fixed border-separate border-spacing-0">
-        <thead>
-          <tr className="sticky top-0">
-            <th className="w-16 h-11 bg-zinc-200 border-b-2 border-zinc-800"></th>
-            {Object.values(Column).map((column) => (
-              <th
-                key={column}
-                className="h-11 bg-zinc-200 border-b-2 border-zinc-800"
-              >
-                <i className={COLUMN_ICONS[column]}></i>
-              </th>
-            ))}
-          </tr>
-        </thead>
-        <tbody>
-          {Object.values(Grade).map((grade) => (
-            <tr key={grade}>
-              <th className="w-16 bg-zinc-200 text-xl text-left border-b-[1px] border-zinc-200 lg:pl-4">
-                {grade}
-              </th>
+      <div className="overflow-x-auto lg:overflow-x-visible">
+        <table className="w-full lg:table-fixed border-separate border-spacing-0">
+          <thead>
+            <tr className="lg:sticky lg:top-0">
+              <th className="w-16 h-11 bg-zinc-200 border-b-2 border-zinc-800"></th>
               {Object.values(Column).map((column) => (
-                <td
+                <th
                   key={column}
-                  className="px-1 py-2 align-top bg-zinc-100 border-b-[1px] border-zinc-200"
+                  className="h-11 bg-zinc-200 border-b-2 border-zinc-800"
                 >
-                  {cardDictionary
-                    .get(column, grade)
-                    .map((card) =>
-                      showSkeletons ? (
-                        <div
-                          key={card.cardUrl}
-                          className="h-6 bg-zinc-200 mb-1 last:mb-0 animate-pulse"
-                        />
-                      ) : (
-                        <CardView
-                          key={card.cardUrl}
-                          card={card}
-                          onClick={() => setModalCard(card)}
-                        />
-                      )
-                    )}
-                </td>
+                  <i className={COLUMN_ICONS[column]}></i>
+                </th>
               ))}
             </tr>
-          ))}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {Object.values(Grade).map((grade) => (
+              <tr key={grade}>
+                <th className="w-16 bg-zinc-200 text-xl text-left border-b-[1px] border-zinc-200 lg:pl-4">
+                  {grade}
+                </th>
+                {Object.values(Column).map((column) => (
+                  <td
+                    key={column}
+                    className="px-1 py-2 align-top bg-zinc-100 border-b-[1px] border-zinc-200"
+                  >
+                    {cardDictionary
+                      .get(column, grade)
+                      .map((card) =>
+                        showSkeletons ? (
+                          <div
+                            key={card.cardUrl}
+                            className="h-6 bg-zinc-200 mb-1 last:mb-0 animate-pulse"
+                          />
+                        ) : (
+                          <CardView
+                            key={card.cardUrl}
+                            card={card}
+                            onClick={() => setModalCard(card)}
+                          />
+                        )
+                      )}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
 
       <CardDetailModal
         card={modalCard}
