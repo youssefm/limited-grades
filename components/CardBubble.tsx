@@ -16,20 +16,19 @@ interface Props {
   onClick: () => void;
 }
 
-const CardBubble = forwardRef<HTMLDivElement, Props>(
-  ({ card, onClick }, ref) => {
-    return (
-      <div
-        onClick={onClick}
-        className={`w-full bg-white px-2 mb-1 last:mb-0 border-l-[3px] ${
-          BORDER_COLORS[card.rarity]
-        } cursor-pointer hover:text-zinc-500`}
-        ref={ref}
-      >
-        {card.name}
-      </div>
-    );
-  }
+const CardBubble = forwardRef<HTMLButtonElement, Props>(
+  ({ card, onClick }, ref) => (
+    <button
+      onClick={onClick}
+      className={`w-full bg-white px-2 mb-1 last:mb-0 border-l-[3px] ${
+        BORDER_COLORS[card.rarity]
+      } hover:text-zinc-500`}
+      type="button"
+      ref={ref}
+    >
+      {card.name}
+    </button>
+  )
 );
 
 CardBubble.displayName = "CardBubble";

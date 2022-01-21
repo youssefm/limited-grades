@@ -60,12 +60,23 @@ async function buildIndex() {
   }
 }
 
+async function lookupCard(cardName: string): Promise<ScryfallCard> {
+  await buildIndex();
+  const scryfallCard = CARD_INDEX!.get(cardName);
+  if (!scryfallCard) {
+    throw Error(
+      `Card named '${cardName}' could not be found in the Scryfall DB`
+    );
+  }
+  return scryfallCard;
+}
+
 export async function getCardColumn(cardName: string): Promise<Column> {
   const scryfallCard = await lookupCard(cardName);
   const colors: ScryfallColor[] =
     scryfallCard.colors || scryfallCard.card_faces![0].colors!;
 
-  if (colors.length == 0) {
+  if (colors.length === 0) {
     return Column.COLORLESS;
   }
   if (colors.length > 1) {
@@ -79,13 +90,4 @@ export async function getCardTypes(cardName: string): Promise<CardType[]> {
   return Object.values(CardType).filter((cardType) =>
     scryfallCard.type_line.includes(upperFirst(cardType))
   );
-}
-
-async function lookupCard(cardName: string): Promise<ScryfallCard> {
-  await buildIndex();
-  const scryfallCard = CARD_INDEX!.get(cardName);
-  if (!scryfallCard) {
-    throw `Card named '${cardName}' could not be found in the Scryfall DB`;
-  }
-  return scryfallCard;
 }

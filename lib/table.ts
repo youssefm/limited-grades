@@ -3,6 +3,7 @@ import { Dictionary, groupBy } from "lodash";
 import { Card, Column, Deck, Grade } from "lib/types";
 import { createCompareFunction } from "lib/util";
 
+// eslint-disable-next-line import/prefer-default-export
 export class CardTableDictionary {
   cardsByGroup: Dictionary<[Card, ...Card[]]>;
 

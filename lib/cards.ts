@@ -47,25 +47,33 @@ const SET_START_DATES: Partial<Record<MagicSet, string>> = {
   [MagicSet.ARENA_CUBE]: "2022-01-06",
 };
 
-export async function getCards(set: MagicSet): Promise<Card[]> {
-  if (!CACHE_IS_ENABLED) {
-    return await buildCardStore(set);
+async function fetchApiCards(set: MagicSet, deck: Deck): Promise<ApiCard[]> {
+  const urlParams: Record<string, string> = {
+    expansion: set,
+    format: "PremierDraft",
+    start_date: SET_START_DATES[set] || "2020-04-16",
+    end_date: new Date().toISOString().substring(0, 10),
+  };
+
+  if (deck !== Deck.ALL) {
+    urlParams.colors = deck;
   }
 
-  const client = new RedisCacheClient();
-  console.log(`attempting to fetch 17lands data for ${set} from cache`);
-  const cacheHit = await client.get(set);
-  if (cacheHit) {
-    console.log("cache hit");
-    return JSON.parse(cacheHit);
-  }
-  console.log("cache miss");
+  const queryString = new URLSearchParams(urlParams).toString();
+  const url = `https://www.17lands.com/card_ratings/data?${queryString}`;
 
-  const cards = await buildCardStore(set);
-  const expirationInHours =
-    set === LATEST_SET || set === MagicSet.ARENA_CUBE ? 12 : 24 * 7;
-  await client.set(set, JSON.stringify(cards), expirationInHours);
-  return cards;
+  console.log(`Making API request to ${url}`);
+  let response = await fetch(url);
+  while (!response.ok) {
+    console.log("request failed, retrying in 10 seconds");
+    await new Promise((resolve) => {
+      setTimeout(resolve, 10000);
+    });
+    response = await fetch(url);
+  }
+  console.log("request succeeded");
+
+  return response.json();
 }
 
 async function buildCardStore(set: MagicSet): Promise<Card[]> {
@@ -107,13 +115,13 @@ async function buildCardStore(set: MagicSet): Promise<Card[]> {
       const score = normalDistribution.cdf(apiCard.ever_drawn_win_rate) * 100;
       const grade: Grade = find<[Grade, number]>(
         GRADE_THRESHOLDS,
-        ([grade, threshold]) => score >= threshold
+        ([, threshold]) => score >= threshold
       )![0];
 
       card.stats[deck] = {
         winrate: round(apiCard.ever_drawn_win_rate, 4),
         gameCount: apiCard.game_count,
-        grade: grade,
+        grade,
       };
     }
   }
@@ -121,29 +129,23 @@ async function buildCardStore(set: MagicSet): Promise<Card[]> {
   return Object.values(cards);
 }
 
-async function fetchApiCards(set: MagicSet, deck: Deck): Promise<ApiCard[]> {
-  const urlParams: Record<string, string> = {
-    expansion: set,
-    format: "PremierDraft",
-    start_date: SET_START_DATES[set] || "2020-04-16",
-    end_date: new Date().toISOString().substring(0, 10),
-  };
-
-  if (deck !== Deck.ALL) {
-    urlParams.colors = deck;
+// eslint-disable-next-line import/prefer-default-export
+export async function getCards(set: MagicSet): Promise<Card[]> {
+  if (!CACHE_IS_ENABLED) {
+    return buildCardStore(set);
   }
 
-  const queryString = new URLSearchParams(urlParams).toString();
-  const url = `https://www.17lands.com/card_ratings/data?${queryString}`;
-
-  console.log(`Making API request to ${url}`);
-  let response = await fetch(url);
-  while (!response.ok) {
-    console.log("request failed, retrying in 10 seconds");
-    await new Promise((resolve) => setTimeout(resolve, 10000));
-    response = await fetch(url);
+  console.log(`attempting to fetch 17lands data for ${set} from cache`);
+  const cacheHit = await RedisCacheClient.get(set);
+  if (cacheHit) {
+    console.log("cache hit");
+    return JSON.parse(cacheHit);
   }
-  console.log("request succeeded");
+  console.log("cache miss");
 
-  return await response.json();
+  const cards = await buildCardStore(set);
+  const expirationInHours =
+    set === LATEST_SET || set === MagicSet.ARENA_CUBE ? 12 : 24 * 7;
+  await RedisCacheClient.set(set, JSON.stringify(cards), expirationInHours);
+  return cards;
 }

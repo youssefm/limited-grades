@@ -33,6 +33,7 @@ REDIS_URL=<your Redis connection URL>
 # To Do
 
 - minor: select icons are not perfectly aligned
+- parallelize 17lands API requests
 - enable more ESLint rules
 - Add a dark mode toggle?
 - Improvements to card detail view?

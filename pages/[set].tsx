@@ -15,12 +15,10 @@ import { Deck, Rarity, MagicSet, CardType } from "lib/types";
 import CardTable from "components/CardTable";
 import { CardTableDictionary } from "lib/table";
 
-export const getStaticPaths = async () => {
-  return {
-    paths: Object.values(MagicSet).map((set) => ({ params: { set } })),
-    fallback: false,
-  };
-};
+export const getStaticPaths = async () => ({
+  paths: Object.values(MagicSet).map((set) => ({ params: { set } })),
+  fallback: false,
+});
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
   const set = context.params!.set as MagicSet;
@@ -58,12 +56,10 @@ const Page = ({
         setLoading(false);
         setShowSkeletons(false);
       }
+    } else if (loading) {
+      router.push(`/${selectedSet}`);
     } else {
-      if (loading) {
-        router.push(`/${selectedSet}`);
-      } else {
-        setSelectedSet(set);
-      }
+      setSelectedSet(set);
     }
   }, [selectedSet, set, loading, router]);
 
@@ -72,9 +68,9 @@ const Page = ({
       // Add small delay before showing placeholders to prevent screen stuttering
       const timer = setTimeout(() => setShowSkeletons(true), 300);
       return () => clearTimeout(timer);
-    } else {
-      setShowSkeletons(false);
     }
+    setShowSkeletons(false);
+    return undefined;
   }, [loading]);
 
   const filteredCards = cards

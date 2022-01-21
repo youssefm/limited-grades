@@ -12,7 +12,7 @@ import "keyrune/css/keyrune.min.css";
 import "mana-font/css/mana.min.css";
 import "tippy.js/dist/tippy.css";
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
   useEffect(() => {
     const handleRouteChange = (url: string) => {
@@ -54,4 +54,6 @@ export default function MyApp({ Component, pageProps }: AppProps) {
       </Layout>
     </>
   );
-}
+};
+
+export default MyApp;

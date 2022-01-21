@@ -28,7 +28,7 @@ const CardDetailModal: FC<Props> = ({ card, onClose }) => {
         <table className="flex-grow self-start">
           <thead>
             <tr className="border-b-2 border-zinc-800">
-              <th className="p-2"></th>
+              <th className="p-2" />
               <th className="p-2 text-left">Win Rate</th>
               <th className="p-2 text-left">Grade</th>
             </tr>
@@ -36,7 +36,7 @@ const CardDetailModal: FC<Props> = ({ card, onClose }) => {
           <tbody>
             {sortBy(
               Object.entries(card.stats),
-              ([deck, stats]) => -stats.gameCount
+              ([, stats]) => -stats.gameCount
             ).map(([deck, stats]) => {
               const deckColors = DECK_COLORS[deck as Deck];
               return (
