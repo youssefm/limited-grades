@@ -11,12 +11,17 @@ import RarityFilter from "components/RarityFilter";
 import SetSelector from "components/SetSelector";
 import TitleBar from "components/TitleBar";
 import { getCards } from "lib/cards";
-import { SET_LABELS } from "lib/constants";
+import {
+  ALL_CARD_TYPES,
+  ALL_RARITIES,
+  ALL_SETS,
+  SET_LABELS,
+} from "lib/constants";
 import { CardTableDictionary } from "lib/table";
-import { CardType, Deck, MagicSet, Rarity } from "lib/types";
+import { Deck, MagicSet } from "lib/types";
 
 export const getStaticPaths = async () => ({
-  paths: Object.values(MagicSet).map((set) => ({ params: { set } })),
+  paths: ALL_SETS.map((set) => ({ params: { set } })),
   fallback: false,
 });
 
@@ -42,11 +47,9 @@ const Page = ({
   const [selectedSet, setSelectedSet] = useState(set);
   const [loading, setLoading] = useState(false);
   const [deck, setDeck] = useState(Deck.ALL);
-  const [visibleRarities, setVisibleRarities] = useState(
-    new Set(Object.values(Rarity))
-  );
+  const [visibleRarities, setVisibleRarities] = useState(new Set(ALL_RARITIES));
   const [visibleCardTypes, setVisibleCardTypes] = useState(
-    new Set(Object.values(CardType))
+    new Set(ALL_CARD_TYPES)
   );
   const [showSkeletons, setShowSkeletons] = useState(false);
 

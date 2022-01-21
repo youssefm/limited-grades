@@ -1,6 +1,7 @@
 import { FC } from "react";
 
 import FilterLabel from "components/FilterLabel";
+import { ALL_RARITIES } from "lib/constants";
 import { MagicSet, Rarity } from "lib/types";
 
 interface Props {
@@ -13,7 +14,7 @@ const RarityFilter: FC<Props> = ({ set, values, setValues }) => (
   <div>
     <FilterLabel>Rarity</FilterLabel>
     <div>
-      {Object.values(Rarity).map((rarity) => (
+      {ALL_RARITIES.map((rarity) => (
         <label key={rarity}>
           <input
             type="checkbox"

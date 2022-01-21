@@ -2,9 +2,9 @@ import { FC, useState } from "react";
 
 import CardDetailModal from "components/CardDetailModal";
 import CardView from "components/CardView";
-import { COLUMN_ICONS } from "lib/constants";
+import { ALL_COLUMNS, ALL_GRADES, COLUMN_ICONS } from "lib/constants";
 import { CardTableDictionary } from "lib/table";
-import { Card, Column, Grade } from "lib/types";
+import { Card } from "lib/types";
 
 interface Props {
   cardDictionary: CardTableDictionary;
@@ -21,7 +21,7 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
           <thead>
             <tr className="lg:sticky lg:top-0">
               <th className="w-16 h-11 bg-zinc-200 border-b-2 border-zinc-800" />
-              {Object.values(Column).map((column) => (
+              {ALL_COLUMNS.map((column) => (
                 <th
                   key={column}
                   className="h-11 bg-zinc-200 border-b-2 border-zinc-800"
@@ -32,12 +32,12 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
             </tr>
           </thead>
           <tbody>
-            {Object.values(Grade).map((grade) => (
+            {ALL_GRADES.map((grade) => (
               <tr key={grade}>
                 <th className="w-16 bg-zinc-200 text-xl text-left border-b-[1px] border-zinc-200 lg:pl-4">
                   {grade}
                 </th>
-                {Object.values(Column).map((column) => (
+                {ALL_COLUMNS.map((column) => (
                   <td
                     key={column}
                     className="px-1 py-2 align-top bg-zinc-100 border-b-[1px] border-zinc-200"

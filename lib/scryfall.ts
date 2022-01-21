@@ -3,6 +3,7 @@ import path from "path";
 
 import { upperFirst } from "lodash";
 
+import { ALL_CARD_TYPES } from "lib/constants";
 import { CardType, Column } from "lib/types";
 
 interface ScryfallCard {
@@ -88,7 +89,7 @@ export async function getCardColumn(cardName: string): Promise<Column> {
 
 export async function getCardTypes(cardName: string): Promise<CardType[]> {
   const scryfallCard = await lookupCard(cardName);
-  return Object.values(CardType).filter((cardType) =>
+  return ALL_CARD_TYPES.filter((cardType) =>
     scryfallCard.type_line.includes(upperFirst(cardType))
   );
 }

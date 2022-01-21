@@ -6,7 +6,7 @@ import Select, {
 } from "react-select";
 
 import FilterLabel from "components/FilterLabel";
-import { SET_LABELS } from "lib/constants";
+import { ALL_SETS, SET_LABELS } from "lib/constants";
 import { MagicSet } from "lib/types";
 
 type SetOption = { value: MagicSet; label: string };
@@ -52,7 +52,7 @@ const SetSelector: FC<Props> = ({ value, onChange }) => (
           onChange(selectedOption.value);
         }
       }}
-      options={Object.values(MagicSet).map((set) => ({
+      options={ALL_SETS.map((set) => ({
         value: set,
         label: SET_LABELS[set],
       }))}

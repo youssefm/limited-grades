@@ -3,7 +3,7 @@ import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
 
 import { IS_ENABLED as CACHE_IS_ENABLED, RedisCacheClient } from "lib/cache";
-import { LATEST_SET } from "lib/constants";
+import { ALL_DECKS, LATEST_SET } from "lib/constants";
 import { getCardColumn, getCardTypes } from "lib/scryfall";
 import { Card, Deck, Grade, MagicSet, Rarity } from "lib/types";
 
@@ -78,8 +78,11 @@ async function fetchApiCards(set: MagicSet, deck: Deck): Promise<ApiCard[]> {
 
 async function buildCardStore(set: MagicSet): Promise<Card[]> {
   const cards: { [key: string]: Card } = {};
-  for (const deck of Object.values(Deck)) {
-    let apiCards: ApiCard[] = await fetchApiCards(set, deck);
+  const apiCardStore = await Promise.all(
+    ALL_DECKS.map((deck) => fetchApiCards(set, deck))
+  );
+  for (const [index, deck] of ALL_DECKS.entries()) {
+    let apiCards: ApiCard[] = apiCardStore[index];
     apiCards = apiCards.filter(
       (card) => card.ever_drawn_game_count >= 200 && card.ever_drawn_win_rate
     );
