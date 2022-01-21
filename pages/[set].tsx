@@ -57,7 +57,9 @@ const Page = ({
         setShowSkeletons(false);
       }
     } else if (loading) {
-      router.push(`/${selectedSet}`);
+      router
+        .push(`/${selectedSet}`)
+        .catch((error) => console.log(`Failed to push new route: ${error}`));
     } else {
       setSelectedSet(set);
     }
