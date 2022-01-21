@@ -1,6 +1,7 @@
 import { readFile } from "fs/promises";
-import { upperFirst } from "lodash";
 import path from "path";
+
+import { upperFirst } from "lodash";
 
 import { CardType, Column } from "lib/types";
 

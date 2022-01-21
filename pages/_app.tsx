@@ -1,16 +1,15 @@
+import "@saeris/typeface-beleren-bold";
+import "keyrune/css/keyrune.min.css";
+import "mana-font/css/mana.min.css";
 import { AppProps } from "next/dist/shared/lib/router/router";
 import { useRouter } from "next/router";
 import Script from "next/script";
 import React, { useEffect } from "react";
+import "tippy.js/dist/tippy.css";
 
 import Layout from "components/Layout";
-import { GA_TRACKING_ID, GA_TRACKING_ENABLED, pageview } from "lib/gtag";
-
+import { GA_TRACKING_ENABLED, GA_TRACKING_ID, pageview } from "lib/gtag";
 import "styles/global.css";
-import "@saeris/typeface-beleren-bold";
-import "keyrune/css/keyrune.min.css";
-import "mana-font/css/mana.min.css";
-import "tippy.js/dist/tippy.css";
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();

@@ -3,8 +3,8 @@ import { FC, useState } from "react";
 import CardDetailModal from "components/CardDetailModal";
 import CardView from "components/CardView";
 import { COLUMN_ICONS } from "lib/constants";
-import { Card, Column, Grade } from "lib/types";
 import { CardTableDictionary } from "lib/table";
+import { Card, Column, Grade } from "lib/types";
 
 interface Props {
   cardDictionary: CardTableDictionary;

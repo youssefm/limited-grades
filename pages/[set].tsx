@@ -3,17 +3,17 @@ import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 
+import CardTable from "components/CardTable";
+import CardTypeFilter from "components/CardTypeFilter";
 import DeckSelector from "components/DeckSelector";
 import PageFooter from "components/PageFooter";
 import RarityFilter from "components/RarityFilter";
 import SetSelector from "components/SetSelector";
 import TitleBar from "components/TitleBar";
-import { SET_LABELS } from "lib/constants";
-import CardTypeFilter from "components/CardTypeFilter";
 import { getCards } from "lib/cards";
-import { Deck, Rarity, MagicSet, CardType } from "lib/types";
-import CardTable from "components/CardTable";
+import { SET_LABELS } from "lib/constants";
 import { CardTableDictionary } from "lib/table";
+import { CardType, Deck, MagicSet, Rarity } from "lib/types";
 
 export const getStaticPaths = async () => ({
   paths: Object.values(MagicSet).map((set) => ({ params: { set } })),
