@@ -85,7 +85,7 @@ const Page = ({
   const cardDictionary = new CardTableDictionary(filteredCards, deck);
 
   return (
-    <div className="px-2 h-screen overflow-x-auto">
+    <div className="px-2">
       <Head>
         <title>Limited Grades – {SET_LABELS[selectedSet]}</title>
       </Head>
