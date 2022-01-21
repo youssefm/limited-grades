@@ -28,13 +28,12 @@ REDIS_URL=<your Redis connection URL>
 2. Update the value of the `LATEST_SET` constant in `lib/constants.ts`
 3. Once Scryfall is updated, download the Oracle Cards data file [here](https://scryfall.com/docs/api/bulk-data) and update `data/oracle-cards.json` in the repo
 4. Update the root redirect in `next.config.js` to redirect to the latest set
-5. Push to Github
+5. Push to GitHub
 
 # To Do
 
 - minor: select icons are not perfectly aligned
 - parallelize 17lands API requests
-- enable more ESLint rules
 - Add a dark mode toggle?
 - Improvements to card detail view?
 - Search feature?

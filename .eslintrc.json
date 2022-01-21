@@ -27,7 +27,6 @@
     ],
     "jsx-a11y/control-has-associated-label": "off",
     "jsx-a11y/label-has-associated-control": "off",
-    // TODO: re-enable once 17lands calls are parallelized
     "no-await-in-loop": "off",
     "no-console": "off",
     "no-continue": "off",
