@@ -9,7 +9,7 @@ const TitleBar = () => {
 
   return (
     <>
-      <div className="flex px-6 py-4 items-center">
+      <div className="flex px-2 lg:px-6 py-4 items-center">
         <div className="mr-2">
           <Image
             src="/apple-touch-icon.png"
