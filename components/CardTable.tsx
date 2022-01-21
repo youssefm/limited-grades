@@ -16,7 +16,7 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
 
   return (
     <>
-      <table className="w-full lg:table-fixed overflow-auto-y border-separate border-spacing-0">
+      <table className="w-full lg:table-fixed border-separate border-spacing-0">
         <thead>
           <tr className="sticky top-0">
             <th className="w-16 h-11 bg-zinc-200 border-b-2 border-zinc-800"></th>
