@@ -1,4 +1,4 @@
-import { FC, useCallback } from "react";
+import { FC, ReactElement, useCallback } from "react";
 import Select, {
   components,
   OptionProps,
@@ -10,7 +10,7 @@ interface Props<T> {
   onChange: (selectedValue: T) => void;
   options: T[];
   getLabel: (value: T) => string;
-  getIcon: (value: T) => string;
+  getIcons: (value: T) => string[];
   instanceId: string;
   className: string;
 }
@@ -20,7 +20,7 @@ const IconSelect = <T extends unknown>({
   onChange,
   options,
   getLabel,
-  getIcon,
+  getIcons,
   instanceId,
   className,
 }: Props<T>) => {
@@ -30,13 +30,24 @@ const IconSelect = <T extends unknown>({
   }
 
   const OptionView: FC<{ optionValue: T }> = useCallback(
-    ({ optionValue, children }) => (
-      <div className="flex items-center">
-        <i className={getIcon(optionValue)} />
-        <span className="ml-2">{children}</span>
-      </div>
-    ),
-    [getIcon]
+    ({ optionValue, children }) => {
+      const icons = getIcons(optionValue);
+      if (icons.length === 0) {
+        // This type assertion is not technically correct but this is a workaround
+        // for a Typescript issue: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/18051#issuecomment-485151038
+        return children as ReactElement;
+      }
+
+      return (
+        <div className="flex items-center">
+          {icons.map((icon) => (
+            <i className={icon} key={icon} />
+          ))}
+          <span className="ml-2">{children}</span>
+        </div>
+      );
+    },
+    [getIcons]
   );
 
   const SingleValue: FC<SingleValueProps<TOption, false>> = useCallback(
