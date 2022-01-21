@@ -1,7 +1,7 @@
 import { Dictionary, groupBy } from "lodash";
 
 import { Card, Column, Deck, Grade } from "lib/types";
-import { createCompareFunction } from "lib/util";
+import { createComparer } from "lib/util";
 
 // eslint-disable-next-line import/prefer-default-export
 export class CardTableDictionary {
@@ -15,9 +15,7 @@ export class CardTableDictionary {
     );
 
     for (const group of Object.values(this.cardsByGroup)) {
-      group.sort(
-        createCompareFunction((card) => card.stats[deck]!.winrate, true)
-      );
+      group.sort(createComparer((card) => card.stats[deck]!.winrate, true));
     }
   }
 
