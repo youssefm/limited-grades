@@ -32,6 +32,8 @@ REDIS_URL=<your Redis connection URL>
 
 # To Do
 
+- minor: select icons are not perfectly aligned
+- enable more ESLint rules
 - Add a dark mode toggle?
 - Improvements to card detail view?
 - Search feature?
