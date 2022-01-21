@@ -32,7 +32,6 @@ REDIS_URL=<your Redis connection URL>
 
 # To Do
 
-- combine implementations of rarity filter and card type filter?
 - Add a dark mode toggle?
 - Work on new UI for rarity and card type filters?
 - Improvements to card detail view?
