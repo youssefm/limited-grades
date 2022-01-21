@@ -18,8 +18,8 @@
       "error",
       {
         "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
+          "caseInsensitive": true,
+          "order": "asc"
         },
         "newlines-between": "always",
         "warnOnUnassignedImports": true
@@ -37,13 +37,6 @@
       "WithStatement"
     ],
     "prettier/prettier": "error",
-    "sort-imports": [
-      "error",
-      {
-        "ignoreCase": true,
-        "ignoreDeclarationSort": true
-      }
-    ],
     "react/function-component-definition": [
       "error",
       {
@@ -51,6 +44,13 @@
         "unnamedComponents": "arrow-function"
       }
     ],
-    "react/jsx-props-no-spreading": "off"
+    "react/jsx-props-no-spreading": "off",
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true
+      }
+    ]
   }
 }

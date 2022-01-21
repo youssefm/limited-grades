@@ -35,5 +35,6 @@ REDIS_URL=<your Redis connection URL>
 - combine implementations of deck selector and set selector?
 - combine implementations of rarity filter and card type filter?
 - Add a dark mode toggle?
+- Work on new UI for rarity and card type filters?
 - Improvements to card detail view?
 - Search feature?
