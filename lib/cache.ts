@@ -10,7 +10,7 @@ type RedisClient = RedisClientType<RedisModules, RedisScripts>;
 export const IS_ENABLED = process.env.REDIS_URL !== undefined;
 let REDIS_CLIENT: RedisClient | null;
 
-async function initializeRedisClient(): Promise<void> {
+const initializeRedisClient = async (): Promise<void> => {
   if (!IS_ENABLED) {
     throw new Error("Cannot connect to cache when it is not enabled");
   }
@@ -31,7 +31,7 @@ async function initializeRedisClient(): Promise<void> {
 
     await REDIS_CLIENT.connect();
   }
-}
+};
 
 export class RedisCacheClient {
   static async get(key: string) {

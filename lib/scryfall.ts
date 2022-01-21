@@ -31,7 +31,7 @@ const COLUMNS_BY_COLOR: Record<ScryfallColor, Column> = {
 
 let CARD_INDEX: Map<string, ScryfallCard> | undefined;
 
-async function buildIndex() {
+const buildIndex = async () => {
   if (!CARD_INDEX) {
     const scryfallFilePath = path.join(
       process.cwd(),
@@ -60,9 +60,9 @@ async function buildIndex() {
       }
     }
   }
-}
+};
 
-async function lookupCard(cardName: string): Promise<ScryfallCard> {
+const lookupCard = async (cardName: string): Promise<ScryfallCard> => {
   await buildIndex();
   const scryfallCard = CARD_INDEX!.get(cardName);
   if (!scryfallCard) {
@@ -71,9 +71,9 @@ async function lookupCard(cardName: string): Promise<ScryfallCard> {
     );
   }
   return scryfallCard;
-}
+};
 
-export async function getCardColumn(cardName: string): Promise<Column> {
+export const getCardColumn = async (cardName: string): Promise<Column> => {
   const scryfallCard = await lookupCard(cardName);
   const colors: ScryfallColor[] =
     scryfallCard.colors || scryfallCard.card_faces![0].colors!;
@@ -85,11 +85,11 @@ export async function getCardColumn(cardName: string): Promise<Column> {
     return Column.MULTICOLOR;
   }
   return COLUMNS_BY_COLOR[colors[0]];
-}
+};
 
-export async function getCardTypes(cardName: string): Promise<CardType[]> {
+export const getCardTypes = async (cardName: string): Promise<CardType[]> => {
   const scryfallCard = await lookupCard(cardName);
   return ALL_CARD_TYPES.filter((cardType) =>
     scryfallCard.type_line.includes(upperFirst(cardType))
   );
-}
+};
