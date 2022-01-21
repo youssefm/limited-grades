@@ -14,12 +14,9 @@ import "styles/global.css";
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
   useEffect(() => {
-    const handleRouteChange = (url: string) => {
-      pageview(url);
-    };
-    router.events.on("routeChangeComplete", handleRouteChange);
+    router.events.on("routeChangeComplete", pageview);
     return () => {
-      router.events.off("routeChangeComplete", handleRouteChange);
+      router.events.off("routeChangeComplete", pageview);
     };
   }, [router.events]);
 
