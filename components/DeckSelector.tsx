@@ -15,16 +15,15 @@ const formatDeckOption = (deck: Deck, label: ReactNode) => {
   const deckColors = DECK_COLORS[deck];
   if (deckColors.length === 0) {
     return label;
-  } else {
-    return (
-      <>
-        {deckColors.map((column) => (
-          <i key={column} className={COLUMN_ICONS[column]} />
-        ))}
-        <span className="ml-2">{label}</span>
-      </>
-    );
   }
+  return (
+    <>
+      {deckColors.map((column) => (
+        <i key={column} className={COLUMN_ICONS[column]} />
+      ))}
+      <span className="ml-2">{label}</span>
+    </>
+  );
 };
 
 const SingleValue = ({
@@ -37,7 +36,9 @@ const SingleValue = ({
 );
 
 const Option: FC<OptionProps<DeckOption, false>> = (props) => {
-  const { value, label } = props.data;
+  const {
+    data: { value, label },
+  } = props;
   return (
     <components.Option {...props}>
       {formatDeckOption(value, label)}
@@ -50,28 +51,26 @@ interface Props {
   onChange: (selectedValue: Deck) => void;
 }
 
-const DeckSelector: FC<Props> = ({ value, onChange }) => {
-  return (
-    <label>
-      <FilterLabel>Deck</FilterLabel>
-      <Select
-        value={{ value: value, label: DECK_LABELS[value] }}
-        onChange={(selectedOption) => {
-          if (selectedOption) {
-            onChange(selectedOption.value);
-          }
-        }}
-        options={Object.values(Deck).map((deck) => ({
-          value: deck,
-          label: DECK_LABELS[deck],
-        }))}
-        isMulti={false}
-        components={{ Option, SingleValue }}
-        instanceId="deck-select"
-        className="min-w-[175px]"
-      />
-    </label>
-  );
-};
+const DeckSelector: FC<Props> = ({ value, onChange }) => (
+  <label>
+    <FilterLabel>Deck</FilterLabel>
+    <Select
+      value={{ value, label: DECK_LABELS[value] }}
+      onChange={(selectedOption) => {
+        if (selectedOption) {
+          onChange(selectedOption.value);
+        }
+      }}
+      options={Object.values(Deck).map((deck) => ({
+        value: deck,
+        label: DECK_LABELS[deck],
+      }))}
+      isMulti={false}
+      components={{ Option, SingleValue }}
+      instanceId="deck-select"
+      className="min-w-[175px]"
+    />
+  </label>
+);
 
 export default DeckSelector;

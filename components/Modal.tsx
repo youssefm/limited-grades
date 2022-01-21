@@ -21,7 +21,7 @@ const Modal: FC<Props> = ({ title, onClose, children }) => {
       <div className="bg-white rounded-lg shadow-xl z-20 w-full max-w-3xl max-h-screen">
         <Dialog.Title className="p-4 border-b-[1px] flex w-full items-center">
           <span className="flex-grow text-2xl font-medium">{title}</span>
-          <button onClick={onClose} ref={completeButtonRef}>
+          <button onClick={onClose} type="button" ref={completeButtonRef}>
             <IoClose className="text-2xl hover:text-zinc-500" />
           </button>
         </Dialog.Title>

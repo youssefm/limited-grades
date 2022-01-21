@@ -20,13 +20,13 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
         <table className="w-full lg:table-fixed border-separate border-spacing-0">
           <thead>
             <tr className="lg:sticky lg:top-0">
-              <th className="w-16 h-11 bg-zinc-200 border-b-2 border-zinc-800"></th>
+              <th className="w-16 h-11 bg-zinc-200 border-b-2 border-zinc-800" />
               {Object.values(Column).map((column) => (
                 <th
                   key={column}
                   className="h-11 bg-zinc-200 border-b-2 border-zinc-800"
                 >
-                  <i className={COLUMN_ICONS[column]}></i>
+                  <i className={COLUMN_ICONS[column]} />
                 </th>
               ))}
             </tr>

@@ -21,40 +21,43 @@ const SingleValue = ({
   </components.SingleValue>
 );
 
-const Option: FC<OptionProps<SetOption, false>> = (props) => (
-  <components.Option {...props}>
-    <i className={`ss ss-fw ss-${props.data.value}`} />
-    <span className="ml-2">{props.data.label}</span>
-  </components.Option>
-);
+const Option: FC<OptionProps<SetOption, false>> = (props) => {
+  const {
+    data: { label, value },
+  } = props;
+  return (
+    <components.Option {...props}>
+      <i className={`ss ss-fw ss-${value}`} />
+      <span className="ml-2">{label}</span>
+    </components.Option>
+  );
+};
 
 interface Props {
   value: MagicSet;
   onChange: (selectedValue: MagicSet) => void;
 }
 
-const SetSelector: FC<Props> = ({ value, onChange }) => {
-  return (
-    <label>
-      <FilterLabel>Set</FilterLabel>
-      <Select
-        value={{ value: value, label: SET_LABELS[value] }}
-        onChange={(selectedOption) => {
-          if (selectedOption) {
-            onChange(selectedOption.value);
-          }
-        }}
-        options={Object.values(MagicSet).map((set) => ({
-          value: set,
-          label: SET_LABELS[set],
-        }))}
-        isMulti={false}
-        components={{ Option, SingleValue }}
-        instanceId="set-select"
-        className="min-w-[250px]"
-      />
-    </label>
-  );
-};
+const SetSelector: FC<Props> = ({ value, onChange }) => (
+  <label>
+    <FilterLabel>Set</FilterLabel>
+    <Select
+      value={{ value, label: SET_LABELS[value] }}
+      onChange={(selectedOption) => {
+        if (selectedOption) {
+          onChange(selectedOption.value);
+        }
+      }}
+      options={Object.values(MagicSet).map((set) => ({
+        value: set,
+        label: SET_LABELS[set],
+      }))}
+      isMulti={false}
+      components={{ Option, SingleValue }}
+      instanceId="set-select"
+      className="min-w-[250px]"
+    />
+  </label>
+);
 
 export default SetSelector;

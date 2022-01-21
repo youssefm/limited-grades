@@ -12,7 +12,7 @@ let REDIS_CLIENT: RedisClient | null;
 
 async function initializeRedisClient(): Promise<void> {
   if (!IS_ENABLED) {
-    throw "Cannot connect to cache when it is not enabled";
+    throw new Error("Cannot connect to cache when it is not enabled");
   }
 
   if (!REDIS_CLIENT) {
@@ -34,12 +34,12 @@ async function initializeRedisClient(): Promise<void> {
 }
 
 export class RedisCacheClient {
-  async get(key: string) {
+  static async get(key: string) {
     await initializeRedisClient();
     return await REDIS_CLIENT!.get(key);
   }
 
-  async set(key: string, value: string, expirationInHours: number) {
+  static async set(key: string, value: string, expirationInHours: number) {
     await initializeRedisClient();
     return await REDIS_CLIENT!.set(key, value, {
       EX: expirationInHours * 60 * 60,

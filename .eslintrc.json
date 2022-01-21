@@ -1,4 +1,39 @@
 {
-  "extends": "next/core-web-vitals",
-  "rules": {}
+  "extends": [
+    "airbnb",
+    "airbnb/hooks",
+    "airbnb-typescript",
+    "prettier",
+    "next/core-web-vitals"
+  ],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "plugins": ["prettier"],
+  "rules": {
+    "@next/next/no-document-import-in-page": "off",
+    "@next/next/no-img-element": "off",
+    "@typescript-eslint/return-await": "off",
+    "jsx-a11y/control-has-associated-label": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    // TODO: re-enable once 17lands calls are parallelized
+    "no-await-in-loop": "off",
+    "no-console": "off",
+    "no-continue": "off",
+    "no-restricted-syntax": [
+      "error",
+      "ForInStatement",
+      "LabeledStatement",
+      "WithStatement"
+    ],
+    "prettier/prettier": "error",
+    "react/function-component-definition": [
+      "error",
+      {
+        "namedComponents": "arrow-function",
+        "unnamedComponents": "arrow-function"
+      }
+    ],
+    "react/jsx-props-no-spreading": "off"
+  }
 }

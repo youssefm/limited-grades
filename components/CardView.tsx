@@ -33,6 +33,7 @@ const CardView: FC<Props> = ({ card, onClick }) => {
           </div>
         }
         placement="bottom-start"
+        trigger="mouseenter"
       >
         {cardView}
       </LazyTippy>
