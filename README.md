@@ -32,7 +32,6 @@ REDIS_URL=<your Redis connection URL>
 
 # To Do
 
-- minor: select icons are not perfectly aligned
 - combine implementations of deck selector and set selector?
 - combine implementations of rarity filter and card type filter?
 - Add a dark mode toggle?
