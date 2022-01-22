@@ -39,8 +39,7 @@ const IconFilterGroup = <T extends unknown>({
             "w-[46px] h-[36px]",
             "border border-zinc-300 hover:border-zinc-500",
             "ml-[-1px] first:ml-0 focus:z-10 hover:z-20",
-            "first:rounded-l last:rounded-r",
-            "cursor-pointer overflow-hidden"
+            "first:rounded-l last:rounded-r overflow-hidden"
           )}
           tabIndex={0}
           role="checkbox"
@@ -52,7 +51,7 @@ const IconFilterGroup = <T extends unknown>({
             }
           }}
         >
-          <label>
+          <label className="cursor-pointer">
             <input
               type="checkbox"
               checked={checked}
