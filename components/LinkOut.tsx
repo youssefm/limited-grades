@@ -9,7 +9,7 @@ const LinkOut: FC<Props> = ({ url, children }) => (
     href={url}
     target="_blank"
     rel="noreferrer"
-    className="underline hover:text-blue-500"
+    className="hover:text-blue-500 underline"
   >
     {children}
   </a>
