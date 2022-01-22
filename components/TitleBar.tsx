@@ -9,7 +9,7 @@ const TitleBar = () => {
 
   return (
     <>
-      <div className="flex px-2 lg:px-6 py-4 items-center">
+      <div className="flex items-center px-2 py-4 lg:px-6">
         <div className="mr-2">
           <Image
             src="/apple-touch-icon.png"
@@ -19,13 +19,13 @@ const TitleBar = () => {
           />
         </div>
 
-        <h1 className="text-2xl font-belerenSmallCaps flex-auto">
+        <h1 className="flex-auto text-2xl font-belerenSmallCaps">
           Limited Grades
         </h1>
 
         <button
           onClick={() => setShowInfoModal(true)}
-          className="hover:text-blue-500 flex gap-1 items-center"
+          className="flex items-center gap-1 hover:text-blue-500"
           type="button"
         >
           <FaInfoCircle />

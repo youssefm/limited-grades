@@ -91,7 +91,7 @@ const Page = ({
         <title>Limited Grades – {SET_LABELS[selectedSet]}</title>
       </Head>
       <TitleBar />
-      <div className="px-4 py-4 bg-zinc-100 rounded-t-lg flex gap-2 flex-col lg:px-8 lg:flex-row lg:gap-4">
+      <div className="flex flex-col gap-2 px-4 py-4 rounded-t-lg bg-zinc-100 lg:px-8 lg:flex-row lg:gap-4">
         <SetSelector
           value={selectedSet}
           onChange={(newValue) => {
