@@ -34,7 +34,7 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
           <tbody>
             {ALL_GRADES.map((grade) => (
               <tr key={grade}>
-                <th className="w-16 bg-zinc-200 text-xl text-left border-b-[1px] border-zinc-200 lg:pl-4">
+                <th className="w-16 bg-zinc-200 text-xl text-left lg:pl-4">
                   {grade}
                 </th>
                 {ALL_COLUMNS.map((column) => (
