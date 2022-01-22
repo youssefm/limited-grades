@@ -18,9 +18,9 @@ const RarityFilter: FC<Props> = ({ set, values, setValues }) => (
       values={values}
       setValues={setValues}
       filters={ALL_RARITIES.map((rarity) => ({
-        label: `${rarity}`,
+        label: `${rarity}s`,
         values: [rarity],
-        icon: `ss ss-2x ss-fw ss-${set} ss-${rarity}`,
+        icon: `ss ss-2x ss-${set} ss-${rarity}`,
       }))}
     />
   </div>
