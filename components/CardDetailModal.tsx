@@ -40,7 +40,7 @@ const CardDetailModal: FC<Props> = ({ card, onClose }) => {
             ).map(([deck, stats]) => {
               const deckColors = DECK_COLORS[deck as Deck];
               return (
-                <tr key={deck} className="border-b-[1px] border-zinc-200">
+                <tr key={deck} className="border-b border-zinc-200">
                   <th className="p-2 text-left">
                     {deckColors.length > 0 ? (
                       <>

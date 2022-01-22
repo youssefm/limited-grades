@@ -24,10 +24,11 @@ const IconFilterGroup = <T extends unknown>({
         <label
           key={label}
           className={clsx(
-            "w-[46px] h-[38px] flex justify-center items-center",
-            "bg-zinc-50 border-[1px] border-l-0 first:border-l-[1px] border-zinc-300",
-            "hover:bg-zinc-100 hover:shadow-around-zinc-400 hover:z-10",
-            "first:rounded-l last:rounded-r cursor-pointer"
+            "w-[46px] h-[36px]",
+            "border border-zinc-300 hover:border-zinc-500",
+            "ml-[-1px] first:ml-0 hover:z-10",
+            "first:rounded-l last:rounded-r",
+            "cursor-pointer overflow-hidden"
           )}
         >
           <input
@@ -46,10 +47,19 @@ const IconFilterGroup = <T extends unknown>({
             }}
             className="hidden peer"
           />
-          <i
-            title={checked ? `Hide ${label}` : `Show ${label}`}
-            className={`${icon} opacity-30 peer-checked:opacity-90`}
-          />
+          <div
+            className={clsx(
+              "flex items-center justify-center",
+              "w-full h-full",
+              "bg-zinc-200 peer-checked:bg-white hover:!bg-zinc-200",
+              "opacity-30 peer-checked:opacity-90"
+            )}
+          >
+            <i
+              title={checked ? `Hide ${label}` : `Show ${label}`}
+              className={`${icon} `}
+            />
+          </div>
         </label>
       );
     })}

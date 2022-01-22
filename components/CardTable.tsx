@@ -34,13 +34,13 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
           <tbody>
             {ALL_GRADES.map((grade) => (
               <tr key={grade}>
-                <th className="w-16 bg-zinc-200 text-xl text-left border-b-[1px] border-zinc-300 lg:pl-4">
+                <th className="w-16 text-xl text-left border-b bg-zinc-200 border-zinc-300 lg:pl-4">
                   {grade}
                 </th>
                 {ALL_COLUMNS.map((column) => (
                   <td
                     key={column}
-                    className="px-1 py-2 align-top bg-zinc-100 border-b-[1px] border-zinc-200"
+                    className="px-1 py-2 align-top border-b bg-zinc-100 border-zinc-200"
                   >
                     {cardDictionary
                       .get(column, grade)
