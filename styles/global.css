@@ -6,6 +6,10 @@
   .border-spacing-0 {
     border-spacing: 0;
   }
+
+  .ml-negative {
+    margin-left: -1px;
+  }
 }
 
 /* Tippy overrides */

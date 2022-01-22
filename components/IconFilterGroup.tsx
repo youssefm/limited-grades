@@ -15,11 +15,14 @@ const IconFilterGroup = <T extends unknown>({
   setValues,
   filters,
 }: Props<T>) => (
-  <div>
+  <div className="flex">
     {filters.map(({ label, values: filterValues, icon }) => {
       const checked = filterValues.every((value) => values.has(value));
       return (
-        <label key={label}>
+        <label
+          key={label}
+          className="w-[46px] h-[38px] flex justify-center items-center bg-white border-[1px] ml-negative first:ml-0 border-zinc-300 hover:bg-zinc-100 hover:border-zinc-400 hover:z-10 first:rounded-l last:rounded-r cursor-pointer"
+        >
           <input
             type="checkbox"
             checked={checked}
@@ -38,7 +41,7 @@ const IconFilterGroup = <T extends unknown>({
           />
           <i
             title={checked ? `Hide ${label}` : `Show ${label}`}
-            className={`${icon} cursor-pointer opacity-30 peer-checked:opacity-90`}
+            className={`${icon} opacity-30 peer-checked:opacity-90`}
           />
         </label>
       );
