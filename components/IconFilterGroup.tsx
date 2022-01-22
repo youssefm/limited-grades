@@ -1,3 +1,5 @@
+import clsx from "clsx";
+
 interface Filter<T> {
   label: string;
   values: T[];
@@ -21,7 +23,12 @@ const IconFilterGroup = <T extends unknown>({
       return (
         <label
           key={label}
-          className="w-[46px] h-[38px] flex justify-center items-center bg-zinc-50 border-[1px] ml-negative first:ml-0 border-zinc-300 hover:bg-zinc-100 hover:border-zinc-400 hover:z-10 first:rounded-l last:rounded-r cursor-pointer"
+          className={clsx(
+            "w-[46px] h-[38px] flex justify-center items-center",
+            "bg-zinc-50 border-[1px] ml-negative first:ml-0 border-zinc-300",
+            "hover:bg-zinc-100 hover:border-zinc-400 hover:z-10",
+            "first:rounded-l last:rounded-r cursor-pointer"
+          )}
         >
           <input
             type="checkbox"
