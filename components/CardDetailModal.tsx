@@ -25,7 +25,7 @@ const CardDetailModal: FC<Props> = ({ card, onClose }) => {
           height="340"
           className="self-center hidden sm:inline"
         />
-        <table className="flex-grow self-start">
+        <table className="self-start flex-grow">
           <thead>
             <tr className="border-b-2 border-zinc-800">
               <th className="p-2" />

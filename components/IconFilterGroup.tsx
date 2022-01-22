@@ -37,7 +37,7 @@ const IconFilterGroup = <T extends unknown>({
               }
               setValues(newValues);
             }}
-            className="peer hidden"
+            className="hidden peer"
           />
           <i
             title={checked ? `Hide ${label}` : `Show ${label}`}

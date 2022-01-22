@@ -14,11 +14,11 @@ const Modal: FC<Props> = ({ title, onClose, children }) => {
     <Dialog
       open
       onClose={onClose}
-      className="fixed inset-0 flex justify-center items-center"
+      className="fixed inset-0 flex items-center justify-center"
       initialFocus={completeButtonRef}
     >
-      <Dialog.Overlay className="fixed inset-0 bg-black bg-opacity-50 z-10" />
-      <div className="bg-white rounded-lg shadow-xl z-20 w-full max-w-3xl max-h-screen">
+      <Dialog.Overlay className="fixed inset-0 z-10 bg-black bg-opacity-50" />
+      <div className="z-20 w-full max-w-3xl max-h-screen bg-white rounded-lg shadow-xl">
         <Dialog.Title className="p-4 border-b-[1px] flex w-full items-center">
           <span className="flex-grow text-2xl font-medium">{title}</span>
           <button onClick={onClose} type="button" ref={completeButtonRef}>
