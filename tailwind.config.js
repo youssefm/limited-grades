@@ -1,3 +1,5 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -6,6 +8,9 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
+      boxShadow: {
+        "around-zinc-400": `0 0 0 1px ${colors.zinc["400"]}`,
+      },
       colors: {
         common: "#1a1718",
         uncommon: "#707883",
