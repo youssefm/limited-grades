@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { forwardRef } from "react";
 
 import { Card, Rarity } from "lib/types";
@@ -20,9 +21,12 @@ const CardBubble = forwardRef<HTMLButtonElement, Props>(
   ({ card, onClick }, ref) => (
     <button
       onClick={onClick}
-      className={`w-full bg-white px-2 mb-1 last:mb-0 border-l-[3px] ${
-        BORDER_COLORS[card.rarity]
-      } hover:text-zinc-500 text-left`}
+      className={clsx(
+        "w-full bg-white px-2 mb-1 last:mb-0",
+        "border-l-[3px]",
+        BORDER_COLORS[card.rarity],
+        "hover:text-zinc-500 text-left"
+      )}
       type="button"
       ref={ref}
     >
