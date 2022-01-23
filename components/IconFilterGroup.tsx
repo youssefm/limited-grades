@@ -50,7 +50,10 @@ const IconFilterGroup = <T extends unknown>({
             }
           }}
         >
-          <label className="cursor-pointer">
+          <label
+            className="cursor-pointer"
+            title={checked ? `Hide ${label}` : `Show ${label}`}
+          >
             <input
               type="checkbox"
               checked={checked}
@@ -64,10 +67,7 @@ const IconFilterGroup = <T extends unknown>({
                 "opacity-30 peer-checked:opacity-90"
               )}
             >
-              <i
-                title={checked ? `Hide ${label}` : `Show ${label}`}
-                className={`${icon} `}
-              />
+              <i className={icon} />
             </div>
           </label>
         </div>
