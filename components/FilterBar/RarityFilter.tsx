@@ -1,9 +1,10 @@
 import { FC } from "react";
 
-import FilterLabel from "components/FilterLabel";
-import IconFilterGroup from "components/IconFilterGroup";
 import { ALL_RARITIES } from "lib/constants";
 import { MagicSet, Rarity } from "lib/types";
+
+import FilterLabel from "./FilterLabel";
+import IconFilterGroup from "./IconFilterGroup";
 
 interface Props {
   set: MagicSet;

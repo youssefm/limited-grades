@@ -1,9 +1,10 @@
 import { FC } from "react";
 
-import FilterLabel from "components/FilterLabel";
-import IconSelect from "components/IconSelect";
 import { ALL_SETS, SET_LABELS } from "lib/constants";
 import { MagicSet } from "lib/types";
+
+import FilterLabel from "./FilterLabel";
+import IconSelect from "./IconSelect";
 
 interface Props {
   value: MagicSet;

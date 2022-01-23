@@ -1,7 +1,5 @@
 import { FC } from "react";
 
-import FilterLabel from "components/FilterLabel";
-import IconSelect from "components/IconSelect";
 import {
   ALL_DECKS,
   COLUMN_ICONS,
@@ -9,6 +7,9 @@ import {
   DECK_LABELS,
 } from "lib/constants";
 import { Deck } from "lib/types";
+
+import FilterLabel from "./FilterLabel";
+import IconSelect from "./IconSelect";
 
 interface Props {
   value: Deck;

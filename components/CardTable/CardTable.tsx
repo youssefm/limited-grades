@@ -1,10 +1,11 @@
 import { FC, useState } from "react";
 
-import CardDetailModal from "components/CardDetailModal";
-import CardView from "components/CardView";
 import { ALL_COLUMNS, ALL_GRADES, COLUMN_ICONS } from "lib/constants";
 import { CardTableDictionary } from "lib/table";
 import { Card } from "lib/types";
+
+import CardDetailModal from "./CardDetailModal";
+import CardView from "./CardView";
 
 interface Props {
   cardDictionary: CardTableDictionary;

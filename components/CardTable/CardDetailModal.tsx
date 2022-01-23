@@ -1,7 +1,7 @@
 import { sortBy } from "lodash";
 import { FC } from "react";
 
-import Modal from "components/Modal";
+import Modal from "components/common/Modal";
 import { COLUMN_ICONS, DECK_COLORS, DECK_LABELS } from "lib/constants";
 import { Card, Deck } from "lib/types";
 
