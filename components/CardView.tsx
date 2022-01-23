@@ -16,22 +16,25 @@ const CardView: FC<Props> = ({ card, onClick }) => {
     typeof window !== "undefined" &&
     window.matchMedia("(hover: hover)").matches
   ) {
-    const tooltipWidthClass = card.cardBackUrl ? `w-[480px]` : `w-[240px]`;
+    let tooltip = (
+      <img src={card.cardUrl} alt={card.name} width="240" height="340" />
+    );
+    if (card.cardBackUrl) {
+      tooltip = (
+        <div className="flex">
+          {tooltip}
+          <img
+            src={card.cardBackUrl}
+            alt={card.name}
+            width="240"
+            height="340"
+          />
+        </div>
+      );
+    }
     cardView = (
       <LazyTippy
-        content={
-          <div className={`flex ${tooltipWidthClass}`}>
-            <img src={card.cardUrl} alt={card.name} width="240" height="340" />
-            {card.cardBackUrl && (
-              <img
-                src={card.cardBackUrl}
-                alt={card.name}
-                width="240"
-                height="340"
-              />
-            )}
-          </div>
-        }
+        content={tooltip}
         placement="bottom-start"
         trigger="mouseenter"
       >
