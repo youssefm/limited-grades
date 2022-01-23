@@ -51,7 +51,7 @@ const fetchApiCards = async (set: MagicSet, deck: Deck): Promise<ApiCard[]> => {
   const urlParams: Record<string, string> = {
     expansion: set,
     format: "PremierDraft",
-    start_date: SET_START_DATES[set] || "2020-04-16",
+    start_date: SET_START_DATES[set] ?? "2020-04-16",
     end_date: new Date().toISOString().substring(0, 10),
   };
 

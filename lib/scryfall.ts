@@ -76,7 +76,7 @@ const lookupCard = async (cardName: string): Promise<ScryfallCard> => {
 export const getCardColumn = async (cardName: string): Promise<Column> => {
   const scryfallCard = await lookupCard(cardName);
   const colors: ScryfallColor[] =
-    scryfallCard.colors || scryfallCard.card_faces![0].colors!;
+    scryfallCard.colors ?? scryfallCard.card_faces![0].colors!;
 
   if (colors.length === 0) {
     return Column.COLORLESS;

@@ -20,6 +20,6 @@ export class CardTableDictionary {
   }
 
   get(column: Column, grade: Grade): Card[] {
-    return this.cardsByGroup[`${column},${grade}`] || [];
+    return this.cardsByGroup[`${column},${grade}`] ?? [];
   }
 }
