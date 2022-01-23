@@ -6,6 +6,9 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
+      blur: {
+        xs: "2px",
+      },
       colors: {
         common: "#1a1718",
         uncommon: "#707883",
