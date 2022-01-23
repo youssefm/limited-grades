@@ -147,8 +147,7 @@ export const getCards = async (set: MagicSet): Promise<Card[]> => {
   console.log("cache miss");
 
   const cards = await buildCardStore(set);
-  const expirationInHours =
-    set === LATEST_SET || set === MagicSet.ARENA_CUBE ? 12 : 24 * 7;
+  const expirationInHours = set === LATEST_SET ? 12 : 24 * 7;
   await RedisCacheClient.set(set, JSON.stringify(cards), expirationInHours);
   return cards;
 };
