@@ -1,4 +1,4 @@
-import { GetStaticPaths, GetStaticProps, InferGetStaticPropsType } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
@@ -18,14 +18,20 @@ import {
   SET_LABELS,
 } from "lib/constants";
 import { CardTableDictionary } from "lib/table";
-import { Deck, MagicSet } from "lib/types";
+import { Card, Deck, MagicSet } from "lib/types";
+
+interface StaticProps {
+  set: MagicSet;
+  cards: Card[];
+  lastUpdatedAtTicks: number;
+}
 
 export const getStaticPaths: GetStaticPaths = async () => ({
   paths: ALL_SETS.map((set) => ({ params: { set } })),
   fallback: false,
 });
 
-export const getStaticProps: GetStaticProps = async (context) => {
+export const getStaticProps: GetStaticProps<StaticProps> = async (context) => {
   const set = context.params!.set as MagicSet;
   return {
     props: {
@@ -38,11 +44,7 @@ export const getStaticProps: GetStaticProps = async (context) => {
   };
 };
 
-const Page = ({
-  set,
-  cards,
-  lastUpdatedAtTicks,
-}: InferGetStaticPropsType<typeof getStaticProps>) => {
+const Page = ({ set, cards, lastUpdatedAtTicks }: StaticProps) => {
   const router = useRouter();
   const [selectedSet, setSelectedSet] = useState(set);
   const [loading, setLoading] = useState(false);
