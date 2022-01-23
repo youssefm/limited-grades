@@ -1,8 +1,9 @@
 import { FC } from "react";
 
-import FilterLabel from "components/FilterLabel";
-import IconFilterGroup from "components/IconFilterGroup";
 import { CardType } from "lib/types";
+
+import FilterLabel from "./FilterLabel";
+import IconFilterGroup from "./IconFilterGroup";
 
 const FILTERS = [
   {

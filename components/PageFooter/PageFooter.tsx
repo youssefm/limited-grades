@@ -1,4 +1,4 @@
-import LinkOut from "components/LinkOut";
+import LinkOut from "components/common/LinkOut";
 
 interface Props {
   lastUpdatedAtTicks: number;

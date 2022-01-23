@@ -7,7 +7,7 @@ import Script from "next/script";
 import React, { useEffect } from "react";
 import "tippy.js/dist/tippy.css";
 
-import Layout from "components/Layout";
+import Layout from "components/common/Layout";
 import { GA_TRACKING_ENABLED, GA_TRACKING_ID, pageview } from "lib/gtag";
 import "styles/global.css";
 

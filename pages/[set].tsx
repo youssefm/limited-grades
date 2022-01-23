@@ -3,13 +3,13 @@ import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 
-import CardTable from "components/CardTable";
-import CardTypeFilter from "components/CardTypeFilter";
-import DeckSelector from "components/DeckSelector";
-import PageFooter from "components/PageFooter";
-import RarityFilter from "components/RarityFilter";
-import SetSelector from "components/SetSelector";
-import TitleBar from "components/TitleBar";
+import CardTable from "components/CardTable/CardTable";
+import CardTypeFilter from "components/FilterBar/CardTypeFilter";
+import DeckSelector from "components/FilterBar/DeckSelector";
+import RarityFilter from "components/FilterBar/RarityFilter";
+import SetSelector from "components/FilterBar/SetSelector";
+import PageFooter from "components/PageFooter/PageFooter";
+import TitleBar from "components/PageHeader/TitleBar";
 import { getCards } from "lib/cards";
 import {
   ALL_CARD_TYPES,

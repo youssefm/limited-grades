@@ -1,8 +1,9 @@
 import { FC } from "react";
 
-import CardBubble from "components/CardBubble";
-import LazyTippy from "components/LazyTippy";
 import { Card } from "lib/types";
+
+import CardBubble from "./CardBubble";
+import LazyTippy from "./LazyTippy";
 
 interface Props {
   card: Card;

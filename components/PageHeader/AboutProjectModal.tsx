@@ -1,7 +1,7 @@
 import { FC } from "react";
 
-import LinkOut from "components/LinkOut";
-import Modal from "components/Modal";
+import LinkOut from "components/common/LinkOut";
+import Modal from "components/common/Modal";
 
 interface Props {
   onClose: () => void;

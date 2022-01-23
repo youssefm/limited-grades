@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useState } from "react";
 import { FaInfoCircle } from "react-icons/fa";
 
-import AboutProjectModal from "components/AboutProjectModal";
+import AboutProjectModal from "./AboutProjectModal";
 
 const TitleBar = () => {
   const [showInfoModal, setShowInfoModal] = useState(false);
