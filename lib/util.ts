@@ -9,3 +9,6 @@ export const createComparer = <T>(
   }
   return (item1, item2) => getKey(item1) - getKey(item2);
 };
+
+export const windowMatchesMedia = (mediaQuery: string) =>
+  typeof window !== "undefined" && window.matchMedia(mediaQuery).matches;
