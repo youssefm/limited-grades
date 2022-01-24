@@ -88,36 +88,38 @@ const Page = ({ set, cards, lastUpdatedAtTicks }: StaticProps) => {
   const cardDictionary = new CardTableDictionary(filteredCards, deck);
 
   return (
-    <div className="px-2 dark:text-zinc-100 dark:bg-zinc-900">
+    <div className="flex flex-col px-2 min-h-screen dark:text-zinc-100 dark:bg-zinc-900">
       <Head>
         <title>Limited Grades – {SET_LABELS[selectedSet]}</title>
       </Head>
       <TitleBar />
-      <div className="flex flex-col gap-2 p-4 bg-zinc-100 dark:bg-zinc-800 rounded-t-lg lg:flex-row lg:gap-4 lg:px-8">
-        <SetSelector
-          value={selectedSet}
-          onChange={(newValue) => {
-            setSelectedSet(newValue);
-            setLoading(true);
-          }}
-        />
-        <DeckSelector value={deck} onChange={setDeck} />
-        <div className="flex flex-wrap gap-2 justify-center lg:gap-4 lg:justify-start">
-          <RarityFilter
-            set={set}
-            values={visibleRarities}
-            setValues={setVisibleRarities}
+      <div className="grow">
+        <div className="flex flex-col gap-2 p-4 bg-zinc-100 dark:bg-zinc-800 rounded-t-lg lg:flex-row lg:gap-4 lg:px-8">
+          <SetSelector
+            value={selectedSet}
+            onChange={(newValue) => {
+              setSelectedSet(newValue);
+              setLoading(true);
+            }}
           />
-          <CardTypeFilter
-            values={visibleCardTypes}
-            setValues={setVisibleCardTypes}
-          />
+          <DeckSelector value={deck} onChange={setDeck} />
+          <div className="flex flex-wrap gap-2 justify-center lg:gap-4 lg:justify-start">
+            <RarityFilter
+              set={set}
+              values={visibleRarities}
+              setValues={setVisibleRarities}
+            />
+            <CardTypeFilter
+              values={visibleCardTypes}
+              setValues={setVisibleCardTypes}
+            />
+          </div>
         </div>
+        <CardTable
+          cardDictionary={cardDictionary}
+          showSkeletons={showSkeletons}
+        />
       </div>
-      <CardTable
-        cardDictionary={cardDictionary}
-        showSkeletons={showSkeletons}
-      />
       <PageFooter lastUpdatedAtTicks={lastUpdatedAtTicks} />
     </div>
   );
