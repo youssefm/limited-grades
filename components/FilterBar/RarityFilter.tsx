@@ -6,6 +6,29 @@ import { MagicSet, Rarity } from "lib/types";
 import FilterLabel from "./FilterLabel";
 import IconFilterGroup from "./IconFilterGroup";
 
+const getFilters = (set: MagicSet) => [
+  {
+    label: "commons",
+    values: [Rarity.COMMON],
+    icon: `ss ss-2x ss-${set} ss-common dark:text-zinc-300`,
+  },
+  {
+    label: "uncommons",
+    values: [Rarity.UNCOMMON],
+    icon: `ss ss-2x ss-${set} ss-uncommon`,
+  },
+  {
+    label: "rares",
+    values: [Rarity.RARE],
+    icon: `ss ss-2x ss-${set} ss-rare`,
+  },
+  {
+    label: "mythics",
+    values: [Rarity.MYTHIC],
+    icon: `ss ss-2x ss-${set} ss-mythic`,
+  },
+];
+
 interface Props {
   set: MagicSet;
   values: Set<Rarity>;
@@ -18,11 +41,7 @@ const RarityFilter: FC<Props> = ({ set, values, setValues }) => (
     <IconFilterGroup
       values={values}
       setValues={setValues}
-      filters={ALL_RARITIES.map((rarity) => ({
-        label: `${rarity}s`,
-        values: [rarity],
-        icon: `ss ss-2x ss-${set} ss-${rarity}`,
-      }))}
+      filters={getFilters(set)}
     />
   </div>
 );
