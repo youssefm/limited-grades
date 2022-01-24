@@ -22,7 +22,7 @@ const CardBubble = forwardRef<HTMLButtonElement, Props>(
     <button
       onClick={onClick}
       className={clsx(
-        "px-2 mb-1 last:mb-0 w-full text-left hover:text-zinc-500 bg-white border-l-[3px]",
+        "px-2 mb-1 last:mb-0 w-full text-left hover:text-blue-500 dark:hover:text-amber-600 bg-white dark:bg-zinc-700 border-l-[3px]",
         BORDER_COLORS[card.rarity]
       )}
       type="button"
