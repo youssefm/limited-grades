@@ -21,11 +21,11 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
         <table className="w-full border-separate lg:table-fixed border-spacing-0">
           <thead>
             <tr className="lg:sticky lg:top-0">
-              <th className="w-16 h-11 bg-zinc-200 dark:bg-zinc-600 border-b-2 border-zinc-800 dark:border-zinc-400" />
+              <th className="w-16 h-11 bg-zinc-200 dark:bg-neutral-600 border-b-2 border-zinc-800 dark:border-neutral-400" />
               {ALL_COLUMNS.map((column) => (
                 <th
                   key={column}
-                  className="h-11 bg-zinc-200 dark:bg-zinc-600 border-b-2 border-zinc-800 dark:border-zinc-400"
+                  className="h-11 bg-zinc-200 dark:bg-neutral-600 border-b-2 border-zinc-800 dark:border-neutral-400"
                 >
                   <i className={COLUMN_ICONS[column]} />
                 </th>
@@ -35,13 +35,13 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
           <tbody>
             {ALL_GRADES.map((grade) => (
               <tr key={grade}>
-                <th className="w-16 text-xl text-left bg-zinc-200 dark:bg-zinc-600 border-b border-zinc-300 dark:border-zinc-700 lg:pl-4">
+                <th className="w-16 text-xl text-left bg-zinc-200 dark:bg-neutral-600 border-b border-zinc-300 dark:border-neutral-700 lg:pl-4">
                   {grade}
                 </th>
                 {ALL_COLUMNS.map((column) => (
                   <td
                     key={column}
-                    className="py-2 px-1 align-top bg-zinc-100 dark:bg-zinc-800 border-b border-zinc-200 dark:border-zinc-700"
+                    className="py-2 px-1 align-top bg-zinc-100 dark:bg-neutral-800 border-b border-zinc-200 dark:border-neutral-700"
                   >
                     {cardDictionary
                       .get(column, grade)
@@ -49,7 +49,7 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
                         showSkeletons ? (
                           <div
                             key={card.cardUrl}
-                            className="mb-1 last:mb-0 h-6 bg-zinc-200 dark:bg-zinc-700 animate-pulse"
+                            className="mb-1 last:mb-0 h-6 bg-zinc-200 dark:bg-neutral-700 animate-pulse"
                           />
                         ) : (
                           <CardView
