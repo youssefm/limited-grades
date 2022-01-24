@@ -1,6 +1,5 @@
 import { FC } from "react";
 
-import { ALL_RARITIES } from "lib/constants";
 import { MagicSet, Rarity } from "lib/types";
 
 import FilterLabel from "./FilterLabel";
