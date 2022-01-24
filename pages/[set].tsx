@@ -90,13 +90,13 @@ const Page = ({ set, cards, lastUpdatedAtTicks }: StaticProps) => {
   const cardDictionary = new CardTableDictionary(filteredCards, deck);
 
   return (
-    <div className="flex flex-col px-2 min-h-screen dark:text-zinc-100 dark:bg-zinc-900">
+    <div className="flex flex-col px-2 min-h-screen dark:text-neutral-100 dark:bg-neutral-900">
       <Head>
         <title>Limited Grades – {SET_LABELS[selectedSet]}</title>
       </Head>
       <PageHeader />
       <div className="grow">
-        <div className="flex flex-col gap-2 p-4 bg-zinc-100 dark:bg-zinc-800 rounded-t-lg lg:flex-row lg:gap-4 lg:px-8">
+        <div className="flex flex-col gap-2 p-4 bg-zinc-100 dark:bg-neutral-800 rounded-t-lg lg:flex-row lg:gap-4 lg:px-8">
           <SetSelector
             value={selectedSet}
             onChange={(newValue) => {
