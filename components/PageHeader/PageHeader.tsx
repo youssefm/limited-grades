@@ -28,13 +28,17 @@ const PageHeader = () => {
           onClick={() => setShowInfoModal(true)}
           className="flex gap-1 items-center hover:text-blue-500"
           type="button"
-          aria-label="Toggle dark mode"
         >
           <FaInfoCircle />
           <span className="hidden md:inline">About this project</span>
         </button>
 
-        <button className="ml-4 text-2xl" type="button" onClick={toggle}>
+        <button
+          className="ml-4 text-2xl"
+          type="button"
+          onClick={toggle}
+          aria-label="Toggle dark mode"
+        >
           {darkModeEnabled ? (
             <FaSun className="hover:text-amber-600" />
           ) : (
