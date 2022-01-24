@@ -6,7 +6,7 @@ import useDarkMode from "hooks/useDarkMode";
 
 import AboutProjectModal from "./AboutProjectModal";
 
-const TitleBar = () => {
+const PageHeader = () => {
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [darkModeEnabled, toggle] = useDarkMode();
 
@@ -49,4 +49,4 @@ const TitleBar = () => {
   );
 };
 
-export default TitleBar;
+export default PageHeader;

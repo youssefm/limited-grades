@@ -3,13 +3,15 @@ import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
 import React, { useEffect, useState } from "react";
 
-import CardTable from "components/CardTable/CardTable";
-import CardTypeFilter from "components/FilterBar/CardTypeFilter";
-import DeckSelector from "components/FilterBar/DeckSelector";
-import RarityFilter from "components/FilterBar/RarityFilter";
-import SetSelector from "components/FilterBar/SetSelector";
-import PageFooter from "components/PageFooter/PageFooter";
-import TitleBar from "components/PageHeader/TitleBar";
+import CardTable from "components/CardTable";
+import {
+  CardTypeFilter,
+  DeckSelector,
+  RarityFilter,
+  SetSelector,
+} from "components/FilterBar";
+import PageFooter from "components/PageFooter";
+import PageHeader from "components/PageHeader";
 import { getCards } from "lib/cards";
 import {
   ALL_CARD_TYPES,
@@ -92,7 +94,7 @@ const Page = ({ set, cards, lastUpdatedAtTicks }: StaticProps) => {
       <Head>
         <title>Limited Grades – {SET_LABELS[selectedSet]}</title>
       </Head>
-      <TitleBar />
+      <PageHeader />
       <div className="grow">
         <div className="flex flex-col gap-2 p-4 bg-zinc-100 dark:bg-zinc-800 rounded-t-lg lg:flex-row lg:gap-4 lg:px-8">
           <SetSelector
