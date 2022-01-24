@@ -6,7 +6,7 @@ import { Card, Rarity } from "lib/types";
 // Note: if we try to use string interpolation to create these,
 // TailwindCSS stops recognizing them and purges them from the CSS
 const BORDER_COLORS = {
-  [Rarity.COMMON]: "border-common",
+  [Rarity.COMMON]: "border-common dark:border-zinc-300",
   [Rarity.UNCOMMON]: "border-uncommon",
   [Rarity.RARE]: "border-rare",
   [Rarity.MYTHIC]: "border-mythic",
