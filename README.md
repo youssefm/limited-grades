@@ -32,6 +32,13 @@ REDIS_URL=<your Redis connection URL>
 
 # To Do
 
-- Add a dark mode toggle?
+- Add dark mode
+  - selectors
+  - filters
+  - after release:
+    - modals
+    - store in local storage
+    - retrieve from system settings
+- add spacing between two color icons
 - Improvements to card detail view?
 - Search feature?

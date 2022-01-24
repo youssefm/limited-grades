@@ -1,11 +1,14 @@
 import Image from "next/image";
 import { useState } from "react";
-import { FaInfoCircle } from "react-icons/fa";
+import { FaInfoCircle, FaMoon, FaSun } from "react-icons/fa";
+
+import useDarkMode from "hooks/useDarkMode";
 
 import AboutProjectModal from "./AboutProjectModal";
 
 const TitleBar = () => {
   const [showInfoModal, setShowInfoModal] = useState(false);
+  const [darkModeEnabled, setDarkModeEnabled] = useDarkMode();
 
   return (
     <>
@@ -28,6 +31,18 @@ const TitleBar = () => {
         >
           <FaInfoCircle />
           <span className="hidden md:inline">About this project</span>
+        </button>
+
+        <button
+          className="ml-4 text-2xl"
+          type="button"
+          onClick={() => setDarkModeEnabled(!darkModeEnabled)}
+        >
+          {darkModeEnabled ? (
+            <FaSun className="hover:text-amber-600" />
+          ) : (
+            <FaMoon className="hover:text-blue-500" />
+          )}
         </button>
       </div>
 
