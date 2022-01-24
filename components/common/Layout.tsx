@@ -1,6 +1,8 @@
 import Head from "next/head";
 import { FC } from "react";
 
+import { DarkModeProvider } from "hooks/useDarkMode";
+
 const Layout: FC = ({ children }) => (
   <>
     <Head>
@@ -29,7 +31,7 @@ const Layout: FC = ({ children }) => (
       <link rel="manifest" href="manifest.json" />
     </Head>
 
-    {children}
+    <DarkModeProvider>{children}</DarkModeProvider>
   </>
 );
 
