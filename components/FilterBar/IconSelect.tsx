@@ -108,6 +108,10 @@ const IconSelect = <T extends unknown>({
     instanceId,
     className,
     styles: {
+      control: (provided) => ({
+        ...provided,
+        transition: "none",
+      }),
       option: (provided) => ({
         ...provided,
         cursor: "pointer",
