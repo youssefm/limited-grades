@@ -1,26 +1,32 @@
 import { useEffect, useState } from "react";
 
-import { windowMatchesMedia } from "lib/util";
+const DARK_MODE_CLASS = "dark";
 
 const useDarkMode = (): [boolean, (value: boolean) => void] => {
+  const [mounted, setMounted] = useState(false);
   const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
-    if (windowMatchesMedia("(prefers-color-scheme: dark)")) {
+    if (
+      typeof document !== "undefined" &&
+      document.body.classList.contains(DARK_MODE_CLASS)
+    ) {
       setEnabled(true);
     }
+    setMounted(true);
   }, [setEnabled]);
 
   useEffect(() => {
-    const className = "dark";
-    const bodyClasses = window.document.body.classList;
+    if (mounted) {
+      const bodyClasses = window.document.body.classList;
 
-    if (enabled) {
-      bodyClasses.add(className);
-    } else {
-      bodyClasses.remove(className);
+      if (enabled) {
+        bodyClasses.add(DARK_MODE_CLASS);
+      } else {
+        bodyClasses.remove(DARK_MODE_CLASS);
+      }
     }
-  }, [enabled]);
+  }, [mounted, enabled]);
 
   return [enabled, setEnabled];
 };
