@@ -1,9 +1,31 @@
 import { FC, ReactElement, useCallback } from "react";
 import Select, {
+  Colors,
   components,
   OptionProps,
   SingleValueProps,
 } from "react-select";
+import { StateManagerProps } from "react-select/dist/declarations/src/stateManager";
+
+import useDarkMode from "hooks/useDarkMode";
+
+const getDarkModeColors = (baseColors: Colors) => ({
+  neutral0: "#525252", // tailwind zinc-600
+  neutral5: baseColors.neutral90,
+  neutral10: baseColors.neutral90,
+  neutral20: baseColors.neutral80,
+  neutral30: baseColors.neutral70,
+  neutral40: baseColors.neutral60,
+  neutral50: baseColors.neutral50,
+  neutral60: baseColors.neutral40,
+  neutral70: baseColors.neutral30,
+  neutral80: baseColors.neutral20,
+  neutral90: baseColors.neutral10,
+  primary: "#f59e0b", // tailwind amber-500
+  primary75: "#ec9109",
+  primary50: "#e28408",
+  primary25: "#d97706", // tailwind amber-600
+});
 
 interface Props<T> {
   value: T;
@@ -24,6 +46,8 @@ const IconSelect = <T extends unknown>({
   instanceId,
   className,
 }: Props<T>) => {
+  const [darkModeEnabled] = useDarkMode();
+
   interface TOption {
     value: T;
     label: string;
@@ -68,24 +92,40 @@ const IconSelect = <T extends unknown>({
     [OptionView]
   );
 
-  return (
-    <Select
-      value={{ value, label: getLabel(value) }}
-      onChange={(selectedOption: TOption | null) => {
-        if (selectedOption) {
-          onChange(selectedOption.value);
-        }
-      }}
-      options={options.map((option: T) => ({
-        value: option,
-        label: getLabel(option),
-      }))}
-      isMulti={false}
-      components={{ SingleValue, Option }}
-      instanceId={instanceId}
-      className={className}
-    />
-  );
+  const selectProps: StateManagerProps<TOption, false> = {
+    value: { value, label: getLabel(value) },
+    onChange: (selectedOption: TOption | null) => {
+      if (selectedOption) {
+        onChange(selectedOption.value);
+      }
+    },
+    options: options.map((option: T) => ({
+      value: option,
+      label: getLabel(option),
+    })),
+    isMulti: false,
+    components: { SingleValue, Option },
+    instanceId,
+    className,
+    styles: {
+      option: (provided) => ({
+        ...provided,
+        cursor: "pointer",
+      }),
+    },
+  };
+
+  if (darkModeEnabled) {
+    selectProps.theme = (theme) => ({
+      ...theme,
+      colors: {
+        ...theme.colors,
+        ...getDarkModeColors(theme.colors),
+      },
+    });
+  }
+
+  return <Select {...selectProps} />;
 };
 
 export default IconSelect;
