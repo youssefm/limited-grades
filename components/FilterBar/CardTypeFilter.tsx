@@ -9,22 +9,22 @@ const FILTERS = [
   {
     label: "creatures",
     values: [CardType.CREATURE],
-    icon: "ms ms-2x ms-creature",
+    icon: "ms ms-2x ms-creature dark:text-black",
   },
   {
     label: "instants and sorceries",
     values: [CardType.INSTANT, CardType.SORCERY],
-    icon: "ms ms-2x ms-instant",
+    icon: "ms ms-2x ms-instant dark:text-black",
   },
   {
     label: "artifacts, enchantments, and planeswalkers",
     values: [CardType.ARTIFACT, CardType.ENCHANTMENT, CardType.PLANESWALKER],
-    icon: "ms ms-2x ms-enchantment",
+    icon: "ms ms-2x ms-enchantment dark:text-black",
   },
   {
     label: "lands",
     values: [CardType.LAND],
-    icon: "ms ms-2x ms-land",
+    icon: "ms ms-2x ms-land dark:text-black",
   },
 ];
 
