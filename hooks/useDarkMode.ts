@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 
-const DARK_MODE_CLASS = "dark";
+export const DARK_MODE_CLASS = "dark";
+export const LOCAL_STORAGE_THEME_KEY = "theme";
+export const LOCAL_STORAGE_DARK_VALUE = "dark";
+export const LOCAL_STORAGE_LIGHT_VALUE = "light";
 
-const useDarkMode = (): [boolean, (value: boolean) => void] => {
-  const [mounted, setMounted] = useState(false);
+const useDarkMode = (): [boolean, () => void] => {
   const [enabled, setEnabled] = useState(false);
 
   useEffect(() => {
@@ -13,22 +15,26 @@ const useDarkMode = (): [boolean, (value: boolean) => void] => {
     ) {
       setEnabled(true);
     }
-    setMounted(true);
   }, [setEnabled]);
 
-  useEffect(() => {
-    if (mounted) {
-      const bodyClasses = window.document.body.classList;
-
-      if (enabled) {
-        bodyClasses.add(DARK_MODE_CLASS);
-      } else {
-        bodyClasses.remove(DARK_MODE_CLASS);
-      }
+  const toggle = () => {
+    const bodyClasses = window.document.body.classList;
+    const newValue = !enabled;
+    if (newValue) {
+      bodyClasses.add(DARK_MODE_CLASS);
+    } else {
+      bodyClasses.remove(DARK_MODE_CLASS);
     }
-  }, [mounted, enabled]);
+    if (typeof localStorage !== "undefined") {
+      localStorage.setItem(
+        LOCAL_STORAGE_THEME_KEY,
+        newValue ? LOCAL_STORAGE_DARK_VALUE : LOCAL_STORAGE_LIGHT_VALUE
+      );
+    }
+    setEnabled(newValue);
+  };
 
-  return [enabled, setEnabled];
+  return [enabled, toggle];
 };
 
 export default useDarkMode;
