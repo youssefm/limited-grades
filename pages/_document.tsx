@@ -6,6 +6,8 @@ import Document, {
   NextScript,
 } from "next/document";
 
+import DarkModeInitializer from "components/common/DarkModeInitializer";
+
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
     const initialProps = await Document.getInitialProps(ctx);
@@ -17,6 +19,7 @@ class MyDocument extends Document {
       <Html lang="en">
         <Head />
         <body>
+          <DarkModeInitializer />
           <Main />
           <NextScript />
         </body>
