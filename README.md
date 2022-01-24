@@ -33,10 +33,8 @@ REDIS_URL=<your Redis connection URL>
 # To Do
 
 - Add dark mode
-  - filters
-  - after release:
-    - modals
-    - transitions?
+  - modals
+  - transitions?
 - add spacing between two color icons
 - fix rarity icons too large
 - Improvements to card detail view?
