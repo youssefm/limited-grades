@@ -37,7 +37,6 @@ REDIS_URL=<your Redis connection URL>
   - filters
   - after release:
     - modals
-    - store in local storage
     - transitions?
 - add spacing between two color icons
 - Improvements to card detail view?

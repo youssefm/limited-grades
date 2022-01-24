@@ -8,7 +8,7 @@ import AboutProjectModal from "./AboutProjectModal";
 
 const TitleBar = () => {
   const [showInfoModal, setShowInfoModal] = useState(false);
-  const [darkModeEnabled, setDarkModeEnabled] = useDarkMode();
+  const [darkModeEnabled, toggle] = useDarkMode();
 
   return (
     <>
@@ -33,11 +33,7 @@ const TitleBar = () => {
           <span className="hidden md:inline">About this project</span>
         </button>
 
-        <button
-          className="ml-4 text-2xl"
-          type="button"
-          onClick={() => setDarkModeEnabled(!darkModeEnabled)}
-        >
+        <button className="ml-4 text-2xl" type="button" onClick={toggle}>
           {darkModeEnabled ? (
             <FaSun className="hover:text-amber-600" />
           ) : (
