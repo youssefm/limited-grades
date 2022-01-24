@@ -38,7 +38,7 @@ const IconFilterGroup = <T extends unknown>({
           className={clsx(
             "overflow-hidden hover:z-20 focus:z-10 ml-[-1px] first:ml-0",
             "w-[46px] h-[36px] last:rounded-r first:rounded-l",
-            "border border-zinc-300 hover:border-zinc-500"
+            "border border-zinc-300 hover:border-zinc-500 dark:border-zinc-400"
           )}
           tabIndex={0}
           role="checkbox"
@@ -64,6 +64,7 @@ const IconFilterGroup = <T extends unknown>({
               className={clsx(
                 "flex justify-center items-center w-full h-full",
                 "bg-zinc-200 peer-checked:bg-zinc-50 hover:!bg-zinc-200",
+                "dark:bg-zinc-700 dark:peer-checked:bg-zinc-600 dark:hover:!bg-zinc-800",
                 "opacity-30 peer-checked:opacity-90"
               )}
             >
