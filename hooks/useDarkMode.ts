@@ -1,3 +1,4 @@
+import constate from "constate";
 import { useEffect, useState } from "react";
 
 export const DARK_MODE_CLASS = "dark";
@@ -5,9 +6,11 @@ export const LOCAL_STORAGE_THEME_KEY = "theme";
 export const LOCAL_STORAGE_DARK_VALUE = "dark";
 export const LOCAL_STORAGE_LIGHT_VALUE = "light";
 
-const useDarkMode = (): [boolean, () => void] => {
+const useDarkModeHook = (): [boolean, () => void] => {
   const [enabled, setEnabled] = useState(false);
 
+  // Read initial value off the body element
+  // as set by the `DarkModeInitializer` script
   useEffect(() => {
     if (
       typeof document !== "undefined" &&
@@ -37,4 +40,6 @@ const useDarkMode = (): [boolean, () => void] => {
   return [enabled, toggle];
 };
 
+const [DarkModeProvider, useDarkMode] = constate(useDarkModeHook);
+export { DarkModeProvider };
 export default useDarkMode;
