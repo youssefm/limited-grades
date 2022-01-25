@@ -26,7 +26,7 @@ const PageHeader = () => {
 
         <button
           onClick={() => setShowInfoModal(true)}
-          className="flex gap-1 items-center hover:text-blue-500"
+          className="flex gap-1 items-center hover:text-blue-500 dark:hover:text-amber-600"
           type="button"
         >
           <FaInfoCircle />
