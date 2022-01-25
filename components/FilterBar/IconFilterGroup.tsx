@@ -63,7 +63,7 @@ const IconFilterGroup = <T extends unknown>({
             />
             <div
               className={clsx(
-                "flex justify-center items-center w-full h-full",
+                "flex justify-center items-center w-full h-full text-2xl",
                 "bg-zinc-200 peer-checked:bg-zinc-50 hover:!bg-zinc-200",
                 "dark:bg-neutral-800 dark:peer-checked:bg-neutral-800 dark:hover:!bg-neutral-900",
                 "opacity-30 peer-checked:opacity-90 transition"

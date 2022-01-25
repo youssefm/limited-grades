@@ -9,22 +9,22 @@ const getFilters = (set: MagicSet) => [
   {
     label: "commons",
     values: [Rarity.COMMON],
-    icon: `ss ss-2x ss-${set} ss-common dark:text-neutral-300 transition`,
+    icon: `ss ss-${set} ss-common dark:text-neutral-300 transition`,
   },
   {
     label: "uncommons",
     values: [Rarity.UNCOMMON],
-    icon: `ss ss-2x ss-${set} ss-uncommon`,
+    icon: `ss ss-${set} ss-uncommon`,
   },
   {
     label: "rares",
     values: [Rarity.RARE],
-    icon: `ss ss-2x ss-${set} ss-rare`,
+    icon: `ss ss-${set} ss-rare`,
   },
   {
     label: "mythics",
     values: [Rarity.MYTHIC],
-    icon: `ss ss-2x ss-${set} ss-mythic`,
+    icon: `ss ss-${set} ss-mythic`,
   },
 ];
 
