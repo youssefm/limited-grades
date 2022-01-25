@@ -107,6 +107,7 @@ const IconSelect = <T extends unknown>({
     components: { SingleValue, Option },
     instanceId,
     className,
+    classNamePrefix: "rs",
     styles: {
       option: (provided) => ({
         ...provided,
