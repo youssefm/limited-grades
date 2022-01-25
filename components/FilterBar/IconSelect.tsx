@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { FC, ReactElement, useCallback } from "react";
 import Select, {
   Colors,
@@ -64,9 +65,11 @@ const IconSelect = <T extends unknown>({
 
       return (
         <div className="flex items-center">
-          {icons.map((icon) => (
-            <i className={icon} key={icon} />
-          ))}
+          <span>
+            {icons.map((icon) => (
+              <i className={clsx(icon, "mr-0.5 last:mr-0")} key={icon} />
+            ))}
+          </span>
           <span className="ml-2">{children}</span>
         </div>
       );
