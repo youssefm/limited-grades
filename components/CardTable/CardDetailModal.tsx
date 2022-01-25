@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { sortBy } from "lodash";
 import { FC } from "react";
 
@@ -46,11 +47,17 @@ const CardDetailModal: FC<Props> = ({ card, onClose }) => {
                 >
                   <th className="p-2 text-left">
                     {deckColors.length > 0 ? (
-                      <>
+                      <span>
                         {deckColors.map((column) => (
-                          <i key={column} className={COLUMN_ICONS[column]} />
+                          <i
+                            key={column}
+                            className={clsx(
+                              COLUMN_ICONS[column],
+                              "mr-0.5 last:mr-0"
+                            )}
+                          />
                         ))}
-                      </>
+                      </span>
                     ) : (
                       DECK_LABELS[deck as Deck]
                     )}
