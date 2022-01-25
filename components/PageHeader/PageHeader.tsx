@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import Image from "next/image";
 import { useState } from "react";
 import { FaInfoCircle, FaMoon, FaSun } from "react-icons/fa";
@@ -26,7 +27,7 @@ const PageHeader = () => {
 
         <button
           onClick={() => setShowInfoModal(true)}
-          className="flex gap-1 items-center hover:text-blue-500 dark:hover:text-amber-600"
+          className="flex gap-1 items-center hover:text-blue-500 dark:hover:text-amber-600 transition"
           type="button"
         >
           <FaInfoCircle />
@@ -34,16 +35,15 @@ const PageHeader = () => {
         </button>
 
         <button
-          className="ml-4 text-2xl"
+          className={clsx(
+            "ml-4 text-2xl transition",
+            darkModeEnabled ? "hover:text-amber-600" : "hover:text-blue-500"
+          )}
           type="button"
           onClick={toggle}
           aria-label="Toggle dark mode"
         >
-          {darkModeEnabled ? (
-            <FaSun className="hover:text-amber-600" />
-          ) : (
-            <FaMoon className="hover:text-blue-500" />
-          )}
+          {darkModeEnabled ? <FaSun /> : <FaMoon />}
         </button>
       </div>
 
