@@ -18,11 +18,11 @@ const Modal: FC<Props> = ({ title, onClose, children }) => {
       initialFocus={completeButtonRef}
     >
       <Dialog.Overlay className="fixed inset-0 z-10 bg-black/50 backdrop-blur-xs" />
-      <div className="z-20 w-full max-w-3xl max-h-screen bg-white rounded-lg shadow-xl">
+      <div className="z-20 w-full max-w-3xl max-h-screen dark:text-neutral-100 bg-white dark:bg-neutral-800 rounded-lg shadow-xl">
         <Dialog.Title className="flex items-center p-4 w-full border-b">
           <span className="grow text-2xl font-medium">{title}</span>
           <button onClick={onClose} type="button" ref={completeButtonRef}>
-            <IoClose className="text-2xl hover:text-blue-500" />
+            <IoClose className="text-2xl hover:text-blue-500 dark:hover:text-amber-600" />
           </button>
         </Dialog.Title>
         <div className="overflow-auto p-4">{children}</div>
