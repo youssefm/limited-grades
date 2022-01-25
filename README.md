@@ -32,6 +32,5 @@ REDIS_URL=<your Redis connection URL>
 
 # To Do
 
-- fix rarity icons too large
 - Improvements to card detail view?
 - Search feature?
