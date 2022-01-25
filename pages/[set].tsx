@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { GetStaticPaths, GetStaticProps } from "next";
 import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
@@ -96,7 +97,13 @@ const Page = ({ set, cards, lastUpdatedAtTicks }: StaticProps) => {
       </Head>
       <PageHeader />
       <div className="grow">
-        <div className="flex flex-col gap-2 p-4 bg-zinc-100 dark:bg-neutral-800 rounded-t-lg lg:flex-row lg:gap-4 lg:px-8">
+        <div
+          className={clsx(
+            "flex flex-col gap-2 p-4",
+            "bg-zinc-100 dark:bg-neutral-800 rounded-t-lg",
+            "lg:flex-row lg:gap-4 lg:px-8"
+          )}
+        >
           <SetSelector
             value={selectedSet}
             onChange={(newValue) => {
