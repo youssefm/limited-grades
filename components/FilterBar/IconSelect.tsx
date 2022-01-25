@@ -21,9 +21,9 @@ const getDarkModeColors = (baseColors: Colors) => ({
   neutral70: baseColors.neutral30,
   neutral80: baseColors.neutral20,
   neutral90: baseColors.neutral10,
-  primary: "#f59e0b", // tailwind amber-500
-  primary75: "#ec9109",
-  primary50: "#e28408",
+  primary: "#e78b09", // tailwind amber-550
+  primary75: "#e28408",
+  primary50: "#de7e07",
   primary25: "#d97706", // tailwind amber-600
 });
 
