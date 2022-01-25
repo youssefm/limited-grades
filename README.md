@@ -33,7 +33,7 @@ REDIS_URL=<your Redis connection URL>
 # To Do
 
 - Add dark mode
-  - modals
+  - stop selectors from flickering
   - transitions?
 - add spacing between two color icons
 - fix rarity icons too large

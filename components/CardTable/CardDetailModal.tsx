@@ -27,7 +27,7 @@ const CardDetailModal: FC<Props> = ({ card, onClose }) => {
         />
         <table className="grow self-start">
           <thead>
-            <tr className="border-b-2 border-zinc-800">
+            <tr className="border-b-2 border-zinc-800 dark:border-neutral-400">
               <th className="p-2" />
               <th className="p-2 text-left">Win Rate</th>
               <th className="p-2 text-left">Grade</th>
@@ -40,7 +40,10 @@ const CardDetailModal: FC<Props> = ({ card, onClose }) => {
             ).map(([deck, stats]) => {
               const deckColors = DECK_COLORS[deck as Deck];
               return (
-                <tr key={deck} className="border-b border-zinc-200">
+                <tr
+                  key={deck}
+                  className="border-b border-zinc-200 dark:border-neutral-700"
+                >
                   <th className="p-2 text-left">
                     {deckColors.length > 0 ? (
                       <>
