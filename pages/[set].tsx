@@ -91,7 +91,12 @@ const Page = ({ set, cards, lastUpdatedAtTicks }: StaticProps) => {
   const cardDictionary = new CardTableDictionary(filteredCards, deck);
 
   return (
-    <div className="flex flex-col px-2 min-h-screen dark:text-neutral-100 dark:bg-neutral-900">
+    <div
+      className={clsx(
+        "flex flex-col px-2 min-h-screen",
+        "dark:text-neutral-100 dark:bg-neutral-900 transition"
+      )}
+    >
       <Head>
         <title>Limited Grades – {SET_LABELS[selectedSet]}</title>
       </Head>
@@ -100,7 +105,7 @@ const Page = ({ set, cards, lastUpdatedAtTicks }: StaticProps) => {
         <div
           className={clsx(
             "flex flex-col gap-2 p-4",
-            "bg-zinc-100 dark:bg-neutral-800 rounded-t-lg",
+            "bg-zinc-100 dark:bg-neutral-800 rounded-t-lg transition",
             "lg:flex-row lg:gap-4 lg:px-8"
           )}
         >

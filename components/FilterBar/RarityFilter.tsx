@@ -9,7 +9,7 @@ const getFilters = (set: MagicSet) => [
   {
     label: "commons",
     values: [Rarity.COMMON],
-    icon: `ss ss-2x ss-${set} ss-common dark:text-neutral-300`,
+    icon: `ss ss-2x ss-${set} ss-common dark:text-neutral-300 transition`,
   },
   {
     label: "uncommons",

@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { FC, useState } from "react";
 
 import { ALL_COLUMNS, ALL_GRADES, COLUMN_ICONS } from "lib/constants";
@@ -21,11 +22,19 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
         <table className="w-full border-separate lg:table-fixed border-spacing-0">
           <thead>
             <tr className="lg:sticky lg:top-0">
-              <th className="w-16 h-11 bg-zinc-200 dark:bg-neutral-600 border-b-2 border-zinc-800 dark:border-neutral-400" />
+              <th
+                className={clsx(
+                  "w-16 h-11 bg-zinc-200 dark:bg-neutral-600",
+                  "border-b-2 border-zinc-800 dark:border-neutral-400 transition"
+                )}
+              />
               {ALL_COLUMNS.map((column) => (
                 <th
                   key={column}
-                  className="h-11 bg-zinc-200 dark:bg-neutral-600 border-b-2 border-zinc-800 dark:border-neutral-400"
+                  className={clsx(
+                    "h-11 bg-zinc-200 dark:bg-neutral-600",
+                    "border-b-2 border-zinc-800 dark:border-neutral-400 transition"
+                  )}
                 >
                   <i className={COLUMN_ICONS[column]} />
                 </th>
@@ -35,13 +44,21 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
           <tbody>
             {ALL_GRADES.map((grade) => (
               <tr key={grade}>
-                <th className="w-16 text-xl text-left bg-zinc-200 dark:bg-neutral-600 border-b border-zinc-300 dark:border-neutral-700 lg:pl-4">
+                <th
+                  className={clsx(
+                    "w-16 text-xl text-left bg-zinc-200 dark:bg-neutral-600",
+                    "border-b border-zinc-300 dark:border-neutral-700 transition lg:pl-4"
+                  )}
+                >
                   {grade}
                 </th>
                 {ALL_COLUMNS.map((column) => (
                   <td
                     key={column}
-                    className="py-2 px-1 align-top bg-zinc-100 dark:bg-neutral-800 border-b border-zinc-200 dark:border-neutral-700"
+                    className={clsx(
+                      "py-2 px-1 align-top bg-zinc-100 dark:bg-neutral-800",
+                      "border-b border-zinc-200 dark:border-neutral-700 transition"
+                    )}
                   >
                     {cardDictionary
                       .get(column, grade)
