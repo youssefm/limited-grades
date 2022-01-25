@@ -109,10 +109,18 @@ const IconSelect = <T extends unknown>({
     className,
     classNamePrefix: "rs",
     styles: {
-      option: (provided) => ({
-        ...provided,
-        cursor: "pointer",
-      }),
+      option: (provided, state) => {
+        const optionStyles = {
+          ...provided,
+          cursor: "pointer",
+        };
+
+        if (darkModeEnabled && state.isSelected) {
+          delete optionStyles.color;
+        }
+
+        return optionStyles;
+      },
     },
   };
 
