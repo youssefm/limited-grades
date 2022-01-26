@@ -1,32 +1,9 @@
 export enum MagicSet {
   CRIMSON_VOW = "vow",
-  MIDNIGHT_HUNT = "mid",
-  FORGOTTEN_REALM = "afr",
-  STRIXHAVEN = "stx",
-  KALDHEIM = "khm",
-  ZENDIKAR = "znr",
-  IKORIA = "iko",
-  WAR_OF_THE_SPARK = "war",
-  RAVNICA_ALLEGIANCE = "rna",
-  GUILDS_OF_RAVNICA = "grn",
-  DOMINARIA = "dom",
-  AMONKHET = "akr",
-  KALADESH = "klr",
-  ARENA_CUBE = "cube",
 }
 
 export enum Deck {
   ALL = "all",
-  WHITE_BLUE = "wu",
-  BLUE_BLACK = "ub",
-  BLACK_RED = "br",
-  RED_GREEN = "rg",
-  WHITE_GREEN = "wg",
-  WHITE_BLACK = "wb",
-  BLUE_RED = "ur",
-  BLACK_GREEN = "bg",
-  WHITE_RED = "wr",
-  BLUE_GREEN = "ug",
 }
 
 export enum Column {
@@ -70,6 +47,9 @@ export interface Card {
   cardUrl: string;
   cardBackUrl: string;
   stats: Partial<Record<Deck, CardStats>>;
+  guessedGrade: Grade;
+  diff: number;
+  diffSvg: string;
 }
 
 interface CardStats {

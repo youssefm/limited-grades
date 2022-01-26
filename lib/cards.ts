@@ -9,6 +9,7 @@ import {
   connect as connectToCache,
   IS_ENABLED as CACHE_IS_ENABLED,
 } from "lib/cache";
+import guessesJson from 'guesses.json';
 
 interface ApiCard {
   name: string;
@@ -37,17 +38,24 @@ const GRADE_THRESHOLDS: [Grade, number][] = [
   [Grade.F, 0],
 ];
 
+const GRADE_POINTS: Record<string,number> = {
+  "A+": 12,
+  "A": 11,
+  "A-": 10,
+  "B+": 9,
+  "B": 8,
+  "B-": 7,
+  "C+": 6,
+  "C": 5,
+  "C-": 4,
+  "D+": 3,
+  "D": 2,
+  "D-": 1,
+  "F": 0,
+};
+
 const SET_START_DATES: Partial<Record<MagicSet, string>> = {
   [MagicSet.CRIMSON_VOW]: "2021-11-11",
-  [MagicSet.MIDNIGHT_HUNT]: "2021-09-16",
-  [MagicSet.FORGOTTEN_REALM]: "2021-07-08",
-  [MagicSet.STRIXHAVEN]: "2021-04-15",
-  [MagicSet.KALDHEIM]: "2021-01-28",
-  [MagicSet.ZENDIKAR]: "2020-09-17",
-  [MagicSet.IKORIA]: "2020-04-16",
-  [MagicSet.AMONKHET]: "2020-08-13",
-  [MagicSet.KALADESH]: "2020-11-12",
-  [MagicSet.ARENA_CUBE]: "2022-01-06",
 };
 
 export async function getCards(set: MagicSet): Promise<Card[]> {
@@ -66,7 +74,7 @@ export async function getCards(set: MagicSet): Promise<Card[]> {
 
   const cards = await buildCardStore(set);
   const expirationInHours =
-    set === LATEST_SET || set === MagicSet.ARENA_CUBE ? 12 : 24 * 7;
+    set === LATEST_SET ? 12 : 24 * 7;
   await client.set(set, JSON.stringify(cards), expirationInHours);
   await client.disconnect();
   return cards;
@@ -74,6 +82,7 @@ export async function getCards(set: MagicSet): Promise<Card[]> {
 
 async function buildCardStore(set: MagicSet): Promise<Card[]> {
   const cards: { [key: string]: Card } = {};
+  let diffs: number[] = [];
   for (const deck of Object.values(Deck)) {
     let apiCards: ApiCard[] = await fetchApiCards(set, deck);
     apiCards = apiCards.filter(
@@ -96,6 +105,11 @@ async function buildCardStore(set: MagicSet): Promise<Card[]> {
       if (!card) {
         // For some reason, Amonkhet split cards are mistakently referenced by 17lands with three slashes
         const cardName = apiCard.name.replace("///", "//");
+        const guessedGradeInfo = find(
+          guessesJson,
+          (guess) => guess.name === cardName
+        ) || {"tier" : "C"};
+        const guessedGrade: Grade = guessedGradeInfo.tier as Grade;
         card = {
           name: cardName,
           column: await getCardColumn(cardName),
@@ -104,6 +118,7 @@ async function buildCardStore(set: MagicSet): Promise<Card[]> {
           cardUrl: apiCard.url,
           cardBackUrl: apiCard.url_back,
           stats: {},
+          guessedGrade: guessedGrade,
         };
         cards[cardUrl] = card;
       }
@@ -113,6 +128,23 @@ async function buildCardStore(set: MagicSet): Promise<Card[]> {
         GRADE_THRESHOLDS,
         ([grade, threshold]) => score >= threshold
       )![0];
+      card.diff = compareGrades(grade, card.guessedGrade)
+      if (card.diff <= -3) {
+        card.diffSvg = "/chevron_triple_down_icon_135769.svg";
+      } else if (card.diff == -2) {
+        card.diffSvg = "/chevron_double_down_icon_136787.svg";
+      } else if (card.diff == -1) {
+        card.diffSvg = "/chevron_down_icon_138765.svg";
+      } else if (card.diff == 0) {
+        card.diffSvg = "/check_icon_135782.svg";
+      } else if (card.diff == 1) {
+        card.diffSvg = "/chevron_up_icon_136782.svg";
+      } else if (card.diff == 2) {
+        card.diffSvg = "/chevron_double_up_icon_138766.svg";
+      } else {
+        card.diffSvg = "/chevron_triple_up_icon_137765.svg";
+      }
+      diffs.push(card.diff);
 
       card.stats[deck] = {
         winrate: round(apiCard.ever_drawn_win_rate, 4),
@@ -150,4 +182,8 @@ async function fetchApiCards(set: MagicSet, deck: Deck): Promise<ApiCard[]> {
   console.log("request succeeded");
 
   return await response.json();
+}
+
+function compareGrades(firstGrade: Grade, secondGrade: Grade): int {
+  return GRADE_POINTS[firstGrade] - GRADE_POINTS[secondGrade];
 }

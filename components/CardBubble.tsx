@@ -26,7 +26,8 @@ const CardBubble = forwardRef<HTMLDivElement, Props>(
         } cursor-pointer hover:text-zinc-500`}
         ref={ref}
       >
-        {card.name}
+        {card.name + " (" + (card.diff > 0 ? "+" : "") + card.diff + ")"}
+        <img style={{display: "inline", float: "right"}} src={card.diffSvg}/>
       </div>
     );
   }
