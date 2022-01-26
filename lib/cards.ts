@@ -119,6 +119,8 @@ async function buildCardStore(set: MagicSet): Promise<Card[]> {
           cardBackUrl: apiCard.url_back,
           stats: {},
           guessedGrade: guessedGrade,
+          diff: 0,
+          diffSvg: "/chevron_up_icon_136782.svg",
         };
         cards[cardUrl] = card;
       }
@@ -136,7 +138,7 @@ async function buildCardStore(set: MagicSet): Promise<Card[]> {
       } else if (card.diff == -1) {
         card.diffSvg = "/chevron_down_icon_138765.svg";
       } else if (card.diff == 0) {
-        card.diffSvg = "/check_icon_135782.svg";
+        card.diffSvg = "/crown_icon_135729.svg";
       } else if (card.diff == 1) {
         card.diffSvg = "/chevron_up_icon_136782.svg";
       } else if (card.diff == 2) {
@@ -184,6 +186,6 @@ async function fetchApiCards(set: MagicSet, deck: Deck): Promise<ApiCard[]> {
   return await response.json();
 }
 
-function compareGrades(firstGrade: Grade, secondGrade: Grade): int {
+function compareGrades(firstGrade: Grade, secondGrade: Grade): number {
   return GRADE_POINTS[firstGrade] - GRADE_POINTS[secondGrade];
 }
