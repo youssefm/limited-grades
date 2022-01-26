@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { FC } from "react";
 
 import { MagicSet, Rarity } from "lib/types";
@@ -9,7 +10,10 @@ const getFilters = (set: MagicSet) => [
   {
     label: "commons",
     values: [Rarity.COMMON],
-    icon: `ss ss-${set} ss-common dark:text-neutral-300 transition`,
+    icon: clsx(
+      `ss ss-${set} dark:text-neutral-300 ss-common`,
+      "transition ease-[ease]"
+    ),
   },
   {
     label: "uncommons",

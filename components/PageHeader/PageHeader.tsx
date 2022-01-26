@@ -27,7 +27,10 @@ const PageHeader = () => {
 
         <button
           onClick={() => setShowInfoModal(true)}
-          className="flex gap-1 items-center hover:text-blue-500 dark:hover:text-amber-600 transition"
+          className={clsx(
+            "flex gap-1 items-center hover:text-blue-500 dark:hover:text-amber-600",
+            "transition ease-[ease]"
+          )}
           type="button"
         >
           <FaInfoCircle />
@@ -36,7 +39,8 @@ const PageHeader = () => {
 
         <button
           className={clsx(
-            "ml-4 text-2xl transition",
+            "ml-4 text-2xl",
+            "transition ease-[ease]",
             darkModeEnabled ? "hover:text-amber-600" : "hover:text-blue-500"
           )}
           type="button"
