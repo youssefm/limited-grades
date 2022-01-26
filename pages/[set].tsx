@@ -106,7 +106,7 @@ const Page = ({ set, cards, lastUpdatedAtTicks }: StaticProps) => {
         <div
           className={clsx(
             "flex flex-col gap-2 p-4",
-            "bg-zinc-100 dark:bg-neutral-800 rounded-t-lg",
+            "bg-neutral-100 dark:bg-neutral-800 rounded-t-lg",
             "lg:flex-row lg:gap-4 lg:px-8",
             "transition ease-[ease]"
           )}
