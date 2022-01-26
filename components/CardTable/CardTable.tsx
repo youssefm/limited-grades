@@ -24,8 +24,8 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
             <tr className="lg:sticky lg:top-0">
               <th
                 className={clsx(
-                  "w-16 h-11 bg-zinc-200 dark:bg-neutral-600",
-                  "border-b-2 border-zinc-800 dark:border-neutral-400",
+                  "w-16 h-11 bg-neutral-200 dark:bg-neutral-600",
+                  "border-b-2 border-neutral-800 dark:border-neutral-400",
                   "transition ease-[ease]"
                 )}
               />
@@ -33,8 +33,8 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
                 <th
                   key={column}
                   className={clsx(
-                    "h-11 bg-zinc-200 dark:bg-neutral-600",
-                    "border-b-2 border-zinc-800 dark:border-neutral-400",
+                    "h-11 bg-neutral-200 dark:bg-neutral-600",
+                    "border-b-2 border-neutral-800 dark:border-neutral-400",
                     "transition ease-[ease]"
                   )}
                 >
@@ -48,8 +48,8 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
               <tr key={grade}>
                 <th
                   className={clsx(
-                    "w-16 text-xl text-left bg-zinc-200 dark:bg-neutral-600",
-                    "border-b border-zinc-300 dark:border-neutral-700 lg:pl-4",
+                    "w-16 text-xl text-left bg-neutral-200 dark:bg-neutral-600",
+                    "border-b border-neutral-300 dark:border-neutral-700 lg:pl-4",
                     "transition ease-[ease]"
                   )}
                 >
@@ -59,8 +59,8 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
                   <td
                     key={column}
                     className={clsx(
-                      "py-2 px-1 align-top bg-zinc-100 dark:bg-neutral-800",
-                      "border-b border-zinc-200 dark:border-neutral-700",
+                      "py-2 px-1 align-top bg-neutral-100 dark:bg-neutral-800",
+                      "border-b border-neutral-200 dark:border-neutral-700",
                       "transition ease-[ease]"
                     )}
                   >
@@ -70,7 +70,7 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
                         showSkeletons ? (
                           <div
                             key={card.cardUrl}
-                            className="mb-1 last:mb-0 h-6 bg-zinc-200 dark:bg-neutral-700 animate-pulse"
+                            className="mb-1 last:mb-0 h-6 bg-neutral-200 dark:bg-neutral-700 animate-pulse"
                           />
                         ) : (
                           <CardView

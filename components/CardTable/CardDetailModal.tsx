@@ -28,7 +28,7 @@ const CardDetailModal: FC<Props> = ({ card, onClose }) => {
         />
         <table className="grow self-start">
           <thead>
-            <tr className="border-b-2 border-zinc-800 dark:border-neutral-400">
+            <tr className="border-b-2 border-neutral-800 dark:border-neutral-400">
               <th className="p-2" />
               <th className="p-2 text-left">Win Rate</th>
               <th className="p-2 text-left">Grade</th>
@@ -43,7 +43,7 @@ const CardDetailModal: FC<Props> = ({ card, onClose }) => {
               return (
                 <tr
                   key={deck}
-                  className="border-b border-zinc-200 dark:border-neutral-700"
+                  className="border-b border-neutral-200 dark:border-neutral-700"
                 >
                   <th className="p-2 text-left">
                     {deckColors.length > 0 ? (
