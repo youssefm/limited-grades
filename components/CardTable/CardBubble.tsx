@@ -6,7 +6,10 @@ import { Card, Rarity } from "lib/types";
 // Note: if we try to use string interpolation to create these,
 // TailwindCSS stops recognizing them and purges them from the CSS
 const BORDER_COLORS = {
-  [Rarity.COMMON]: "border-common dark:border-neutral-300 transition",
+  [Rarity.COMMON]: clsx(
+    "border-common dark:border-neutral-300",
+    "transition ease-[ease]"
+  ),
   [Rarity.UNCOMMON]: "border-uncommon",
   [Rarity.RARE]: "border-rare",
   [Rarity.MYTHIC]: "border-mythic",
@@ -24,7 +27,8 @@ const CardBubble = forwardRef<HTMLButtonElement, Props>(
       className={clsx(
         "px-2 mb-1 last:mb-0 w-full text-left",
         "hover:text-blue-500 dark:hover:text-amber-600",
-        "bg-white dark:bg-neutral-700 border-l-[3px] transition",
+        "bg-white dark:bg-neutral-700 border-l-[3px]",
+        "transition ease-[ease]",
         BORDER_COLORS[card.rarity]
       )}
       type="button"

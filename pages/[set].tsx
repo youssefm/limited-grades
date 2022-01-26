@@ -94,7 +94,8 @@ const Page = ({ set, cards, lastUpdatedAtTicks }: StaticProps) => {
     <div
       className={clsx(
         "flex flex-col px-2 min-h-screen",
-        "dark:text-neutral-100 dark:bg-neutral-900 transition"
+        "dark:text-neutral-100 dark:bg-neutral-900",
+        "transition ease-[ease]"
       )}
     >
       <Head>
@@ -105,8 +106,9 @@ const Page = ({ set, cards, lastUpdatedAtTicks }: StaticProps) => {
         <div
           className={clsx(
             "flex flex-col gap-2 p-4",
-            "bg-zinc-100 dark:bg-neutral-800 rounded-t-lg transition",
-            "lg:flex-row lg:gap-4 lg:px-8"
+            "bg-zinc-100 dark:bg-neutral-800 rounded-t-lg",
+            "lg:flex-row lg:gap-4 lg:px-8",
+            "transition ease-[ease]"
           )}
         >
           <SetSelector

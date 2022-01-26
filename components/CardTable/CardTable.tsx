@@ -25,7 +25,8 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
               <th
                 className={clsx(
                   "w-16 h-11 bg-zinc-200 dark:bg-neutral-600",
-                  "border-b-2 border-zinc-800 dark:border-neutral-400 transition"
+                  "border-b-2 border-zinc-800 dark:border-neutral-400",
+                  "transition ease-[ease]"
                 )}
               />
               {ALL_COLUMNS.map((column) => (
@@ -33,7 +34,8 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
                   key={column}
                   className={clsx(
                     "h-11 bg-zinc-200 dark:bg-neutral-600",
-                    "border-b-2 border-zinc-800 dark:border-neutral-400 transition"
+                    "border-b-2 border-zinc-800 dark:border-neutral-400",
+                    "transition ease-[ease]"
                   )}
                 >
                   <i className={COLUMN_ICONS[column]} />
@@ -47,7 +49,8 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
                 <th
                   className={clsx(
                     "w-16 text-xl text-left bg-zinc-200 dark:bg-neutral-600",
-                    "border-b border-zinc-300 dark:border-neutral-700 transition lg:pl-4"
+                    "border-b border-zinc-300 dark:border-neutral-700 lg:pl-4",
+                    "transition ease-[ease]"
                   )}
                 >
                   {grade}
@@ -57,7 +60,8 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
                     key={column}
                     className={clsx(
                       "py-2 px-1 align-top bg-zinc-100 dark:bg-neutral-800",
-                      "border-b border-zinc-200 dark:border-neutral-700 transition"
+                      "border-b border-zinc-200 dark:border-neutral-700",
+                      "transition ease-[ease]"
                     )}
                   >
                     {cardDictionary
