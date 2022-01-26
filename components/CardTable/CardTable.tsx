@@ -9,6 +9,10 @@ import { Card } from "lib/types";
 import CardDetailModal from "./CardDetailModal";
 import CardView from "./CardView";
 
+const HEADER_BG_CLASSES = "bg-neutral-200 dark:bg-neutral-600";
+const HEADER_BORDER_CLASSES =
+  "border-b-2 border-neutral-800 dark:border-neutral-400";
+
 interface Props {
   cardDictionary: CardTableDictionary;
   showSkeletons: boolean;
@@ -25,8 +29,9 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
             <tr className="lg:sticky lg:top-0">
               <th
                 className={clsx(
-                  "w-16 h-11 bg-neutral-200 dark:bg-neutral-600",
-                  "border-b-2 border-neutral-800 dark:border-neutral-400",
+                  "w-16 h-11",
+                  HEADER_BG_CLASSES,
+                  HEADER_BORDER_CLASSES,
                   TRANSITION_CLASSES
                 )}
               />
@@ -34,8 +39,9 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
                 <th
                   key={column}
                   className={clsx(
-                    "h-11 bg-neutral-200 dark:bg-neutral-600",
-                    "border-b-2 border-neutral-800 dark:border-neutral-400",
+                    "h-11",
+                    HEADER_BG_CLASSES,
+                    HEADER_BORDER_CLASSES,
                     TRANSITION_CLASSES
                   )}
                 >
@@ -49,8 +55,9 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
               <tr key={grade}>
                 <th
                   className={clsx(
-                    "w-16 text-xl text-left bg-neutral-200 dark:bg-neutral-600",
-                    "border-b border-neutral-300 dark:border-neutral-700 lg:pl-4",
+                    "pl-1 w-16 text-xl text-left lg:pl-4",
+                    "border-b border-neutral-300 dark:border-neutral-700",
+                    HEADER_BG_CLASSES,
                     TRANSITION_CLASSES
                   )}
                 >
