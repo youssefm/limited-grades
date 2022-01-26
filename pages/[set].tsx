@@ -20,6 +20,7 @@ import {
   ALL_SETS,
   SET_LABELS,
 } from "lib/constants";
+import { TRANSITION_CLASSES } from "lib/styles";
 import { CardTableDictionary } from "lib/table";
 import { Card, Deck, MagicSet } from "lib/types";
 
@@ -95,7 +96,7 @@ const Page = ({ set, cards, lastUpdatedAtTicks }: StaticProps) => {
       className={clsx(
         "flex flex-col px-2 min-h-screen",
         "dark:text-neutral-100 dark:bg-neutral-900",
-        "transition ease-[ease]"
+        TRANSITION_CLASSES
       )}
     >
       <Head>
@@ -108,7 +109,7 @@ const Page = ({ set, cards, lastUpdatedAtTicks }: StaticProps) => {
             "flex flex-col gap-2 p-4",
             "bg-neutral-100 dark:bg-neutral-800 rounded-t-lg",
             "lg:flex-row lg:gap-4 lg:px-8",
-            "transition ease-[ease]"
+            TRANSITION_CLASSES
           )}
         >
           <SetSelector

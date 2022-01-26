@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { FC, useState } from "react";
 
 import { ALL_COLUMNS, ALL_GRADES, COLUMN_ICONS } from "lib/constants";
+import { TRANSITION_CLASSES } from "lib/styles";
 import { CardTableDictionary } from "lib/table";
 import { Card } from "lib/types";
 
@@ -26,7 +27,7 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
                 className={clsx(
                   "w-16 h-11 bg-neutral-200 dark:bg-neutral-600",
                   "border-b-2 border-neutral-800 dark:border-neutral-400",
-                  "transition ease-[ease]"
+                  TRANSITION_CLASSES
                 )}
               />
               {ALL_COLUMNS.map((column) => (
@@ -35,7 +36,7 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
                   className={clsx(
                     "h-11 bg-neutral-200 dark:bg-neutral-600",
                     "border-b-2 border-neutral-800 dark:border-neutral-400",
-                    "transition ease-[ease]"
+                    TRANSITION_CLASSES
                   )}
                 >
                   <i className={COLUMN_ICONS[column]} />
@@ -50,7 +51,7 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
                   className={clsx(
                     "w-16 text-xl text-left bg-neutral-200 dark:bg-neutral-600",
                     "border-b border-neutral-300 dark:border-neutral-700 lg:pl-4",
-                    "transition ease-[ease]"
+                    TRANSITION_CLASSES
                   )}
                 >
                   {grade}
@@ -61,7 +62,7 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
                     className={clsx(
                       "py-2 px-1 align-top bg-neutral-100 dark:bg-neutral-800",
                       "border-b border-neutral-200 dark:border-neutral-700",
-                      "transition ease-[ease]"
+                      TRANSITION_CLASSES
                     )}
                   >
                     {cardDictionary
