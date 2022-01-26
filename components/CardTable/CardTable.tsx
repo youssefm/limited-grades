@@ -4,7 +4,7 @@ import { FC, useState } from "react";
 import { ALL_COLUMNS, ALL_GRADES, COLUMN_ICONS } from "lib/constants";
 import { TRANSITION_CLASSES } from "lib/styles";
 import { CardTableDictionary } from "lib/table";
-import { Card } from "lib/types";
+import { Card, Column } from "lib/types";
 
 import CardDetailModal from "./CardDetailModal";
 import CardView from "./CardView";
@@ -26,10 +26,10 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
       <div className="overflow-x-auto lg:overflow-x-visible">
         <table className="w-full border-separate lg:table-fixed border-spacing-0">
           <thead>
-            <tr className="lg:sticky lg:top-0">
+            <tr className="text-xl lg:sticky lg:top-0">
               <th
                 className={clsx(
-                  "w-16 h-11",
+                  "w-16",
                   HEADER_BG_CLASSES,
                   HEADER_BORDER_CLASSES,
                   TRANSITION_CLASSES
@@ -39,13 +39,12 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
                 <th
                   key={column}
                   className={clsx(
-                    "h-11",
                     HEADER_BG_CLASSES,
                     HEADER_BORDER_CLASSES,
                     TRANSITION_CLASSES
                   )}
                 >
-                  <i className={COLUMN_ICONS[column]} />
+                  <i className={clsx("my-2", COLUMN_ICONS[column])} />
                 </th>
               ))}
             </tr>

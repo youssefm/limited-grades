@@ -32,7 +32,8 @@ export const COLUMN_ICONS: Record<Column, string> = {
   [Column.BLACK]: "ms ms-b ms-cost",
   [Column.RED]: "ms ms-r ms-cost",
   [Column.GREEN]: "ms ms-g ms-cost",
-  [Column.MULTICOLOR]: "ms ms-multicolor ms-duo ms-duo-color ms-grad",
+  [Column.MULTICOLOR]:
+    "ms ms-multicolor ms-duo ms-duo-color ms-grad scale-[1.44]",
   [Column.COLORLESS]: "ms ms-c ms-cost",
 };
 
