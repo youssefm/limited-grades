@@ -112,6 +112,19 @@ const IconSelect = <T extends unknown>({
     className,
     classNamePrefix: "rs",
     styles: {
+      control: (provided) => ({
+        ...provided,
+        transitionDuration: "150ms",
+        transitionProperty: "background-color border-color",
+      }),
+      dropdownIndicator: (provided) => ({
+        ...provided,
+        transition: "color 150ms",
+      }),
+      indicatorSeparator: (provided) => ({
+        ...provided,
+        transition: "background-color 150ms",
+      }),
       option: (provided, state) => {
         const optionStyles = {
           ...provided,
