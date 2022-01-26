@@ -2,6 +2,8 @@ import { Dialog } from "@headlessui/react";
 import { FC, useRef } from "react";
 import { IoClose } from "react-icons/io5";
 
+import { HOVER_CLASSES } from "lib/styles";
+
 interface Props {
   title: string;
   onClose: () => void;
@@ -19,10 +21,10 @@ const Modal: FC<Props> = ({ title, onClose, children }) => {
     >
       <Dialog.Overlay className="fixed inset-0 z-10 bg-black/50 backdrop-blur-xs" />
       <div className="z-20 w-full max-w-3xl max-h-screen dark:text-neutral-100 bg-white dark:bg-neutral-800 rounded-lg shadow-xl">
-        <Dialog.Title className="flex items-center p-4 w-full border-b">
-          <span className="grow text-2xl font-medium">{title}</span>
+        <Dialog.Title className="flex items-center p-4 w-full text-2xl border-b">
+          <span className="grow font-medium">{title}</span>
           <button onClick={onClose} type="button" ref={completeButtonRef}>
-            <IoClose className="text-2xl hover:text-blue-500 dark:hover:text-amber-600" />
+            <IoClose className={HOVER_CLASSES} />
           </button>
         </Dialog.Title>
         <div className="overflow-auto p-4">{children}</div>

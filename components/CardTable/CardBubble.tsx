@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { forwardRef } from "react";
 
-import { TRANSITION_CLASSES } from "lib/styles";
+import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 import { Card, Rarity } from "lib/types";
 
 // Note: if we try to use string interpolation to create these,
@@ -27,8 +27,8 @@ const CardBubble = forwardRef<HTMLButtonElement, Props>(
       onClick={onClick}
       className={clsx(
         "px-2 mb-1 last:mb-0 w-full text-left",
-        "hover:text-blue-500 dark:hover:text-amber-600",
         "bg-white dark:bg-neutral-700 border-l-[3px]",
+        HOVER_CLASSES,
         TRANSITION_CLASSES,
         BORDER_COLORS[card.rarity]
       )}

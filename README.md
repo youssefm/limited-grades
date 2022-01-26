@@ -32,6 +32,5 @@ REDIS_URL=<your Redis connection URL>
 
 # To Do
 
-- Use variables for duplicate CSS classes
 - Improvements to card detail view?
 - Search feature?
