@@ -28,7 +28,8 @@ REDIS_URL=<your Redis connection URL>
 2. Update the value of the `LATEST_SET` constant in `lib/constants.ts`
 3. Once Scryfall is updated, download the Oracle Cards data file [here](https://scryfall.com/docs/api/bulk-data) and update `data/oracle-cards.json` in the repo
 4. Update the root redirect in `next.config.js` to redirect to the latest set
-5. Push to GitHub
+5. Optionally, update Keyrune with `npm update keyrune` to pull in the latest set icons
+6. Push to GitHub
 
 # To Do
 
