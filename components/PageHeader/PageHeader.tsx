@@ -4,6 +4,7 @@ import { useState } from "react";
 import { FaInfoCircle, FaMoon, FaSun } from "react-icons/fa";
 
 import useDarkMode from "hooks/useDarkMode";
+import { TRANSITION_CLASSES } from "lib/styles";
 
 import AboutProjectModal from "./AboutProjectModal";
 
@@ -29,7 +30,7 @@ const PageHeader = () => {
           onClick={() => setShowInfoModal(true)}
           className={clsx(
             "flex gap-1 items-center hover:text-blue-500 dark:hover:text-amber-600",
-            "transition ease-[ease]"
+            TRANSITION_CLASSES
           )}
           type="button"
         >
@@ -40,7 +41,7 @@ const PageHeader = () => {
         <button
           className={clsx(
             "ml-4 text-2xl",
-            "transition ease-[ease]",
+            TRANSITION_CLASSES,
             darkModeEnabled ? "hover:text-amber-600" : "hover:text-blue-500"
           )}
           type="button"

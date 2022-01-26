@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { FC } from "react";
 
+import { TRANSITION_CLASSES } from "lib/styles";
 import { MagicSet, Rarity } from "lib/types";
 
 import FilterLabel from "./FilterLabel";
@@ -12,7 +13,7 @@ const getFilters = (set: MagicSet) => [
     values: [Rarity.COMMON],
     icon: clsx(
       `ss ss-${set} dark:text-neutral-300 ss-common`,
-      "transition ease-[ease]"
+      TRANSITION_CLASSES
     ),
   },
   {

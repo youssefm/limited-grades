@@ -1,5 +1,7 @@
 import clsx from "clsx";
 
+import { TRANSITION_CLASSES } from "lib/styles";
+
 interface Filter<T> {
   label: string;
   values: T[];
@@ -39,7 +41,7 @@ const IconFilterGroup = <T extends unknown>({
             "overflow-hidden hover:z-20 focus:z-10 ml-[-1px] first:ml-0",
             "w-[46px] h-[36px] last:rounded-r first:rounded-l",
             "border border-neutral-300 hover:border-neutral-500 dark:border-neutral-400",
-            "transition ease-[ease]"
+            TRANSITION_CLASSES
           )}
           tabIndex={0}
           role="checkbox"
@@ -67,7 +69,7 @@ const IconFilterGroup = <T extends unknown>({
                 "bg-neutral-200 peer-checked:bg-neutral-50 hover:!bg-neutral-200",
                 "dark:bg-neutral-800 dark:peer-checked:bg-neutral-800 dark:hover:!bg-neutral-900",
                 "opacity-30 peer-checked:opacity-90",
-                "transition ease-[ease]"
+                TRANSITION_CLASSES
               )}
             >
               <i className={icon} />
