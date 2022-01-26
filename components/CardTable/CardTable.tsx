@@ -26,7 +26,7 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
       <div className="overflow-x-auto lg:overflow-x-visible">
         <table className="w-full border-separate lg:table-fixed border-spacing-0">
           <thead>
-            <tr className="text-xl lg:sticky lg:top-0">
+            <tr className="text-lg lg:sticky lg:top-0">
               <th
                 className={clsx(
                   "w-16",
