@@ -9,7 +9,7 @@ const Layout: FC = ({ children }) => (
       <title>Limited Grades</title>
       <meta
         name="description"
-        content="Visualize card win rates for Magic: The Gathering limited play, powered by 17lands data"
+        content="Visualize card win rates for Magic: The Gathering limited play, powered by 17Lands data"
       />
       <link
         rel="apple-touch-icon"
