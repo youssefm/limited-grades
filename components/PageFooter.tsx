@@ -6,10 +6,9 @@ interface Props {
 
 const PageFooter = ({ lastUpdatedAtTicks }: Props) => (
   <div className="pt-1 pb-2 mt-32 border-t border-neutral-400">
-    Designed by <LinkOut url="https://github.com/BodyCopy">BodyCopy</LinkOut>{" "}
-    and developed by{" "}
-    <LinkOut url="https://github.com/youssefm">youssefm</LinkOut> using{" "}
-    <LinkOut url="https://nextjs.org/">Next.js</LinkOut>
+    Developed by <LinkOut url="https://github.com/youssefm">youssefm</LinkOut>{" "}
+    using <LinkOut url="https://nextjs.org/">Next.js</LinkOut>, based on designs
+    by <LinkOut url="https://github.com/BodyCopy">BodyCopy</LinkOut>
     <br />
     Made possible thanks to{" "}
     <LinkOut url="https://www.17lands.com">17Lands</LinkOut>,{" "}
