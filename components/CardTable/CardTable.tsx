@@ -4,7 +4,7 @@ import { FC, useState } from "react";
 import { ALL_COLUMNS, ALL_GRADES, COLUMN_ICONS } from "lib/constants";
 import { TRANSITION_CLASSES } from "lib/styles";
 import { CardTableDictionary } from "lib/table";
-import { Card, Column } from "lib/types";
+import { Card } from "lib/types";
 
 import CardDetailModal from "./CardDetailModal";
 import CardView from "./CardView";
