@@ -83,7 +83,7 @@ const Page = ({
     );
   const cardDictionary = new CardTableDictionary(filteredCards, deck);
 
-  function getAvg(scores: number): number {
+  function getAvg(scores: number[]): number {
     const total: number = scores.reduce((acc, c) => acc + c, 0);
     return Math.round(total / scores.length * 100) / 100;
   }
@@ -115,7 +115,7 @@ const Page = ({
         </div>
         <div>
           <div>Score</div>
-          <div>{getAvg(cardDictionary.getAll().map(c => 110 - 10 * Math.abs(c.diff))) + " on " + cardDictionary.getAll().length + " grades"}</div>
+          <div>{getAvg(cardDictionary.getAll().map(c => 120 - 20 * Math.abs(c.diff))) + " on " + cardDictionary.getAll().length + " grades"}</div>
         </div>
       </div>
       <CardTable

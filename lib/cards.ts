@@ -83,7 +83,7 @@ export async function getCards(set: MagicSet): Promise<Card[]> {
 async function buildCardStore(set: MagicSet): Promise<Card[]> {
   const cards: { [key: string]: Card } = {};
   for (const deck of Object.values(Deck)) {
-    let apiCards: ApiCard[] = await fetchApiCards(set, deck);
+    let apiCards: ApiCard[] = await fetchApiCards(set);
     apiCards = apiCards.filter(
       (card) => card.ever_drawn_game_count >= 200 && card.ever_drawn_win_rate
     );
@@ -109,8 +109,8 @@ async function buildCardStore(set: MagicSet): Promise<Card[]> {
           (guess) => guess.name === cardName
         ) || {"tier" : "C"};
         let guessedGrade: Grade = guessedGradeInfo.tier as Grade;
-        if (guessedGrade == "SB" || guessedGrade == "TBD") {
-          guessedGrade = Grade.F
+        if (guessedGrade == ("SB" as Grade) || guessedGrade == ("TBD" as Grade)) {
+          guessedGrade = Grade.F;
         }
         card = {
           name: cardName,
