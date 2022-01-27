@@ -23,4 +23,8 @@ export class CardTableDictionary {
   get(column: Column, grade: Grade): Card[] {
     return this.cardsByGroup[`${column},${grade}`] || [];
   }
+
+  getAll(): Card[] {
+    return Object.values(this.cardsByGroup).flat();
+  }
 }

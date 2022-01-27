@@ -51,7 +51,7 @@ const GRADE_POINTS: Record<string,number> = {
   "D+": 3,
   "D": 2,
   "D-": 1,
-  "F": 0,
+  "F": 0, 
 };
 
 const SET_START_DATES: Partial<Record<MagicSet, string>> = {
@@ -82,7 +82,6 @@ export async function getCards(set: MagicSet): Promise<Card[]> {
 
 async function buildCardStore(set: MagicSet): Promise<Card[]> {
   const cards: { [key: string]: Card } = {};
-  let diffs: number[] = [];
   for (const deck of Object.values(Deck)) {
     let apiCards: ApiCard[] = await fetchApiCards(set, deck);
     apiCards = apiCards.filter(
@@ -109,7 +108,10 @@ async function buildCardStore(set: MagicSet): Promise<Card[]> {
           guessesJson,
           (guess) => guess.name === cardName
         ) || {"tier" : "C"};
-        const guessedGrade: Grade = guessedGradeInfo.tier as Grade;
+        let guessedGrade: Grade = guessedGradeInfo.tier as Grade;
+        if (guessedGrade == "SB" || guessedGrade == "TBD") {
+          guessedGrade = Grade.F
+        }
         card = {
           name: cardName,
           column: await getCardColumn(cardName),
@@ -146,7 +148,6 @@ async function buildCardStore(set: MagicSet): Promise<Card[]> {
       } else {
         card.diffSvg = "/chevron_triple_up_icon_137765.svg";
       }
-      diffs.push(card.diff);
 
       card.stats[deck] = {
         winrate: round(apiCard.ever_drawn_win_rate, 4),
@@ -159,17 +160,13 @@ async function buildCardStore(set: MagicSet): Promise<Card[]> {
   return Object.values(cards);
 }
 
-async function fetchApiCards(set: MagicSet, deck: Deck): Promise<ApiCard[]> {
+async function fetchApiCards(set: MagicSet): Promise<ApiCard[]> {
   const urlParams: Record<string, string> = {
     expansion: set,
     format: "PremierDraft",
     start_date: SET_START_DATES[set] || "2020-04-16",
     end_date: new Date().toISOString().substring(0, 10),
   };
-
-  if (deck !== Deck.ALL) {
-    urlParams.colors = deck;
-  }
 
   const queryString = new URLSearchParams(urlParams).toString();
   const url = `https://www.17lands.com/card_ratings/data?${queryString}`;
