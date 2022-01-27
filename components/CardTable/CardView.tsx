@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import { Card } from "lib/types";
-import { windowMatchesMedia } from "lib/util";
+import { matchesMedia } from "lib/util";
 
 import CardBubble from "./CardBubble";
 import LazyTippy from "./LazyTippy";
@@ -14,7 +14,7 @@ interface Props {
 const CardView: FC<Props> = ({ card, onClick }) => {
   let cardView = <CardBubble card={card} onClick={onClick} />;
 
-  if (windowMatchesMedia("(hover: hover)")) {
+  if (matchesMedia("(hover: hover)")) {
     let tooltip = (
       <img src={card.cardUrl} alt={card.name} width="240" height="340" />
     );

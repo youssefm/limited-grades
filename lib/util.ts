@@ -10,5 +10,10 @@ export const createComparer = <T>(
   return (item1, item2) => getKey(item1) - getKey(item2);
 };
 
-export const windowMatchesMedia = (mediaQuery: string) =>
+export const matchesMedia = (mediaQuery: string) =>
   typeof window !== "undefined" && window.matchMedia(mediaQuery).matches;
+
+export const sleep = (ms: number) =>
+  new Promise((resolve) => {
+    setTimeout(resolve, ms);
+  });
