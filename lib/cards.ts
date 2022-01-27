@@ -6,6 +6,7 @@ import { IS_ENABLED as CACHE_IS_ENABLED, RedisCacheClient } from "lib/cache";
 import { ALL_DECKS, LATEST_SET } from "lib/constants";
 import { getCardColumn, getCardTypes } from "lib/scryfall";
 import { Card, Deck, Grade, MagicSet, Rarity } from "lib/types";
+import { sleep } from "lib/util";
 
 interface ApiCard {
   name: string;
@@ -66,9 +67,7 @@ const fetchApiCards = async (set: MagicSet, deck: Deck): Promise<ApiCard[]> => {
   let response = await fetch(url);
   while (!response.ok) {
     console.log("request failed, retrying in 10 seconds");
-    await new Promise((resolve) => {
-      setTimeout(resolve, 10000);
-    });
+    await sleep(10000);
     response = await fetch(url);
   }
   console.log("request succeeded");
