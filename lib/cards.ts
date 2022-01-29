@@ -3,13 +3,13 @@ import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
 
 import { LATEST_SET } from "lib/constants";
-import { Card, Deck, MagicSet, Grade, Rarity } from "lib/types";
+import { Card, MagicSet, Grade, Rarity } from "lib/types";
 import { getCardColumn, getCardTypes } from "lib/scryfall";
 import {
   connect as connectToCache,
   IS_ENABLED as CACHE_IS_ENABLED,
 } from "lib/cache";
-import guessesJson from 'guesses.json';
+import guessesJson from 'guesses/shiftedguesses.json';
 
 interface ApiCard {
   name: string;
@@ -82,79 +82,77 @@ export async function getCards(set: MagicSet): Promise<Card[]> {
 
 async function buildCardStore(set: MagicSet): Promise<Card[]> {
   const cards: { [key: string]: Card } = {};
-  for (const deck of Object.values(Deck)) {
-    let apiCards: ApiCard[] = await fetchApiCards(set);
-    apiCards = apiCards.filter(
-      (card) => card.ever_drawn_game_count >= 200 && card.ever_drawn_win_rate
-    );
+  let apiCards: ApiCard[] = await fetchApiCards(set);
+  apiCards = apiCards.filter(
+    (card) => card.ever_drawn_game_count >= 200 && card.ever_drawn_win_rate
+  );
 
-    if (apiCards.length <= 1) {
-      continue;
-    }
+  if (apiCards.length <= 1) {
+    return [];
+  }
 
-    const winrates = apiCards.map((card) => card.ever_drawn_win_rate);
-    const normalDistribution = new NormalDistribution(
-      mean(winrates),
-      std(winrates)
-    );
+  const winrates = apiCards.map((card) => card.ever_drawn_win_rate);
+  const normalDistribution = new NormalDistribution(
+    mean(winrates),
+    std(winrates)
+  );
 
-    for (const apiCard of apiCards) {
-      const cardUrl = apiCard.url;
-      let card = cards[cardUrl];
-      if (!card) {
-        // For some reason, Amonkhet split cards are mistakently referenced by 17lands with three slashes
-        const cardName = apiCard.name.replace("///", "//");
-        const guessedGradeInfo = find(
-          guessesJson,
-          (guess) => guess.name === cardName
-        ) || {"tier" : "C"};
-        let guessedGrade: Grade = guessedGradeInfo.tier as Grade;
-        if (guessedGrade == ("SB" as Grade) || guessedGrade == ("TBD" as Grade)) {
-          guessedGrade = Grade.F;
-        }
-        card = {
-          name: cardName,
-          column: await getCardColumn(cardName),
-          rarity: apiCard.rarity === "basic" ? Rarity.COMMON : apiCard.rarity,
-          cardTypes: await getCardTypes(cardName),
-          cardUrl: apiCard.url,
-          cardBackUrl: apiCard.url_back,
-          stats: {},
-          guessedGrade: guessedGrade,
-          diff: 0,
-          diffSvg: "/chevron_up_icon_136782.svg",
-        };
-        cards[cardUrl] = card;
+  for (const apiCard of apiCards) {
+    const cardUrl = apiCard.url;
+    let card = cards[cardUrl];
+    if (!card) {
+      // For some reason, Amonkhet split cards are mistakently referenced by 17lands with three slashes
+      const cardName = apiCard.name.replace("///", "//");
+      const guessedGradeInfo = find(
+        guessesJson,
+        (guess) => guess.name === cardName
+      ) || {"tier" : "C"};
+      let guessedGrade: Grade = guessedGradeInfo.tier as Grade;
+      if (guessedGrade == ("SB" as Grade) || guessedGrade == ("TBD" as Grade)) {
+        guessedGrade = Grade.F;
       }
-
-      const score = normalDistribution.cdf(apiCard.ever_drawn_win_rate) * 100;
-      const grade: Grade = find<[Grade, number]>(
-        GRADE_THRESHOLDS,
-        ([grade, threshold]) => score >= threshold
-      )![0];
-      card.diff = compareGrades(grade, card.guessedGrade)
-      if (card.diff <= -3) {
-        card.diffSvg = "/chevron_triple_down_icon_135769.svg";
-      } else if (card.diff == -2) {
-        card.diffSvg = "/chevron_double_down_icon_136787.svg";
-      } else if (card.diff == -1) {
-        card.diffSvg = "/chevron_down_icon_138765.svg";
-      } else if (card.diff == 0) {
-        card.diffSvg = "/crown_icon_135729.svg";
-      } else if (card.diff == 1) {
-        card.diffSvg = "/chevron_up_icon_136782.svg";
-      } else if (card.diff == 2) {
-        card.diffSvg = "/chevron_double_up_icon_138766.svg";
-      } else {
-        card.diffSvg = "/chevron_triple_up_icon_137765.svg";
-      }
-
-      card.stats[deck] = {
-        winrate: round(apiCard.ever_drawn_win_rate, 4),
-        gameCount: apiCard.game_count,
-        grade: grade,
+      card = {
+        name: cardName,
+        column: await getCardColumn(cardName),
+        rarity: apiCard.rarity === "basic" ? Rarity.COMMON : apiCard.rarity,
+        cardTypes: await getCardTypes(cardName),
+        cardUrl: apiCard.url,
+        cardBackUrl: apiCard.url_back,
+        winrate: 0,
+        gameCount: 0,
+        grade: Grade.C,
+        guessedGrade: guessedGrade,
+        diff: 0,
+        diffSvg: "/chevron_up_icon_136782.svg",
       };
+      cards[cardUrl] = card;
     }
+
+    const score = normalDistribution.cdf(apiCard.ever_drawn_win_rate) * 100;
+    const grade: Grade = find<[Grade, number]>(
+      GRADE_THRESHOLDS,
+      ([grade, threshold]) => score >= threshold
+    )![0];
+    card.diff = compareGrades(grade, card.guessedGrade)
+    if (card.diff <= -3) {
+      card.diffSvg = "/chevron_triple_down_icon_135769.svg";
+    } else if (card.diff == -2) {
+      card.diffSvg = "/chevron_double_down_icon_136787.svg";
+    } else if (card.diff == -1) {
+      card.diffSvg = "/chevron_down_icon_138765.svg";
+    } else if (card.diff == 0) {
+      card.diffSvg = "/crown_icon_135729.svg";
+    } else if (card.diff == 1) {
+      card.diffSvg = "/chevron_up_icon_136782.svg";
+    } else if (card.diff == 2) {
+      card.diffSvg = "/chevron_double_up_icon_138766.svg";
+    } else {
+      card.diffSvg = "/chevron_triple_up_icon_137765.svg";
+    }
+
+    card.winrate = round(apiCard.ever_drawn_win_rate, 4)
+    card.gameCount = apiCard.game_count
+    card.grade = grade
   }
 
   return Object.values(cards);

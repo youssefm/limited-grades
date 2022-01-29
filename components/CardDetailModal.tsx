@@ -2,8 +2,8 @@ import { sortBy } from "lodash";
 import { FC } from "react";
 
 import Modal from "components/Modal";
-import { COLUMN_ICONS, DECK_COLORS, DECK_LABELS } from "lib/constants";
-import { Card, Deck } from "lib/types";
+import { COLUMN_ICONS } from "lib/constants";
+import { Card } from "lib/types";
 
 interface Props {
   card: Card | undefined;
@@ -33,36 +33,6 @@ const CardDetailModal: FC<Props> = ({ card, onClose }) => {
               <th className="p-2 text-left">Grade</th>
             </tr>
           </thead>
-          <tbody>
-            {sortBy(
-              Object.entries(card.stats),
-              ([deck, stats]) => -stats.gameCount
-            ).map(([deck, stats]) => {
-              const deckColors = DECK_COLORS[deck as Deck];
-              return (
-                <tr key={deck} className="border-b-[1px] border-zinc-200">
-                  <th className="p-2 text-left">
-                    {deckColors.length > 0 ? (
-                      <>
-                        {deckColors.map((column) => (
-                          <i key={column} className={COLUMN_ICONS[column]} />
-                        ))}
-                      </>
-                    ) : (
-                      DECK_LABELS[deck as Deck]
-                    )}
-                  </th>
-                  <td className="p-2">
-                    {Number(stats.winrate).toLocaleString(undefined, {
-                      style: "percent",
-                      minimumFractionDigits: 1,
-                    })}
-                  </td>
-                  <td className="p-2">{stats.grade}</td>
-                </tr>
-              );
-            })}
-          </tbody>
         </table>
       </div>
     </Modal>

@@ -2,10 +2,6 @@ export enum MagicSet {
   CRIMSON_VOW = "vow",
 }
 
-export enum Deck {
-  ALL = "all",
-}
-
 export enum Column {
   WHITE = "white",
   BLUE = "blue",
@@ -46,16 +42,12 @@ export interface Card {
   cardTypes: CardType[];
   cardUrl: string;
   cardBackUrl: string;
-  stats: Partial<Record<Deck, CardStats>>;
-  guessedGrade: Grade;
-  diff: number;
-  diffSvg: string;
-}
-
-interface CardStats {
   winrate: number;
   gameCount: number;
   grade: Grade;
+  guessedGrade: Grade;
+  diff: number;
+  diffSvg: string;
 }
 
 export enum CardType {

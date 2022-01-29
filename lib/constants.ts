@@ -1,4 +1,4 @@
-import { Column, Deck, MagicSet } from "lib/types";
+import { Column, MagicSet } from "lib/types";
 
 export const LATEST_SET = MagicSet.CRIMSON_VOW;
 
@@ -14,12 +14,4 @@ export const COLUMN_ICONS: Record<Column, string> = {
   [Column.GREEN]: "ms ms-g ms-cost",
   [Column.MULTICOLOR]: "ms ms-multicolor ms-duo ms-duo-color ms-grad",
   [Column.COLORLESS]: "ms ms-c ms-cost",
-};
-
-export const DECK_LABELS: Record<Deck, string> = {
-  [Deck.ALL]: "All decks",
-};
-
-export const DECK_COLORS: Record<Deck, Column[]> = {
-  [Deck.ALL]: [],
 };

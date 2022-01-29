@@ -1,21 +1,21 @@
 import { Dictionary, groupBy } from "lodash";
 
-import { Card, Column, Deck, Grade } from "lib/types";
+import { Card, Column, Grade } from "lib/types";
 import { createCompareFunction } from "lib/util";
 
 export class CardTableDictionary {
   cardsByGroup: Dictionary<[Card, ...Card[]]>;
 
-  constructor(cards: Card[], deck: Deck) {
-    const filteredCards = cards.filter((card) => deck in card.stats);
+  constructor(cards: Card[]) {
+    const filteredCards = cards.filter((card) => card.gameCount > 0);
     this.cardsByGroup = groupBy(
       filteredCards,
-      (card) => `${card.column},${card.stats[deck]!.grade}`
+      (card) => `${card.column},${card.grade}`
     );
 
     for (const group of Object.values(this.cardsByGroup)) {
       group.sort(
-        createCompareFunction((card) => card.stats[deck]!.winrate, true)
+        createCompareFunction((card) => card.winrate, true)
       );
     }
   }
