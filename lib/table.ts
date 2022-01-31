@@ -10,7 +10,7 @@ export class CardTableDictionary {
     const filteredCards = cards.filter((card) => card.gameCount > 0);
     this.cardsByGroup = groupBy(
       filteredCards,
-      (card) => `${card.column},${card.grade}`
+      (card) => `${card.column},${card.guessedGrade}`
     );
 
     for (const group of Object.values(this.cardsByGroup)) {
