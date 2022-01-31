@@ -46,6 +46,7 @@ const SET_START_DATES: Partial<Record<MagicSet, string>> = {
   [MagicSet.AMONKHET]: "2020-08-13",
   [MagicSet.KALADESH]: "2020-11-12",
   [MagicSet.ARENA_CUBE]: "2022-01-06",
+  [MagicSet.DOUBLE_FEATURE]: "2022-01-28",
 };
 
 const fetchApiCards = async (set: MagicSet, deck: Deck): Promise<ApiCard[]> => {

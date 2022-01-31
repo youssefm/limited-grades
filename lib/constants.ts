@@ -24,6 +24,7 @@ export const SET_LABELS: Record<MagicSet, string> = {
   [MagicSet.AMONKHET]: "Amonkhet",
   [MagicSet.KALADESH]: "Kaladesh",
   [MagicSet.ARENA_CUBE]: "Arena Cube",
+  [MagicSet.DOUBLE_FEATURE]: "Double Feature",
 };
 
 export const COLUMN_ICONS: Record<Column, string> = {

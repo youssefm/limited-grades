@@ -13,6 +13,7 @@ export enum MagicSet {
   AMONKHET = "akr",
   KALADESH = "klr",
   ARENA_CUBE = "cube",
+  DOUBLE_FEATURE = "dbl",
 }
 
 export enum Deck {
