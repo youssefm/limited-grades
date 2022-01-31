@@ -39,7 +39,7 @@ const IconFilterGroup = <T extends unknown>({
           key={label}
           className={clsx(
             "overflow-hidden hover:z-20 focus:z-10 ml-[-1px] first:ml-0",
-            "w-[46px] h-[36px] last:rounded-r first:rounded-l",
+            "w-[46px] h-[38px] last:rounded-r first:rounded-l",
             "border border-neutral-300 hover:border-neutral-500 dark:border-neutral-400",
             TRANSITION_CLASSES
           )}
