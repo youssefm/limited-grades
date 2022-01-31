@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { find, round } from "lodash";
 import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
@@ -9,7 +10,15 @@ import {
   connect as connectToCache,
   IS_ENABLED as CACHE_IS_ENABLED,
 } from "lib/cache";
-import guessesJson from 'guesses/shiftedguesses.json';
+import Original from 'grades/originalgrades.json';
+import Shifted from 'grades/shiftedgrades.json';
+import Current from 'grades/currentgrades.json';
+
+const GradesMap = {
+  "Original": Original,
+  "Shifted": Shifted,
+  "Current": Current,
+}
 
 interface ApiCard {
   name: string;
@@ -58,9 +67,9 @@ const SET_START_DATES: Partial<Record<MagicSet, string>> = {
   [MagicSet.CRIMSON_VOW]: "2021-11-11",
 };
 
-export async function getCards(set: MagicSet): Promise<Card[]> {
+export async function getCards(set: MagicSet, grades: string): Promise<Card[]> {
   if (!CACHE_IS_ENABLED) {
-    return await buildCardStore(set);
+    return await buildCardStore(set, grades);
   }
 
   const client = await connectToCache();
@@ -72,7 +81,7 @@ export async function getCards(set: MagicSet): Promise<Card[]> {
   }
   console.log("cache miss");
 
-  const cards = await buildCardStore(set);
+  const cards = await buildCardStore(set, grades);
   const expirationInHours =
     set === LATEST_SET ? 12 : 24 * 7;
   await client.set(set, JSON.stringify(cards), expirationInHours);
@@ -80,7 +89,7 @@ export async function getCards(set: MagicSet): Promise<Card[]> {
   return cards;
 }
 
-async function buildCardStore(set: MagicSet): Promise<Card[]> {
+async function buildCardStore(set: MagicSet, grades: string): Promise<Card[]> {
   const cards: { [key: string]: Card } = {};
   let apiCards: ApiCard[] = await fetchApiCards(set);
   apiCards = apiCards.filter(
@@ -96,7 +105,6 @@ async function buildCardStore(set: MagicSet): Promise<Card[]> {
     mean(winrates),
     std(winrates)
   );
-
   for (const apiCard of apiCards) {
     const cardUrl = apiCard.url;
     let card = cards[cardUrl];
@@ -104,7 +112,7 @@ async function buildCardStore(set: MagicSet): Promise<Card[]> {
       // For some reason, Amonkhet split cards are mistakently referenced by 17lands with three slashes
       const cardName = apiCard.name.replace("///", "//");
       const guessedGradeInfo = find(
-        guessesJson,
+        GradesMap[grades],
         (guess) => guess.name === cardName
       ) || {"tier" : "C"};
       let guessedGrade: Grade = guessedGradeInfo.tier as Grade;

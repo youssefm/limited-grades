@@ -14,7 +14,7 @@ export default async function handler(
     return;
   }
 
-  const cards = await getCards(set as MagicSet);
+  const cards = await getCards(set as MagicSet, "Original");
   response.status(200).json(cards);
 }
 

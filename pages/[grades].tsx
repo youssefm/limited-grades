@@ -1,3 +1,4 @@
+// @ts-nocheck
 import { GetStaticPropsContext, InferGetStaticPropsType } from "next";
 import { useRouter } from "next/dist/client/router";
 import Head from "next/head";
@@ -17,6 +18,7 @@ import {
 import RarityFilter from "components/RarityFilter";
 import SetSelector from "components/SetSelector";
 import { SET_LABELS } from "lib/constants";
+import GradeSelector from "components/GradeSelector";
 import PageFooter from "components/PageFooter";
 import CardTypeFilter from "components/CardTypeFilter";
 import { getCards } from "lib/cards";
@@ -26,17 +28,21 @@ import { CardTableDictionary } from "lib/table";
 
 export const getStaticPaths = async () => {
   return {
-    paths: Object.values(MagicSet).map((set) => ({ params: { set } })),
+    paths:[
+       { params: { grades: "Original" } },
+       { params: { grades: "Shifted" } },
+       { params: { grades: "Current" } },
+    ],
     fallback: false,
   };
 };
 
 export const getStaticProps = async (context: GetStaticPropsContext) => {
-  const set = context.params!.set as MagicSet;
+  const grades = context.params!.grades!;
   return {
     props: {
-      set,
-      cards: await getCards(set),
+      grades,
+      cards: await getCards(MagicSet.CRIMSON_VOW, grades),
       lastUpdatedAtTicks: new Date().getTime(),
     },
     // Rebuild pages from 17Lands data every twelve hours
@@ -46,11 +52,13 @@ export const getStaticProps = async (context: GetStaticPropsContext) => {
 
 const Page = ({
   set,
+  grades,
   cards,
   lastUpdatedAtTicks,
 }: InferGetStaticPropsType<typeof getStaticProps>) => {
   const router = useRouter();
-  const [selectedSet, setSelectedSet] = useState(set);
+  const [selectedSet, setSelectedSet] = useState(MagicSet.CRIMSON_VOW);
+  const [selectedGrades, setSelectedGrades] = useState(grades);
   const [loading, setLoading] = useState(false);
   const [visibleRarities, setVisibleRarities] = useState(
     new Set(Object.values(Rarity))
@@ -61,19 +69,19 @@ const Page = ({
   const [showSkeletons, setShowSkeletons] = useState(false);
 
   useEffect(() => {
-    if (selectedSet === set) {
+    if (selectedGrades === grades) {
       if (loading) {
         setLoading(false);
         setShowSkeletons(false);
       }
     } else {
       if (loading) {
-        router.push(`/${selectedSet}`);
+        router.push(`/${selectedGrades}`);
       } else {
-        setSelectedSet(set);
+        setSelectedGrades(grades);
       }
     }
-  }, [selectedSet, set, loading, router]);
+  }, [selectedGrades, grades, loading, router]);
 
   useEffect(() => {
     if (loading) {
@@ -182,14 +190,22 @@ const Page = ({
         <title>Limited Grades – {SET_LABELS[selectedSet]}</title>
       </Head>
       <div className="px-4 py-4 bg-zinc-100 rounded-t-lg flex gap-2 flex-col lg:px-8 lg:flex-row lg:gap-4">
-        <SetSelector
-          value={selectedSet}
-          onChange={(newValue) => {
-            setSelectedSet(newValue);
-            setLoading(true);
-          }}
-        />
-        <div className="flex gap-4">
+        <div>
+          <div>
+            <SetSelector
+              value={selectedSet}
+              onChange={(newValue) => {
+                setSelectedSet(newValue);
+              }}
+            />
+            <GradeSelector
+              value={selectedGrades}
+              onChange={(newValue) => {
+                setSelectedGrades(newValue);
+                setLoading(true);
+              }}
+            />
+          </div>
           <RarityFilter
             set={set}
             values={visibleRarities}
@@ -205,41 +221,43 @@ const Page = ({
           <div className="text-lg mb-2 lg:block">{getAvg(cardDictionary.getAll().map(c => 120 - 20 * Math.abs(c.diff))) + " on " + cardDictionary.getAll().length + " grades"}</div>
           <div className="text-sm mb-2 lg:block"> (120 each minus 20 per difference) </div>
           <table>
-            <tr>
-              <td style={{textAlign:"center"}}>
-                <img style={{display: "inline"}} src={"/crown_icon_135729.svg"}/>
-              </td>
-              <td>
-                <div> = 120 points </div>
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:"center"}}>
-                <img style={{display: "inline"}} src={"/chevron_up_icon_136782.svg"}/>
-                <img style={{display: "inline"}} src={"/chevron_down_icon_138765.svg"}/>
-              </td>
-              <td>
-                <div> = 100 points </div>
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:"center"}}>
-                <img style={{display: "inline"}} src={"/chevron_double_up_icon_138766.svg"}/>
-                <img style={{display: "inline"}} src={"/chevron_double_down_icon_136787.svg"}/>
-              </td>
-              <td>
-                <div> = 80 points </div>
-              </td>
-            </tr>
-            <tr>
-              <td style={{textAlign:"center"}}>
-                <img style={{display: "inline"}} src={"/chevron_triple_up_icon_137765.svg"}/>
-                <img style={{display: "inline"}} src={"/chevron_triple_down_icon_135769.svg"}/>
-              </td>
-              <td>
-                <div> = 60 points </div>
-              </td>
-            </tr>
+            <tbody>
+              <tr>
+                <td style={{textAlign:"center"}}>
+                  <img style={{display: "inline"}} src={"/crown_icon_135729.svg"}/>
+                </td>
+                <td>
+                  <div> = 120 points </div>
+                </td>
+              </tr>
+              <tr>
+                <td style={{textAlign:"center"}}>
+                  <img style={{display: "inline"}} src={"/chevron_up_icon_136782.svg"}/>
+                  <img style={{display: "inline"}} src={"/chevron_down_icon_138765.svg"}/>
+                </td>
+                <td>
+                  <div> = 100 points </div>
+                </td>
+              </tr>
+              <tr>
+                <td style={{textAlign:"center"}}>
+                  <img style={{display: "inline"}} src={"/chevron_double_up_icon_138766.svg"}/>
+                  <img style={{display: "inline"}} src={"/chevron_double_down_icon_136787.svg"}/>
+                </td>
+                <td>
+                  <div> = 80 points </div>
+                </td>
+              </tr>
+              <tr>
+                <td style={{textAlign:"center"}}>
+                  <img style={{display: "inline"}} src={"/chevron_triple_up_icon_137765.svg"}/>
+                  <img style={{display: "inline"}} src={"/chevron_triple_down_icon_135769.svg"}/>
+                </td>
+                <td>
+                  <div> = 60 points </div>
+                </td>
+              </tr>
+            </tbody>
           </table>
         </div>
         <div>
