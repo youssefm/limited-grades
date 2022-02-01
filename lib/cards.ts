@@ -84,7 +84,7 @@ const buildCardStore = async (set: MagicSet): Promise<Card[]> => {
   for (const [index, deck] of ALL_DECKS.entries()) {
     let apiCards: ApiCard[] = apiCardStore[index];
     apiCards = apiCards.filter(
-      (card) => card.ever_drawn_game_count >= 200 && card.ever_drawn_win_rate
+      (card) => card.ever_drawn_game_count >= 400 && card.ever_drawn_win_rate
     );
 
     if (apiCards.length <= 1) {
