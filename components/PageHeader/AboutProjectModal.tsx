@@ -20,7 +20,7 @@ const AboutProjectModal: FC<Props> = ({ onClose }) => (
         </LinkOut>{" "}
         statistic and uses that distribution to assign a grade to each card. For
         example, a card with a win rate that is one standard deviation higher
-        than the mean would get a B. Cards drawn fewer than 200 times are not
+        than the mean would get a B. Cards drawn fewer than 400 times are not
         included.
       </p>
       <p className="mb-4">
