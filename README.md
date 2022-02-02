@@ -25,7 +25,7 @@ REDIS_URL=<your Redis connection URL>
 ## Instructions for adding a new set
 
 1. Add the new set to the `MagicSet` enum
-2. Update the value of the `LATEST_SET` constant in `lib/constants.ts`
+2. Add a user-facing name for the set on `SET_LABELS` at `lib/constants.ts`
 3. Once Scryfall is updated, download the Oracle Cards data file [here](https://scryfall.com/docs/api/bulk-data) and update `data/oracle-cards.json` in the repo
 4. Update the root redirect in `next.config.js` to redirect to the latest set
 5. Optionally, update Keyrune with `npm update keyrune` to pull in the latest set icons
@@ -33,8 +33,9 @@ REDIS_URL=<your Redis connection URL>
 
 # To Do
 
-- Search feature?
 - Improvements to card detail view?
+- Start filters all off
+- Search feature?
 - Add delay to card previews?
 - Improve filter button styling?
 - Fix last updated at timestamp?

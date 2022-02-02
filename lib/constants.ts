@@ -7,8 +7,6 @@ export const ALL_GRADES = Object.values(Grade);
 export const ALL_RARITIES = Object.values(Rarity);
 export const ALL_CARD_TYPES = Object.values(CardType);
 
-export const LATEST_SET = MagicSet.CRIMSON_VOW;
-
 export const SET_LABELS: Record<MagicSet, string> = {
   [MagicSet.CRIMSON_VOW]: "Crimson Vow",
   [MagicSet.MIDNIGHT_HUNT]: "Midnight Hunt",
