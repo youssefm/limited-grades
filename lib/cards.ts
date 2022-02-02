@@ -44,13 +44,19 @@ const SET_START_DATES: Partial<Record<MagicSet, string>> = {
 
 interface ApiCard {
   name: string;
-  drawn_improvement_win_rate: number;
-  ever_drawn_game_count: number;
-  ever_drawn_win_rate: number;
-  game_count: number;
   rarity: Rarity | "basic";
   url: string;
   url_back: string;
+  avg_seen: number;
+  avg_pick: number;
+  drawn_improvement_win_rate: number;
+  drawn_win_rate: number;
+  ever_drawn_game_count: number;
+  ever_drawn_win_rate: number;
+  game_count: number;
+  never_drawn_win_rate: number;
+  opening_hand_win_rate: number;
+  win_rate: number;
 }
 
 const fetchApiCards = async (set: MagicSet, deck: Deck): Promise<ApiCard[]> => {
