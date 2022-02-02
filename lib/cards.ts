@@ -1,23 +1,15 @@
+import { addDays, isFuture, parseISO } from "date-fns";
 import { find, round } from "lodash";
 import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
 
 import { IS_ENABLED as CACHE_IS_ENABLED, RedisCacheClient } from "lib/cache";
-import { ALL_DECKS, LATEST_SET } from "lib/constants";
+import { ALL_DECKS } from "lib/constants";
 import { getCardColumn, getCardTypes } from "lib/scryfall";
 import { Card, Deck, Grade, MagicSet, Rarity } from "lib/types";
 import { sleep } from "lib/util";
 
-interface ApiCard {
-  name: string;
-  drawn_improvement_win_rate: number;
-  ever_drawn_game_count: number;
-  ever_drawn_win_rate: number;
-  game_count: number;
-  rarity: Rarity | "basic";
-  url: string;
-  url_back: string;
-}
+const MINIMUM_GAMES_DRAWN = 400;
 
 const GRADE_THRESHOLDS: [Grade, number][] = [
   [Grade.A_PLUS, 99],
@@ -35,6 +27,7 @@ const GRADE_THRESHOLDS: [Grade, number][] = [
   [Grade.F, 0],
 ];
 
+const DEFAULT_SET_START_DATE = "2020-04-16";
 const SET_START_DATES: Partial<Record<MagicSet, string>> = {
   [MagicSet.CRIMSON_VOW]: "2021-11-11",
   [MagicSet.MIDNIGHT_HUNT]: "2021-09-16",
@@ -49,11 +42,22 @@ const SET_START_DATES: Partial<Record<MagicSet, string>> = {
   [MagicSet.DOUBLE_FEATURE]: "2022-01-28",
 };
 
+interface ApiCard {
+  name: string;
+  drawn_improvement_win_rate: number;
+  ever_drawn_game_count: number;
+  ever_drawn_win_rate: number;
+  game_count: number;
+  rarity: Rarity | "basic";
+  url: string;
+  url_back: string;
+}
+
 const fetchApiCards = async (set: MagicSet, deck: Deck): Promise<ApiCard[]> => {
   const urlParams: Record<string, string> = {
     expansion: set,
     format: "PremierDraft",
-    start_date: SET_START_DATES[set] ?? "2020-04-16",
+    start_date: SET_START_DATES[set] ?? DEFAULT_SET_START_DATE,
     end_date: new Date().toISOString().substring(0, 10),
   };
 
@@ -84,7 +88,9 @@ const buildCardStore = async (set: MagicSet): Promise<Card[]> => {
   for (const [index, deck] of ALL_DECKS.entries()) {
     let apiCards: ApiCard[] = apiCardStore[index];
     apiCards = apiCards.filter(
-      (card) => card.ever_drawn_game_count >= 400 && card.ever_drawn_win_rate
+      (card) =>
+        card.ever_drawn_game_count >= MINIMUM_GAMES_DRAWN &&
+        card.ever_drawn_win_rate
     );
 
     if (apiCards.length <= 1) {
@@ -147,7 +153,14 @@ export const getCards = async (set: MagicSet): Promise<Card[]> => {
   console.log("cache miss");
 
   const cards = await buildCardStore(set);
-  const expirationInHours = set === LATEST_SET ? 12 : 24 * 7;
+  let expirationInHours;
+  const startDate = SET_START_DATES[set];
+  if (startDate && isFuture(addDays(parseISO(startDate), 30))) {
+    // If the set is recently released (< 30 days ago), expire cache entry after 12 hours
+    expirationInHours = 12;
+  } else {
+    expirationInHours = 24 * 7;
+  }
   await RedisCacheClient.set(set, JSON.stringify(cards), expirationInHours);
   return cards;
 };
