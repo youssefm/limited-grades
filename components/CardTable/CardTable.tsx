@@ -1,7 +1,12 @@
 import clsx from "clsx";
 import { FC, useState } from "react";
 
-import { ALL_COLUMNS, ALL_GRADES, COLUMN_ICONS } from "lib/constants";
+import {
+  ALL_COLUMNS,
+  ALL_GRADES,
+  COLUMN_ICONS,
+  GRADE_BORDER_COLORS,
+} from "lib/constants";
 import { TRANSITION_CLASSES } from "lib/styles";
 import { CardTableDictionary } from "lib/table";
 import { Card } from "lib/types";
@@ -55,8 +60,9 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
                 <th
                   className={clsx(
                     "pl-1 w-16 text-xl text-left lg:pl-4",
-                    "border-b border-neutral-300 dark:border-neutral-700",
+                    "border-b border-l-4 border-b-neutral-300 dark:border-b-neutral-700",
                     HEADER_BG_CLASSES,
+                    GRADE_BORDER_COLORS[grade],
                     TRANSITION_CLASSES
                   )}
                 >
