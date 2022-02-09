@@ -24,7 +24,7 @@ const Modal: FC<Props> = ({ title, onClose, children }) => {
       <div
         className={clsx(
           "z-20 w-full max-w-3xl max-h-screen dark:text-neutral-100",
-          "bg-white dark:bg-neutral-800 rounded-lg border dark:border-black shadow-xl"
+          "bg-white dark:bg-neutral-900 rounded-lg border dark:border-black shadow-xl"
         )}
       >
         <Dialog.Title className="flex items-center p-4 w-full text-2xl border-b border-neutral-200 dark:border-black">
