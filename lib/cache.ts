@@ -1,3 +1,4 @@
+import { gzip, ungzip } from "node-gzip";
 import {
   createClient,
   RedisClientType,
@@ -36,12 +37,18 @@ const initializeRedisClient = async (): Promise<void> => {
 export class RedisCacheClient {
   static async get(key: string) {
     await initializeRedisClient();
-    return await REDIS_CLIENT!.get(key);
+    const compressedValue = await REDIS_CLIENT!.get(key);
+    if (compressedValue === null) {
+      return compressedValue;
+    }
+    const buffer = await ungzip(compressedValue);
+    return JSON.parse(buffer.toString());
   }
 
-  static async set(key: string, value: string, expirationInHours: number) {
+  static async set(key: string, value: any, expirationInHours: number) {
     await initializeRedisClient();
-    return await REDIS_CLIENT!.set(key, value, {
+    const compressedValue = await gzip(JSON.stringify(value));
+    return await REDIS_CLIENT!.set(key, compressedValue, {
       EX: expirationInHours * 60 * 60,
     });
   }
