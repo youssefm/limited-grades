@@ -154,7 +154,7 @@ export const getCards = async (set: MagicSet): Promise<Card[]> => {
   const cacheHit = await RedisCacheClient.get(set);
   if (cacheHit) {
     console.log("cache hit");
-    return JSON.parse(cacheHit);
+    return cacheHit;
   }
   console.log("cache miss");
 
@@ -167,6 +167,6 @@ export const getCards = async (set: MagicSet): Promise<Card[]> => {
   } else {
     expirationInHours = 24 * 7;
   }
-  await RedisCacheClient.set(set, JSON.stringify(cards), expirationInHours);
+  await RedisCacheClient.set(set, cards, expirationInHours);
   return cards;
 };
