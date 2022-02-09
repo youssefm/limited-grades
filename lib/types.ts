@@ -88,3 +88,8 @@ export enum CardType {
   PLANESWALKER = "planeswalker",
   LAND = "land",
 }
+
+export interface CardStore {
+  updatedAt: Date;
+  cards: Card[];
+}

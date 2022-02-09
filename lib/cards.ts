@@ -6,7 +6,7 @@ import NormalDistribution from "normal-distribution";
 import { IS_ENABLED as CACHE_IS_ENABLED, RedisCacheClient } from "lib/cache";
 import { ALL_DECKS } from "lib/constants";
 import { getCardColumn, getCardTypes } from "lib/scryfall";
-import { Card, Deck, Grade, MagicSet, Rarity } from "lib/types";
+import { Card, CardStore, Deck, Grade, MagicSet, Rarity } from "lib/types";
 import { sleep } from "lib/util";
 
 const MINIMUM_GAMES_DRAWN = 400;
@@ -86,7 +86,7 @@ const fetchApiCards = async (set: MagicSet, deck: Deck): Promise<ApiCard[]> => {
   return response.json();
 };
 
-const buildCardStore = async (set: MagicSet): Promise<Card[]> => {
+const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
   const cards: { [key: string]: Card } = {};
   const apiCardStore = await Promise.all(
     ALL_DECKS.map((deck) => fetchApiCards(set, deck))
@@ -141,24 +141,24 @@ const buildCardStore = async (set: MagicSet): Promise<Card[]> => {
     }
   }
 
-  return Object.values(cards);
+  return { updatedAt: new Date(), cards: Object.values(cards) };
 };
 
 // eslint-disable-next-line import/prefer-default-export
-export const getCards = async (set: MagicSet): Promise<Card[]> => {
+export const getCardStore = async (set: MagicSet): Promise<CardStore> => {
   if (!CACHE_IS_ENABLED) {
     return buildCardStore(set);
   }
 
   console.log(`attempting to fetch 17lands data for ${set} from cache`);
-  const cacheHit = await RedisCacheClient.get(set);
+  const cacheHit = await RedisCacheClient.get<CardStore>(set);
   if (cacheHit) {
     console.log("cache hit");
-    return cacheHit;
+    return { ...cacheHit, updatedAt: new Date(cacheHit.updatedAt) };
   }
   console.log("cache miss");
 
-  const cards = await buildCardStore(set);
+  const cardStore = await buildCardStore(set);
   let expirationInHours;
   const startDate = SET_START_DATES[set];
   if (startDate && isFuture(addDays(parseISO(startDate), 30))) {
@@ -167,6 +167,6 @@ export const getCards = async (set: MagicSet): Promise<Card[]> => {
   } else {
     expirationInHours = 24 * 7;
   }
-  await RedisCacheClient.set(set, cards, expirationInHours);
-  return cards;
+  await RedisCacheClient.set(set, cardStore, expirationInHours);
+  return cardStore;
 };

@@ -39,4 +39,3 @@ REDIS_URL=<your Redis connection URL>
 - Search feature?
 - Add delay to card previews?
 - Improve filter button styling?
-- Fix last updated at timestamp?

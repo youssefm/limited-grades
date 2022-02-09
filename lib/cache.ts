@@ -35,7 +35,7 @@ const initializeRedisClient = async (): Promise<void> => {
 };
 
 export class RedisCacheClient {
-  static async get(key: string) {
+  static async get<T>(key: string): Promise<T | null> {
     await initializeRedisClient();
     const compressedValue = await REDIS_CLIENT!.get(key);
     if (compressedValue === null) {
