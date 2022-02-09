@@ -41,14 +41,14 @@ export class RedisCacheClient {
     if (compressedValue === null) {
       return compressedValue;
     }
-    const buffer = await ungzip(compressedValue);
+    const buffer = await ungzip(Buffer.from(compressedValue, "base64"));
     return JSON.parse(buffer.toString());
   }
 
   static async set(key: string, value: any, expirationInHours: number) {
     await initializeRedisClient();
     const compressedValue = await gzip(JSON.stringify(value));
-    return await REDIS_CLIENT!.set(key, compressedValue, {
+    return await REDIS_CLIENT!.set(key, compressedValue.toString("base64"), {
       EX: expirationInHours * 60 * 60,
     });
   }
