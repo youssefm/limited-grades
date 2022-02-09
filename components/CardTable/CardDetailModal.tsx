@@ -54,7 +54,7 @@ const CardDetailModal: FC<Props> = ({ card, onClose }) => {
                             key={column}
                             className={clsx(
                               COLUMN_ICONS[column],
-                              "mr-0.5 last:mr-0"
+                              "mr-1 last:mr-0"
                             )}
                           />
                         ))}
