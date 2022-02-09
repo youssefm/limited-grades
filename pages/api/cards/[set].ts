@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import { getCards } from "lib/cards";
+import { getCardStore } from "lib/cards";
 import { ALL_SETS } from "lib/constants";
 import { MagicSet } from "lib/types";
 
@@ -12,8 +12,8 @@ const handler = async (request: NextApiRequest, response: NextApiResponse) => {
     return;
   }
 
-  const cards = await getCards(set as MagicSet);
-  response.status(200).json(cards);
+  const cardStore = await getCardStore(set as MagicSet);
+  response.status(200).json(cardStore);
 };
 
 export default handler;

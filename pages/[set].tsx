@@ -13,7 +13,7 @@ import {
 } from "components/FilterBar";
 import PageFooter from "components/PageFooter";
 import PageHeader from "components/PageHeader";
-import { getCards } from "lib/cards";
+import { getCardStore } from "lib/cards";
 import {
   ALL_CARD_TYPES,
   ALL_RARITIES,
@@ -37,11 +37,12 @@ export const getStaticPaths: GetStaticPaths = async () => ({
 
 export const getStaticProps: GetStaticProps<StaticProps> = async (context) => {
   const set = context.params!.set as MagicSet;
+  const { cards, updatedAt } = await getCardStore(set);
   return {
     props: {
       set,
-      cards: await getCards(set),
-      lastUpdatedAtTicks: new Date().getTime(),
+      cards,
+      lastUpdatedAtTicks: updatedAt.getTime(),
     },
     // Rebuild pages from 17Lands data every twelve hours
     revalidate: 12 * 60 * 60,
