@@ -70,6 +70,7 @@ export interface Card {
   cardTypes: CardType[];
   cardUrl: string;
   cardBackUrl: string;
+  overallStats: OverallCardStats;
   stats: Partial<Record<Deck, CardStats>>;
 }
 
@@ -77,6 +78,16 @@ interface CardStats {
   winrate: number;
   gameCount: number;
   grade: Grade;
+}
+
+interface OverallCardStats {
+  drawnCount: number;
+  lastSeenAt: number;
+  takenAt: number;
+  playedWinrate: number;
+  openingHandWinrate: number;
+  drawnWinrate: number;
+  notDrawnWinrate: number;
 }
 
 export enum CardType {

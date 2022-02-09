@@ -1,3 +1,5 @@
+import assert from "assert";
+
 import { addDays, isFuture, parseISO } from "date-fns";
 import { find, round } from "lodash";
 import { mean, std } from "mathjs";
@@ -113,6 +115,7 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
       const cardUrl = apiCard.url;
       let card = cards[cardUrl];
       if (!card) {
+        assert(deck === Deck.ALL);
         // For some reason, Amonkhet split cards are mistakently referenced by 17lands with three slashes
         const cardName = apiCard.name.replace("///", "//");
         card = {
@@ -122,6 +125,15 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
           cardTypes: await getCardTypes(cardName),
           cardUrl: apiCard.url,
           cardBackUrl: apiCard.url_back,
+          overallStats: {
+            drawnCount: apiCard.ever_drawn_game_count,
+            lastSeenAt: apiCard.avg_seen,
+            takenAt: apiCard.avg_pick,
+            playedWinrate: apiCard.win_rate,
+            openingHandWinrate: apiCard.opening_hand_win_rate,
+            drawnWinrate: apiCard.drawn_win_rate,
+            notDrawnWinrate: apiCard.never_drawn_win_rate,
+          },
           stats: {},
         };
         cards[cardUrl] = card;
