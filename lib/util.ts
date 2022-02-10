@@ -17,3 +17,18 @@ export const sleep = (ms: number) =>
   new Promise((resolve) => {
     setTimeout(resolve, ms);
   });
+
+export const formatPercentage = (value: number) =>
+  value.toLocaleString(undefined, {
+    style: "percent",
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  });
+
+export const formatPercentageDifference = (value: number) => {
+  const difference = (value * 100).toLocaleString(undefined, {
+    minimumFractionDigits: 1,
+    maximumFractionDigits: 1,
+  });
+  return value > 0 ? `+${difference}pp` : `${difference}pp`;
+};

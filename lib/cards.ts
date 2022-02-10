@@ -128,12 +128,12 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
           cardBackUrl: apiCard.url_back,
           overallStats: {
             drawnCount: apiCard.ever_drawn_game_count,
-            lastSeenAt: apiCard.avg_seen,
-            takenAt: apiCard.avg_pick,
-            playedWinrate: apiCard.win_rate,
-            openingHandWinrate: apiCard.opening_hand_win_rate,
-            drawnWinrate: apiCard.drawn_win_rate,
-            notDrawnWinrate: apiCard.never_drawn_win_rate,
+            lastSeenAt: round(apiCard.avg_seen, 2),
+            takenAt: round(apiCard.avg_pick, 2),
+            playedWinrate: round(apiCard.win_rate, 4),
+            openingHandWinrate: round(apiCard.opening_hand_win_rate, 4),
+            drawnWinrate: round(apiCard.drawn_win_rate, 4),
+            notDrawnWinrate: round(apiCard.never_drawn_win_rate, 4),
           },
           stats: {},
         };

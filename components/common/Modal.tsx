@@ -5,12 +5,18 @@ import { IoClose } from "react-icons/io5";
 
 import { HOVER_CLASSES } from "lib/styles";
 
+const MODAL_WIDTH_CLASSES = {
+  md: "max-w-3xl",
+  lg: "max-w-6xl",
+};
+
 interface Props {
   title: string;
   onClose: () => void;
+  size?: "md" | "lg";
 }
 
-const Modal: FC<Props> = ({ title, onClose, children }) => {
+const Modal: FC<Props> = ({ title, onClose, size = "md", children }) => {
   const completeButtonRef = useRef(null);
 
   return (
@@ -23,8 +29,9 @@ const Modal: FC<Props> = ({ title, onClose, children }) => {
       <Dialog.Overlay className="fixed inset-0 z-10 bg-black/50 backdrop-blur-xs" />
       <div
         className={clsx(
-          "z-20 w-full max-w-3xl max-h-screen dark:text-neutral-100",
-          "bg-white dark:bg-neutral-900 rounded-lg border dark:border-black shadow-xl"
+          "z-20 w-full max-h-screen dark:text-neutral-100",
+          "bg-white dark:bg-neutral-900 rounded-lg border dark:border-black shadow-xl",
+          MODAL_WIDTH_CLASSES[size]
         )}
       >
         <Dialog.Title className="flex items-center p-4 w-full text-2xl border-b border-neutral-200 dark:border-black">
@@ -37,6 +44,10 @@ const Modal: FC<Props> = ({ title, onClose, children }) => {
       </div>
     </Dialog>
   );
+};
+
+Modal.defaultProps = {
+  size: "md",
 };
 
 export default Modal;
