@@ -31,6 +31,7 @@ const GRADE_THRESHOLDS: [Grade, number][] = [
 
 const DEFAULT_SET_START_DATE = "2020-04-16";
 const SET_START_DATES: Partial<Record<MagicSet, string>> = {
+  [MagicSet.NEON_DYNASTY]: "2022-02-10",
   [MagicSet.CRIMSON_VOW]: "2021-11-11",
   [MagicSet.MIDNIGHT_HUNT]: "2021-09-16",
   [MagicSet.FORGOTTEN_REALM]: "2021-07-08",
