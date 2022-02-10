@@ -7,7 +7,7 @@ import { HOVER_CLASSES } from "lib/styles";
 
 const MODAL_WIDTH_CLASSES = {
   md: "max-w-3xl",
-  lg: "max-w-6xl",
+  lg: "max-w-5xl",
 };
 
 interface Props {
