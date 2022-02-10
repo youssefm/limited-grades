@@ -1,4 +1,5 @@
 export enum MagicSet {
+  NEON_DYNASTY = "neo",
   CRIMSON_VOW = "vow",
   MIDNIGHT_HUNT = "mid",
   FORGOTTEN_REALM = "afr",

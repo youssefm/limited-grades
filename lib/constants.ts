@@ -8,6 +8,7 @@ export const ALL_RARITIES = Object.values(Rarity);
 export const ALL_CARD_TYPES = Object.values(CardType);
 
 export const SET_LABELS: Record<MagicSet, string> = {
+  [MagicSet.NEON_DYNASTY]: "Neon Dynasty",
   [MagicSet.CRIMSON_VOW]: "Crimson Vow",
   [MagicSet.MIDNIGHT_HUNT]: "Midnight Hunt",
   [MagicSet.FORGOTTEN_REALM]: "Forgotten Realms",

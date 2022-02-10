@@ -6,7 +6,7 @@ module.exports = {
     return [
       {
         source: "/",
-        destination: "/vow",
+        destination: "/neo",
         permanent: false,
       },
       {
