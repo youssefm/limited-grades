@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { round, sortBy } from "lodash";
+import { sortBy } from "lodash";
 import { FC } from "react";
 
 import Modal from "components/common/Modal";
