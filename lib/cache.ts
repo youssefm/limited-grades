@@ -45,11 +45,11 @@ export class RedisCacheClient {
     return JSON.parse(buffer.toString());
   }
 
-  static async set(key: string, value: any, expirationInHours: number) {
+  static async set(key: string, value: any, expirationInSeconds: number) {
     await initializeRedisClient();
     const compressedValue = await gzip(JSON.stringify(value));
     return await REDIS_CLIENT!.set(key, compressedValue.toString("base64"), {
-      EX: expirationInHours * 60 * 60,
+      EX: expirationInSeconds,
     });
   }
 }

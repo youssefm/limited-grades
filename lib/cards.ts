@@ -1,6 +1,12 @@
 import assert from "assert";
 
-import { addDays, isFuture, parseISO } from "date-fns";
+import {
+  addDays,
+  differenceInSeconds,
+  isFuture,
+  isPast,
+  parseISO,
+} from "date-fns";
 import { find, round } from "lodash";
 import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
@@ -172,14 +178,25 @@ export const getCardStore = async (set: MagicSet): Promise<CardStore> => {
   console.log("cache miss");
 
   const cardStore = await buildCardStore(set);
-  let expirationInHours;
+  let expirationInSeconds;
   const startDate = SET_START_DATES[set];
   if (startDate && isFuture(addDays(parseISO(startDate), 30))) {
-    // If the set is recently released (< 30 days ago), expire cache entry after 12 hours
-    expirationInHours = 12;
+    // If the set is recently released (< 30 days ago), expire cache entry until the next day
+    // 1AM UTC is when 17Lands refreshes their daily data
+    const now = new Date();
+    const currentDate = now.getUTCDate();
+    const nextRefreshAt = new Date(
+      Date.UTC(
+        now.getUTCFullYear(),
+        now.getUTCMonth(),
+        now.getUTCHours() < 1 ? currentDate : currentDate + 1,
+        1
+      )
+    );
+    expirationInSeconds = differenceInSeconds(nextRefreshAt, now);
   } else {
-    expirationInHours = 24 * 7;
+    expirationInSeconds = 7 * 24 * 60 * 60;
   }
-  await RedisCacheClient.set(set, cardStore, expirationInHours);
+  await RedisCacheClient.set(set, cardStore, expirationInSeconds);
   return cardStore;
 };
