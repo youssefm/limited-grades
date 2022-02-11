@@ -84,7 +84,7 @@ const CardDetail: FC<Props> = ({ card }) => (
         })}
       </tbody>
     </table>
-    <table className="grow self-stretch border dark:border-black md:self-start">
+    <table className="grow self-stretch border border-neutral-200 dark:border-black md:self-start">
       <tbody>
         <StatsRow label="Average last seen at">
           {card.overallStats.lastSeenAt.toLocaleString(undefined, {
@@ -100,7 +100,7 @@ const CardDetail: FC<Props> = ({ card }) => (
         </StatsRow>
         <StatsRow
           label="Number of games played"
-          className="border-t dark:border-black"
+          className="border-t border-neutral-200 dark:border-black"
         >
           {card.stats[Deck.ALL]!.gameCount.toLocaleString()}
         </StatsRow>
@@ -109,7 +109,7 @@ const CardDetail: FC<Props> = ({ card }) => (
         </StatsRow>
         <StatsRow
           label="Games played win rate"
-          className="border-t dark:border-black"
+          className="border-t border-neutral-200 dark:border-black"
         >
           {formatPercentage(card.overallStats.playedWinrate)}
         </StatsRow>
