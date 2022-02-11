@@ -137,7 +137,7 @@ const Page = ({ set, cards, lastUpdatedAtTicks }: StaticProps) => {
           showSkeletons={showSkeletons}
         />
       </div>
-      <PageFooter lastUpdatedAtTicks={lastUpdatedAtTicks} />
+      <PageFooter lastUpdatedAt={new Date(lastUpdatedAtTicks)} />
     </div>
   );
 };
