@@ -11,7 +11,8 @@ import { getCardColumn, getCardTypes } from "lib/scryfall";
 import { Card, CardStore, Deck, Grade, MagicSet, Rarity } from "lib/types";
 import { sleep } from "lib/util";
 
-const MINIMUM_GAMES_DRAWN = 400;
+const MIN_GAMES_DRAWN_FOR_INFERENCE = 100;
+const MIN_GAMES_DRAWN = 400;
 
 const GRADE_THRESHOLDS: [Grade, number][] = [
   [Grade.A_PLUS, 99],
@@ -96,7 +97,11 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
   );
   for (const [index, deck] of ALL_DECKS.entries()) {
     let apiCards: ApiCard[] = apiCardStore[index];
-    apiCards = apiCards.filter((card) => card.ever_drawn_win_rate);
+    apiCards = apiCards.filter(
+      (card) =>
+        card.ever_drawn_game_count >= MIN_GAMES_DRAWN_FOR_INFERENCE &&
+        card.ever_drawn_win_rate
+    );
 
     if (apiCards.length <= 1) {
       continue;
@@ -109,7 +114,7 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
     );
 
     apiCards = apiCards.filter(
-      (card) => card.ever_drawn_game_count >= MINIMUM_GAMES_DRAWN
+      (card) => card.ever_drawn_game_count >= MIN_GAMES_DRAWN
     );
 
     for (const apiCard of apiCards) {
