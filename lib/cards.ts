@@ -1,12 +1,6 @@
 import assert from "assert";
 
-import {
-  addDays,
-  differenceInSeconds,
-  isFuture,
-  isPast,
-  parseISO,
-} from "date-fns";
+import { addDays, differenceInSeconds, isFuture, parseISO } from "date-fns";
 import { find, round } from "lodash";
 import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
