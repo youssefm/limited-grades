@@ -11,6 +11,17 @@ import {
 import { Card, Deck } from "lib/types";
 import { formatPercentage, formatPercentageDifference } from "lib/util";
 
+const StatsRow: FC<{ label: string; className?: string }> = ({
+  label,
+  className,
+  children,
+}) => (
+  <tr className={className}>
+    <td className="py-2 pl-4 text-left">{label}</td>
+    <td className="pr-4 font-mono text-sm text-right">{children}</td>
+  </tr>
+);
+
 interface Props {
   card: Card;
 }
@@ -75,74 +86,50 @@ const CardDetail: FC<Props> = ({ card }) => (
     </table>
     <table className="grow self-stretch border dark:border-black md:self-start">
       <tbody>
-        <tr>
-          <td className="py-2 pl-4 text-left">Average last seen at</td>
-          <td className="pr-4 font-mono text-sm text-right">
-            {card.overallStats.lastSeenAt.toLocaleString(undefined, {
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2,
-            })}
-          </td>
-        </tr>
-        <tr>
-          <td className="py-2 pl-4 text-left">Average taken at</td>
-          <td className="pr-4 font-mono text-sm text-right">
-            {card.overallStats.takenAt.toLocaleString(undefined, {
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2,
-            })}
-          </td>
-        </tr>
-        <tr className="border-t dark:border-black">
-          <td className="py-2 pl-4 text-left">Number of games played</td>
-          <td className="pr-4 font-mono text-sm text-right">
-            {card.stats[Deck.ALL]!.gameCount.toLocaleString()}
-          </td>
-        </tr>
-        <tr>
-          <td className="py-2 pl-4 text-left">Number of games drawn</td>
-          <td className="pr-4 font-mono text-sm text-right">
-            {card.overallStats.drawnCount.toLocaleString()}
-          </td>
-        </tr>
-        <tr className="border-t dark:border-black">
-          <td className="py-2 pl-4 text-left">Games played win rate</td>
-          <td className="pr-4 font-mono text-sm text-right">
-            {formatPercentage(card.overallStats.playedWinrate)}
-          </td>
-        </tr>
-        <tr>
-          <td className="py-2 pl-4 text-left">Opening hand win rate</td>
-          <td className="pr-4 font-mono text-sm text-right">
-            {formatPercentage(card.overallStats.openingHandWinrate)}
-          </td>
-        </tr>
-        <tr>
-          <td className="py-2 pl-4 text-left">Games drawn win rate</td>
-          <td className="pr-4 font-mono text-sm text-right">
-            {formatPercentage(card.overallStats.drawnWinrate)}
-          </td>
-        </tr>
-        <tr>
-          <td className="py-2 pl-4 text-left">Games in hand win rate</td>
-          <td className="pr-4 font-mono text-sm text-right">
-            {formatPercentage(card.stats[Deck.ALL]!.winrate)}
-          </td>
-        </tr>
-        <tr>
-          <td className="py-2 pl-4 text-left">Games not drawn win rate</td>
-          <td className="pr-4 font-mono text-sm text-right">
-            {formatPercentage(card.overallStats.notDrawnWinrate)}
-          </td>
-        </tr>
-        <tr>
-          <td className="py-2 pl-4 text-left">Improvement when drawn</td>
-          <td className="pr-4 font-mono text-sm text-right">
-            {formatPercentageDifference(
-              card.stats[Deck.ALL]!.winrate - card.overallStats.notDrawnWinrate
-            )}
-          </td>
-        </tr>
+        <StatsRow label="Average last seen at">
+          {card.overallStats.lastSeenAt.toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          })}
+        </StatsRow>
+        <StatsRow label="Average taken at">
+          {card.overallStats.takenAt.toLocaleString(undefined, {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 2,
+          })}
+        </StatsRow>
+        <StatsRow
+          label="Number of games played"
+          className="border-t dark:border-black"
+        >
+          {card.stats[Deck.ALL]!.gameCount.toLocaleString()}
+        </StatsRow>
+        <StatsRow label="Number of games drawn">
+          {card.overallStats.drawnCount.toLocaleString()}
+        </StatsRow>
+        <StatsRow
+          label="Games played win rate"
+          className="border-t dark:border-black"
+        >
+          {formatPercentage(card.overallStats.playedWinrate)}
+        </StatsRow>
+        <StatsRow label="Opening hand win rate">
+          {formatPercentage(card.overallStats.openingHandWinrate)}
+        </StatsRow>
+        <StatsRow label="Games drawn win rate">
+          {formatPercentage(card.overallStats.drawnWinrate)}
+        </StatsRow>
+        <StatsRow label="Games in hand win rate">
+          {formatPercentage(card.stats[Deck.ALL]!.winrate)}
+        </StatsRow>
+        <StatsRow label="Games not drawn win rate">
+          {formatPercentage(card.overallStats.notDrawnWinrate)}
+        </StatsRow>
+        <StatsRow label="Improvement when drawn">
+          {formatPercentageDifference(
+            card.stats[Deck.ALL]!.winrate - card.overallStats.notDrawnWinrate
+          )}
+        </StatsRow>
       </tbody>
     </table>
   </div>
