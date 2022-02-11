@@ -34,7 +34,5 @@ REDIS_URL=<your Redis connection URL>
 # To Do
 
 - Start filters all off
-- Improve ability to refresh 17Lands data at just the right time (around 5PM PST)
 - Search feature?
-- Add delay to card previews?
 - Improve filter button styling?

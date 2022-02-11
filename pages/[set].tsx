@@ -44,8 +44,7 @@ export const getStaticProps: GetStaticProps<StaticProps> = async (context) => {
       cards,
       lastUpdatedAtTicks: updatedAt.getTime(),
     },
-    // Rebuild pages from 17Lands data every twelve hours
-    revalidate: 12 * 60 * 60,
+    revalidate: 60 * 60,
   };
 };
 
