@@ -46,8 +46,4 @@ const Modal: FC<Props> = ({ title, onClose, size = "md", children }) => {
   );
 };
 
-Modal.defaultProps = {
-  size: "md",
-};
-
 export default Modal;
