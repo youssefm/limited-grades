@@ -36,6 +36,7 @@ const CardView: FC<Props> = ({ card, onClick }) => {
         content={tooltip}
         placement="bottom-start"
         trigger="mouseenter"
+        delay={[50, 0]}
       >
         {cardView}
       </LazyTippy>
