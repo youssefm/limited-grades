@@ -34,6 +34,6 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 
 # To Do
 
-- Start filters all off
 - Search feature?
+- Start filters all off
 - Improve filter button styling?
