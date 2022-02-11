@@ -96,11 +96,7 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
   );
   for (const [index, deck] of ALL_DECKS.entries()) {
     let apiCards: ApiCard[] = apiCardStore[index];
-    apiCards = apiCards.filter(
-      (card) =>
-        card.ever_drawn_game_count >= MINIMUM_GAMES_DRAWN &&
-        card.ever_drawn_win_rate
-    );
+    apiCards = apiCards.filter((card) => card.ever_drawn_win_rate);
 
     if (apiCards.length <= 1) {
       continue;
@@ -110,6 +106,10 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
     const normalDistribution = new NormalDistribution(
       mean(winrates),
       std(winrates)
+    );
+
+    apiCards = apiCards.filter(
+      (card) => card.ever_drawn_game_count >= MINIMUM_GAMES_DRAWN
     );
 
     for (const apiCard of apiCards) {
