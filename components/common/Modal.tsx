@@ -30,7 +30,7 @@ const Modal: FC<Props> = ({ title, onClose, size = "md", children }) => {
       <div
         className={clsx(
           "z-20 w-full max-h-screen dark:text-neutral-100",
-          "bg-white dark:bg-neutral-900 rounded-lg border dark:border-black shadow-xl",
+          "bg-white dark:bg-neutral-900 rounded-lg border border-black shadow-xl",
           MODAL_WIDTH_CLASSES[size]
         )}
       >
