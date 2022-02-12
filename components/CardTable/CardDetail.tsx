@@ -35,7 +35,7 @@ const CardDetail: FC<Props> = ({ card }) => (
       height="340"
       className="hidden self-center md:inline"
     />
-    <table className="grow self-stretch dark:border-black md:self-start">
+    <table className="grow self-stretch border border-neutral-200 dark:border-black md:self-start">
       <tbody>
         {sortBy(
           Object.entries(card.stats),
@@ -44,8 +44,8 @@ const CardDetail: FC<Props> = ({ card }) => (
           const deckColors = DECK_COLORS[deck as Deck];
           const winrate = formatPercentage(stats.winrate);
           return (
-            <tr key={deck}>
-              <th className="p-2 w-24 text-xl bg-neutral-100 dark:bg-neutral-800">
+            <tr key={deck} className="group">
+              <th className="p-2 group-first:pt-4 group-last:pb-4 w-24 text-xl bg-neutral-100 dark:bg-neutral-800">
                 {deck === Deck.ALL ? (
                   <span>AVG</span>
                 ) : (
@@ -59,7 +59,7 @@ const CardDetail: FC<Props> = ({ card }) => (
                   </div>
                 )}
               </th>
-              <td className="py-2 px-4">
+              <td className="py-2 px-4 group-first:pt-4 group-last:pb-4">
                 <div className="flex">
                   <div
                     className={clsx(
