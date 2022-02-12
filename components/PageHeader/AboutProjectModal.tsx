@@ -25,14 +25,14 @@ const AboutProjectModal: FC<Props> = ({ onClose }) => (
       </p>
       <p className="mb-4">
         You can hover over cards to see card previews and click on cards to see
-        a breakdown of how well the card does in different archetypes and the
-        full 17Lands stats.
+        a breakdown of how well the card does in different decks and the full
+        17Lands stats.
       </p>
       <p className="mb-4">
-        This site is not affliated by{" "}
-        <LinkOut url="https://www.17lands.com">17Lands</LinkOut> in any way.
-        With that being said, the best way to support this project is to support
-        17Lands by{" "}
+        This site is not endorsed by{" "}
+        <LinkOut url="https://www.17lands.com">17Lands</LinkOut> or affliated
+        with 17Lands in any way. With that being said, the best way to support
+        this project is to support 17Lands by{" "}
         <LinkOut url="https://www.17lands.com/getting_started">
           installing the 17Lands client
         </LinkOut>{" "}
