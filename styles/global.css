@@ -24,7 +24,7 @@
 }
 
 .dark .rs__single-value {
-  color: rgb(204, 204, 204);
+  @apply text-neutral-100;
 }
 
 .dark .rs__indicator-separator {

@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import { omit } from "lodash";
 import { FC, ReactElement, useCallback } from "react";
 import Select, {
   Colors,
@@ -125,6 +126,7 @@ const IconSelect = <T extends unknown>({
         ...provided,
         transition: "background-color 150ms",
       }),
+      input: (provided) => omit(provided, "color"),
       option: (provided, state) => {
         const optionStyles = {
           ...provided,
