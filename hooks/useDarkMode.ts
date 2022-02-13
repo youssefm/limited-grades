@@ -6,7 +6,7 @@ export const LOCAL_STORAGE_THEME_KEY = "theme";
 export const LOCAL_STORAGE_DARK_VALUE = "dark";
 export const LOCAL_STORAGE_LIGHT_VALUE = "light";
 
-const useDarkModeHook = (): [boolean, () => void] => {
+const useDarkModeValue = (): [boolean, () => void] => {
   const [enabled, setEnabled] = useState(false);
 
   // Read initial value off the body element
@@ -40,6 +40,6 @@ const useDarkModeHook = (): [boolean, () => void] => {
   return [enabled, toggle];
 };
 
-const [DarkModeProvider, useDarkMode] = constate(useDarkModeHook);
+const [DarkModeProvider, useDarkMode] = constate(useDarkModeValue);
 export { DarkModeProvider };
 export default useDarkMode;
