@@ -34,6 +34,7 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 
 # To Do
 
+- Hover over for detailed stat descriptions
 - Search feature?
 - Start filters all off
 - Improve filter button styling?
