@@ -1,9 +1,9 @@
 import clsx from "clsx";
 import { GetStaticPaths, GetStaticProps } from "next";
+import dynamic from "next/dynamic";
 import Head from "next/head";
 import React from "react";
 
-import PageBody from "components/PageBody";
 import PageFooter from "components/PageFooter";
 import PageHeader from "components/PageHeader";
 import { CardTableContextProvider } from "hooks/useCardTableContext";
@@ -11,6 +11,8 @@ import { getCardStore } from "lib/cards";
 import { ALL_SETS, SET_LABELS } from "lib/constants";
 import { TRANSITION_CLASSES } from "lib/styles";
 import { Card, MagicSet } from "lib/types";
+
+const PageBody = dynamic(() => import("components/PageBody"));
 
 interface StaticProps {
   set: MagicSet;
