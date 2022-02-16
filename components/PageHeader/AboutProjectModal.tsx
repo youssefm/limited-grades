@@ -31,8 +31,8 @@ const AboutProjectModal: FC<Props> = ({ onClose }) => (
       <p className="mb-4">
         This site is not endorsed by{" "}
         <LinkOut url="https://www.17lands.com">17Lands</LinkOut> or affliated
-        with 17Lands in any way. With that being said, the best way to support
-        this project is to support 17Lands by{" "}
+        with 17Lands in any way. With that said, the best way to support this
+        project is to support 17Lands by{" "}
         <LinkOut url="https://www.17lands.com/getting_started">
           installing the 17Lands client
         </LinkOut>{" "}
