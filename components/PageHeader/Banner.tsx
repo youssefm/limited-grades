@@ -30,10 +30,10 @@ const Banner: FC<Props> = ({ onReadMore }) => {
         <LinkOut url="https://www.17lands.com/">17Lands</LinkOut> win rate data.{" "}
         <button
           onClick={onReadMore}
-          className={clsx(HOVER_CLASSES, TRANSITION_CLASSES)}
+          className={clsx("underline", HOVER_CLASSES, TRANSITION_CLASSES)}
           type="button"
         >
-          Read more...
+          Read more
         </button>
       </div>
       <button onClick={() => setIsVisible(false)} type="button">
