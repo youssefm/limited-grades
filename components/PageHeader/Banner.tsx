@@ -20,7 +20,7 @@ const Banner: FC<Props> = ({ onReadMore }) => {
   return (
     <div
       className={clsx(
-        "flex items-center py-1 px-4 mb-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg",
+        "flex items-center py-1.5 px-4 mb-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg",
         TRANSITION_CLASSES
       )}
     >
