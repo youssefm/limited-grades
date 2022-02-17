@@ -37,7 +37,10 @@ const Modal: FC<Props> = ({ title, onClose, size = "md", children }) => {
         <Dialog.Title className="flex items-center p-4 w-full text-2xl border-b border-neutral-200 dark:border-black">
           <span className="grow font-medium">{title}</span>
           <button onClick={onClose} type="button" ref={completeButtonRef}>
-            <IoClose className={clsx(HOVER_CLASSES, TRANSITION_CLASSES)} />
+            <IoClose
+              className={clsx(HOVER_CLASSES, TRANSITION_CLASSES)}
+              aria-label="Close Modal"
+            />
           </button>
         </Dialog.Title>
         <div className="overflow-auto p-4">{children}</div>

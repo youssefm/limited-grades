@@ -32,6 +32,7 @@ const Banner: FC<Props> = ({ onReadMore }) => {
           onClick={onReadMore}
           className={clsx("underline", HOVER_CLASSES, TRANSITION_CLASSES)}
           type="button"
+          aria-label="Close Banner"
         >
           Read more
         </button>
