@@ -7,6 +7,7 @@ import useDarkMode from "hooks/useDarkMode";
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 
 import AboutProjectModal from "./AboutProjectModal";
+import Banner from "./Banner";
 
 const PageHeader = () => {
   const [showInfoModal, setShowInfoModal] = useState(false);
@@ -48,6 +49,8 @@ const PageHeader = () => {
           {darkModeEnabled ? <FaSun /> : <FaMoon />}
         </button>
       </div>
+
+      <Banner onReadMore={() => setShowInfoModal(true)} />
 
       {showInfoModal && (
         <AboutProjectModal onClose={() => setShowInfoModal(false)} />

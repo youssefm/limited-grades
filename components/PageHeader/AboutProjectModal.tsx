@@ -25,8 +25,8 @@ const AboutProjectModal: FC<Props> = ({ onClose }) => (
       </p>
       <p className="mb-4">
         You can hover over cards to see card previews and click on cards to see
-        a breakdown of how well the card does in different decks and the full
-        17Lands stats.
+        a breakdown of how well the card does in different decks along with the
+        full 17Lands stats.
       </p>
       <p className="mb-4">
         This site is not endorsed by{" "}
@@ -34,11 +34,11 @@ const AboutProjectModal: FC<Props> = ({ onClose }) => (
         with 17Lands in any way. With that said, the best way to support this
         project is to support 17Lands by{" "}
         <LinkOut url="https://www.17lands.com/getting_started">
-          installing the 17Lands client
+          installing the client
         </LinkOut>{" "}
-        and by{" "}
+        or by{" "}
         <LinkOut url="https://www.patreon.com/17lands">
-          becoming a 17Lands patron
+          becoming a patron
         </LinkOut>
         .
       </p>

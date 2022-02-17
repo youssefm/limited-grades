@@ -3,7 +3,7 @@ import clsx from "clsx";
 import { FC, useRef } from "react";
 import { IoClose } from "react-icons/io5";
 
-import { HOVER_CLASSES } from "lib/styles";
+import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 
 const MODAL_WIDTH_CLASSES = {
   md: "max-w-3xl",
@@ -37,7 +37,7 @@ const Modal: FC<Props> = ({ title, onClose, size = "md", children }) => {
         <Dialog.Title className="flex items-center p-4 w-full text-2xl border-b border-neutral-200 dark:border-black">
           <span className="grow font-medium">{title}</span>
           <button onClick={onClose} type="button" ref={completeButtonRef}>
-            <IoClose className={HOVER_CLASSES} />
+            <IoClose className={clsx(HOVER_CLASSES, TRANSITION_CLASSES)} />
           </button>
         </Dialog.Title>
         <div className="overflow-auto p-4">{children}</div>
