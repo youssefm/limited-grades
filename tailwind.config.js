@@ -39,6 +39,12 @@ module.exports = {
       fontFamily: {
         belerenSmallCaps: "Beleren SmallCaps Bold",
       },
+      spacing: {
+        15: "3.75rem",
+      },
+      transitionProperty: {
+        "max-h": "max-height",
+      },
     },
   },
   plugins: [],
