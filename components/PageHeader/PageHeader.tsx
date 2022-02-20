@@ -1,17 +1,16 @@
 import clsx from "clsx";
 import Image from "next/image";
 import { useState } from "react";
-import { FaInfoCircle, FaMoon, FaSun } from "react-icons/fa";
+import { FaInfoCircle } from "react-icons/fa";
 
-import useDarkMode from "hooks/useDarkMode";
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 
 import AboutProjectModal from "./AboutProjectModal";
 import Banner from "./Banner";
+import DarkModeToggle from "./DarkModeToggle";
 
 const PageHeader = () => {
   const [showInfoModal, setShowInfoModal] = useState(false);
-  const [darkModeEnabled, toggle] = useDarkMode();
 
   return (
     <>
@@ -40,14 +39,7 @@ const PageHeader = () => {
           <span className="hidden md:inline">About this project</span>
         </button>
 
-        <button
-          className={clsx("ml-4 text-2xl", HOVER_CLASSES, TRANSITION_CLASSES)}
-          type="button"
-          onClick={toggle}
-          aria-label="Toggle dark mode"
-        >
-          {darkModeEnabled ? <FaSun /> : <FaMoon />}
-        </button>
+        <DarkModeToggle />
       </div>
 
       <Banner onReadMore={() => setShowInfoModal(true)} />
