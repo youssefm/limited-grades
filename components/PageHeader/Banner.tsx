@@ -21,7 +21,12 @@ const Banner: FC<Props> = ({ onReadMore }) => {
         "transition-max-h ease-[ease]"
       )}
     >
-      <div className="flex items-center py-1.5 px-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg lg:px-4">
+      <div
+        className={clsx(
+          "flex items-center py-1.5 px-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg lg:px-4",
+          TRANSITION_CLASSES
+        )}
+      >
         <div className="grow">
           <ImInfo className="inline relative bottom-0.5 mr-2" />
           Grades below are based on{" "}
