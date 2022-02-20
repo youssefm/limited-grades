@@ -29,11 +29,10 @@ const Modal: FC<Props> = ({ title, onClose, size = "md", children }) => {
       <Dialog.Overlay className="fixed inset-0 z-10 bg-black/50 backdrop-blur-xs" />
       <div
         className={clsx(
-          "overflow-y-auto z-20 w-full max-h-screen dark:text-neutral-100",
+          "overflow-y-auto z-20 w-full max-h-[80vh] dark:text-neutral-100",
           "bg-white dark:bg-neutral-900 rounded-lg border border-black shadow-xl",
           MODAL_WIDTH_CLASSES[size]
         )}
-        style={{ maxHeight: "-webkit-fill-available" }}
       >
         <Dialog.Title className="flex items-center p-4 w-full text-2xl border-b border-neutral-200 dark:border-black">
           <span className="grow font-medium">{title}</span>
