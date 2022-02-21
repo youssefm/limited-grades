@@ -7,10 +7,10 @@ import LinkOut from "components/common/LinkOut";
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 
 interface Props {
-  onReadMore: () => void;
+  onLearnMore: () => void;
 }
 
-const Banner: FC<Props> = ({ onReadMore }) => {
+const Banner: FC<Props> = ({ onLearnMore }) => {
   const [isVisible, setIsVisible] = useState(true);
 
   return (
@@ -33,11 +33,11 @@ const Banner: FC<Props> = ({ onReadMore }) => {
           <LinkOut url="https://www.17lands.com/">17Lands</LinkOut> win rate
           data.{" "}
           <button
-            onClick={onReadMore}
+            onClick={onLearnMore}
             className={clsx("underline", HOVER_CLASSES, TRANSITION_CLASSES)}
             type="button"
           >
-            Read more
+            Learn more
           </button>
         </div>
         <button onClick={() => setIsVisible(false)} type="button">
