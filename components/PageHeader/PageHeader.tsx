@@ -42,7 +42,7 @@ const PageHeader = () => {
         <DarkModeToggle />
       </div>
 
-      <Banner onReadMore={() => setShowInfoModal(true)} />
+      <Banner onLearnMore={() => setShowInfoModal(true)} />
 
       {showInfoModal && (
         <AboutProjectModal onClose={() => setShowInfoModal(false)} />
