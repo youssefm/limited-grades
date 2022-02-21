@@ -17,14 +17,14 @@ interface Props {
 }
 
 const Modal: FC<Props> = ({ title, onClose, size = "md", children }) => {
-  const completeButtonRef = useRef(null);
+  const closeButtonRef = useRef(null);
 
   return (
     <Dialog
       open
       onClose={onClose}
       className="flex fixed inset-0 justify-center items-center"
-      initialFocus={completeButtonRef}
+      initialFocus={closeButtonRef}
     >
       <Dialog.Overlay className="fixed inset-0 z-10 bg-black/50 backdrop-blur-xs" />
       <div
@@ -36,7 +36,7 @@ const Modal: FC<Props> = ({ title, onClose, size = "md", children }) => {
       >
         <Dialog.Title className="flex items-center p-4 w-full text-2xl border-b border-neutral-200 dark:border-black">
           <span className="grow font-medium">{title}</span>
-          <button onClick={onClose} type="button" ref={completeButtonRef}>
+          <button onClick={onClose} type="button" ref={closeButtonRef}>
             <IoClose
               className={clsx(HOVER_CLASSES, TRANSITION_CLASSES)}
               aria-label="Close Modal"
