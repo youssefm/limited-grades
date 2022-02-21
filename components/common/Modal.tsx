@@ -29,7 +29,7 @@ const Modal: FC<Props> = ({ title, onClose, size = "md", children }) => {
       <Dialog.Overlay className="fixed inset-0 z-10 bg-black/50 backdrop-blur-xs" />
       <div
         className={clsx(
-          "overflow-y-auto z-20 w-full max-h-screen dark:text-neutral-100",
+          "overflow-y-auto z-20 w-full max-h-[40rem] dark:text-neutral-100 sm:max-h-screen",
           "bg-white dark:bg-neutral-900 rounded-lg border border-black shadow-xl",
           MODAL_WIDTH_CLASSES[size]
         )}
