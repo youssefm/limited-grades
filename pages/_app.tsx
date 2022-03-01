@@ -11,6 +11,8 @@ import Layout from "components/common/Layout";
 import { GA_TRACKING_ENABLED, GA_TRACKING_ID, pageview } from "lib/gtag";
 import "styles/global.css";
 
+const UMAMI_SITE_ID = process.env.NEXT_PUBLIC_UMAMI_SITE_ID;
+
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
   useEffect(() => {
@@ -37,6 +39,13 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             }}
           />
         </>
+      )}
+      {UMAMI_SITE_ID && (
+        <Script
+          strategy="afterInteractive"
+          src="https://umami-bay-alpha.vercel.app/umami.js"
+          data-website-id={UMAMI_SITE_ID}
+        />
       )}
       <Layout>
         <Component {...pageProps} />

@@ -34,7 +34,7 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 
 # To Do
 
-- add card image back to mobile?
+- Consider storing banner setting in local storage
 - Hover over for detailed stat descriptions
 - Search feature?
 - Start filters all off
