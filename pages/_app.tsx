@@ -12,6 +12,7 @@ import { GA_TRACKING_ENABLED, GA_TRACKING_ID, pageview } from "lib/gtag";
 import "styles/global.css";
 
 const UMAMI_SITE_ID = process.env.NEXT_PUBLIC_UMAMI_SITE_ID;
+const UMAMI_SCRIPT_URL = process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL;
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   const router = useRouter();
@@ -28,23 +29,23 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       {GA_TRACKING_ENABLED && (
         <>
           <Script
-            strategy="afterInteractive"
             src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
+            strategy="afterInteractive"
           />
           <Script
             id="gtag-init"
-            strategy="afterInteractive"
             dangerouslySetInnerHTML={{
               __html: `function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date),gtag("config","${GA_TRACKING_ID}",{page_path:window.location.pathname});`,
             }}
+            strategy="afterInteractive"
           />
         </>
       )}
-      {UMAMI_SITE_ID && (
+      {UMAMI_SITE_ID && UMAMI_SCRIPT_URL && (
         <Script
-          strategy="afterInteractive"
-          src="https://umami-bay-alpha.vercel.app/umami.js"
+          src={UMAMI_SCRIPT_URL}
           data-website-id={UMAMI_SITE_ID}
+          strategy="afterInteractive"
         />
       )}
       <Layout>
