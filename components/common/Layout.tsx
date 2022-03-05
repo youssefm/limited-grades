@@ -9,7 +9,7 @@ const Layout: FC = ({ children }) => (
       <title>Limited Grades</title>
       <meta
         name="description"
-        content="Visualize MTG card win rates as a tier list, powered by 17Lands data"
+        content="Visualize MTG draft win rates as a tier list, powered by 17Lands data"
       />
       <meta
         property="og:image"
