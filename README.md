@@ -34,7 +34,6 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 
 # To Do
 
-- Hover over for detailed stat descriptions
 - Consider storing banner setting in local storage
 - Search feature?
 - Start filters all off
