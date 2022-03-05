@@ -37,4 +37,5 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 - Consider storing banner setting in local storage
 - Search feature?
 - Start filters all off
+- Implement embargo period views for card detail modal
 - Improve filter button styling?
