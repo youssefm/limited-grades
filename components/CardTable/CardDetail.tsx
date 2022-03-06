@@ -18,12 +18,12 @@ const StatsRow: FC<{
   className?: string;
 }> = ({ label, tooltipText, className, children }) => (
   <tr className={className}>
-    <td className="py-2 pl-4 text-left cursor-pointer">
+    <td className="py-2 pl-4">
       <Tippy
         content={<div className="p-2">{tooltipText}</div>}
         placement="bottom-start"
       >
-        <span>{label}</span>
+        <span className="cursor-pointer">{label}</span>
       </Tippy>
     </td>
     <td className="pr-4 font-mono text-sm text-right">{children}</td>
