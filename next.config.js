@@ -1,4 +1,7 @@
 /** @type {import('next').NextConfig} */
+
+const { UMAMI_SERVER_NAME } = process.env;
+
 module.exports = {
   outputFileTracing: true,
   reactStrictMode: true,
@@ -16,15 +19,14 @@ module.exports = {
   ],
   rewrites: async () => {
     const rewrites = [];
-    const umamiServerName = process.env.UMAMI_SERVER_NAME;
-    if (umamiServerName) {
+    if (UMAMI_SERVER_NAME) {
       rewrites.push({
         source: "/u.js",
-        destination: `https://${umamiServerName}/umami.js`,
+        destination: `https://${UMAMI_SERVER_NAME}/umami.js`,
       });
       rewrites.push({
         source: "/api/collect",
-        destination: `https://${umamiServerName}/api/collect`,
+        destination: `https://${UMAMI_SERVER_NAME}/api/collect`,
       });
     }
     return rewrites;
