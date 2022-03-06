@@ -10,13 +10,13 @@ import Layout from "components/common/Layout";
 import "styles/global.css";
 
 const UMAMI_SITE_ID = process.env.NEXT_PUBLIC_UMAMI_SITE_ID;
-const UMAMI_SCRIPT_URL = process.env.NEXT_PUBLIC_UMAMI_SCRIPT_URL;
+const { UMAMI_SERVER_NAME } = process.env;
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <>
-    {UMAMI_SITE_ID && UMAMI_SCRIPT_URL && (
+    {UMAMI_SITE_ID && UMAMI_SERVER_NAME && (
       <Script
-        src={UMAMI_SCRIPT_URL}
+        src="/u.js"
         data-website-id={UMAMI_SITE_ID}
         strategy="afterInteractive"
       />
