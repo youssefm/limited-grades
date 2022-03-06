@@ -20,7 +20,7 @@ const StatsRow: FC<{
   <tr className={className}>
     <td className="py-2 pl-4">
       <Tippy
-        content={<div className="p-2">{tooltipText}</div>}
+        content={<div className="p-2 max-w-sm">{tooltipText}</div>}
         placement="bottom-start"
       >
         <span className="cursor-pointer">{label}</span>
