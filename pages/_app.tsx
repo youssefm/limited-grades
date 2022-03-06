@@ -10,11 +10,10 @@ import Layout from "components/common/Layout";
 import "styles/global.css";
 
 const UMAMI_SITE_ID = process.env.NEXT_PUBLIC_UMAMI_SITE_ID;
-const { UMAMI_SERVER_NAME } = process.env;
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <>
-    {UMAMI_SITE_ID && UMAMI_SERVER_NAME && (
+    {UMAMI_SITE_ID && (
       <Script
         src="/u.js"
         data-website-id={UMAMI_SITE_ID}
