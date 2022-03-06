@@ -41,7 +41,7 @@ const CardDetail: FC<Props> = ({ card }) => (
       alt={card.name}
       width="240"
       height="340"
-      className="hidden self-center md:inline"
+      className="inline self-center"
     />
     <div className="grow self-stretch md:self-start">
       <div className="mb-2 text-lg">Deck Analysis</div>
