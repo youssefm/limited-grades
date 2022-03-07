@@ -2,7 +2,7 @@ import clsx from "clsx";
 import React, { FC, useState } from "react";
 import { GrRotateLeft, GrRotateRight } from "react-icons/gr";
 
-import { TRANSITION_CLASSES } from "lib/styles";
+import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 import { Card } from "lib/types";
 
 interface Props {
@@ -44,8 +44,8 @@ const DoubleFacedCardImage: FC<Props> = ({ card }) => {
       <div className="flex absolute inset-x-0 -bottom-6 justify-center">
         <button
           className={clsx(
-            "p-2 text-2xl text-neutral-100 bg-neutral-800 rounded-full",
-            "hover:text-amber-600",
+            "p-2 text-2xl bg-neutral-200 dark:bg-neutral-800 rounded-full",
+            HOVER_CLASSES,
             TRANSITION_CLASSES
           )}
           onClick={toggleFlipped}
