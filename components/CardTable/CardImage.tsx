@@ -1,6 +1,8 @@
 import clsx from "clsx";
 import React, { FC, useState } from "react";
+import { GrRotateLeft, GrRotateRight } from "react-icons/gr";
 
+import { TRANSITION_CLASSES } from "lib/styles";
 import { Card } from "lib/types";
 
 interface Props {
@@ -10,15 +12,11 @@ interface Props {
 const DoubleFacedCardImage: FC<Props> = ({ card }) => {
   const [flipped, setFlipped] = useState(false);
   return (
-    <button
-      className="relative"
-      onClick={() => setFlipped(!flipped)}
-      type="button"
-    >
+    <div className="relative">
       <div
         className={clsx("transition-all ease-in-out backface-invisible", {
-          "rotate-y-0": flipped,
-          "rotate-y-180": !flipped,
+          "rotate-y-0": !flipped,
+          "rotate-y-180": flipped,
         })}
       >
         <img src={card.cardUrl} alt={card.name} width="240" height="340" />
@@ -27,14 +25,27 @@ const DoubleFacedCardImage: FC<Props> = ({ card }) => {
         className={clsx(
           "absolute inset-0 transition-all ease-in-out backface-invisible",
           {
-            "rotate-y-0": !flipped,
-            "rotate-y-180": flipped,
+            "rotate-y-0": flipped,
+            "rotate-y-180": !flipped,
           }
         )}
       >
         <img src={card.cardBackUrl} alt={card.name} width="240" height="340" />
       </div>
-    </button>
+      <div className="flex absolute inset-x-0 -bottom-6 justify-center">
+        <button
+          className={clsx(
+            "p-2 text-2xl text-neutral-100 bg-neutral-800 rounded-full",
+            "hover:text-amber-600",
+            TRANSITION_CLASSES
+          )}
+          onClick={() => setFlipped(!flipped)}
+          type="button"
+        >
+          {flipped ? <GrRotateLeft /> : <GrRotateRight />}
+        </button>
+      </div>
+    </div>
   );
 };
 
