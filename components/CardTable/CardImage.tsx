@@ -11,27 +11,36 @@ interface Props {
 
 const DoubleFacedCardImage: FC<Props> = ({ card }) => {
   const [flipped, setFlipped] = useState(false);
+  const toggleFlipped = () => setFlipped(!flipped);
+
   return (
     <div className="relative">
-      <div
-        className={clsx("transition-all ease-in-out backface-invisible", {
-          "rotate-y-0": !flipped,
-          "rotate-y-180": flipped,
-        })}
-      >
-        <img src={card.cardUrl} alt={card.name} width="240" height="340" />
-      </div>
-      <div
-        className={clsx(
-          "absolute inset-0 transition-all ease-in-out backface-invisible",
-          {
-            "rotate-y-0": flipped,
-            "rotate-y-180": !flipped,
-          }
-        )}
-      >
-        <img src={card.cardBackUrl} alt={card.name} width="240" height="340" />
-      </div>
+      <button onClick={toggleFlipped} type="button">
+        <div
+          className={clsx("transition-all ease-in-out backface-invisible", {
+            "rotate-y-0": !flipped,
+            "rotate-y-180": flipped,
+          })}
+        >
+          <img src={card.cardUrl} alt={card.name} width="240" height="340" />
+        </div>
+        <div
+          className={clsx(
+            "absolute inset-0 transition-all ease-in-out backface-invisible",
+            {
+              "rotate-y-0": flipped,
+              "rotate-y-180": !flipped,
+            }
+          )}
+        >
+          <img
+            src={card.cardBackUrl}
+            alt={card.name}
+            width="240"
+            height="340"
+          />
+        </div>
+      </button>
       <div className="flex absolute inset-x-0 -bottom-6 justify-center">
         <button
           className={clsx(
@@ -39,7 +48,7 @@ const DoubleFacedCardImage: FC<Props> = ({ card }) => {
             "hover:text-amber-600",
             TRANSITION_CLASSES
           )}
-          onClick={() => setFlipped(!flipped)}
+          onClick={toggleFlipped}
           type="button"
         >
           {flipped ? <GrRotateLeft /> : <GrRotateRight />}
