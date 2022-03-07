@@ -12,6 +12,8 @@ import {
 import { Card, Deck } from "lib/types";
 import { formatPercentage, formatPercentageDifference } from "lib/util";
 
+import CardImage from "./CardImage";
+
 const StatsRow: FC<{
   label: string;
   tooltipText: string;
@@ -36,13 +38,9 @@ interface Props {
 
 const CardDetail: FC<Props> = ({ card }) => (
   <div className="flex flex-col gap-6 md:flex-row">
-    <img
-      src={card.cardUrl}
-      alt={card.name}
-      width="240"
-      height="340"
-      className="self-center"
-    />
+    <div className="self-center">
+      <CardImage card={card} />
+    </div>
     <div className="grow self-stretch md:self-start">
       <div className="mb-2 text-lg">Deck Analysis</div>
       <table className="w-full border border-neutral-200 dark:border-black">
