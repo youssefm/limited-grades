@@ -11,8 +11,8 @@ interface Props {
 
 const DoubleFacedCardImage: FC<Props> = ({ card }) => {
   const [flipped, setFlipped] = useState(false);
-  const toggleFlipped = () => setFlipped(!flipped);
 
+  const toggleFlipped = () => setFlipped(!flipped);
   return (
     <div className="relative">
       <button onClick={toggleFlipped} type="button">
