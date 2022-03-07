@@ -26,16 +26,21 @@ REDIS_URL=<your Redis connection URL>
 
 1. Add the new set to the `MagicSet` enum
 2. Add a user-facing name for the set on `SET_LABELS` at `lib/constants.ts`
-3. Once Scryfall is updated, download the Oracle Cards data file [here](https://scryfall.com/docs/api/bulk-data) and update `data/oracle-cards.json` in the repo
-4. Update the root redirect in `next.config.js` to redirect to the latest set
-5. Push to GitHub
+3. Add a start date for the set on `SET_START_DATES` at `lib/cards.ts`
+4. Once Scryfall is updated, download the Oracle Cards data file [here](https://scryfall.com/docs/api/bulk-data) and update `data/oracle-cards.json` in the repo
+5. Update the root redirect in `next.config.js` to redirect to the latest set
+6. Add the new set page to the sitemap at `public/sitemap.txt`
+7. Push to GitHub
 
 For an example, see [this commit](https://github.com/youssefm/limited-grades/commit/282c8afe31b7115bc1399cc416be2150d33d8cdc).
 
 # To Do
 
+- Improve banner collapse transition (maybe based off https://www.30secondsofcode.org/css/s/height-transition)
+- Allow clicking on card in modal to flip the card
 - Consider storing banner setting in local storage
 - Search feature?
-- Start filters all off
 - Implement embargo period views for card detail modal
+- Allow toggling columns
+- Start filters all off
 - Improve filter button styling?
