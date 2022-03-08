@@ -18,7 +18,7 @@ const useDarkModeValue = (): [boolean, () => void] => {
     ) {
       setEnabled(true);
     }
-  }, [setEnabled]);
+  }, []);
 
   const toggle = () => {
     const bodyClasses = window.document.body.classList;
