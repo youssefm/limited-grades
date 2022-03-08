@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { FC, useEffect, useRef, useState } from "react";
+import { FC, useRef } from "react";
 import { ImInfo } from "react-icons/im";
 import { IoClose } from "react-icons/io5";
 
