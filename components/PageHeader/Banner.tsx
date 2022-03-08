@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { FC, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { ImInfo } from "react-icons/im";
 import { IoClose } from "react-icons/io5";
 
@@ -11,15 +11,12 @@ interface Props {
 }
 
 const Banner: FC<Props> = ({ onLearnMore }) => {
-  const [isVisible, setIsVisible] = useState(true);
+  const bannerElement = useRef<HTMLDivElement>(null);
 
   return (
     <div
-      className={clsx(
-        "overflow-hidden mb-2",
-        { "max-h-15 sm:max-h-9": isVisible, "max-h-0": !isVisible },
-        "transition-max-h ease-[ease]"
-      )}
+      className="overflow-hidden mb-2 transition-max-h ease-[ease]"
+      ref={bannerElement}
     >
       <div
         className={clsx(
@@ -40,7 +37,18 @@ const Banner: FC<Props> = ({ onLearnMore }) => {
             Learn more
           </button>
         </div>
-        <button onClick={() => setIsVisible(false)} type="button">
+        <button
+          onClick={() => {
+            const currentBannerElement = bannerElement.current;
+            if (currentBannerElement) {
+              currentBannerElement.style.maxHeight = `${currentBannerElement.scrollHeight}px`;
+              setTimeout(() => {
+                currentBannerElement.style.maxHeight = "0";
+              });
+            }
+          }}
+          type="button"
+        >
           <IoClose
             className={clsx("text-2xl", HOVER_CLASSES, TRANSITION_CLASSES)}
             aria-label="Close Banner"

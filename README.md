@@ -36,7 +36,6 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 
 # To Do
 
-- Improve banner collapse transition (maybe based off https://www.30secondsofcode.org/css/s/height-transition)
 - Consider storing banner setting in local storage
 - Search feature?
 - Implement embargo period views for card detail modal
