@@ -2,11 +2,13 @@ import clsx from "clsx";
 import Image from "next/image";
 import { useState } from "react";
 import { FaInfoCircle } from "react-icons/fa";
+import { ImInfo } from "react-icons/im";
 
+import Banner from "components/common/Banner";
+import LinkOut from "components/common/LinkOut";
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 
 import AboutProjectModal from "./AboutProjectModal";
-import Banner from "./Banner";
 import DarkModeToggle from "./DarkModeToggle";
 
 const PageHeader = () => {
@@ -42,7 +44,18 @@ const PageHeader = () => {
         <DarkModeToggle />
       </div>
 
-      <Banner onLearnMore={() => setShowInfoModal(true)} />
+      <Banner>
+        <ImInfo className="inline relative bottom-0.5 mr-2" />
+        Grades below are based on{" "}
+        <LinkOut url="https://www.17lands.com/">17Lands</LinkOut> win rate data.{" "}
+        <button
+          onClick={() => setShowInfoModal(true)}
+          className={clsx("underline", HOVER_CLASSES, TRANSITION_CLASSES)}
+          type="button"
+        >
+          Learn more
+        </button>
+      </Banner>
 
       {showInfoModal && (
         <AboutProjectModal onClose={() => setShowInfoModal(false)} />
