@@ -1,13 +1,14 @@
 import assert from "assert";
 
-import { addDays, differenceInSeconds, isFuture, parseISO } from "date-fns";
+import { differenceInSeconds } from "date-fns";
 import { find, round } from "lodash";
 import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
 
 import { IS_ENABLED as CACHE_IS_ENABLED, RedisCacheClient } from "lib/cache";
-import { ALL_DECKS } from "lib/constants";
+import { ALL_DECKS, SET_START_DATES } from "lib/constants";
 import { getCardColumn, getCardTypes } from "lib/scryfall";
+import { isRecentSet } from "lib/sets";
 import { Card, CardStore, Deck, Grade, MagicSet, Rarity } from "lib/types";
 import { sleep } from "lib/util";
 
@@ -30,22 +31,6 @@ const GRADE_THRESHOLDS: [Grade, number][] = [
   [Grade.F, 0],
 ];
 
-const DEFAULT_SET_START_DATE = "2020-04-16";
-const SET_START_DATES: Partial<Record<MagicSet, string>> = {
-  [MagicSet.NEON_DYNASTY]: "2022-02-10",
-  [MagicSet.CRIMSON_VOW]: "2021-11-11",
-  [MagicSet.MIDNIGHT_HUNT]: "2021-09-16",
-  [MagicSet.FORGOTTEN_REALM]: "2021-07-08",
-  [MagicSet.STRIXHAVEN]: "2021-04-15",
-  [MagicSet.KALDHEIM]: "2021-01-28",
-  [MagicSet.ZENDIKAR]: "2020-09-17",
-  [MagicSet.IKORIA]: "2020-04-16",
-  [MagicSet.AMONKHET]: "2020-08-13",
-  [MagicSet.KALADESH]: "2020-11-12",
-  [MagicSet.ARENA_CUBE]: "2022-01-06",
-  [MagicSet.DOUBLE_FEATURE]: "2022-01-28",
-};
-
 interface ApiCard {
   name: string;
   rarity: Rarity | "basic";
@@ -67,7 +52,7 @@ const fetchApiCards = async (set: MagicSet, deck: Deck): Promise<ApiCard[]> => {
   const urlParams: Record<string, string> = {
     expansion: set,
     format: "PremierDraft",
-    start_date: SET_START_DATES[set] ?? DEFAULT_SET_START_DATE,
+    start_date: SET_START_DATES[set],
     end_date: new Date().toISOString().substring(0, 10),
   };
 
@@ -178,8 +163,7 @@ export const getCardStore = async (set: MagicSet): Promise<CardStore> => {
 
   const cardStore = await buildCardStore(set);
   let expirationInSeconds;
-  const startDate = SET_START_DATES[set];
-  if (startDate && isFuture(addDays(parseISO(startDate), 30))) {
+  if (isRecentSet(set)) {
     // If the set is recently released (< 30 days ago), expire cache entry until the next day
     // 1AM UTC is when 17Lands refreshes their daily data
     const now = new Date();
