@@ -9,6 +9,7 @@ import PageHeader from "components/PageHeader";
 import { CardTableContextProvider } from "hooks/useCardTableContext";
 import { getCardStore } from "lib/cards";
 import { ALL_SETS, SET_LABELS } from "lib/constants";
+import { isRecentSet } from "lib/sets";
 import { TRANSITION_CLASSES } from "lib/styles";
 import { Card, MagicSet } from "lib/types";
 
@@ -32,7 +33,7 @@ export const getStaticProps: GetStaticProps<StaticProps> = async (context) => {
       cards,
       lastUpdatedAtTicks: updatedAt.getTime(),
     },
-    revalidate: 60 * 60,
+    revalidate: isRecentSet(set) ? 60 * 60 : 24 * 60 * 60,
   };
 };
 
