@@ -115,3 +115,6 @@ export const GRADE_BORDER_COLORS: Record<Grade, string> = {
   [Grade.D_MINUS]: "border-D-",
   [Grade.F]: "border-F",
 };
+
+export const LOCAL_STORAGE_HIDE_BANNER_KEY = "hideBanner";
+export const LOCAL_STORAGE_HIDE_BANNER_VALUE = "true";

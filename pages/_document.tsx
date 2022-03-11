@@ -7,6 +7,7 @@ import Document, {
 } from "next/document";
 
 import DarkModeInitializer from "components/common/DarkModeInitializer";
+import HideBannerInitializer from "components/common/HideBannerInitializer";
 
 class MyDocument extends Document {
   static async getInitialProps(ctx: DocumentContext) {
@@ -20,6 +21,7 @@ class MyDocument extends Document {
         <Head />
         <body>
           <DarkModeInitializer />
+          <HideBannerInitializer />
           <Main />
           <NextScript />
         </body>

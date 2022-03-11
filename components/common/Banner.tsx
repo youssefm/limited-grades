@@ -4,11 +4,16 @@ import { IoClose } from "react-icons/io5";
 
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 
-const Banner: FC = ({ children }) => {
-  const bannerElement = useRef<HTMLDivElement>(null);
+interface Props {
+  id?: string;
+  onClose?: () => void;
+}
 
+const Banner: FC<Props> = ({ id, onClose, children }) => {
+  const bannerElement = useRef<HTMLDivElement>(null);
   return (
     <div
+      id={id}
       className="overflow-hidden mb-2 transition-max-h ease-[ease]"
       ref={bannerElement}
     >
@@ -28,6 +33,7 @@ const Banner: FC = ({ children }) => {
                 currentBannerElement.style.maxHeight = "0";
               });
             }
+            onClose?.();
           }}
           type="button"
         >
