@@ -6,7 +6,7 @@ import useDarkMode from "hooks/useDarkMode";
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 
 const DarkModeToggle: FC = () => {
-  const [darkModeEnabled, toggle] = useDarkMode();
+  const [, toggle] = useDarkMode();
   return (
     <button
       className={clsx("ml-4 text-2xl", HOVER_CLASSES, TRANSITION_CLASSES)}
@@ -14,7 +14,8 @@ const DarkModeToggle: FC = () => {
       onClick={toggle}
       aria-label="Toggle dark mode"
     >
-      {darkModeEnabled ? <FaSun /> : <FaMoon />}
+      <FaSun className="hidden dark:block" />
+      <FaMoon className="dark:hidden" />
     </button>
   );
 };
