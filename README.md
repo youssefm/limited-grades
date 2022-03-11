@@ -36,7 +36,6 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 
 # To Do
 
-- Consider storing banner setting in local storage
 - Implement embargo period views for card detail modal
 - Allow toggling columns
 - Search feature?
