@@ -14,4 +14,5 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
   return getServerSideSitemap(context, fields);
 };
 
+// Default export to prevent next.js errors
 export default function Sitemap() {}
