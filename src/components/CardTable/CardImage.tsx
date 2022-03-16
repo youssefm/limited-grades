@@ -14,7 +14,7 @@ const DoubleFacedCardImage: FC<Props> = ({ card }) => {
 
   const toggleFlipped = () => setFlipped(!flipped);
   return (
-    <div className="relative">
+    <div className="relative mb-6">
       <button onClick={toggleFlipped} type="button">
         <div
           className={clsx("transition-all ease-in-out backface-invisible", {
