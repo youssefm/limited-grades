@@ -5,13 +5,14 @@ import FilterBar from "components/FilterBar";
 import useCardTableContext from "hooks/useCardTableContext";
 
 const PageBody: FC = () => {
-  const { cardDictionary, showSkeletons } = useCardTableContext();
+  const { cardDictionary, set, showSkeletons } = useCardTableContext();
 
   return (
     <div className="grow">
       <FilterBar />
       <CardTable
         cardDictionary={cardDictionary}
+        set={set}
         showSkeletons={showSkeletons}
       />
     </div>
