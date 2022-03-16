@@ -6,6 +6,7 @@ import { IoClose } from "react-icons/io5";
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 
 const MODAL_WIDTH_CLASSES = {
+  sm: "max-w-xl",
   md: "max-w-3xl",
   lg: "max-w-5xl",
 };
@@ -13,7 +14,7 @@ const MODAL_WIDTH_CLASSES = {
 interface Props {
   title: string;
   onClose: () => void;
-  size?: "md" | "lg";
+  size?: "sm" | "md" | "lg";
 }
 
 const Modal: FC<Props> = ({ title, onClose, size = "md", children }) => {
