@@ -6,10 +6,11 @@ import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 
 interface Props {
   id?: string;
+  dismissable?: boolean;
   onClose?: () => void;
 }
 
-const Banner: FC<Props> = ({ id, onClose, children }) => {
+const Banner: FC<Props> = ({ id, dismissable, onClose, children }) => {
   const bannerElement = useRef<HTMLDivElement>(null);
   return (
     <div
@@ -24,24 +25,26 @@ const Banner: FC<Props> = ({ id, onClose, children }) => {
         )}
       >
         <div className="grow">{children}</div>
-        <button
-          onClick={() => {
-            const currentBannerElement = bannerElement.current;
-            if (currentBannerElement) {
-              currentBannerElement.style.maxHeight = `${currentBannerElement.scrollHeight}px`;
-              setTimeout(() => {
-                currentBannerElement.style.maxHeight = "0";
-              });
-            }
-            onClose?.();
-          }}
-          type="button"
-        >
-          <IoClose
-            className={clsx("text-2xl", HOVER_CLASSES, TRANSITION_CLASSES)}
-            aria-label="Close Banner"
-          />
-        </button>
+        {dismissable && (
+          <button
+            onClick={() => {
+              const currentBannerElement = bannerElement.current;
+              if (currentBannerElement) {
+                currentBannerElement.style.maxHeight = `${currentBannerElement.scrollHeight}px`;
+                setTimeout(() => {
+                  currentBannerElement.style.maxHeight = "0";
+                });
+              }
+              onClose?.();
+            }}
+            type="button"
+          >
+            <IoClose
+              className={clsx("text-2xl", HOVER_CLASSES, TRANSITION_CLASSES)}
+              aria-label="Close Banner"
+            />
+          </button>
+        )}
       </div>
     </div>
   );
