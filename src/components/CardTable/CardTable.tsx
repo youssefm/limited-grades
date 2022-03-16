@@ -9,7 +9,7 @@ import {
 } from "lib/constants";
 import { TRANSITION_CLASSES } from "lib/styles";
 import { CardTableDictionary } from "lib/table";
-import { Card } from "lib/types";
+import { Card, MagicSet } from "lib/types";
 
 import CardDetailModal from "./CardDetailModal";
 import CardView from "./CardView";
@@ -20,10 +20,11 @@ const BODY_BORDER_CLASSES = "border-b-2 border-white dark:border-neutral-900";
 
 interface Props {
   cardDictionary: CardTableDictionary;
+  set: MagicSet;
   showSkeletons: boolean;
 }
 
-const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
+const CardTable: FC<Props> = ({ cardDictionary, set, showSkeletons }) => {
   const [modalCard, setModalCard] = useState<Card>();
 
   return (
@@ -109,6 +110,7 @@ const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
 
       <CardDetailModal
         card={modalCard}
+        set={set}
         onClose={() => setModalCard(undefined)}
       />
     </>
