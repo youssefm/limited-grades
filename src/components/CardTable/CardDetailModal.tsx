@@ -26,7 +26,7 @@ const CardDetailModal: FC<Props> = ({ card, set, onClose }) => {
       {underEmbargo && (
         <Banner dismissable={false}>
           <ImInfo className="inline relative bottom-0.5 mr-2" />
-          17Lands stats are not yet available for this set
+          Detailed 17Lands stats are not yet available for this set
         </Banner>
       )}
       <CardDetail card={card} showStats={!underEmbargo} />
