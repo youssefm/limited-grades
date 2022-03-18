@@ -33,7 +33,7 @@ const FilterBar: FC = () => {
     >
       <SetSelector value={selectedSet} onChange={changeSet} />
       <DeckSelector value={deck} onChange={setDeck} />
-      <div className="hidden gap-4 lg:flex">
+      <div className="flex flex-col gap-2 items-stretch lg:flex-row lg:gap-4">
         <RarityFilter
           set={set}
           values={visibleRarities}
