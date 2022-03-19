@@ -15,7 +15,7 @@ const Banner: FC<Props> = ({ id, dismissable, onClose, children }) => {
   return (
     <div
       id={id}
-      className="overflow-hidden mb-2 transition-max-h ease-[ease]"
+      className="mb-2 transition-max-h ease-[ease]"
       ref={bannerElement}
     >
       <div
