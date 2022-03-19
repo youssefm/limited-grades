@@ -2,12 +2,8 @@ import clsx from "clsx";
 import { sortBy } from "lodash";
 import React, { FC } from "react";
 
-import {
-  COLUMN_ICONS,
-  DECK_COLORS,
-  GRADE_BG_COLORS,
-  GRADE_BORDER_COLORS,
-} from "lib/constants";
+import { DECK_COLORS } from "lib/constants";
+import { COLUMN_ICONS, GRADE_BG_COLORS, GRADE_BORDER_COLORS } from "lib/styles";
 import { Card, Deck } from "lib/types";
 import { formatPercentage } from "lib/util";
 
