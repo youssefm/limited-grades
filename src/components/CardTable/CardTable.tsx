@@ -133,7 +133,7 @@ const CardTable: FC<Props> = ({ cardDictionary, set, showSkeletons }) => {
                       <tr key={column}>
                         <th
                           className={clsx(
-                            "w-16",
+                            "p-0 w-16",
                             HEADER_BG_CLASSES,
                             BODY_BORDER_CLASSES,
                             TRANSITION_CLASSES
