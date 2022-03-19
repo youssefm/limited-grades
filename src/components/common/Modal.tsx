@@ -44,7 +44,7 @@ const Modal: FC<Props> = ({ title, onClose, size = "md", children }) => {
             />
           </button>
         </Dialog.Title>
-        <div className="overflow-auto p-4">{children}</div>
+        <div className="p-4">{children}</div>
       </div>
     </Dialog>
   );
