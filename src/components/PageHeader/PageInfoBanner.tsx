@@ -22,7 +22,7 @@ const PageInfoBanner: FC<Props> = ({ onLearnMore }) => {
     );
   };
   return (
-    <Banner id="page-info-banner" onClose={onClose}>
+    <Banner id="page-info-banner" onClose={onClose} dismissable>
       <ImInfo className="inline relative bottom-0.5 mr-2" />
       Grades below are based on{" "}
       <LinkOut url="https://www.17lands.com/">17Lands</LinkOut> win rate data.{" "}

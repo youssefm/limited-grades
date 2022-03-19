@@ -36,6 +36,7 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 # What's next
 
 - Refactor CardTable
+- Try to improve desktop performance
 - Allow toggling columns
 - Search feature?
 - Start filters all off
