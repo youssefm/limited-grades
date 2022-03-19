@@ -16,7 +16,7 @@ import { Card, MagicSet } from "lib/types";
 interface StaticProps {
   set: MagicSet;
   cards: Card[];
-  lastUpdatedAtTicks: number;
+  lastUpdatedAt: string;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => ({
@@ -31,31 +31,31 @@ export const getStaticProps: GetStaticProps<StaticProps> = async (context) => {
     props: {
       set,
       cards,
-      lastUpdatedAtTicks: updatedAt.getTime(),
+      lastUpdatedAt: updatedAt.toISOString(),
     },
     revalidate: isRecentSet(set) ? 60 * 60 : 24 * 60 * 60,
   };
 };
 
-const Page = ({ set, cards, lastUpdatedAtTicks }: StaticProps) => (
-  <div
-    className={clsx(
-      "flex flex-col px-2 min-h-screen",
-      "dark:text-neutral-100 dark:bg-neutral-900",
-      TRANSITION_CLASSES
-    )}
-  >
+const Page = ({ set, cards, lastUpdatedAt }: StaticProps) => (
+  <>
     <Head>
       <title>Limited Grades – {SET_LABELS[set]}</title>
     </Head>
-    <PageHeader />
-
-    <CardTableContextProvider set={set} cards={cards}>
-      <PageBody />
-    </CardTableContextProvider>
-
-    <PageFooter lastUpdatedAt={new Date(lastUpdatedAtTicks)} />
-  </div>
+    <div
+      className={clsx(
+        "flex flex-col px-2 min-h-screen",
+        "dark:text-neutral-100 dark:bg-neutral-900",
+        TRANSITION_CLASSES
+      )}
+    >
+      <PageHeader />
+      <CardTableContextProvider set={set} cards={cards}>
+        <PageBody />
+      </CardTableContextProvider>
+      <PageFooter lastUpdatedAt={new Date(lastUpdatedAt)} />
+    </div>
+  </>
 );
 
 export default Page;
