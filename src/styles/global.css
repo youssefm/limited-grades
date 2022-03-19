@@ -39,10 +39,6 @@
   border-color: rgb(51, 51, 51);
 }
 
-.dark .rs__single-value {
-  @apply text-neutral-100;
-}
-
 .dark .rs__indicator-separator {
   background-color: rgb(51, 51, 51);
 }
