@@ -1,11 +1,7 @@
 import { FC } from "react";
 
-import {
-  ALL_DECKS,
-  COLUMN_ICONS,
-  DECK_COLORS,
-  DECK_LABELS,
-} from "lib/constants";
+import { ALL_DECKS, DECK_COLORS, DECK_LABELS } from "lib/constants";
+import { COLUMN_ICONS } from "lib/styles";
 import { Deck } from "lib/types";
 
 import FilterLabel from "./FilterLabel";

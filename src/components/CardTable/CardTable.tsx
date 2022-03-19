@@ -1,13 +1,12 @@
 import clsx from "clsx";
 import { FC, useState } from "react";
 
+import { ALL_COLUMNS, ALL_GRADES } from "lib/constants";
 import {
-  ALL_COLUMNS,
-  ALL_GRADES,
   COLUMN_ICONS,
   GRADE_BORDER_COLORS,
-} from "lib/constants";
-import { TRANSITION_CLASSES } from "lib/styles";
+  TRANSITION_CLASSES,
+} from "lib/styles";
 import { CardTableDictionary } from "lib/table";
 import { Card, MagicSet } from "lib/types";
 
