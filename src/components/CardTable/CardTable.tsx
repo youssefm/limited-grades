@@ -29,10 +29,10 @@ const CardTable: FC<Props> = ({ cardDictionary, set, showSkeletons }) => {
 
   return (
     <>
-      <div className="overflow-x-auto lg:overflow-x-visible">
-        <table className="w-full h-full border-separate lg:table-fixed border-spacing-0">
+      <div className="hidden lg:block">
+        <table className="w-full h-full border-separate table-fixed border-spacing-0">
           <thead>
-            <tr className="text-lg lg:sticky lg:top-0">
+            <tr className="sticky top-0 text-lg">
               <th
                 className={clsx(
                   "w-16",
@@ -106,6 +106,79 @@ const CardTable: FC<Props> = ({ cardDictionary, set, showSkeletons }) => {
             ))}
           </tbody>
         </table>
+      </div>
+
+      <div className="lg:hidden">
+        {ALL_GRADES.map((grade) => {
+          let hasCards = false;
+          for (const column of ALL_COLUMNS) {
+            if (cardDictionary.get(column, grade).length > 0) {
+              hasCards = true;
+              break;
+            }
+          }
+          if (!hasCards) {
+            return null;
+          }
+          return (
+            <div key={grade}>
+              <div className="py-2 text-xl font-bold text-center">{grade}</div>
+              <table className="w-full h-full">
+                <tbody>
+                  {ALL_COLUMNS.map((column) => {
+                    const cellCards = cardDictionary.get(column, grade);
+                    if (cellCards.length === 0) {
+                      return null;
+                    }
+                    return (
+                      <tr key={column}>
+                        <th
+                          className={clsx(
+                            "w-16",
+                            HEADER_BG_CLASSES,
+                            BODY_BORDER_CLASSES,
+                            TRANSITION_CLASSES
+                          )}
+                        >
+                          <div
+                            className={clsx(
+                              "flex justify-center items-center h-full border-l-4",
+                              GRADE_BORDER_COLORS[grade]
+                            )}
+                          >
+                            <i className={clsx("my-2", COLUMN_ICONS[column])} />
+                          </div>
+                        </th>
+                        <td
+                          className={clsx(
+                            "p-2 bg-neutral-100 dark:bg-neutral-800",
+                            BODY_BORDER_CLASSES,
+                            TRANSITION_CLASSES
+                          )}
+                        >
+                          {cellCards.map((card) =>
+                            showSkeletons ? (
+                              <div
+                                key={card.cardUrl}
+                                className="mb-1 last:mb-0 h-6 bg-neutral-200 dark:bg-neutral-700 animate-pulse"
+                              />
+                            ) : (
+                              <CardView
+                                key={card.cardUrl}
+                                card={card}
+                                onClick={() => setModalCard(card)}
+                              />
+                            )
+                          )}
+                        </td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+          );
+        })}
       </div>
 
       <CardDetailModal

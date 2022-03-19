@@ -33,8 +33,9 @@ REDIS_URL=<your Redis connection URL>
 
 For an example, see [this commit](https://github.com/youssefm/limited-grades/commit/282c8afe31b7115bc1399cc416be2150d33d8cdc).
 
-# To Do
+# What's next
 
+- Refactor CardTable
 - Allow toggling columns
 - Search feature?
 - Start filters all off

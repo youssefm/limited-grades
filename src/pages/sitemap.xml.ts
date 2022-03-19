@@ -1,13 +1,13 @@
 import { GetServerSideProps } from "next";
 import { getServerSideSitemap, ISitemapField } from "next-sitemap";
 
-import { MagicSet } from "lib/types";
+import { ALL_SETS } from "lib/constants";
 
 const BASE_URL = "https://www.limitedgrades.com";
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
   const fields: ISitemapField[] = [{ loc: BASE_URL }];
-  for (const set of Object.values(MagicSet)) {
+  for (const set of ALL_SETS) {
     fields.push({ loc: `${BASE_URL}/${set}` });
   }
 
