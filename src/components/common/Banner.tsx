@@ -15,7 +15,7 @@ const Banner: FC<Props> = ({ id, dismissable, onClose, children }) => {
   return (
     <div
       id={id}
-      className="mb-2 transition-max-h ease-[ease]"
+      className="overflow-hidden mb-2 transition-all ease-[ease]"
       ref={bannerElement}
     >
       <div
@@ -33,6 +33,7 @@ const Banner: FC<Props> = ({ id, dismissable, onClose, children }) => {
                 currentBannerElement.style.maxHeight = `${currentBannerElement.scrollHeight}px`;
                 setTimeout(() => {
                   currentBannerElement.style.maxHeight = "0";
+                  currentBannerElement.style.marginBottom = "0";
                 });
               }
               onClose?.();

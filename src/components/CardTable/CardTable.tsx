@@ -123,59 +123,55 @@ const CardTable: FC<Props> = ({ cardDictionary, set, showSkeletons }) => {
           return (
             <div key={grade}>
               <div className="py-2 text-xl font-bold text-center">{grade}</div>
-              <table className="w-full h-full">
-                <tbody>
-                  {ALL_COLUMNS.map((column) => {
-                    const cellCards = cardDictionary.get(column, grade);
-                    if (cellCards.length === 0) {
-                      return null;
-                    }
-                    return (
-                      <tr key={column}>
-                        <th
+              <div className="flex flex-col gap-0.5">
+                {ALL_COLUMNS.map((column) => {
+                  const cellCards = cardDictionary.get(column, grade);
+                  if (cellCards.length === 0) {
+                    return null;
+                  }
+                  return (
+                    <div key={column} className="flex">
+                      <div
+                        className={clsx(
+                          "shrink-0 w-16",
+                          HEADER_BG_CLASSES,
+                          TRANSITION_CLASSES
+                        )}
+                      >
+                        <div
                           className={clsx(
-                            "p-0 w-16",
-                            HEADER_BG_CLASSES,
-                            BODY_BORDER_CLASSES,
-                            TRANSITION_CLASSES
+                            "flex justify-center items-center h-full border-l-4",
+                            GRADE_BORDER_COLORS[grade]
                           )}
                         >
-                          <div
-                            className={clsx(
-                              "flex justify-center items-center h-full border-l-4",
-                              GRADE_BORDER_COLORS[grade]
-                            )}
-                          >
-                            <i className={clsx("my-2", COLUMN_ICONS[column])} />
-                          </div>
-                        </th>
-                        <td
-                          className={clsx(
-                            "p-2 bg-neutral-100 dark:bg-neutral-800",
-                            BODY_BORDER_CLASSES,
-                            TRANSITION_CLASSES
-                          )}
-                        >
-                          {cellCards.map((card) =>
-                            showSkeletons ? (
-                              <div
-                                key={card.cardUrl}
-                                className="mb-1 last:mb-0 h-6 bg-neutral-200 dark:bg-neutral-700 animate-pulse"
-                              />
-                            ) : (
-                              <CardBubble
-                                key={card.cardUrl}
-                                card={card}
-                                onClick={() => setModalCard(card)}
-                              />
-                            )
-                          )}
-                        </td>
-                      </tr>
-                    );
-                  })}
-                </tbody>
-              </table>
+                          <i className={clsx("my-2", COLUMN_ICONS[column])} />
+                        </div>
+                      </div>
+                      <div
+                        className={clsx(
+                          "grow p-2 bg-neutral-100 dark:bg-neutral-800",
+                          TRANSITION_CLASSES
+                        )}
+                      >
+                        {cellCards.map((card) =>
+                          showSkeletons ? (
+                            <div
+                              key={card.cardUrl}
+                              className="mb-1 last:mb-0 h-6 bg-neutral-200 dark:bg-neutral-700 animate-pulse"
+                            />
+                          ) : (
+                            <CardBubble
+                              key={card.cardUrl}
+                              card={card}
+                              onClick={() => setModalCard(card)}
+                            />
+                          )
+                        )}
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           );
         })}
