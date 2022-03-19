@@ -1,5 +1,3 @@
-import { format } from "date-fns";
-
 import LinkOut from "components/common/LinkOut";
 
 interface Props {
@@ -19,7 +17,13 @@ const PageFooter = ({ lastUpdatedAt }: Props) => (
     <LinkOut url="https://keyrune.andrewgioia.com">Keyrune</LinkOut>, and{" "}
     <LinkOut url="https://mana.andrewgioia.com">Mana</LinkOut>
     <br />
-    <em>Last updated on {format(lastUpdatedAt, "PPPp")}</em>
+    <em>
+      Last updated on{" "}
+      {new Intl.DateTimeFormat(undefined, {
+        dateStyle: "long",
+        timeStyle: "short",
+      }).format(lastUpdatedAt)}
+    </em>
   </div>
 );
 
