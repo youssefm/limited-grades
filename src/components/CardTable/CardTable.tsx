@@ -60,7 +60,7 @@ const CardTable: FC<Props> = ({ cardDictionary, set, showSkeletons }) => {
               <tr key={grade}>
                 <th
                   className={clsx(
-                    "p-0 w-16",
+                    "p-0 w-16 h-full",
                     HEADER_BG_CLASSES,
                     BODY_BORDER_CLASSES,
                     TRANSITION_CLASSES

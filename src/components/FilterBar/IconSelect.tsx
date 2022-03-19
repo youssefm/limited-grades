@@ -139,6 +139,7 @@ const IconSelect = <T extends unknown>({
 
         return optionStyles;
       },
+      singleValue: (provided) => omit(provided, "color"),
     },
   };
 
