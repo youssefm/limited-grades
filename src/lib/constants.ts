@@ -1,3 +1,5 @@
+import { Temporal } from "@js-temporal/polyfill";
+
 import { CardType, Column, Deck, Grade, MagicSet, Rarity } from "lib/types";
 
 export const ALL_SETS = Object.values(MagicSet);
@@ -26,23 +28,23 @@ export const SET_LABELS: Record<MagicSet, string> = {
   [MagicSet.DOUBLE_FEATURE]: "Double Feature",
 };
 
-export const SET_START_DATES: Record<MagicSet, string> = {
-  [MagicSet.NEON_DYNASTY]: "2022-02-10",
-  [MagicSet.CRIMSON_VOW]: "2021-11-11",
-  [MagicSet.MIDNIGHT_HUNT]: "2021-09-16",
-  [MagicSet.FORGOTTEN_REALM]: "2021-07-08",
-  [MagicSet.STRIXHAVEN]: "2021-04-15",
-  [MagicSet.KALDHEIM]: "2021-01-28",
-  [MagicSet.ZENDIKAR]: "2020-09-17",
-  [MagicSet.IKORIA]: "2020-04-16",
-  [MagicSet.WAR_OF_THE_SPARK]: "2020-04-16",
-  [MagicSet.RAVNICA_ALLEGIANCE]: "2020-04-16",
-  [MagicSet.GUILDS_OF_RAVNICA]: "2020-04-16",
-  [MagicSet.DOMINARIA]: "2020-04-16",
-  [MagicSet.AMONKHET]: "2020-08-13",
-  [MagicSet.KALADESH]: "2020-11-12",
-  [MagicSet.ARENA_CUBE]: "2022-01-06",
-  [MagicSet.DOUBLE_FEATURE]: "2022-01-28",
+export const SET_START_DATES: Record<MagicSet, Temporal.PlainDate> = {
+  [MagicSet.NEON_DYNASTY]: new Temporal.PlainDate(2022, 2, 10),
+  [MagicSet.CRIMSON_VOW]: new Temporal.PlainDate(2021, 11, 11),
+  [MagicSet.MIDNIGHT_HUNT]: new Temporal.PlainDate(2021, 9, 16),
+  [MagicSet.FORGOTTEN_REALM]: new Temporal.PlainDate(2021, 7, 8),
+  [MagicSet.STRIXHAVEN]: new Temporal.PlainDate(2021, 4, 15),
+  [MagicSet.KALDHEIM]: new Temporal.PlainDate(2021, 1, 28),
+  [MagicSet.ZENDIKAR]: new Temporal.PlainDate(2020, 9, 17),
+  [MagicSet.IKORIA]: new Temporal.PlainDate(2020, 4, 16),
+  [MagicSet.WAR_OF_THE_SPARK]: new Temporal.PlainDate(2020, 4, 16),
+  [MagicSet.RAVNICA_ALLEGIANCE]: new Temporal.PlainDate(2020, 4, 16),
+  [MagicSet.GUILDS_OF_RAVNICA]: new Temporal.PlainDate(2020, 4, 16),
+  [MagicSet.DOMINARIA]: new Temporal.PlainDate(2020, 4, 16),
+  [MagicSet.AMONKHET]: new Temporal.PlainDate(2020, 8, 13),
+  [MagicSet.KALADESH]: new Temporal.PlainDate(2020, 11, 12),
+  [MagicSet.ARENA_CUBE]: new Temporal.PlainDate(2022, 1, 6),
+  [MagicSet.DOUBLE_FEATURE]: new Temporal.PlainDate(2022, 1, 28),
 };
 
 export const DECK_LABELS: Record<Deck, string> = {

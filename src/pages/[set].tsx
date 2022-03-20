@@ -1,3 +1,4 @@
+import { Temporal } from "@js-temporal/polyfill";
 import clsx from "clsx";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
@@ -31,7 +32,7 @@ export const getStaticProps: GetStaticProps<StaticProps> = async (context) => {
     props: {
       set,
       cards,
-      lastUpdatedAt: updatedAt.toISOString(),
+      lastUpdatedAt: updatedAt.toString(),
     },
     revalidate: isRecentSet(set) ? 60 * 60 : 24 * 60 * 60,
   };
@@ -53,7 +54,7 @@ const Page = ({ set, cards, lastUpdatedAt }: StaticProps) => (
       <CardTableContextProvider set={set} cards={cards}>
         <PageBody />
       </CardTableContextProvider>
-      <PageFooter lastUpdatedAt={new Date(lastUpdatedAt)} />
+      <PageFooter lastUpdatedAt={Temporal.Instant.from(lastUpdatedAt)} />
     </div>
   </>
 );

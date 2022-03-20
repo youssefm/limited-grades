@@ -1,3 +1,5 @@
+import { Temporal } from "@js-temporal/polyfill";
+
 export enum MagicSet {
   NEON_DYNASTY = "neo",
   CRIMSON_VOW = "vow",
@@ -102,6 +104,6 @@ export enum CardType {
 }
 
 export interface CardStore {
-  updatedAt: Date;
+  updatedAt: Temporal.Instant;
   cards: Card[];
 }

@@ -11,11 +11,11 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.4.3",
+    "@js-temporal/polyfill": "^0.4.0",
     "@saeris/typeface-beleren-bold": "^1.0.1",
     "@tippyjs/react": "^4.2.6",
     "clsx": "^1.1.1",
     "constate": "^3.3.0",
-    "date-fns": "^2.28.0",
     "keyrune": "github:andrewgioia/keyrune",
     "lodash": "^4.17.21",
     "mana-font": "^1.14.0",
