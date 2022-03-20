@@ -18,13 +18,15 @@ const BORDER_COLORS = {
 
 interface Props {
   card: Card;
-  onClick: () => void;
+  onClick?: () => void;
+  onMouseEnter?: () => void;
 }
 
 const CardBubble = forwardRef<HTMLButtonElement, Props>(
-  ({ card, onClick }, ref) => (
+  ({ card, onClick, onMouseEnter }, ref) => (
     <button
       onClick={onClick}
+      onMouseEnter={onMouseEnter}
       className={clsx(
         "px-2 mb-1 last:mb-0 w-full text-left",
         "bg-white dark:bg-neutral-700 border-l-[3px]",
