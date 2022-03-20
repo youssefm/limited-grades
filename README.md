@@ -38,7 +38,6 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 - Try to improve desktop performance
 - Refactor CardTable
 - Rethink standardized media query for mobile, md vs lg
-- Try to use Temporal instead of Dates and date-fns
 - Allow toggling columns
 - Search feature?
 - Start filters all off

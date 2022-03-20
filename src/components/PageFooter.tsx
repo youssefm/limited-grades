@@ -1,7 +1,9 @@
+import { Temporal } from "@js-temporal/polyfill";
+
 import LinkOut from "components/common/LinkOut";
 
 interface Props {
-  lastUpdatedAt: Date;
+  lastUpdatedAt: Temporal.Instant;
 }
 
 const PageFooter = ({ lastUpdatedAt }: Props) => (
@@ -19,10 +21,10 @@ const PageFooter = ({ lastUpdatedAt }: Props) => (
     <br />
     <em>
       Last updated on{" "}
-      {new Intl.DateTimeFormat(undefined, {
+      {lastUpdatedAt.toLocaleString(undefined, {
         dateStyle: "long",
         timeStyle: "short",
-      }).format(lastUpdatedAt)}
+      })}
     </em>
   </div>
 );
