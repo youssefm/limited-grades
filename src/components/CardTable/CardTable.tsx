@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { FC, useState } from "react";
 
+import CardBubble from "components/CardTable/CardBubble";
 import { ALL_COLUMNS, ALL_GRADES } from "lib/constants";
 import {
   COLUMN_ICONS,
@@ -11,7 +12,6 @@ import { CardTableDictionary } from "lib/table";
 import { Card, Grade, MagicSet } from "lib/types";
 
 import CardDetailModal from "./CardDetailModal";
-import CardView from "./CardView";
 
 const HEADER_BG_CLASSES = "bg-neutral-200 dark:bg-neutral-600";
 
@@ -102,7 +102,7 @@ const CardTable: FC<Props> = ({ cardDictionary, set, showSkeletons }) => {
                             className="mb-1 last:mb-0 h-6 bg-neutral-200 dark:bg-neutral-700 animate-pulse"
                           />
                         ) : (
-                          <CardView
+                          <CardBubble
                             key={card.cardUrl}
                             card={card}
                             onClick={() => setModalCard(card)}

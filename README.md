@@ -35,6 +35,7 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 
 # What's next
 
+- Figure out if hover states are causing a performance problem
 - Refactor CardTable
 - Rethink standardized media query for mobile, md vs lg
 - Allow toggling columns
