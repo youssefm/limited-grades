@@ -59,47 +59,35 @@ const CardTable: FC<Props> = ({ cardDictionary, set, showSkeletons }) => {
             <div className="py-2 text-xl font-bold text-center lg:hidden">
               {grade}
             </div>
-            <div className="flex flex-col gap-0.5 lg:flex-row lg:gap-0">
+            <div className="flex flex-col gap-0.5 items-stretch lg:flex-row lg:gap-0">
               <div
                 className={clsx(
-                  "hidden shrink-0 w-16 lg:block",
+                  "hidden shrink-0 items-center pl-4 w-16 text-xl font-bold border-l-4 lg:flex",
                   HEADER_BG_CLASSES,
+                  GRADE_BORDER_COLORS[grade],
                   TRANSITION_CLASSES
                 )}
               >
-                <div
-                  className={clsx(
-                    "flex items-center pl-4 h-full text-xl font-bold border-l-4",
-                    GRADE_BORDER_COLORS[grade]
-                  )}
-                >
-                  {grade}
-                </div>
+                {grade}
               </div>
               {ALL_COLUMNS.map((column) => {
                 const cellCards = cardDictionary.get(column, grade);
                 return (
                   <div
                     key={column}
-                    className={clsx("flex lg:basis-full", {
+                    className={clsx("flex items-stretch lg:basis-full", {
                       "hidden lg:flex": cellCards.length === 0,
                     })}
                   >
                     <div
                       className={clsx(
-                        "shrink-0 w-16 lg:hidden",
+                        "flex shrink-0 justify-center items-center w-16 border-l-4 lg:hidden",
                         HEADER_BG_CLASSES,
+                        GRADE_BORDER_COLORS[grade],
                         TRANSITION_CLASSES
                       )}
                     >
-                      <div
-                        className={clsx(
-                          "flex justify-center items-center h-full border-l-4",
-                          GRADE_BORDER_COLORS[grade]
-                        )}
-                      >
-                        <i className={clsx("my-2", COLUMN_ICONS[column])} />
-                      </div>
+                      <i className={clsx("my-2", COLUMN_ICONS[column])} />
                     </div>
                     <div
                       className={clsx(
