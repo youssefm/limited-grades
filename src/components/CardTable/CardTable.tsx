@@ -9,6 +9,7 @@ import {
 } from "lib/styles";
 import { CardTableDictionary } from "lib/table";
 import { Card, Grade, MagicSet } from "lib/types";
+import { matchesMedia } from "lib/util";
 
 import CardDetailModal from "./CardDetailModal";
 import CardView from "./CardView";
@@ -24,6 +25,7 @@ interface Props {
 const CardTable: FC<Props> = ({ cardDictionary, set, showSkeletons }) => {
   const [modalCard, setModalCard] = useState<Card>();
 
+  const enableHover = matchesMedia("(hover: hover)");
   return (
     <>
       <div
@@ -95,20 +97,25 @@ const CardTable: FC<Props> = ({ cardDictionary, set, showSkeletons }) => {
                         TRANSITION_CLASSES
                       )}
                     >
-                      {cellCards.map((card) =>
-                        showSkeletons ? (
-                          <div
-                            key={card.cardUrl}
-                            className="mb-1 last:mb-0 h-6 bg-neutral-200 dark:bg-neutral-700 animate-pulse"
-                          />
-                        ) : (
+                      {cellCards.map((card) => {
+                        if (showSkeletons) {
+                          return (
+                            <div
+                              key={card.cardUrl}
+                              className="mb-1 last:mb-0 h-6 bg-neutral-200 dark:bg-neutral-700 animate-pulse"
+                            />
+                          );
+                        }
+
+                        return (
                           <CardView
                             key={card.cardUrl}
                             card={card}
                             onClick={() => setModalCard(card)}
+                            enableHover={enableHover}
                           />
-                        )
-                      )}
+                        );
+                      })}
                     </div>
                   </div>
                 );

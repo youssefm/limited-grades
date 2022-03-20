@@ -35,10 +35,10 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 
 # What's next
 
-- Figure out if hover states are causing a performance problem
-- Refactor CardTable
+- Implement singleton Tippy instance for hover
+- Address any lingering Tippy performance issues (consider instantiating Tippy on hover)
 - Rethink standardized media query for mobile, md vs lg
-- Allow toggling columns
+- Allow toggling columns?
 - Search feature?
 - Start filters all off
 - Improve filter button styling?
