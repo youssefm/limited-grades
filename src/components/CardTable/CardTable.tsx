@@ -8,7 +8,7 @@ import {
   TRANSITION_CLASSES,
 } from "lib/styles";
 import { CardTableDictionary } from "lib/table";
-import { Card, MagicSet } from "lib/types";
+import { Card, Grade, MagicSet } from "lib/types";
 
 import CardDetailModal from "./CardDetailModal";
 import CardView from "./CardView";
@@ -51,8 +51,9 @@ const CardTable: FC<Props> = ({ cardDictionary, set, showSkeletons }) => {
         return (
           <div
             key={grade}
-            className={clsx("lg:mb-0.5 lg:last:mb-0", {
+            className={clsx({
               "hidden lg:block": !hasCards,
+              "lg:mb-0.5": grade !== Grade.F,
             })}
           >
             <div className="py-2 text-xl font-bold text-center lg:hidden">
