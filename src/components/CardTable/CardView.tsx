@@ -1,9 +1,9 @@
+import Tippy from "@tippyjs/react";
 import { FC, useState } from "react";
 
 import { Card } from "lib/types";
 
 import CardBubble from "./CardBubble";
-import LazyTippy from "./LazyTippy";
 
 interface Props {
   card: Card;
@@ -40,13 +40,9 @@ const CardView: FC<Props> = ({ card, onClick, enableHover }) => {
       );
     }
     cardView = (
-      <LazyTippy
-        content={tooltip}
-        placement="bottom-start"
-        trigger="mouseenter"
-      >
+      <Tippy content={tooltip} placement="bottom-start" trigger="mouseenter">
         {cardView}
-      </LazyTippy>
+      </Tippy>
     );
   }
 
