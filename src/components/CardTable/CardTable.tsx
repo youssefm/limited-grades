@@ -1,7 +1,6 @@
 import clsx from "clsx";
 import { FC, useState } from "react";
 
-import CardBubble from "components/CardTable/CardBubble";
 import { ALL_COLUMNS, ALL_GRADES } from "lib/constants";
 import {
   COLUMN_ICONS,
@@ -15,8 +14,6 @@ import CardDetailModal from "./CardDetailModal";
 import CardView from "./CardView";
 
 const HEADER_BG_CLASSES = "bg-neutral-200 dark:bg-neutral-600";
-const HEADER_BORDER_CLASSES = "border-b-2 border-neutral-900";
-const BODY_BORDER_CLASSES = "border-b-2 border-white dark:border-neutral-900";
 
 interface Props {
   cardDictionary: CardTableDictionary;
@@ -29,64 +26,87 @@ const CardTable: FC<Props> = ({ cardDictionary, set, showSkeletons }) => {
 
   return (
     <>
-      <div className="hidden lg:block">
-        <table className="w-full h-full border-separate table-fixed border-spacing-0">
-          <thead>
-            <tr className="sticky top-0 text-lg">
-              <th
+      <div
+        className={clsx(
+          "hidden sticky top-0 text-lg border-b-2 border-neutral-900 lg:flex",
+          HEADER_BG_CLASSES,
+          TRANSITION_CLASSES
+        )}
+      >
+        <div className="shrink-0 w-16" />
+        {ALL_COLUMNS.map((column) => (
+          <div key={column} className="basis-full p-[1px] text-center">
+            <i className={clsx("my-2", COLUMN_ICONS[column])} />
+          </div>
+        ))}
+      </div>
+      {ALL_GRADES.map((grade) => {
+        let hasCards = false;
+        for (const column of ALL_COLUMNS) {
+          if (cardDictionary.get(column, grade).length > 0) {
+            hasCards = true;
+            break;
+          }
+        }
+        return (
+          <div
+            key={grade}
+            className={clsx("lg:mb-0.5 lg:last:mb-0", {
+              "hidden lg:block": !hasCards,
+            })}
+          >
+            <div className="py-2 text-xl font-bold text-center lg:hidden">
+              {grade}
+            </div>
+            <div className="flex flex-col gap-0.5 lg:flex-row lg:gap-0">
+              <div
                 className={clsx(
-                  "w-16",
+                  "hidden shrink-0 w-16 lg:block",
                   HEADER_BG_CLASSES,
-                  HEADER_BORDER_CLASSES,
                   TRANSITION_CLASSES
                 )}
-              />
-              {ALL_COLUMNS.map((column) => (
-                <th
-                  key={column}
+              >
+                <div
                   className={clsx(
-                    HEADER_BG_CLASSES,
-                    HEADER_BORDER_CLASSES,
-                    TRANSITION_CLASSES
+                    "flex items-center pl-4 h-full text-xl font-bold border-l-4",
+                    GRADE_BORDER_COLORS[grade]
                   )}
                 >
-                  <i className={clsx("my-2", COLUMN_ICONS[column])} />
-                </th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {ALL_GRADES.map((grade) => (
-              <tr key={grade}>
-                <th
-                  className={clsx(
-                    "p-0 w-16 h-full",
-                    HEADER_BG_CLASSES,
-                    BODY_BORDER_CLASSES,
-                    TRANSITION_CLASSES
-                  )}
-                >
+                  {grade}
+                </div>
+              </div>
+              {ALL_COLUMNS.map((column) => {
+                const cellCards = cardDictionary.get(column, grade);
+                return (
                   <div
-                    className={clsx(
-                      "flex items-center pl-1 h-full text-xl border-l-4 lg:pl-4",
-                      GRADE_BORDER_COLORS[grade]
-                    )}
-                  >
-                    {grade}
-                  </div>
-                </th>
-                {ALL_COLUMNS.map((column) => (
-                  <td
                     key={column}
-                    className={clsx(
-                      "py-2 px-1 align-top bg-neutral-100 dark:bg-neutral-800",
-                      BODY_BORDER_CLASSES,
-                      TRANSITION_CLASSES
-                    )}
+                    className={clsx("flex lg:basis-full", {
+                      "hidden lg:flex": cellCards.length === 0,
+                    })}
                   >
-                    {cardDictionary
-                      .get(column, grade)
-                      .map((card) =>
+                    <div
+                      className={clsx(
+                        "shrink-0 w-16 lg:hidden",
+                        HEADER_BG_CLASSES,
+                        TRANSITION_CLASSES
+                      )}
+                    >
+                      <div
+                        className={clsx(
+                          "flex justify-center items-center h-full border-l-4",
+                          GRADE_BORDER_COLORS[grade]
+                        )}
+                      >
+                        <i className={clsx("my-2", COLUMN_ICONS[column])} />
+                      </div>
+                    </div>
+                    <div
+                      className={clsx(
+                        "grow p-2 bg-neutral-100 dark:bg-neutral-800 lg:px-1",
+                        TRANSITION_CLASSES
+                      )}
+                    >
+                      {cellCards.map((card) =>
                         showSkeletons ? (
                           <div
                             key={card.cardUrl}
@@ -100,82 +120,14 @@ const CardTable: FC<Props> = ({ cardDictionary, set, showSkeletons }) => {
                           />
                         )
                       )}
-                  </td>
-                ))}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-
-      <div className="lg:hidden">
-        {ALL_GRADES.map((grade) => {
-          let hasCards = false;
-          for (const column of ALL_COLUMNS) {
-            if (cardDictionary.get(column, grade).length > 0) {
-              hasCards = true;
-              break;
-            }
-          }
-          if (!hasCards) {
-            return null;
-          }
-          return (
-            <div key={grade}>
-              <div className="py-2 text-xl font-bold text-center">{grade}</div>
-              <div className="flex flex-col gap-0.5">
-                {ALL_COLUMNS.map((column) => {
-                  const cellCards = cardDictionary.get(column, grade);
-                  if (cellCards.length === 0) {
-                    return null;
-                  }
-                  return (
-                    <div key={column} className="flex">
-                      <div
-                        className={clsx(
-                          "shrink-0 w-16",
-                          HEADER_BG_CLASSES,
-                          TRANSITION_CLASSES
-                        )}
-                      >
-                        <div
-                          className={clsx(
-                            "flex justify-center items-center h-full border-l-4",
-                            GRADE_BORDER_COLORS[grade]
-                          )}
-                        >
-                          <i className={clsx("my-2", COLUMN_ICONS[column])} />
-                        </div>
-                      </div>
-                      <div
-                        className={clsx(
-                          "grow p-2 bg-neutral-100 dark:bg-neutral-800",
-                          TRANSITION_CLASSES
-                        )}
-                      >
-                        {cellCards.map((card) =>
-                          showSkeletons ? (
-                            <div
-                              key={card.cardUrl}
-                              className="mb-1 last:mb-0 h-6 bg-neutral-200 dark:bg-neutral-700 animate-pulse"
-                            />
-                          ) : (
-                            <CardBubble
-                              key={card.cardUrl}
-                              card={card}
-                              onClick={() => setModalCard(card)}
-                            />
-                          )
-                        )}
-                      </div>
                     </div>
-                  );
-                })}
-              </div>
+                  </div>
+                );
+              })}
             </div>
-          );
-        })}
-      </div>
+          </div>
+        );
+      })}
 
       <CardDetailModal
         card={modalCard}

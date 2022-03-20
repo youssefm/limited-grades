@@ -35,7 +35,6 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 
 # What's next
 
-- Try to improve desktop performance
 - Refactor CardTable
 - Rethink standardized media query for mobile, md vs lg
 - Allow toggling columns
