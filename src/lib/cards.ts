@@ -177,9 +177,9 @@ export const getCardStore = async (set: MagicSet): Promise<CardStore> => {
       day: now.hour < 1 ? now.day : now.day + 1,
       hour: 1,
     });
-    expirationInSeconds = Temporal.Now.zonedDateTimeISO()
-      .until(nextRefreshAt)
-      .round({ smallestUnit: "second", largestUnit: "second" }).seconds;
+    expirationInSeconds = Math.floor(
+      Temporal.Now.zonedDateTimeISO().until(nextRefreshAt).total("second")
+    );
   } else {
     expirationInSeconds = 7 * 24 * 60 * 60;
   }
