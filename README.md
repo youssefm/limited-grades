@@ -35,8 +35,6 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 
 # What's next
 
-- Implement singleton Tippy instance for hover
-- Address any lingering Tippy performance issues (consider instantiating Tippy on hover)
 - Rethink standardized media query for mobile, md vs lg
 - Allow toggling columns?
 - Search feature?
