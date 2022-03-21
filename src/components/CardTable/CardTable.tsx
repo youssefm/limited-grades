@@ -30,14 +30,14 @@ const CardTable: FC<Props> = ({ cardDictionary, set, showSkeletons }) => {
     <>
       <div
         className={clsx(
-          "hidden sticky top-0 text-lg border-b-2 border-neutral-900 lg:flex",
+          "hidden sticky top-0 text-lg border-b-2 border-neutral-900 lg:grid lg:grid-cols-[4rem_repeat(7,_1fr)]",
           HEADER_BG_CLASSES,
           TRANSITION_CLASSES
         )}
       >
-        <div className="shrink-0 w-16" />
+        <div />
         {ALL_COLUMNS.map((column) => (
-          <div key={column} className="basis-full p-[1px] text-center">
+          <div key={column} className="p-[1px] text-center">
             <i className={clsx("my-2", COLUMN_ICONS[column])} />
           </div>
         ))}
