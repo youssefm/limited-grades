@@ -77,14 +77,14 @@ const CardTable: FC<Props> = ({ cardDictionary, set, showSkeletons }) => {
                 return (
                   <div
                     key={column}
-                    className={clsx("items-stretch", {
-                      "hidden lg:flex": cellCards.length === 0,
-                      flex: cellCards.length > 0,
+                    className={clsx("lg:block", {
+                      "grid grid-cols-[4rem_1fr]": cellCards.length > 0,
+                      hidden: cellCards.length === 0,
                     })}
                   >
                     <div
                       className={clsx(
-                        "flex shrink-0 justify-center items-center w-16 border-l-4 lg:hidden",
+                        "flex justify-center items-center border-l-4 lg:hidden",
                         HEADER_BG_CLASSES,
                         GRADE_BORDER_COLORS[grade],
                         TRANSITION_CLASSES
@@ -94,7 +94,7 @@ const CardTable: FC<Props> = ({ cardDictionary, set, showSkeletons }) => {
                     </div>
                     <div
                       className={clsx(
-                        "grow p-2 bg-neutral-100 dark:bg-neutral-800 lg:px-1",
+                        "p-2 bg-neutral-100 dark:bg-neutral-800 lg:px-1 lg:h-full",
                         TRANSITION_CLASSES
                       )}
                     >
