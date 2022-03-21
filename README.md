@@ -35,9 +35,9 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 
 # What's next
 
-- Stop parsing ISO string at runtime
 - Test content-visibility: auto
 - Rethink standardized media query for mobile, md vs lg
+- Add a mobile "more filters" button
 - Allow toggling columns?
 - Search feature?
 - Start filters all off

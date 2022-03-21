@@ -17,7 +17,7 @@ import { Card, MagicSet } from "lib/types";
 interface StaticProps {
   set: MagicSet;
   cards: Card[];
-  lastUpdatedAt: string;
+  lastUpdatedAtTicks: number;
 }
 
 export const getStaticPaths: GetStaticPaths = async () => ({
@@ -32,13 +32,13 @@ export const getStaticProps: GetStaticProps<StaticProps> = async (context) => {
     props: {
       set,
       cards,
-      lastUpdatedAt: updatedAt.toString(),
+      lastUpdatedAtTicks: updatedAt.epochMilliseconds,
     },
     revalidate: isRecentSet(set) ? 60 * 60 : 24 * 60 * 60,
   };
 };
 
-const Page = ({ set, cards, lastUpdatedAt }: StaticProps) => (
+const Page = ({ set, cards, lastUpdatedAtTicks }: StaticProps) => (
   <>
     <Head>
       <title>Limited Grades – {SET_LABELS[set]}</title>
@@ -54,7 +54,11 @@ const Page = ({ set, cards, lastUpdatedAt }: StaticProps) => (
       <CardTableContextProvider set={set} cards={cards}>
         <PageBody />
       </CardTableContextProvider>
-      <PageFooter lastUpdatedAt={Temporal.Instant.from(lastUpdatedAt)} />
+      <PageFooter
+        lastUpdatedAt={Temporal.Instant.fromEpochMilliseconds(
+          lastUpdatedAtTicks
+        )}
+      />
     </div>
   </>
 );
