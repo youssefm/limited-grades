@@ -37,13 +37,7 @@ const Modal: FC<Props> = ({ title, onClose, className, children }) => {
             ref={closeButtonRef}
             aria-label="Close Modal"
           >
-            <IoClose
-              className={clsx(
-                "relative -bottom-0.5",
-                HOVER_CLASSES,
-                TRANSITION_CLASSES
-              )}
-            />
+            <IoClose className={clsx(HOVER_CLASSES, TRANSITION_CLASSES)} />
           </button>
         </Dialog.Title>
         <div className="p-4">{children}</div>
