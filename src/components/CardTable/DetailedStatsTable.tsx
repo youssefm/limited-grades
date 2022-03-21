@@ -10,7 +10,7 @@ const StatsRow: FC<{
   className?: string;
 }> = ({ label, tooltipText, className, children }) => (
   <tr className={className}>
-    <td className="py-2 pl-4">
+    <td className="py-2 pr-12 pl-4">
       <Tippy
         content={<div className="p-2 max-w-sm">{tooltipText}</div>}
         placement="bottom-start"

@@ -16,12 +16,12 @@ const CardDetail: FC<Props> = ({ card, showStats }) => (
     <div className="self-center">
       <CardImage card={card} />
     </div>
-    <div className="grow self-stretch lg:self-start">
+    <div className="self-stretch lg:self-start">
       <div className="mb-2 text-lg">Deck Analysis</div>
       <DeckAnalysisTable card={card} showStats={showStats} />
     </div>
     {showStats && (
-      <div className="grow self-stretch lg:self-start">
+      <div className="self-stretch lg:self-start">
         <div className="mb-2 text-lg">Full 17Lands Stats</div>
         <DetailedStatsTable card={card} />
       </div>

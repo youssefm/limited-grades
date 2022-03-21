@@ -8,7 +8,11 @@ interface Props {
 }
 
 const AboutProjectModal: FC<Props> = ({ onClose }) => (
-  <Modal title="About this project" onClose={onClose}>
+  <Modal
+    title="About this project"
+    onClose={onClose}
+    className="w-full max-w-3xl"
+  >
     <div className="max-w-[80ch]">
       <p className="mb-4">
         This page uses{" "}
