@@ -56,7 +56,7 @@ const DeckAnalysisTable: FC<Props> = ({ card, showStats }) => (
                         GRADE_BORDER_COLORS[stats.grade]
                       )}
                     >
-                      <div className="font-mono text-xl">{winrate}</div>
+                      <div className="px-4 font-mono text-xl">{winrate}</div>
                     </div>
                   )}
                 </div>

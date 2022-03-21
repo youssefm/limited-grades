@@ -19,10 +19,9 @@ const CardDetailModal: FC<Props> = ({ card, set, onClose }) => {
   }
 
   const underEmbargo = isSetUnderEmbargo(set);
-  const size = underEmbargo ? "sm" : "lg";
 
   return (
-    <Modal title={card.name} onClose={onClose} size={size}>
+    <Modal title={card.name} onClose={onClose} className="w-full lg:w-auto">
       {underEmbargo && (
         <Banner dismissable={false}>
           <ImInfo className="inline relative bottom-0.5 mr-2" />
