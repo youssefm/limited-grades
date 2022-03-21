@@ -18,6 +18,20 @@
   .backface-invisible {
     backface-visibility: hidden;
   }
+
+  .scrollbar-gutter-stable {
+    scrollbar-gutter: stable;
+  }
+}
+
+html {
+  overflow: hidden;
+}
+
+html,
+body,
+#__next {
+  height: 100%;
 }
 
 .hide-banner #page-info-banner {
