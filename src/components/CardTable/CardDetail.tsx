@@ -12,16 +12,16 @@ interface Props {
 }
 
 const CardDetail: FC<Props> = ({ card, showStats }) => (
-  <div className="flex flex-col gap-6 md:flex-row">
+  <div className="flex flex-col gap-6 lg:flex-row">
     <div className="self-center">
       <CardImage card={card} />
     </div>
-    <div className="grow self-stretch md:self-start">
+    <div className="grow self-stretch lg:self-start">
       <div className="mb-2 text-lg">Deck Analysis</div>
       <DeckAnalysisTable card={card} showStats={showStats} />
     </div>
     {showStats && (
-      <div className="grow self-stretch md:self-start">
+      <div className="grow self-stretch lg:self-start">
         <div className="mb-2 text-lg">Full 17Lands Stats</div>
         <DetailedStatsTable card={card} />
       </div>
