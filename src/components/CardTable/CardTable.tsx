@@ -61,10 +61,10 @@ const CardTable: FC<Props> = ({ cardDictionary, set, showSkeletons }) => {
             <div className="py-2 text-xl font-bold text-center lg:hidden">
               {grade}
             </div>
-            <div className="flex flex-col gap-0.5 items-stretch lg:flex-row lg:gap-0">
+            <div className="grid grid-cols-[1fr] gap-0.5 lg:grid-cols-[4rem_repeat(7,_1fr)] lg:gap-0">
               <div
                 className={clsx(
-                  "hidden shrink-0 items-center pl-4 w-16 text-xl font-bold border-l-4 lg:flex",
+                  "hidden items-center pl-4 text-xl font-bold border-l-4 lg:flex",
                   HEADER_BG_CLASSES,
                   GRADE_BORDER_COLORS[grade],
                   TRANSITION_CLASSES
@@ -77,8 +77,9 @@ const CardTable: FC<Props> = ({ cardDictionary, set, showSkeletons }) => {
                 return (
                   <div
                     key={column}
-                    className={clsx("flex items-stretch lg:basis-full", {
+                    className={clsx("items-stretch", {
                       "hidden lg:flex": cellCards.length === 0,
+                      flex: cellCards.length > 0,
                     })}
                   >
                     <div
