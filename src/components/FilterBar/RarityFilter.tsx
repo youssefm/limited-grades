@@ -4,7 +4,6 @@ import { FC } from "react";
 import { TRANSITION_CLASSES } from "lib/styles";
 import { MagicSet, Rarity } from "lib/types";
 
-import FilterLabel from "./FilterLabel";
 import IconFilterGroup from "./IconFilterGroup";
 
 const getFilters = (set: MagicSet) => [
@@ -37,17 +36,16 @@ interface Props {
   set: MagicSet;
   values: Set<Rarity>;
   setValues: (rarities: Set<Rarity>) => void;
+  className?: string;
 }
 
-const RarityFilter: FC<Props> = ({ set, values, setValues }) => (
-  <div>
-    <FilterLabel>Rarity</FilterLabel>
-    <IconFilterGroup
-      values={values}
-      setValues={setValues}
-      filters={getFilters(set)}
-    />
-  </div>
+const RarityFilter: FC<Props> = ({ set, values, setValues, className }) => (
+  <IconFilterGroup
+    values={values}
+    setValues={setValues}
+    filters={getFilters(set)}
+    className={className}
+  />
 );
 
 export default RarityFilter;

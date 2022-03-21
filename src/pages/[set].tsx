@@ -52,7 +52,7 @@ const Page = ({ set, cards, lastUpdatedAtTicks }: StaticProps) => (
     >
       <PageHeader />
       <CardTableContextProvider set={set} cards={cards}>
-        <PageBody />
+        <PageBody className="grow" />
       </CardTableContextProvider>
       <PageFooter
         lastUpdatedAt={Temporal.Instant.fromEpochMilliseconds(

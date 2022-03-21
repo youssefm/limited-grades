@@ -6,6 +6,7 @@ import { TRANSITION_CLASSES } from "lib/styles";
 
 import CardTypeFilter from "./CardTypeFilter";
 import DeckSelector from "./DeckSelector";
+import FilterGroup from "./FilterGroup";
 import RarityFilter from "./RarityFilter";
 import SetSelector from "./SetSelector";
 
@@ -31,17 +32,31 @@ const FilterBar: FC = () => {
         TRANSITION_CLASSES
       )}
     >
-      <SetSelector value={selectedSet} onChange={changeSet} />
-      <DeckSelector value={deck} onChange={setDeck} />
-      <RarityFilter
-        set={set}
-        values={visibleRarities}
-        setValues={setVisibleRarities}
-      />
-      <CardTypeFilter
-        values={visibleCardTypes}
-        setValues={setVisibleCardTypes}
-      />
+      <FilterGroup label="Set">
+        <SetSelector
+          value={selectedSet}
+          onChange={changeSet}
+          className="grow"
+        />
+      </FilterGroup>
+      <FilterGroup label="Deck">
+        <DeckSelector value={deck} onChange={setDeck} className="grow" />
+      </FilterGroup>
+      <FilterGroup label="Rarity" disableInputLabel>
+        <RarityFilter
+          set={set}
+          values={visibleRarities}
+          setValues={setVisibleRarities}
+          className="grow"
+        />
+      </FilterGroup>
+      <FilterGroup label="Type" disableInputLabel>
+        <CardTypeFilter
+          values={visibleCardTypes}
+          setValues={setVisibleCardTypes}
+          className="grow"
+        />
+      </FilterGroup>
     </div>
   );
 };

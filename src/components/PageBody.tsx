@@ -4,11 +4,15 @@ import CardTable from "components/CardTable";
 import FilterBar from "components/FilterBar";
 import useCardTableContext from "hooks/useCardTableContext";
 
-const PageBody: FC = () => {
+interface Props {
+  className?: string;
+}
+
+const PageBody: FC<Props> = ({ className }) => {
   const { cardDictionary, set, showSkeletons } = useCardTableContext();
 
   return (
-    <div className="grow">
+    <div className={className}>
       <FilterBar />
       <CardTable
         cardDictionary={cardDictionary}

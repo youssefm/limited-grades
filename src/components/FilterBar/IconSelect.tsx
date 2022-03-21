@@ -36,7 +36,7 @@ interface Props<T> {
   getLabel: (value: T) => string;
   getIcons: (value: T) => string[];
   instanceId: string;
-  className: string;
+  className?: string;
 }
 
 const IconSelect = <T extends unknown>({
