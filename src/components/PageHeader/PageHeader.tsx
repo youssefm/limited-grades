@@ -36,7 +36,7 @@ const PageHeader = () => {
           type="button"
         >
           <FaInfoCircle />
-          <span className="hidden md:inline">About this project</span>
+          <span className="hidden lg:inline">About this project</span>
         </button>
 
         <DarkModeToggle />
