@@ -39,10 +39,10 @@ const Banner: FC<Props> = ({ id, dismissable, onClose, children }) => {
               onClose?.();
             }}
             type="button"
+            aria-label="Close Banner"
           >
             <IoClose
               className={clsx("text-2xl", HOVER_CLASSES, TRANSITION_CLASSES)}
-              aria-label="Close Banner"
             />
           </button>
         )}
