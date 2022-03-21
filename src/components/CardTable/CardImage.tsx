@@ -15,7 +15,7 @@ const DoubleFacedCardImage: FC<Props> = ({ card }) => {
   const toggleFlipped = () => setFlipped(!flipped);
   return (
     <div className="relative mb-6">
-      <button onClick={toggleFlipped} type="button">
+      <button onClick={toggleFlipped} type="button" aria-label="Flip card">
         <div
           className={clsx("transition-all ease-in-out backface-invisible", {
             "rotate-y-0": !flipped,
@@ -50,6 +50,7 @@ const DoubleFacedCardImage: FC<Props> = ({ card }) => {
           )}
           onClick={toggleFlipped}
           type="button"
+          aria-label="Flip card"
         >
           {flipped ? <GrRotateLeft /> : <GrRotateRight />}
         </button>

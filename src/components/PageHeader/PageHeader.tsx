@@ -34,6 +34,7 @@ const PageHeader = () => {
             TRANSITION_CLASSES
           )}
           type="button"
+          aria-label="About this project"
         >
           <FaInfoCircle />
           <span className="hidden lg:inline">About this project</span>
