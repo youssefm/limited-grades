@@ -12,14 +12,16 @@ interface Props<T> {
   values: Set<T>;
   setValues: (newValues: Set<T>) => void;
   filters: Filter<T>[];
+  className?: string;
 }
 
 const IconFilterGroup = <T extends unknown>({
   values,
   setValues,
   filters,
+  className,
 }: Props<T>) => (
-  <div className="flex">
+  <div className={clsx("flex", className)}>
     {filters.map(({ label, values: filterValues, icon }) => {
       const checked = filterValues.every((value) => values.has(value));
       const toggle = () => {

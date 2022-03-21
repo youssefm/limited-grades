@@ -2,7 +2,6 @@ import { FC } from "react";
 
 import { CardType } from "lib/types";
 
-import FilterLabel from "./FilterLabel";
 import IconFilterGroup from "./IconFilterGroup";
 
 const FILTERS = [
@@ -31,13 +30,16 @@ const FILTERS = [
 interface Props {
   values: Set<CardType>;
   setValues: (cardTypes: Set<CardType>) => void;
+  className?: string;
 }
 
-const CardTypeFilter: FC<Props> = ({ values, setValues }) => (
-  <div>
-    <FilterLabel>Type</FilterLabel>
-    <IconFilterGroup values={values} setValues={setValues} filters={FILTERS} />
-  </div>
+const CardTypeFilter: FC<Props> = ({ values, setValues, className }) => (
+  <IconFilterGroup
+    values={values}
+    setValues={setValues}
+    filters={FILTERS}
+    className={className}
+  />
 );
 
 export default CardTypeFilter;
