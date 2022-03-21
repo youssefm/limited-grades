@@ -35,6 +35,7 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 
 # What's next
 
+- Solve layout shift from flex div rows
 - Add a mobile "more filters" button
 - Allow toggling columns?
 - Search feature?
