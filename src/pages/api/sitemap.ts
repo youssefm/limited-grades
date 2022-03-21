@@ -9,7 +9,7 @@ const handler = async (request: NextApiRequest, response: NextApiResponse) => {
 
   response
     .status(200)
-    .setHeader("Content-Type", "text/plain")
+    .setHeader("Content-Type", "text/plain; charset=utf-8")
     .send(urls.join("\n"));
 };
 
