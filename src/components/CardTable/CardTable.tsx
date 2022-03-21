@@ -61,7 +61,7 @@ const CardTable: FC<Props> = ({ cardDictionary, set, showSkeletons }) => {
             <div className="py-2 text-xl font-bold text-center lg:hidden">
               {grade}
             </div>
-            <div className="flex flex-col gap-0.5 items-stretch lg:flex-row lg:gap-0">
+            <div className="flex flex-col gap-0.5 items-stretch lg:flex-row lg:gap-0 content-visibility-auto">
               <div
                 className={clsx(
                   "hidden shrink-0 items-center pl-4 w-16 text-xl font-bold border-l-4 lg:flex",

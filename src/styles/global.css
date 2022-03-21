@@ -18,6 +18,10 @@
   .backface-invisible {
     backface-visibility: hidden;
   }
+
+  .content-visibility-auto {
+    content-visibility: auto;
+  }
 }
 
 .hide-banner #page-info-banner {

@@ -7,7 +7,7 @@ interface Props {
 }
 
 const PageFooter = ({ lastUpdatedAt }: Props) => (
-  <div className="pt-1 pb-2 mt-32 border-t border-neutral-400">
+  <div className="pt-1 pb-2 mt-32 border-t border-neutral-400 content-visibility-auto">
     Developed by <LinkOut url="https://github.com/youssefm">youssefm</LinkOut>{" "}
     using <LinkOut url="https://nextjs.org/">Next.js</LinkOut>, based on designs
     by <LinkOut url="https://github.com/BodyCopy">BodyCopy</LinkOut>
