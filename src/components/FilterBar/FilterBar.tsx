@@ -78,14 +78,14 @@ const FilterBar: FC = () => {
         className={clsx(
           "overflow-hidden transition-max-h ease-[ease] lg:hidden",
           {
-            "max-h-6": !isExpanded,
+            "max-h-5": !isExpanded,
             "max-h-0": isExpanded,
           }
         )}
       >
         <button
           className={clsx(
-            "flex justify-center py-1 w-full text-neutral-300 dark:text-neutral-700",
+            "flex justify-center pt-1 w-full text-neutral-300 dark:text-neutral-700",
             HOVER_CLASSES,
             TRANSITION_CLASSES
           )}
