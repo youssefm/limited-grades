@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { FC, useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 
+import Collapsible from "components/common/Collapsible";
 import useCardTableContext from "hooks/useCardTableContext";
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 
@@ -47,15 +48,9 @@ const FilterBar: FC = () => {
         <FilterGroup label="Deck">
           <DeckSelector value={deck} onChange={setDeck} className="grow" />
         </FilterGroup>
-        <div
-          className={clsx(
-            "overflow-hidden transition-max-h ease-[ease] lg:max-h-[none]",
-            FLEX_CLASSES,
-            {
-              "max-h-0": !isExpanded,
-              "max-h-[5.75rem]": isExpanded,
-            }
-          )}
+        <Collapsible
+          isExpanded={isExpanded}
+          className={clsx("lg:!max-h-[none]", FLEX_CLASSES)}
         >
           <FilterGroup label="Rarity" disableInputLabel>
             <RarityFilter
@@ -72,17 +67,9 @@ const FilterBar: FC = () => {
               className="grow pb-2"
             />
           </FilterGroup>
-        </div>
+        </Collapsible>
       </div>
-      <div
-        className={clsx(
-          "overflow-hidden transition-max-h ease-[ease] lg:hidden",
-          {
-            "max-h-5": !isExpanded,
-            "max-h-0": isExpanded,
-          }
-        )}
-      >
+      <Collapsible isExpanded={!isExpanded} className="lg:hidden">
         <button
           className={clsx(
             "flex justify-center pt-1 w-full text-neutral-300 dark:text-neutral-700",
@@ -95,7 +82,7 @@ const FilterBar: FC = () => {
         >
           <FaChevronDown />
         </button>
-      </div>
+      </Collapsible>
     </>
   );
 };
