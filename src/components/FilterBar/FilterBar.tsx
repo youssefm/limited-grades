@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { FC, useState } from "react";
-import { FaChevronDown, FaPlus } from "react-icons/fa";
+import { FaChevronDown } from "react-icons/fa";
 
 import useCardTableContext from "hooks/useCardTableContext";
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
@@ -82,7 +82,6 @@ const FilterBar: FC = () => {
           aria-label="More filters"
         >
           <FaChevronDown />
-          {/* <FaPlus /> */}
         </button>
       )}
     </>

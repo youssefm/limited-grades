@@ -35,7 +35,7 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 
 # What's next
 
-- Add a mobile "more filters" button
+- Animate mobile "more filters" button
 - Allow toggling columns?
 - Search feature?
 - Start filters all off
