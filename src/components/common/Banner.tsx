@@ -15,12 +15,12 @@ const Banner: FC<Props> = ({ id, dismissable, onClose, children }) => {
   return (
     <div
       id={id}
-      className="overflow-hidden mb-2 transition-all ease-[ease]"
+      className="overflow-hidden shrink-0 transition-max-h ease-[ease]"
       ref={bannerElement}
     >
       <div
         className={clsx(
-          "flex items-center py-1.5 px-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg lg:px-4",
+          "flex items-center py-1.5 px-2 mb-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg lg:px-4",
           TRANSITION_CLASSES
         )}
       >
@@ -33,7 +33,6 @@ const Banner: FC<Props> = ({ id, dismissable, onClose, children }) => {
                 currentBannerElement.style.maxHeight = `${currentBannerElement.scrollHeight}px`;
                 setTimeout(() => {
                   currentBannerElement.style.maxHeight = "0";
-                  currentBannerElement.style.marginBottom = "0";
                 });
               }
               onClose?.();
