@@ -35,6 +35,7 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 
 # What's next
 
+- Consider split casting cost icons for decks?
 - Allow toggling columns?
 - Search feature?
 - Start filters all off
