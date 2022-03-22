@@ -1,7 +1,8 @@
 import clsx from "clsx";
-import { FC, useRef } from "react";
+import { FC, useState } from "react";
 import { IoClose } from "react-icons/io5";
 
+import Collapsible from "components/common/Collapsible";
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 
 interface Props {
@@ -11,13 +12,10 @@ interface Props {
 }
 
 const Banner: FC<Props> = ({ id, dismissable, onClose, children }) => {
-  const bannerElement = useRef<HTMLDivElement>(null);
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
   return (
-    <div
-      id={id}
-      className="overflow-hidden shrink-0 transition-max-h ease-[ease]"
-      ref={bannerElement}
-    >
+    <Collapsible isExpanded={!isCollapsed} id={id} className="shrink-0">
       <div
         className={clsx(
           "flex items-center py-1.5 px-2 mb-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg lg:px-4",
@@ -28,13 +26,7 @@ const Banner: FC<Props> = ({ id, dismissable, onClose, children }) => {
         {dismissable && (
           <button
             onClick={() => {
-              const currentBannerElement = bannerElement.current;
-              if (currentBannerElement) {
-                currentBannerElement.style.maxHeight = `${currentBannerElement.scrollHeight}px`;
-                setTimeout(() => {
-                  currentBannerElement.style.maxHeight = "0";
-                });
-              }
+              setIsCollapsed(true);
               onClose?.();
             }}
             type="button"
@@ -46,7 +38,7 @@ const Banner: FC<Props> = ({ id, dismissable, onClose, children }) => {
           </button>
         )}
       </div>
-    </div>
+    </Collapsible>
   );
 };
 
