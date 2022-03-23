@@ -3,9 +3,6 @@
 const { UMAMI_SERVER_NAME } = process.env;
 
 module.exports = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   outputFileTracing: true,
   reactStrictMode: true,
   redirects: async () => [
