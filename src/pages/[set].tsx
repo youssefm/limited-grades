@@ -38,30 +38,33 @@ export const getStaticProps: GetStaticProps<StaticProps> = async (context) => {
   };
 };
 
-const Page = ({ set, cards, lastUpdatedAtTicks }: StaticProps) => (
-  <>
-    <Head>
-      <title>Limited Grades – {SET_LABELS[set]}</title>
-    </Head>
-    <div
-      className={clsx(
-        "flex overflow-y-auto flex-col px-2 h-full scrollbar-gutter-stable",
-        "dark:text-neutral-100 dark:bg-neutral-900",
-        TRANSITION_CLASSES
-      )}
-    >
-      <PageHeader />
-      <CardTableContextProvider set={set} cards={cards}>
-        <PageBody className="grow" />
-      </CardTableContextProvider>
-      <PageFooter
-        lastUpdatedAt={Temporal.Instant.fromEpochMilliseconds(
-          lastUpdatedAtTicks
+const Page = ({ set, cards, lastUpdatedAtTicks }: StaticProps) => {
+  console.log("rendering page");
+  return (
+    <>
+      <Head>
+        <title>Limited Grades – {SET_LABELS[set]}</title>
+      </Head>
+      <div
+        className={clsx(
+          "flex overflow-y-auto flex-col px-2 h-full scrollbar-gutter-stable",
+          "dark:text-neutral-100 dark:bg-neutral-900",
+          TRANSITION_CLASSES
         )}
-      />
-    </div>
-  </>
-);
+      >
+        <PageHeader />
+        <CardTableContextProvider set={set} cards={cards}>
+          <PageBody className="grow" />
+        </CardTableContextProvider>
+        <PageFooter
+          lastUpdatedAt={Temporal.Instant.fromEpochMilliseconds(
+            lastUpdatedAtTicks
+          )}
+        />
+      </div>
+    </>
+  );
+};
 
 export default Page;
 
