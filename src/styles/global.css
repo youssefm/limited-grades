@@ -26,6 +26,7 @@
 
 html {
   overflow: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
 html,
