@@ -20,18 +20,4 @@ module.exports = {
       permanent: false,
     },
   ],
-  rewrites: async () => {
-    const rewrites = [{ source: "/sitemap.txt", destination: "/api/sitemap" }];
-    if (UMAMI_SERVER_NAME) {
-      rewrites.push({
-        source: "/u.js",
-        destination: `https://${UMAMI_SERVER_NAME}/umami.js`,
-      });
-      rewrites.push({
-        source: "/api/collect",
-        destination: `https://${UMAMI_SERVER_NAME}/api/collect`,
-      });
-    }
-    return rewrites;
-  },
 };
