@@ -29,6 +29,12 @@ const Layout: FC = ({ children }) => (
         href="/favicon-16x16.png"
       />
       <link rel="manifest" href="manifest.json" />
+      <link
+        rel="preload"
+        href="/_next/static/media/Beleren2016SmallCaps-Bold.012bd2dd.woff"
+        as="font"
+        type="font/woff2"
+      />
     </Head>
 
     <DarkModeProvider>{children}</DarkModeProvider>
