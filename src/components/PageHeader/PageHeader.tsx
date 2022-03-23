@@ -21,6 +21,8 @@ const PageHeader = () => {
             alt="Limited Grades"
             height={32}
             width={32}
+            priority
+            layout="fixed"
           />
         </div>
 
