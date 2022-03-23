@@ -67,12 +67,12 @@ export const DECK_COLORS: Record<Deck, Column[]> = {
   [Deck.BLUE_BLACK]: [Column.BLUE, Column.BLACK],
   [Deck.BLACK_RED]: [Column.BLACK, Column.RED],
   [Deck.RED_GREEN]: [Column.RED, Column.GREEN],
-  [Deck.WHITE_GREEN]: [Column.WHITE, Column.GREEN],
+  [Deck.WHITE_GREEN]: [Column.GREEN, Column.WHITE],
   [Deck.WHITE_BLACK]: [Column.WHITE, Column.BLACK],
   [Deck.BLUE_RED]: [Column.BLUE, Column.RED],
   [Deck.BLACK_GREEN]: [Column.BLACK, Column.GREEN],
-  [Deck.WHITE_RED]: [Column.WHITE, Column.RED],
-  [Deck.BLUE_GREEN]: [Column.BLUE, Column.GREEN],
+  [Deck.WHITE_RED]: [Column.RED, Column.WHITE],
+  [Deck.BLUE_GREEN]: [Column.GREEN, Column.BLUE],
 };
 
 export const LOCAL_STORAGE_HIDE_BANNER_KEY = "hideBanner";
