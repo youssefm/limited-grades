@@ -16,18 +16,18 @@ const Collapsible: FC<Props> = ({ isExpanded, id, className, children }) => {
 
   useEffect(() => {
     const element = ref.current;
-    if (isExpanded && !isElementExpanded) {
-      setHeight(element?.scrollHeight);
-    }
-    if (!isExpanded && isElementExpanded) {
-      if (element) {
-        element.style.maxHeight = `${element?.scrollHeight}px`;
+    if (element) {
+      if (isExpanded && !isElementExpanded) {
+        setHeight(element.scrollHeight);
+      }
+      if (!isExpanded && isElementExpanded) {
+        element.style.maxHeight = `${element.scrollHeight}px`;
         // Force the browser to render the element by reading the scrollHeight
-        // We need this style to be applied for the transition to function
+        // We need maxHeight to be applied in the DOM for the transition to work
         // eslint-disable-next-line @typescript-eslint/no-unused-expressions
         element.scrollHeight;
+        setHeight(0);
       }
-      setHeight(0);
     }
     setIsElementExpanded(isExpanded);
   }, [isElementExpanded, isExpanded]);

@@ -35,6 +35,8 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 
 # What's next
 
+- Remove blue color when clicking button on mobile
+- Try to minimize Collapsible renders
 - Consider split casting cost icons for decks?
 - Allow toggling columns?
 - Search feature?
