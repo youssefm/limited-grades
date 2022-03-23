@@ -35,9 +35,6 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 
 # What's next
 
-- Think about avoiding card table re-render when a card is clicked
-- Investigate rewrites config causing page to render twice
-
 - Consider split casting cost icons for decks?
 - Allow toggling columns?
 - Search feature?
