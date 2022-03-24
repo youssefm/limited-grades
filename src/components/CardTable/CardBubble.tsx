@@ -28,7 +28,7 @@ const CardBubble = forwardRef<HTMLButtonElement, Props>(
       onClick={onClick}
       onMouseEnter={onMouseEnter}
       className={clsx(
-        "px-2 mb-1 last:mb-0 w-full text-left",
+        "px-2 mb-1 last:mb-0 w-full text-left animated-underline-trigger",
         "bg-white dark:bg-neutral-700 border-l-[3px]",
         HOVER_CLASSES,
         TRANSITION_CLASSES,
@@ -37,7 +37,7 @@ const CardBubble = forwardRef<HTMLButtonElement, Props>(
       type="button"
       ref={ref}
     >
-      {card.name}
+      <span className="animated-underline">{card.name}</span>
     </button>
   )
 );
