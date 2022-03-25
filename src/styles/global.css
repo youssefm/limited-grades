@@ -11,8 +11,7 @@
     transition: background-size 400ms ease;
   }
 
-  .animated-underline-trigger:hover > .animated-underline,
-  .animated-underline-trigger:focus > .animated-underline {
+  .animated-underline-trigger:hover > .animated-underline {
     background-position: 0% 100%;
     background-size: 100% 1px;
   }
