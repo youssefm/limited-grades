@@ -3,7 +3,7 @@ import { FC, useState } from "react";
 
 import { Card } from "lib/types";
 
-import CardBubble from "./CardBubble";
+import CardBubble, { Props as CardBubbleProps } from "./CardBubble";
 
 interface Props {
   card: Card;
@@ -12,17 +12,17 @@ interface Props {
 }
 
 const CardView: FC<Props> = ({ card, onClick, enableHover }) => {
-  const [isTippyMounted, setIsTippyMounted] = useState(false);
+  const [isHoverEnabled, setIsHoverEnabled] = useState(false);
 
-  let cardView = (
-    <CardBubble
-      card={card}
-      onClick={onClick}
-      onMouseEnter={enableHover ? () => setIsTippyMounted(true) : undefined}
-    />
-  );
+  const cardBubbleProps: CardBubbleProps = {
+    card,
+    onClick,
+  };
+  if (enableHover) {
+    cardBubbleProps.onMouseEnter = () => setIsHoverEnabled(true);
+  }
 
-  if (isTippyMounted) {
+  if (isHoverEnabled) {
     let tooltip = (
       <img src={card.cardUrl} alt={card.name} width="240" height="340" />
     );
@@ -39,14 +39,14 @@ const CardView: FC<Props> = ({ card, onClick, enableHover }) => {
         </div>
       );
     }
-    cardView = (
+    return (
       <Tippy content={tooltip} placement="bottom-start" trigger="mouseenter">
-        {cardView}
+        <CardBubble {...cardBubbleProps} enableHover />
       </Tippy>
     );
   }
 
-  return cardView;
+  return <CardBubble {...cardBubbleProps} />;
 };
 
 export default CardView;
