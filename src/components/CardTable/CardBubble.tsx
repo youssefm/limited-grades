@@ -16,30 +16,39 @@ const BORDER_COLORS = {
   [Rarity.MYTHIC]: "border-mythic",
 };
 
-interface Props {
+export interface Props {
   card: Card;
+  enableHover?: boolean;
   onClick?: () => void;
   onMouseEnter?: () => void;
 }
 
 const CardBubble = forwardRef<HTMLButtonElement, Props>(
-  ({ card, onClick, onMouseEnter }, ref) => (
-    <button
-      onClick={onClick}
-      onMouseEnter={onMouseEnter}
-      className={clsx(
-        "px-2 mb-1 last:mb-0 w-full text-left animated-underline-trigger",
-        "bg-white dark:bg-neutral-700 border-l-[3px]",
-        HOVER_CLASSES,
-        TRANSITION_CLASSES,
-        BORDER_COLORS[card.rarity]
-      )}
-      type="button"
-      ref={ref}
-    >
+  ({ card, enableHover = false, onClick, onMouseEnter }, ref) => {
+    const cardNameElement = enableHover ? (
       <span className="animated-underline">{card.name}</span>
-    </button>
-  )
+    ) : (
+      card.name
+    );
+    return (
+      <button
+        onClick={onClick}
+        onMouseEnter={onMouseEnter}
+        className={clsx(
+          "px-2 mb-1 last:mb-0 w-full text-left",
+          "bg-white dark:bg-neutral-700 border-l-[3px]",
+          HOVER_CLASSES,
+          TRANSITION_CLASSES,
+          BORDER_COLORS[card.rarity],
+          { "animated-underline-trigger": enableHover }
+        )}
+        type="button"
+        ref={ref}
+      >
+        {cardNameElement}
+      </button>
+    );
+  }
 );
 
 CardBubble.displayName = "CardBubble";
