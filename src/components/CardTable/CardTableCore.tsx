@@ -31,7 +31,7 @@ const CardTableCore: FC<Props> = ({
     <>
       <div
         className={clsx(
-          "hidden sticky top-0 z-10 text-lg border-b-2 border-neutral-900 lg:grid lg:grid-cols-[4rem_repeat(7,_1fr)]",
+          "hidden sticky top-0 text-lg border-b-2 border-neutral-900 lg:grid lg:grid-cols-[4rem_repeat(7,_1fr)]",
           HEADER_BG_CLASSES,
           TRANSITION_CLASSES
         )}
@@ -54,7 +54,7 @@ const CardTableCore: FC<Props> = ({
         return (
           <div
             key={grade}
-            className={clsx("content-visibility-auto", {
+            className={clsx({
               "hidden lg:block": !hasCards,
               "lg:mb-0.5": grade !== Grade.F,
             })}
