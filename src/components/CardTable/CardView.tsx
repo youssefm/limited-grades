@@ -12,17 +12,17 @@ interface Props {
 }
 
 const CardView: FC<Props> = ({ card, onClick, enableHover }) => {
-  const [isHoverEnabled, setIsHoverEnabled] = useState(false);
+  const [isHoverMounted, setIsHoverMounted] = useState(false);
 
   const cardBubbleProps: CardBubbleProps = {
     card,
     onClick,
   };
   if (enableHover) {
-    cardBubbleProps.onMouseEnter = () => setIsHoverEnabled(true);
+    cardBubbleProps.onMouseEnter = () => setIsHoverMounted(true);
   }
 
-  if (isHoverEnabled) {
+  if (isHoverMounted) {
     let tooltip = (
       <img src={card.cardUrl} alt={card.name} width="240" height="340" />
     );
