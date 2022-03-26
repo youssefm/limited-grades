@@ -63,7 +63,3 @@ const Page = ({ imageUrls }: StaticProps) => {
 };
 
 export default Page;
-
-export const config = {
-  unstable_includeFiles: ["data/oracle-cards.json"],
-};
