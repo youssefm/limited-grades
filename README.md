@@ -1,5 +1,3 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
 After cloning the repo, run:
@@ -37,5 +35,6 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 
 - Allow toggling columns?
 - Search feature?
+- Import just the SVGs we care about instead of the full mana/keyrune fonts?
 - Start filters all off
 - Improve filter button styling?

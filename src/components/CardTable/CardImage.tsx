@@ -2,6 +2,8 @@ import clsx from "clsx";
 import React, { FC, useState } from "react";
 import { GrRotateLeft, GrRotateRight } from "react-icons/gr";
 
+import BackCardImage from "components/common/BackCardImage";
+import FrontCardImage from "components/common/FrontCardImage";
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 import { Card } from "lib/types";
 
@@ -22,7 +24,7 @@ const DoubleFacedCardImage: FC<Props> = ({ card }) => {
             "rotate-y-180": flipped,
           })}
         >
-          <img src={card.cardUrl} alt={card.name} width="240" height="340" />
+          <FrontCardImage card={card} />
         </div>
         <div
           className={clsx(
@@ -33,12 +35,7 @@ const DoubleFacedCardImage: FC<Props> = ({ card }) => {
             }
           )}
         >
-          <img
-            src={card.cardBackUrl}
-            alt={card.name}
-            width="240"
-            height="340"
-          />
+          <BackCardImage card={card} />
         </div>
       </button>
       <div className="flex absolute inset-x-0 -bottom-6 justify-center">
@@ -63,7 +60,7 @@ const CardImage: FC<Props> = ({ card }) =>
   card.cardBackUrl ? (
     <DoubleFacedCardImage card={card} />
   ) : (
-    <img src={card.cardUrl} alt={card.name} width="240" height="340" />
+    <FrontCardImage card={card} />
   );
 
 export default CardImage;
