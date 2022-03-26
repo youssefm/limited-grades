@@ -7,7 +7,7 @@ import React from "react";
 import "tippy.js/dist/tippy.css";
 
 import Layout from "components/common/Layout";
-import "styles/global.css";
+import "global.css";
 
 const UMAMI_SITE_ID = process.env.NEXT_PUBLIC_UMAMI_SITE_ID;
 
