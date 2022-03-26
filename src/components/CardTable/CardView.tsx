@@ -1,6 +1,8 @@
 import Tippy from "@tippyjs/react";
 import { FC, useState } from "react";
 
+import BackCardImage from "components/common/BackCardImage";
+import FrontCardImage from "components/common/FrontCardImage";
 import { Card } from "lib/types";
 
 import CardBubble, { Props as CardBubbleProps } from "./CardBubble";
@@ -23,19 +25,12 @@ const CardView: FC<Props> = ({ card, onClick, enableHover }) => {
   }
 
   if (isHoverMounted) {
-    let tooltip = (
-      <img src={card.cardUrl} alt={card.name} width="240" height="340" />
-    );
+    let tooltip = <FrontCardImage card={card} />;
     if (card.cardBackUrl) {
       tooltip = (
         <div className="flex">
           {tooltip}
-          <img
-            src={card.cardBackUrl}
-            alt={card.name}
-            width="240"
-            height="340"
-          />
+          <BackCardImage card={card} />
         </div>
       );
     }
