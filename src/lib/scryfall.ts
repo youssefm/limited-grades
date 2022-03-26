@@ -12,6 +12,7 @@ interface ScryfallCard {
   colors?: ScryfallColor[];
   layout: string;
   type_line: string;
+  image_uris: { border_crop: string };
 }
 
 interface ScryfallCardFace {
@@ -31,20 +32,24 @@ const COLUMNS_BY_COLOR: Record<ScryfallColor, Column> = {
 
 let CARD_INDEX: Map<string, ScryfallCard> | undefined;
 
+const readScryfallFile = async (): Promise<ScryfallCard[]> => {
+  const scryfallFilePath = path.join(
+    process.cwd(),
+    "data",
+    "oracle-cards.json"
+  );
+  console.log(`Reading Scryfall data from ${scryfallFilePath}`);
+  return JSON.parse(await readFile(scryfallFilePath, "utf8"));
+};
+
+const shouldExcludeCard = (card: ScryfallCard) =>
+  card.layout === "art_series" || card.layout === "token";
+
 const buildIndex = async () => {
   if (!CARD_INDEX) {
-    const scryfallFilePath = path.join(
-      process.cwd(),
-      "data",
-      "oracle-cards.json"
-    );
-    console.log(`Reading Scryfall data from ${scryfallFilePath}`);
-
     CARD_INDEX = new Map();
-    for (const card of JSON.parse(
-      await readFile(scryfallFilePath, "utf8")
-    ) as ScryfallCard[]) {
-      if (card.layout === "art_series" || card.layout === "token") {
+    for (const card of await readScryfallFile()) {
+      if (shouldExcludeCard(card)) {
         continue;
       }
 
@@ -93,3 +98,11 @@ export const getCardTypes = async (cardName: string): Promise<CardType[]> => {
     scryfallCard.type_line.includes(upperFirst(cardType))
   );
 };
+
+export const getAllCardsByType = async (
+  cardType: CardType
+): Promise<ScryfallCard[]> =>
+  (await readScryfallFile()).filter(
+    (card) =>
+      !shouldExcludeCard(card) && card.type_line.includes(upperFirst(cardType))
+  );
