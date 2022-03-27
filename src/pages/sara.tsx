@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/alt-text */
 import clsx from "clsx";
 import { upperFirst } from "lodash";
-import next, { GetStaticProps } from "next";
+import { GetStaticProps } from "next";
 import Head from "next/head";
 import { useCallback, useEffect, useState } from "react";
 
