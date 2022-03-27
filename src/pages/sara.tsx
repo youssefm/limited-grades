@@ -91,14 +91,15 @@ const Page = ({ imageUrls }: StaticProps) => {
           <h1 className="mb-4 text-4xl text-center text-neutral-100">
             For Sara 🙂
           </h1>
-          <div className="relative w-[720px] h-[1020px]">
+          <div className="relative">
             <button onClick={moveToNextImage} type="button">
               {activeImageUrls.map((imageUrl) => (
                 <div
                   key={imageUrl}
                   className={clsx(
-                    "absolute inset-0 transition-all duration-500 ease-in-out backface-invisible",
+                    "transition-all duration-500 ease-in-out backface-invisible",
                     {
+                      "absolute inset-0": imageUrl !== currentImageUrl,
                       "rotate-y-0": imageUrl === currentImageUrl,
                       "rotate-y-180": imageUrl !== currentImageUrl,
                     }
