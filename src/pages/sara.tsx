@@ -1,4 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
+import { upperFirst } from "lodash";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import { useCallback, useEffect, useState } from "react";
@@ -10,13 +11,27 @@ interface StaticProps {
   imageUrls: string[];
 }
 
-export const getStaticProps: GetStaticProps<StaticProps> = async () => ({
-  props: {
-    imageUrls: (await getAllCardsByType(CardType.LAND))
-      .map((card) => card.image_uris?.border_crop)
-      .filter((url) => url),
-  },
-});
+export const getStaticProps: GetStaticProps<StaticProps> = async () => {
+  const landCards = await getAllCardsByType(CardType.LAND);
+  const imageUrls = [];
+  for (const card of landCards) {
+    if (card.image_uris) {
+      imageUrls.push(card.image_uris.border_crop);
+    } else if (card.card_faces) {
+      for (const cardFace of card.card_faces) {
+        if (cardFace.type_line.includes(upperFirst(CardType.LAND))) {
+          imageUrls.push(cardFace.image_uris.border_crop);
+        }
+      }
+    }
+  }
+
+  return {
+    props: {
+      imageUrls,
+    },
+  };
+};
 
 const Page = ({ imageUrls }: StaticProps) => {
   const [currentImageUrl, setCurrentImageUrl] = useState<string | undefined>();
