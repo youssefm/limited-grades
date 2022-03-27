@@ -6,18 +6,24 @@ import { upperFirst } from "lodash";
 import { ALL_CARD_TYPES } from "lib/constants";
 import { CardType, Column } from "lib/types";
 
+interface ImageUris {
+  border_crop: string;
+}
+
 interface ScryfallCard {
   name: string;
   card_faces?: ScryfallCardFace[];
   colors?: ScryfallColor[];
   layout: string;
   type_line: string;
-  image_uris: { border_crop: string };
+  image_uris?: ImageUris;
 }
 
 interface ScryfallCardFace {
   name: string;
   colors?: ScryfallColor[];
+  type_line: string;
+  image_uris: ImageUris;
 }
 
 type ScryfallColor = "W" | "U" | "B" | "R" | "G";
