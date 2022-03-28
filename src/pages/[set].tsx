@@ -66,5 +66,5 @@ const Page = ({ set, cards, lastUpdatedAtTicks }: StaticProps) => (
 export default Page;
 
 export const config = {
-  unstable_includeFiles: ["data/oracle-cards.json"],
+  unstable_includeFiles: ["data/scryfall-oracle-cards.json"],
 };
