@@ -101,7 +101,7 @@ const Page = ({ imageUrls }: StaticProps) => {
                 <div
                   key={imageUrl}
                   className={clsx(
-                    "transition-all duration-500 ease-in-out backface-invisible",
+                    "transition-transform duration-500 ease-in-out backface-invisible",
                     {
                       "absolute inset-0": imageUrl !== currentImageUrl,
                       "rotate-y-0": imageUrl === currentImageUrl,

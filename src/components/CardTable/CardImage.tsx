@@ -19,16 +19,19 @@ const DoubleFacedCardImage: FC<Props> = ({ card }) => {
     <div className="relative mb-6">
       <button onClick={toggleFlipped} type="button" aria-label="Flip card">
         <div
-          className={clsx("transition-all ease-in-out backface-invisible", {
-            "rotate-y-0": !flipped,
-            "rotate-y-180": flipped,
-          })}
+          className={clsx(
+            "transition-transform ease-in-out backface-invisible",
+            {
+              "rotate-y-0": !flipped,
+              "rotate-y-180": flipped,
+            }
+          )}
         >
           <FrontCardImage card={card} />
         </div>
         <div
           className={clsx(
-            "absolute inset-0 transition-all ease-in-out backface-invisible",
+            "absolute inset-0 transition-transform ease-in-out backface-invisible",
             {
               "rotate-y-0": flipped,
               "rotate-y-180": !flipped,
