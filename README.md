@@ -25,7 +25,7 @@ REDIS_URL=<your Redis connection URL>
 1. Add the new set to the `MagicSet` enum
 2. Add a user-facing name for the set on `SET_LABELS` at `lib/constants.ts`
 3. Add a start date for the set on `SET_START_DATES` at `lib/constants.ts`
-4. Once Scryfall is updated, download the Oracle Cards data file [here](https://scryfall.com/docs/api/bulk-data) and update `data/oracle-cards.json` in the repo
+4. Once Scryfall is updated, download the Oracle Cards data file [here](https://scryfall.com/docs/api/bulk-data) and update `data/scryfall-oracle-cards.json` in the repo
 5. Update the root redirect in `next.config.js` to redirect to the latest set
 6. Push to GitHub
 

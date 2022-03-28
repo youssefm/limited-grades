@@ -42,7 +42,7 @@ const readScryfallFile = async (): Promise<ScryfallCard[]> => {
   const scryfallFilePath = path.join(
     process.cwd(),
     "data",
-    "oracle-cards.json"
+    "scryfall-oracle-cards.json"
   );
   console.log(`Reading Scryfall data from ${scryfallFilePath}`);
   return JSON.parse(await readFile(scryfallFilePath, "utf8"));
