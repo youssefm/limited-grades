@@ -87,7 +87,7 @@ const Page = ({ imageUrls }: StaticProps) => {
         <title>Limited Grades</title>
       </Head>
       <div className="flex overflow-y-auto justify-center items-center h-full bg-neutral-900">
-        <div>
+        <div className="max-h-full">
           <h1 className="mb-4 text-4xl text-center text-neutral-100">
             For Sara 🙂
           </h1>
