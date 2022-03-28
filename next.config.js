@@ -1,7 +1,5 @@
 /** @type {import('next').NextConfig} */
 
-const { UMAMI_SERVER_NAME } = process.env;
-
 module.exports = {
   outputFileTracing: true,
   reactStrictMode: true,
@@ -17,4 +15,13 @@ module.exports = {
       permanent: false,
     },
   ],
+  webpack: (config) => {
+    config.module.rules.push({
+      test: /\.svg$/i,
+      issuer: /\.tsx?$/,
+      use: ["@svgr/webpack"],
+    });
+
+    return config;
+  },
 };
