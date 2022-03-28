@@ -38,15 +38,15 @@ const Page = ({ imageUrls }: StaticProps) => {
   const [currentImageUrl, setCurrentImageUrl] = useState<string | undefined>();
   const [activeImageUrls, setActiveImageUrls] = useState<string[]>([]);
 
-  const getRandomImage = useCallback(
+  const getRandomImageUrl = useCallback(
     () => imageUrls[Math.floor(Math.random() * imageUrls.length)],
     [imageUrls]
   );
 
   const moveToNextImage = useCallback(() => {
-    let nextImage = getRandomImage();
+    let nextImage = getRandomImageUrl();
     while (activeImageUrls.includes(nextImage)) {
-      nextImage = getRandomImage();
+      nextImage = getRandomImageUrl();
     }
     const nextActiveUrls = [...activeImageUrls, nextImage];
     if (currentImageUrl) {
@@ -59,17 +59,21 @@ const Page = ({ imageUrls }: StaticProps) => {
       }
     }
     setActiveImageUrls(nextActiveUrls);
-  }, [getRandomImage, activeImageUrls, currentImageUrl]);
+  }, [getRandomImageUrl, activeImageUrls, currentImageUrl]);
 
   useEffect(() => {
-    const currentImage = getRandomImage();
-    let nextImage = getRandomImage();
-    while (nextImage === currentImage) {
-      nextImage = getRandomImage();
+    const initialActiveImageUrls: string[] = [];
+    for (let i = 0; i < 4; i += 1) {
+      let imageUrl = getRandomImageUrl();
+      while (initialActiveImageUrls.includes(imageUrl)) {
+        imageUrl = getRandomImageUrl();
+      }
+      initialActiveImageUrls.push(imageUrl);
     }
-    setActiveImageUrls([currentImage, getRandomImage()]);
-    setCurrentImageUrl(currentImage);
-  }, [getRandomImage]);
+
+    setActiveImageUrls(initialActiveImageUrls);
+    setCurrentImageUrl(initialActiveImageUrls[0]);
+  }, [getRandomImageUrl]);
 
   useEffect(() => {
     const handleRightArrowPress = (e: KeyboardEvent) => {

@@ -2,6 +2,7 @@ import { readFile } from "fs/promises";
 import path from "path";
 
 import { upperFirst } from "lodash";
+import { ungzip } from "node-gzip";
 
 import { ALL_CARD_TYPES } from "lib/constants";
 import { CardType, Column } from "lib/types";
@@ -15,7 +16,7 @@ interface ScryfallCard {
   card_faces?: ScryfallCardFace[];
   colors?: ScryfallColor[];
   layout: string;
-  type_line: string;
+  type_line?: string;
   image_uris?: ImageUris;
 }
 
@@ -38,14 +39,12 @@ const COLUMNS_BY_COLOR: Record<ScryfallColor, Column> = {
 
 let CARD_INDEX: Map<string, ScryfallCard> | undefined;
 
-const readScryfallFile = async (): Promise<ScryfallCard[]> => {
-  const scryfallFilePath = path.join(
-    process.cwd(),
-    "data",
-    "scryfall-oracle-cards.json"
-  );
+const readScryfallFile = async (fileName: string): Promise<ScryfallCard[]> => {
+  const scryfallFilePath = path.join(process.cwd(), "data", `${fileName}.gz`);
   console.log(`Reading Scryfall data from ${scryfallFilePath}`);
-  return JSON.parse(await readFile(scryfallFilePath, "utf8"));
+  return JSON.parse(
+    (await ungzip(await readFile(scryfallFilePath))).toString("utf-8")
+  );
 };
 
 const shouldExcludeCard = (card: ScryfallCard) =>
@@ -54,7 +53,7 @@ const shouldExcludeCard = (card: ScryfallCard) =>
 const buildIndex = async () => {
   if (!CARD_INDEX) {
     CARD_INDEX = new Map();
-    for (const card of await readScryfallFile()) {
+    for (const card of await readScryfallFile("scryfall-oracle-cards.json")) {
       if (shouldExcludeCard(card)) {
         continue;
       }
@@ -101,14 +100,14 @@ export const getCardColumn = async (cardName: string): Promise<Column> => {
 export const getCardTypes = async (cardName: string): Promise<CardType[]> => {
   const scryfallCard = await lookupCard(cardName);
   return ALL_CARD_TYPES.filter((cardType) =>
-    scryfallCard.type_line.includes(upperFirst(cardType))
+    scryfallCard.type_line?.includes(upperFirst(cardType))
   );
 };
 
 export const getAllCardsByType = async (
   cardType: CardType
 ): Promise<ScryfallCard[]> =>
-  (await readScryfallFile()).filter(
+  (await readScryfallFile("scryfall-unique-artwork.json")).filter(
     (card) =>
-      !shouldExcludeCard(card) && card.type_line.includes(upperFirst(cardType))
+      !shouldExcludeCard(card) && card.type_line?.includes(upperFirst(cardType))
   );
