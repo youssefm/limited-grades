@@ -40,11 +40,12 @@ interface Props {
 const ColorIcon: FC<Props> = ({ color, className }) => {
   const SvgIcon = COLOR_ICONS[color];
   return (
+    // 1.375em = 1em + 0.125em padding * 2 + 0.0625em border * 2
     <SvgIcon
       width="1.375em"
       height="1.375em"
       className={clsx(
-        "inline-block text-black rounded-full border-[0.0625em] border-neutral-400 dark:border-black",
+        "inline-block text-black rounded-full border-[0.0625em] border-neutral-300 dark:border-black",
         BG_COLOR_CLASSES[color],
         TRANSITION_CLASSES,
         className
