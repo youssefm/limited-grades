@@ -42,7 +42,7 @@ const ColorIcon: FC<Props> = ({ color, className }) => {
       width="1.2em"
       height="1.2em"
       className={clsx(
-        "inline-block text-black rounded-[50%]",
+        "inline-block text-black rounded-full",
         BG_COLOR_CLASSES[color],
         className
       )}
