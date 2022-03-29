@@ -1,6 +1,7 @@
 import clsx from "clsx";
-import { FC } from "react";
+import { FC, useCallback } from "react";
 
+import SetIcon from "components/common/SetIcon";
 import { ALL_SETS, SET_LABELS } from "lib/constants";
 import { MagicSet } from "lib/types";
 
@@ -12,16 +13,22 @@ interface Props {
   className?: string;
 }
 
-const SetSelector: FC<Props> = ({ value, onChange, className }) => (
-  <IconSelect
-    value={value}
-    onChange={onChange}
-    options={ALL_SETS}
-    getLabel={(set) => SET_LABELS[set]}
-    getIcons={(set) => [`ss ss-fw ss-${set}`]}
-    instanceId="set-select"
-    className={clsx("min-w-[250px]", className)}
-  />
-);
+const SetSelector: FC<Props> = ({ value, onChange, className }) => {
+  const getIcon = useCallback(
+    (set: MagicSet) => <SetIcon set={set} className="text-2xl" />,
+    []
+  );
+  return (
+    <IconSelect
+      value={value}
+      onChange={onChange}
+      options={ALL_SETS}
+      getLabel={(set) => SET_LABELS[set]}
+      getIcon={getIcon}
+      instanceId="set-select"
+      className={clsx("min-w-[250px]", className)}
+    />
+  );
+};
 
 export default SetSelector;
