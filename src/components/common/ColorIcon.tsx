@@ -11,13 +11,13 @@ import MulticolorIcon from "assets/multicolor.svg";
 import { Column } from "lib/types";
 
 const BG_COLOR_CLASSES: Record<Column, string> = {
-  [Column.WHITE]: "p-0.5 bg-[#f0f2c0]",
-  [Column.BLUE]: "p-0.5 bg-[#b5cde3]",
-  [Column.BLACK]: "p-0.5 bg-[#aca29a]",
-  [Column.RED]: "p-0.5 bg-[#db8664]",
-  [Column.GREEN]: "p-0.5 bg-[#93b483]",
+  [Column.WHITE]: "p-[0.125em] bg-[#f0f2c0]",
+  [Column.BLUE]: "p-[0.125em] bg-[#b5cde3]",
+  [Column.BLACK]: "p-[0.125em] bg-[#aca29a]",
+  [Column.RED]: "p-[0.125em] bg-[#db8664]",
+  [Column.GREEN]: "p-[0.125em] bg-[#93b483]",
   [Column.MULTICOLOR]: "bg-gradient-to-tr from-mc-start via-mc-mid to-mc-start",
-  [Column.COLORLESS]: "p-0.5 bg-[#beb9b2]",
+  [Column.COLORLESS]: "p-[0.125em] bg-[#beb9b2]",
 };
 
 const COLOR_ICONS: Record<Column, FC<SVGProps<SVGSVGElement>>> = {
