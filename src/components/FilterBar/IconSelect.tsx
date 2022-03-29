@@ -1,6 +1,6 @@
 import clsx from "clsx";
 import { omit } from "lodash";
-import { FC, ReactElement, useCallback } from "react";
+import { FC, ReactElement, ReactNode, ReactNode, useCallback } from "react";
 import Select, {
   Colors,
   components,
@@ -34,7 +34,7 @@ interface Props<T> {
   onChange: (selectedValue: T) => void;
   options: T[];
   getLabel: (value: T) => string;
-  getIcons: (value: T) => string[];
+  getIcon: (value: T) => ReactNode;
   instanceId: string;
   className?: string;
 }
@@ -44,7 +44,7 @@ const IconSelect = <T extends unknown>({
   onChange,
   options,
   getLabel,
-  getIcons,
+  getIcon,
   instanceId,
   className,
 }: Props<T>) => {
@@ -57,8 +57,8 @@ const IconSelect = <T extends unknown>({
 
   const OptionView: FC<{ optionValue: T }> = useCallback(
     ({ optionValue, children }) => {
-      const icons = getIcons(optionValue);
-      if (icons.length === 0) {
+      const icon = getIcon(optionValue);
+      if (!icon) {
         // This type assertion is not technically correct but this is a workaround
         // for a Typescript issue: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/18051#issuecomment-485151038
         return children as ReactElement;
@@ -66,16 +66,12 @@ const IconSelect = <T extends unknown>({
 
       return (
         <div className="flex items-center">
-          <span>
-            {icons.map((icon) => (
-              <i className={clsx(icon, "mr-0.5 last:mr-0")} key={icon} />
-            ))}
-          </span>
+          {icon}
           <span className="ml-2">{children}</span>
         </div>
       );
     },
-    [getIcons]
+    [getIcon]
   );
 
   const SingleValue: FC<SingleValueProps<TOption, false>> = useCallback(

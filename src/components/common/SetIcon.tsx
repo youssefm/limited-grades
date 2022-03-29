@@ -38,11 +38,12 @@ const SET_ICONS: Record<MagicSet, FC<SVGProps<SVGSVGElement>>> = {
 
 interface Props {
   set: MagicSet;
+  className?: string;
 }
 
-const SetIcon: FC<Props> = ({ set }) => {
+const SetIcon: FC<Props> = ({ set, className }) => {
   const SvgIcon = SET_ICONS[set];
-  return <SvgIcon className="inline-block w-[1.28571429em] text-center" />;
+  return <SvgIcon width="1.28571429em" height="1em" className={className} />;
 };
 
 export default SetIcon;
