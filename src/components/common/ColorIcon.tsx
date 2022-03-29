@@ -41,8 +41,8 @@ const ColorIcon: FC<Props> = ({ color, className }) => {
   const SvgIcon = COLOR_ICONS[color];
   return (
     <SvgIcon
-      width="1.3125em"
-      height="1.3125em"
+      width="1.375em"
+      height="1.375em"
       className={clsx(
         "inline-block text-black rounded-full border-[0.0625em] border-neutral-400 dark:border-black",
         BG_COLOR_CLASSES[color],
