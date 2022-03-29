@@ -1,6 +1,5 @@
-import clsx from "clsx";
 import { omit } from "lodash";
-import { FC, ReactElement, ReactNode, ReactNode, useCallback } from "react";
+import { FC, ReactElement, ReactNode, useCallback } from "react";
 import Select, {
   Colors,
   components,

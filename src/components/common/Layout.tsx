@@ -41,13 +41,6 @@ const Layout: FC = ({ children }) => (
       />
       <link
         rel="preload"
-        href="/_next/static/media/keyrune.3c0d16c0.woff2"
-        as="font"
-        type="font/woff2"
-        crossOrigin="anonymous"
-      />
-      <link
-        rel="preload"
         href="/_next/static/media/mana.6d4e9ad8.woff"
         as="font"
         type="font/woff2"
