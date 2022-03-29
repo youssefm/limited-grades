@@ -16,7 +16,8 @@ const BG_COLOR_CLASSES: Record<Column, string> = {
   [Column.BLACK]: "p-[0.125em] bg-[#aca29a]",
   [Column.RED]: "p-[0.125em] bg-[#db8664]",
   [Column.GREEN]: "p-[0.125em] bg-[#93b483]",
-  [Column.MULTICOLOR]: "bg-gradient-to-tr from-mc-start via-mc-mid to-mc-start",
+  [Column.MULTICOLOR]:
+    "bg-gradient-to-tr from-[#cca54f] via-[#e0d3bb] to-[#cca54f]",
   [Column.COLORLESS]: "p-[0.125em] bg-[#beb9b2]",
 };
 
