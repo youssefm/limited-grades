@@ -8,6 +8,7 @@ import WhiteIcon from "mana-font/svg/w.svg";
 import { FC, SVGProps } from "react";
 
 import MulticolorIcon from "assets/multicolor.svg";
+import { TRANSITION_CLASSES } from "lib/styles";
 import { Column } from "lib/types";
 
 const BG_COLOR_CLASSES: Record<Column, string> = {
@@ -40,11 +41,12 @@ const ColorIcon: FC<Props> = ({ color, className }) => {
   const SvgIcon = COLOR_ICONS[color];
   return (
     <SvgIcon
-      width="1.25em"
-      height="1.25em"
+      width="1.3125em"
+      height="1.3125em"
       className={clsx(
-        "inline-block text-black rounded-full",
+        "inline-block text-black rounded-full border-[0.0625em] border-neutral-400 dark:border-black",
         BG_COLOR_CLASSES[color],
+        TRANSITION_CLASSES,
         className
       )}
     />
