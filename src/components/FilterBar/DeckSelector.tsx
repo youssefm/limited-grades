@@ -1,8 +1,8 @@
 import clsx from "clsx";
 import { FC, useCallback } from "react";
 
+import ColorIcon from "components/common/ColorIcon";
 import { ALL_DECKS, DECK_COLORS, DECK_LABELS } from "lib/constants";
-import { COLUMN_ICONS } from "lib/styles";
 import { Deck } from "lib/types";
 
 import IconSelect from "./IconSelect";
@@ -22,10 +22,7 @@ const DeckSelector: FC<Props> = ({ value, onChange, className }) => {
     return (
       <span>
         {colors.map((color) => (
-          <i
-            key={color}
-            className={clsx(COLUMN_ICONS[color], "mr-0.5 last:mr-0")}
-          />
+          <ColorIcon key={color} color={color} className="mr-0.5 last:mr-0" />
         ))}
       </span>
     );
