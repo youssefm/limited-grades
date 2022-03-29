@@ -46,7 +46,7 @@ const Page = ({ set, cards, lastUpdatedAtTicks }: StaticProps) => (
     <div
       className={clsx(
         "flex overflow-y-auto flex-col px-2 h-full scrollbar-gutter-stable",
-        "dark:text-neutral-100 dark:bg-neutral-900",
+        "text-neutral-800 dark:text-neutral-100 dark:bg-neutral-900",
         TRANSITION_CLASSES
       )}
     >

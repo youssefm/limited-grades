@@ -39,7 +39,7 @@ const DeckAnalysisTable: FC<Props> = ({ card, showStats }) => (
                 <div className="flex justify-center">
                   <div
                     className={clsx(
-                      "py-3 text-2xl font-bold dark:text-black",
+                      "py-3 text-2xl font-bold text-black",
                       {
                         "pl-4 w-16": showStats,
                         "pl-12 w-32": !showStats,
