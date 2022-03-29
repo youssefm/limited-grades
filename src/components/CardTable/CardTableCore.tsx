@@ -1,12 +1,9 @@
 import clsx from "clsx";
 import { FC, memo } from "react";
 
+import ColorIcon from "components/common/ColorIcon";
 import { ALL_COLUMNS, ALL_GRADES } from "lib/constants";
-import {
-  COLUMN_ICONS,
-  GRADE_BORDER_COLORS,
-  TRANSITION_CLASSES,
-} from "lib/styles";
+import { GRADE_BORDER_COLORS, TRANSITION_CLASSES } from "lib/styles";
 import { CardTableDictionary } from "lib/table";
 import { Card, Grade } from "lib/types";
 import { matchesMedia } from "lib/util";
@@ -39,7 +36,7 @@ const CardTableCore: FC<Props> = ({
         <div />
         {ALL_COLUMNS.map((column) => (
           <div key={column} className="p-[1px] text-center">
-            <i className={clsx("my-2", COLUMN_ICONS[column])} />
+            <ColorIcon color={column} className="my-2" />
           </div>
         ))}
       </div>
@@ -91,7 +88,7 @@ const CardTableCore: FC<Props> = ({
                         TRANSITION_CLASSES
                       )}
                     >
-                      <i className={clsx("my-2", COLUMN_ICONS[column])} />
+                      <ColorIcon color={column} className="my-2" />
                     </div>
                     <div
                       className={clsx(

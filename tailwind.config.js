@@ -14,6 +14,8 @@ module.exports = {
       uncommon: "#707883",
       rare: "#a58e4a",
       mythic: "#bf4427",
+      "mc-start": "#cca54f",
+      "mc-mid": "#e0d3bb",
       "A+": "#23c552",
       A: "#41c755",
       "A-": "#60ca58",

@@ -39,13 +39,6 @@ const Layout: FC = ({ children }) => (
         type="font/woff2"
         crossOrigin="anonymous"
       />
-      <link
-        rel="preload"
-        href="/_next/static/media/mana.6d4e9ad8.woff"
-        as="font"
-        type="font/woff2"
-        crossOrigin="anonymous"
-      />
     </Head>
 
     <DarkModeProvider>{children}</DarkModeProvider>

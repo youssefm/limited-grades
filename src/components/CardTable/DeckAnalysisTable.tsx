@@ -2,8 +2,9 @@ import clsx from "clsx";
 import { sortBy } from "lodash";
 import React, { FC } from "react";
 
+import ColorIcon from "components/common/ColorIcon";
 import { DECK_COLORS } from "lib/constants";
-import { COLUMN_ICONS, GRADE_BG_COLORS, GRADE_BORDER_COLORS } from "lib/styles";
+import { GRADE_BG_COLORS, GRADE_BORDER_COLORS } from "lib/styles";
 import { Card, Deck } from "lib/types";
 import { formatPercentage } from "lib/util";
 
@@ -27,9 +28,10 @@ const DeckAnalysisTable: FC<Props> = ({ card, showStats }) => (
                 ) : (
                   <div className="inline-block">
                     {deckColors.map((column) => (
-                      <i
+                      <ColorIcon
                         key={column}
-                        className={clsx(COLUMN_ICONS[column], "mr-1 last:mr-0")}
+                        color={column}
+                        className="mr-1 last:mr-0"
                       />
                     ))}
                   </div>

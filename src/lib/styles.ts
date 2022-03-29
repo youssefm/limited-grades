@@ -1,18 +1,7 @@
-import { Column, Grade } from "lib/types";
+import { Grade } from "lib/types";
 
 export const HOVER_CLASSES = "hover:text-blue-500 dark:hover:text-amber-600";
 export const TRANSITION_CLASSES = "transition-colors ease-[ease]";
-
-export const COLUMN_ICONS: Record<Column, string> = {
-  [Column.WHITE]: "ms ms-w ms-cost",
-  [Column.BLUE]: "ms ms-u ms-cost",
-  [Column.BLACK]: "ms ms-b ms-cost",
-  [Column.RED]: "ms ms-r ms-cost",
-  [Column.GREEN]: "ms ms-g ms-cost",
-  [Column.MULTICOLOR]:
-    "ms ms-multicolor ms-duo ms-duo-color ms-grad scale-[1.44]",
-  [Column.COLORLESS]: "ms ms-c ms-cost",
-};
 
 export const GRADE_BG_COLORS: Record<Grade, string> = {
   [Grade.A_PLUS]: "bg-A+",

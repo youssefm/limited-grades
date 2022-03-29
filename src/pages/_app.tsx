@@ -1,5 +1,4 @@
 import "@saeris/typeface-beleren-bold";
-import "mana-font/css/mana.min.css";
 import { AppProps } from "next/dist/shared/lib/router/router";
 import Script from "next/script";
 import React from "react";
