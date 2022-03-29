@@ -1,5 +1,4 @@
 import "@saeris/typeface-beleren-bold";
-import "keyrune/css/keyrune.min.css";
 import "mana-font/css/mana.min.css";
 import { AppProps } from "next/dist/shared/lib/router/router";
 import Script from "next/script";

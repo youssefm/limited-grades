@@ -1,11 +1,12 @@
 import clsx from "clsx";
+import { ReactElement } from "react";
 
 import { TRANSITION_CLASSES } from "lib/styles";
 
 interface Filter<T> {
   label: string;
   values: T[];
-  icon: string;
+  icon: ReactElement;
 }
 
 interface Props<T> {
@@ -74,7 +75,7 @@ const IconFilterGroup = <T extends unknown>({
                 TRANSITION_CLASSES
               )}
             >
-              <i className={icon} />
+              {icon}
             </div>
           </label>
         </div>

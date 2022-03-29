@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { FC } from "react";
 
+import SetIcon from "components/common/SetIcon";
 import { TRANSITION_CLASSES } from "lib/styles";
 import { MagicSet, Rarity } from "lib/types";
 
@@ -10,25 +11,30 @@ const getFilters = (set: MagicSet) => [
   {
     label: "commons",
     values: [Rarity.COMMON],
-    icon: clsx(
-      `ss ss-${set} dark:text-neutral-300 ss-common`,
-      TRANSITION_CLASSES
+    icon: (
+      <SetIcon
+        set={set}
+        className={clsx(
+          "text-common dark:text-neutral-300",
+          TRANSITION_CLASSES
+        )}
+      />
     ),
   },
   {
     label: "uncommons",
     values: [Rarity.UNCOMMON],
-    icon: `ss ss-${set} ss-uncommon`,
+    icon: <SetIcon set={set} className="text-uncommon" />,
   },
   {
     label: "rares",
     values: [Rarity.RARE],
-    icon: `ss ss-${set} ss-rare`,
+    icon: <SetIcon set={set} className="text-rare" />,
   },
   {
     label: "mythics",
     values: [Rarity.MYTHIC],
-    icon: `ss ss-${set} ss-mythic`,
+    icon: <SetIcon set={set} className="text-mythic" />,
   },
 ];
 
