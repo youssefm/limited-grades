@@ -77,13 +77,13 @@ export interface Card {
   stats: Partial<Record<Deck, CardStats>>;
 }
 
-interface CardStats {
+export interface CardStats {
   winrate: number;
   gameCount: number;
   grade: Grade;
 }
 
-interface OverallCardStats {
+export interface OverallCardStats {
   drawnCount: number;
   lastSeenAt: number;
   takenAt: number;

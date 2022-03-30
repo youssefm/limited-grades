@@ -13,15 +13,15 @@ interface Props {
 
 const CardDetail: FC<Props> = ({ card, showStats }) => (
   <div className="flex flex-col gap-6 lg:flex-row">
-    <div className="self-center">
+    <div className="self-center mt-9 lg:self-start">
       <CardImage card={card} />
     </div>
-    <div className="self-stretch lg:self-start">
+    <div className="self-stretch">
       <div className="mb-2 text-lg">Deck Analysis</div>
       <DeckAnalysisTable card={card} showStats={showStats} />
     </div>
     {showStats && (
-      <div className="self-stretch lg:self-start">
+      <div className="self-stretch">
         <div className="mb-2 text-lg">Full 17Lands Stats</div>
         <DetailedStatsTable card={card} />
       </div>

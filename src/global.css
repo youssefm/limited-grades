@@ -50,6 +50,10 @@ body,
   height: 100%;
 }
 
+svg {
+  pointer-events: none;
+}
+
 .hide-banner #page-info-banner {
   display: none;
 }

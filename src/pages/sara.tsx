@@ -5,6 +5,7 @@ import { GetStaticProps } from "next";
 import Head from "next/head";
 import { useCallback, useEffect, useState } from "react";
 
+import Center from "components/common/Center";
 import { getAllCardsByType } from "lib/scryfall";
 import { CardType } from "lib/types";
 
@@ -90,7 +91,7 @@ const Page = ({ imageUrls }: StaticProps) => {
       <Head>
         <title>Limited Grades</title>
       </Head>
-      <div className="flex overflow-y-auto justify-center items-center h-full bg-neutral-900">
+      <Center className="overflow-y-auto h-full bg-neutral-900">
         <div className="max-h-full">
           <h1 className="mb-4 text-4xl text-center text-neutral-100">
             For Sara 🙂
@@ -115,7 +116,7 @@ const Page = ({ imageUrls }: StaticProps) => {
             </button>
           </div>
         </div>
-      </div>
+      </Center>
     </>
   );
 };
