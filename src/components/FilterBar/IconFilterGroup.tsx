@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { ReactElement } from "react";
 
+import Center from "components/common/Center";
 import { TRANSITION_CLASSES } from "lib/styles";
 
 interface Filter<T> {
@@ -66,9 +67,9 @@ const IconFilterGroup = <T extends unknown>({
               onChange={toggle}
               className="peer hidden"
             />
-            <div
+            <Center
               className={clsx(
-                "flex justify-center items-center w-full h-full text-2xl",
+                "w-full h-full text-2xl",
                 "bg-neutral-200 peer-checked:bg-neutral-50 hover:!bg-neutral-200",
                 "dark:bg-neutral-800 dark:peer-checked:bg-neutral-800 dark:hover:!bg-neutral-900",
                 "opacity-30 peer-checked:opacity-100",
@@ -76,7 +77,7 @@ const IconFilterGroup = <T extends unknown>({
               )}
             >
               {icon}
-            </div>
+            </Center>
           </label>
         </div>
       );

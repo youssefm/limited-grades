@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { FC, memo } from "react";
 
+import Center from "components/common/Center";
 import ColorIcon from "components/common/ColorIcon";
 import { ALL_COLUMNS, ALL_GRADES } from "lib/constants";
 import { GRADE_BORDER_COLORS, TRANSITION_CLASSES } from "lib/styles";
@@ -80,16 +81,16 @@ const CardTableCore: FC<Props> = ({
                       hidden: cellCards.length === 0,
                     })}
                   >
-                    <div
+                    <Center
                       className={clsx(
-                        "flex shrink-0 justify-center items-center w-16 border-l-4 lg:hidden",
+                        "shrink-0 w-16 border-l-4 lg:hidden",
                         HEADER_BG_CLASSES,
                         GRADE_BORDER_COLORS[grade],
                         TRANSITION_CLASSES
                       )}
                     >
                       <ColorIcon color={column} className="my-2" />
-                    </div>
+                    </Center>
                     <div
                       className={clsx(
                         "grow p-2 bg-neutral-100 dark:bg-neutral-800 lg:px-1 lg:h-full",
