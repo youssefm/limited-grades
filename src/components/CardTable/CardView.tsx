@@ -35,7 +35,12 @@ const CardView: FC<Props> = ({ card, onClick, enableHover }) => {
       );
     }
     return (
-      <Tippy content={tooltip} placement="bottom-start" trigger="mouseenter">
+      <Tippy
+        content={tooltip}
+        placement="bottom-start"
+        trigger="mouseenter"
+        animation={false}
+      >
         <CardBubble {...cardBubbleProps} enableHover />
       </Tippy>
     );

@@ -14,6 +14,7 @@ const StatsRow: FC<{
       <Tippy
         content={<div className="p-2 max-w-sm">{tooltipText}</div>}
         placement="bottom-start"
+        animation={false}
       >
         <span className="cursor-pointer">{label}</span>
       </Tippy>
