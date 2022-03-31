@@ -20,7 +20,7 @@ const DeckSelector: FC<Props> = ({ value, onChange, className }) => {
       return null;
     }
     return (
-      <span>
+      <span className="relative bottom-0.5">
         {colors.map((color) => (
           <ColorIcon key={color} color={color} className="mr-0.5 last:mr-0" />
         ))}
