@@ -64,7 +64,7 @@ const IconSelect = <T extends unknown>({
       }
 
       return (
-        <div className="flex items-center">
+        <div className="flex">
           {icon}
           <span className="ml-2">{children}</span>
         </div>
