@@ -43,10 +43,10 @@ const DeckStatsRow = ({
       )}
     </Center>
     <div className="grow py-2 px-4">
-      <div className="flex justify-center">
+      <div className="flex">
         <div
           className={clsx(
-            "py-3 text-2xl font-bold text-black",
+            "py-3 mx-auto text-2xl font-bold text-black",
             {
               "pl-4 w-16": showStats,
               "pl-12 w-32": !showStats,
@@ -115,7 +115,7 @@ const DeckAnalysisTable: FC<Props> = ({ card, showStats }) => {
         <Collapsible isExpanded={!isExpanded}>
           <button
             className={clsx(
-              "flex justify-center pt-1 w-full text-neutral-300 dark:text-neutral-700",
+              "pt-1 w-full text-neutral-300 dark:text-neutral-700",
               HOVER_CLASSES,
               TRANSITION_CLASSES
             )}
@@ -123,7 +123,7 @@ const DeckAnalysisTable: FC<Props> = ({ card, showStats }) => {
             type="button"
             aria-label="More deck stats"
           >
-            <FaChevronDown />
+            <FaChevronDown className="mx-auto" />
           </button>
         </Collapsible>
       )}

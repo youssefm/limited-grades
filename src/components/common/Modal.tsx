@@ -18,7 +18,7 @@ const Modal: FC<Props> = ({ title, onClose, className, children }) => {
     <Dialog
       open
       onClose={onClose}
-      className="flex fixed inset-0 justify-center items-center"
+      className="grid fixed inset-0 place-items-center"
       initialFocus={closeButtonRef}
     >
       <Dialog.Overlay className="fixed inset-0 z-10 bg-black/60 backdrop-blur-xs" />

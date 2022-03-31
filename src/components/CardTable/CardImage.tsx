@@ -41,10 +41,10 @@ const DoubleFacedCardImage: FC<Props> = ({ card }) => {
           <BackCardImage card={card} />
         </div>
       </button>
-      <div className="flex absolute inset-x-0 -bottom-6 justify-center">
+      <div className="absolute inset-x-0 -bottom-6">
         <button
           className={clsx(
-            "p-2 text-2xl bg-neutral-200 dark:bg-neutral-800 rounded-full",
+            "block p-2 mx-auto text-2xl bg-neutral-200 dark:bg-neutral-800 rounded-full",
             HOVER_CLASSES,
             TRANSITION_CLASSES
           )}

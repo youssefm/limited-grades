@@ -72,7 +72,7 @@ const FilterBar: FC = () => {
       <Collapsible isExpanded={!isExpanded} className="lg:hidden">
         <button
           className={clsx(
-            "flex justify-center pt-1 w-full text-neutral-300 dark:text-neutral-700",
+            "pt-1 w-full text-neutral-300 dark:text-neutral-700",
             HOVER_CLASSES,
             TRANSITION_CLASSES
           )}
@@ -80,7 +80,7 @@ const FilterBar: FC = () => {
           type="button"
           aria-label="More filters"
         >
-          <FaChevronDown />
+          <FaChevronDown className="mx-auto" />
         </button>
       </Collapsible>
     </>
