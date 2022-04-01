@@ -18,7 +18,7 @@ const PageHeader = () => {
         <div className="mr-2">
           <Image
             src="/apple-touch-icon.png"
-            alt="Limited Grades"
+            alt="Logo"
             height={32}
             width={32}
             priority
