@@ -1,5 +1,7 @@
 import { omit } from "lodash";
+import { Ref } from "react";
 import ReactSelect, { Colors } from "react-select";
+import ReactSelectRef from "react-select/dist/declarations/src/Select";
 import { StateManagerProps } from "react-select/dist/declarations/src/stateManager";
 
 import useDarkMode from "hooks/useDarkMode";
@@ -22,15 +24,16 @@ const getDarkModeColors = (baseColors: Colors) => ({
   primary25: "#d97706", // tailwind amber-600
 });
 
-interface Props<T>
+export interface Props<T>
   extends Omit<
     StateManagerProps<{ value: T; label: string }, false>,
     "value" | "onChange" | "options"
   > {
-  value: T;
-  onChange: (selectedValue: T) => void;
+  value: T | undefined;
+  onChange: (selectedValue: T | undefined) => void;
   options: T[];
   getLabel: (value: T) => string;
+  innerRef?: Ref<ReactSelectRef<{ value: T; label: string }, false>>;
 }
 
 const Select = <T extends unknown>({
@@ -38,6 +41,7 @@ const Select = <T extends unknown>({
   onChange,
   options,
   getLabel,
+  innerRef,
   ...extraProps
 }: Props<T>) => {
   const [darkModeEnabled] = useDarkMode();
@@ -49,11 +53,9 @@ const Select = <T extends unknown>({
 
   const selectProps: StateManagerProps<TOption, false> = {
     ...extraProps,
-    value: { value, label: getLabel(value) },
+    value: value ? { value, label: getLabel(value) } : undefined,
     onChange: (selectedOption: TOption | null) => {
-      if (selectedOption) {
-        onChange(selectedOption.value);
-      }
+      onChange(selectedOption?.value);
     },
     options: options.map((option: T) => ({
       value: option,
@@ -102,7 +104,7 @@ const Select = <T extends unknown>({
     });
   }
 
-  return <ReactSelect {...selectProps} />;
+  return <ReactSelect ref={innerRef} {...selectProps} />;
 };
 
 export default Select;

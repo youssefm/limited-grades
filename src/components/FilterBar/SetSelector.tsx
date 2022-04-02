@@ -21,7 +21,11 @@ const SetSelector: FC<Props> = ({ value, onChange, className }) => {
   return (
     <IconSelect
       value={value}
-      onChange={onChange}
+      onChange={(selectedValue) => {
+        if (selectedValue) {
+          onChange(selectedValue);
+        }
+      }}
       options={ALL_SETS}
       getLabel={(set) => SET_LABELS[set]}
       getIcon={getIcon}

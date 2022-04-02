@@ -63,6 +63,7 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
 
   return {
     set,
+    cards,
     selectedSet,
     changeSet,
     setLoading,

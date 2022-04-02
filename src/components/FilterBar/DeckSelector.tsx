@@ -30,7 +30,11 @@ const DeckSelector: FC<Props> = ({ value, onChange, className }) => {
   return (
     <IconSelect
       value={value}
-      onChange={onChange}
+      onChange={(selectedValue) => {
+        if (selectedValue) {
+          onChange(selectedValue);
+        }
+      }}
       options={ALL_DECKS}
       getLabel={(deck) => DECK_LABELS[deck]}
       getIcon={getIcon}
