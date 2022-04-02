@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { ImInfo } from "react-icons/im";
 
-import CardDetail from "components/CardTable/CardDetail";
 import Banner from "components/common/Banner";
+import CardDetail from "components/common/CardDetail";
 import Modal from "components/common/Modal";
 import { isSetUnderEmbargo } from "lib/sets";
 import { Card, MagicSet } from "lib/types";
