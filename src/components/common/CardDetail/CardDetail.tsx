@@ -12,12 +12,13 @@ import DetailedStatsTable from "./DetailedStatsTable";
 interface Props {
   card: Card;
   set: MagicSet;
+  className?: string;
 }
 
-const CardDetail: FC<Props> = ({ card, set }) => {
+const CardDetail: FC<Props> = ({ card, set, className }) => {
   const underEmbargo = isSetUnderEmbargo(set);
   return (
-    <>
+    <div className={className}>
       {underEmbargo && (
         <Banner dismissable={false}>
           <ImInfo className="inline relative bottom-0.5 mr-2" />
@@ -39,7 +40,7 @@ const CardDetail: FC<Props> = ({ card, set }) => {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

@@ -10,6 +10,7 @@ import CardTypeFilter from "./CardTypeFilter";
 import DeckSelector from "./DeckSelector";
 import FilterGroup from "./FilterGroup";
 import RarityFilter from "./RarityFilter";
+import SearchButton from "./SearchButton";
 import SetSelector from "./SetSelector";
 
 const FLEX_CLASSES = "flex flex-col gap-2 lg:flex-row lg:gap-4";
@@ -18,6 +19,7 @@ const FilterBar: FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
   const {
     set,
+    cards,
     selectedSet,
     changeSet,
     deck,
@@ -32,7 +34,7 @@ const FilterBar: FC = () => {
     <>
       <div
         className={clsx(
-          "px-4 pt-4 pb-2 lg:px-8 lg:pb-4",
+          "px-4 pt-4 pb-2 lg:pb-4 lg:pl-8",
           "bg-neutral-100 dark:bg-neutral-800 rounded-t-lg",
           FLEX_CLASSES,
           TRANSITION_CLASSES
@@ -68,6 +70,9 @@ const FilterBar: FC = () => {
             />
           </FilterGroup>
         </Collapsible>
+        <FilterGroup label="Search" className="hidden ml-auto lg:block">
+          <SearchButton cards={cards} set={set} />
+        </FilterGroup>
       </div>
       <Collapsible isExpanded={!isExpanded} className="lg:hidden">
         <button

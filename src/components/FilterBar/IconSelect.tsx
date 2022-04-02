@@ -1,26 +1,15 @@
 import { FC, ReactElement, ReactNode, useCallback } from "react";
 import { components, OptionProps, SingleValueProps } from "react-select";
 
-import Select from "components/common/Select";
+import Select, { Props as SelectProps } from "components/common/Select";
 
-interface Props<T> {
-  value: T;
-  onChange: (selectedValue: T) => void;
-  options: T[];
-  getLabel: (value: T) => string;
+interface Props<T> extends SelectProps<T> {
   getIcon: (value: T) => ReactNode;
-  instanceId: string;
-  className?: string;
 }
 
 const IconSelect = <T extends unknown>({
-  value,
-  onChange,
-  options,
-  getLabel,
   getIcon,
-  instanceId,
-  className,
+  ...extraProps
 }: Props<T>) => {
   interface TOption {
     value: T;
@@ -64,17 +53,7 @@ const IconSelect = <T extends unknown>({
     [OptionView]
   );
 
-  return (
-    <Select
-      value={value}
-      onChange={onChange}
-      options={options}
-      getLabel={getLabel}
-      components={{ SingleValue, Option }}
-      instanceId={instanceId}
-      className={className}
-    />
-  );
+  return <Select components={{ SingleValue, Option }} {...extraProps} />;
 };
 
 export default IconSelect;

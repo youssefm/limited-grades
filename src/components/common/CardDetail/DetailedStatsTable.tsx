@@ -28,7 +28,7 @@ interface Props {
 }
 
 const DetailedStatsTable: FC<Props> = ({ card }) => (
-  <table className="w-full border border-neutral-200 dark:border-black">
+  <table className="w-full border border-neutral-200 dark:border-black lg:w-[21em]">
     <tbody>
       <StatsRow
         label="Average last seen at"

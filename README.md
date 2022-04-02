@@ -34,7 +34,6 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 
 # What's next
 
-- Search feature?
 - Start filters all off
 - Improve filter button styling?
 - Allow toggling columns?
