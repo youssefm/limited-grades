@@ -9,14 +9,15 @@ import { Card } from "lib/types";
 
 interface Props {
   card: Card;
+  className?: string;
 }
 
-const DoubleFacedCardImage: FC<Props> = ({ card }) => {
+const DoubleFacedCardImage: FC<Props> = ({ card, className }) => {
   const [flipped, setFlipped] = useState(false);
 
   const toggleFlipped = () => setFlipped(!flipped);
   return (
-    <div className="relative mb-6">
+    <div className={clsx("relative mb-6", className)}>
       <button onClick={toggleFlipped} type="button" aria-label="Flip card">
         <div
           className={clsx(
@@ -59,11 +60,11 @@ const DoubleFacedCardImage: FC<Props> = ({ card }) => {
   );
 };
 
-const CardImage: FC<Props> = ({ card }) =>
+const CardImage: FC<Props> = ({ card, className }) =>
   card.cardBackUrl ? (
-    <DoubleFacedCardImage card={card} />
+    <DoubleFacedCardImage card={card} className={className} />
   ) : (
-    <FrontCardImage card={card} />
+    <FrontCardImage card={card} className={className} />
   );
 
 export default CardImage;
