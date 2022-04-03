@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import { FC, useCallback, useRef, useState } from "react";
 import { createFilter } from "react-select";
 
@@ -16,7 +15,6 @@ interface Props {
 }
 
 // TODO:
-// Fix image switching user experience
 // fix having to use innerRef with typescript?
 // Enable search for mobile?
 
@@ -66,7 +64,7 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
       <CardDetail
         card={selectedCard ?? cards[0]}
         set={set}
-        className={clsx({ invisible: !selectedCard })}
+        isVisible={Boolean(selectedCard)}
       />
     </Modal>
   );
