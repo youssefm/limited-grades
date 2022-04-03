@@ -14,7 +14,7 @@ interface Props {
 const useCardTableContextValue = ({ set, cards }: Props) => {
   const router = useRouter();
   const [selectedSet, setSelectedSet] = useState(set);
-  const [loading, setLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [deck, setDeck] = useState(Deck.ALL);
   const [visibleRarities, setVisibleRarities] = useState(new Set(ALL_RARITIES));
   const [visibleCardTypes, setVisibleCardTypes] = useState(
@@ -24,28 +24,28 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
 
   useEffect(() => {
     if (selectedSet === set) {
-      if (loading) {
-        setLoading(false);
+      if (isLoading) {
+        setIsLoading(false);
         setShowSkeletons(false);
       }
-    } else if (loading) {
+    } else if (isLoading) {
       router
         .push(`/${selectedSet}`)
         .catch((error) => console.log(`Failed to push new route: ${error}`));
     } else {
       setSelectedSet(set);
     }
-  }, [selectedSet, set, loading, router]);
+  }, [selectedSet, set, isLoading, router]);
 
   useEffect(() => {
-    if (loading) {
+    if (isLoading) {
       // Add small delay before showing placeholders to prevent screen stuttering
       const timer = setTimeout(() => setShowSkeletons(true), 300);
       return () => clearTimeout(timer);
     }
     setShowSkeletons(false);
     return undefined;
-  }, [loading]);
+  }, [isLoading]);
 
   const cardDictionary = useMemo(() => {
     const filteredCards = cards
@@ -58,7 +58,7 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
 
   const changeSet = (newSet: MagicSet) => {
     setSelectedSet(newSet);
-    setLoading(true);
+    setIsLoading(true);
   };
 
   return {
@@ -66,7 +66,6 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
     cards,
     selectedSet,
     changeSet,
-    setLoading,
     deck,
     setDeck,
     visibleRarities,
