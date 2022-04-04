@@ -56,6 +56,7 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
           inputRef.current = select ? select.inputRef : null;
         }}
         isClearable
+        autoFocus
       />
       {!selectedCard && <div className="lg:w-[912.22px] lg:h-[440px]" />}
       {selectedCard && (
