@@ -34,9 +34,6 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 
 # What's next
 
-- Fix double render on filter bar when switching sets
-- Split useCardTableContext into two?
-- Show spinner for images until they load
 - Start filters all off
 - Improve filter button styling?
 - Allow toggling columns?

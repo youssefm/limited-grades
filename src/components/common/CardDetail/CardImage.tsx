@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { FC, useState } from "react";
+import React, { FC, ReactEventHandler, useState } from "react";
 import { GrRotateLeft, GrRotateRight } from "react-icons/gr";
 
 import BackCardImage from "components/common/BackCardImage";
@@ -10,9 +10,10 @@ import { Card } from "lib/types";
 interface Props {
   card: Card;
   className?: string;
+  onLoad?: ReactEventHandler<HTMLImageElement>;
 }
 
-const DoubleFacedCardImage: FC<Props> = ({ card, className }) => {
+const DoubleFacedCardImage: FC<Props> = ({ card, className, onLoad }) => {
   const [flipped, setFlipped] = useState(false);
 
   const toggleFlipped = () => setFlipped(!flipped);
@@ -28,7 +29,7 @@ const DoubleFacedCardImage: FC<Props> = ({ card, className }) => {
             }
           )}
         >
-          <FrontCardImage card={card} />
+          <FrontCardImage card={card} onLoad={onLoad} />
         </div>
         <div
           className={clsx(
@@ -60,11 +61,11 @@ const DoubleFacedCardImage: FC<Props> = ({ card, className }) => {
   );
 };
 
-const CardImage: FC<Props> = ({ card, className }) =>
+const CardImage: FC<Props> = ({ card, className, onLoad }) =>
   card.cardBackUrl ? (
-    <DoubleFacedCardImage card={card} className={className} />
+    <DoubleFacedCardImage card={card} className={className} onLoad={onLoad} />
   ) : (
-    <FrontCardImage card={card} className={className} />
+    <FrontCardImage card={card} className={className} onLoad={onLoad} />
   );
 
 export default CardImage;

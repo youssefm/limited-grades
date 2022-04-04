@@ -65,6 +65,7 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
         card={selectedCard ?? cards[0]}
         set={set}
         isVisible={Boolean(selectedCard)}
+        showLoadingState
       />
     </Modal>
   );
