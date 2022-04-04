@@ -14,9 +14,6 @@ interface Props {
   onClose: () => void;
 }
 
-// TODO:
-// Enable search for mobile?
-
 const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
   const [selectedCard, setSelectedCard] = useState<Card>();
   const inputRef = useRef<HTMLInputElement | null>(null);
