@@ -53,7 +53,7 @@ const FilterBar: FC = () => {
         <Collapsible
           isExpanded={isExpanded}
           className={clsx(
-            "grow lg:overflow-visible lg:!max-h-[none]",
+            "grow lg:!overflow-visible lg:!max-h-[none]",
             FLEX_CLASSES
           )}
         >

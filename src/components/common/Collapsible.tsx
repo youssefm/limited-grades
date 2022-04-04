@@ -25,6 +25,7 @@ const Collapsible: FC<Props> = ({ isExpanded, id, className, children }) => {
           // We need maxHeight to be applied in the DOM for the transition to work
           // eslint-disable-next-line @typescript-eslint/no-unused-expressions
           element.scrollHeight;
+          element.style.overflow = "hidden";
           element.style.maxHeight = "0";
         }
       } else {
@@ -37,17 +38,19 @@ const Collapsible: FC<Props> = ({ isExpanded, id, className, children }) => {
     if (event.target === ref.current && isExpanded) {
       // Remove height constraint so element can regain responsiveness
       ref.current.style.removeProperty("maxHeight");
+      ref.current.style.removeProperty("overflow");
     }
   };
 
   return (
     <div
       id={id}
-      className={clsx(
-        "overflow-hidden transition-max-h ease-[ease]",
-        className
-      )}
-      style={pendingFirstExpansion.current ? { maxHeight: 0 } : undefined}
+      className={clsx("transition-max-h ease-[ease]", className)}
+      style={
+        pendingFirstExpansion.current
+          ? { maxHeight: 0, overflow: "hidden" }
+          : undefined
+      }
       onTransitionEnd={onTransitionEnd}
       ref={ref}
     >
