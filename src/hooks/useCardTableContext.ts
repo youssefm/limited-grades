@@ -1,10 +1,12 @@
 import constate from "constate";
 import { useRouter } from "next/dist/client/router";
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 
 import { ALL_CARD_TYPES, ALL_RARITIES } from "lib/constants";
 import { CardTableDictionary } from "lib/table";
 import { Card, Deck, MagicSet } from "lib/types";
+
+import useIsLoading from "./useIsLoading";
 
 interface Props {
   set: MagicSet;
@@ -14,19 +16,17 @@ interface Props {
 const useCardTableContextValue = ({ set, cards }: Props) => {
   const router = useRouter();
   const [selectedSet, setSelectedSet] = useState(set);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, markAsLoading, markAsLoaded] = useIsLoading(300);
   const [deck, setDeck] = useState(Deck.ALL);
   const [visibleRarities, setVisibleRarities] = useState(new Set(ALL_RARITIES));
   const [visibleCardTypes, setVisibleCardTypes] = useState(
     new Set(ALL_CARD_TYPES)
   );
-  const [showSkeletons, setShowSkeletons] = useState(false);
 
   useEffect(() => {
     if (selectedSet === set) {
       if (isLoading) {
-        setIsLoading(false);
-        setShowSkeletons(false);
+        markAsLoaded();
       }
     } else if (isLoading) {
       router
@@ -35,17 +35,7 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
     } else {
       setSelectedSet(set);
     }
-  }, [selectedSet, set, isLoading, router]);
-
-  useEffect(() => {
-    if (isLoading) {
-      // Add small delay before showing placeholders to prevent screen stuttering
-      const timer = setTimeout(() => setShowSkeletons(true), 300);
-      return () => clearTimeout(timer);
-    }
-    setShowSkeletons(false);
-    return undefined;
-  }, [isLoading]);
+  }, [selectedSet, set, isLoading, markAsLoaded, router]);
 
   const cardDictionary = useMemo(() => {
     const filteredCards = cards
@@ -56,10 +46,13 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
     return new CardTableDictionary(filteredCards, deck);
   }, [cards, deck, visibleRarities, visibleCardTypes]);
 
-  const changeSet = (newSet: MagicSet) => {
-    setSelectedSet(newSet);
-    setIsLoading(true);
-  };
+  const changeSet = useCallback(
+    (newSet: MagicSet) => {
+      setSelectedSet(newSet);
+      markAsLoading();
+    },
+    [markAsLoading]
+  );
 
   return {
     set,
@@ -73,7 +66,7 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
     visibleCardTypes,
     setVisibleCardTypes,
     cardDictionary,
-    showSkeletons,
+    showSkeletons: isLoading,
   };
 };
 
