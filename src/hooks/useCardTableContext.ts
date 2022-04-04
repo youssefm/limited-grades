@@ -17,11 +17,14 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
   const router = useRouter();
   const [selectedSet, setSelectedSet] = useState(set);
   const [isLoading, markAsLoading, markAsLoaded] = useIsLoading(300);
+  const [loadingCards, setLoadingCards] = useState(cards);
   const [deck, setDeck] = useState(Deck.ALL);
   const [visibleRarities, setVisibleRarities] = useState(new Set(ALL_RARITIES));
   const [visibleCardTypes, setVisibleCardTypes] = useState(
     new Set(ALL_CARD_TYPES)
   );
+
+  const displayedCards = isLoading ? loadingCards : cards;
 
   useEffect(() => {
     if (selectedSet === set) {
@@ -38,25 +41,26 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
   }, [selectedSet, set, isLoading, markAsLoaded, router]);
 
   const cardDictionary = useMemo(() => {
-    const filteredCards = cards
+    const filteredCards = displayedCards
       .filter((card) => visibleRarities.has(card.rarity))
       .filter((card) =>
         card.cardTypes.some((cardType) => visibleCardTypes.has(cardType))
       );
     return new CardTableDictionary(filteredCards, deck);
-  }, [cards, deck, visibleRarities, visibleCardTypes]);
+  }, [displayedCards, deck, visibleRarities, visibleCardTypes]);
 
   const changeSet = useCallback(
     (newSet: MagicSet) => {
       setSelectedSet(newSet);
+      setLoadingCards(cards);
       markAsLoading();
     },
-    [markAsLoading]
+    [cards, markAsLoading]
   );
 
   return {
     set,
-    cards,
+    cards: displayedCards,
     selectedSet,
     changeSet,
     deck,
