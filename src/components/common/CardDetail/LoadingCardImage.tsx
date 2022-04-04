@@ -1,7 +1,6 @@
 import clsx from "clsx";
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 
-import useIsLoading from "hooks/useIsLoading";
 import { Card } from "lib/types";
 
 import Center from "../Center";
@@ -14,19 +13,8 @@ interface Props {
 
 const LoadingCardImage: FC<Props> = ({ card }) => {
   const [loadedCard, setLoadedCard] = useState<Card>();
-  const [isLoading, markAsLoading, markAsLoaded] = useIsLoading(200, true);
 
-  useEffect(() => {
-    if (card !== loadedCard) {
-      markAsLoading();
-    }
-  }, [card, loadedCard, markAsLoading]);
-
-  const onLoad = () => {
-    setLoadedCard(card);
-    markAsLoaded();
-  };
-
+  const isLoading = card !== loadedCard;
   return (
     <>
       {isLoading && (
@@ -38,7 +26,9 @@ const LoadingCardImage: FC<Props> = ({ card }) => {
       <CardImage
         card={card}
         className={clsx({ hidden: isLoading })}
-        onLoad={onLoad}
+        onLoad={() => {
+          setLoadedCard(card);
+        }}
       />
     </>
   );
