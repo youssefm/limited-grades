@@ -15,7 +15,6 @@ interface Props {
 }
 
 // TODO:
-// fix having to use innerRef with typescript?
 // Enable search for mobile?
 
 const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
@@ -56,7 +55,7 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
           inputValue.length === 0 ? null : "No matching cards"
         }
         className="mb-4"
-        innerRef={(select) => {
+        selectRef={(select) => {
           inputRef.current = select ? select.inputRef : null;
         }}
         isClearable

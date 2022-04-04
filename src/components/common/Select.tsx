@@ -33,7 +33,7 @@ export interface Props<T>
   onChange: (selectedValue: T | undefined) => void;
   options: T[];
   getLabel: (value: T) => string;
-  innerRef?: Ref<ReactSelectRef<{ value: T; label: string }, false>>;
+  selectRef?: Ref<ReactSelectRef<{ value: T; label: string }, false>>;
 }
 
 const Select = <T extends unknown>({
@@ -41,7 +41,7 @@ const Select = <T extends unknown>({
   onChange,
   options,
   getLabel,
-  innerRef,
+  selectRef,
   ...extraProps
 }: Props<T>) => {
   const [darkModeEnabled] = useDarkMode();
@@ -104,7 +104,7 @@ const Select = <T extends unknown>({
     });
   }
 
-  return <ReactSelect ref={innerRef} {...selectProps} />;
+  return <ReactSelect ref={selectRef} {...selectProps} />;
 };
 
 export default Select;
