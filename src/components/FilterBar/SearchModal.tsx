@@ -34,7 +34,7 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
       title="Search"
       onClose={onClose}
       initialFocus={inputRef}
-      className="w-full lg:w-auto"
+      className="w-full h-full lg:w-auto lg:h-auto"
     >
       <IconSelect
         value={selectedCard}
@@ -61,12 +61,10 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
         }}
         isClearable
       />
-      <CardDetail
-        card={selectedCard ?? cards[0]}
-        set={set}
-        isVisible={Boolean(selectedCard)}
-        showLoadingState
-      />
+      {!selectedCard && <div className="lg:w-[912.22px] lg:h-[440px]" />}
+      {selectedCard && (
+        <CardDetail card={selectedCard} set={set} showLoadingState />
+      )}
     </Modal>
   );
 };

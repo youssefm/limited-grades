@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import { FC } from "react";
 import { ImInfo } from "react-icons/im";
 
@@ -14,19 +13,13 @@ import LoadingCardImage from "./LoadingCardImage";
 interface Props {
   card: Card;
   set: MagicSet;
-  isVisible?: boolean;
   showLoadingState?: boolean;
 }
 
-const CardDetail: FC<Props> = ({
-  card,
-  set,
-  isVisible = true,
-  showLoadingState = false,
-}) => {
+const CardDetail: FC<Props> = ({ card, set, showLoadingState = false }) => {
   const underEmbargo = isSetUnderEmbargo(set);
   return (
-    <div className={clsx({ invisible: !isVisible })}>
+    <div>
       {underEmbargo && (
         <Banner dismissable={false}>
           <ImInfo className="inline relative bottom-0.5 mr-2" />
