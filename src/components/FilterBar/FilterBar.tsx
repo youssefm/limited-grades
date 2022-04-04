@@ -56,7 +56,7 @@ const FilterBar: FC = () => {
         >
           <FilterGroup label="Rarity" disableInputLabel>
             <RarityFilter
-              set={set}
+              set={selectedSet}
               values={visibleRarities}
               setValues={setVisibleRarities}
               className="grow"
