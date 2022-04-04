@@ -34,6 +34,8 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 
 # What's next
 
+- Sort search options by start match first
+- Add a minimum time for card table skeletons?
 - Start filters all off
 - Improve filter button styling?
 - Allow toggling columns?
