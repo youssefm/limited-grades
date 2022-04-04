@@ -1,22 +1,27 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
-const useIsLoading = (minDelay: number): [boolean, () => void, () => void] => {
-  const [isLoading, setIsLoading] = useState(false);
+import useTimeout from "./useTimeout";
+
+const useIsLoading = (
+  minDelay: number,
+  initialValue: boolean = false
+): [boolean, () => void, () => void] => {
+  const [isLoading, setIsLoading] = useState(initialValue);
   const isMarkedAsLoaded = useRef(false);
   const isMinDelayElapsed = useRef(false);
 
+  const timeout = useTimeout(() => {
+    isMinDelayElapsed.current = true;
+    if (isMarkedAsLoaded.current) {
+      setIsLoading(false);
+    }
+  }, minDelay);
+
   useEffect(() => {
     if (isLoading) {
-      const timer = setTimeout(() => {
-        isMinDelayElapsed.current = true;
-        if (isMarkedAsLoaded.current) {
-          setIsLoading(false);
-        }
-      }, minDelay);
-      return () => clearTimeout(timer);
+      timeout.start();
     }
-    return undefined;
-  }, [isLoading, minDelay]);
+  }, [isLoading, timeout]);
 
   const markAsLoading = useCallback(() => {
     isMarkedAsLoaded.current = false;
