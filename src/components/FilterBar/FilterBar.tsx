@@ -52,7 +52,7 @@ const FilterBar: FC = () => {
         </FilterGroup>
         <Collapsible
           isExpanded={isExpanded}
-          className={clsx("lg:!max-h-[none]", FLEX_CLASSES)}
+          className={clsx("grow lg:!max-h-[none]", FLEX_CLASSES)}
         >
           <FilterGroup label="Rarity" disableInputLabel>
             <RarityFilter
@@ -66,13 +66,13 @@ const FilterBar: FC = () => {
             <CardTypeFilter
               values={visibleCardTypes}
               setValues={setVisibleCardTypes}
-              className="grow pb-2"
+              className="grow"
             />
           </FilterGroup>
+          <div className="pb-2 lg:pb-0 lg:ml-auto">
+            <SearchButton cards={cards} set={set} />
+          </div>
         </Collapsible>
-        <FilterGroup label="Search" className="hidden ml-auto lg:block">
-          <SearchButton cards={cards} set={set} />
-        </FilterGroup>
       </div>
       <Collapsible isExpanded={!isExpanded} className="lg:hidden">
         <button
