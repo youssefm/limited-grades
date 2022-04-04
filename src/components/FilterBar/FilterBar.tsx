@@ -52,7 +52,10 @@ const FilterBar: FC = () => {
         </FilterGroup>
         <Collapsible
           isExpanded={isExpanded}
-          className={clsx("grow lg:!max-h-[none]", FLEX_CLASSES)}
+          className={clsx(
+            "grow lg:overflow-visible lg:!max-h-[none]",
+            FLEX_CLASSES
+          )}
         >
           <FilterGroup label="Rarity" disableInputLabel>
             <RarityFilter
