@@ -34,7 +34,6 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 
 # What's next
 
-- Fix outline styling from overflow hidden
 - Revisit card table context state management?
 - Start filters all off
 - Improve filter button styling?
