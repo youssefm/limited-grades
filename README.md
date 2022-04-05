@@ -14,11 +14,7 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-By default, your server will make requests directly to 17Lands. You can optionally speed up development by using a Redis instance to cache results. Once you've set up your Redis instance, add the following line to `.env.local`:
-
-```
-REDIS_URL=<your Redis connection URL>
-```
+By default, your server will load cached data from the repository.
 
 ## Instructions for adding a new set
 
@@ -34,7 +30,9 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 
 # What's next
 
+- Delay showing hover tooltips until images are fully loaded
 - Sort search options by start match first
+- Find a way to apply display none to collapsed elements?
 - Start filters all off
 - Improve filter button styling?
 - Allow toggling columns?
