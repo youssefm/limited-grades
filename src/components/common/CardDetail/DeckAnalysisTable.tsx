@@ -111,22 +111,25 @@ const DeckAnalysisTable: FC<Props> = ({ card, showStats }) => {
         </Collapsible>
         <Spacer />
       </div>
-      {deckStatsToExpand.length > 0 && (
-        <Collapsible isExpanded={!isExpanded}>
-          <button
-            className={clsx(
-              "pt-1 w-full text-neutral-300 dark:text-neutral-700",
-              HOVER_CLASSES,
-              TRANSITION_CLASSES
-            )}
-            onClick={() => setIsExpanded(true)}
-            type="button"
-            aria-label="More deck stats"
-          >
-            <FaChevronDown className="mx-auto" />
-          </button>
-        </Collapsible>
-      )}
+      <Collapsible
+        isExpanded={!isExpanded}
+        // Allow expand button to always take up space so that
+        // the parent element always has the same fixed height
+        className={clsx({ invisible: deckStatsToExpand.length === 0 })}
+      >
+        <button
+          className={clsx(
+            "pt-1 w-full text-neutral-300 dark:text-neutral-700",
+            HOVER_CLASSES,
+            TRANSITION_CLASSES
+          )}
+          onClick={() => setIsExpanded(true)}
+          type="button"
+          aria-label="More deck stats"
+        >
+          <FaChevronDown className="mx-auto" />
+        </button>
+      </Collapsible>
     </>
   );
 };
