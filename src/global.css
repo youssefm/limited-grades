@@ -2,6 +2,23 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  html {
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  html,
+  body,
+  #__next {
+    height: 100%;
+  }
+
+  svg {
+    pointer-events: none;
+  }
+}
+
 @layer components {
   .animated-underline {
     background-image: linear-gradient(currentColor, currentColor);
@@ -18,10 +35,6 @@
 }
 
 @layer utilities {
-  .border-spacing-0 {
-    border-spacing: 0;
-  }
-
   .rotate-y-0 {
     transform: rotateY(0deg);
   }
@@ -37,21 +50,6 @@
   .scrollbar-gutter-stable {
     scrollbar-gutter: stable;
   }
-}
-
-html {
-  overflow: hidden;
-  -webkit-tap-highlight-color: transparent;
-}
-
-html,
-body,
-#__next {
-  height: 100%;
-}
-
-svg {
-  pointer-events: none;
 }
 
 .hide-banner #page-info-banner {

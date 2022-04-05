@@ -17,6 +17,7 @@ const Collapsible: FC<Props> = ({ isExpanded, id, className, children }) => {
     if (element) {
       if (isMounted.current) {
         if (isExpanded) {
+          element.style.removeProperty("display");
           element.style.maxHeight = `${element.scrollHeight}px`;
           pendingFirstExpansion.current = false;
         } else {
@@ -35,10 +36,14 @@ const Collapsible: FC<Props> = ({ isExpanded, id, className, children }) => {
   }, [isExpanded]);
 
   const onTransitionEnd = (event: React.TransitionEvent<HTMLDivElement>) => {
-    if (event.target === ref.current && isExpanded) {
-      // Remove height constraint so element can regain responsiveness
-      ref.current.style.removeProperty("maxHeight");
-      ref.current.style.removeProperty("overflow");
+    if (event.target === ref.current) {
+      if (isExpanded) {
+        // Remove height constraint so element can regain responsiveness
+        ref.current.style.removeProperty("maxHeight");
+        ref.current.style.removeProperty("overflow");
+      } else {
+        ref.current.style.display = "none";
+      }
     }
   };
 
@@ -48,7 +53,7 @@ const Collapsible: FC<Props> = ({ isExpanded, id, className, children }) => {
       className={clsx("transition-max-h ease-[ease]", className)}
       style={
         pendingFirstExpansion.current
-          ? { maxHeight: 0, overflow: "hidden" }
+          ? { maxHeight: 0, overflow: "hidden", display: "none" }
           : undefined
       }
       onTransitionEnd={onTransitionEnd}

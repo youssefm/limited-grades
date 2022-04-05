@@ -17,7 +17,7 @@ const FilterGroup: FC<Props> = ({
   return (
     <Wrapper className={clsx("flex items-center lg:block", className)}>
       <div className="w-16 text-sm lg:mb-2">{label}</div>
-      {children}
+      <div className="grow">{children}</div>
     </Wrapper>
   );
 };

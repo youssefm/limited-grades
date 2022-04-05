@@ -12,7 +12,7 @@ interface Props {
   set: MagicSet;
 }
 
-const SetSelector: FC<Props> = ({ cards, set }) => {
+const SearchButton: FC<Props> = ({ cards, set }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   return (
     <>
@@ -41,4 +41,4 @@ const SetSelector: FC<Props> = ({ cards, set }) => {
   );
 };
 
-export default SetSelector;
+export default SearchButton;
