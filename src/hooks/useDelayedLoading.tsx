@@ -3,22 +3,31 @@ import { useCallback, useEffect, useRef } from "react";
 import useForceUpdate from "./useForceUpdate";
 
 const useDelayedLoading = (isLoaded: boolean, minDelay: number) => {
-  const delayEndTime = useRef(Date.now());
+  const delayEndTime = useRef<number>();
   const forceUpdate = useForceUpdate();
 
-  const isLoading = useCallback(
-    () => !(isLoaded && Date.now() >= delayEndTime.current),
-    [isLoaded]
-  );
+  const isLoading = useCallback(() => {
+    if (delayEndTime.current) {
+      const shouldAppearLoaded = isLoaded && Date.now() >= delayEndTime.current;
+      if (shouldAppearLoaded) {
+        delayEndTime.current = undefined;
+      }
+      return !shouldAppearLoaded;
+    }
+    return !isLoaded;
+  }, [isLoaded]);
 
   useEffect(() => {
     if (isLoaded) {
-      const remainingTime = delayEndTime.current - Date.now();
-      if (remainingTime > 0) {
-        const timer = setTimeout(() => {
-          forceUpdate();
-        }, remainingTime);
-        return () => clearTimeout(timer);
+      if (delayEndTime.current) {
+        const remainingTime = delayEndTime.current - Date.now();
+        if (remainingTime > 0) {
+          const timer = setTimeout(() => {
+            forceUpdate();
+          }, remainingTime);
+          return () => clearTimeout(timer);
+        }
+        forceUpdate();
       }
     } else {
       delayEndTime.current = Date.now() + minDelay;
