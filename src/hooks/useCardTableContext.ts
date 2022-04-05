@@ -5,6 +5,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { ALL_CARD_TYPES, ALL_RARITIES, ALL_SETS } from "lib/constants";
 import { CardTableDictionary } from "lib/table";
 import { Card, Deck, MagicSet } from "lib/types";
+import { extractPathnameSegments } from "lib/util";
 
 import useDelayedLoading from "./useDelayedLoading";
 
@@ -27,9 +28,7 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
-      const routeSet = new URL(url, "http://localhost").pathname
-        .slice(1)
-        .split("/")[0];
+      const routeSet = extractPathnameSegments(url)[0];
       if ((ALL_SETS as string[]).includes(routeSet)) {
         loadingCards.current = cards;
         setSelectedSet(routeSet as MagicSet);
