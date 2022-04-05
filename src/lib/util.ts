@@ -18,6 +18,12 @@ export const sleep = (ms: number) =>
     setTimeout(resolve, ms);
   });
 
+export const formatNumber = (value: number, fractionDigits: number = 0) =>
+  value.toLocaleString(undefined, {
+    minimumFractionDigits: fractionDigits,
+    maximumFractionDigits: fractionDigits,
+  });
+
 export const formatPercentage = (value: number) =>
   value.toLocaleString(undefined, {
     style: "percent",

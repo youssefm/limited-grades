@@ -2,7 +2,11 @@ import Tippy from "@tippyjs/react";
 import React, { FC } from "react";
 
 import { Card, Deck } from "lib/types";
-import { formatPercentage, formatPercentageDifference } from "lib/util";
+import {
+  formatNumber,
+  formatPercentage,
+  formatPercentageDifference,
+} from "lib/util";
 
 const StatsRow: FC<{
   label: string;
@@ -34,32 +38,26 @@ const DetailedStatsTable: FC<Props> = ({ card }) => (
         label="Average last seen at"
         tooltipText="The average pick number where this card was last seen in packs"
       >
-        {card.overallStats.lastSeenAt.toLocaleString(undefined, {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })}
+        {formatNumber(card.overallStats.lastSeenAt, 2)}
       </StatsRow>
       <StatsRow
         label="Average taken at"
         tooltipText="The average pick number at which this card was taken by 17Lands drafters"
       >
-        {card.overallStats.takenAt.toLocaleString(undefined, {
-          minimumFractionDigits: 2,
-          maximumFractionDigits: 2,
-        })}
+        {formatNumber(card.overallStats.takenAt, 2)}
       </StatsRow>
       <StatsRow
         label="Number of games played"
         tooltipText="The number of games played with this card in the maindeck"
         className="border-t border-neutral-200 dark:border-black"
       >
-        {card.stats[Deck.ALL]!.gameCount.toLocaleString()}
+        {formatNumber(card.stats[Deck.ALL]!.gameCount)}
       </StatsRow>
       <StatsRow
         label="Number of games in hand"
         tooltipText="The number of times this card was drawn, either in the opening hand or later"
       >
-        {card.overallStats.drawnCount.toLocaleString()}
+        {formatNumber(card.overallStats.drawnCount)}
       </StatsRow>
       <StatsRow
         label="Games played win rate"
