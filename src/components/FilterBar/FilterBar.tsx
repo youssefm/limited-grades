@@ -13,7 +13,8 @@ import RarityFilter from "./RarityFilter";
 import SearchButton from "./SearchButton";
 import SetSelector from "./SetSelector";
 
-const FLEX_CLASSES = "flex flex-col gap-2 lg:flex-row lg:gap-4";
+const FLEX_CLASSES = "flex flex-col lg:flex-row";
+const GAP_CLASSES = "pt-2 lg:pt-0 lg:pl-4";
 
 const FilterBar: FC = () => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -34,45 +35,38 @@ const FilterBar: FC = () => {
     <>
       <div
         className={clsx(
-          "px-4 pt-4 pb-2 lg:pb-4 lg:pl-8",
-          "bg-neutral-100 dark:bg-neutral-800 rounded-t-lg",
+          "p-4 bg-neutral-100 dark:bg-neutral-800 rounded-t-lg lg:pl-8",
           FLEX_CLASSES,
           TRANSITION_CLASSES
         )}
       >
         <FilterGroup label="Set">
-          <SetSelector
-            value={selectedSet}
-            onChange={changeSet}
-            className="grow"
-          />
+          <SetSelector value={selectedSet} onChange={changeSet} />
         </FilterGroup>
-        <FilterGroup label="Deck">
-          <DeckSelector value={deck} onChange={setDeck} className="grow" />
+        <FilterGroup label="Deck" className={GAP_CLASSES}>
+          <DeckSelector value={deck} onChange={setDeck} />
         </FilterGroup>
         <Collapsible
           isExpanded={isExpanded}
           className={clsx(
-            "grow lg:!overflow-visible lg:!max-h-[none]",
+            "grow lg:!flex lg:!overflow-visible lg:!max-h-[none]",
             FLEX_CLASSES
           )}
         >
-          <FilterGroup label="Rarity" disableInputLabel>
+          <FilterGroup label="Rarity" disableInputLabel className={GAP_CLASSES}>
             <RarityFilter
               set={selectedSet}
               values={visibleRarities}
               setValues={setVisibleRarities}
-              className="grow"
             />
           </FilterGroup>
-          <FilterGroup label="Type" disableInputLabel>
+          <FilterGroup label="Type" disableInputLabel className={GAP_CLASSES}>
             <CardTypeFilter
               values={visibleCardTypes}
               setValues={setVisibleCardTypes}
-              className="grow"
             />
           </FilterGroup>
-          <div className="pb-2 lg:pb-0 lg:ml-auto">
+          <div className={clsx("lg:ml-auto", GAP_CLASSES)}>
             <SearchButton cards={cards} set={set} />
           </div>
         </Collapsible>
