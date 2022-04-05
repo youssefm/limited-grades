@@ -70,11 +70,12 @@ const buildIndex = async () => {
       }
     }
   }
+  return CARD_INDEX;
 };
 
 const lookupCard = async (cardName: string): Promise<ScryfallCard> => {
-  await buildIndex();
-  const scryfallCard = CARD_INDEX!.get(cardName);
+  const cardIndex = await buildIndex();
+  const scryfallCard = cardIndex.get(cardName);
   if (!scryfallCard) {
     throw Error(
       `Card named '${cardName}' could not be found in the Scryfall DB`
