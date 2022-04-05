@@ -42,15 +42,13 @@ interface Props {
   set: MagicSet;
   values: Set<Rarity>;
   setValues: (rarities: Set<Rarity>) => void;
-  className?: string;
 }
 
-const RarityFilter: FC<Props> = ({ set, values, setValues, className }) => (
+const RarityFilter: FC<Props> = ({ set, values, setValues }) => (
   <IconFilterGroup
     values={values}
     setValues={setValues}
     filters={getFilters(set)}
-    className={className}
   />
 );
 

@@ -10,10 +10,9 @@ import IconSelect from "./IconSelect";
 interface Props {
   value: Deck;
   onChange: (selectedValue: Deck) => void;
-  className?: string;
 }
 
-const DeckSelector: FC<Props> = ({ value, onChange, className }) => {
+const DeckSelector: FC<Props> = ({ value, onChange }) => {
   const getIcon = useCallback((deck: Deck) => {
     const colors = DECK_COLORS[deck];
     if (colors.length === 0) {
@@ -39,7 +38,7 @@ const DeckSelector: FC<Props> = ({ value, onChange, className }) => {
       getLabel={(deck) => DECK_LABELS[deck]}
       getIcon={getIcon}
       instanceId="deck-select"
-      className={clsx("min-w-[175px]", className)}
+      className="min-w-[175px]"
     />
   );
 };
