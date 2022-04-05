@@ -32,7 +32,6 @@ For an example, see [this commit](https://github.com/youssefm/limited-grades/com
 
 - Delay showing hover tooltips until images are fully loaded
 - Sort search options by start match first
-- Find a way to apply display none to collapsed elements?
 - Start filters all off
 - Improve filter button styling?
 - Allow toggling columns?

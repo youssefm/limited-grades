@@ -1,9 +1,11 @@
+import clsx from "clsx";
 import { FC, useCallback, useRef, useState } from "react";
 import { createFilter } from "react-select";
 
 import CardDetail from "components/common/CardDetail";
 import ColorIcon from "components/common/ColorIcon";
 import Modal from "components/common/Modal";
+import { isSetUnderEmbargo } from "lib/sets";
 import { Card, MagicSet } from "lib/types";
 
 import IconSelect from "./IconSelect";
@@ -18,6 +20,7 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
   const [selectedCard, setSelectedCard] = useState<Card>();
   const inputRef = useRef<HTMLInputElement | null>(null);
 
+  const underEmbargo = isSetUnderEmbargo(set);
   const getIcon = useCallback(
     (card: Card) => (
       <ColorIcon color={card.column} className="relative bottom-[-0.0625em]" />
@@ -58,7 +61,14 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
         isClearable
         autoFocus
       />
-      {!selectedCard && <div className="lg:w-[912.22px] lg:h-[440px]" />}
+      {!selectedCard && (
+        <div
+          className={clsx({
+            "lg:w-[912.22px] lg:h-[440px]": !underEmbargo,
+            "lg:w-[522px] lg:h-[484px]": underEmbargo,
+          })}
+        />
+      )}
       {selectedCard && (
         <CardDetail card={selectedCard} set={set} showLoadingState />
       )}
