@@ -11,7 +11,7 @@ type RedisClient = RedisClientType<RedisModules, RedisScripts>;
 export const IS_ENABLED = process.env.REDIS_URL !== undefined;
 let REDIS_CLIENT: RedisClient | null;
 
-const initializeRedisClient = async (): Promise<void> => {
+const initializeRedisClient = async (): Promise<RedisClient> => {
   if (!IS_ENABLED) {
     throw new Error("Cannot connect to cache when it is not enabled");
   }
@@ -32,12 +32,13 @@ const initializeRedisClient = async (): Promise<void> => {
 
     await REDIS_CLIENT.connect();
   }
+  return REDIS_CLIENT;
 };
 
 export class RedisCacheClient {
   static async get<T>(key: string): Promise<T | null> {
-    await initializeRedisClient();
-    const compressedValue = await REDIS_CLIENT!.get(key);
+    const redisClient = await initializeRedisClient();
+    const compressedValue = await redisClient.get(key);
     if (compressedValue === null) {
       return compressedValue;
     }
@@ -46,9 +47,9 @@ export class RedisCacheClient {
   }
 
   static async set(key: string, value: any, expirationInSeconds: number) {
-    await initializeRedisClient();
     const compressedValue = await gzip(JSON.stringify(value));
-    return await REDIS_CLIENT!.set(key, compressedValue.toString("base64"), {
+    const redisClient = await initializeRedisClient();
+    return await redisClient.set(key, compressedValue.toString("base64"), {
       EX: expirationInSeconds,
     });
   }

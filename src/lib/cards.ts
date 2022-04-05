@@ -131,10 +131,10 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
       }
 
       const score = normalDistribution.cdf(apiCard.ever_drawn_win_rate) * 100;
-      const grade: Grade = find<[Grade, number]>(
+      const [grade] = find<[Grade, number]>(
         GRADE_THRESHOLDS,
         ([, threshold]) => score >= threshold
-      )![0];
+      )!;
 
       card.stats[deck] = {
         winrate: round(apiCard.ever_drawn_win_rate, 4),
