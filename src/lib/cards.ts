@@ -5,7 +5,7 @@ import { find, round } from "lodash";
 import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
 
-import { IS_ENABLED as CACHE_IS_ENABLED, RedisCacheClient } from "lib/cache";
+import { CACHE } from "lib/cache";
 import { ALL_DECKS, SET_START_DATES } from "lib/constants";
 import { getCardColumn, getCardTypes } from "lib/scryfall";
 import { isRecentSet } from "lib/sets";
@@ -149,12 +149,8 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
 
 // eslint-disable-next-line import/prefer-default-export
 export const getCardStore = async (set: MagicSet): Promise<CardStore> => {
-  if (!CACHE_IS_ENABLED) {
-    return buildCardStore(set);
-  }
-
   console.log(`attempting to fetch 17lands data for ${set} from cache`);
-  const cacheHit = await RedisCacheClient.get<CardStore>(set);
+  const cacheHit = await CACHE.get<CardStore>(set);
   if (cacheHit) {
     console.log("cache hit");
     return {
@@ -183,6 +179,6 @@ export const getCardStore = async (set: MagicSet): Promise<CardStore> => {
   } else {
     expirationInSeconds = 7 * 24 * 60 * 60;
   }
-  await RedisCacheClient.set(set, cardStore, expirationInSeconds);
+  await CACHE.set(set, cardStore, expirationInSeconds);
   return cardStore;
 };
