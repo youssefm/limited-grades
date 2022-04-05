@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import { FC, useCallback } from "react";
 
 import ColorIcon from "components/common/ColorIcon";

@@ -1,4 +1,3 @@
-import clsx from "clsx";
 import { FC, useCallback } from "react";
 
 import SetIcon from "components/common/SetIcon";
@@ -29,7 +28,7 @@ const SetSelector: FC<Props> = ({ value, onChange }) => {
       getLabel={(set) => SET_LABELS[set]}
       getIcon={getIcon}
       instanceId="set-select"
-      className="min-w-[250px]"
+      className="min-w-[230px] lg:min-w-[250px]"
     />
   );
 };
