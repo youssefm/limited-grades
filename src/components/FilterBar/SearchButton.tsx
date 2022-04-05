@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { FC, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
-import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
+import { TRANSITION_CLASSES } from "lib/styles";
 import { Card, MagicSet } from "lib/types";
 
 import SearchModal from "./SearchModal";
