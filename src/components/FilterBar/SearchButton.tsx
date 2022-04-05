@@ -19,9 +19,9 @@ const SetSelector: FC<Props> = ({ cards, set }) => {
       <button
         onClick={() => setModalOpen(true)}
         className={clsx(
-          "py-1 px-6 w-full h-full bg-white dark:bg-neutral-700 rounded lg:text-2xl lg:rounded-lg",
-          "border border-neutral-300 hover:border-blue-500 dark:border-black dark:hover:border-amber-600",
-          HOVER_CLASSES,
+          "py-1 px-6 w-full h-full hover:text-white rounded lg:text-2xl lg:rounded-lg",
+          "bg-white hover:bg-blue-500 dark:bg-neutral-700 dark:hover:bg-amber-600",
+          "border border-neutral-300 dark:border-black",
           TRANSITION_CLASSES
         )}
         type="button"
