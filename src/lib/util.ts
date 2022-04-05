@@ -3,11 +3,11 @@ export const IN_PRODUCTION = process.env.NODE_ENV === "production";
 export const createComparer = <T>(
   getKey: (item: T) => number,
   descending = false
-): ((item1: T, item2: T) => number) => {
+) => {
   if (descending) {
-    return (item1, item2) => getKey(item2) - getKey(item1);
+    return (item1: T, item2: T) => getKey(item2) - getKey(item1);
   }
-  return (item1, item2) => getKey(item1) - getKey(item2);
+  return (item1: T, item2: T) => getKey(item1) - getKey(item2);
 };
 
 export const matchesMedia = (mediaQuery: string) =>
@@ -38,3 +38,6 @@ export const formatPercentageDifference = (value: number) => {
   });
   return value > 0 ? `+${difference}pp` : `${difference}pp`;
 };
+
+export const extractPathnameSegments = (url: string) =>
+  new URL(url, window.location.origin).pathname.slice(1).split("/");
