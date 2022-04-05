@@ -21,7 +21,7 @@ const SetSelector: FC<Props> = ({ cards, set }) => {
         className={clsx(
           "py-1 px-6 w-full h-full hover:text-white rounded lg:text-2xl lg:rounded-lg",
           "bg-white hover:bg-blue-500 dark:bg-neutral-700 dark:hover:bg-amber-600",
-          "border border-neutral-300 dark:border-black",
+          "border border-neutral-300 dark:border-black umami--click--search-button",
           TRANSITION_CLASSES
         )}
         type="button"
