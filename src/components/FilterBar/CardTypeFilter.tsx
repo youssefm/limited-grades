@@ -39,16 +39,10 @@ const FILTERS = [
 interface Props {
   values: Set<CardType>;
   setValues: (cardTypes: Set<CardType>) => void;
-  className?: string;
 }
 
-const CardTypeFilter: FC<Props> = ({ values, setValues, className }) => (
-  <IconFilterGroup
-    values={values}
-    setValues={setValues}
-    filters={FILTERS}
-    className={className}
-  />
+const CardTypeFilter: FC<Props> = ({ values, setValues }) => (
+  <IconFilterGroup values={values} setValues={setValues} filters={FILTERS} />
 );
 
 export default CardTypeFilter;

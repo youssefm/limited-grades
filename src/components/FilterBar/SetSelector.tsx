@@ -10,10 +10,9 @@ import IconSelect from "./IconSelect";
 interface Props {
   value: MagicSet;
   onChange: (selectedValue: MagicSet) => void;
-  className?: string;
 }
 
-const SetSelector: FC<Props> = ({ value, onChange, className }) => {
+const SetSelector: FC<Props> = ({ value, onChange }) => {
   const getIcon = useCallback(
     (set: MagicSet) => <SetIcon set={set} className="text-2xl" />,
     []
@@ -30,7 +29,7 @@ const SetSelector: FC<Props> = ({ value, onChange, className }) => {
       getLabel={(set) => SET_LABELS[set]}
       getIcon={getIcon}
       instanceId="set-select"
-      className={clsx("min-w-[250px]", className)}
+      className="min-w-[250px]"
     />
   );
 };
