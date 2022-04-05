@@ -22,7 +22,7 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
     new Set(ALL_CARD_TYPES)
   );
 
-  const { isLoading, start } = useDelayedLoading(set === selectedSet, 300);
+  const isLoading = useDelayedLoading(set === selectedSet, 300);
   const loadingCards = useRef(cards);
 
   useEffect(() => {
@@ -33,7 +33,6 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
       if ((ALL_SETS as string[]).includes(routeSet)) {
         loadingCards.current = cards;
         setSelectedSet(routeSet as MagicSet);
-        start();
       }
     };
 
@@ -41,7 +40,7 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
     return () => {
       router.events.off("routeChangeStart", handleRouteChange);
     };
-  }, [router.events, cards, start]);
+  }, [router.events, cards]);
 
   const showSkeletons = isLoading();
   const displayedCards = showSkeletons ? loadingCards.current : cards;

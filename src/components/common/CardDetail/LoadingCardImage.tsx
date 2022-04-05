@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import { FC, useState } from "react";
 
+import useDelayedLoading from "hooks/useDelayedLoading";
 import { Card } from "lib/types";
 
 import Center from "../Center";
@@ -13,11 +14,12 @@ interface Props {
 
 const LoadingCardImage: FC<Props> = ({ card }) => {
   const [loadedCard, setLoadedCard] = useState<Card>();
+  const isLoading = useDelayedLoading(card === loadedCard, 200);
 
-  const isLoading = card !== loadedCard;
+  const showSpinner = isLoading();
   return (
     <>
-      {isLoading && (
+      {showSpinner && (
         <Center className="w-[240px] h-[340px]">
           <Spinner className="text-5xl" />
         </Center>
@@ -25,7 +27,7 @@ const LoadingCardImage: FC<Props> = ({ card }) => {
 
       <CardImage
         card={card}
-        className={clsx({ hidden: isLoading })}
+        className={clsx({ hidden: showSpinner })}
         onLoad={() => {
           setLoadedCard(card);
         }}

@@ -11,10 +11,6 @@ const useDelayedLoading = (isLoaded: boolean, minDelay: number) => {
     [isLoaded]
   );
 
-  const start = useCallback(() => {
-    delayEndTime.current = Date.now() + minDelay;
-  }, [minDelay]);
-
   useEffect(() => {
     if (isLoaded) {
       const remainingTime = delayEndTime.current - Date.now();
@@ -24,11 +20,13 @@ const useDelayedLoading = (isLoaded: boolean, minDelay: number) => {
         }, remainingTime);
         return () => clearTimeout(timer);
       }
+    } else {
+      delayEndTime.current = Date.now() + minDelay;
     }
     return undefined;
-  }, [isLoaded, forceUpdate]);
+  }, [isLoaded, forceUpdate, minDelay]);
 
-  return { isLoading, start };
+  return isLoading;
 };
 
 export default useDelayedLoading;
