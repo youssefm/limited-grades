@@ -27,11 +27,3 @@ By default, your server will load cached data from the repository.
 7. Push to GitHub
 
 For an example, see [this commit](https://github.com/youssefm/limited-grades/commit/282c8afe31b7115bc1399cc416be2150d33d8cdc).
-
-# What's next
-
-- Delay showing hover tooltips until images are fully loaded
-- Sort search options by start match first
-- Start filters all off
-- Improve filter button styling?
-- Allow toggling columns?

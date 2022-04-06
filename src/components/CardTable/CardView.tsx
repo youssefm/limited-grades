@@ -1,11 +1,87 @@
 import Tippy from "@tippyjs/react";
-import { FC, useState } from "react";
+import { FC, useCallback, useMemo, useRef, useState } from "react";
 
 import BackCardImage from "components/common/BackCardImage";
 import FrontCardImage from "components/common/FrontCardImage";
 import { Card } from "lib/types";
 
-import CardBubble, { Props as CardBubbleProps } from "./CardBubble";
+import CardBubble from "./CardBubble";
+
+const CardBubbleWithPreview: FC<{ card: Card; onClick: () => void }> = ({
+  card,
+  onClick,
+}) => {
+  const ref = useRef<HTMLButtonElement>(null);
+  const [isHoverMounted, setIsHoverMounted] = useState(false);
+  const [isPreviewVisible, setIsPreviewVisible] = useState(false);
+  const mouseHovered = useRef(false);
+  const imagesLoadedCount = useRef(0);
+
+  const showPreviewIfReady = useCallback(() => {
+    if (mouseHovered.current) {
+      const imageCount = card.cardBackUrl ? 2 : 1;
+      if (imagesLoadedCount.current === imageCount) {
+        setIsPreviewVisible(true);
+      }
+    }
+  }, [card.cardBackUrl]);
+
+  const cardBubble = useMemo(
+    () => (
+      <CardBubble
+        card={card}
+        onClick={onClick}
+        onMouseEnter={() => {
+          setIsHoverMounted(true);
+          mouseHovered.current = true;
+          showPreviewIfReady();
+        }}
+        onMouseLeave={() => {
+          setIsPreviewVisible(false);
+          mouseHovered.current = false;
+        }}
+        ref={ref}
+      />
+    ),
+    [card, onClick, showPreviewIfReady]
+  );
+
+  let tippyElement = null;
+
+  if (isHoverMounted) {
+    const onLoad = () => {
+      imagesLoadedCount.current += 1;
+      showPreviewIfReady();
+    };
+
+    let tooltip = <FrontCardImage card={card} onLoad={onLoad} />;
+    if (card.cardBackUrl) {
+      tooltip = (
+        <div className="flex">
+          {tooltip}
+          <BackCardImage card={card} onLoad={onLoad} />
+        </div>
+      );
+    }
+
+    tippyElement = (
+      <Tippy
+        reference={ref}
+        content={tooltip}
+        placement="bottom-start"
+        visible={isPreviewVisible}
+        animation={false}
+      />
+    );
+  }
+
+  return (
+    <>
+      {cardBubble}
+      {tippyElement}
+    </>
+  );
+};
 
 interface Props {
   card: Card;
@@ -14,39 +90,10 @@ interface Props {
 }
 
 const CardView: FC<Props> = ({ card, onClick, enableHover }) => {
-  const [isHoverMounted, setIsHoverMounted] = useState(false);
-
-  const cardBubbleProps: CardBubbleProps = {
-    card,
-    onClick,
-  };
   if (enableHover) {
-    cardBubbleProps.onMouseEnter = () => setIsHoverMounted(true);
+    return <CardBubbleWithPreview card={card} onClick={onClick} />;
   }
-
-  if (isHoverMounted) {
-    let tooltip = <FrontCardImage card={card} />;
-    if (card.cardBackUrl) {
-      tooltip = (
-        <div className="flex">
-          {tooltip}
-          <BackCardImage card={card} />
-        </div>
-      );
-    }
-    return (
-      <Tippy
-        content={tooltip}
-        placement="bottom-start"
-        trigger="mouseenter"
-        animation={false}
-      >
-        <CardBubble {...cardBubbleProps} enableHover />
-      </Tippy>
-    );
-  }
-
-  return <CardBubble {...cardBubbleProps} />;
+  return <CardBubble card={card} onClick={onClick} />;
 };
 
 export default CardView;
