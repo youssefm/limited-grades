@@ -20,17 +20,19 @@
 }
 
 @layer components {
-  .animated-underline {
-    background-image: linear-gradient(currentColor, currentColor);
-    background-position: 100% 100%;
-    background-size: 0% 1px;
-    background-repeat: no-repeat;
-    transition: background-size 400ms ease;
-  }
+  @media (hover: hover) {
+    .snake-underline {
+      background-image: linear-gradient(currentColor, currentColor);
+      background-position: 100% 100%;
+      background-size: 0% 1px;
+      background-repeat: no-repeat;
+      transition: background-size 400ms ease;
+    }
 
-  .animated-underline-trigger:hover > .animated-underline {
-    background-position: 0% 100%;
-    background-size: 100% 1px;
+    .snake-underline-trigger:hover > .snake-underline {
+      background-position: 0% 100%;
+      background-size: 100% 1px;
+    }
   }
 }
 
