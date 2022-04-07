@@ -12,7 +12,7 @@ const CardBubbleWithPreview: FC<{ card: Card; onClick: () => void }> = ({
   onClick,
 }) => {
   const ref = useRef<HTMLButtonElement>(null);
-  const [isHoverMounted, setIsHoverMounted] = useState(false);
+  const [isTippyMounted, setIsTippyMounted] = useState(false);
   const [isPreviewVisible, setIsPreviewVisible] = useState(false);
   const mouseHovered = useRef(false);
   const imagesLoadedCount = useRef(0);
@@ -32,7 +32,7 @@ const CardBubbleWithPreview: FC<{ card: Card; onClick: () => void }> = ({
         card={card}
         onClick={onClick}
         onMouseEnter={() => {
-          setIsHoverMounted(true);
+          setIsTippyMounted(true);
           mouseHovered.current = true;
           showPreviewIfReady();
         }}
@@ -48,7 +48,7 @@ const CardBubbleWithPreview: FC<{ card: Card; onClick: () => void }> = ({
 
   let tippyElement = null;
 
-  if (isHoverMounted) {
+  if (isTippyMounted) {
     const onLoad = () => {
       imagesLoadedCount.current += 1;
       showPreviewIfReady();
@@ -86,11 +86,11 @@ const CardBubbleWithPreview: FC<{ card: Card; onClick: () => void }> = ({
 interface Props {
   card: Card;
   onClick: () => void;
-  enableHover: boolean;
+  enableCardPreview: boolean;
 }
 
-const CardView: FC<Props> = ({ card, onClick, enableHover }) => {
-  if (enableHover) {
+const CardView: FC<Props> = ({ card, onClick, enableCardPreview }) => {
+  if (enableCardPreview) {
     return <CardBubbleWithPreview card={card} onClick={onClick} />;
   }
   return <CardBubble card={card} onClick={onClick} />;
