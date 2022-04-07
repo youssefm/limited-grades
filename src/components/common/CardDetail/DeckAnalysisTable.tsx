@@ -1,5 +1,4 @@
 import clsx from "clsx";
-import sortBy from "lodash/sortBy";
 import React, { FC, useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 
@@ -14,7 +13,7 @@ import {
   TRANSITION_CLASSES,
 } from "lib/styles";
 import { Card, CardStats, Deck } from "lib/types";
-import { formatPercentage } from "lib/util";
+import { createComparer, formatPercentage } from "lib/util";
 
 const DECKS_TO_SHOW = 5;
 const ROW_HEADER_CLASSES = "w-24 bg-neutral-100 dark:bg-neutral-800";
@@ -80,10 +79,8 @@ interface Props {
 const DeckAnalysisTable: FC<Props> = ({ card, showStats }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
-  const deckStats = sortBy(
-    Object.entries(card.stats),
-    ([, stats]) => -stats.gameCount
-  );
+  const deckStats = Object.entries(card.stats);
+  deckStats.sort(createComparer(([, stats]) => stats.gameCount, true));
   const deckStatsToShow = deckStats.slice(0, DECKS_TO_SHOW);
   const deckStatsToExpand = deckStats.slice(DECKS_TO_SHOW);
 

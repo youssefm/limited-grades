@@ -1,7 +1,6 @@
 import { readFile } from "fs/promises";
 import path from "path";
 
-import upperFirst from "lodash/upperFirst";
 import { ungzip } from "node-gzip";
 
 import { ALL_CARD_TYPES } from "lib/constants";
@@ -100,7 +99,7 @@ export const getCardColumn = async (cardName: string): Promise<Column> => {
 export const getCardTypes = async (cardName: string): Promise<CardType[]> => {
   const scryfallCard = await lookupCard(cardName);
   return ALL_CARD_TYPES.filter((cardType) =>
-    scryfallCard.type_line?.includes(upperFirst(cardType))
+    scryfallCard.type_line?.toLowerCase().includes(cardType)
   );
 };
 
@@ -109,5 +108,6 @@ export const getAllCardsByType = async (
 ): Promise<ScryfallCard[]> =>
   (await readScryfallFile("scryfall-unique-artwork.json")).filter(
     (card) =>
-      !shouldExcludeCard(card) && card.type_line?.includes(upperFirst(cardType))
+      !shouldExcludeCard(card) &&
+      card.type_line?.toLowerCase().includes(cardType)
   );

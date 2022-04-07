@@ -1,7 +1,6 @@
 import assert from "assert";
 
 import { Temporal } from "@js-temporal/polyfill";
-import find from "lodash/find";
 import round from "lodash/round";
 import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
@@ -132,8 +131,7 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
       }
 
       const score = normalDistribution.cdf(apiCard.ever_drawn_win_rate) * 100;
-      const [grade] = find<[Grade, number]>(
-        GRADE_THRESHOLDS,
+      const [grade] = GRADE_THRESHOLDS.find(
         ([, threshold]) => score >= threshold
       )!;
 
