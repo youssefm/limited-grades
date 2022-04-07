@@ -1,7 +1,8 @@
 import assert from "assert";
 
 import { Temporal } from "@js-temporal/polyfill";
-import { find, round } from "lodash";
+import find from "lodash/find";
+import round from "lodash/round";
 import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
 

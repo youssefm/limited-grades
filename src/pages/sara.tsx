@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { upperFirst } from "lodash";
+import upperFirst from "lodash/upperFirst";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import { useCallback, useEffect, useRef, useState } from "react";

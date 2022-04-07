@@ -1,4 +1,4 @@
-import { omit } from "lodash";
+import omit from "lodash/omit";
 import { Ref } from "react";
 import ReactSelect, { Colors } from "react-select";
 import ReactSelectRef from "react-select/dist/declarations/src/Select";

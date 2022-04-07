@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { sortBy } from "lodash";
+import sortBy from "lodash/sortBy";
 import React, { FC, useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 
