@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/alt-text */
-import upperFirst from "lodash/upperFirst";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import { useCallback, useEffect, useRef, useState } from "react";
@@ -22,7 +21,7 @@ export const getStaticProps: GetStaticProps<StaticProps> = async () => {
       imageUrls.push(card.image_uris.border_crop);
     } else if (card.card_faces) {
       for (const cardFace of card.card_faces) {
-        if (cardFace.type_line.includes(upperFirst(CardType.LAND))) {
+        if (cardFace.type_line.toLowerCase().includes(CardType.LAND)) {
           imageUrls.push(cardFace.image_uris.border_crop);
         }
       }
