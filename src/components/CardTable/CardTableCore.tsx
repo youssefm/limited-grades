@@ -24,7 +24,7 @@ const CardTableCore: FC<Props> = ({
   showSkeletons,
   onClickCard,
 }) => {
-  const enableHover = matchesMedia("(hover: hover)");
+  const enableCardPreview = matchesMedia("(hover: hover)");
   return (
     <>
       <div
@@ -112,7 +112,7 @@ const CardTableCore: FC<Props> = ({
                             key={card.cardUrl}
                             card={card}
                             onClick={() => onClickCard(card)}
-                            enableHover={enableHover}
+                            enableCardPreview={enableCardPreview}
                           />
                         );
                       })}
