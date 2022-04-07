@@ -1,7 +1,7 @@
 import { readFile } from "fs/promises";
 import path from "path";
 
-import { upperFirst } from "lodash";
+import upperFirst from "lodash/upperFirst";
 import { ungzip } from "node-gzip";
 
 import { ALL_CARD_TYPES } from "lib/constants";

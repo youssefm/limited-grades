@@ -1,11 +1,11 @@
-import { Dictionary, groupBy } from "lodash";
+import groupBy from "lodash/groupBy";
 
 import { Card, Column, Deck, Grade } from "lib/types";
 import { createComparer } from "lib/util";
 
 // eslint-disable-next-line import/prefer-default-export
 export class CardTableDictionary {
-  cardsByGroup: Dictionary<[Card, ...Card[]]>;
+  cardsByGroup: { [index: string]: [Card, ...Card[]] };
 
   constructor(cards: Card[], deck: Deck) {
     const filteredCards = cards.filter((card) => deck in card.stats);
