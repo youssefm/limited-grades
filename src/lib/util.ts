@@ -1,5 +1,33 @@
 export const IN_PRODUCTION = process.env.NODE_ENV === "production";
 
+// Adapted from https://github.com/lodash/lodash/blob/2da024c3b4f9947a48517639de7560457cd4ec6c/.internal/createRound.js
+export const round = (n: number, precision: number = 0) => {
+  let [significand, exponent] = `${n}e`.split("e");
+  const value = Math.round(
+    Number(`${significand}e${Number(exponent) + precision}`)
+  );
+
+  [significand, exponent] = `${value}e`.split("e");
+  return Number(`${significand}e${Number(exponent) - precision}`);
+};
+
+export const groupBy = <T>(
+  iterable: Iterable<T>,
+  getKey: (item: T) => string
+) => {
+  const result: { [key: string]: [T, ...T[]] } = {};
+  for (const item of iterable) {
+    const key = getKey(item);
+    const group = result[key];
+    if (group) {
+      group.push(item);
+    } else {
+      result[key] = [item];
+    }
+  }
+  return result;
+};
+
 export const createComparer = <T>(
   getKey: (item: T) => number,
   descending = false

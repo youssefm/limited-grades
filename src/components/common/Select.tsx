@@ -1,4 +1,3 @@
-import omit from "lodash/omit";
 import { Ref } from "react";
 import ReactSelect, { Colors } from "react-select";
 import ReactSelectRef from "react-select/dist/declarations/src/Select";
@@ -77,7 +76,10 @@ const Select = <T extends unknown>({
         ...provided,
         transition: "background-color 150ms",
       }),
-      input: (provided) => omit(provided, "color"),
+      input: (provided) => {
+        const { color, ...styles } = provided;
+        return styles;
+      },
       option: (provided, state) => {
         const optionStyles = {
           ...provided,
@@ -90,7 +92,10 @@ const Select = <T extends unknown>({
 
         return optionStyles;
       },
-      singleValue: (provided) => omit(provided, "color"),
+      singleValue: (provided) => {
+        const { color, ...styles } = provided;
+        return styles;
+      },
     },
   };
 

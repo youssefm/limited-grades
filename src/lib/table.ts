@@ -1,7 +1,5 @@
-import groupBy from "lodash/groupBy";
-
 import { Card, Column, Deck, Grade } from "lib/types";
-import { createComparer } from "lib/util";
+import { createComparer, groupBy } from "lib/util";
 
 // eslint-disable-next-line import/prefer-default-export
 export class CardTableDictionary {
