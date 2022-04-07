@@ -1,7 +1,6 @@
 import assert from "assert";
 
 import { Temporal } from "@js-temporal/polyfill";
-import round from "lodash/round";
 import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
 
@@ -10,7 +9,7 @@ import { ALL_DECKS, SET_START_DATES } from "lib/constants";
 import { getCardColumn, getCardTypes } from "lib/scryfall";
 import { isRecentSet } from "lib/sets";
 import { Card, CardStore, Deck, Grade, MagicSet, Rarity } from "lib/types";
-import { sleep } from "lib/util";
+import { round, sleep } from "lib/util";
 
 const MIN_GAMES_DRAWN_FOR_INFERENCE = 100;
 const MIN_GAMES_DRAWN = 400;
