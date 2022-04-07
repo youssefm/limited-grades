@@ -30,7 +30,8 @@ const CardBubble = forwardRef<HTMLButtonElement, Props>(
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       className={clsx(
-        "group px-2 mb-1 last:mb-0 w-full text-left",
+        "px-2 mb-1 last:mb-0 w-full text-left",
+        "hover:underline underline-offset-2",
         "bg-white dark:bg-neutral-700 border-l-[3px]",
         HOVER_CLASSES,
         TRANSITION_CLASSES,
@@ -39,9 +40,7 @@ const CardBubble = forwardRef<HTMLButtonElement, Props>(
       type="button"
       ref={ref}
     >
-      <span className="group-hover:underline underline-offset-2">
-        {card.name}
-      </span>
+      {card.name}
     </button>
   )
 );
