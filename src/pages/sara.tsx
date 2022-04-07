@@ -1,11 +1,12 @@
 /* eslint-disable jsx-a11y/alt-text */
-import clsx from "clsx";
 import { upperFirst } from "lodash";
 import { GetStaticProps } from "next";
 import Head from "next/head";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import SwiperCore from "swiper";
+import "swiper/css";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import Center from "components/common/Center";
 import { getAllCardsByType } from "lib/scryfall";
 import { CardType } from "lib/types";
 
@@ -36,7 +37,7 @@ export const getStaticProps: GetStaticProps<StaticProps> = async () => {
 };
 
 const Page = ({ imageUrls }: StaticProps) => {
-  const [currentImageUrl, setCurrentImageUrl] = useState<string | undefined>();
+  const swiperRef = useRef<SwiperCore>();
   const [activeImageUrls, setActiveImageUrls] = useState<string[]>([]);
 
   const getRandomImageUrl = useCallback(
@@ -44,27 +45,9 @@ const Page = ({ imageUrls }: StaticProps) => {
     [imageUrls]
   );
 
-  const moveToNextImage = useCallback(() => {
-    let nextImage = getRandomImageUrl();
-    while (activeImageUrls.includes(nextImage)) {
-      nextImage = getRandomImageUrl();
-    }
-    const nextActiveUrls = [...activeImageUrls, nextImage];
-    if (currentImageUrl) {
-      const currentIndex = activeImageUrls.indexOf(currentImageUrl);
-      if (currentIndex >= 0) {
-        setCurrentImageUrl(activeImageUrls[currentIndex + 1]);
-      }
-      if (currentIndex >= 1) {
-        nextActiveUrls.shift();
-      }
-    }
-    setActiveImageUrls(nextActiveUrls);
-  }, [getRandomImageUrl, activeImageUrls, currentImageUrl]);
-
   useEffect(() => {
     const initialActiveImageUrls: string[] = [];
-    for (let i = 0; i < 4; i += 1) {
+    for (let i = 0; i < 7; i += 1) {
       let imageUrl = getRandomImageUrl();
       while (initialActiveImageUrls.includes(imageUrl)) {
         imageUrl = getRandomImageUrl();
@@ -73,50 +56,71 @@ const Page = ({ imageUrls }: StaticProps) => {
     }
 
     setActiveImageUrls(initialActiveImageUrls);
-    setCurrentImageUrl(initialActiveImageUrls[0]);
   }, [getRandomImageUrl]);
+
+  const onSlideChange = () => {
+    const swiper = swiperRef.current;
+    if (swiper) {
+      if (swiper.activeIndex <= 2) {
+        let nextImage = getRandomImageUrl();
+        while (activeImageUrls.includes(nextImage)) {
+          nextImage = getRandomImageUrl();
+        }
+        setActiveImageUrls([nextImage, ...activeImageUrls]);
+        swiper.slideTo(swiper.activeIndex + 1, 0);
+      }
+      if (swiper.activeIndex >= activeImageUrls.length - 3) {
+        let nextImage = getRandomImageUrl();
+        while (activeImageUrls.includes(nextImage)) {
+          nextImage = getRandomImageUrl();
+        }
+        setActiveImageUrls([...activeImageUrls, nextImage]);
+      }
+    }
+  };
 
   useEffect(() => {
     const handleRightArrowPress = (e: KeyboardEvent) => {
-      if (e.key === "ArrowRight") {
-        moveToNextImage();
+      if (swiperRef.current) {
+        if (e.key === "ArrowRight") {
+          swiperRef.current.slideNext();
+        } else if (e.key === "ArrowLeft") {
+          swiperRef.current.slidePrev();
+        }
       }
     };
     document.addEventListener("keydown", handleRightArrowPress);
     return () => document.removeEventListener("keydown", handleRightArrowPress);
-  }, [moveToNextImage]);
+  });
 
   return (
     <>
       <Head>
-        <title>Limited Grades</title>
+        <title>For Sara 🙂</title>
       </Head>
-      <Center className="overflow-y-auto h-full bg-neutral-900">
-        <div className="max-h-full">
-          <h1 className="mb-4 text-4xl text-center text-neutral-100">
-            For Sara 🙂
-          </h1>
-          <div className="relative">
-            <button onClick={moveToNextImage} type="button">
-              {activeImageUrls.map((imageUrl) => (
-                <div
-                  key={imageUrl}
-                  className={clsx(
-                    "transition-transform duration-500 ease-in-out backface-invisible",
-                    {
-                      "absolute inset-0": imageUrl !== currentImageUrl,
-                      "rotate-y-0": imageUrl === currentImageUrl,
-                      "rotate-y-180": imageUrl !== currentImageUrl,
-                    }
-                  )}
-                >
-                  <img src={imageUrl} width="720" height="1020" />
-                </div>
-              ))}
-            </button>
-          </div>
-        </div>
-      </Center>
+      <div className="h-full bg-neutral-900">
+        <h1 className="p-4 text-4xl text-center text-neutral-100">
+          For Sara 🙂
+        </h1>
+        <Swiper
+          initialSlide={3}
+          onSlideChangeTransitionEnd={onSlideChange}
+          onSwiper={(swiper) => {
+            swiperRef.current = swiper;
+          }}
+        >
+          {activeImageUrls.map((imageUrl) => (
+            <SwiperSlide key={imageUrl}>
+              <img
+                src={imageUrl}
+                width="480"
+                height="680"
+                className="mx-auto"
+              />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </>
   );
 };
