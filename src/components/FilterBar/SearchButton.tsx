@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
 import { TRANSITION_CLASSES } from "lib/styles";
@@ -14,6 +14,17 @@ interface Props {
 
 const SearchButton: FC<Props> = ({ cards, set }) => {
   const [isModalOpen, setModalOpen] = useState(false);
+
+  useEffect(() => {
+    document.addEventListener("keydown", (event) => {
+      // CTRL + K combo
+      if (event.ctrlKey && event.key === "k") {
+        event.preventDefault();
+        setModalOpen(true);
+      }
+    });
+  });
+
   return (
     <>
       <button
