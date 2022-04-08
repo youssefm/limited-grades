@@ -41,7 +41,7 @@ const normalizeString = (value: string): CandidateIndex => {
 const adjustPosition = (position: number, deletedPositions: number[]) => {
   let originalIndex = position;
   for (const deletedPosition of deletedPositions) {
-    if (originalIndex >= deletedPosition) {
+    if (originalIndex > deletedPosition) {
       originalIndex += 1;
     } else {
       break;
