@@ -28,14 +28,27 @@ export const groupBy = <T>(
   return result;
 };
 
+const compare = <T>(a: T, b: T) => {
+  if (a > b) return 1;
+  if (b > a) return -1;
+  return 0;
+};
+
 export const createComparer = <T>(
-  getKey: (item: T) => number,
+  getKey: (item: T) => number | string,
+  descending = false
+) =>
+  descending
+    ? (a: T, b: T) => compare(getKey(b), getKey(a))
+    : (a: T, b: T) => compare(getKey(a), getKey(b));
+
+export const sortBy = <T>(
+  array: T[],
+  getKey: (item: T) => number | string,
   descending = false
 ) => {
-  if (descending) {
-    return (a: T, b: T) => getKey(b) - getKey(a);
-  }
-  return (a: T, b: T) => getKey(a) - getKey(b);
+  array.sort(createComparer(getKey, descending));
+  return array;
 };
 
 export const matchesMedia = (mediaQuery: string) =>

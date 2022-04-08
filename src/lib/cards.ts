@@ -9,7 +9,7 @@ import { ALL_DECKS, SET_START_DATES } from "lib/constants";
 import { getCardColumn, getCardTypes } from "lib/scryfall";
 import { isRecentSet } from "lib/sets";
 import { Card, CardStore, Deck, Grade, MagicSet, Rarity } from "lib/types";
-import { round, sleep } from "lib/util";
+import { round, sleep, sortBy } from "lib/util";
 
 const MIN_GAMES_DRAWN_FOR_INFERENCE = 100;
 const MIN_GAMES_DRAWN = 400;
@@ -142,7 +142,10 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
     }
   }
 
-  return { updatedAt: Temporal.Now.instant(), cards: Object.values(cards) };
+  return {
+    updatedAt: Temporal.Now.instant(),
+    cards: sortBy(Object.values(cards), (card) => card.name),
+  };
 };
 
 // eslint-disable-next-line import/prefer-default-export
