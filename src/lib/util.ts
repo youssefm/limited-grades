@@ -33,9 +33,9 @@ export const createComparer = <T>(
   descending = false
 ) => {
   if (descending) {
-    return (item1: T, item2: T) => getKey(item2) - getKey(item1);
+    return (a: T, b: T) => getKey(b) - getKey(a);
   }
-  return (item1: T, item2: T) => getKey(item1) - getKey(item2);
+  return (a: T, b: T) => getKey(a) - getKey(b);
 };
 
 export const matchesMedia = (mediaQuery: string) =>
