@@ -1,6 +1,7 @@
 export interface Match {
   atStartOfWord: boolean;
-  position: number;
+  startPosition: number;
+  endPosition: number;
 }
 
 export interface SearchResult<T> {
@@ -8,15 +9,45 @@ export interface SearchResult<T> {
   match: Match;
 }
 
-const normalizeString = (value: string) => {
+type CandidateIndex = [string, number[]];
+
+const normalizeString = (value: string): CandidateIndex => {
   let result = "";
-  for (const char of value.toLowerCase()) {
-    if (char === "," || char === "'" || char === "/") {
+  const deletedPositions = [];
+
+  const valueLength = value.length;
+  const lowercaseValue = value.toLowerCase();
+  let lastCharacter = "";
+  for (let index = 0; index < valueLength; index += 1) {
+    let char = lowercaseValue[index];
+    if (
+      char === "," ||
+      char === "'" ||
+      char === "/" ||
+      (char === " " && lastCharacter === " ")
+    ) {
+      deletedPositions.push(index);
       continue;
     }
+    if (char === "-") {
+      char = " ";
+    }
+    lastCharacter = char;
     result += char;
   }
-  return result;
+  return [result, deletedPositions];
+};
+
+const adjustPosition = (position: number, deletedPositions: number[]) => {
+  let originalIndex = position;
+  for (const deletedPosition of deletedPositions) {
+    if (originalIndex >= deletedPosition) {
+      originalIndex += 1;
+    } else {
+      break;
+    }
+  }
+  return originalIndex;
 };
 
 const compareMatches = (match1: Match, match2: Match) => {
@@ -26,7 +57,7 @@ const compareMatches = (match1: Match, match2: Match) => {
   if (match2.atStartOfWord && !match1.atStartOfWord) {
     return 1;
   }
-  return match1.position - match2.position;
+  return match1.startPosition - match2.startPosition;
 };
 
 const getBestMatch = (candidate: string, query: string): Match | null => {
@@ -37,11 +68,12 @@ const getBestMatch = (candidate: string, query: string): Match | null => {
     if (index === -1) {
       break;
     }
-    const atStartOfWord =
-      index === 0 ||
-      candidate[index - 1] === " " ||
-      candidate[index - 1] === "-";
-    const match = { atStartOfWord, position: index };
+    const atStartOfWord = index === 0 || candidate[index - 1] === " ";
+    const match = {
+      atStartOfWord,
+      startPosition: index,
+      endPosition: index + query.length,
+    };
     if (bestMatch === null || compareMatches(bestMatch, match) > 0) {
       bestMatch = match;
     }
@@ -58,11 +90,11 @@ const getBestMatch = (candidate: string, query: string): Match | null => {
 class SearchIndex<T> {
   #items: T[];
 
-  #candidates: string[];
+  candidateIndices: CandidateIndex[];
 
   constructor(items: T[], key: keyof T) {
     this.#items = items;
-    this.#candidates = items.map((item) =>
+    this.candidateIndices = items.map((item) =>
       normalizeString(item[key] as unknown as string)
     );
   }
@@ -71,11 +103,22 @@ class SearchIndex<T> {
     if (query.length === 0) {
       return [];
     }
-    const normalizedQuery = normalizeString(query);
+    const [normalizedQuery] = normalizeString(query);
     const results: SearchResult<T>[] = [];
-    for (const [index, candidate] of this.#candidates.entries()) {
+    for (const [
+      index,
+      [candidate, deletedPositions],
+    ] of this.candidateIndices.entries()) {
       const bestMatch = getBestMatch(candidate, normalizedQuery);
       if (bestMatch) {
+        bestMatch.startPosition = adjustPosition(
+          bestMatch.startPosition,
+          deletedPositions
+        );
+        bestMatch.endPosition = adjustPosition(
+          bestMatch.endPosition,
+          deletedPositions
+        );
         results.push({
           item: this.#items[index],
           match: bestMatch,
