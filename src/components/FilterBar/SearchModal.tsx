@@ -49,6 +49,10 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
         options={options.slice(0, 6)}
         onInputChange={(newValue, actionMeta) => {
           if (actionMeta.action === "input-change") {
+            if (newValue.length === 0) {
+              setOptions(cards);
+              return;
+            }
             const searchResults = searchIndex.search(newValue);
             setOptions(searchResults.map((result) => result.item));
           }
