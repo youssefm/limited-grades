@@ -1,5 +1,5 @@
 import { Card, Column, Deck, Grade } from "lib/types";
-import { createComparer, groupBy } from "lib/util";
+import { groupBy, sortBy } from "lib/util";
 
 // eslint-disable-next-line import/prefer-default-export
 export class CardTableDictionary {
@@ -13,7 +13,7 @@ export class CardTableDictionary {
     );
 
     for (const group of Object.values(this.cardsByGroup)) {
-      group.sort(createComparer((card) => card.stats[deck]!.winrate, true));
+      sortBy(group, (card) => card.stats[deck]!.winrate, true);
     }
   }
 
