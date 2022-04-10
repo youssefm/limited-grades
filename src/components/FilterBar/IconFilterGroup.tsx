@@ -44,7 +44,7 @@ const IconFilterGroup = <T extends unknown>({
           className={clsx(
             "overflow-hidden hover:z-20 focus:z-10 ml-[-1px] first:ml-0",
             "grow min-w-[46px] h-[38px] last:rounded-r first:rounded-l",
-            "border border-neutral-300 hover:border-neutral-500 dark:border-neutral-400",
+            "border border-neutral-300 hover:border-neutral-500 dark:border-black",
             TRANSITION_CLASSES
           )}
           tabIndex={0}
