@@ -39,6 +39,8 @@ const Layout: FC = ({ children }) => (
         type="font/woff2"
         crossOrigin="anonymous"
       />
+      {/* Prefetch DNS information for Scryfall so first card image fetched loads faster */}
+      <link rel="dns-prefetch" href="https://c1.scryfall.com" />
     </Head>
 
     <DarkModeProvider>{children}</DarkModeProvider>
