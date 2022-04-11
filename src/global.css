@@ -35,6 +35,10 @@
   .scrollbar-gutter-stable {
     scrollbar-gutter: stable;
   }
+
+  .paint-order-stroke {
+    paint-order: stroke;
+  }
 }
 
 .hide-banner #page-info-banner {
