@@ -16,6 +16,7 @@ import WarIcon from "keyrune/svg/war.svg";
 import ZnrIcon from "keyrune/svg/znr.svg";
 import { FC, SVGProps } from "react";
 
+import { TRANSITION_CLASSES } from "lib/styles";
 import { MagicSet } from "lib/types";
 
 const SET_ICONS: Record<MagicSet, FC<SVGProps<SVGSVGElement>>> = {
@@ -50,6 +51,7 @@ const SetIcon: FC<Props> = ({ set, className }) => {
       height="1em"
       className={clsx(
         "stroke-neutral-300 dark:stroke-black paint-order-stroke",
+        TRANSITION_CLASSES,
         className
       )}
     />

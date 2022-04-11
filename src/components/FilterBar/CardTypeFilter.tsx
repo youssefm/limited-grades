@@ -1,9 +1,11 @@
+import clsx from "clsx";
 import CreatureIcon from "mana-font/svg/creature.svg";
 import EnchantmentIcon from "mana-font/svg/enchantment.svg";
 import InstantIcon from "mana-font/svg/instant.svg";
 import LandIcon from "mana-font/svg/land.svg";
 import { FC } from "react";
 
+import { TRANSITION_CLASSES } from "lib/styles";
 import { CardType } from "lib/types";
 
 import IconFilterGroup from "./IconFilterGroup";
@@ -11,7 +13,10 @@ import IconFilterGroup from "./IconFilterGroup";
 const ICON_PROPS = {
   width: "1.28571429em",
   height: "1em",
-  className: "stroke-neutral-300 dark:stroke-black paint-order-stroke",
+  className: clsx(
+    "stroke-neutral-300 dark:stroke-black paint-order-stroke",
+    TRANSITION_CLASSES
+  ),
 };
 
 const FILTERS = [
