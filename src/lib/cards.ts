@@ -1,6 +1,5 @@
 import assert from "assert";
 
-import { Temporal } from "@js-temporal/polyfill";
 import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
 
@@ -51,8 +50,8 @@ const fetchApiCards = async (set: MagicSet, deck: Deck): Promise<ApiCard[]> => {
   const urlParams: Record<string, string> = {
     expansion: set,
     format: "PremierDraft",
-    start_date: SET_START_DATES[set].toString(),
-    end_date: Temporal.Now.plainDateISO("UTC").toString(),
+    start_date: SET_START_DATES[set],
+    end_date: new Date().toISOString().slice(0, 10),
   };
 
   if (deck !== Deck.ALL) {
@@ -143,7 +142,7 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
   }
 
   return {
-    updatedAt: Temporal.Now.instant(),
+    updatedAt: new Date(),
     cards: sortBy(Object.values(cards), (card) => card.name),
   };
 };
@@ -156,7 +155,7 @@ export const getCardStore = async (set: MagicSet): Promise<CardStore> => {
     console.log("cache hit");
     return {
       ...cacheHit,
-      updatedAt: Temporal.Instant.from(cacheHit.updatedAt),
+      updatedAt: new Date(cacheHit.updatedAt),
     };
   }
   console.log("cache miss");
@@ -166,17 +165,17 @@ export const getCardStore = async (set: MagicSet): Promise<CardStore> => {
   if (isRecentSet(set)) {
     // If the set is recently released (< 30 days ago), expire cache entry until the next day
     // 1AM UTC is when 17Lands refreshes their daily data
-    const now = Temporal.Now.zonedDateTimeISO("UTC");
-    const nextRefreshAt = Temporal.ZonedDateTime.from({
-      timeZone: "UTC",
-      year: now.year,
-      month: now.month,
-      day: now.hour < 1 ? now.day : now.day + 1,
-      hour: 1,
-    });
-    expirationInSeconds = Math.floor(
-      Temporal.Now.zonedDateTimeISO().until(nextRefreshAt).total("second")
+    const now = new Date();
+    const currentDate = now.getUTCDate();
+    const nextRefreshAt = new Date(
+      Date.UTC(
+        now.getUTCFullYear(),
+        now.getUTCMonth(),
+        now.getUTCHours() < 1 ? currentDate : currentDate + 1,
+        1
+      )
     );
+    expirationInSeconds = (nextRefreshAt.getTime() - now.getTime()) / 1000;
   } else {
     expirationInSeconds = 7 * 24 * 60 * 60;
   }

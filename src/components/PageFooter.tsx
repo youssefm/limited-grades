@@ -1,9 +1,7 @@
-import { Temporal } from "@js-temporal/polyfill";
-
 import LinkOut from "components/common/LinkOut";
 
 interface Props {
-  lastUpdatedAt: Temporal.Instant;
+  lastUpdatedAt: Date;
 }
 
 const PageFooter = ({ lastUpdatedAt }: Props) => (
