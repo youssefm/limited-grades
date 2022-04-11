@@ -56,8 +56,7 @@
 
 /* React Select dark mode overrides */
 .dark .rs__control {
-  @apply bg-neutral-700;
-  border-color: rgb(51, 51, 51);
+  @apply bg-neutral-700 border-black;
 }
 
 .dark .rs__indicator-separator {
