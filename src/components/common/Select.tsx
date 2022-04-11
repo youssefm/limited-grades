@@ -65,11 +65,13 @@ const Select = <T extends unknown>({
     styles: {
       control: (provided) => ({
         ...provided,
+        cursor: "text",
         transitionDuration: "150ms",
         transitionProperty: "background-color border-color",
       }),
       dropdownIndicator: (provided) => ({
         ...provided,
+        cursor: "pointer",
         transition: "color 150ms",
       }),
       indicatorSeparator: (provided) => ({
