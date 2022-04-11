@@ -16,7 +16,7 @@ const FilterGroup: FC<Props> = ({
   const Wrapper = disableInputLabel ? "div" : "label";
   return (
     <Wrapper className={clsx("flex items-center lg:block", className)}>
-      <div className="w-16 text-sm lg:mb-2">{label}</div>
+      <div className="w-16 text-sm select-none lg:mb-2">{label}</div>
       <div className="grow">{children}</div>
     </Wrapper>
   );
