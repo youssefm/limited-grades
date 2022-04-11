@@ -6,7 +6,7 @@ import { StateManagerProps } from "react-select/dist/declarations/src/stateManag
 import useDarkMode from "hooks/useDarkMode";
 
 const getDarkModeColors = (baseColors: Colors) => ({
-  neutral0: "#525252", // tailwind neutral-600
+  neutral0: "#404040", // tailwind neutral-700
   neutral5: baseColors.neutral90,
   neutral10: baseColors.neutral90,
   neutral20: baseColors.neutral80,

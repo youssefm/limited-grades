@@ -2,9 +2,9 @@ import constate from "constate";
 import { useRouter } from "next/dist/client/router";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { ALL_SETS } from "lib/constants";
+import { ALL_CARD_TYPES, ALL_RARITIES, ALL_SETS } from "lib/constants";
 import { CardTableDictionary } from "lib/table";
-import { Card, CardType, Deck, MagicSet, Rarity } from "lib/types";
+import { Card, Deck, MagicSet } from "lib/types";
 import { extractPathnameSegments } from "lib/util";
 
 import useDelayedLoading from "./useDelayedLoading";
@@ -18,8 +18,10 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
   const router = useRouter();
   const [selectedSet, setSelectedSet] = useState(set);
   const [deck, setDeck] = useState(Deck.ALL);
-  const [visibleRarities, setVisibleRarities] = useState(new Set<Rarity>());
-  const [visibleCardTypes, setVisibleCardTypes] = useState(new Set<CardType>());
+  const [visibleRarities, setVisibleRarities] = useState(new Set(ALL_RARITIES));
+  const [visibleCardTypes, setVisibleCardTypes] = useState(
+    new Set(ALL_CARD_TYPES)
+  );
 
   const isLoading = useDelayedLoading(set === selectedSet, 300);
   const loadingCards = useRef(cards);
@@ -43,17 +45,11 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
   const displayedCards = showSkeletons ? loadingCards.current : cards;
 
   const cardDictionary = useMemo(() => {
-    let filteredCards = displayedCards;
-    if (visibleRarities.size > 0) {
-      filteredCards = filteredCards.filter((card) =>
-        visibleRarities.has(card.rarity)
-      );
-    }
-    if (visibleCardTypes.size > 0) {
-      filteredCards = filteredCards.filter((card) =>
+    const filteredCards = displayedCards
+      .filter((card) => visibleRarities.has(card.rarity))
+      .filter((card) =>
         card.cardTypes.some((cardType) => visibleCardTypes.has(cardType))
       );
-    }
     return new CardTableDictionary(filteredCards, deck);
   }, [displayedCards, deck, visibleRarities, visibleCardTypes]);
 
