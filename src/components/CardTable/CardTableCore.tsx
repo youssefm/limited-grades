@@ -36,7 +36,7 @@ const CardTableCore: FC<Props> = ({
       >
         <div />
         {ALL_COLUMNS.map((column) => (
-          <div key={column} className="p-[1px] text-center">
+          <div key={column} className="p-px text-center">
             <ColorIcon color={column} className="my-2" />
           </div>
         ))}
