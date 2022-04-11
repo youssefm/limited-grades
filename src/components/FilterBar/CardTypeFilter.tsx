@@ -11,6 +11,7 @@ import IconFilterGroup from "./IconFilterGroup";
 const ICON_PROPS = {
   width: "1.28571429em",
   height: "1em",
+  className: "stroke-neutral-300 dark:stroke-black paint-order-stroke",
 };
 
 const FILTERS = [

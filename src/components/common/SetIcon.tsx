@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import AfrIcon from "keyrune/svg/afr.svg";
 import AkrIcon from "keyrune/svg/akr.svg";
 import DomIcon from "keyrune/svg/dom.svg";
@@ -43,7 +44,16 @@ interface Props {
 
 const SetIcon: FC<Props> = ({ set, className }) => {
   const SvgIcon = SET_ICONS[set];
-  return <SvgIcon width="1.28571429em" height="1em" className={className} />;
+  return (
+    <SvgIcon
+      width="1.28571429em"
+      height="1em"
+      className={clsx(
+        "stroke-neutral-300 dark:stroke-black paint-order-stroke",
+        className
+      )}
+    />
+  );
 };
 
 export default SetIcon;
