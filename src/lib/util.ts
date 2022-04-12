@@ -82,3 +82,20 @@ export const formatPercentageDifference = (value: number) => {
 
 export const extractPathnameSegments = (url: string) =>
   new URL(url, window.location.origin).pathname.slice(1).split("/");
+
+export class LazySingleton<T> {
+  #creator: () => T;
+
+  #instance: T | null = null;
+
+  constructor(creator: () => T) {
+    this.#creator = creator;
+  }
+
+  get() {
+    if (this.#instance === null) {
+      this.#instance = this.#creator();
+    }
+    return this.#instance;
+  }
+}
