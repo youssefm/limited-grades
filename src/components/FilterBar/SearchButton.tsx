@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { FC, useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
-import { IS_UMAMI_ENABLED } from "lib/env";
+import { IS_UMAMI_ENABLED } from "lib/analytics";
 import { TRANSITION_CLASSES } from "lib/styles";
 import { Card, MagicSet } from "lib/types";
 
