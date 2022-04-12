@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { FC, useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
-import { IS_UMAMI_ENABLED } from "lib/analytics";
+import { trackEvent } from "lib/analytics";
 import { TRANSITION_CLASSES } from "lib/styles";
 import { Card, MagicSet } from "lib/types";
 
@@ -22,9 +22,7 @@ const SearchButton: FC<Props> = ({ cards, set }) => {
       if ((event.ctrlKey || event.metaKey) && event.key === "f") {
         event.preventDefault();
         setModalOpen(true);
-        if (IS_UMAMI_ENABLED) {
-          setTimeout(() => umami?.("search-keyboard-shortcut"));
-        }
+        trackEvent("search-keyboard-shortcut");
       }
     };
 
