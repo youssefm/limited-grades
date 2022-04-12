@@ -17,8 +17,12 @@ const SearchButton: FC<Props> = ({ cards, set }) => {
 
   useEffect(() => {
     document.addEventListener("keydown", (event) => {
-      // CTRL + K combo
-      if (event.ctrlKey && event.key === "k") {
+      // CTRL + F or CTRL + K combo
+      // CMD + F or CMD + K on macs
+      if (
+        (event.ctrlKey || event.metaKey) &&
+        (event.key === "f" || event.key === "k")
+      ) {
         event.preventDefault();
         setModalOpen(true);
       }
