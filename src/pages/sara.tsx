@@ -90,7 +90,7 @@ const Page = ({ imageUrls }: StaticProps) => {
     };
     document.addEventListener("keydown", handleRightArrowPress);
     return () => document.removeEventListener("keydown", handleRightArrowPress);
-  });
+  }, []);
 
   return (
     <>
