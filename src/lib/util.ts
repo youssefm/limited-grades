@@ -1,5 +1,3 @@
-export const IN_PRODUCTION = process.env.NODE_ENV === "production";
-
 // Adapted from https://github.com/lodash/lodash/blob/2da024c3b4f9947a48517639de7560457cd4ec6c/.internal/createRound.js
 export const round = (n: number, precision: number = 0) => {
   let [significand, exponent] = `${n}e`.split("e");

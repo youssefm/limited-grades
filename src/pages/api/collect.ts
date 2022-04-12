@@ -1,10 +1,10 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import httpProxyMiddleware from "next-http-proxy-middleware";
 
-const { UMAMI_SERVER_NAME } = process.env;
+import { IS_UMAMI_ENABLED, UMAMI_SERVER_NAME } from "lib/env";
 
 const handler = async (request: NextApiRequest, response: NextApiResponse) => {
-  if (!UMAMI_SERVER_NAME) {
+  if (!IS_UMAMI_ENABLED) {
     response.status(404).send(null);
     return;
   }

@@ -2,6 +2,7 @@ import clsx from "clsx";
 import { FC, useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
+import { IS_UMAMI_ENABLED } from "lib/env";
 import { TRANSITION_CLASSES } from "lib/styles";
 import { Card, MagicSet } from "lib/types";
 
@@ -15,18 +16,22 @@ interface Props {
 const SearchButton: FC<Props> = ({ cards, set }) => {
   const [isModalOpen, setModalOpen] = useState(false);
 
+  const handleKeyboardShortcut = (event: KeyboardEvent) => {
+    // CTRL + F or CMD + F combo
+    if ((event.ctrlKey || event.metaKey) && event.key === "f") {
+      event.preventDefault();
+      setModalOpen(true);
+    }
+
+    if (IS_UMAMI_ENABLED) {
+      setTimeout(() => umami("search-keyboard-shortcut"));
+    }
+  };
+
   useEffect(() => {
-    document.addEventListener("keydown", (event) => {
-      // CTRL + F or CTRL + K combo
-      // CMD + F or CMD + K on macs
-      if (
-        (event.ctrlKey || event.metaKey) &&
-        (event.key === "f" || event.key === "k")
-      ) {
-        event.preventDefault();
-        setModalOpen(true);
-      }
-    });
+    document.addEventListener("keydown", handleKeyboardShortcut);
+    return () =>
+      document.removeEventListener("keydown", handleKeyboardShortcut);
   });
 
   return (
