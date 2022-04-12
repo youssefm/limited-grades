@@ -32,7 +32,7 @@ const SearchButton: FC<Props> = ({ cards, set }) => {
     document.addEventListener("keydown", handleKeyboardShortcut);
     return () =>
       document.removeEventListener("keydown", handleKeyboardShortcut);
-  });
+  }, []);
 
   return (
     <>
