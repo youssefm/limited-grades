@@ -6,8 +6,7 @@ import "tippy.js/dist/tippy.css";
 
 import Layout from "components/common/Layout";
 import "global.css";
-
-const UMAMI_SITE_ID = process.env.NEXT_PUBLIC_UMAMI_SITE_ID;
+import { UMAMI_SITE_ID } from "lib/env";
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
   <>
