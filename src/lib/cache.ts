@@ -8,7 +8,6 @@ import {
   RedisScripts,
 } from "redis";
 
-import { IS_REDIS_ENABLED, REDIS_URL } from "./env";
 import { LazySingleton } from "./util";
 
 export interface Cache {
@@ -18,9 +17,10 @@ export interface Cache {
 
 type RedisClient = RedisClientType<RedisModules, RedisScripts>;
 
+const IS_REDIS_ENABLED = process.env.REDIS_URL !== undefined;
 const REDIS_CLIENT = new LazySingleton(async (): Promise<RedisClient> => {
   const client = createClient({
-    url: REDIS_URL,
+    url: process.env.REDIS_URL,
     socket: {
       tls: true,
       rejectUnauthorized: false,
