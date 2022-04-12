@@ -6,6 +6,8 @@ import { ungzip } from "node-gzip";
 import { ALL_CARD_TYPES } from "lib/constants";
 import { CardType, Column } from "lib/types";
 
+import { LazySingleton } from "./util";
+
 interface ImageUris {
   border_crop: string;
 }
@@ -36,8 +38,6 @@ const COLUMNS_BY_COLOR: Record<ScryfallColor, Column> = {
   G: Column.GREEN,
 };
 
-let CARD_INDEX: Map<string, ScryfallCard> | undefined;
-
 const readScryfallFile = async (fileName: string): Promise<ScryfallCard[]> => {
   const scryfallFilePath = path.join(process.cwd(), "data", `${fileName}.gz`);
   console.log(`Reading Scryfall data from ${scryfallFilePath}`);
@@ -49,31 +49,29 @@ const readScryfallFile = async (fileName: string): Promise<ScryfallCard[]> => {
 const shouldExcludeCard = (card: ScryfallCard) =>
   card.layout === "art_series" || card.layout === "token";
 
-const buildIndex = async () => {
-  if (!CARD_INDEX) {
-    CARD_INDEX = new Map();
-    for (const card of await readScryfallFile("scryfall-oracle-cards.json")) {
-      if (shouldExcludeCard(card)) {
-        continue;
-      }
+const CARD_INDEX = new LazySingleton(async () => {
+  const index = new Map<string, ScryfallCard>();
+  for (const card of await readScryfallFile("scryfall-oracle-cards.json")) {
+    if (shouldExcludeCard(card)) {
+      continue;
+    }
 
-      const names = [card.name];
-      if (card.card_faces && card.card_faces.length > 0) {
-        names.push(card.card_faces[0].name);
-      }
+    const names = [card.name];
+    if (card.card_faces && card.card_faces.length > 0) {
+      names.push(card.card_faces[0].name);
+    }
 
-      for (const name of names) {
-        if (!CARD_INDEX.has(name)) {
-          CARD_INDEX.set(name, card);
-        }
+    for (const name of names) {
+      if (!index.has(name)) {
+        index.set(name, card);
       }
     }
   }
-  return CARD_INDEX;
-};
+  return index;
+});
 
 const lookupCard = async (cardName: string): Promise<ScryfallCard> => {
-  const cardIndex = await buildIndex();
+  const cardIndex = await CARD_INDEX.get();
   const scryfallCard = cardIndex.get(cardName);
   if (!scryfallCard) {
     throw Error(

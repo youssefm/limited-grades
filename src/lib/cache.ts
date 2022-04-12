@@ -8,6 +8,8 @@ import {
   RedisScripts,
 } from "redis";
 
+import { LazySingleton } from "./util";
+
 export interface Cache {
   get: <T>(key: string) => Promise<T | null>;
   set: (key: string, value: any, expirationInSeconds: number) => Promise<void>;
@@ -16,31 +18,25 @@ export interface Cache {
 type RedisClient = RedisClientType<RedisModules, RedisScripts>;
 
 const IS_REDIS_ENABLED = process.env.REDIS_URL !== undefined;
-let REDIS_CLIENT: RedisClient | null;
+const REDIS_CLIENT = new LazySingleton(async (): Promise<RedisClient> => {
+  const client = createClient({
+    url: process.env.REDIS_URL,
+    socket: {
+      tls: true,
+      rejectUnauthorized: false,
+      reconnectStrategy: (retries) => Math.min(retries * 1000, 10000),
+    },
+  });
 
-const initializeRedisClient = async (): Promise<RedisClient> => {
-  if (!REDIS_CLIENT) {
-    REDIS_CLIENT = createClient({
-      url: process.env.REDIS_URL,
-      socket: {
-        tls: true,
-        rejectUnauthorized: false,
-        reconnectStrategy: (retries) => Math.min(retries * 1000, 10000),
-      },
-    });
+  client.on("error", (error) => console.log("Redis Client Error:", error));
 
-    REDIS_CLIENT.on("error", (error) =>
-      console.log("Redis Client Error:", error)
-    );
-
-    await REDIS_CLIENT.connect();
-  }
-  return REDIS_CLIENT;
-};
+  await client.connect();
+  return client;
+});
 
 const REDIS_CACHE = {
   get: async <T>(key: string): Promise<T | null> => {
-    const redisClient = await initializeRedisClient();
+    const redisClient = await REDIS_CLIENT.get();
     const compressedValue = await redisClient.get(key);
     if (compressedValue === null) {
       return compressedValue;
@@ -50,7 +46,7 @@ const REDIS_CACHE = {
   },
   set: async (key: string, value: any, expirationInSeconds: number) => {
     const compressedValue = await gzip(JSON.stringify(value));
-    const redisClient = await initializeRedisClient();
+    const redisClient = await REDIS_CLIENT.get();
     await redisClient.set(key, compressedValue.toString("base64"), {
       EX: expirationInSeconds,
     });
