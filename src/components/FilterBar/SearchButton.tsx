@@ -22,10 +22,9 @@ const SearchButton: FC<Props> = ({ cards, set }) => {
       if ((event.ctrlKey || event.metaKey) && event.key === "f") {
         event.preventDefault();
         setModalOpen(true);
-      }
-
-      if (IS_UMAMI_ENABLED) {
-        setTimeout(() => umami("search-keyboard-shortcut"));
+        if (IS_UMAMI_ENABLED) {
+          setTimeout(() => umami("search-keyboard-shortcut"));
+        }
       }
     };
 
