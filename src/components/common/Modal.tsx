@@ -26,7 +26,7 @@ const Modal: FC<Props> = ({
       initialFocus={initialFocus}
     >
       <Transition.Child
-        enter="transition ease-[ease]"
+        enter="transition"
         enterFrom="opacity-0 backdrop-opacity-0"
         enterTo="opacity-100 backdrop-opacity-100"
         as={Fragment}
@@ -34,7 +34,7 @@ const Modal: FC<Props> = ({
         <Dialog.Overlay className="fixed inset-0 z-10 bg-black/60 backdrop-blur-xs" />
       </Transition.Child>
       <Transition.Child
-        enter="transition-opacity ease-[ease]"
+        enter="transition-opacity"
         enterFrom="opacity-0"
         enterTo="opacity-100"
         as={Fragment}

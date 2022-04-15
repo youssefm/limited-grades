@@ -1,7 +1,7 @@
 import { Grade } from "lib/types";
 
 export const HOVER_CLASSES = "hover:text-blue-500 dark:hover:text-amber-600";
-export const TRANSITION_CLASSES = "transition-colors ease-[ease]";
+export const TRANSITION_CLASSES = "transition-colors";
 
 export const GRADE_BG_COLORS: Record<Grade, string> = {
   [Grade.A_PLUS]: "bg-A+",

@@ -50,7 +50,7 @@ const Collapsible: FC<Props> = ({ isExpanded, id, className, children }) => {
   return (
     <div
       id={id}
-      className={clsx("transition-max-h ease-[ease]", className)}
+      className={clsx("transition-[max-height]", className)}
       style={
         pendingFirstExpansion.current
           ? { maxHeight: 0, overflow: "hidden", display: "none" }

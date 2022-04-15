@@ -72,8 +72,7 @@ const IconFilterGroup = <T extends unknown>({
                 "w-full h-full text-2xl",
                 "bg-neutral-200 peer-checked:bg-white hover:!bg-neutral-200",
                 "dark:bg-neutral-900 dark:peer-checked:bg-neutral-700 dark:hover:!bg-neutral-900",
-                "opacity-30 peer-checked:opacity-100",
-                TRANSITION_CLASSES
+                "opacity-30 peer-checked:opacity-100 transition"
               )}
             >
               {icon}
