@@ -2,7 +2,6 @@ import clsx from "clsx";
 import { FC, useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
-import { trackEvent } from "lib/analytics";
 import { TRANSITION_CLASSES } from "lib/styles";
 import { Card, MagicSet } from "lib/types";
 
@@ -22,7 +21,6 @@ const SearchButton: FC<Props> = ({ cards, set }) => {
       if ((event.ctrlKey || event.metaKey) && event.key === "f") {
         event.preventDefault();
         setModalOpen(true);
-        trackEvent("search-keyboard-shortcut");
       }
     };
 
@@ -38,7 +36,7 @@ const SearchButton: FC<Props> = ({ cards, set }) => {
         className={clsx(
           "py-1 px-6 w-full h-full hover:text-white rounded lg:text-2xl lg:rounded-lg",
           "bg-white hover:bg-blue-500 dark:bg-neutral-700 dark:hover:bg-amber-600",
-          "border border-neutral-300 dark:border-black umami--click--search-button",
+          "border border-neutral-300 dark:border-black",
           TRANSITION_CLASSES
         )}
         type="button"

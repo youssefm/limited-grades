@@ -67,7 +67,7 @@
     "tailwindcss/no-custom-classname": [
       "error",
       {
-        "whitelist": ["umami--.*"]
+        "whitelist": []
       }
     ]
   }
