@@ -41,7 +41,7 @@ export const SET_START_DATES: Record<MagicSet, string> = {
   [MagicSet.DOMINARIA]: "2020-04-16",
   [MagicSet.AMONKHET]: "2020-08-13",
   [MagicSet.KALADESH]: "2020-11-12",
-  [MagicSet.ARENA_CUBE]: "2022-01-06",
+  [MagicSet.ARENA_CUBE]: "2022-04-15",
   [MagicSet.DOUBLE_FEATURE]: "2022-01-28",
 };
 
