@@ -39,11 +39,15 @@ const COLUMNS_BY_COLOR: Record<ScryfallColor, Column> = {
 };
 
 const readScryfallFile = async (fileName: string): Promise<ScryfallCard[]> => {
-  const scryfallFilePath = path.join(process.cwd(), "data", `${fileName}.gz`);
+  const scryfallFilePath = path.join(process.cwd(), "data", fileName);
   console.log(`Reading Scryfall data from ${scryfallFilePath}`);
-  return JSON.parse(
-    (await ungzip(await readFile(scryfallFilePath))).toString("utf-8")
-  );
+  let json;
+  if (fileName.endsWith(".gz")) {
+    json = (await ungzip(await readFile(scryfallFilePath))).toString("utf-8");
+  } else {
+    json = await readFile(scryfallFilePath, "utf8");
+  }
+  return JSON.parse(json);
 };
 
 const shouldExcludeCard = (card: ScryfallCard) =>
@@ -104,7 +108,7 @@ export const getCardTypes = async (cardName: string): Promise<CardType[]> => {
 export const getAllCardsByType = async (
   cardType: CardType
 ): Promise<ScryfallCard[]> =>
-  (await readScryfallFile("scryfall-unique-artwork.json")).filter(
+  (await readScryfallFile("scryfall-unique-artwork.json.gz")).filter(
     (card) =>
       !shouldExcludeCard(card) &&
       card.type_line?.toLowerCase().includes(cardType)

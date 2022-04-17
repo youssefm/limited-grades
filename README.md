@@ -22,7 +22,7 @@ By default, your server will load cached data from the repository.
 2. Update `SET_LABELS` at `src/lib/constants.ts` with the user-facing name of the set
 3. Update `SET_START_DATES` at `src/lib/constants.ts` with the date the set was released on Arena
 4. Update `SET_ICONS` at `src/components/common/SetIcon.tsx` to import the SVG for the set
-5. Once Scryfall is updated, download the Oracle Cards data file [here](https://scryfall.com/docs/api/bulk-data), gzip it, and update `data/scryfall-oracle-cards.json.gz`
+5. Once Scryfall is updated, download the Oracle Cards data file [here](https://scryfall.com/docs/api/bulk-data) and update `data/scryfall-oracle-cards.json`
 6. Update the root redirect in `next.config.js` to redirect to the latest set
 7. Push to GitHub
 
