@@ -64,8 +64,8 @@ const fetchApiCards = async (set: MagicSet, deck: Deck): Promise<ApiCard[]> => {
   console.log(`Making API request to ${url}`);
   let response = await fetch(url);
   while (!response.ok) {
-    console.log("request failed, retrying in 10 seconds");
-    await sleep(10000);
+    console.log("request failed, retrying in 20 seconds");
+    await sleep(20000);
     response = await fetch(url);
   }
   console.log("request succeeded");
