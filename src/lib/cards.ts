@@ -175,7 +175,9 @@ export const getCardStore = async (set: MagicSet): Promise<CardStore> => {
         1
       )
     );
-    expirationInSeconds = (nextRefreshAt.getTime() - now.getTime()) / 1000;
+    expirationInSeconds = Math.ceil(
+      (nextRefreshAt.getTime() - now.getTime()) / 1000
+    );
   } else {
     expirationInSeconds = 7 * 24 * 60 * 60;
   }
