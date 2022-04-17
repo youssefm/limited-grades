@@ -19,5 +19,5 @@ const handler = async (request: NextApiRequest, response: NextApiResponse) => {
 export default handler;
 
 export const config = {
-  unstable_includeFiles: ["data/scryfall-oracle-cards.json.gz"],
+  unstable_includeFiles: ["data/scryfall-oracle-cards.json"],
 };
