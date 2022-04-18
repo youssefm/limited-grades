@@ -8,6 +8,7 @@ export const ALL_RARITIES = Object.values(Rarity);
 export const ALL_CARD_TYPES = Object.values(CardType);
 
 export const SET_LABELS: Record<MagicSet, string> = {
+  [MagicSet.NEW_CAPENNA]: "New Capenna",
   [MagicSet.NEON_DYNASTY]: "Neon Dynasty",
   [MagicSet.CRIMSON_VOW]: "Crimson Vow",
   [MagicSet.MIDNIGHT_HUNT]: "Midnight Hunt",
@@ -27,6 +28,7 @@ export const SET_LABELS: Record<MagicSet, string> = {
 };
 
 export const SET_START_DATES: Record<MagicSet, string> = {
+  [MagicSet.NEW_CAPENNA]: "2022-04-28",
   [MagicSet.NEON_DYNASTY]: "2022-02-10",
   [MagicSet.CRIMSON_VOW]: "2021-11-11",
   [MagicSet.MIDNIGHT_HUNT]: "2021-09-16",
