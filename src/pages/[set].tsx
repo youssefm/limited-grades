@@ -44,16 +44,18 @@ const Page = ({ set, cards, lastUpdatedAtTicks }: StaticProps) => (
     </Head>
     <div
       className={clsx(
-        "flex overflow-y-auto flex-col px-2 h-full scrollbar-gutter-stable",
+        "overflow-y-auto px-2 h-full scrollbar-gutter-stable",
         "text-neutral-800 dark:text-neutral-100 dark:bg-neutral-900",
         TRANSITION_CLASSES
       )}
     >
-      <PageHeader />
-      <CardTableContextProvider set={set} cards={cards}>
-        <PageBody className="grow" />
-      </CardTableContextProvider>
-      <PageFooter lastUpdatedAt={new Date(lastUpdatedAtTicks)} />
+      <div className="flex flex-col mx-auto max-w-[1800px]">
+        <PageHeader />
+        <CardTableContextProvider set={set} cards={cards}>
+          <PageBody className="grow" />
+        </CardTableContextProvider>
+        <PageFooter lastUpdatedAt={new Date(lastUpdatedAtTicks)} />
+      </div>
     </div>
   </>
 );
