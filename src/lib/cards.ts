@@ -5,10 +5,11 @@ import NormalDistribution from "normal-distribution";
 
 import { CACHE } from "lib/cache";
 import { ALL_DECKS, SET_START_DATES } from "lib/constants";
-import { getCardColumn, getCardTypes } from "lib/scryfall";
 import { isRecentSet } from "lib/sets";
 import { Card, CardStore, Deck, Grade, MagicSet, Rarity } from "lib/types";
 import { round, sleep, sortBy } from "lib/util";
+
+import { SCRYFALL_FILE_INDEX } from "./scryfall";
 
 const MIN_GAMES_DRAWN_FOR_INFERENCE = 100;
 const MIN_GAMES_DRAWN = 400;
@@ -75,9 +76,10 @@ const fetchApiCards = async (set: MagicSet, deck: Deck): Promise<ApiCard[]> => {
 
 const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
   const cards: { [key: string]: Card } = {};
-  const apiCardStore = await Promise.all(
-    ALL_DECKS.map((deck) => fetchApiCards(set, deck))
-  );
+  const [apiCardStore, scryfallIndex] = await Promise.all([
+    Promise.all(ALL_DECKS.map((deck) => fetchApiCards(set, deck))),
+    SCRYFALL_FILE_INDEX.get(),
+  ]);
   for (const [index, deck] of ALL_DECKS.entries()) {
     let apiCards: ApiCard[] = apiCardStore[index];
     apiCards = apiCards.filter(
@@ -109,9 +111,9 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
         const cardName = apiCard.name.replace("///", "//");
         card = {
           name: cardName,
-          column: await getCardColumn(cardName),
+          column: scryfallIndex.getCardColumn(cardName),
           rarity: apiCard.rarity === "basic" ? Rarity.COMMON : apiCard.rarity,
-          cardTypes: await getCardTypes(cardName),
+          cardTypes: scryfallIndex.getCardTypes(cardName),
           cardUrl: apiCard.url,
           cardBackUrl: apiCard.url_back,
           overallStats: {
