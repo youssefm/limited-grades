@@ -7,7 +7,7 @@ import { CACHE } from "lib/cache";
 import { ALL_DECKS, SET_START_DATES } from "lib/constants";
 import { isRecentSet } from "lib/sets";
 import { Card, CardStore, Deck, Grade, MagicSet, Rarity } from "lib/types";
-import { round, sleep, sortBy } from "lib/util";
+import { buildUrl, round, sleep, sortBy } from "lib/util";
 
 import { SCRYFALL_FILE_INDEX } from "./scryfall";
 
@@ -48,7 +48,7 @@ interface ApiCard {
 }
 
 const fetchApiCards = async (set: MagicSet, deck: Deck): Promise<ApiCard[]> => {
-  const urlParams: Record<string, string> = {
+  const queryParams: Record<string, string> = {
     expansion: set,
     format: "PremierDraft",
     start_date: SET_START_DATES[set],
@@ -56,11 +56,13 @@ const fetchApiCards = async (set: MagicSet, deck: Deck): Promise<ApiCard[]> => {
   };
 
   if (deck !== Deck.ALL) {
-    urlParams.colors = deck;
+    queryParams.colors = deck;
   }
 
-  const queryString = new URLSearchParams(urlParams).toString();
-  const url = `https://www.17lands.com/card_ratings/data?${queryString}`;
+  const url = buildUrl(
+    "https://www.17lands.com/card_ratings/data",
+    queryParams
+  );
 
   console.log(`Making API request to ${url}`);
   let response = await fetch(url);

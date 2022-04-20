@@ -97,3 +97,16 @@ export class LazySingleton<T> {
     return this.#instance;
   }
 }
+
+export const buildUrl = (
+  urlPath: string,
+  queryParams: Record<string, string>
+): string => `${urlPath}?${new URLSearchParams(queryParams)}`;
+
+export const fetchJson = async <T>(url: string): Promise<T> => {
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error("request failed");
+  }
+  return await response.json();
+};
