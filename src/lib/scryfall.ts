@@ -6,7 +6,7 @@ import { ungzip } from "node-gzip";
 import { ALL_CARD_TYPES } from "lib/constants";
 import { CardType, Column, MagicSet } from "lib/types";
 
-import { LazySingleton } from "./util";
+import { buildUrl, fetchJson, LazySingleton } from "./util";
 
 type ScryfallColor = "W" | "U" | "B" | "R" | "G";
 
@@ -129,18 +129,18 @@ export const getAllCardsByType = async (
 
 const fetchCards = async (set: MagicSet): Promise<ScryfallCard[]> => {
   const cards: ScryfallCard[] = [];
-  let url:
-    | string
-    | undefined = `https://api.scryfall.com/cards/search?${new URLSearchParams({
+  let url = buildUrl("https://api.scryfall.com/cards/search", {
     q: `e:${set} is:booster`,
-  })}`;
-  do {
+  });
+  for (;;) {
     console.log(`Making a Scryfall request to: ${url}`);
-    const response = await fetch(url);
-    const page: ScryfallCardPage = await response.json();
+    const page = await fetchJson<ScryfallCardPage>(url);
     cards.push(...page.data);
+    if (!page.next_page) {
+      break;
+    }
     url = page.next_page;
-  } while (url);
+  }
 
   return cards;
 };
