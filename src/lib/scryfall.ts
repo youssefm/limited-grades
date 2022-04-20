@@ -4,12 +4,20 @@ import path from "path";
 import { ungzip } from "node-gzip";
 
 import { ALL_CARD_TYPES } from "lib/constants";
-import { CardType, Column } from "lib/types";
+import { CardType, Column, MagicSet } from "lib/types";
 
 import { LazySingleton } from "./util";
 
+type ScryfallColor = "W" | "U" | "B" | "R" | "G";
+
 interface ImageUris {
   border_crop: string;
+}
+interface ScryfallCardFace {
+  name: string;
+  colors?: ScryfallColor[];
+  type_line: string;
+  image_uris: ImageUris;
 }
 
 interface ScryfallCard {
@@ -21,14 +29,12 @@ interface ScryfallCard {
   image_uris?: ImageUris;
 }
 
-interface ScryfallCardFace {
-  name: string;
-  colors?: ScryfallColor[];
-  type_line: string;
-  image_uris: ImageUris;
+interface ScryfallCardPage {
+  total_cards: number;
+  has_more: boolean;
+  next_page?: string;
+  data: ScryfallCard[];
 }
-
-type ScryfallColor = "W" | "U" | "B" | "R" | "G";
 
 const COLUMNS_BY_COLOR: Record<ScryfallColor, Column> = {
   W: Column.WHITE,
@@ -37,6 +43,63 @@ const COLUMNS_BY_COLOR: Record<ScryfallColor, Column> = {
   R: Column.RED,
   G: Column.GREEN,
 };
+
+const shouldExcludeCard = (card: ScryfallCard) =>
+  card.layout === "art_series" || card.layout === "token";
+
+export class ScryfallIndex {
+  #index: Map<string, ScryfallCard>;
+
+  constructor(cards: ScryfallCard[]) {
+    this.#index = new Map<string, ScryfallCard>();
+    for (const card of cards) {
+      if (shouldExcludeCard(card)) {
+        continue;
+      }
+
+      const names = [card.name];
+      if (card.card_faces && card.card_faces.length > 0) {
+        names.push(card.card_faces[0].name);
+      }
+
+      for (const name of names) {
+        if (!this.#index.has(name)) {
+          this.#index.set(name, card);
+        }
+      }
+    }
+  }
+
+  lookupCard(cardName: string): ScryfallCard {
+    const scryfallCard = this.#index.get(cardName);
+    if (!scryfallCard) {
+      throw Error(
+        `Card named '${cardName}' could not be found in the Scryfall DB`
+      );
+    }
+    return scryfallCard;
+  }
+
+  getCardColumn(cardName: string): Column {
+    const scryfallCard = this.lookupCard(cardName);
+    const colors = scryfallCard.colors ?? scryfallCard.card_faces?.[0].colors;
+
+    if (!colors || colors.length === 0) {
+      return Column.COLORLESS;
+    }
+    if (colors.length > 1) {
+      return Column.MULTICOLOR;
+    }
+    return COLUMNS_BY_COLOR[colors[0]];
+  }
+
+  getCardTypes(cardName: string): CardType[] {
+    const scryfallCard = this.lookupCard(cardName);
+    return ALL_CARD_TYPES.filter((cardType) =>
+      scryfallCard.type_line?.toLowerCase().includes(cardType)
+    );
+  }
+}
 
 const readScryfallFile = async (fileName: string): Promise<ScryfallCard[]> => {
   const scryfallFilePath = path.join(process.cwd(), "data", fileName);
@@ -50,60 +113,10 @@ const readScryfallFile = async (fileName: string): Promise<ScryfallCard[]> => {
   return JSON.parse(json);
 };
 
-const shouldExcludeCard = (card: ScryfallCard) =>
-  card.layout === "art_series" || card.layout === "token";
-
-const CARD_INDEX = new LazySingleton(async () => {
-  const index = new Map<string, ScryfallCard>();
-  for (const card of await readScryfallFile("scryfall-oracle-cards.json")) {
-    if (shouldExcludeCard(card)) {
-      continue;
-    }
-
-    const names = [card.name];
-    if (card.card_faces && card.card_faces.length > 0) {
-      names.push(card.card_faces[0].name);
-    }
-
-    for (const name of names) {
-      if (!index.has(name)) {
-        index.set(name, card);
-      }
-    }
-  }
-  return index;
-});
-
-const lookupCard = async (cardName: string): Promise<ScryfallCard> => {
-  const cardIndex = await CARD_INDEX.get();
-  const scryfallCard = cardIndex.get(cardName);
-  if (!scryfallCard) {
-    throw Error(
-      `Card named '${cardName}' could not be found in the Scryfall DB`
-    );
-  }
-  return scryfallCard;
-};
-
-export const getCardColumn = async (cardName: string): Promise<Column> => {
-  const scryfallCard = await lookupCard(cardName);
-  const colors = scryfallCard.colors ?? scryfallCard.card_faces?.[0].colors;
-
-  if (!colors || colors.length === 0) {
-    return Column.COLORLESS;
-  }
-  if (colors.length > 1) {
-    return Column.MULTICOLOR;
-  }
-  return COLUMNS_BY_COLOR[colors[0]];
-};
-
-export const getCardTypes = async (cardName: string): Promise<CardType[]> => {
-  const scryfallCard = await lookupCard(cardName);
-  return ALL_CARD_TYPES.filter((cardType) =>
-    scryfallCard.type_line?.toLowerCase().includes(cardType)
-  );
-};
+export const SCRYFALL_FILE_INDEX = new LazySingleton(
+  async () =>
+    new ScryfallIndex(await readScryfallFile("scryfall-oracle-cards.json"))
+);
 
 export const getAllCardsByType = async (
   cardType: CardType
@@ -113,3 +126,25 @@ export const getAllCardsByType = async (
       !shouldExcludeCard(card) &&
       card.type_line?.toLowerCase().includes(cardType)
   );
+
+const fetchCards = async (set: MagicSet): Promise<ScryfallCard[]> => {
+  const cards: ScryfallCard[] = [];
+  let url:
+    | string
+    | undefined = `https://api.scryfall.com/cards/search?${new URLSearchParams({
+    q: `e:${set} is:booster`,
+  })}`;
+  do {
+    console.log(`Making a Scryfall request to: ${url}`);
+    const response = await fetch(url);
+    const page: ScryfallCardPage = await response.json();
+    cards.push(...page.data);
+    url = page.next_page;
+  } while (url);
+
+  return cards;
+};
+
+export const fetchScryfallIndex = async (
+  set: MagicSet
+): Promise<ScryfallIndex> => new ScryfallIndex(await fetchCards(set));
