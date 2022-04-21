@@ -17,5 +17,15 @@
     "target": "es6"
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "src/**/*.ts", "src/**/*.tsx"]
+  "include": [
+    "next-env.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "scripts/**/*.ts"
+  ],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
 }
