@@ -24,7 +24,7 @@ const SetSelector: FC<Props> = ({ value, onChange }) => {
           onChange(selectedValue);
         }
       }}
-      options={ALL_SETS}
+      options={ALL_SETS.slice(1)}
       getLabel={(set) => SET_LABELS[set]}
       getIcon={getIcon}
       instanceId="set-select"
