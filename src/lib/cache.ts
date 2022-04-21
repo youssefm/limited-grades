@@ -34,7 +34,7 @@ const REDIS_CLIENT = new LazySingleton(async (): Promise<RedisClient> => {
   return client;
 });
 
-const REDIS_CACHE = {
+export const REDIS_CACHE = {
   get: async <T>(key: string): Promise<T | null> => {
     const redisClient = await REDIS_CLIENT.get();
     const compressedValue = await redisClient.get(key);
@@ -55,7 +55,7 @@ const REDIS_CACHE = {
 
 const getFileCachePath = (key: string) => `./data/cache/${key}.json`;
 
-const FILE_CACHE = {
+export const FILE_CACHE = {
   get: async <T>(key: string): Promise<T | null> => {
     const filePath = getFileCachePath(key);
     try {

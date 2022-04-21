@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.4.3",
+    "@next/env": "^12.1.5",
     "@saeris/typeface-beleren-bold": "^1.0.1",
     "@tippyjs/react": "^4.2.6",
     "clsx": "^1.1.1",
