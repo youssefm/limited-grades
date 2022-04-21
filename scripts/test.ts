@@ -1,7 +1,4 @@
-/* eslint-disable */
-
-import { fetchScryfallIndex, SCRYFALL_FILE_INDEX } from "lib/scryfall";
-import { MagicSet } from "lib/types";
+import { SCRYFALL_FILE_INDEX } from "lib/scryfall";
 
 const main = async () => {
   // const index = await fetchScryfallIndex(MagicSet.MIDNIGHT_HUNT);
@@ -9,4 +6,6 @@ const main = async () => {
   console.log(index.lookupCard("Organ Hoarder"));
 };
 
-main();
+main().catch((error) => {
+  console.log(error);
+});
