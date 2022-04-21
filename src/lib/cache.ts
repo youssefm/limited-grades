@@ -51,6 +51,10 @@ export const REDIS_CACHE = {
       EX: expirationInSeconds,
     });
   },
+  close: async () => {
+    const redisClient = await REDIS_CLIENT.get();
+    await redisClient.quit();
+  },
 };
 
 const getFileCachePath = (key: string) => `./data/cache/${key}.json`;
