@@ -1,5 +1,7 @@
 import { SET_START_DATES } from "lib/constants";
-import { Deck, MagicSet } from "lib/types";
+import { MagicSet } from "lib/types";
+
+import Deck from "./decks";
 
 const RECENT_SET_THRESHOLD_IN_DAYS = 30;
 const EMBARGO_DURATION_IN_DAYS = 12;

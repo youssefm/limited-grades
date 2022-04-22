@@ -6,9 +6,10 @@ import NormalDistribution from "normal-distribution";
 import { CACHE } from "lib/cache";
 import { SET_START_DATES } from "lib/constants";
 import { getDecksForSet, isRecentSet } from "lib/sets";
-import { Card, CardStore, Deck, Grade, MagicSet, Rarity } from "lib/types";
+import { Card, CardStore, Grade, MagicSet, Rarity } from "lib/types";
 import { buildUrl, round, sleep, sortBy } from "lib/util";
 
+import Deck from "./decks";
 import { SCRYFALL_FILE_INDEX } from "./scryfall";
 
 const MIN_GAMES_DRAWN_FOR_INFERENCE = 100;
@@ -56,7 +57,7 @@ const fetchApiCards = async (set: MagicSet, deck: Deck): Promise<ApiCard[]> => {
   };
 
   if (deck !== Deck.ALL) {
-    queryParams.colors = deck;
+    queryParams.colors = deck.code;
   }
 
   const url = buildUrl(
@@ -138,7 +139,7 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
         ([, threshold]) => score >= threshold
       )!;
 
-      card.stats[deck] = {
+      card.stats[deck.code] = {
         winrate: round(apiCard.ever_drawn_win_rate, 4),
         gameCount: apiCard.game_count,
         grade,

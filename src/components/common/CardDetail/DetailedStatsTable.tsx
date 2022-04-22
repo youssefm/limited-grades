@@ -1,7 +1,8 @@
 import Tippy from "@tippyjs/react";
 import React, { FC } from "react";
 
-import { Card, Deck } from "lib/types";
+import Deck from "lib/decks";
+import { Card } from "lib/types";
 import {
   formatNumber,
   formatPercentage,
@@ -51,7 +52,7 @@ const DetailedStatsTable: FC<Props> = ({ card }) => (
         tooltipText="The number of games played with this card in the maindeck"
         className="border-t border-neutral-200 dark:border-black"
       >
-        {formatNumber(card.stats[Deck.ALL]!.gameCount)}
+        {formatNumber(card.stats[Deck.ALL.code]!.gameCount)}
       </StatsRow>
       <StatsRow
         label="Number of games in hand"
@@ -82,7 +83,7 @@ const DetailedStatsTable: FC<Props> = ({ card }) => (
         label="Games in hand win rate"
         tooltipText="The win rate of games where this card was drawn, either in the opening hand or later"
       >
-        {formatPercentage(card.stats[Deck.ALL]!.winrate)}
+        {formatPercentage(card.stats[Deck.ALL.code]!.winrate)}
       </StatsRow>
       <StatsRow
         label="Games not drawn win rate"
@@ -95,7 +96,7 @@ const DetailedStatsTable: FC<Props> = ({ card }) => (
         tooltipText="The difference between Games in hand win rate and Games not drawn win rate"
       >
         {formatPercentageDifference(
-          card.stats[Deck.ALL]!.winrate - card.overallStats.notDrawnWinrate
+          card.stats[Deck.ALL.code]!.winrate - card.overallStats.notDrawnWinrate
         )}
       </StatsRow>
     </tbody>

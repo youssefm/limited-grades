@@ -1,19 +1,21 @@
-import { Card, Color, Deck, Grade } from "lib/types";
+import { Card, Color, Grade } from "lib/types";
 import { groupBy, sortBy } from "lib/util";
+
+import Deck from "./decks";
 
 // eslint-disable-next-line import/prefer-default-export
 export class CardTableDictionary {
   #cardsByGroup: Record<string, [Card, ...Card[]]>;
 
   constructor(cards: Card[], deck: Deck) {
-    const filteredCards = cards.filter((card) => deck in card.stats);
+    const filteredCards = cards.filter((card) => deck.code in card.stats);
     this.#cardsByGroup = groupBy(
       filteredCards,
-      (card) => `${card.color},${card.stats[deck]!.grade}`
+      (card) => `${card.color},${card.stats[deck.code]!.grade}`
     );
 
     for (const group of Object.values(this.#cardsByGroup)) {
-      sortBy(group, (card) => card.stats[deck]!.winrate, true);
+      sortBy(group, (card) => card.stats[deck.code]!.winrate, true);
     }
   }
 

@@ -5,14 +5,14 @@ import { FaChevronDown } from "react-icons/fa";
 import Center from "components/common/Center";
 import Collapsible from "components/common/Collapsible";
 import ColorIcon from "components/common/ColorIcon";
-import { DECK_COLORS } from "lib/constants";
+import Deck from "lib/decks";
 import {
   GRADE_BG_COLORS,
   GRADE_BORDER_COLORS,
   HOVER_CLASSES,
   TRANSITION_CLASSES,
 } from "lib/styles";
-import { Card, CardStats, Deck } from "lib/types";
+import { Card, CardStats } from "lib/types";
 import { formatPercentage, sortBy } from "lib/util";
 
 const DECKS_TO_SHOW = 5;
@@ -35,7 +35,7 @@ const DeckStatsRow = ({
         <span>AVG</span>
       ) : (
         <div>
-          {DECK_COLORS[deck].map((color) => (
+          {deck.colors.map((color) => (
             <ColorIcon key={color} color={color} className="mr-1 last:mr-0" />
           ))}
         </div>
@@ -88,19 +88,19 @@ const DeckAnalysisTable: FC<Props> = ({ card, showStats }) => {
     <>
       <div className="border border-neutral-200 dark:border-black">
         <Spacer />
-        {deckStatsToShow.map(([deck, stats]) => (
+        {deckStatsToShow.map(([deckCode, stats]) => (
           <DeckStatsRow
-            key={deck}
-            deck={deck as Deck}
+            key={deckCode}
+            deck={Deck.lookup(deckCode)}
             stats={stats}
             showStats={showStats}
           />
         ))}
         <Collapsible isExpanded={isExpanded}>
-          {deckStatsToExpand.map(([deck, stats]) => (
+          {deckStatsToExpand.map(([deckCode, stats]) => (
             <DeckStatsRow
-              key={deck}
-              deck={deck as Deck}
+              key={deckCode}
+              deck={Deck.lookup(deckCode)}
               stats={stats}
               showStats={showStats}
             />

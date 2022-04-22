@@ -1,4 +1,4 @@
-import { CardType, Color, Deck, Grade, MagicSet, Rarity } from "lib/types";
+import { CardType, Color, Grade, MagicSet, Rarity } from "lib/types";
 
 export const ALL_SETS = Object.values(MagicSet);
 export const ALL_COLORS = Object.values(Color);
@@ -44,34 +44,6 @@ export const SET_START_DATES: Record<MagicSet, string> = {
   [MagicSet.KALADESH]: "2020-11-12",
   [MagicSet.ARENA_CUBE]: "2022-01-06",
   [MagicSet.DOUBLE_FEATURE]: "2022-01-28",
-};
-
-export const DECK_LABELS: Record<Deck, string> = {
-  [Deck.ALL]: "All decks",
-  [Deck.AZORIUS]: "Azorius",
-  [Deck.DIMIR]: "Dimir",
-  [Deck.RAKDOS]: "Rakdos",
-  [Deck.GRUUL]: "Gruul",
-  [Deck.SELESNYA]: "Selesnya",
-  [Deck.ORZHOV]: "Orzhov",
-  [Deck.IZZET]: "Izzet",
-  [Deck.GOLGARI]: "Golgari",
-  [Deck.BOROS]: "Boros",
-  [Deck.SIMIC]: "Simic",
-};
-
-export const DECK_COLORS: Record<Deck, Color[]> = {
-  [Deck.ALL]: [],
-  [Deck.AZORIUS]: [Color.WHITE, Color.BLUE],
-  [Deck.DIMIR]: [Color.BLUE, Color.BLACK],
-  [Deck.RAKDOS]: [Color.BLACK, Color.RED],
-  [Deck.GRUUL]: [Color.RED, Color.GREEN],
-  [Deck.SELESNYA]: [Color.GREEN, Color.WHITE],
-  [Deck.ORZHOV]: [Color.WHITE, Color.BLACK],
-  [Deck.IZZET]: [Color.BLUE, Color.RED],
-  [Deck.GOLGARI]: [Color.BLACK, Color.GREEN],
-  [Deck.BOROS]: [Color.RED, Color.WHITE],
-  [Deck.SIMIC]: [Color.GREEN, Color.BLUE],
 };
 
 export const LOCAL_STORAGE_HIDE_BANNER_KEY = "hideBanner";
