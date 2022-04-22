@@ -44,7 +44,7 @@ const FilterBar: FC = () => {
           <SetSelector value={selectedSet} onChange={changeSet} />
         </FilterGroup>
         <FilterGroup label="Deck" className={GAP_CLASSES}>
-          <DeckSelector value={deck} onChange={setDeck} />
+          <DeckSelector set={selectedSet} value={deck} onChange={setDeck} />
         </FilterGroup>
         <Collapsible
           isExpanded={isExpanded}
