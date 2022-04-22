@@ -1,11 +1,11 @@
 import clsx from "clsx";
 import { FC, useState } from "react";
 
+import Center from "components/common/Center";
+import Spinner from "components/common/Spinner";
 import useDelayedLoading from "hooks/useDelayedLoading";
 import { Card } from "lib/types";
 
-import Center from "../Center";
-import Spinner from "../Spinner";
 import CardImage from "./CardImage";
 
 interface Props {
