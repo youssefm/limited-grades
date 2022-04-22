@@ -4,7 +4,7 @@ import path from "path";
 import { ungzip } from "node-gzip";
 
 import { ALL_CARD_TYPES } from "lib/constants";
-import { CardType, Column, MagicSet } from "lib/types";
+import { CardType, Color, MagicSet } from "lib/types";
 
 import { buildUrl, fetchJson, LazySingleton } from "./util";
 
@@ -36,12 +36,12 @@ interface ScryfallCardPage {
   data: ScryfallCard[];
 }
 
-const COLUMNS_BY_COLOR: Record<ScryfallColor, Column> = {
-  W: Column.WHITE,
-  U: Column.BLUE,
-  B: Column.BLACK,
-  R: Column.RED,
-  G: Column.GREEN,
+const COLORS: Record<ScryfallColor, Color> = {
+  W: Color.WHITE,
+  U: Color.BLUE,
+  B: Color.BLACK,
+  R: Color.RED,
+  G: Color.GREEN,
 };
 
 const shouldExcludeCard = (card: ScryfallCard) =>
@@ -80,17 +80,17 @@ export class ScryfallIndex {
     return scryfallCard;
   }
 
-  getCardColumn(cardName: string): Column {
+  getCardColor(cardName: string): Color {
     const scryfallCard = this.lookupCard(cardName);
     const colors = scryfallCard.colors ?? scryfallCard.card_faces?.[0].colors;
 
     if (!colors || colors.length === 0) {
-      return Column.COLORLESS;
+      return Color.COLORLESS;
     }
     if (colors.length > 1) {
-      return Column.MULTICOLOR;
+      return Color.MULTICOLOR;
     }
-    return COLUMNS_BY_COLOR[colors[0]];
+    return COLORS[colors[0]];
   }
 
   getCardTypes(cardName: string): CardType[] {

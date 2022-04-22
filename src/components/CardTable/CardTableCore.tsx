@@ -3,7 +3,7 @@ import { FC, memo } from "react";
 
 import Center from "components/common/Center";
 import ColorIcon from "components/common/ColorIcon";
-import { ALL_COLUMNS, ALL_GRADES } from "lib/constants";
+import { ALL_COLORS, ALL_GRADES } from "lib/constants";
 import { GRADE_BORDER_COLORS, TRANSITION_CLASSES } from "lib/styles";
 import { CardTableDictionary } from "lib/table";
 import { Card, Grade } from "lib/types";
@@ -35,16 +35,16 @@ const CardTableCore: FC<Props> = ({
         )}
       >
         <div />
-        {ALL_COLUMNS.map((column) => (
-          <div key={column} className="p-px text-center">
-            <ColorIcon color={column} className="my-2" />
+        {ALL_COLORS.map((color) => (
+          <div key={color} className="p-px text-center">
+            <ColorIcon color={color} className="my-2" />
           </div>
         ))}
       </div>
       {ALL_GRADES.map((grade) => {
         let hasCards = false;
-        for (const column of ALL_COLUMNS) {
-          if (cardDictionary.get(column, grade).length > 0) {
+        for (const color of ALL_COLORS) {
+          if (cardDictionary.get(color, grade).length > 0) {
             hasCards = true;
             break;
           }
@@ -71,11 +71,11 @@ const CardTableCore: FC<Props> = ({
               >
                 {grade}
               </div>
-              {ALL_COLUMNS.map((column) => {
-                const cellCards = cardDictionary.get(column, grade);
+              {ALL_COLORS.map((color) => {
+                const cellCards = cardDictionary.get(color, grade);
                 return (
                   <div
-                    key={column}
+                    key={color}
                     className={clsx("lg:block", {
                       flex: cellCards.length > 0,
                       hidden: cellCards.length === 0,
@@ -89,7 +89,7 @@ const CardTableCore: FC<Props> = ({
                         TRANSITION_CLASSES
                       )}
                     >
-                      <ColorIcon color={column} className="my-2" />
+                      <ColorIcon color={color} className="my-2" />
                     </Center>
                     <div
                       className={clsx(

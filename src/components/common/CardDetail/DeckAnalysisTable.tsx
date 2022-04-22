@@ -35,8 +35,8 @@ const DeckStatsRow = ({
         <span>AVG</span>
       ) : (
         <div>
-          {DECK_COLORS[deck].map((column) => (
-            <ColorIcon key={column} color={column} className="mr-1 last:mr-0" />
+          {DECK_COLORS[deck].map((color) => (
+            <ColorIcon key={color} color={color} className="mr-1 last:mr-0" />
           ))}
         </div>
       )}

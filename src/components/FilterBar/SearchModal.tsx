@@ -35,7 +35,7 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
   const getIcon = useCallback(
     (option: SearchOption) => (
       <ColorIcon
-        color={option.item.column}
+        color={option.item.color}
         className="relative bottom-[-0.0625em]"
       />
     ),
