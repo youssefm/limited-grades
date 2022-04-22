@@ -18,20 +18,6 @@ export enum MagicSet {
   DOUBLE_FEATURE = "dbl",
 }
 
-export enum Deck {
-  ALL = "all",
-  AZORIUS = "wu",
-  DIMIR = "ub",
-  RAKDOS = "br",
-  GRUUL = "rg",
-  SELESNYA = "wg",
-  ORZHOV = "wb",
-  IZZET = "ur",
-  GOLGARI = "bg",
-  BOROS = "wr",
-  SIMIC = "ug",
-}
-
 export enum Color {
   WHITE = "white",
   BLUE = "blue",
@@ -73,7 +59,7 @@ export interface Card {
   cardUrl: string;
   cardBackUrl: string;
   overallStats: OverallCardStats;
-  stats: Partial<Record<Deck, CardStats>>;
+  stats: Record<string, CardStats>;
 }
 
 export interface CardStats {

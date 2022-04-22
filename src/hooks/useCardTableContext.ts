@@ -3,8 +3,9 @@ import { useRouter } from "next/dist/client/router";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { ALL_CARD_TYPES, ALL_RARITIES, ALL_SETS } from "lib/constants";
+import Deck from "lib/decks";
 import { CardTableDictionary } from "lib/table";
-import { Card, Deck, MagicSet } from "lib/types";
+import { Card, MagicSet } from "lib/types";
 import { extractPathnameSegments } from "lib/util";
 
 import useDelayedLoading from "./useDelayedLoading";
