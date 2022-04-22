@@ -1,5 +1,5 @@
 import Tippy from "@tippyjs/react";
-import React, { FC, ReactNode } from "react";
+import React, { FC } from "react";
 
 import { Card, Deck } from "lib/types";
 import {
@@ -12,7 +12,6 @@ const StatsRow: FC<{
   label: string;
   tooltipText: string;
   className?: string;
-  children: ReactNode;
 }> = ({ label, tooltipText, className, children }) => (
   <tr className={className}>
     <td className="py-2 pr-12 pl-4">

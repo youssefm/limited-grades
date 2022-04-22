@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { FC, ReactNode, useState } from "react";
+import { FC, useState } from "react";
 import { IoClose } from "react-icons/io5";
 
 import Collapsible from "components/common/Collapsible";
@@ -9,7 +9,6 @@ interface Props {
   id?: string;
   dismissable?: boolean;
   onClose?: () => void;
-  children: ReactNode;
 }
 
 const Banner: FC<Props> = ({ id, dismissable, onClose, children }) => {

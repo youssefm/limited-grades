@@ -1,9 +1,8 @@
 import clsx from "clsx";
-import { FC, ReactNode } from "react";
+import { FC } from "react";
 
 interface Props {
   className: string;
-  children: ReactNode;
 }
 
 const Center: FC<Props> = ({ className, children }) => (

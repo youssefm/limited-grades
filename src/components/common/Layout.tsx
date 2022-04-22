@@ -1,13 +1,9 @@
 import Head from "next/head";
-import { FC, ReactNode } from "react";
+import { FC } from "react";
 
 import { DarkModeProvider } from "hooks/useDarkMode";
 
-interface Props {
-  children: ReactNode;
-}
-
-const Layout: FC<Props> = ({ children }) => (
+const Layout: FC = ({ children }) => (
   <>
     <Head>
       <title>Limited Grades</title>
