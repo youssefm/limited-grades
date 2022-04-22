@@ -25,7 +25,9 @@
   ],
   "ts-node": {
     "compilerOptions": {
-      "module": "CommonJS"
+      "isolatedModules": false,
+      "module": "CommonJS",
+      "target": "ESNext"
     }
   }
 }
