@@ -4,8 +4,8 @@ import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
 
 import { CACHE } from "lib/cache";
-import { ALL_DECKS, SET_START_DATES } from "lib/constants";
-import { isRecentSet } from "lib/sets";
+import { SET_START_DATES } from "lib/constants";
+import { getDecksForSet, isRecentSet } from "lib/sets";
 import { Card, CardStore, Deck, Grade, MagicSet, Rarity } from "lib/types";
 import { buildUrl, round, sleep, sortBy } from "lib/util";
 
@@ -78,11 +78,12 @@ const fetchApiCards = async (set: MagicSet, deck: Deck): Promise<ApiCard[]> => {
 
 const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
   const cards: { [key: string]: Card } = {};
+  const decks = getDecksForSet(set);
   const [apiCardStore, scryfallIndex] = await Promise.all([
-    Promise.all(ALL_DECKS.map((deck) => fetchApiCards(set, deck))),
+    Promise.all(decks.map((deck) => fetchApiCards(set, deck))),
     SCRYFALL_FILE_INDEX.get(),
   ]);
-  for (const [index, deck] of ALL_DECKS.entries()) {
+  for (const [index, deck] of decks.entries()) {
     let apiCards: ApiCard[] = apiCardStore[index];
     apiCards = apiCards.filter(
       (card) =>

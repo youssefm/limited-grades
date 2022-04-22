@@ -1,17 +1,19 @@
 import { FC, useCallback } from "react";
 
 import ColorIcon from "components/common/ColorIcon";
-import { ALL_DECKS, DECK_COLORS, DECK_LABELS } from "lib/constants";
-import { Deck } from "lib/types";
+import { DECK_COLORS, DECK_LABELS } from "lib/constants";
+import { getDecksForSet } from "lib/sets";
+import { Deck, MagicSet } from "lib/types";
 
 import IconSelect from "./IconSelect";
 
 interface Props {
+  set: MagicSet;
   value: Deck;
   onChange: (selectedValue: Deck) => void;
 }
 
-const DeckSelector: FC<Props> = ({ value, onChange }) => {
+const DeckSelector: FC<Props> = ({ set, value, onChange }) => {
   const getIcon = useCallback((deck: Deck) => {
     const colors = DECK_COLORS[deck];
     if (colors.length === 0) {
@@ -33,7 +35,7 @@ const DeckSelector: FC<Props> = ({ value, onChange }) => {
           onChange(selectedValue);
         }
       }}
-      options={ALL_DECKS}
+      options={getDecksForSet(set)}
       getLabel={(deck) => DECK_LABELS[deck]}
       getIcon={getIcon}
       instanceId="deck-select"
