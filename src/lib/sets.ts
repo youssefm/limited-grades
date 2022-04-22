@@ -16,41 +16,23 @@ export const isSetUnderEmbargo = (set: MagicSet): boolean =>
 export const getDecksForSet = (set: MagicSet): Deck[] => {
   const decks = [Deck.ALL];
   if (set === MagicSet.STRIXHAVEN) {
-    decks.push(
-      Deck.WHITE_BLACK,
-      Deck.BLUE_RED,
-      Deck.BLACK_GREEN,
-      Deck.WHITE_RED,
-      Deck.BLUE_GREEN
-    );
+    decks.push(Deck.ORZHOV, Deck.IZZET, Deck.GOLGARI, Deck.BOROS, Deck.SIMIC);
   } else if (set === MagicSet.RAVNICA_ALLEGIANCE) {
-    decks.push(
-      Deck.WHITE_BLUE,
-      Deck.BLACK_RED,
-      Deck.RED_GREEN,
-      Deck.WHITE_BLACK,
-      Deck.BLUE_GREEN
-    );
+    decks.push(Deck.AZORIUS, Deck.RAKDOS, Deck.GRUUL, Deck.ORZHOV, Deck.SIMIC);
   } else if (set === MagicSet.GUILDS_OF_RAVNICA) {
-    decks.push(
-      Deck.BLUE_BLACK,
-      Deck.WHITE_GREEN,
-      Deck.BLUE_RED,
-      Deck.BLACK_GREEN,
-      Deck.WHITE_RED
-    );
+    decks.push(Deck.DIMIR, Deck.SELESNYA, Deck.IZZET, Deck.GOLGARI, Deck.BOROS);
   } else {
     decks.push(
-      Deck.WHITE_BLUE,
-      Deck.BLUE_BLACK,
-      Deck.BLACK_RED,
-      Deck.RED_GREEN,
-      Deck.WHITE_GREEN,
-      Deck.WHITE_BLACK,
-      Deck.BLUE_RED,
-      Deck.BLACK_GREEN,
-      Deck.WHITE_RED,
-      Deck.BLUE_GREEN
+      Deck.AZORIUS,
+      Deck.DIMIR,
+      Deck.RAKDOS,
+      Deck.GRUUL,
+      Deck.SELESNYA,
+      Deck.ORZHOV,
+      Deck.IZZET,
+      Deck.GOLGARI,
+      Deck.BOROS,
+      Deck.SIMIC
     );
   }
 

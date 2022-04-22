@@ -20,16 +20,16 @@ export enum MagicSet {
 
 export enum Deck {
   ALL = "all",
-  WHITE_BLUE = "wu",
-  BLUE_BLACK = "ub",
-  BLACK_RED = "br",
-  RED_GREEN = "rg",
-  WHITE_GREEN = "wg",
-  WHITE_BLACK = "wb",
-  BLUE_RED = "ur",
-  BLACK_GREEN = "bg",
-  WHITE_RED = "wr",
-  BLUE_GREEN = "ug",
+  AZORIUS = "wu",
+  DIMIR = "ub",
+  RAKDOS = "br",
+  GRUUL = "rg",
+  SELESNYA = "wg",
+  ORZHOV = "wb",
+  IZZET = "ur",
+  GOLGARI = "bg",
+  BOROS = "wr",
+  SIMIC = "ug",
 }
 
 export enum Column {
