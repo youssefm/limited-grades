@@ -1,7 +1,6 @@
 import { CardType, Column, Deck, Grade, MagicSet, Rarity } from "lib/types";
 
 export const ALL_SETS = Object.values(MagicSet);
-export const ALL_DECKS = Object.values(Deck);
 export const ALL_COLUMNS = Object.values(Column);
 export const ALL_GRADES = Object.values(Grade);
 export const ALL_RARITIES = Object.values(Rarity);
@@ -49,30 +48,30 @@ export const SET_START_DATES: Record<MagicSet, string> = {
 
 export const DECK_LABELS: Record<Deck, string> = {
   [Deck.ALL]: "All decks",
-  [Deck.WHITE_BLUE]: "Azorius",
-  [Deck.BLUE_BLACK]: "Dimir",
-  [Deck.BLACK_RED]: "Rakdos",
-  [Deck.RED_GREEN]: "Gruul",
-  [Deck.WHITE_GREEN]: "Selesnya",
-  [Deck.WHITE_BLACK]: "Orzhov",
-  [Deck.BLUE_RED]: "Izzet",
-  [Deck.BLACK_GREEN]: "Golgari",
-  [Deck.WHITE_RED]: "Boros",
-  [Deck.BLUE_GREEN]: "Simic",
+  [Deck.AZORIUS]: "Azorius",
+  [Deck.DIMIR]: "Dimir",
+  [Deck.RAKDOS]: "Rakdos",
+  [Deck.GRUUL]: "Gruul",
+  [Deck.SELESNYA]: "Selesnya",
+  [Deck.ORZHOV]: "Orzhov",
+  [Deck.IZZET]: "Izzet",
+  [Deck.GOLGARI]: "Golgari",
+  [Deck.BOROS]: "Boros",
+  [Deck.SIMIC]: "Simic",
 };
 
 export const DECK_COLORS: Record<Deck, Column[]> = {
   [Deck.ALL]: [],
-  [Deck.WHITE_BLUE]: [Column.WHITE, Column.BLUE],
-  [Deck.BLUE_BLACK]: [Column.BLUE, Column.BLACK],
-  [Deck.BLACK_RED]: [Column.BLACK, Column.RED],
-  [Deck.RED_GREEN]: [Column.RED, Column.GREEN],
-  [Deck.WHITE_GREEN]: [Column.GREEN, Column.WHITE],
-  [Deck.WHITE_BLACK]: [Column.WHITE, Column.BLACK],
-  [Deck.BLUE_RED]: [Column.BLUE, Column.RED],
-  [Deck.BLACK_GREEN]: [Column.BLACK, Column.GREEN],
-  [Deck.WHITE_RED]: [Column.RED, Column.WHITE],
-  [Deck.BLUE_GREEN]: [Column.GREEN, Column.BLUE],
+  [Deck.AZORIUS]: [Column.WHITE, Column.BLUE],
+  [Deck.DIMIR]: [Column.BLUE, Column.BLACK],
+  [Deck.RAKDOS]: [Column.BLACK, Column.RED],
+  [Deck.GRUUL]: [Column.RED, Column.GREEN],
+  [Deck.SELESNYA]: [Column.GREEN, Column.WHITE],
+  [Deck.ORZHOV]: [Column.WHITE, Column.BLACK],
+  [Deck.IZZET]: [Column.BLUE, Column.RED],
+  [Deck.GOLGARI]: [Column.BLACK, Column.GREEN],
+  [Deck.BOROS]: [Column.RED, Column.WHITE],
+  [Deck.SIMIC]: [Column.GREEN, Column.BLUE],
 };
 
 export const LOCAL_STORAGE_HIDE_BANNER_KEY = "hideBanner";
