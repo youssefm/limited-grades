@@ -17,26 +17,31 @@ const IconSelect = <T extends unknown>({
     label: string;
   }
 
-  const SingleValueView: FC<{ optionValue: T }> = useCallback(
-    ({ optionValue, children }) => {
-      const icon = getIcon(optionValue);
-      if (!icon) {
-        // This type assertion is not technically correct but this is a workaround
-        // for a Typescript issue: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/18051#issuecomment-485151038
-        return children as ReactElement;
-      }
+  const SingleValueView: FC<{ optionValue: T; children: ReactNode }> =
+    useCallback(
+      ({ optionValue, children }) => {
+        const icon = getIcon(optionValue);
+        if (!icon) {
+          // This type assertion is not technically correct but this is a workaround
+          // for a Typescript issue: https://github.com/DefinitelyTyped/DefinitelyTyped/issues/18051#issuecomment-485151038
+          return children as ReactElement;
+        }
 
-      return (
-        <div className="flex">
-          {icon}
-          <span className="ml-2">{children}</span>
-        </div>
-      );
-    },
-    [getIcon]
-  );
+        return (
+          <div className="flex">
+            {icon}
+            <span className="ml-2">{children}</span>
+          </div>
+        );
+      },
+      [getIcon]
+    );
 
-  const OptionView: FC<{ optionValue: T; optionLabel: string }> = useCallback(
+  const OptionView: FC<{
+    optionValue: T;
+    optionLabel: string;
+    children: ReactNode;
+  }> = useCallback(
     ({ optionValue, optionLabel, children }) => (
       <SingleValueView optionValue={optionValue}>
         {formatOptionText

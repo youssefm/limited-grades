@@ -1,10 +1,11 @@
 import clsx from "clsx";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 interface Props {
   label: string;
   disableInputLabel?: boolean;
   className?: string;
+  children: ReactNode;
 }
 
 const FilterGroup: FC<Props> = ({
