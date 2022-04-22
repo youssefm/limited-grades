@@ -9,31 +9,31 @@ import { FC, SVGProps } from "react";
 
 import MulticolorIcon from "assets/multicolor.svg";
 import { TRANSITION_CLASSES } from "lib/styles";
-import { Column } from "lib/types";
+import { Color } from "lib/types";
 
-const BG_COLOR_CLASSES: Record<Column, string> = {
-  [Column.WHITE]: "p-[0.125em] bg-[#f0f2c0]",
-  [Column.BLUE]: "p-[0.125em] bg-[#b5cde3]",
-  [Column.BLACK]: "p-[0.125em] bg-[#aca29a]",
-  [Column.RED]: "p-[0.125em] bg-[#db8664]",
-  [Column.GREEN]: "p-[0.125em] bg-[#93b483]",
-  [Column.MULTICOLOR]:
+const BG_COLOR_CLASSES: Record<Color, string> = {
+  [Color.WHITE]: "p-[0.125em] bg-[#f0f2c0]",
+  [Color.BLUE]: "p-[0.125em] bg-[#b5cde3]",
+  [Color.BLACK]: "p-[0.125em] bg-[#aca29a]",
+  [Color.RED]: "p-[0.125em] bg-[#db8664]",
+  [Color.GREEN]: "p-[0.125em] bg-[#93b483]",
+  [Color.MULTICOLOR]:
     "bg-gradient-to-tr from-[#cca54f] via-[#e0d3bb] to-[#cca54f]",
-  [Column.COLORLESS]: "p-[0.125em] bg-[#beb9b2]",
+  [Color.COLORLESS]: "p-[0.125em] bg-[#beb9b2]",
 };
 
-const COLOR_ICONS: Record<Column, FC<SVGProps<SVGSVGElement>>> = {
-  [Column.WHITE]: WhiteIcon,
-  [Column.BLUE]: BlueIcon,
-  [Column.BLACK]: BlackIcon,
-  [Column.RED]: RedIcon,
-  [Column.GREEN]: GreenIcon,
-  [Column.MULTICOLOR]: MulticolorIcon,
-  [Column.COLORLESS]: ColorlessIcon,
+const COLOR_ICONS: Record<Color, FC<SVGProps<SVGSVGElement>>> = {
+  [Color.WHITE]: WhiteIcon,
+  [Color.BLUE]: BlueIcon,
+  [Color.BLACK]: BlackIcon,
+  [Color.RED]: RedIcon,
+  [Color.GREEN]: GreenIcon,
+  [Color.MULTICOLOR]: MulticolorIcon,
+  [Color.COLORLESS]: ColorlessIcon,
 };
 
 interface Props {
-  color: Column;
+  color: Color;
   className?: string;
 }
 

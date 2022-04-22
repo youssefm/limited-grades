@@ -32,7 +32,7 @@ export enum Deck {
   SIMIC = "ug",
 }
 
-export enum Column {
+export enum Color {
   WHITE = "white",
   BLUE = "blue",
   BLACK = "black",
@@ -67,7 +67,7 @@ export enum Rarity {
 
 export interface Card {
   name: string;
-  column: Column;
+  color: Color;
   rarity: Rarity;
   cardTypes: CardType[];
   cardUrl: string;

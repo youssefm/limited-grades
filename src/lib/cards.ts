@@ -114,7 +114,7 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
         const cardName = apiCard.name.replace("///", "//");
         card = {
           name: cardName,
-          column: scryfallIndex.getCardColumn(cardName),
+          color: scryfallIndex.getCardColor(cardName),
           rarity: apiCard.rarity === "basic" ? Rarity.COMMON : apiCard.rarity,
           cardTypes: scryfallIndex.getCardTypes(cardName),
           cardUrl: apiCard.url,

@@ -1,7 +1,7 @@
-import { CardType, Column, Deck, Grade, MagicSet, Rarity } from "lib/types";
+import { CardType, Color, Deck, Grade, MagicSet, Rarity } from "lib/types";
 
 export const ALL_SETS = Object.values(MagicSet);
-export const ALL_COLUMNS = Object.values(Column);
+export const ALL_COLORS = Object.values(Color);
 export const ALL_GRADES = Object.values(Grade);
 export const ALL_RARITIES = Object.values(Rarity);
 export const ALL_CARD_TYPES = Object.values(CardType);
@@ -60,18 +60,18 @@ export const DECK_LABELS: Record<Deck, string> = {
   [Deck.SIMIC]: "Simic",
 };
 
-export const DECK_COLORS: Record<Deck, Column[]> = {
+export const DECK_COLORS: Record<Deck, Color[]> = {
   [Deck.ALL]: [],
-  [Deck.AZORIUS]: [Column.WHITE, Column.BLUE],
-  [Deck.DIMIR]: [Column.BLUE, Column.BLACK],
-  [Deck.RAKDOS]: [Column.BLACK, Column.RED],
-  [Deck.GRUUL]: [Column.RED, Column.GREEN],
-  [Deck.SELESNYA]: [Column.GREEN, Column.WHITE],
-  [Deck.ORZHOV]: [Column.WHITE, Column.BLACK],
-  [Deck.IZZET]: [Column.BLUE, Column.RED],
-  [Deck.GOLGARI]: [Column.BLACK, Column.GREEN],
-  [Deck.BOROS]: [Column.RED, Column.WHITE],
-  [Deck.SIMIC]: [Column.GREEN, Column.BLUE],
+  [Deck.AZORIUS]: [Color.WHITE, Color.BLUE],
+  [Deck.DIMIR]: [Color.BLUE, Color.BLACK],
+  [Deck.RAKDOS]: [Color.BLACK, Color.RED],
+  [Deck.GRUUL]: [Color.RED, Color.GREEN],
+  [Deck.SELESNYA]: [Color.GREEN, Color.WHITE],
+  [Deck.ORZHOV]: [Color.WHITE, Color.BLACK],
+  [Deck.IZZET]: [Color.BLUE, Color.RED],
+  [Deck.GOLGARI]: [Color.BLACK, Color.GREEN],
+  [Deck.BOROS]: [Color.RED, Color.WHITE],
+  [Deck.SIMIC]: [Color.GREEN, Color.BLUE],
 };
 
 export const LOCAL_STORAGE_HIDE_BANNER_KEY = "hideBanner";
