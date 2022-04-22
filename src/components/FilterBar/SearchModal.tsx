@@ -39,9 +39,10 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
     []
   );
 
-  const formatOptionText = useCallback(
-    ({ match }, label) =>
-      match ? (
+  const formatOptionText = useCallback((value: SearchOption, label: string) => {
+    const { match } = value;
+    if (match) {
+      return (
         <>
           {match.startPosition > 0 && label.slice(0, match.startPosition)}
           <span className="font-bold underline">
@@ -49,11 +50,10 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
           </span>
           {match.endPosition < label.length && label.slice(match.endPosition)}
         </>
-      ) : (
-        label
-      ),
-    []
-  );
+      );
+    }
+    return label;
+  }, []);
 
   return (
     <Modal
