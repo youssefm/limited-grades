@@ -97,7 +97,7 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
     const winrates = apiCards.map((card) => card.ever_drawn_win_rate);
     const normalDistribution = new NormalDistribution(
       mean(winrates),
-      std(winrates)
+      std(...winrates)
     );
 
     apiCards = apiCards.filter(
