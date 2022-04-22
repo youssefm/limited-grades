@@ -21,7 +21,8 @@
     "next-env.d.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
-    "scripts/**/*.ts"
+    "scripts/**/*.ts",
+    "test/**/*.ts"
   ],
   "ts-node": {
     "compilerOptions": {
