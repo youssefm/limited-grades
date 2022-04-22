@@ -3,7 +3,7 @@ import { groupBy, sortBy } from "lib/util";
 
 // eslint-disable-next-line import/prefer-default-export
 export class CardTableDictionary {
-  #cardsByGroup: { [index: string]: [Card, ...Card[]] };
+  #cardsByGroup: Record<string, [Card, ...Card[]]>;
 
   constructor(cards: Card[], deck: Deck) {
     const filteredCards = cards.filter((card) => deck in card.stats);
