@@ -1,11 +1,10 @@
 import clsx from "clsx";
-import { FC, ReactNode, useEffect, useRef } from "react";
+import { FC, useEffect, useRef } from "react";
 
 interface Props {
   isExpanded: boolean;
   id?: string;
   className?: string;
-  children: ReactNode;
 }
 
 const Collapsible: FC<Props> = ({ isExpanded, id, className, children }) => {

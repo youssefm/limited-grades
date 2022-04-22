@@ -1,11 +1,10 @@
 import clsx from "clsx";
-import { FC, ReactNode } from "react";
+import { FC } from "react";
 
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 
 interface Props {
   url: string;
-  children: ReactNode;
 }
 
 const LinkOut: FC<Props> = ({ url, children }) => (
