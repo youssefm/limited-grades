@@ -40,7 +40,7 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
   );
 
   const formatOptionText = useCallback(
-    ({ match }, label) =>
+    ({ match }: SearchOption, label: string) =>
       match ? (
         <>
           {match.startPosition > 0 && label.slice(0, match.startPosition)}
