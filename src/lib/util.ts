@@ -13,7 +13,7 @@ export const groupBy = <T>(
   iterable: Iterable<T>,
   getKey: (item: T) => string
 ) => {
-  const result: { [key: string]: [T, ...T[]] } = {};
+  const result: Record<string, [T, ...T[]]> = {};
   for (const item of iterable) {
     const key = getKey(item);
     const group = result[key];

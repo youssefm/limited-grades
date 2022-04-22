@@ -77,7 +77,7 @@ const fetchApiCards = async (set: MagicSet, deck: Deck): Promise<ApiCard[]> => {
 };
 
 const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
-  const cards: { [key: string]: Card } = {};
+  const cards: Record<string, Card> = {};
   const decks = getDecksForSet(set);
   const [apiCardStore, scryfallIndex] = await Promise.all([
     Promise.all(decks.map((deck) => fetchApiCards(set, deck))),
