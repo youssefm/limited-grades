@@ -26,7 +26,10 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
   const [selectedOption, setSelectedOption] = useState<SearchOption>();
   const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const searchIndex = useMemo(() => new SearchIndex(cards, "name"), [cards]);
+  const searchIndex = useMemo(
+    () => new SearchIndex(cards, (card) => card.name),
+    [cards]
+  );
 
   const underEmbargo = isSetUnderEmbargo(set);
   const getIcon = useCallback(

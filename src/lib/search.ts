@@ -92,14 +92,12 @@ class SearchIndex<T> {
 
   candidateIndices: CandidateIndex[];
 
-  constructor(items: T[], key: keyof T) {
+  constructor(items: T[], key: (item: T) => string) {
     this.#items = items;
-    this.candidateIndices = items.map((item) =>
-      normalizeString(item[key] as unknown as string)
-    );
+    this.candidateIndices = items.map((item) => normalizeString(key(item)));
   }
 
-  search(query: string) {
+  search(query: string): SearchResult<T>[] {
     if (query.length === 0) {
       return [];
     }
