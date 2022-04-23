@@ -22,14 +22,7 @@
     "next-env.d.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
-    "scripts/**/*.ts",
-    "test/**/*.ts"
-  ],
-  "ts-node": {
-    "compilerOptions": {
-      "isolatedModules": false,
-      "module": "CommonJS",
-      "target": "ESNext"
-    }
-  }
+    "test/**/*.ts",
+    "test/**/*.tsx"
+  ]
 }

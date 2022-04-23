@@ -8,13 +8,10 @@
     "start": "next start",
     "lint": "next lint",
     "lint-fix": "next lint --fix",
-    "test": "jest --watch",
-    "ts-node": "cross-env NODE_PATH=src ts-node",
-    "update-file-cache": "npm run ts-node scripts/update-file-cache.ts"
+    "test": "jest --watch"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.3",
-    "@next/env": "^12.1.5",
     "@saeris/typeface-beleren-bold": "^1.0.1",
     "@tippyjs/react": "^4.2.6",
     "clsx": "^1.1.1",
@@ -46,7 +43,6 @@
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
     "autoprefixer": "^10.4.2",
-    "cross-env": "^7.0.3",
     "eslint": "^8.2.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^16.1.0",
@@ -62,7 +58,6 @@
     "postcss": "^8.4.5",
     "prettier": "^2.5.1",
     "tailwindcss": "^3.0.15",
-    "ts-node": "^10.7.0",
     "typescript": "^4.4.3"
   }
 }
