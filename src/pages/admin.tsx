@@ -20,7 +20,7 @@ const Admin: FC = () => {
   }, []);
 
   return (
-    <div className="p-12 h-full text-neutral-800 dark:text-neutral-100 dark:bg-neutral-900">
+    <div className="overflow-y-auto p-12 h-full text-neutral-800 dark:text-neutral-100 dark:bg-neutral-900">
       <div className="mx-auto w-[720px]">
         <div className="p-8 bg-neutral-100 dark:bg-neutral-800 rounded-t-lg">
           <h1 className="mb-8 text-3xl text-center">Run an Admin Action</h1>
@@ -69,7 +69,7 @@ const Admin: FC = () => {
         {actionOutput.length > 0 && (
           <div className="p-4 font-mono">
             <div className="pb-2">Output:</div>
-            <div className="text-sm whitespace-pre-line">
+            <div className="text-sm whitespace-pre">
               {actionOutput.join("\n")}
             </div>
           </div>
