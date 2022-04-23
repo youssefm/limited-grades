@@ -6,7 +6,7 @@ const handler = async (request: NextApiRequest, response: NextApiResponse) => {
   const { actionName } = request.query;
 
   const action = ACTIONS[actionName as string];
-  if (!action || process.env.NEXT_PUBLIC_ADMIN_ENABLED !== "true") {
+  if (!action) {
     response.status(404).send(null);
     return;
   }
