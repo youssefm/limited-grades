@@ -5,6 +5,10 @@ import { fetchScryfallIndex, SCRYFALL_FILE_INDEX } from "./scryfall";
 export const ACTIONS: Record<string, (output: string[]) => Promise<void>> =
   process.env.ADMIN_ENABLED === "true"
     ? {
+        "clear-redis-cache": async (output) => {
+          await REDIS_CACHE.clear();
+          output.push("Redis cache cleared!");
+        },
         "fetch-scryfall-card": async (output) => {
           const index = await fetchScryfallIndex(MagicSet.MIDNIGHT_HUNT);
           const card = index.lookupCard("Organ Hoarder");
