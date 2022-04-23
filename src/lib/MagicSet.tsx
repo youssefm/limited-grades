@@ -153,7 +153,7 @@ export default class MagicSet {
     DefaultIcon
   );
 
-  constructor(
+  private constructor(
     code: string,
     label: string,
     startDate: string,

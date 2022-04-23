@@ -31,7 +31,7 @@ export default class Deck {
 
   static SIMIC = new Deck("ug", "Simic", [Color.GREEN, Color.BLUE]);
 
-  constructor(code: string, label: string, colors: Color[]) {
+  private constructor(code: string, label: string, colors: Color[]) {
     this.code = code;
     this.label = label;
     this.colors = colors;
