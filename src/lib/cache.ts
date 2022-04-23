@@ -19,8 +19,15 @@ type RedisClient = RedisClientType<RedisModules, RedisScripts>;
 
 const IS_REDIS_ENABLED = process.env.REDIS_URL !== undefined;
 const REDIS_CLIENT = new LazySingleton(async (): Promise<RedisClient> => {
+  const url = process.env.REDIS_URL;
+  if (!url) {
+    throw new Error(
+      "Redis is not configured with a REDIS_URL environment variable"
+    );
+  }
+
   const client = createClient({
-    url: process.env.REDIS_URL,
+    url,
     socket: {
       tls: true,
       rejectUnauthorized: false,
