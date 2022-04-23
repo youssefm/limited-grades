@@ -1,20 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import { FILE_CACHE, REDIS_CACHE } from "lib/cache";
-import MagicSet from "lib/MagicSet";
-
-const ACTIONS: Record<string, () => Promise<void>> = {
-  "update-file-cache": async () => {
-    for (const set of MagicSet.ALL) {
-      const cardStore = await REDIS_CACHE.get(set.code);
-      if (cardStore) {
-        console.log(`Updating file cache for ${set.code.toUpperCase()}`);
-        await FILE_CACHE.set(set.code, cardStore);
-      }
-    }
-    console.log("Done updating all file caches!");
-  },
-};
+import { ACTIONS } from "lib/admin";
 
 const handler = async (request: NextApiRequest, response: NextApiResponse) => {
   const { actionName } = request.query;
@@ -25,11 +11,15 @@ const handler = async (request: NextApiRequest, response: NextApiResponse) => {
     return;
   }
 
-  await action();
-  response
-    .status(200)
-    .setHeader("Content-Type", "text/plain; charset=utf-8")
-    .send(`Admin action "${actionName}" succeeded`);
+  const output: string[] = [];
+  try {
+    await action(output);
+  } catch (error: any) {
+    output.push(`ERROR: ${error.message}`);
+    response.status(500).json({ output });
+    return;
+  }
+  response.status(200).json({ output });
 };
 
 export default handler;
