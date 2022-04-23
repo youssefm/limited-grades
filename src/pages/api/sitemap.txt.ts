@@ -1,11 +1,13 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import { ALL_SETS } from "lib/constants";
+import MagicSet from "lib/sets";
 
 const BASE_URL = "https://www.limitedgrades.com";
 
 const handler = async (request: NextApiRequest, response: NextApiResponse) => {
-  const urls = [BASE_URL].concat(ALL_SETS.map((set) => `${BASE_URL}/${set}`));
+  const urls = [BASE_URL].concat(
+    MagicSet.ALL.map((set) => `${BASE_URL}/${set.code}`)
+  );
 
   response
     .status(200)

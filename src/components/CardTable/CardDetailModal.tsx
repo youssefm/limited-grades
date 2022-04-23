@@ -2,7 +2,8 @@ import { FC } from "react";
 
 import CardDetail from "components/common/CardDetail";
 import Modal from "components/common/Modal";
-import { Card, MagicSet } from "lib/types";
+import MagicSet from "lib/sets";
+import { Card } from "lib/types";
 
 interface Props {
   card: Card;

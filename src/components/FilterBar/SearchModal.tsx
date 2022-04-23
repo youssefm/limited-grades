@@ -5,8 +5,8 @@ import CardDetail from "components/common/CardDetail";
 import ColorIcon from "components/common/ColorIcon";
 import Modal from "components/common/Modal";
 import SearchIndex, { Match } from "lib/search";
-import { isSetUnderEmbargo } from "lib/sets";
-import { Card, MagicSet } from "lib/types";
+import MagicSet from "lib/sets";
+import { Card } from "lib/types";
 
 import IconSelect from "./IconSelect";
 
@@ -31,7 +31,7 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
     [cards]
   );
 
-  const underEmbargo = isSetUnderEmbargo(set);
+  const underEmbargo = set.isUnderEmbargo();
   const getIcon = useCallback(
     (option: SearchOption) => (
       <ColorIcon

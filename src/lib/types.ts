@@ -1,23 +1,3 @@
-export enum MagicSet {
-  NEW_CAPENNA = "snc",
-  NEON_DYNASTY = "neo",
-  CRIMSON_VOW = "vow",
-  MIDNIGHT_HUNT = "mid",
-  FORGOTTEN_REALM = "afr",
-  STRIXHAVEN = "stx",
-  KALDHEIM = "khm",
-  ZENDIKAR = "znr",
-  IKORIA = "iko",
-  WAR_OF_THE_SPARK = "war",
-  RAVNICA_ALLEGIANCE = "rna",
-  GUILDS_OF_RAVNICA = "grn",
-  DOMINARIA = "dom",
-  AMONKHET = "akr",
-  KALADESH = "klr",
-  ARENA_CUBE = "cube",
-  DOUBLE_FEATURE = "dbl",
-}
-
 export enum Color {
   WHITE = "white",
   BLUE = "blue",

@@ -2,8 +2,9 @@ import clsx from "clsx";
 import { FC, useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
+import MagicSet from "lib/sets";
 import { TRANSITION_CLASSES } from "lib/styles";
-import { Card, MagicSet } from "lib/types";
+import { Card } from "lib/types";
 
 import SearchModal from "./SearchModal";
 
