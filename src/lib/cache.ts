@@ -18,23 +18,21 @@ export interface Cache {
 type RedisClient = RedisClientType<RedisModules, RedisScripts>;
 
 const IS_REDIS_ENABLED = process.env.REDIS_URL !== undefined;
-export const REDIS_CLIENT = new LazySingleton(
-  async (): Promise<RedisClient> => {
-    const client = createClient({
-      url: process.env.REDIS_URL,
-      socket: {
-        tls: true,
-        rejectUnauthorized: false,
-        reconnectStrategy: (retries) => Math.min(retries * 1000, 10000),
-      },
-    });
+const REDIS_CLIENT = new LazySingleton(async (): Promise<RedisClient> => {
+  const client = createClient({
+    url: process.env.REDIS_URL,
+    socket: {
+      tls: true,
+      rejectUnauthorized: false,
+      reconnectStrategy: (retries) => Math.min(retries * 1000, 10000),
+    },
+  });
 
-    client.on("error", (error) => console.log("Redis Client Error:", error));
+  client.on("error", (error) => console.log("Redis Client Error:", error));
 
-    await client.connect();
-    return client;
-  }
-);
+  await client.connect();
+  return client;
+});
 
 export const REDIS_CACHE = {
   get: async <T>(key: string): Promise<T | null> => {
