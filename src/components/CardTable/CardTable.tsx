@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 
-import MagicSet from "lib/sets";
+import MagicSet from "lib/MagicSet";
 import { CardTableDictionary } from "lib/table";
 import { Card } from "lib/types";
 

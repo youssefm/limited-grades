@@ -1,7 +1,7 @@
 import { Card, Color, Grade } from "lib/types";
 import { groupBy, sortBy } from "lib/util";
 
-import Deck from "./decks";
+import Deck from "./Deck";
 
 // eslint-disable-next-line import/prefer-default-export
 export class CardTableDictionary {

@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import MagicSet from "lib/sets";
+import MagicSet from "lib/MagicSet";
 
 const BASE_URL = "https://www.limitedgrades.com";
 

@@ -1,4 +1,4 @@
-import SearchIndex from "lib/search";
+import SearchIndex from "lib/SearchIndex";
 
 describe("Search", () => {
   it("full match", () => {

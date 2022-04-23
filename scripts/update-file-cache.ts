@@ -1,7 +1,7 @@
 import { loadEnvConfig } from "@next/env";
 
 import { FILE_CACHE, REDIS_CACHE } from "lib/cache";
-import MagicSet from "lib/sets";
+import MagicSet from "lib/MagicSet";
 
 const main = async () => {
   loadEnvConfig(process.cwd());

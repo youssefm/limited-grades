@@ -1,8 +1,8 @@
 import { FC, useCallback } from "react";
 
 import ColorIcon from "components/common/ColorIcon";
-import Deck from "lib/decks";
-import MagicSet from "lib/sets";
+import Deck from "lib/Deck";
+import MagicSet from "lib/MagicSet";
 
 import IconSelect from "./IconSelect";
 

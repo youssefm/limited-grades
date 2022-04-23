@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
 import { getCardStore } from "lib/cards";
-import MagicSet from "lib/sets";
+import MagicSet from "lib/MagicSet";
 
 const handler = async (request: NextApiRequest, response: NextApiResponse) => {
   const { setCode } = request.query;

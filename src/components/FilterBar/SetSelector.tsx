@@ -1,7 +1,7 @@
 import { FC, useCallback } from "react";
 
 import SetIcon from "components/common/SetIcon";
-import MagicSet from "lib/sets";
+import MagicSet from "lib/MagicSet";
 
 import IconSelect from "./IconSelect";
 

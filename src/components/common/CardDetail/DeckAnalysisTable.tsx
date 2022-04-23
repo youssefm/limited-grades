@@ -5,7 +5,7 @@ import { FaChevronDown } from "react-icons/fa";
 import Center from "components/common/Center";
 import Collapsible from "components/common/Collapsible";
 import ColorIcon from "components/common/ColorIcon";
-import Deck from "lib/decks";
+import Deck from "lib/Deck";
 import {
   GRADE_BG_COLORS,
   GRADE_BORDER_COLORS,
