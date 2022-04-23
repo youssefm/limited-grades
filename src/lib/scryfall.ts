@@ -6,7 +6,7 @@ import { ungzip } from "node-gzip";
 import { ALL_CARD_TYPES } from "lib/constants";
 import { CardType, Color } from "lib/types";
 
-import MagicSet from "./sets";
+import MagicSet from "./MagicSet";
 import { buildUrl, fetchJson, LazySingleton } from "./util";
 
 type ScryfallColor = "W" | "U" | "B" | "R" | "G";

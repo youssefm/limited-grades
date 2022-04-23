@@ -4,8 +4,8 @@ import { FC, useCallback, useMemo, useRef, useState } from "react";
 import CardDetail from "components/common/CardDetail";
 import ColorIcon from "components/common/ColorIcon";
 import Modal from "components/common/Modal";
-import SearchIndex, { Match } from "lib/search";
-import MagicSet from "lib/sets";
+import MagicSet from "lib/MagicSet";
+import SearchIndex, { Match } from "lib/SearchIndex";
 import { Card } from "lib/types";
 
 import IconSelect from "./IconSelect";

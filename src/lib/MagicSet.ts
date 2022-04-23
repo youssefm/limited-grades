@@ -16,7 +16,7 @@ import WarIcon from "keyrune/svg/war.svg";
 import ZnrIcon from "keyrune/svg/znr.svg";
 import { FC, SVGProps } from "react";
 
-import Deck from "./decks";
+import Deck from "./Deck";
 
 const RECENT_SET_THRESHOLD_IN_DAYS = 30;
 const EMBARGO_DURATION_IN_DAYS = 12;

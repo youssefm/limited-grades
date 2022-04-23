@@ -8,7 +8,7 @@ import PageFooter from "components/PageFooter";
 import PageHeader from "components/PageHeader";
 import { CardTableContextProvider } from "hooks/useCardTableContext";
 import { getCardStore } from "lib/cards";
-import MagicSet from "lib/sets";
+import MagicSet from "lib/MagicSet";
 import { TRANSITION_CLASSES } from "lib/styles";
 import { Card } from "lib/types";
 

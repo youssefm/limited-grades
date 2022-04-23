@@ -7,9 +7,9 @@ import { CACHE } from "lib/cache";
 import { Card, CardStore, Grade, Rarity } from "lib/types";
 import { buildUrl, round, sleep, sortBy } from "lib/util";
 
-import Deck from "./decks";
+import Deck from "./Deck";
+import MagicSet from "./MagicSet";
 import { SCRYFALL_FILE_INDEX } from "./scryfall";
-import MagicSet from "./sets";
 
 const MIN_GAMES_DRAWN_FOR_INFERENCE = 100;
 const MIN_GAMES_DRAWN = 400;

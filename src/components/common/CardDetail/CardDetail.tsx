@@ -2,7 +2,7 @@ import { FC } from "react";
 import { ImInfo } from "react-icons/im";
 
 import Banner from "components/common/Banner";
-import MagicSet from "lib/sets";
+import MagicSet from "lib/MagicSet";
 import { Card } from "lib/types";
 
 import CardImage from "./CardImage";

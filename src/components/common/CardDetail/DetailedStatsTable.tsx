@@ -1,7 +1,7 @@
 import Tippy from "@tippyjs/react";
 import React, { FC } from "react";
 
-import Deck from "lib/decks";
+import Deck from "lib/Deck";
 import { Card } from "lib/types";
 import {
   formatNumber,
