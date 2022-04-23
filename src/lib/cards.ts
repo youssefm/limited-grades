@@ -153,7 +153,7 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
 
 // eslint-disable-next-line import/prefer-default-export
 export const getCardStore = async (set: MagicSet): Promise<CardStore> => {
-  console.log(`attempting to fetch 17lands data for ${set} from cache`);
+  console.log(`attempting to fetch 17lands data for ${set.code} from cache`);
   const cacheHit = await CACHE.get<CardStore>(set.code);
   if (cacheHit) {
     console.log("cache hit");
