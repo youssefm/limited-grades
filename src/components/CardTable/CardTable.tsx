@@ -1,7 +1,8 @@
 import { FC, useState } from "react";
 
+import MagicSet from "lib/sets";
 import { CardTableDictionary } from "lib/table";
-import { Card, MagicSet } from "lib/types";
+import { Card } from "lib/types";
 
 import CardDetailModal from "./CardDetailModal";
 import CardTableCore from "./CardTableCore";

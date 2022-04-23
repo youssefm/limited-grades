@@ -2,8 +2,9 @@ import clsx from "clsx";
 import { FC } from "react";
 
 import SetIcon from "components/common/SetIcon";
+import MagicSet from "lib/sets";
 import { TRANSITION_CLASSES } from "lib/styles";
-import { MagicSet, Rarity } from "lib/types";
+import { Rarity } from "lib/types";
 
 import IconFilterGroup from "./IconFilterGroup";
 

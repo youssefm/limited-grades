@@ -4,13 +4,12 @@ import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
 
 import { CACHE } from "lib/cache";
-import { SET_START_DATES } from "lib/constants";
-import { getDecksForSet, isRecentSet } from "lib/sets";
-import { Card, CardStore, Grade, MagicSet, Rarity } from "lib/types";
+import { Card, CardStore, Grade, Rarity } from "lib/types";
 import { buildUrl, round, sleep, sortBy } from "lib/util";
 
 import Deck from "./decks";
 import { SCRYFALL_FILE_INDEX } from "./scryfall";
+import MagicSet from "./sets";
 
 const MIN_GAMES_DRAWN_FOR_INFERENCE = 100;
 const MIN_GAMES_DRAWN = 400;
@@ -50,9 +49,9 @@ interface ApiCard {
 
 const fetchApiCards = async (set: MagicSet, deck: Deck): Promise<ApiCard[]> => {
   const queryParams: Record<string, string> = {
-    expansion: set,
+    expansion: set.code,
     format: "PremierDraft",
-    start_date: SET_START_DATES[set],
+    start_date: set.startDate,
     end_date: new Date().toISOString().slice(0, 10),
   };
 
@@ -79,12 +78,11 @@ const fetchApiCards = async (set: MagicSet, deck: Deck): Promise<ApiCard[]> => {
 
 const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
   const cards: Record<string, Card> = {};
-  const decks = getDecksForSet(set);
   const [apiCardStore, scryfallIndex] = await Promise.all([
-    Promise.all(decks.map((deck) => fetchApiCards(set, deck))),
+    Promise.all(set.decks.map((deck) => fetchApiCards(set, deck))),
     SCRYFALL_FILE_INDEX.get(),
   ]);
-  for (const [index, deck] of decks.entries()) {
+  for (const [index, deck] of set.decks.entries()) {
     let apiCards: ApiCard[] = apiCardStore[index];
     apiCards = apiCards.filter(
       (card) =>
@@ -156,7 +154,7 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
 // eslint-disable-next-line import/prefer-default-export
 export const getCardStore = async (set: MagicSet): Promise<CardStore> => {
   console.log(`attempting to fetch 17lands data for ${set} from cache`);
-  const cacheHit = await CACHE.get<CardStore>(set);
+  const cacheHit = await CACHE.get<CardStore>(set.code);
   if (cacheHit) {
     console.log("cache hit");
     return {
@@ -168,7 +166,7 @@ export const getCardStore = async (set: MagicSet): Promise<CardStore> => {
 
   const cardStore = await buildCardStore(set);
   let expirationInSeconds;
-  if (isRecentSet(set)) {
+  if (set.isRecent()) {
     // If the set is recently released (< 30 days ago), expire cache entry until the next day
     // 1AM UTC is when 17Lands refreshes their daily data
     const now = new Date();
@@ -187,6 +185,6 @@ export const getCardStore = async (set: MagicSet): Promise<CardStore> => {
   } else {
     expirationInSeconds = 7 * 24 * 60 * 60;
   }
-  await CACHE.set(set, cardStore, expirationInSeconds);
+  await CACHE.set(set.code, cardStore, expirationInSeconds);
   return cardStore;
 };

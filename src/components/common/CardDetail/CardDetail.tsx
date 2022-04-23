@@ -2,8 +2,8 @@ import { FC } from "react";
 import { ImInfo } from "react-icons/im";
 
 import Banner from "components/common/Banner";
-import { isSetUnderEmbargo } from "lib/sets";
-import { Card, MagicSet } from "lib/types";
+import MagicSet from "lib/sets";
+import { Card } from "lib/types";
 
 import CardImage from "./CardImage";
 import DeckAnalysisTable from "./DeckAnalysisTable";
@@ -17,7 +17,7 @@ interface Props {
 }
 
 const CardDetail: FC<Props> = ({ card, set, showLoadingState = false }) => {
-  const underEmbargo = isSetUnderEmbargo(set);
+  const underEmbargo = set.isUnderEmbargo();
   return (
     <div>
       {underEmbargo && (

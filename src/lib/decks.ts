@@ -39,6 +39,6 @@ export default class Deck {
   }
 
   static lookup(code: string) {
-    return this.#decksByCode[code];
+    return Deck.#decksByCode[code];
   }
 }

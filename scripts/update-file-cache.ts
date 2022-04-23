@@ -1,15 +1,15 @@
 import { loadEnvConfig } from "@next/env";
 
 import { FILE_CACHE, REDIS_CACHE } from "lib/cache";
-import { ALL_SETS } from "lib/constants";
+import MagicSet from "lib/sets";
 
 const main = async () => {
   loadEnvConfig(process.cwd());
-  for (const set of ALL_SETS) {
-    const cardStore = await REDIS_CACHE.get(set);
+  for (const set of MagicSet.ALL) {
+    const cardStore = await REDIS_CACHE.get(set.code);
     if (cardStore) {
-      console.log(`Updating file cache for ${set.toUpperCase()}`);
-      await FILE_CACHE.set(set, cardStore);
+      console.log(`Updating file cache for ${set.code.toUpperCase()}`);
+      await FILE_CACHE.set(set.code, cardStore);
     }
   }
   await REDIS_CACHE.close();

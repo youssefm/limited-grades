@@ -1,8 +1,7 @@
 import { FC, useCallback } from "react";
 
 import SetIcon from "components/common/SetIcon";
-import { ALL_SETS, SET_LABELS } from "lib/constants";
-import { MagicSet } from "lib/types";
+import MagicSet from "lib/sets";
 
 import IconSelect from "./IconSelect";
 
@@ -24,8 +23,8 @@ const SetSelector: FC<Props> = ({ value, onChange }) => {
           onChange(selectedValue);
         }
       }}
-      options={ALL_SETS.slice(1)}
-      getLabel={(set) => SET_LABELS[set]}
+      options={MagicSet.ALL.slice(1)}
+      getLabel={(set) => set.label}
       getIcon={getIcon}
       instanceId="set-select"
       className="min-w-[230px] lg:min-w-[250px]"

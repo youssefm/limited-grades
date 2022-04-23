@@ -2,10 +2,11 @@ import constate from "constate";
 import { useRouter } from "next/dist/client/router";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
-import { ALL_CARD_TYPES, ALL_RARITIES, ALL_SETS } from "lib/constants";
+import { ALL_CARD_TYPES, ALL_RARITIES } from "lib/constants";
 import Deck from "lib/decks";
+import MagicSet from "lib/sets";
 import { CardTableDictionary } from "lib/table";
-import { Card, MagicSet } from "lib/types";
+import { Card } from "lib/types";
 import { extractPathnameSegments } from "lib/util";
 
 import useDelayedLoading from "./useDelayedLoading";
@@ -29,10 +30,11 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
 
   useEffect(() => {
     const handleRouteChange = (url: string) => {
-      const routeSet = extractPathnameSegments(url)[0];
-      if ((ALL_SETS as string[]).includes(routeSet)) {
+      const routeSetCode = extractPathnameSegments(url)[0];
+      const routeSet = MagicSet.lookup(routeSetCode);
+      if (routeSet) {
         loadingCards.current = cards;
-        setSelectedSet(routeSet as MagicSet);
+        setSelectedSet(routeSet);
       }
     };
 
@@ -57,7 +59,7 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
   const changeSet = useCallback(
     (newSet: MagicSet) => {
       router
-        .push(`/${newSet}`)
+        .push(`/${newSet.code}`)
         .catch((error) => console.log(`Failed to push new route: ${error}`));
     },
     [router]

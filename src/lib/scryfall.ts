@@ -4,8 +4,9 @@ import path from "path";
 import { ungzip } from "node-gzip";
 
 import { ALL_CARD_TYPES } from "lib/constants";
-import { CardType, Color, MagicSet } from "lib/types";
+import { CardType, Color } from "lib/types";
 
+import MagicSet from "./sets";
 import { buildUrl, fetchJson, LazySingleton } from "./util";
 
 type ScryfallColor = "W" | "U" | "B" | "R" | "G";
@@ -130,7 +131,7 @@ export const getAllCardsByType = async (
 const fetchCards = async (set: MagicSet): Promise<ScryfallCard[]> => {
   const cards: ScryfallCard[] = [];
   let url = buildUrl("https://api.scryfall.com/cards/search", {
-    q: `e:${set} is:booster`,
+    q: `e:${set.code} is:booster`,
   });
   for (;;) {
     console.log(`Making a Scryfall request to: ${url}`);

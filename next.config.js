@@ -12,8 +12,8 @@ module.exports = {
       permanent: false,
     },
     {
-      source: "/:set/(all|wu|ub|br|rg|wg|wb|ur|bg|wr|ug)",
-      destination: "/:set",
+      source: "/:setCode/(all|wu|ub|br|rg|wg|wb|ur|bg|wr|ug)",
+      destination: "/:setCode",
       permanent: false,
     },
   ],
