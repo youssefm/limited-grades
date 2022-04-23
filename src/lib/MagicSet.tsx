@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import AfrIcon from "keyrune/svg/afr.svg";
 import AkrIcon from "keyrune/svg/akr.svg";
 import DomIcon from "keyrune/svg/dom.svg";
@@ -14,9 +15,10 @@ import StxIcon from "keyrune/svg/stx.svg";
 import VowIcon from "keyrune/svg/vow.svg";
 import WarIcon from "keyrune/svg/war.svg";
 import ZnrIcon from "keyrune/svg/znr.svg";
-import { FC, SVGProps } from "react";
+import { FC, ReactElement, SVGProps } from "react";
 
 import Deck from "./Deck";
+import { TRANSITION_CLASSES } from "./styles";
 
 const RECENT_SET_THRESHOLD_IN_DAYS = 30;
 const EMBARGO_DURATION_IN_DAYS = 12;
@@ -45,7 +47,7 @@ export default class MagicSet {
 
   readonly startDate: string;
 
-  readonly SvgIcon: FC<SVGProps<SVGSVGElement>>;
+  #SvgIcon: FC<SVGProps<SVGSVGElement>>;
 
   readonly decks: Deck[];
 
@@ -161,10 +163,13 @@ export default class MagicSet {
     this.code = code;
     this.label = label;
     this.startDate = startDate;
-    this.SvgIcon = SvgIcon;
+    this.#SvgIcon = SvgIcon;
     this.decks = decks;
     MagicSet.#setsByCode[code] = this;
     MagicSet.ALL.push(this);
+
+    // React components don't auto-bind methods to themselves, we need to this manually
+    this.Icon = this.Icon.bind(this);
   }
 
   static lookup(code: string) {
@@ -177,5 +182,20 @@ export default class MagicSet {
 
   isUnderEmbargo(): boolean {
     return computeDaysSinceDate(this.startDate) < EMBARGO_DURATION_IN_DAYS;
+  }
+
+  Icon({ className }: { className: string }): ReactElement {
+    const SvgIcon = this.#SvgIcon;
+    return (
+      <SvgIcon
+        width="1.28571429em"
+        height="1em"
+        className={clsx(
+          "stroke-neutral-300 dark:stroke-black paint-order-stroke",
+          TRANSITION_CLASSES,
+          className
+        )}
+      />
+    );
   }
 }

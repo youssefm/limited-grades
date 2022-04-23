@@ -1,6 +1,5 @@
 import { FC, useCallback } from "react";
 
-import SetIcon from "components/common/SetIcon";
 import MagicSet from "lib/MagicSet";
 
 import IconSelect from "./IconSelect";
@@ -12,7 +11,7 @@ interface Props {
 
 const SetSelector: FC<Props> = ({ value, onChange }) => {
   const getIcon = useCallback(
-    (set: MagicSet) => <SetIcon set={set} className="text-2xl" />,
+    (set: MagicSet) => <set.Icon className="text-2xl" />,
     []
   );
   return (
