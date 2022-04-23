@@ -22,6 +22,7 @@ const RECENT_SET_THRESHOLD_IN_DAYS = 30;
 const EMBARGO_DURATION_IN_DAYS = 12;
 
 const TWO_COLOR_DECKS = [
+  Deck.ALL,
   Deck.AZORIUS,
   Deck.DIMIR,
   Deck.RAKDOS,
@@ -88,6 +89,7 @@ export default class MagicSet {
   );
 
   static STRIXHAVEN = new MagicSet("stx", "Strixhaven", "2021-04-15", StxIcon, [
+    Deck.ALL,
     Deck.ORZHOV,
     Deck.IZZET,
     Deck.GOLGARI,
@@ -118,7 +120,7 @@ export default class MagicSet {
     "Ravnica Allegiance",
     "2020-04-16",
     RnaIcon,
-    [Deck.AZORIUS, Deck.RAKDOS, Deck.GRUUL, Deck.ORZHOV, Deck.SIMIC]
+    [Deck.ALL, Deck.AZORIUS, Deck.RAKDOS, Deck.GRUUL, Deck.ORZHOV, Deck.SIMIC]
   );
 
   static GUILDS_OF_RAVNICA = new MagicSet(
@@ -126,7 +128,7 @@ export default class MagicSet {
     "Guilds of Ravnica",
     "2020-04-16",
     GrnIcon,
-    [Deck.DIMIR, Deck.SELESNYA, Deck.IZZET, Deck.GOLGARI, Deck.BOROS]
+    [Deck.ALL, Deck.DIMIR, Deck.SELESNYA, Deck.IZZET, Deck.GOLGARI, Deck.BOROS]
   );
 
   static DOMINARIA = new MagicSet("dom", "Dominaria", "2020-04-16", DomIcon);
