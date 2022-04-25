@@ -1,4 +1,4 @@
-import { CardType, Color, Grade, Rarity } from "lib/types";
+import { CardType, Color, Grade, Rarity } from "./types";
 
 export const ALL_COLORS = Object.values(Color);
 export const ALL_GRADES = Object.values(Grade);
