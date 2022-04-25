@@ -3,9 +3,9 @@ import { FC, memo } from "react";
 
 import Center from "components/common/Center";
 import ColorIcon from "components/common/ColorIcon";
+import CardTableDictionary from "lib/CardTableDictionary";
 import { ALL_COLORS, ALL_GRADES } from "lib/constants";
 import { GRADE_BORDER_COLORS, TRANSITION_CLASSES } from "lib/styles";
-import { CardTableDictionary } from "lib/table";
 import { Card, Grade } from "lib/types";
 import { matchesMedia } from "lib/util";
 

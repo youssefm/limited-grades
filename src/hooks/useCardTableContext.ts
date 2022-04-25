@@ -2,10 +2,10 @@ import constate from "constate";
 import { useRouter } from "next/dist/client/router";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
+import CardTableDictionary from "lib/CardTableDictionary";
 import { ALL_CARD_TYPES, ALL_RARITIES } from "lib/constants";
 import Deck from "lib/Deck";
 import MagicSet from "lib/MagicSet";
-import { CardTableDictionary } from "lib/table";
 import { Card } from "lib/types";
 import { extractPathnameSegments } from "lib/util";
 
