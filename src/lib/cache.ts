@@ -2,6 +2,7 @@ import { readFile, writeFile } from "fs/promises";
 
 import { gzip, ungzip } from "node-gzip";
 import {
+  commandOptions,
   createClient,
   RedisClientType,
   RedisModules,
@@ -44,17 +45,20 @@ const REDIS_CLIENT = new LazySingleton(async (): Promise<RedisClient> => {
 export const REDIS_CACHE = {
   get: async <T>(key: string): Promise<T | null> => {
     const redisClient = await REDIS_CLIENT.get();
-    const compressedValue = await redisClient.get(key);
+    const compressedValue = await redisClient.get(
+      commandOptions({ returnBuffers: true }),
+      key
+    );
     if (compressedValue === null) {
       return compressedValue;
     }
-    const buffer = await ungzip(Buffer.from(compressedValue, "base64"));
+    const buffer = await ungzip(compressedValue);
     return JSON.parse(buffer.toString());
   },
   set: async (key: string, value: any, expirationInSeconds: number) => {
     const compressedValue = await gzip(JSON.stringify(value));
     const redisClient = await REDIS_CLIENT.get();
-    await redisClient.set(key, compressedValue.toString("base64"), {
+    await redisClient.set(key, compressedValue, {
       EX: expirationInSeconds,
     });
   },
