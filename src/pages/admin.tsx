@@ -52,15 +52,15 @@ const Admin: FC = () => {
               className="grow"
             />
             <button
-              className="w-24 text-neutral-100 bg-blue-500 dark:bg-amber-600 rounded"
+              className="w-24 bg-blue-500 dark:bg-amber-600 rounded"
               type="submit"
             >
-              {!loading && <span>Run</span>}
+              {!loading && <span className="text-neutral-100">Run</span>}
               {loading && (
                 <SpinnerIcon
                   width="1em"
                   height="1em"
-                  className="mx-auto animate-spin fill-neutral-900"
+                  className="mx-auto text-black animate-spin fill-white"
                 />
               )}
             </button>
@@ -69,7 +69,7 @@ const Admin: FC = () => {
         {actionOutput.length > 0 && (
           <div className="p-4 font-mono">
             <div className="pb-2">Output:</div>
-            <div className="text-sm whitespace-pre">
+            <div className="text-sm whitespace-pre-wrap break-words">
               {actionOutput.join("\n")}
             </div>
           </div>
