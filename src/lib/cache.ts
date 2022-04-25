@@ -45,20 +45,20 @@ const REDIS_CLIENT = new LazySingleton(async (): Promise<RedisClient> => {
 export const REDIS_CACHE = {
   get: async <T>(key: string): Promise<T | null> => {
     const redisClient = await REDIS_CLIENT.get();
-    const compressedValue = await redisClient.get(
+    const zippedValue = await redisClient.get(
       commandOptions({ returnBuffers: true }),
       key
     );
-    if (compressedValue === null) {
-      return compressedValue;
+    if (zippedValue === null) {
+      return zippedValue;
     }
-    const buffer = await ungzip(compressedValue);
+    const buffer = await ungzip(zippedValue);
     return JSON.parse(buffer.toString());
   },
   set: async (key: string, value: any, expirationInSeconds: number) => {
-    const compressedValue = await gzip(JSON.stringify(value));
+    const zippedValue = await gzip(JSON.stringify(value));
     const redisClient = await REDIS_CLIENT.get();
-    await redisClient.set(key, compressedValue, {
+    await redisClient.set(key, zippedValue, {
       EX: expirationInSeconds,
     });
   },
