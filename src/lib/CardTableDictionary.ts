@@ -2,8 +2,7 @@ import Deck from "./Deck";
 import { Card, Color, Grade } from "./types";
 import { groupBy, sortBy } from "./util";
 
-// eslint-disable-next-line import/prefer-default-export
-export class CardTableDictionary {
+export default class CardTableDictionary {
   #cardsByGroup: Record<string, [Card, ...Card[]]>;
 
   constructor(cards: Card[], deck: Deck) {

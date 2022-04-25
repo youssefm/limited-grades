@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import { getCardStore } from "lib/cards";
+import getCardStore from "lib/getCardStore";
 import MagicSet from "lib/MagicSet";
 
 const handler = async (request: NextApiRequest, response: NextApiResponse) => {
