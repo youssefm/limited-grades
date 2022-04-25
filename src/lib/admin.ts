@@ -1,6 +1,5 @@
-import { FILE_CACHE, REDIS_CACHE } from "lib/cache";
-import MagicSet from "lib/MagicSet";
-
+import { FILE_CACHE, REDIS_CACHE } from "./cache";
+import MagicSet from "./MagicSet";
 import { fetchScryfallIndex, SCRYFALL_FILE_INDEX } from "./scryfall";
 
 export const ACTIONS: Record<string, (output: any[]) => Promise<void>> =

@@ -3,13 +3,12 @@ import assert from "assert";
 import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
 
-import { CACHE } from "lib/cache";
-import { Card, CardStore, Grade, Rarity } from "lib/types";
-import { buildUrl, round, sleep, sortBy } from "lib/util";
-
+import { CACHE } from "./cache";
 import Deck from "./Deck";
 import MagicSet from "./MagicSet";
 import { SCRYFALL_FILE_INDEX } from "./scryfall";
+import { Card, CardStore, Grade, Rarity } from "./types";
+import { buildUrl, round, sleep, sortBy } from "./util";
 
 const MIN_GAMES_DRAWN_FOR_INFERENCE = 100;
 const MIN_GAMES_DRAWN = 400;
