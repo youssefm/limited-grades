@@ -2,7 +2,7 @@ import { FILE_CACHE, REDIS_CACHE } from "lib/cache";
 import MagicSet from "lib/MagicSet";
 import { fetchScryfallIndex, SCRYFALL_FILE_INDEX } from "./scryfall";
 
-export const ACTIONS: Record<string, (output: string[]) => Promise<void>> =
+export const ACTIONS: Record<string, (output: any[]) => Promise<void>> =
   process.env.ADMIN_ENABLED === "true"
     ? {
         "clear-redis-cache": async (output) => {
@@ -12,12 +12,12 @@ export const ACTIONS: Record<string, (output: string[]) => Promise<void>> =
         "fetch-scryfall-card": async (output) => {
           const index = await fetchScryfallIndex(MagicSet.MIDNIGHT_HUNT);
           const card = index.lookupCard("Organ Hoarder");
-          output.push(JSON.stringify(card, null, 2));
+          output.push(card);
         },
         "lookup-scryfall-card": async (output) => {
           const index = await SCRYFALL_FILE_INDEX.get();
           const card = index.lookupCard("Organ Hoarder");
-          output.push(JSON.stringify(card, null, 2));
+          output.push(card);
         },
         "update-file-cache": async (output) => {
           for (const set of MagicSet.ALL) {
