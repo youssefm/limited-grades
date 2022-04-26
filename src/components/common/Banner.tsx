@@ -15,7 +15,8 @@ const Banner: FC<Props> = ({ id, dismissable, onClose, children }) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
 
   return (
-    <Collapsible isExpanded={!isCollapsed} id={id} className="shrink-0">
+    // Prevent bottom margin from collapsing with "flex flex-col"
+    <Collapsible isExpanded={!isCollapsed} id={id} className="flex flex-col">
       <div
         className={clsx(
           "flex items-center py-1.5 px-2 mb-2 bg-neutral-100 dark:bg-neutral-800 rounded-lg lg:px-4",

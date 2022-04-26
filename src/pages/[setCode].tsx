@@ -39,7 +39,6 @@ export const getStaticProps: GetStaticProps<StaticProps> = async (context) => {
 
 const Page = ({ setCode, cards, lastUpdatedAtTicks }: StaticProps) => {
   const set = MagicSet.lookup(setCode);
-
   return (
     <>
       <Head>
@@ -53,10 +52,12 @@ const Page = ({ setCode, cards, lastUpdatedAtTicks }: StaticProps) => {
         )}
       >
         <div className="flex flex-col mx-auto max-w-[1800px] h-full">
-          <PageHeader />
-          <CardTableContextProvider set={set} cards={cards}>
-            <PageBody className="grow" />
-          </CardTableContextProvider>
+          <div className="grow">
+            <PageHeader />
+            <CardTableContextProvider set={set} cards={cards}>
+              <PageBody />
+            </CardTableContextProvider>
+          </div>
           <PageFooter lastUpdatedAt={new Date(lastUpdatedAtTicks)} />
         </div>
       </div>
