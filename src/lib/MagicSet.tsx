@@ -19,6 +19,7 @@ import { FC, ReactElement, SVGProps } from "react";
 
 import Deck from "./Deck";
 import { TRANSITION_CLASSES } from "./styles";
+import { Rarity } from "./types";
 
 const RECENT_SET_THRESHOLD_IN_DAYS = 30;
 const EMBARGO_DURATION_IN_DAYS = 12;
@@ -37,8 +38,20 @@ const TWO_COLOR_DECKS = [
   Deck.SIMIC,
 ];
 
+const RARITY_ICON_CLASSES: Record<Rarity, string> = {
+  [Rarity.COMMON]: "text-common dark:text-neutral-300",
+  [Rarity.UNCOMMON]: "text-uncommon",
+  [Rarity.RARE]: "text-rare",
+  [Rarity.MYTHIC]: "text-mythic",
+};
+
 const computeDaysSinceDate = (dateString: string): number =>
   (Date.now() - new Date(dateString).getTime()) / (24 * 60 * 60 * 1000);
+
+interface IconProps {
+  rarity?: Rarity;
+  className?: string;
+}
 
 export default class MagicSet {
   readonly code: string;
@@ -184,7 +197,7 @@ export default class MagicSet {
     return computeDaysSinceDate(this.startDate) < EMBARGO_DURATION_IN_DAYS;
   }
 
-  Icon({ className }: { className: string }): ReactElement {
+  Icon({ rarity, className }: IconProps): ReactElement {
     const SvgIcon = this.#SvgIcon;
     return (
       <SvgIcon
@@ -192,6 +205,7 @@ export default class MagicSet {
         height="1em"
         className={clsx(
           "stroke-neutral-300 dark:stroke-black paint-order-stroke",
+          rarity && RARITY_ICON_CLASSES[rarity],
           TRANSITION_CLASSES,
           className
         )}
