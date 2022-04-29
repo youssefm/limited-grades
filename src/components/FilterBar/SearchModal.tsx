@@ -102,9 +102,9 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
       />
       {!selectedOption && (
         <div
-          className={clsx({
-            "lg:w-[912.22px] lg:h-[440px]": !underEmbargo,
-            "lg:w-[522px] lg:h-[484px]": underEmbargo,
+          className={clsx("lg:h-[440px]", {
+            "lg:w-[912.22px]": !underEmbargo,
+            "lg:w-[522px]": underEmbargo,
           })}
         />
       )}
