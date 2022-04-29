@@ -1,4 +1,4 @@
-import { FILE_CACHE, REDIS_CACHE } from "./cache";
+import { FILE_CACHE, REDIS_CACHE, REDIS_CLIENT } from "./cache";
 import MagicSet from "./MagicSet";
 import { fetchScryfallIndex, SCRYFALL_FILE_INDEX } from "./scryfall";
 
@@ -8,6 +8,11 @@ export const ACTIONS: Record<string, (output: any[]) => Promise<void>> =
         "clear-redis-cache": async (output) => {
           await REDIS_CACHE.clear();
           output.push("Redis cache cleared!");
+        },
+        "delete-snc-cache": async (output) => {
+          const client = await REDIS_CLIENT.get();
+          await client.del("snc");
+          output.push("SNC cache value deleted!");
         },
         "fetch-scryfall-card": async (output) => {
           const index = await fetchScryfallIndex(MagicSet.MIDNIGHT_HUNT);
