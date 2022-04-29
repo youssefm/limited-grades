@@ -13,6 +13,8 @@
   "rules": {
     "@next/next/no-img-element": "off",
     "@typescript-eslint/no-floating-promises": "error",
+    // superseded by unused-imports
+    "@typescript-eslint/no-unused-vars": "off",
     "@typescript-eslint/return-await": "off",
     "import/order": [
       "error",
@@ -71,6 +73,12 @@
       }
     ],
     // Allows us to automatically remove unused imports
-    "unused-imports/no-unused-imports": "error"
+    "unused-imports/no-unused-imports": "error",
+    "unused-imports/no-unused-vars": [
+      "error",
+      {
+        "ignoreRestSiblings": true
+      }
+    ]
   }
 }
