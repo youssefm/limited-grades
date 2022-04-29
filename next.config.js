@@ -8,7 +8,7 @@ module.exports = {
   redirects: async () => [
     {
       source: "/",
-      destination: "/neo",
+      destination: "/snc",
       permanent: false,
     },
     {
