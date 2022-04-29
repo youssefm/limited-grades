@@ -31,6 +31,24 @@ export default class Deck {
 
   static SIMIC = new Deck("ug", "Simic", [Color.GREEN, Color.BLUE]);
 
+  static ESPER = new Deck("wub", "Esper", [
+    Color.WHITE,
+    Color.BLUE,
+    Color.BLACK,
+  ]);
+
+  static GRIXIS = new Deck("ubr", "Grixis", [
+    Color.BLUE,
+    Color.BLACK,
+    Color.RED,
+  ]);
+
+  static JUND = new Deck("brg", "Jund", [Color.BLACK, Color.RED, Color.GREEN]);
+
+  static NAYA = new Deck("wrg", "Naya", [Color.RED, Color.GREEN, Color.WHITE]);
+
+  static BANT = new Deck("wug", "Bant", [Color.GREEN, Color.WHITE, Color.BLUE]);
+
   private constructor(code: string, label: string, colors: Color[]) {
     this.code = code;
     this.label = label;

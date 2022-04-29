@@ -72,7 +72,20 @@ export default class MagicSet {
     "snc",
     "New Capenna",
     "2022-04-28",
-    SncIcon
+    SncIcon,
+    [
+      Deck.ALL,
+      Deck.AZORIUS,
+      Deck.DIMIR,
+      Deck.RAKDOS,
+      Deck.GRUUL,
+      Deck.SELESNYA,
+      Deck.ESPER,
+      Deck.GRIXIS,
+      Deck.JUND,
+      Deck.NAYA,
+      Deck.BANT,
+    ]
   );
 
   static NEON_DYNASTY = new MagicSet(
