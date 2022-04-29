@@ -19,28 +19,30 @@ export interface Cache {
 type RedisClient = RedisClientType<RedisModules, RedisScripts>;
 
 const IS_REDIS_ENABLED = process.env.REDIS_URL !== undefined;
-const REDIS_CLIENT = new LazySingleton(async (): Promise<RedisClient> => {
-  const url = process.env.REDIS_URL;
-  if (!url) {
-    throw new Error(
-      "Redis is not configured with a REDIS_URL environment variable"
-    );
+export const REDIS_CLIENT = new LazySingleton(
+  async (): Promise<RedisClient> => {
+    const url = process.env.REDIS_URL;
+    if (!url) {
+      throw new Error(
+        "Redis is not configured with a REDIS_URL environment variable"
+      );
+    }
+
+    const client = createClient({
+      url,
+      socket: {
+        tls: true,
+        rejectUnauthorized: false,
+        reconnectStrategy: (retries) => Math.min(retries * 1000, 10000),
+      },
+    });
+
+    client.on("error", (error) => console.log("Redis Client Error:", error));
+
+    await client.connect();
+    return client;
   }
-
-  const client = createClient({
-    url,
-    socket: {
-      tls: true,
-      rejectUnauthorized: false,
-      reconnectStrategy: (retries) => Math.min(retries * 1000, 10000),
-    },
-  });
-
-  client.on("error", (error) => console.log("Redis Client Error:", error));
-
-  await client.connect();
-  return client;
-});
+);
 
 export const REDIS_CACHE = {
   get: async <T>(key: string): Promise<T | null> => {
