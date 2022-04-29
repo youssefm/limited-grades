@@ -9,7 +9,7 @@
   "parserOptions": {
     "project": "./tsconfig.json"
   },
-  "plugins": ["prettier", "tailwindcss"],
+  "plugins": ["prettier", "tailwindcss", "unused-imports"],
   "rules": {
     "@next/next/no-img-element": "off",
     "@typescript-eslint/no-floating-promises": "error",
@@ -69,6 +69,8 @@
       {
         "whitelist": []
       }
-    ]
+    ],
+    // Allows us to automatically remove unused imports
+    "unused-imports/no-unused-imports": "error"
   }
 }
