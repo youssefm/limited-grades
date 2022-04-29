@@ -2,7 +2,9 @@ import clsx from "clsx";
 import Image from "next/image";
 import { useState } from "react";
 import { FaInfoCircle } from "react-icons/fa";
+import { ImInfo } from "react-icons/im";
 
+import Banner from "components/common/Banner";
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 
 import AboutProjectModal from "./AboutProjectModal";
@@ -46,6 +48,12 @@ const PageHeader = () => {
 
         <DarkModeToggle />
       </div>
+
+      <Banner>
+        <ImInfo className="inline relative bottom-0.5 mr-2" />
+        Grades for SNC are now live! Cards must be drawn 400 times before we
+        assign a grade, so it will take a few days for all the cards show up.
+      </Banner>
 
       <PageInfoBanner onLearnMore={() => setShowInfoModal(true)} />
 
