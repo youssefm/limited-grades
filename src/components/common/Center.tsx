@@ -2,7 +2,7 @@ import clsx from "clsx";
 import { FC } from "react";
 
 interface Props {
-  className: string;
+  className?: string;
 }
 
 const Center: FC<Props> = ({ className, children }) => (

@@ -1,5 +1,6 @@
 import { FC, useCallback } from "react";
 
+import Center from "components/common/Center";
 import ColorIcon from "components/common/ColorIcon";
 import Deck from "lib/Deck";
 import MagicSet from "lib/MagicSet";
@@ -37,7 +38,7 @@ const DeckSelector: FC<Props> = ({ set, value, onChange }) => {
       getLabel={(deck) => deck.label}
       getIcon={getIcon}
       instanceId="deck-select"
-      className="min-w-[175px]"
+      className="min-w-[180px]"
     />
   );
 };
