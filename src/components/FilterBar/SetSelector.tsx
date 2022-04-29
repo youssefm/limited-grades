@@ -22,7 +22,7 @@ const SetSelector: FC<Props> = ({ value, onChange }) => {
           onChange(selectedValue);
         }
       }}
-      options={MagicSet.ALL.slice(1)}
+      options={MagicSet.ALL}
       getLabel={(set) => set.label}
       getIcon={getIcon}
       instanceId="set-select"
