@@ -16,7 +16,7 @@ import { Card, CardStats } from "lib/types";
 import { formatPercentage, sortBy } from "lib/util";
 
 const DECKS_TO_SHOW = 5;
-const ROW_HEADER_CLASSES = "w-24 bg-neutral-100 dark:bg-neutral-800";
+const ROW_HEADER_CLASSES = "w-28 bg-neutral-100 dark:bg-neutral-800";
 
 const DeckStatsRow = ({
   deck,
@@ -85,7 +85,7 @@ const DeckAnalysisTable: FC<Props> = ({ card, showStats }) => {
   const deckStatsToExpand = deckStats.slice(DECKS_TO_SHOW);
 
   return (
-    <div className={clsx({ "lg:h-[403px]": !isExpanded })}>
+    <div className="lg:min-h-[403px]">
       <div className="border border-neutral-200 dark:border-black">
         <Spacer />
         {deckStatsToShow.map(([deckCode, stats]) => (
