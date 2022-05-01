@@ -18,8 +18,8 @@ const SearchButton: FC<Props> = ({ cards, set }) => {
 
   useEffect(() => {
     const handleKeyboardShortcut = (event: KeyboardEvent) => {
-      // CTRL + F or CMD + F combo
-      if ((event.ctrlKey || event.metaKey) && event.key === "f") {
+      // CTRL + K or CMD + K combo
+      if ((event.ctrlKey || event.metaKey) && event.key === "k") {
         event.preventDefault();
         setModalOpen(true);
       }
