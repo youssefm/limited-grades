@@ -51,8 +51,8 @@ const PageHeader = () => {
 
       <Banner>
         <ImInfo className="inline relative bottom-0.5 mr-2" />
-        Grades for SNC are live! Cards must be drawn 400 times before we assign
-        a grade, so it will take a few days for all the cards to show up.
+        Grades for SNC are live! The keyboard shortcut for search is now Ctrl+K
+        instead of Ctrl+F.
       </Banner>
 
       <PageInfoBanner onLearnMore={() => setShowInfoModal(true)} />
