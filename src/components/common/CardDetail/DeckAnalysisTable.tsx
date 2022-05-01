@@ -85,7 +85,7 @@ const DeckAnalysisTable: FC<Props> = ({ card, showStats }) => {
   const deckStatsToExpand = deckStats.slice(DECKS_TO_SHOW);
 
   return (
-    <div className="lg:min-h-[403px]">
+    <div className="lg:min-h-[404px]">
       <div className="border border-neutral-200 dark:border-black">
         <Spacer />
         {deckStatsToShow.map(([deckCode, stats]) => (
