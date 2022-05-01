@@ -11,6 +11,13 @@ const Layout: FC = ({ children }) => (
         name="description"
         content="Visualize MTG draft win rates as a tier list, powered by 17Lands data"
       />
+      <meta
+        property="og:image"
+        content="https://www.limitedgrades.com/android-chrome-512x512.png"
+      />
+      <meta property="og:image:type" content="image/png" />
+      <meta property="og:image:width" content="512" />
+      <meta property="og:image:height" content="512" />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
