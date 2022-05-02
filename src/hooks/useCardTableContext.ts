@@ -10,6 +10,7 @@ import { Card } from "lib/types";
 import { extractPathnameSegments } from "lib/util";
 
 import useDelayedLoading from "./useDelayedLoading";
+import useUrlState from "./useUrlState";
 
 interface Props {
   set: MagicSet;
@@ -19,7 +20,7 @@ interface Props {
 const useCardTableContextValue = ({ set, cards }: Props) => {
   const router = useRouter();
   const [selectedSet, setSelectedSet] = useState(set);
-  const [deck, setDeck] = useState(Deck.ALL);
+  const [urlDeck, setUrlDeck] = useUrlState("deck");
   const [visibleRarities, setVisibleRarities] = useState(new Set(ALL_RARITIES));
   const [visibleCardTypes, setVisibleCardTypes] = useState(
     new Set(ALL_CARD_TYPES)
@@ -46,6 +47,7 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
     };
   }, [router.events, cards]);
 
+  const deck = urlDeck ? Deck.lookup(urlDeck) || Deck.ALL : Deck.ALL;
   const showSkeletons = isLoading();
   const displayedCards = showSkeletons ? loadingCards.current : cards;
 
@@ -59,12 +61,16 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
   }, [displayedCards, deck, visibleRarities, visibleCardTypes]);
 
   const changeSet = useCallback(
-    (newSet: MagicSet) => {
-      router
-        .push(`/${newSet.code}`)
-        .catch((error) => console.log(`Failed to push new route: ${error}`));
+    async (newSet: MagicSet) => {
+      await router.push(`/${newSet.code}${window.location.search}`);
     },
     [router]
+  );
+
+  const setDeck = useCallback(
+    (newDeck: Deck) =>
+      setUrlDeck(newDeck === Deck.ALL ? undefined : newDeck.code),
+    [setUrlDeck]
   );
 
   return {
