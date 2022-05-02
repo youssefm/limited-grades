@@ -40,7 +40,7 @@ const Page = ({ imageUrls }: StaticProps) => {
   const [activeImageUrls, setActiveImageUrls] = useState<string[]>([]);
 
   const getRandomImageUrl = useCallback(
-    () => imageUrls[Math.floor(Math.random() * imageUrls.length)],
+    () => imageUrls[Math.floor(Math.random() * imageUrls.length)]!,
     [imageUrls]
   );
 

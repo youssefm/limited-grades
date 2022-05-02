@@ -198,7 +198,7 @@ export default class MagicSet {
     this.Icon = this.Icon.bind(this);
   }
 
-  static lookup(code: string) {
+  static lookup(code: string): MagicSet | undefined {
     return MagicSet.#setsByCode[code];
   }
 

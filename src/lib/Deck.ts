@@ -56,7 +56,7 @@ export default class Deck {
     Deck.#decksByCode[code] = this;
   }
 
-  static lookup(code: string) {
+  static lookup(code: string): Deck | undefined {
     return Deck.#decksByCode[code];
   }
 }
