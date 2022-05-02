@@ -58,8 +58,9 @@ export class ScryfallIndex {
       }
 
       const names = [card.name];
-      if (card.card_faces && card.card_faces.length > 0) {
-        names.push(card.card_faces[0]!.name);
+      const frontCardFace = card.card_faces?.[0];
+      if (frontCardFace) {
+        names.push(frontCardFace.name);
       }
 
       for (const name of names) {
