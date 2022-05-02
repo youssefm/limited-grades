@@ -110,3 +110,31 @@ export const fetchJson = async <T>(url: string): Promise<T> => {
   }
   return await response.json();
 };
+
+export const setEquals = <T>(setA: Set<T>, setB: Set<T>): boolean => {
+  if (setA.size !== setB.size) {
+    return false;
+  }
+  for (const element of setA) {
+    if (!setB.has(element)) {
+      return false;
+    }
+  }
+  return true;
+};
+
+export const lookupEnumByValue = <T extends string>(
+  Enum: Record<string, T>,
+  value: string
+): T | undefined => Object.values(Enum).find((v) => v === value);
+
+export const reverseLookup = <K extends string, V>(
+  map: Record<K, V>,
+  value: V
+): K | undefined => {
+  const entry = Object.entries(map).find(([, v]) => v === value);
+  if (entry) {
+    return entry[0] as K;
+  }
+  return undefined;
+};

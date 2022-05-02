@@ -6,12 +6,32 @@ import CardTableDictionary from "lib/CardTableDictionary";
 import { ALL_CARD_TYPES, ALL_RARITIES } from "lib/constants";
 import Deck from "lib/Deck";
 import MagicSet from "lib/MagicSet";
-import { Card } from "lib/types";
+import { Card, CardType, Rarity } from "lib/types";
 import { extractPathnameSegments } from "lib/util";
 
 import useDelayedLoading from "./useDelayedLoading";
+import useUrlSetState from "./useUrlSetState";
 import useUrlState from "./useUrlState";
 
+const ALL_RARITIES_SET = new Set(ALL_RARITIES);
+const ALL_CARD_TYPES_SET = new Set(ALL_CARD_TYPES);
+
+const RARITY_CHARACTER_MAP: Record<Rarity, string> = {
+  [Rarity.COMMON]: "c",
+  [Rarity.UNCOMMON]: "u",
+  [Rarity.RARE]: "r",
+  [Rarity.MYTHIC]: "m",
+};
+
+const CARD_TYPE_CHARACTER_MAP: Record<CardType, string> = {
+  [CardType.CREATURE]: "c",
+  [CardType.INSTANT]: "i",
+  [CardType.SORCERY]: "s",
+  [CardType.ARTIFACT]: "a",
+  [CardType.ENCHANTMENT]: "e",
+  [CardType.PLANESWALKER]: "p",
+  [CardType.LAND]: "l",
+};
 interface Props {
   set: MagicSet;
   cards: Card[];
@@ -21,9 +41,15 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
   const router = useRouter();
   const [selectedSet, setSelectedSet] = useState(set);
   const [urlDeck, setUrlDeck] = useUrlState("deck");
-  const [visibleRarities, setVisibleRarities] = useState(new Set(ALL_RARITIES));
-  const [visibleCardTypes, setVisibleCardTypes] = useState(
-    new Set(ALL_CARD_TYPES)
+  const [visibleRarities, setVisibleRarities] = useUrlSetState(
+    "rarity",
+    RARITY_CHARACTER_MAP,
+    ALL_RARITIES_SET
+  );
+  const [visibleCardTypes, setVisibleCardTypes] = useUrlSetState(
+    "type",
+    CARD_TYPE_CHARACTER_MAP,
+    ALL_CARD_TYPES_SET
   );
 
   const isLoading = useDelayedLoading(set === selectedSet, 300);
