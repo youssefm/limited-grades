@@ -82,7 +82,7 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
     SCRYFALL_FILE_INDEX.get(),
   ]);
   for (const [index, deck] of set.decks.entries()) {
-    let apiCards: ApiCard[] = apiCardStore[index];
+    let apiCards: ApiCard[] = apiCardStore[index]!;
     apiCards = apiCards.filter(
       (card) =>
         card.ever_drawn_game_count >= MIN_GAMES_DRAWN_FOR_INFERENCE &&

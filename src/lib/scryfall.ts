@@ -59,7 +59,7 @@ export class ScryfallIndex {
 
       const names = [card.name];
       if (card.card_faces && card.card_faces.length > 0) {
-        names.push(card.card_faces[0].name);
+        names.push(card.card_faces[0]!.name);
       }
 
       for (const name of names) {
@@ -82,7 +82,7 @@ export class ScryfallIndex {
 
   getCardColor(cardName: string): Color {
     const scryfallCard = this.lookupCard(cardName);
-    const colors = scryfallCard.colors ?? scryfallCard.card_faces?.[0].colors;
+    const colors = scryfallCard.colors ?? scryfallCard.card_faces?.[0]?.colors;
 
     if (!colors || colors.length === 0) {
       return Color.COLORLESS;
@@ -90,7 +90,7 @@ export class ScryfallIndex {
     if (colors.length > 1) {
       return Color.MULTICOLOR;
     }
-    return COLORS[colors[0]];
+    return COLORS[colors[0]!];
   }
 
   getCardTypes(cardName: string): CardType[] {

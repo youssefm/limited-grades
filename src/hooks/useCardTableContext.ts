@@ -31,10 +31,12 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
   useEffect(() => {
     const handleRouteChange = (url: string) => {
       const routeSetCode = extractPathnameSegments(url)[0];
-      const routeSet = MagicSet.lookup(routeSetCode);
-      if (routeSet) {
-        loadingCards.current = cards;
-        setSelectedSet(routeSet);
+      if (routeSetCode) {
+        const routeSet = MagicSet.lookup(routeSetCode);
+        if (routeSet) {
+          loadingCards.current = cards;
+          setSelectedSet(routeSet);
+        }
       }
     };
 

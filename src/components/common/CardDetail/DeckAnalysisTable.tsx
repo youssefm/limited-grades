@@ -91,7 +91,7 @@ const DeckAnalysisTable: FC<Props> = ({ card, showStats }) => {
         {deckStatsToShow.map(([deckCode, stats]) => (
           <DeckStatsRow
             key={deckCode}
-            deck={Deck.lookup(deckCode)}
+            deck={Deck.lookup(deckCode)!}
             stats={stats}
             showStats={showStats}
           />
@@ -100,7 +100,7 @@ const DeckAnalysisTable: FC<Props> = ({ card, showStats }) => {
           {deckStatsToExpand.map(([deckCode, stats]) => (
             <DeckStatsRow
               key={deckCode}
-              deck={Deck.lookup(deckCode)}
+              deck={Deck.lookup(deckCode)!}
               stats={stats}
               showStats={showStats}
             />

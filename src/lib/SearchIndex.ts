@@ -19,7 +19,7 @@ const normalizeString = (value: string): CandidateIndex => {
   const lowercaseValue = value.toLowerCase();
   let lastCharacter = "";
   for (let index = 0; index < valueLength; index += 1) {
-    let char = lowercaseValue[index];
+    let char = lowercaseValue[index]!;
     if (
       char === "," ||
       char === "'" ||
@@ -118,7 +118,7 @@ class SearchIndex<T> {
           deletedPositions
         );
         results.push({
-          item: this.#items[index],
+          item: this.#items[index]!,
           match: bestMatch,
         });
       }

@@ -25,7 +25,7 @@ export const getStaticPaths: GetStaticPaths = async () => ({
 
 export const getStaticProps: GetStaticProps<StaticProps> = async (context) => {
   const setCode = context.params!.setCode as string;
-  const set = MagicSet.lookup(setCode);
+  const set = MagicSet.lookup(setCode)!;
   const { cards, updatedAt } = await getCardStore(set);
   return {
     props: {
@@ -38,7 +38,7 @@ export const getStaticProps: GetStaticProps<StaticProps> = async (context) => {
 };
 
 const Page = ({ setCode, cards, lastUpdatedAtTicks }: StaticProps) => {
-  const set = MagicSet.lookup(setCode);
+  const set = MagicSet.lookup(setCode)!;
   return (
     <>
       <Head>
