@@ -40,7 +40,7 @@ const AboutProjectModal: FC<Props> = ({ onClose }) => (
         <LinkOut url="https://www.17lands.com/getting_started">
           installing the client
         </LinkOut>{" "}
-        or by{" "}
+        or{" "}
         <LinkOut url="https://www.patreon.com/17lands">
           becoming a patron
         </LinkOut>
