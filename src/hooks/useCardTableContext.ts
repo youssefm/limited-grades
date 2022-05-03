@@ -1,5 +1,5 @@
 import constate from "constate";
-import { useRouter } from "next/dist/client/router";
+import { useRouter } from "next/router";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import CardTableDictionary from "lib/CardTableDictionary";
@@ -56,7 +56,14 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
   const loadingCards = useRef(cards);
 
   useEffect(() => {
-    const handleRouteChange = (url: string) => {
+    const handleRouteChange = (
+      url: string,
+      { shallow }: { shallow: boolean }
+    ) => {
+      if (shallow) {
+        return;
+      }
+
       const routeSetCode = extractPathnameSegments(url)[0];
       if (routeSetCode) {
         const routeSet = MagicSet.lookup(routeSetCode);
