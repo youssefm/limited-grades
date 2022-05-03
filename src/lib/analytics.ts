@@ -1,6 +1,8 @@
 export const UMAMI_SITE_ID = process.env.NEXT_PUBLIC_UMAMI_SITE_ID;
+export const UMAMI_HOST_URL = process.env.NEXT_PUBLIC_UMAMI_HOST_URL;
 
-const IS_UMAMI_ENABLED = UMAMI_SITE_ID !== undefined;
+export const IS_UMAMI_ENABLED =
+  UMAMI_SITE_ID !== undefined && UMAMI_HOST_URL !== undefined;
 
 export const trackEvent = (eventValue: string) => {
   if (IS_UMAMI_ENABLED && typeof umami !== "undefined") {
