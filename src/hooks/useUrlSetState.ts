@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useMemo } from "react";
 
 import { reverseLookup, setEquals } from "lib/util";
 
@@ -11,18 +11,20 @@ const useUrlSetState = <T extends string>(
 ): [Set<T>, (value: Set<T>) => void] => {
   const [urlState, setUrlState] = useUrlState(key);
 
-  let value: Set<T>;
-  if (urlState === undefined) {
-    value = defaultValue;
-  } else {
-    value = new Set<T>();
+  const value = useMemo(() => {
+    if (urlState === undefined) {
+      return defaultValue;
+    }
+
+    const result = new Set<T>();
     for (const urlCharacter of urlState) {
       const enumValue = reverseLookup(characterMap, urlCharacter);
       if (enumValue) {
-        value.add(enumValue);
+        result.add(enumValue);
       }
     }
-  }
+    return result;
+  }, [urlState, defaultValue, characterMap]);
 
   const setValue = useCallback(
     (newValue: Set<T>) =>
