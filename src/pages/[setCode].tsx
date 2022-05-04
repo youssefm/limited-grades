@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import { GetStaticPaths, GetStaticProps } from "next";
 import Head from "next/head";
-import React from "react";
+import React, { memo } from "react";
 
 import PageBody from "components/PageBody";
 import PageFooter from "components/PageFooter";
@@ -65,7 +65,7 @@ const Page = ({ setCode, cards, lastUpdatedAtTicks }: StaticProps) => {
   );
 };
 
-export default Page;
+export default memo(Page);
 
 export const config = {
   unstable_includeFiles: ["data/scryfall-oracle-cards.json"],
