@@ -19,8 +19,6 @@ const FLEX_CLASSES = "flex flex-col lg:flex-row";
 const GAP_CLASSES = "pt-2 lg:pt-0 lg:pl-4";
 
 interface Props {
-  set: MagicSet;
-  cards: Card[];
   selectedSet: MagicSet;
   changeSet: (newSet: MagicSet) => void;
   deck: Deck;
@@ -29,11 +27,11 @@ interface Props {
   setVisibleRarities: (newRarities: Set<Rarity>) => void;
   visibleCardTypes: Set<CardType>;
   setVisibleCardTypes: (newCardTypes: Set<CardType>) => void;
+  searchSet: MagicSet;
+  searchCards: Card[];
 }
 
 const FilterBar: FC<Props> = ({
-  set,
-  cards,
   selectedSet,
   changeSet,
   deck,
@@ -42,6 +40,8 @@ const FilterBar: FC<Props> = ({
   setVisibleRarities,
   visibleCardTypes,
   setVisibleCardTypes,
+  searchSet,
+  searchCards,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -81,7 +81,7 @@ const FilterBar: FC<Props> = ({
             />
           </FilterGroup>
           <div className={clsx("lg:ml-auto", GAP_CLASSES)}>
-            <SearchButton cards={cards} set={set} />
+            <SearchButton cards={searchCards} set={searchSet} />
           </div>
         </Collapsible>
       </div>

@@ -29,8 +29,6 @@ const PageBody: FC<Props> = ({ set, cards }) => {
   return (
     <div>
       <FilterBar
-        set={set}
-        cards={displayedCards}
         selectedSet={selectedSet}
         changeSet={changeSet}
         deck={deck}
@@ -39,6 +37,8 @@ const PageBody: FC<Props> = ({ set, cards }) => {
         setVisibleRarities={setVisibleRarities}
         visibleCardTypes={visibleCardTypes}
         setVisibleCardTypes={setVisibleCardTypes}
+        searchSet={set}
+        searchCards={displayedCards}
       />
       <CardTable
         cardDictionary={cardDictionary}
