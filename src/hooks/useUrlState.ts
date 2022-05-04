@@ -1,36 +1,32 @@
-import { useRouter } from "next/router";
+import Router from "next/router";
 import { useCallback, useEffect, useState } from "react";
 
 const useUrlState = (
   key: string
 ): [string | undefined, (value: string | undefined) => void] => {
   const [internalValue, setInternalValue] = useState<string>();
-  const router = useRouter();
 
   useEffect(() => {
-    const queryValue = router.query[key];
-    let newValue;
-    if (queryValue === undefined) {
-      newValue = undefined;
-    } else if (Array.isArray(queryValue)) {
-      newValue = queryValue.join(",");
-    } else {
-      newValue = queryValue;
+    // Read directly from window.location because the Next.js router is not populated immediately
+    const queryValue = new URLSearchParams(window.location.search).get(key);
+    if (queryValue !== null) {
+      setInternalValue(queryValue);
     }
-    setInternalValue(newValue);
-  }, [router.query, key]);
+  }, [key]);
 
   const setValue = useCallback(
     async (value: string | undefined) => {
-      const newQuery = { ...router.query };
+      setInternalValue(value);
+
+      const newQuery = { ...Router.query };
       if (value === undefined) {
         delete newQuery[key];
       } else {
         newQuery[key] = value;
       }
-      await router.replace(
+      await Router.replace(
         {
-          pathname: router.pathname,
+          pathname: Router.pathname,
           query: newQuery,
         },
         undefined,
@@ -39,7 +35,7 @@ const useUrlState = (
         }
       );
     },
-    [router, key]
+    [key]
   );
 
   return [internalValue, setValue];

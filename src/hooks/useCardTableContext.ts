@@ -1,5 +1,5 @@
 import constate from "constate";
-import { useRouter } from "next/router";
+import Router from "next/router";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import CardTableDictionary from "lib/CardTableDictionary";
@@ -32,13 +32,13 @@ const CARD_TYPE_CHARACTER_MAP: Record<CardType, string> = {
   [CardType.PLANESWALKER]: "p",
   [CardType.LAND]: "l",
 };
+
 interface Props {
   set: MagicSet;
   cards: Card[];
 }
 
 const useCardTableContextValue = ({ set, cards }: Props) => {
-  const router = useRouter();
   const [selectedSet, setSelectedSet] = useState(set);
   const [urlDeck, setUrlDeck] = useUrlState("deck");
   const [visibleRarities, setVisibleRarities] = useUrlSetState(
@@ -63,7 +63,6 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
       if (shallow) {
         return;
       }
-
       const routeSetCode = extractPathnameSegments(url)[0];
       if (routeSetCode) {
         const routeSet = MagicSet.lookup(routeSetCode);
@@ -74,11 +73,11 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
       }
     };
 
-    router.events.on("routeChangeStart", handleRouteChange);
+    Router.events.on("routeChangeStart", handleRouteChange);
     return () => {
-      router.events.off("routeChangeStart", handleRouteChange);
+      Router.events.off("routeChangeStart", handleRouteChange);
     };
-  }, [router.events, cards]);
+  }, [cards]);
 
   const deck = urlDeck ? Deck.lookup(urlDeck) || Deck.ALL : Deck.ALL;
   const showSkeletons = isLoading();
@@ -93,12 +92,9 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
     return new CardTableDictionary(filteredCards, deck);
   }, [displayedCards, deck, visibleRarities, visibleCardTypes]);
 
-  const changeSet = useCallback(
-    async (newSet: MagicSet) => {
-      await router.push(`/${newSet.code}${window.location.search}`);
-    },
-    [router]
-  );
+  const changeSet = useCallback(async (newSet: MagicSet) => {
+    await Router.push(`/${newSet.code}${window.location.search}`);
+  }, []);
 
   const setDeck = useCallback(
     (newDeck: Deck) =>
