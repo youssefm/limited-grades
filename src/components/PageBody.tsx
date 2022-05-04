@@ -2,14 +2,44 @@ import { FC } from "react";
 
 import CardTable from "components/CardTable";
 import FilterBar from "components/FilterBar";
-import useCardTableContext from "hooks/useCardTableContext";
+import usePageBodyState from "hooks/usePageBodyState";
+import MagicSet from "lib/MagicSet";
+import { Card } from "lib/types";
 
-const PageBody: FC = () => {
-  const { cardDictionary, set, showSkeletons } = useCardTableContext();
+interface Props {
+  set: MagicSet;
+  cards: Card[];
+}
+
+const PageBody: FC<Props> = ({ set, cards }) => {
+  const {
+    displayedCards,
+    selectedSet,
+    changeSet,
+    deck,
+    setDeck,
+    visibleRarities,
+    setVisibleRarities,
+    visibleCardTypes,
+    setVisibleCardTypes,
+    cardDictionary,
+    showSkeletons,
+  } = usePageBodyState(set, cards);
 
   return (
     <div>
-      <FilterBar />
+      <FilterBar
+        set={set}
+        cards={displayedCards}
+        selectedSet={selectedSet}
+        changeSet={changeSet}
+        deck={deck}
+        setDeck={setDeck}
+        visibleRarities={visibleRarities}
+        setVisibleRarities={setVisibleRarities}
+        visibleCardTypes={visibleCardTypes}
+        setVisibleCardTypes={setVisibleCardTypes}
+      />
       <CardTable
         cardDictionary={cardDictionary}
         set={set}

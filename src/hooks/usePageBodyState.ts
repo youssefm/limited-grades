@@ -1,4 +1,3 @@
-import constate from "constate";
 import Router from "next/router";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
@@ -33,12 +32,7 @@ const CARD_TYPE_CHARACTER_MAP: Record<CardType, string> = {
   [CardType.LAND]: "l",
 };
 
-interface Props {
-  set: MagicSet;
-  cards: Card[];
-}
-
-const useCardTableContextValue = ({ set, cards }: Props) => {
+const usePageBodyState = (set: MagicSet, cards: Card[]) => {
   const [selectedSet, setSelectedSet] = useState(set);
   const [urlDeck, setUrlDeck] = useUrlState("deck");
   const [visibleRarities, setVisibleRarities] = useUrlSetState(
@@ -103,8 +97,7 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
   );
 
   return {
-    set,
-    cards: displayedCards,
+    displayedCards,
     selectedSet,
     changeSet,
     deck,
@@ -118,8 +111,4 @@ const useCardTableContextValue = ({ set, cards }: Props) => {
   };
 };
 
-const [CardTableContextProvider, useCardTableContext] = constate(
-  useCardTableContextValue
-);
-export { CardTableContextProvider };
-export default useCardTableContext;
+export default usePageBodyState;

@@ -3,8 +3,10 @@ import { FC, useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 
 import Collapsible from "components/common/Collapsible";
-import useCardTableContext from "hooks/useCardTableContext";
+import Deck from "lib/Deck";
+import MagicSet from "lib/MagicSet";
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
+import { Card, CardType, Rarity } from "lib/types";
 
 import CardTypeFilter from "./CardTypeFilter";
 import DeckSelector from "./DeckSelector";
@@ -16,20 +18,32 @@ import SetSelector from "./SetSelector";
 const FLEX_CLASSES = "flex flex-col lg:flex-row";
 const GAP_CLASSES = "pt-2 lg:pt-0 lg:pl-4";
 
-const FilterBar: FC = () => {
+interface Props {
+  set: MagicSet;
+  cards: Card[];
+  selectedSet: MagicSet;
+  changeSet: (newSet: MagicSet) => void;
+  deck: Deck;
+  setDeck: (newDeck: Deck) => void;
+  visibleRarities: Set<Rarity>;
+  setVisibleRarities: (newRarities: Set<Rarity>) => void;
+  visibleCardTypes: Set<CardType>;
+  setVisibleCardTypes: (newCardTypes: Set<CardType>) => void;
+}
+
+const FilterBar: FC<Props> = ({
+  set,
+  cards,
+  selectedSet,
+  changeSet,
+  deck,
+  setDeck,
+  visibleRarities,
+  setVisibleRarities,
+  visibleCardTypes,
+  setVisibleCardTypes,
+}) => {
   const [isExpanded, setIsExpanded] = useState(false);
-  const {
-    set,
-    cards,
-    selectedSet,
-    changeSet,
-    deck,
-    setDeck,
-    visibleRarities,
-    setVisibleRarities,
-    visibleCardTypes,
-    setVisibleCardTypes,
-  } = useCardTableContext();
 
   return (
     <>
