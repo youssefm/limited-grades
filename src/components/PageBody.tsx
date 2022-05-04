@@ -13,6 +13,7 @@ interface Props {
 
 const PageBody: FC<Props> = ({ set, cards }) => {
   const {
+    displayedSet,
     displayedCards,
     selectedSet,
     changeSet,
@@ -37,8 +38,8 @@ const PageBody: FC<Props> = ({ set, cards }) => {
         setVisibleRarities={setVisibleRarities}
         visibleCardTypes={visibleCardTypes}
         setVisibleCardTypes={setVisibleCardTypes}
-        searchSet={set}
         searchCards={displayedCards}
+        searchSet={displayedSet}
       />
       <CardTable
         cardDictionary={cardDictionary}

@@ -40,8 +40,8 @@ const FilterBar: FC<Props> = ({
   setVisibleRarities,
   visibleCardTypes,
   setVisibleCardTypes,
-  searchSet,
   searchCards,
+  searchSet,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 

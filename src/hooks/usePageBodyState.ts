@@ -47,6 +47,7 @@ const usePageBodyState = (set: MagicSet, cards: Card[]) => {
   );
 
   const isLoading = useDelayedLoading(set === selectedSet, 300);
+  const loadingSet = useRef(set);
   const loadingCards = useRef(cards);
 
   useEffect(() => {
@@ -75,6 +76,7 @@ const usePageBodyState = (set: MagicSet, cards: Card[]) => {
 
   const deck = urlDeck ? Deck.lookup(urlDeck) || Deck.ALL : Deck.ALL;
   const showSkeletons = isLoading();
+  const displayedSet = showSkeletons ? loadingSet.current : set;
   const displayedCards = showSkeletons ? loadingCards.current : cards;
 
   const cardDictionary = useMemo(() => {
@@ -97,6 +99,7 @@ const usePageBodyState = (set: MagicSet, cards: Card[]) => {
   );
 
   return {
+    displayedSet,
     displayedCards,
     selectedSet,
     changeSet,
