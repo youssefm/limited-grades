@@ -6,7 +6,6 @@ import React, { memo } from "react";
 import PageBody from "components/PageBody";
 import PageFooter from "components/PageFooter";
 import PageHeader from "components/PageHeader";
-import { CardTableContextProvider } from "hooks/useCardTableContext";
 import getCardStore from "lib/getCardStore";
 import MagicSet from "lib/MagicSet";
 import { TRANSITION_CLASSES } from "lib/styles";
@@ -54,9 +53,7 @@ const Page = ({ setCode, cards, lastUpdatedAtTicks }: StaticProps) => {
         <div className="flex flex-col mx-auto max-w-[1800px] h-full">
           <div className="grow">
             <PageHeader />
-            <CardTableContextProvider set={set} cards={cards}>
-              <PageBody />
-            </CardTableContextProvider>
+            <PageBody set={set} cards={cards} />
           </div>
           <PageFooter lastUpdatedAt={new Date(lastUpdatedAtTicks)} />
         </div>
