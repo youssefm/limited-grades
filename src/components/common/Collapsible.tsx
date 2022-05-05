@@ -36,13 +36,14 @@ const Collapsible: FC<Props> = ({ isExpanded, id, className, children }) => {
   }, [isExpanded]);
 
   const onTransitionEnd = (event: React.TransitionEvent<HTMLDivElement>) => {
-    if (event.target === ref.current) {
+    const element = ref.current;
+    if (event.target === element) {
       if (isExpanded) {
         // Remove height constraint so element can regain responsiveness
-        ref.current.style.removeProperty("maxHeight");
-        ref.current.style.removeProperty("overflow");
+        element.style.removeProperty("maxHeight");
+        element.style.removeProperty("overflow");
       } else {
-        ref.current.style.display = "none";
+        element.style.display = "none";
       }
     }
   };
