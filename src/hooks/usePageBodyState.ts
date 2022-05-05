@@ -62,6 +62,7 @@ const usePageBodyState = (set: MagicSet, cards: Card[]) => {
       if (routeSetCode) {
         const routeSet = MagicSet.lookup(routeSetCode);
         if (routeSet) {
+          loadingSet.current = set;
           loadingCards.current = cards;
           setSelectedSet(routeSet);
         }
@@ -72,7 +73,7 @@ const usePageBodyState = (set: MagicSet, cards: Card[]) => {
     return () => {
       Router.events.off("routeChangeStart", handleRouteChange);
     };
-  }, [cards]);
+  }, [set, cards]);
 
   const deck = urlDeck ? Deck.lookup(urlDeck) || Deck.ALL : Deck.ALL;
   const showSkeletons = isLoading();
