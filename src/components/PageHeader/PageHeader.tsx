@@ -2,9 +2,7 @@ import clsx from "clsx";
 import Image from "next/image";
 import { useState } from "react";
 import { FaInfoCircle } from "react-icons/fa";
-import { ImInfo } from "react-icons/im";
 
-import Banner from "components/common/Banner";
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 
 import AboutProjectModal from "./AboutProjectModal";
@@ -48,12 +46,6 @@ const PageHeader = () => {
 
         <DarkModeToggle />
       </div>
-
-      <Banner>
-        <ImInfo className="inline relative bottom-0.5 mr-2" />
-        Grades for SNC are live! The keyboard shortcut for search is now Ctrl+K
-        instead of Ctrl+F.
-      </Banner>
 
       <PageInfoBanner onLearnMore={() => setShowInfoModal(true)} />
 
