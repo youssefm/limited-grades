@@ -18,7 +18,7 @@ export interface Cache {
 
 type RedisClient = RedisClientType<RedisModules, RedisScripts>;
 
-const IS_REDIS_ENABLED = process.env.REDIS_URL !== undefined;
+const IS_REDIS_ENABLED = process.env.USE_REDIS_CACHE === "true";
 export const REDIS_CLIENT = new LazySingleton(
   async (): Promise<RedisClient> => {
     const url = process.env.REDIS_URL;
