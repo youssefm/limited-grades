@@ -3,12 +3,12 @@ import assert from "assert";
 import { mean, std } from "mathjs";
 import NormalDistribution from "normal-distribution";
 
-import { CACHE } from "./cache";
+import { CACHE, Cache } from "./cache";
 import Deck from "./Deck";
 import MagicSet from "./MagicSet";
 import { SCRYFALL_FILE_INDEX } from "./scryfall";
 import { Card, CardStore, Grade, Rarity } from "./types";
-import { buildUrl, round, sleep, sortBy } from "./util";
+import { buildUrl, round, sortBy } from "./util";
 
 const MIN_GAMES_DRAWN_FOR_INFERENCE = 100;
 const MIN_GAMES_DRAWN = 400;
@@ -64,14 +64,11 @@ const fetchApiCards = async (set: MagicSet, deck: Deck): Promise<ApiCard[]> => {
   );
 
   console.log(`Making API request to ${url}`);
-  let response = await fetch(url);
-  while (!response.ok) {
-    console.log("request failed, retrying in 20 seconds");
-    await sleep(20000);
-    response = await fetch(url);
+  const response = await fetch(url);
+  if (!response.ok) {
+    throw new Error("request failed");
   }
   console.log("request succeeded");
-
   return response.json();
 };
 
@@ -150,20 +147,7 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
   };
 };
 
-const getCardStore = async (set: MagicSet): Promise<CardStore> => {
-  console.log(`attempting to fetch 17lands data for ${set.code} from cache`);
-  const cacheHit = await CACHE.get<CardStore>(set.code);
-  if (cacheHit) {
-    console.log("cache hit");
-    return {
-      ...cacheHit,
-      updatedAt: new Date(cacheHit.updatedAt),
-    };
-  }
-  console.log("cache miss");
-
-  const cardStore = await buildCardStore(set);
-  let expirationInSeconds;
+const computeCacheExpirationInSeconds = (set: MagicSet): number => {
   if (set.isRecent()) {
     // If the set is recently released (< 30 days ago), expire cache entry until the next day
     // 1AM UTC is when 17Lands refreshes their daily data
@@ -177,13 +161,29 @@ const getCardStore = async (set: MagicSet): Promise<CardStore> => {
         1
       )
     );
-    expirationInSeconds = Math.ceil(
-      (nextRefreshAt.getTime() - now.getTime()) / 1000
-    );
-  } else {
-    expirationInSeconds = 7 * 24 * 60 * 60;
+    return Math.ceil((nextRefreshAt.getTime() - now.getTime()) / 1000);
   }
-  await CACHE.set(set.code, cardStore, expirationInSeconds);
+  return 7 * 24 * 60 * 60;
+};
+
+const getCardStore = async (
+  set: MagicSet,
+  cache: Cache = CACHE
+): Promise<CardStore> => {
+  console.log(`attempting to fetch 17lands data for ${set.code} from cache`);
+  const cacheHit = await cache.get<CardStore>(set.code);
+  if (cacheHit) {
+    console.log("cache hit");
+    return {
+      ...cacheHit,
+      updatedAt: new Date(cacheHit.updatedAt),
+    };
+  }
+  console.log("cache miss");
+
+  const cardStore = await buildCardStore(set);
+  const expirationInSeconds = computeCacheExpirationInSeconds(set);
+  await cache.set(set.code, cardStore, expirationInSeconds);
   return cardStore;
 };
 

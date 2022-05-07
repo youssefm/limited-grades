@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import { ACTIONS } from "lib/admin";
+import { ADMIN_ACTIONS } from "lib/admin";
 
 const formatOutput = (output: any[]) =>
   output.map((line) =>
@@ -10,7 +10,7 @@ const formatOutput = (output: any[]) =>
 const handler = async (request: NextApiRequest, response: NextApiResponse) => {
   const { actionName } = request.query;
 
-  const action = ACTIONS[actionName as string];
+  const action = ADMIN_ACTIONS[actionName as string];
   if (!action) {
     response.status(404).send(null);
     return;
