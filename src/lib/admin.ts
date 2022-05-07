@@ -53,4 +53,4 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
 export const ADMIN_ACTIONS =
   process.env.ADMIN_ENABLED === "true" ? ACTIONS : {};
 
-export const ADMIN_ACTION_KEYS = Object.keys(ACTIONS);
+export const ADMIN_ACTION_KEYS = Object.keys(ADMIN_ACTIONS);
