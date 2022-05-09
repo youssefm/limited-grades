@@ -1,23 +1,25 @@
 import { Ref } from "react";
-import ReactSelect, { Colors } from "react-select";
+import ReactSelect, { Colors, CSSObjectWithLabel } from "react-select";
 import ReactSelectRef from "react-select/dist/declarations/src/Select";
 import { StateManagerProps } from "react-select/dist/declarations/src/stateManager";
 
 import useDarkMode from "hooks/useDarkMode";
 
+const TAILWIND_AMBER_550 = "#e78b09";
+
 const getDarkModeColors = (baseColors: Colors) => ({
   neutral0: "#404040", // tailwind neutral-700
   neutral5: baseColors.neutral90,
   neutral10: baseColors.neutral90,
-  neutral20: baseColors.neutral90,
-  neutral30: baseColors.neutral90,
-  neutral40: baseColors.neutral80,
+  neutral20: baseColors.neutral80,
+  neutral30: baseColors.neutral70,
+  neutral40: baseColors.neutral60,
   neutral50: baseColors.neutral50,
   neutral60: baseColors.neutral40,
   neutral70: baseColors.neutral30,
   neutral80: baseColors.neutral20,
   neutral90: baseColors.neutral10,
-  primary: "#e78b09", // tailwind amber-550
+  primary: TAILWIND_AMBER_550,
   primary75: "#e28408",
   primary50: "#de7e07",
   primary25: "#d97706", // tailwind amber-600
@@ -63,12 +65,18 @@ const Select = <T extends unknown>({
     isMulti: false,
     classNamePrefix: "rs",
     styles: {
-      control: (provided) => ({
-        ...provided,
-        cursor: "text",
-        transitionDuration: "150ms",
-        transitionProperty: "background-color border-color",
-      }),
+      control: (provided) => {
+        const styles: CSSObjectWithLabel = {
+          ...provided,
+          cursor: "text",
+          transitionDuration: "150ms",
+          transitionProperty: "background-color border-color",
+        };
+        if (darkModeEnabled) {
+          styles["&:hover"] = { borderColor: TAILWIND_AMBER_550 };
+        }
+        return styles;
+      },
       dropdownIndicator: (provided) => ({
         ...provided,
         cursor: "pointer",
@@ -83,16 +91,16 @@ const Select = <T extends unknown>({
         return styles;
       },
       option: (provided, state) => {
-        const optionStyles = {
+        const styles = {
           ...provided,
           cursor: "pointer",
         };
 
         if (darkModeEnabled && state.isSelected) {
-          delete optionStyles.color;
+          delete styles.color;
         }
 
-        return optionStyles;
+        return styles;
       },
       singleValue: (provided) => {
         const { color, ...styles } = provided;
