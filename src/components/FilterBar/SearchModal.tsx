@@ -97,7 +97,6 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
         }}
         isClearable
         autoFocus
-        blurInputOnSelect={false}
       />
       {!selectedOption && (
         <div
