@@ -68,10 +68,8 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
       <IconSelect
         value={selectedOption}
         onChange={(selectedValue) => {
-          if (selectedValue === undefined) {
-            setOptions(undefined);
-          }
           setSelectedOption(selectedValue);
+          setOptions(undefined);
         }}
         options={
           options
@@ -99,6 +97,7 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
         }}
         isClearable
         autoFocus
+        blurInputOnSelect={false}
       />
       {!selectedOption && (
         <div
