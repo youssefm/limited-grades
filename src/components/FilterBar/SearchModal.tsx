@@ -71,11 +71,7 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
           setSelectedOption(selectedValue);
           setOptions(undefined);
         }}
-        options={
-          options
-            ? options.slice(0, 6)
-            : cards.slice(0, 6).map((card) => ({ item: card }))
-        }
+        options={options ? options.slice(0, 6) : []}
         onInputChange={(newValue, actionMeta) => {
           if (actionMeta.action === "input-change") {
             if (newValue.length === 0) {
@@ -91,6 +87,9 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
         getIcon={getIcon}
         formatOptionText={formatOptionText}
         placeholder="Enter a card name"
+        noOptionsMessage={({ inputValue }) =>
+          inputValue.length > 0 ? "No matching cards found" : null
+        }
         className="mb-4"
         selectRef={(select) => {
           inputRef.current = select ? select.inputRef : null;
