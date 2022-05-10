@@ -81,6 +81,14 @@ export const formatPercentageDifference = (value: number) => {
 export const extractPathnameSegments = (url: string) =>
   new URL(url, window.location.origin).pathname.slice(1).split("/");
 
+export const extractUrlQuery = (url: string) => {
+  const questionMarkIndex = url.indexOf("?");
+  if (questionMarkIndex === -1) {
+    return "";
+  }
+  return url.slice(questionMarkIndex + 1);
+};
+
 export class LazySingleton<T> {
   #creator: () => T;
 
