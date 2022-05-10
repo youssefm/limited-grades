@@ -41,7 +41,7 @@ const Modal: FC<Props> = ({
       >
         <div
           className={clsx(
-            "overflow-y-auto z-20 max-w-[95%] max-h-[85%] dark:text-neutral-100",
+            "overflow-y-auto z-20 max-w-[95%] max-h-[90%] dark:text-neutral-100",
             "bg-white dark:bg-neutral-900 rounded-lg border border-black shadow-xl",
             className
           )}
