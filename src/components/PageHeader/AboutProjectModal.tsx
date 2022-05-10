@@ -8,12 +8,8 @@ interface Props {
 }
 
 const AboutProjectModal: FC<Props> = ({ onClose }) => (
-  <Modal
-    title="About this project"
-    onClose={onClose}
-    className="w-full max-w-3xl"
-  >
-    <div className="max-w-[80ch]">
+  <Modal title="About this project" onClose={onClose}>
+    <div className="max-w-[80ch] lg:mr-11">
       <p className="mb-4">
         This page uses{" "}
         <LinkOut url="https://www.17lands.com/card_ratings">17Lands</LinkOut>{" "}

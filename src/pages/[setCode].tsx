@@ -50,7 +50,7 @@ const Page = ({ setCode, cards, lastUpdatedAtTicks }: StaticProps) => {
           TRANSITION_CLASSES
         )}
       >
-        <div className="flex flex-col mx-auto max-w-[1800px] h-full">
+        <div className="flex flex-col mx-auto max-w-[1800px] min-h-full">
           <div className="grow">
             <PageHeader />
             <PageBody set={set} cards={cards} />
