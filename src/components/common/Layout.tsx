@@ -18,6 +18,7 @@ const Layout: FC = ({ children }) => (
       <meta property="og:image:type" content="image/png" />
       <meta property="og:image:width" content="512" />
       <meta property="og:image:height" content="512" />
+      <meta name="color-scheme" content="light dark" />
       <link
         rel="apple-touch-icon"
         sizes="180x180"
