@@ -12,7 +12,8 @@ const DarkModeInitializer = () => (
   <script
     // eslint-disable-next-line react/no-danger
     dangerouslySetInnerHTML={{
-      __html: minify(`
+      __html: minify(
+        `
         let preferredTheme;
         try {
           preferredTheme = localStorage.getItem("${LOCAL_STORAGE_THEME_KEY}");
@@ -24,7 +25,9 @@ const DarkModeInitializer = () => (
         ) {
           document.documentElement.classList.add("${DARK_MODE_CLASS}");
         }
-      `).code,
+      `,
+        { toplevel: true }
+      ).code,
     }}
   />
 );
