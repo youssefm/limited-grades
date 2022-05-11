@@ -9,8 +9,7 @@ const HideBannerInitializer = () => (
   <script
     // eslint-disable-next-line react/no-danger
     dangerouslySetInnerHTML={{
-      __html: minify(
-        `
+      __html: minify(`
         let hideBanner;
         try {
           hideBanner = localStorage.getItem("${LOCAL_STORAGE_HIDE_BANNER_KEY}");
@@ -18,9 +17,7 @@ const HideBannerInitializer = () => (
         if (hideBanner === "${LOCAL_STORAGE_HIDE_BANNER_VALUE}") {
           document.documentElement.classList.add("hide-banner");
         }
-      `,
-        { toplevel: true }
-      ).code,
+      `).code,
     }}
   />
 );
