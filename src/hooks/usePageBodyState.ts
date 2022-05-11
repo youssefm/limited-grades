@@ -62,7 +62,13 @@ const usePageBodyState = (set: MagicSet, cards: Card[]) => {
   }, [displayedCards, deck, visibleRarities, visibleCardTypes]);
 
   const changeSet = useCallback(async (newSet: MagicSet) => {
-    await Router.push(`/${newSet.code}${window.location.search}`);
+    await Router.push(
+      {
+        pathname: Router.pathname,
+        query: { ...Router.query, setCode: newSet.code },
+      },
+      `/${newSet.code}${window.location.search}`
+    );
   }, []);
 
   return {
