@@ -24,10 +24,6 @@ const Layout: FC = ({ children }) => {
           name="color-scheme"
           content={darkModeEnabled ? "dark" : "light"}
         />
-        <meta
-          name="theme-color"
-          content={darkModeEnabled ? "#171717" : "#ffffff"}
-        />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
