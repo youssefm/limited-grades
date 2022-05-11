@@ -51,10 +51,8 @@ const Page = ({ setCode, cards, lastUpdatedAtTicks }: StaticProps) => {
         )}
       >
         <div className="flex flex-col mx-auto max-w-[1800px] min-h-full">
-          <div className="grow">
-            <PageHeader />
-            <PageBody set={set} cards={cards} />
-          </div>
+          <PageHeader />
+          <PageBody set={set} cards={cards} className="grow" />
           <PageFooter lastUpdatedAt={new Date(lastUpdatedAtTicks)} />
         </div>
       </div>
