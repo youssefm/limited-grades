@@ -9,9 +9,10 @@ import { Card } from "lib/types";
 interface Props {
   set: MagicSet;
   cards: Card[];
+  className?: string;
 }
 
-const PageBody: FC<Props> = ({ set, cards }) => {
+const PageBody: FC<Props> = ({ set, cards, className }) => {
   const {
     displayedSet,
     displayedCards,
@@ -28,7 +29,7 @@ const PageBody: FC<Props> = ({ set, cards }) => {
   } = usePageBodyState(set, cards);
 
   return (
-    <div>
+    <div className={className}>
       <FilterBar
         selectedSet={selectedSet}
         changeSet={changeSet}
