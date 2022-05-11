@@ -15,7 +15,7 @@ const HideBannerInitializer = () => (
           hideBanner = localStorage.getItem("${LOCAL_STORAGE_HIDE_BANNER_KEY}");
         } catch (error) {}
         if (hideBanner === "${LOCAL_STORAGE_HIDE_BANNER_VALUE}") {
-          document.documentElement.classList.add("hide-banner");
+          document.body.classList.add("hide-banner");
         }
       `).code,
     }}

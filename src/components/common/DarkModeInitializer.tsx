@@ -22,7 +22,7 @@ const DarkModeInitializer = () => (
           (!preferredTheme &&
             window.matchMedia("(prefers-color-scheme: dark)").matches)
         ) {
-          document.documentElement.classList.add("${DARK_MODE_CLASS}");
+          document.body.classList.add("${DARK_MODE_CLASS}");
         }
       `).code,
     }}
