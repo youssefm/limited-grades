@@ -7,6 +7,7 @@ import "tippy.js/dist/tippy.css";
 import Analytics from "components/common/Analytics";
 import Layout from "components/common/Layout";
 import "global.css";
+import { DarkModeProvider } from "hooks/useDarkMode";
 import { IS_UMAMI_ENABLED, UMAMI_HOST_URL, UMAMI_SITE_ID } from "lib/analytics";
 
 const MyApp = ({ Component, pageProps }: AppProps) => (
@@ -20,10 +21,12 @@ const MyApp = ({ Component, pageProps }: AppProps) => (
         strategy="afterInteractive"
       />
     )}
-    <Layout>
-      {IS_UMAMI_ENABLED && <Analytics />}
-      <Component {...pageProps} />
-    </Layout>
+    <DarkModeProvider>
+      <Layout>
+        {IS_UMAMI_ENABLED && <Analytics />}
+        <Component {...pageProps} />
+      </Layout>
+    </DarkModeProvider>
   </>
 );
 
