@@ -25,6 +25,7 @@ const SetSelector: FC<Props> = ({ value, onChange }) => {
       options={MagicSet.ALL}
       getLabel={(set) => set.label}
       getIcon={getIcon}
+      blurInputOnSelect
       instanceId="set-select"
       className="min-w-[230px] lg:min-w-[250px]"
     />
