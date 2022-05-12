@@ -67,14 +67,14 @@ const FilterBar: FC<Props> = ({
             FLEX_CLASSES
           )}
         >
-          <FilterGroup label="Rarity" disableInputLabel className={GAP_CLASSES}>
+          <FilterGroup label="Rarity" className={GAP_CLASSES}>
             <RarityFilter
               set={selectedSet}
               values={visibleRarities}
               setValues={setVisibleRarities}
             />
           </FilterGroup>
-          <FilterGroup label="Type" disableInputLabel className={GAP_CLASSES}>
+          <FilterGroup label="Type" className={GAP_CLASSES}>
             <CardTypeFilter
               values={visibleCardTypes}
               setValues={setVisibleCardTypes}
