@@ -36,7 +36,6 @@ const DeckSelector: FC<Props> = ({ set, value, onChange }) => {
       options={set.decks}
       getLabel={(deck) => deck.label}
       getIcon={getIcon}
-      blurInputOnSelect
       instanceId="deck-select"
       className="min-w-[180px]"
     />
