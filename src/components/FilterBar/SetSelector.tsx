@@ -7,9 +7,10 @@ import IconSelect from "./IconSelect";
 interface Props {
   value: MagicSet;
   onChange: (selectedValue: MagicSet) => void;
+  inputId?: string;
 }
 
-const SetSelector: FC<Props> = ({ value, onChange }) => {
+const SetSelector: FC<Props> = ({ value, onChange, inputId }) => {
   const getIcon = useCallback(
     (set: MagicSet) => <set.Icon className="text-2xl" />,
     []
@@ -26,6 +27,7 @@ const SetSelector: FC<Props> = ({ value, onChange }) => {
       getLabel={(set) => set.label}
       getIcon={getIcon}
       instanceId="set-select"
+      inputId={inputId}
       className="min-w-[230px] lg:min-w-[250px]"
     />
   );
