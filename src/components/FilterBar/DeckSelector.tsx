@@ -10,9 +10,10 @@ interface Props {
   set: MagicSet;
   value: Deck;
   onChange: (selectedValue: Deck) => void;
+  inputId?: string;
 }
 
-const DeckSelector: FC<Props> = ({ set, value, onChange }) => {
+const DeckSelector: FC<Props> = ({ set, value, onChange, inputId }) => {
   const getIcon = useCallback((deck: Deck) => {
     if (deck.colors.length === 0) {
       return null;
@@ -37,6 +38,7 @@ const DeckSelector: FC<Props> = ({ set, value, onChange }) => {
       getLabel={(deck) => deck.label}
       getIcon={getIcon}
       instanceId="deck-select"
+      inputId={inputId}
       className="min-w-[180px]"
     />
   );

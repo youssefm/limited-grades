@@ -15,6 +15,8 @@ import RarityFilter from "./RarityFilter";
 import SearchButton from "./SearchButton";
 import SetSelector from "./SetSelector";
 
+const SET_SELECTOR_INPUT_ID = "set-select-input";
+const DECK_SELECTOR_INPUT_ID = "deck-select-input";
 const FLEX_CLASSES = "flex flex-col lg:flex-row";
 const GAP_CLASSES = "pt-2 lg:pt-0 lg:pl-4";
 
@@ -54,11 +56,24 @@ const FilterBar: FC<Props> = ({
           TRANSITION_CLASSES
         )}
       >
-        <FilterGroup label="Set">
-          <SetSelector value={selectedSet} onChange={changeSet} />
+        <FilterGroup label="Set" htmlFor={SET_SELECTOR_INPUT_ID}>
+          <SetSelector
+            value={selectedSet}
+            onChange={changeSet}
+            inputId={SET_SELECTOR_INPUT_ID}
+          />
         </FilterGroup>
-        <FilterGroup label="Deck" className={GAP_CLASSES}>
-          <DeckSelector set={selectedSet} value={deck} onChange={setDeck} />
+        <FilterGroup
+          label="Deck"
+          htmlFor={DECK_SELECTOR_INPUT_ID}
+          className={GAP_CLASSES}
+        >
+          <DeckSelector
+            set={selectedSet}
+            value={deck}
+            onChange={setDeck}
+            inputId={DECK_SELECTOR_INPUT_ID}
+          />
         </FilterGroup>
         <Collapsible
           isExpanded={isExpanded}
