@@ -62,7 +62,9 @@ export default class MagicSet {
 
   #SvgIcon: FC<SVGProps<SVGSVGElement>>;
 
-  readonly decks: Deck[];
+  readonly decks: Deck[] = [];
+
+  readonly customDeckLabels: Record<string, string> = {};
 
   static #setsByCode: Record<string, MagicSet> = {};
 
@@ -80,11 +82,11 @@ export default class MagicSet {
       Deck.RAKDOS,
       Deck.GRUUL,
       Deck.SELESNYA,
-      Deck.ESPER,
-      Deck.GRIXIS,
-      Deck.JUND,
-      Deck.NAYA,
-      Deck.BANT,
+      [Deck.ESPER, "Obscura"],
+      [Deck.GRIXIS, "Maestros"],
+      [Deck.JUND, "Riveteers"],
+      [Deck.NAYA, "Cabaretti"],
+      [Deck.BANT, "Brokers"],
     ]
   );
 
@@ -118,11 +120,11 @@ export default class MagicSet {
 
   static STRIXHAVEN = new MagicSet("stx", "Strixhaven", "2021-04-15", StxIcon, [
     Deck.ALL,
-    Deck.ORZHOV,
-    Deck.IZZET,
-    Deck.GOLGARI,
-    Deck.BOROS,
-    Deck.SIMIC,
+    [Deck.ORZHOV, "Silverquill"],
+    [Deck.IZZET, "Prismari"],
+    [Deck.GOLGARI, "Witherbloom"],
+    [Deck.BOROS, "Lorehold"],
+    [Deck.SIMIC, "Quandrix"],
   ]);
 
   static KALDHEIM = new MagicSet("khm", "Kaldheim", "2021-01-28", KhmIcon);
@@ -184,13 +186,23 @@ export default class MagicSet {
     label: string,
     startDate: string,
     SvgIcon: FC<SVGProps<SVGSVGElement>>,
-    decks = TWO_COLOR_DECKS
+    decks: (Deck | [Deck, string])[] = TWO_COLOR_DECKS
   ) {
     this.code = code;
     this.label = label;
     this.startDate = startDate;
     this.#SvgIcon = SvgIcon;
-    this.decks = decks;
+
+    for (const item of decks) {
+      if (Array.isArray(item)) {
+        const [deck, customLabel] = item;
+        this.decks.push(deck);
+        this.customDeckLabels[deck.code] = customLabel;
+      } else {
+        this.decks.push(item);
+      }
+    }
+
     MagicSet.#setsByCode[code] = this;
     MagicSet.ALL.push(this);
 
@@ -200,6 +212,10 @@ export default class MagicSet {
 
   static lookup(code: string): MagicSet | undefined {
     return MagicSet.#setsByCode[code];
+  }
+
+  getDeckLabel(deck: Deck): string {
+    return this.customDeckLabels[deck.code] || deck.defaultLabel;
   }
 
   isRecent(): boolean {

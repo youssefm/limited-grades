@@ -3,7 +3,7 @@ import { Color } from "./types";
 export default class Deck {
   readonly code: string;
 
-  readonly label: string;
+  readonly defaultLabel: string;
 
   readonly colors: Color[];
 
@@ -49,9 +49,9 @@ export default class Deck {
 
   static BANT = new Deck("wug", "Bant", [Color.GREEN, Color.WHITE, Color.BLUE]);
 
-  private constructor(code: string, label: string, colors: Color[]) {
+  private constructor(code: string, defaultLabel: string, colors: Color[]) {
     this.code = code;
-    this.label = label;
+    this.defaultLabel = defaultLabel;
     this.colors = colors;
     Deck.#decksByCode[code] = this;
   }
