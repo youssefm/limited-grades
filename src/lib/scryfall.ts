@@ -1,4 +1,4 @@
-import { readFile } from "fs/promises";
+import { readFile, writeFile } from "fs/promises";
 import path from "path";
 
 import { ungzip } from "node-gzip";
@@ -7,6 +7,8 @@ import { ALL_CARD_TYPES } from "./constants";
 import MagicSet from "./MagicSet";
 import { CardType, Color } from "./types";
 import { buildUrl, fetchJson, LazySingleton } from "./util";
+
+const INDEX_FILE_PATH = path.join(process.cwd(), "data", "scryfall-index.json");
 
 type ScryfallColor = "W" | "U" | "B" | "R" | "G";
 
@@ -36,6 +38,13 @@ interface ScryfallCardPage {
   data: ScryfallCard[];
 }
 
+export interface ScryfallIndexEntry {
+  color: Color;
+  types: CardType[];
+}
+
+export type ScryfallIndex = Record<string, ScryfallIndexEntry>;
+
 const COLORS: Record<ScryfallColor, Color> = {
   W: Color.WHITE,
   U: Color.BLUE,
@@ -47,60 +56,29 @@ const COLORS: Record<ScryfallColor, Color> = {
 const shouldExcludeCard = (card: ScryfallCard) =>
   card.layout === "art_series" || card.layout === "token";
 
-export class ScryfallIndex {
-  #index: Map<string, ScryfallCard>;
-
-  constructor(cards: ScryfallCard[]) {
-    this.#index = new Map<string, ScryfallCard>();
-    for (const card of cards) {
-      if (shouldExcludeCard(card)) {
-        continue;
-      }
-
-      const names = [card.name];
-      const frontCardFace = card.card_faces?.[0];
-      if (frontCardFace) {
-        names.push(frontCardFace.name);
-      }
-
-      for (const name of names) {
-        if (!this.#index.has(name)) {
-          this.#index.set(name, card);
-        }
-      }
-    }
+const getCardName = (card: ScryfallCard) => {
+  if (card.card_faces && card.card_faces.length > 0) {
+    return card.card_faces[0]!.name;
   }
+  return card.name;
+};
 
-  lookupCard(cardName: string): ScryfallCard {
-    const scryfallCard = this.#index.get(cardName);
-    if (!scryfallCard) {
-      throw Error(
-        `Card named '${cardName}' could not be found in the Scryfall DB`
-      );
-    }
-    return scryfallCard;
+const getCardColor = (card: ScryfallCard) => {
+  const colors = card.colors ?? card.card_faces?.[0]?.colors;
+
+  if (!colors || colors.length === 0) {
+    return Color.COLORLESS;
   }
-
-  getCardColor(cardName: string): Color {
-    const scryfallCard = this.lookupCard(cardName);
-    const colors = scryfallCard.colors ?? scryfallCard.card_faces?.[0]?.colors;
-
-    if (!colors || colors.length === 0) {
-      return Color.COLORLESS;
-    }
-    if (colors.length > 1) {
-      return Color.MULTICOLOR;
-    }
-    return COLORS[colors[0]!];
+  if (colors.length > 1) {
+    return Color.MULTICOLOR;
   }
+  return COLORS[colors[0]!];
+};
 
-  getCardTypes(cardName: string): CardType[] {
-    const scryfallCard = this.lookupCard(cardName);
-    return ALL_CARD_TYPES.filter((cardType) =>
-      scryfallCard.type_line?.toLowerCase().includes(cardType)
-    );
-  }
-}
+const getCardTypes = (card: ScryfallCard) =>
+  ALL_CARD_TYPES.filter((cardType) =>
+    card.type_line?.toLowerCase().includes(cardType)
+  );
 
 const readScryfallFile = async (fileName: string): Promise<ScryfallCard[]> => {
   const scryfallFilePath = path.join(process.cwd(), "data", fileName);
@@ -113,10 +91,33 @@ const readScryfallFile = async (fileName: string): Promise<ScryfallCard[]> => {
   return JSON.parse(json);
 };
 
-export const SCRYFALL_FILE_INDEX = new LazySingleton(
-  async () =>
-    new ScryfallIndex(await readScryfallFile("scryfall-oracle-cards.json"))
-);
+export const generateIndexFile = async (): Promise<void> => {
+  const cards = await readScryfallFile("scryfall-oracle-cards.json");
+  const index: ScryfallIndex = {};
+  for (const card of cards) {
+    if (shouldExcludeCard(card)) {
+      continue;
+    }
+    const name = getCardName(card);
+    if (name in index) {
+      continue;
+    }
+
+    index[name] = {
+      color: getCardColor(card),
+      types: getCardTypes(card),
+    };
+  }
+  await writeFile(INDEX_FILE_PATH, JSON.stringify(index), "utf8");
+};
+
+const readIndexFile = async (): Promise<ScryfallIndex> => {
+  console.log(`Reading Scryfall index from ${INDEX_FILE_PATH}`);
+  const json = await readFile(INDEX_FILE_PATH, "utf8");
+  return JSON.parse(json);
+};
+
+export const SCRYFALL_FILE_INDEX = new LazySingleton(readIndexFile);
 
 export const getAllCardsByType = async (
   cardType: CardType
@@ -127,7 +128,7 @@ export const getAllCardsByType = async (
       card.type_line?.toLowerCase().includes(cardType)
   );
 
-const fetchCards = async (set: MagicSet): Promise<ScryfallCard[]> => {
+export const fetchCards = async (set: MagicSet): Promise<ScryfallCard[]> => {
   const cards: ScryfallCard[] = [];
   let url = buildUrl("https://api.scryfall.com/cards/search", {
     q: `e:${set.code} is:booster`,
@@ -144,7 +145,3 @@ const fetchCards = async (set: MagicSet): Promise<ScryfallCard[]> => {
 
   return cards;
 };
-
-export const fetchScryfallIndex = async (
-  set: MagicSet
-): Promise<ScryfallIndex> => new ScryfallIndex(await fetchCards(set));
