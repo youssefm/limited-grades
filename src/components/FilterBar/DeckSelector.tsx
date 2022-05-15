@@ -35,11 +35,11 @@ const DeckSelector: FC<Props> = ({ set, value, onChange, inputId }) => {
         }
       }}
       options={set.decks}
-      getLabel={(deck) => deck.label}
+      getLabel={(deck) => set.getDeckLabel(deck)}
       getIcon={getIcon}
       instanceId="deck-select"
       inputId={inputId}
-      className="min-w-[180px]"
+      className="min-w-[200px]"
     />
   );
 };
