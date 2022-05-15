@@ -63,5 +63,5 @@ const Page = ({ setCode, cards, lastUpdatedAtTicks }: StaticProps) => {
 export default memo(Page);
 
 export const config = {
-  unstable_includeFiles: ["data/scryfall-oracle-cards.json"],
+  unstable_includeFiles: ["data/scryfall-index.json"],
 };

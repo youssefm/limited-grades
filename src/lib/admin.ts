@@ -1,7 +1,7 @@
 import { FILE_CACHE, REDIS_CACHE, REDIS_CLIENT } from "./cache";
 import getCardStore from "./getCardStore";
 import MagicSet from "./MagicSet";
-import { fetchScryfallIndex, SCRYFALL_FILE_INDEX } from "./scryfall";
+import { generateIndexFile } from "./scryfall";
 
 const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
   "check-redis-keys": async (output) => {
@@ -22,15 +22,9 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
     await client.del("snc");
     output.push("SNC cache value deleted!");
   },
-  "fetch-scryfall-card": async (output) => {
-    const index = await fetchScryfallIndex(MagicSet.MIDNIGHT_HUNT);
-    const card = index.lookupCard("Organ Hoarder");
-    output.push(card);
-  },
-  "lookup-scryfall-card": async (output) => {
-    const index = await SCRYFALL_FILE_INDEX.get();
-    const card = index.lookupCard("Organ Hoarder");
-    output.push(card);
+  "generate-scryfall-index": async (output) => {
+    await generateIndexFile();
+    output.push(`Scryfall index generated!`);
   },
   "populate-redis-cache": async (output) => {
     for (const set of MagicSet.ALL) {
