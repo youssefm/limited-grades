@@ -105,12 +105,11 @@ export class ScryfallIndex {
 const readScryfallFile = async (fileName: string): Promise<ScryfallCard[]> => {
   const scryfallFilePath = path.join(process.cwd(), "data", fileName);
   console.log(`Reading Scryfall data from ${scryfallFilePath}`);
-  let json;
+  let buffer = await readFile(scryfallFilePath);
   if (fileName.endsWith(".gz")) {
-    json = (await ungzip(await readFile(scryfallFilePath))).toString("utf-8");
-  } else {
-    json = await readFile(scryfallFilePath, "utf8");
+    buffer = await ungzip(buffer);
   }
+  const json = buffer.toString("utf8");
   return JSON.parse(json);
 };
 
