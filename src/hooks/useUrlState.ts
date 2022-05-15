@@ -57,10 +57,10 @@ const useUrlState = (
       // when going back after a shallow replace
       // This tricks NextJS into correctly refetching the right data from the server
       // See: https://github.com/vercel/next.js/issues/34365
-      const newOptions = window.history.state.options;
-      delete newOptions.shallow;
+      const newRouteOptions = window.history.state.options;
+      delete newRouteOptions.shallow;
       window.history.replaceState(
-        { ...window.history.state, options: newOptions },
+        { ...window.history.state, options: newRouteOptions },
         "",
         window.location.href
       );
