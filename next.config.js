@@ -4,12 +4,16 @@ module.exports = {
     outputStandalone: true,
   },
   i18n: {
-    locales: ["en-US"],
+    locales: ["en-US", "fr-FR"],
     defaultLocale: "en-US",
     domains: [
       {
         domain: "www.limitedgrades.com",
         defaultLocale: "en-US",
+      },
+      {
+        domain: "fr.limitedgrades.com",
+        defaultLocale: "fr-FR",
       },
     ],
   },
