@@ -4,6 +4,7 @@
 
 @layer base {
   html {
+    padding-right: 0 !important;
     transition-property: background-color;
     -webkit-tap-highlight-color: transparent;
   }
