@@ -63,7 +63,7 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
       title="Search"
       onClose={onClose}
       initialFocus={inputRef}
-      className="w-full h-full lg:w-auto lg:h-auto"
+      className="w-full h-full lg:w-fit lg:h-fit"
     >
       <IconSelect
         value={selectedOption}
