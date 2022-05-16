@@ -1,14 +1,3 @@
-// Adapted from https://github.com/lodash/lodash/blob/2da024c3b4f9947a48517639de7560457cd4ec6c/.internal/createRound.js
-export const round = (n: number, precision: number = 0) => {
-  let [significand, exponent] = `${n}e`.split("e");
-  const value = Math.round(
-    Number(`${significand}e${Number(exponent) + precision}`)
-  );
-
-  [significand, exponent] = `${value}e`.split("e");
-  return Number(`${significand}e${Number(exponent) - precision}`);
-};
-
 export const groupBy = <T>(
   iterable: Iterable<T>,
   getKey: (item: T) => string
@@ -32,7 +21,7 @@ const compare = <T>(a: T, b: T) => {
   return 0;
 };
 
-export const createComparer = <T>(
+const createComparer = <T>(
   getKey: (item: T) => number | string,
   descending = false
 ) =>
@@ -89,28 +78,6 @@ export const extractUrlQuery = (url: string) => {
   return url.slice(questionMarkIndex + 1);
 };
 
-export class LazySingleton<T> {
-  #creator: () => T;
-
-  #instance: T | null = null;
-
-  constructor(creator: () => T) {
-    this.#creator = creator;
-  }
-
-  get() {
-    if (this.#instance === null) {
-      this.#instance = this.#creator();
-    }
-    return this.#instance;
-  }
-}
-
-export const buildUrl = (
-  urlPath: string,
-  queryParams: Record<string, string>
-): string => `${urlPath}?${new URLSearchParams(queryParams)}`;
-
 export const fetchJson = async <T>(url: string): Promise<T> => {
   const response = await fetch(url);
   if (!response.ok) {
@@ -130,11 +97,6 @@ export const setEquals = <T>(setA: Set<T>, setB: Set<T>): boolean => {
   }
   return true;
 };
-
-export const lookupEnumByValue = <T extends string>(
-  Enum: Record<string, T>,
-  value: string
-): T | undefined => Object.values(Enum).find((v) => v === value);
 
 export const reverseLookup = <K extends string, V>(
   map: Record<K, V>,
