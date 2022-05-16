@@ -42,7 +42,7 @@ const Layout: FC = ({ children }) => {
           sizes="16x16"
           href="/favicon-16x16.png"
         />
-        <link rel="manifest" href="manifest.json" />
+        <link rel="manifest" href="/manifest.json" />
         {/* NOTE: This depends on the current implementation of NextJS and may need
           to be revisited if NextJS changes the location of the font files it references
       */}
