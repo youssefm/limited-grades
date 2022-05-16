@@ -144,6 +144,7 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
         winrate: round(apiCard.ever_drawn_win_rate, 4),
         gameCount: apiCard.game_count,
         grade,
+        score: round(score, 2),
       };
     }
   }
