@@ -46,7 +46,7 @@ const Modal: FC<Props> = ({
         initialFocus={initialFocus}
       >
         <Transition.Child
-          enter="transition"
+          enter="transition duration-50"
           enterFrom="opacity-0 backdrop-opacity-0"
           enterTo="opacity-100 backdrop-opacity-100"
           as={Fragment}
@@ -54,7 +54,7 @@ const Modal: FC<Props> = ({
           <div className="fixed inset-0 z-10 bg-black/60 backdrop-blur-xs" />
         </Transition.Child>
         <Transition.Child
-          enter="transition-opacity"
+          enter="transition-opacity duration-50"
           enterFrom="opacity-0"
           enterTo="opacity-100"
           as={Fragment}
