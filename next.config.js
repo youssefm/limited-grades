@@ -13,8 +13,8 @@ module.exports = {
       permanent: false,
     },
     {
-      source: "/:setCode/(all|wu|ub|br|rg|wg|wb|ur|bg|wr|ug)",
-      destination: "/:setCode",
+      source: "/:setCode/:deck(all|wu|ub|br|rg|wg|wb|ur|bg|wr|ug)",
+      destination: "/:setCode?deck=:deck",
       locale: false,
       permanent: false,
     },
