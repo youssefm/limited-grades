@@ -17,10 +17,8 @@ interface StaticProps {
   lastUpdatedAtTicks: number;
 }
 
-export const getStaticPaths: GetStaticPaths = async ({ locales }) => ({
-  paths: locales!.flatMap((locale) =>
-    MagicSet.ALL.map((set) => ({ params: { setCode: set.code }, locale }))
-  ),
+export const getStaticPaths: GetStaticPaths = async () => ({
+  paths: MagicSet.ALL.map((set) => ({ params: { setCode: set.code } })),
   fallback: false,
 });
 
