@@ -23,20 +23,31 @@ const Modal: FC<Props> = ({
   // while the modal is open - this avoids a big white bar on the right being shown while
   // the modal is open
   useLayoutEffect(() => {
+    const { scrollY } = window;
     document.documentElement.classList.remove("scrollbar-gutter-stable");
     const nextRootElement = document.getElementById("__next");
     if (nextRootElement) {
-      nextRootElement.classList.add("scrollbar-gutter-stable");
-      nextRootElement.classList.add("overflow-y-auto");
+      nextRootElement.classList.add(
+        "scrollbar-gutter-stable",
+        "overflow-y-auto"
+      );
+      nextRootElement.scroll(0, scrollY);
     }
   }, []);
 
   const internalOnClose = () => {
-    document.documentElement.classList.add("scrollbar-gutter-stable");
+    let scrollY;
     const nextRootElement = document.getElementById("__next");
     if (nextRootElement) {
-      nextRootElement.classList.remove("scrollbar-gutter-stable");
-      nextRootElement.classList.remove("overflow-y-auto");
+      scrollY = nextRootElement.scrollTop;
+      nextRootElement.classList.remove(
+        "scrollbar-gutter-stable",
+        "overflow-y-auto"
+      );
+    }
+    document.documentElement.classList.add("scrollbar-gutter-stable");
+    if (scrollY) {
+      window.scroll(0, scrollY);
     }
     onClose();
   };
