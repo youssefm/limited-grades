@@ -4,7 +4,6 @@
 
 @layer base {
   html {
-    scrollbar-gutter: stable;
     transition-property: background-color;
     -webkit-tap-highlight-color: transparent;
   }
@@ -39,6 +38,10 @@
 
   .paint-order-stroke {
     paint-order: stroke;
+  }
+
+  .scrollbar-gutter-stable {
+    scrollbar-gutter: stable;
   }
 }
 
