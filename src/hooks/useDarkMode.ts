@@ -14,19 +14,19 @@ const useDarkModeValue = (): [boolean, () => void] => {
   useEffect(() => {
     if (
       typeof document !== "undefined" &&
-      document.body.classList.contains(DARK_MODE_CLASS)
+      document.documentElement.classList.contains(DARK_MODE_CLASS)
     ) {
       setEnabled(true);
     }
   }, []);
 
   const toggle = () => {
-    const bodyClasses = window.document.body.classList;
+    const documentElementClasses = window.document.documentElement.classList;
     const newValue = !enabled;
     if (newValue) {
-      bodyClasses.add(DARK_MODE_CLASS);
+      documentElementClasses.add(DARK_MODE_CLASS);
     } else {
-      bodyClasses.remove(DARK_MODE_CLASS);
+      documentElementClasses.remove(DARK_MODE_CLASS);
     }
     if (typeof localStorage !== "undefined") {
       localStorage.setItem(

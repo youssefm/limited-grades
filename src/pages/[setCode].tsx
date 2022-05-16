@@ -45,16 +45,14 @@ const Page = ({ setCode, cards, lastUpdatedAtTicks }: StaticProps) => {
       </Head>
       <div
         className={clsx(
-          "overflow-y-auto px-2 lg:h-full scrollbar-gutter-stable",
-          "text-neutral-800 dark:text-neutral-100 dark:bg-neutral-900",
+          "flex flex-col px-2 mx-auto max-w-[1800px] min-h-full",
+          "text-neutral-800 dark:text-neutral-100",
           TRANSITION_CLASSES
         )}
       >
-        <div className="flex flex-col mx-auto max-w-[1800px] min-h-full">
-          <PageHeader />
-          <PageBody set={set} cards={cards} className="grow" />
-          <PageFooter lastUpdatedAt={new Date(lastUpdatedAtTicks)} />
-        </div>
+        <PageHeader />
+        <PageBody set={set} cards={cards} className="grow" />
+        <PageFooter lastUpdatedAt={new Date(lastUpdatedAtTicks)} />
       </div>
     </>
   );
