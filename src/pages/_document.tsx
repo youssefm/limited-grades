@@ -6,7 +6,7 @@ import HideBannerInitializer from "components/common/HideBannerInitializer";
 class MyDocument extends Document {
   render() {
     return (
-      <Html>
+      <Html className="scrollbar-gutter-stable">
         <Head />
         <body>
           <DarkModeInitializer />
