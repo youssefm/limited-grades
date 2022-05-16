@@ -4,30 +4,20 @@ module.exports = {
     outputStandalone: true,
   },
   i18n: {
-    locales: ["en-US", "fr-FR"],
-    defaultLocale: "en-US",
-    domains: [
-      {
-        domain: "www.limitedgrades.com",
-        defaultLocale: "en-US",
-      },
-      {
-        domain: "fr.limitedgrades.com",
-        defaultLocale: "fr-FR",
-      },
-    ],
+    locales: ["en", "fr"],
+    defaultLocale: "en",
   },
   outputFileTracing: true,
   reactStrictMode: true,
   redirects: async () => [
     {
-      source: "/en-US",
+      source: "/en",
       destination: "/snc",
       locale: false,
       permanent: false,
     },
     {
-      source: "/en-US/:setCode/(all|wu|ub|br|rg|wg|wb|ur|bg|wr|ug)",
+      source: "/en/:setCode/(all|wu|ub|br|rg|wg|wb|ur|bg|wr|ug)",
       destination: "/:setCode",
       locale: false,
       permanent: false,
