@@ -51,7 +51,7 @@ const Modal: FC<Props> = ({
           enterTo="opacity-100 backdrop-opacity-100"
           as={Fragment}
         >
-          <Dialog.Overlay className="fixed inset-0 z-10 bg-black/60 backdrop-blur-xs" />
+          <div className="fixed inset-0 z-10 bg-black/60 backdrop-blur-xs" />
         </Transition.Child>
         <Transition.Child
           enter="transition-opacity"
@@ -59,7 +59,7 @@ const Modal: FC<Props> = ({
           enterTo="opacity-100"
           as={Fragment}
         >
-          <div
+          <Dialog.Panel
             className={clsx(
               "overflow-y-auto z-20 max-w-[95%] max-h-[95%] dark:text-neutral-100",
               "bg-white dark:bg-neutral-900 rounded-lg border border-black shadow-xl",
@@ -77,7 +77,7 @@ const Modal: FC<Props> = ({
               </button>
             </Dialog.Title>
             <div className="p-4">{children}</div>
-          </div>
+          </Dialog.Panel>
         </Transition.Child>
       </Dialog>
     </Transition>
