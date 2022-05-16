@@ -19,7 +19,7 @@ const PageFooter = ({ lastUpdatedAt }: Props) => (
     <br />
     <em>
       Last updated on{" "}
-      {lastUpdatedAt.toLocaleString(undefined, {
+      {lastUpdatedAt.toLocaleString("en-US", {
         dateStyle: "long",
         timeStyle: "short",
       })}
