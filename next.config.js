@@ -3,16 +3,6 @@ module.exports = {
   experimental: {
     outputStandalone: true,
   },
-  i18n: {
-    locales: ["en-US"],
-    defaultLocale: "en-US",
-    domains: [
-      {
-        domain: "www.limitedgrades.com",
-        defaultLocale: "en-US",
-      },
-    ],
-  },
   outputFileTracing: true,
   reactStrictMode: true,
   redirects: async () => [
