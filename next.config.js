@@ -17,6 +17,12 @@ module.exports = {
       permanent: false,
     },
     {
+      source: "/:locale(fr)",
+      destination: "/:locale/snc",
+      locale: false,
+      permanent: false,
+    },
+    {
       source: "/en/:setCode/(all|wu|ub|br|rg|wg|wb|ur|bg|wr|ug)",
       destination: "/:setCode",
       locale: false,
