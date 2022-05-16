@@ -58,8 +58,7 @@ const usePageBodyState = (set: MagicSet, cards: Card[]) => {
       if (shallow) {
         return;
       }
-      const pathnameSegments = extractPathnameSegments(url);
-      const routeSetCode = pathnameSegments[pathnameSegments.length - 1];
+      const routeSetCode = extractPathnameSegments(url)[0];
       if (routeSetCode) {
         const routeSet = MagicSet.lookup(routeSetCode);
         if (routeSet) {

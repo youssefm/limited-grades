@@ -3,27 +3,17 @@ module.exports = {
   experimental: {
     outputStandalone: true,
   },
-  i18n: {
-    locales: ["en", "fr"],
-    defaultLocale: "en",
-  },
   outputFileTracing: true,
   reactStrictMode: true,
   redirects: async () => [
     {
-      source: "/en",
+      source: "/",
       destination: "/snc",
       locale: false,
       permanent: false,
     },
     {
-      source: "/:locale(fr)",
-      destination: "/:locale/snc",
-      locale: false,
-      permanent: false,
-    },
-    {
-      source: "/en/:setCode/(all|wu|ub|br|rg|wg|wb|ur|bg|wr|ug)",
+      source: "/:setCode/(all|wu|ub|br|rg|wg|wb|ur|bg|wr|ug)",
       destination: "/:setCode",
       locale: false,
       permanent: false,
