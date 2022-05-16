@@ -17,13 +17,15 @@ module.exports = {
   reactStrictMode: true,
   redirects: async () => [
     {
-      source: "/",
+      source: "/en-US",
       destination: "/snc",
+      locale: false,
       permanent: false,
     },
     {
-      source: "/:setCode/(all|wu|ub|br|rg|wg|wb|ur|bg|wr|ug)",
+      source: "/en-US/:setCode/(all|wu|ub|br|rg|wg|wb|ur|bg|wr|ug)",
       destination: "/:setCode",
+      locale: false,
       permanent: false,
     },
   ],
