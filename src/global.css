@@ -4,7 +4,13 @@
 
 @layer base {
   html {
+    scrollbar-gutter: stable;
+    transition-property: background-color;
     -webkit-tap-highlight-color: transparent;
+  }
+
+  html.dark {
+    @apply bg-neutral-900;
   }
 
   html,
@@ -29,10 +35,6 @@
 
   .backface-invisible {
     backface-visibility: hidden;
-  }
-
-  .scrollbar-gutter-stable {
-    scrollbar-gutter: stable;
   }
 
   .paint-order-stroke {

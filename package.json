@@ -12,7 +12,7 @@
     "test-watch": "jest --watch"
   },
   "dependencies": {
-    "@headlessui/react": "^1.4.3",
+    "@headlessui/react": "0.0.0-insiders.8ca73eb",
     "@saeris/typeface-beleren-bold": "^1.0.1",
     "@tippyjs/react": "^4.2.6",
     "clsx": "^1.1.1",
