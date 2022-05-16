@@ -1,12 +1,11 @@
-import { readFile, writeFile } from "fs/promises";
+import { writeFile } from "fs/promises";
 import path from "path";
-
-import { ungzip } from "node-gzip";
 
 import { ALL_CARD_TYPES } from "./constants";
 import MagicSet from "./MagicSet";
 import { CardType, Color } from "./types";
-import { buildUrl, fetchJson, LazySingleton } from "./util";
+import { fetchJson } from "./util";
+import { buildUrl, LazySingleton, readJsonFile } from "./util.server";
 
 const INDEX_FILE_PATH = path.join(process.cwd(), "data", "scryfall-index.json");
 
@@ -83,12 +82,7 @@ const getCardTypes = (card: ScryfallCard) =>
 const readScryfallFile = async (fileName: string): Promise<ScryfallCard[]> => {
   const scryfallFilePath = path.join(process.cwd(), "data", fileName);
   console.log(`Reading Scryfall data from ${scryfallFilePath}`);
-  let buffer = await readFile(scryfallFilePath);
-  if (fileName.endsWith(".gz")) {
-    buffer = await ungzip(buffer);
-  }
-  const json = buffer.toString("utf8");
-  return JSON.parse(json);
+  return await readJsonFile<ScryfallCard[]>(scryfallFilePath);
 };
 
 export const generateIndexFile = async (): Promise<void> => {
@@ -111,13 +105,10 @@ export const generateIndexFile = async (): Promise<void> => {
   await writeFile(INDEX_FILE_PATH, JSON.stringify(index), "utf8");
 };
 
-const readIndexFile = async (): Promise<ScryfallIndex> => {
+export const SCRYFALL_FILE_INDEX = new LazySingleton(async () => {
   console.log(`Reading Scryfall index from ${INDEX_FILE_PATH}`);
-  const json = await readFile(INDEX_FILE_PATH, "utf8");
-  return JSON.parse(json);
-};
-
-export const SCRYFALL_FILE_INDEX = new LazySingleton(readIndexFile);
+  return readJsonFile<ScryfallIndex>(INDEX_FILE_PATH);
+});
 
 export const getAllCardsByType = async (
   cardType: CardType

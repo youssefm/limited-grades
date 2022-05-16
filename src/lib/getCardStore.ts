@@ -8,7 +8,8 @@ import Deck from "./Deck";
 import MagicSet from "./MagicSet";
 import { SCRYFALL_FILE_INDEX } from "./scryfall";
 import { Card, CardStore, Grade, Rarity } from "./types";
-import { buildUrl, round, sortBy } from "./util";
+import { sortBy } from "./util";
+import { buildUrl, round } from "./util.server";
 
 const MIN_GAMES_DRAWN_FOR_INFERENCE = 100;
 const MIN_GAMES_DRAWN = 400;

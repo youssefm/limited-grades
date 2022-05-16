@@ -1,4 +1,4 @@
-import { readFile, writeFile } from "fs/promises";
+import { writeFile } from "fs/promises";
 
 import { gzip, ungzip } from "node-gzip";
 import {
@@ -9,7 +9,7 @@ import {
   RedisScripts,
 } from "redis";
 
-import { LazySingleton } from "./util";
+import { LazySingleton, readJsonFile } from "./util.server";
 
 export interface Cache {
   get: <T>(key: string) => Promise<T | null>;
@@ -76,7 +76,7 @@ export const FILE_CACHE = {
   get: async <T>(key: string): Promise<T | null> => {
     const filePath = getFileCachePath(key);
     try {
-      return JSON.parse(await readFile(filePath, "utf8"));
+      return readJsonFile<T>(filePath);
     } catch (error: any) {
       if (error.code === "ENOENT") {
         return null;
