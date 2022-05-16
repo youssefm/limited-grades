@@ -1,11 +1,15 @@
-import { writeFile } from "fs/promises";
 import path from "path";
 
 import { ALL_CARD_TYPES } from "./constants";
 import MagicSet from "./MagicSet";
 import { CardType, Color } from "./types";
 import { fetchJson } from "./util";
-import { buildUrl, LazySingleton, readJsonFile } from "./util.server";
+import {
+  buildUrl,
+  LazySingleton,
+  readJsonFile,
+  writeJsonFile,
+} from "./util.server";
 
 const INDEX_FILE_PATH = path.join(process.cwd(), "data", "scryfall-index.json");
 
@@ -102,7 +106,7 @@ export const generateIndexFile = async (): Promise<void> => {
       types: getCardTypes(card),
     };
   }
-  await writeFile(INDEX_FILE_PATH, JSON.stringify(index), "utf8");
+  await writeJsonFile(INDEX_FILE_PATH, index);
 };
 
 export const SCRYFALL_FILE_INDEX = new LazySingleton(async () => {
