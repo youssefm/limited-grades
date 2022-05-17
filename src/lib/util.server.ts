@@ -13,6 +13,16 @@ export const round = (n: number, precision: number = 0): number => {
   return Number(`${significand}e${Number(exponent) - precision}`);
 };
 
+export const computeWeightedAverage = (values: [number, number][]): number => {
+  let sum = 0;
+  let totalWeight = 0;
+  for (const [value, weight] of values) {
+    sum += value * weight;
+    totalWeight += weight;
+  }
+  return sum / totalWeight;
+};
+
 export const readJsonFile = async <T>(filePath: string): Promise<T> => {
   let buffer = await readFile(filePath);
   if (filePath.endsWith(".gz")) {

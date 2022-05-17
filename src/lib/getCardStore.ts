@@ -73,6 +73,13 @@ const fetchApiCards = async (set: MagicSet, deck: Deck): Promise<ApiCard[]> => {
   return response.json();
 };
 
+export const computeGrade = (score: number): Grade => {
+  const gradeThreshold = GRADE_THRESHOLDS.find(
+    ([, threshold]) => score >= threshold
+  );
+  return gradeThreshold ? gradeThreshold[0] : Grade.F;
+};
+
 const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
   const cards: Record<string, Card> = {};
   const [apiCardStore, scryfallIndex] = await Promise.all([
@@ -136,14 +143,10 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
       }
 
       const score = normalDistribution.cdf(apiCard.ever_drawn_win_rate) * 100;
-      const [grade] = GRADE_THRESHOLDS.find(
-        ([, threshold]) => score >= threshold
-      )!;
-
       card.stats[deck.code] = {
         winrate: round(apiCard.ever_drawn_win_rate, 4),
         gameCount: apiCard.game_count,
-        grade,
+        grade: computeGrade(score),
         score: round(score, 2),
       };
     }
