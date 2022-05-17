@@ -13,10 +13,12 @@ export const round = (n: number, precision: number = 0): number => {
   return Number(`${significand}e${Number(exponent) - precision}`);
 };
 
-export const computeWeightedAverage = (values: [number, number][]): number => {
+export const computeWeightedAverage = (
+  weightedValues: [number, number][]
+): number => {
   let sum = 0;
   let totalWeight = 0;
-  for (const [value, weight] of values) {
+  for (const [value, weight] of weightedValues) {
     sum += value * weight;
     totalWeight += weight;
   }
