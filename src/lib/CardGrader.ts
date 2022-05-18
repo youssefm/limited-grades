@@ -25,7 +25,7 @@ const GRADE_THRESHOLDS: [Grade, number][] = [
 ];
 
 interface CardRecord {
-  cardName: string;
+  cardKey: string;
   deck: Deck;
   winrate: number;
   gameCount: number;
@@ -36,11 +36,11 @@ export default class CardGrader {
 
   #cardStats = new DefaultMap<string, Record<string, CardStats>>(() => ({}));
 
-  add(cardName: string, deck: Deck, winrate: number, gameCount: number): void {
+  add(cardKey: string, deck: Deck, winrate: number, gameCount: number): void {
     if (!winrate) {
       return;
     }
-    const cardRecord = { cardName, deck, winrate, gameCount };
+    const cardRecord = { cardKey, deck, winrate, gameCount };
     this.#cardRecordsByDeck.get(deck).push(cardRecord);
   }
 
@@ -61,7 +61,7 @@ export default class CardGrader {
         std(winrates)
       );
 
-      for (const { cardName, winrate, gameCount } of filteredCardRecords) {
+      for (const { cardKey, winrate, gameCount } of filteredCardRecords) {
         if (gameCount <= MIN_GAMES_DRAWN) {
           continue;
         }
@@ -69,7 +69,7 @@ export default class CardGrader {
         const grade = GRADE_THRESHOLDS.find(
           ([, threshold]) => score >= threshold
         )![0];
-        this.#cardStats.get(cardName)[deck.code] = {
+        this.#cardStats.get(cardKey)[deck.code] = {
           winrate,
           gameCount,
           score,
@@ -79,7 +79,7 @@ export default class CardGrader {
     }
   }
 
-  getCardStats(cardName: string): Record<string, CardStats> {
-    return this.#cardStats.get(cardName);
+  getCardStats(cardKey: string): Record<string, CardStats> {
+    return this.#cardStats.get(cardKey);
   }
 }
