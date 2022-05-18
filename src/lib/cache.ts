@@ -74,7 +74,7 @@ export const FILE_CACHE = {
   get: async <T>(key: string): Promise<T | null> => {
     const filePath = getFileCachePath(key);
     try {
-      return readJsonFile<T>(filePath);
+      return await readJsonFile<T>(filePath);
     } catch (error: any) {
       if (error.code === "ENOENT") {
         return null;
