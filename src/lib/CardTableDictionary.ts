@@ -13,7 +13,7 @@ export default class CardTableDictionary {
     );
 
     for (const group of Object.values(this.#cardsByGroup)) {
-      sortBy(group, (card) => card.stats[deck.code]!.winrate, true);
+      sortBy(group, (card) => card.stats[deck.code]!.score, true);
     }
   }
 
