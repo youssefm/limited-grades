@@ -50,7 +50,7 @@ export interface CardStats {
 }
 
 export interface OverallCardStats {
-  drawnCount: number;
+  gameCount: number;
   lastSeenAt: number;
   takenAt: number;
   playedWinrate: number;

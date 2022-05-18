@@ -52,13 +52,13 @@ const DetailedStatsTable: FC<Props> = ({ card }) => (
         tooltipText="The number of games played with this card in the maindeck"
         className="border-t border-neutral-200 dark:border-black"
       >
-        {formatNumber(card.stats[Deck.ALL.code]!.gameCount)}
+        {formatNumber(card.overallStats.gameCount)}
       </StatsRow>
       <StatsRow
         label="Number of games in hand"
         tooltipText="The number of times this card was drawn, either in the opening hand or later"
       >
-        {formatNumber(card.overallStats.drawnCount)}
+        {formatNumber(card.stats[Deck.ALL.code]!.gameCount)}
       </StatsRow>
       <StatsRow
         label="Games played win rate"

@@ -1,34 +1,13 @@
 import assert from "assert";
 
-import { mean, std } from "mathjs";
-import NormalDistribution from "normal-distribution";
-
 import { CACHE, Cache } from "./cache";
+import CardGrader from "./CardGrader";
 import Deck from "./Deck";
 import MagicSet from "./MagicSet";
 import { SCRYFALL_FILE_INDEX } from "./scryfall";
-import { Card, CardStore, Grade, Rarity } from "./types";
+import { Card, CardStore, Rarity } from "./types";
 import { sortBy } from "./util";
 import { buildUrl, round } from "./util.server";
-
-const MIN_GAMES_DRAWN_FOR_INFERENCE = 100;
-const MIN_GAMES_DRAWN = 400;
-
-const GRADE_THRESHOLDS: [Grade, number][] = [
-  [Grade.A_PLUS, 99],
-  [Grade.A, 95],
-  [Grade.A_MINUS, 90],
-  [Grade.B_PLUS, 85],
-  [Grade.B, 76],
-  [Grade.B_MINUS, 68],
-  [Grade.C_PLUS, 57],
-  [Grade.C, 45],
-  [Grade.C_MINUS, 36],
-  [Grade.D_PLUS, 27],
-  [Grade.D, 17],
-  [Grade.D_MINUS, 5],
-  [Grade.F, 0],
-];
 
 interface ApiCard {
   name: string;
@@ -73,88 +52,85 @@ const fetchApiCards = async (set: MagicSet, deck: Deck): Promise<ApiCard[]> => {
   return response.json();
 };
 
-export const computeGrade = (score: number): Grade => {
-  const gradeThreshold = GRADE_THRESHOLDS.find(
-    ([, threshold]) => score >= threshold
-  );
-  return gradeThreshold ? gradeThreshold[0] : Grade.F;
-};
-
 const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
-  const cards: Record<string, Card> = {};
+  const cards: Card[] = [];
+  const setDecks = set.decks;
   const [apiCardStore, scryfallIndex] = await Promise.all([
-    Promise.all(set.decks.map((deck) => fetchApiCards(set, deck))),
+    Promise.all(
+      setDecks.map(async (deck): Promise<[Deck, ApiCard[]]> => {
+        const apiCards = await fetchApiCards(set, deck);
+        return [deck, apiCards];
+      })
+    ),
     SCRYFALL_FILE_INDEX.get(),
   ]);
-  for (const [index, deck] of set.decks.entries()) {
-    let apiCards: ApiCard[] = apiCardStore[index]!;
-    apiCards = apiCards.filter(
-      (card) =>
-        card.ever_drawn_game_count >= MIN_GAMES_DRAWN_FOR_INFERENCE &&
-        card.ever_drawn_win_rate
-    );
 
-    if (apiCards.length <= 1) {
+  const grader = new CardGrader();
+  for (const [deck, apiCards] of apiCardStore) {
+    for (const apiCard of apiCards) {
+      grader.add(
+        apiCard.name,
+        deck,
+        apiCard.ever_drawn_win_rate,
+        apiCard.ever_drawn_game_count
+      );
+    }
+  }
+
+  grader.computeGrades();
+
+  const [deck, apiCards] = apiCardStore[0]!;
+  assert(deck === Deck.ALL);
+
+  for (const apiCard of apiCards) {
+    const cardStats = grader.getCardStats(apiCard.name);
+    if (Object.keys(cardStats).length === 0) {
       continue;
     }
-
-    const winrates = apiCards.map((card) => card.ever_drawn_win_rate);
-    const normalDistribution = new NormalDistribution(
-      mean(winrates),
-      std(winrates)
-    );
-
-    apiCards = apiCards.filter(
-      (card) => card.ever_drawn_game_count >= MIN_GAMES_DRAWN
-    );
-
-    for (const apiCard of apiCards) {
-      const cardUrl = apiCard.url;
-      let card = cards[cardUrl];
-      if (!card) {
-        assert(deck === Deck.ALL);
-        // For some reason, Amonkhet split cards are mistakently referenced by 17lands with three slashes
-        const cardName = apiCard.name.replace("///", "//");
-        const scryfallIndexEntry = scryfallIndex[cardName];
-        if (!scryfallIndexEntry) {
-          throw Error(
-            `Card named '${cardName}' could not be found in the Scryfall DB`
-          );
-        }
-        card = {
-          name: cardName,
-          color: scryfallIndexEntry.color,
-          rarity: apiCard.rarity === "basic" ? Rarity.COMMON : apiCard.rarity,
-          cardTypes: scryfallIndexEntry.types,
-          cardUrl: apiCard.url,
-          cardBackUrl: apiCard.url_back,
-          overallStats: {
-            drawnCount: apiCard.ever_drawn_game_count,
-            lastSeenAt: round(apiCard.avg_seen, 2),
-            takenAt: round(apiCard.avg_pick, 2),
-            playedWinrate: round(apiCard.win_rate, 4),
-            openingHandWinrate: round(apiCard.opening_hand_win_rate, 4),
-            drawnWinrate: round(apiCard.drawn_win_rate, 4),
-            notDrawnWinrate: round(apiCard.never_drawn_win_rate, 4),
-          },
-          stats: {},
-        };
-        cards[cardUrl] = card;
-      }
-
-      const score = normalDistribution.cdf(apiCard.ever_drawn_win_rate) * 100;
-      card.stats[deck.code] = {
-        winrate: round(apiCard.ever_drawn_win_rate, 4),
-        gameCount: apiCard.game_count,
-        grade: computeGrade(score),
-        score: round(score, 2),
-      };
+    // For some reason, Amonkhet split cards are mistakently referenced by 17lands with three slashes
+    const cardName = apiCard.name.replace("///", "//");
+    const scryfallIndexEntry = scryfallIndex[cardName];
+    if (!scryfallIndexEntry) {
+      throw Error(
+        `Card named '${cardName}' could not be found in the Scryfall DB`
+      );
     }
+
+    cards.push({
+      name: cardName,
+      color: scryfallIndexEntry.color,
+      rarity: apiCard.rarity === "basic" ? Rarity.COMMON : apiCard.rarity,
+      cardTypes: scryfallIndexEntry.types,
+      cardUrl: apiCard.url,
+      cardBackUrl: apiCard.url_back,
+      overallStats: {
+        gameCount: apiCard.game_count,
+        lastSeenAt: round(apiCard.avg_seen, 2),
+        takenAt: round(apiCard.avg_pick, 2),
+        playedWinrate: round(apiCard.win_rate, 4),
+        openingHandWinrate: round(apiCard.opening_hand_win_rate, 4),
+        drawnWinrate: round(apiCard.drawn_win_rate, 4),
+        notDrawnWinrate: round(apiCard.never_drawn_win_rate, 4),
+      },
+      stats: Object.fromEntries(
+        Object.entries(cardStats).map(
+          ([deckCode, { winrate, gameCount, grade, score }]) => [
+            deckCode,
+            {
+              winrate: round(winrate, 4),
+              gameCount,
+              grade,
+              score: round(score, 2),
+            },
+          ]
+        )
+      ),
+    });
   }
 
   return {
     updatedAt: new Date(),
-    cards: sortBy(Object.values(cards), (card) => card.name),
+    cards: sortBy(cards, (card) => card.name),
   };
 };
 
