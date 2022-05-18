@@ -56,11 +56,24 @@ const COLORS: Record<ScryfallColor, Color> = {
   G: Color.GREEN,
 };
 
+const EXCLUDED_LAYOUTS = [
+  "art_series",
+  "token",
+  "double_faced_token",
+  "emblem",
+];
+
+const DOUBLE_FACED_LAYOUTS = ["transform", "modal_dfc"];
+
 const shouldExcludeCard = (card: ScryfallCard) =>
-  card.layout === "art_series" || card.layout === "token";
+  EXCLUDED_LAYOUTS.includes(card.layout);
 
 const getCardName = (card: ScryfallCard) => {
-  if (card.card_faces && card.card_faces.length > 0) {
+  if (
+    DOUBLE_FACED_LAYOUTS.includes(card.layout) &&
+    card.card_faces &&
+    card.card_faces.length > 0
+  ) {
     return card.card_faces[0]!.name;
   }
   return card.name;
