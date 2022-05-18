@@ -63,14 +63,14 @@ const EXCLUDED_LAYOUTS = [
   "emblem",
 ];
 
-const DOUBLE_FACED_LAYOUTS = ["transform", "modal_dfc"];
+const NAMED_BY_CARD_FACE_LAYOUTS = ["transform", "modal_dfc", "adventure"];
 
 const shouldExcludeCard = (card: ScryfallCard) =>
   EXCLUDED_LAYOUTS.includes(card.layout);
 
 const getCardName = (card: ScryfallCard) => {
   if (
-    DOUBLE_FACED_LAYOUTS.includes(card.layout) &&
+    NAMED_BY_CARD_FACE_LAYOUTS.includes(card.layout) &&
     card.card_faces &&
     card.card_faces.length > 0
   ) {
