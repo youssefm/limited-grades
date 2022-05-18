@@ -69,7 +69,7 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
   for (const [deck, apiCards] of apiCardStore) {
     for (const apiCard of apiCards) {
       grader.add(
-        apiCard.name,
+        apiCard.url,
         deck,
         apiCard.ever_drawn_win_rate,
         apiCard.ever_drawn_game_count
@@ -83,7 +83,7 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
   assert(deck === Deck.ALL);
 
   for (const apiCard of apiCards) {
-    const cardStats = grader.getCardStats(apiCard.name);
+    const cardStats = grader.getCardStats(apiCard.url);
     if (Object.keys(cardStats).length === 0) {
       continue;
     }
