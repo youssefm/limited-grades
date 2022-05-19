@@ -1,7 +1,7 @@
 import clsx from "clsx";
 import Image from "next/image";
 import { useState } from "react";
-import { BsFillExclamationCircleFill } from "react-icons/bs";
+import { BsExclamationOctagon } from "react-icons/bs";
 import { FaInfoCircle } from "react-icons/fa";
 
 import Banner from "components/common/Banner";
@@ -51,14 +51,13 @@ const PageHeader = () => {
       </div>
 
       <Banner>
-        <BsFillExclamationCircleFill className="inline relative bottom-0.5 mr-2" />
-        I am looking to update how overall grades are being calculated. If you
-        have a minute, please{" "}
+        <BsExclamationOctagon className="inline relative bottom-0.5 mr-2" />I am
+        looking to update how overall grades are being calculated. If you have a
+        minute, please{" "}
         <LinkOut url="https://docs.google.com/forms/d/e/1FAIpQLScOVmIoe8eNsVOkNn1qWjf17ln6RYeZr1CIvubrIxPJg-6_hA/viewform">
           check out a preview of the new grading system and fill out a very
           short survey
         </LinkOut>
-        .
       </Banner>
 
       <PageInfoBanner onLearnMore={() => setShowInfoModal(true)} />
