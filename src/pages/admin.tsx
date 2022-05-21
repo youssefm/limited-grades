@@ -1,10 +1,11 @@
-import { FC, useEffect, useState } from "react";
+import { NextPage } from "next";
+import { useEffect, useState } from "react";
 
 import SpinnerIcon from "assets/spinner.svg";
 import Select from "components/common/Select";
 import { fetchJson } from "lib/util";
 
-const Admin: FC = () => {
+const Admin: NextPage = () => {
   const [selectedAction, setSelectedAction] = useState<string>();
   const [actionOptions, setActionOptions] = useState<string[]>([]);
   const [actionOutput, setActionOutput] = useState<string[]>([]);

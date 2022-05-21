@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import React, { memo } from "react";
 
@@ -36,7 +36,11 @@ export const getStaticProps: GetStaticProps<StaticProps> = async (context) => {
   };
 };
 
-const Page = ({ setCode, cards, lastUpdatedAtTicks }: StaticProps) => {
+const Page: NextPage<StaticProps> = ({
+  setCode,
+  cards,
+  lastUpdatedAtTicks,
+}) => {
   const set = MagicSet.lookup(setCode)!;
   return (
     <>
