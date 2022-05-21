@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
-import { GetStaticProps } from "next";
+import { GetStaticProps, NextPage } from "next";
 import Head from "next/head";
 import { useCallback, useEffect, useRef, useState } from "react";
 import SwiperCore from "swiper";
@@ -35,7 +35,7 @@ export const getStaticProps: GetStaticProps<StaticProps> = async () => {
   };
 };
 
-const Page = ({ imageUrls }: StaticProps) => {
+const Page: NextPage<StaticProps> = ({ imageUrls }) => {
   const swiperRef = useRef<SwiperCore>();
   const [activeImageUrls, setActiveImageUrls] = useState<string[]>([]);
 
