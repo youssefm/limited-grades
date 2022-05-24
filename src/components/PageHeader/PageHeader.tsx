@@ -5,7 +5,6 @@ import { BsExclamationOctagon } from "react-icons/bs";
 import { FaInfoCircle } from "react-icons/fa";
 
 import Banner from "components/common/Banner";
-import LinkOut from "components/common/LinkOut";
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 
 import AboutProjectModal from "./AboutProjectModal";
@@ -52,12 +51,9 @@ const PageHeader = () => {
 
       <Banner>
         <BsExclamationOctagon className="inline relative bottom-0.5 mr-2" />
-        We&rsquo;re testing out a new way of computing overall grades. If you
-        have a minute, please{" "}
-        <LinkOut url="https://docs.google.com/forms/d/e/1FAIpQLScOVmIoe8eNsVOkNn1qWjf17ln6RYeZr1CIvubrIxPJg-6_hA/viewform">
-          check out a preview of the new grading system and fill out a very
-          short survey
-        </LinkOut>
+        Thanks to everyone that filled out the new grading system survey. About
+        a third of respondents prefer the grading scale as it is today so grades
+        will remain unchanged for now.
       </Banner>
 
       <PageInfoBanner onLearnMore={() => setShowInfoModal(true)} />
