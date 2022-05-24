@@ -1,7 +1,12 @@
 import { FILE_CACHE, REDIS_CACHE, REDIS_CLIENT } from "./cache";
+import { ALL_GRADES } from "./constants";
+import Deck from "./Deck";
 import getCardStore from "./getCardStore";
 import MagicSet from "./MagicSet";
 import { generateIndexFile } from "./scryfall";
+import { Grade } from "./types";
+import { groupBy, sortBy } from "./util";
+import { indexBy } from "./util.server";
 
 const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
   "check-redis-keys": async (output) => {
@@ -16,6 +21,32 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
   "clear-redis-cache": async (output) => {
     await REDIS_CACHE.clear();
     output.push("Redis cache cleared!");
+  },
+  "compare-file-and-redis-scores": async (output) => {
+    const set = MagicSet.NEW_CAPENNA;
+    const redisCards = (await getCardStore(set, REDIS_CACHE)).cards;
+    const fileCards = (await getCardStore(set, FILE_CACHE)).cards;
+    const fileCardsByUrl = indexBy(fileCards, (card) => card.cardUrl);
+    for (const redisCard of redisCards) {
+      const fileCard = fileCardsByUrl[redisCard.cardUrl];
+      if (!fileCard) {
+        continue;
+      }
+      output.push(
+        `${redisCard.name}\t${redisCard.rarity}\t${redisCard.stats.all?.score}\t${redisCard.stats.all?.grade}\t${fileCard.stats.all?.score}\t${fileCard.stats.all?.grade}`
+      );
+    }
+  },
+  "compute-grade-distributions": async (output) => {
+    const { cards } = await getCardStore(MagicSet.NEW_CAPENNA, FILE_CACHE);
+    const cardsByGrade = groupBy(
+      cards,
+      (card) => card.stats[Deck.ALL.code]!.grade
+    );
+    for (const grade of ALL_GRADES) {
+      const gradeCards = cardsByGrade[grade];
+      output.push(`${grade}: ${gradeCards ? gradeCards.length : 0}`);
+    }
   },
   "delete-snc-cache": async (output) => {
     const client = await REDIS_CLIENT.get();
@@ -41,6 +72,27 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
       }
     }
     output.push("Done updating all file caches!");
+  },
+  "visualize-card-scores": async (output) => {
+    const { cards } = await getCardStore(MagicSet.MIDNIGHT_HUNT, FILE_CACHE);
+    const sortedCards = sortBy(
+      [...cards],
+      (card) => -card.stats[Deck.ALL.code]!.score
+    );
+
+    let grade: Grade | undefined;
+    for (const card of sortedCards) {
+      const cardGrade = card.stats[Deck.ALL.code]!.grade;
+      if (cardGrade !== grade) {
+        grade = cardGrade;
+        output.push(`${"=".repeat(20)} ${grade} ${"=".repeat(20)}`);
+      }
+      output.push(
+        `${card.name}${" ".repeat(35 - card.name.length)}${
+          card.stats[Deck.ALL.code]!.score
+        }`
+      );
+    }
   },
 };
 
