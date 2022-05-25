@@ -49,13 +49,6 @@ const PageHeader = () => {
         <DarkModeToggle />
       </div>
 
-      <Banner>
-        <BsExclamationOctagon className="inline relative bottom-0.5 mr-2" />
-        Thanks to everyone that filled out the new grading system survey. About
-        a third of respondents prefer the grading scale as it is today so grades
-        will remain unchanged for now.
-      </Banner>
-
       <PageInfoBanner onLearnMore={() => setShowInfoModal(true)} />
 
       {showInfoModal && (
