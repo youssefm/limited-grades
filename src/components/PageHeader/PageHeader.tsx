@@ -1,10 +1,8 @@
 import clsx from "clsx";
 import Image from "next/image";
 import { useState } from "react";
-import { BsExclamationOctagon } from "react-icons/bs";
 import { FaInfoCircle } from "react-icons/fa";
 
-import Banner from "components/common/Banner";
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 
 import AboutProjectModal from "./AboutProjectModal";
