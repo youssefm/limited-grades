@@ -28,7 +28,7 @@
     "react-icons": "^4.3.1",
     "react-select": "^5.2.1",
     "redis": "^4.0.2",
-    "sharp": "^0.29.3",
+    "sharp": "^0.30.5",
     "swiper": "^8.0.7",
     "tippy.js": "^6.3.7",
     "uglify-js": "^3.14.5"
