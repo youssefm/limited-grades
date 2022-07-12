@@ -1,8 +1,10 @@
 import clsx from "clsx";
 import Image from "next/image";
 import { useState } from "react";
+import { BsFillExclamationCircleFill } from "react-icons/bs";
 import { FaInfoCircle } from "react-icons/fa";
 
+import Banner from "components/common/Banner";
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 
 import AboutProjectModal from "./AboutProjectModal";
@@ -46,6 +48,11 @@ const PageHeader = () => {
 
         <DarkModeToggle />
       </div>
+
+      <Banner>
+        <BsFillExclamationCircleFill className="inline relative bottom-0.5 mr-2" />
+        Grades for Alchemy Horizons: Baldur&#39;s Gate are now live!
+      </Banner>
 
       <PageInfoBanner onLearnMore={() => setShowInfoModal(true)} />
 
