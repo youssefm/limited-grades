@@ -181,6 +181,13 @@ export default class MagicSet {
     DefaultIcon
   );
 
+  static BALDURS_GATE = new MagicSet(
+    "hbg",
+    "Baldur's Gate",
+    "2022-07-07",
+    DefaultIcon
+  );
+
   private constructor(
     code: string,
     label: string,
