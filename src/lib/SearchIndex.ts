@@ -1,3 +1,5 @@
+const UNICODE_DIACRITICS_PATTERN = /[\u0300-\u036f]/g;
+
 export interface Match {
   atStartOfWord: boolean;
   startPosition: number;
@@ -16,7 +18,10 @@ const normalizeString = (value: string): CandidateIndex => {
   const deletedPositions = [];
 
   const valueLength = value.length;
-  const lowercaseValue = value.toLowerCase();
+  const lowercaseValue = value
+    .normalize("NFD")
+    .replace(UNICODE_DIACRITICS_PATTERN, "")
+    .toLowerCase();
   let lastCharacter = "";
   for (let index = 0; index < valueLength; index += 1) {
     let char = lowercaseValue[index]!;

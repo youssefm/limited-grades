@@ -28,4 +28,15 @@ describe("Search", () => {
     const match = index.search("sora");
     expect(match).toHaveLength(0);
   });
+
+  it("ignores diacritics", () => {
+    const index = new SearchIndex(["Rasaad, Monk of Selûne"], (item) => item);
+    const match = index.search("Selune");
+    expect(match).toEqual([
+      {
+        item: "Rasaad, Monk of Selûne",
+        match: { atStartOfWord: true, startPosition: 16, endPosition: 22 },
+      },
+    ]);
+  });
 });
