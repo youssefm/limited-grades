@@ -1,5 +1,6 @@
 import clsx from "clsx";
 import Image from "next/image";
+import Router from "next/router";
 import { useState } from "react";
 import { BsFillExclamationCircleFill } from "react-icons/bs";
 import { FaInfoCircle } from "react-icons/fa";
@@ -51,7 +52,20 @@ const PageHeader = () => {
 
       <Banner>
         <BsFillExclamationCircleFill className="inline relative bottom-0.5 mr-2" />
-        Grades for Alchemy Horizons: Baldur&#39;s Gate are now live!
+        Grades for{" "}
+        <button
+          type="button"
+          onClick={async () =>
+            await Router.push({
+              pathname: Router.pathname,
+              query: { ...Router.query, setCode: "hbg" },
+            })
+          }
+          className={clsx("underline", HOVER_CLASSES, TRANSITION_CLASSES)}
+        >
+          Alchemy Horizons: Baldur&#39;s Gate
+        </button>{" "}
+        are now live!
       </Banner>
 
       <PageInfoBanner onLearnMore={() => setShowInfoModal(true)} />
