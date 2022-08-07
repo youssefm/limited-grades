@@ -71,6 +71,13 @@ export default class MagicSet {
 
   static ALL: MagicSet[] = [];
 
+  static BALDURS_GATE = new MagicSet(
+    "hbg",
+    "Baldur's Gate",
+    "2022-07-07",
+    DefaultIcon
+  );
+
   static NEW_CAPENNA = new MagicSet(
     "snc",
     "New Capenna",
@@ -186,13 +193,6 @@ export default class MagicSet {
     "dbl",
     "Double Feature",
     "2022-01-28",
-    DefaultIcon
-  );
-
-  static BALDURS_GATE = new MagicSet(
-    "hbg",
-    "Baldur's Gate",
-    "2022-07-07",
     DefaultIcon
   );
 
