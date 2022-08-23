@@ -9,13 +9,11 @@ module.exports = {
     {
       source: "/",
       destination: "/hbg",
-      locale: false,
       permanent: false,
     },
     {
       source: "/:setCode/:deck(all|wu|ub|br|rg|wg|wb|ur|bg|wr|ug)",
       destination: "/:setCode?deck=:deck",
-      locale: false,
       permanent: false,
     },
   ],
