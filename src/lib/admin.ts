@@ -3,7 +3,7 @@ import path from "path";
 
 import download from "download";
 
-import { FILE_CACHE, REDIS_CACHE, REDIS_CLIENT } from "./cache";
+import { FILE_CACHE, REDIS_CACHE } from "./cache";
 import { ALL_GRADES } from "./constants";
 import Deck from "./Deck";
 import getCardStore from "./getCardStore";
@@ -19,11 +19,10 @@ interface ScryfallBulkData {
 
 const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
   "check-redis-keys": async (output) => {
-    const client = await REDIS_CLIENT.get();
     for (const set of MagicSet.ALL) {
-      const exists = await client.exists(set.code);
+      const cardStore = await REDIS_CACHE.get(set.code);
       output.push(
-        `${set.code.toUpperCase()}: ${exists ? "Cached" : "Not Cached"}`
+        `${set.code.toUpperCase()}: ${cardStore ? "Cached" : "Not Cached"}`
       );
     }
   },
@@ -56,11 +55,6 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
       const gradeCards = cardsByGrade[grade];
       output.push(`${grade}: ${gradeCards ? gradeCards.length : 0}`);
     }
-  },
-  "delete-snc-cache": async (output) => {
-    const client = await REDIS_CLIENT.get();
-    await client.del("snc");
-    output.push("SNC cache value deleted!");
   },
   "generate-scryfall-index": async (output) => {
     const bulkData = await fetchJson<ScryfallBulkData>(
