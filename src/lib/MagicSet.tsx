@@ -1,6 +1,7 @@
 import clsx from "clsx";
 import AfrIcon from "keyrune/svg/afr.svg";
 import AkrIcon from "keyrune/svg/akr.svg";
+import DmuIcon from "keyrune/svg/dmu.svg";
 import DomIcon from "keyrune/svg/dom.svg";
 import GrnIcon from "keyrune/svg/grn.svg";
 import IkoIcon from "keyrune/svg/iko.svg";
@@ -70,6 +71,13 @@ export default class MagicSet {
   static #setsByCode: Record<string, MagicSet> = {};
 
   static ALL: MagicSet[] = [];
+
+  static DOMINARIA_UNITED = new MagicSet(
+    "dmu",
+    "Dominaria United",
+    "2022-09-01",
+    DmuIcon
+  );
 
   static BALDURS_GATE = new MagicSet(
     "hbg",
