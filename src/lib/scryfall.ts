@@ -96,14 +96,17 @@ const getCardTypes = (card: ScryfallCard) =>
     card.type_line?.toLowerCase().includes(cardType)
   );
 
-const readScryfallFile = async (fileName: string): Promise<ScryfallCard[]> => {
-  const scryfallFilePath = path.join(process.cwd(), "data", fileName);
+const readScryfallFile = async (
+  scryfallFilePath: string
+): Promise<ScryfallCard[]> => {
   console.log(`Reading Scryfall data from ${scryfallFilePath}`);
   return await readJsonFile<ScryfallCard[]>(scryfallFilePath);
 };
 
-export const generateIndexFile = async (): Promise<void> => {
-  const cards = await readScryfallFile("scryfall-oracle-cards.json");
+export const generateIndexFile = async (
+  scryfallFilePath: string
+): Promise<void> => {
+  const cards = await readScryfallFile(scryfallFilePath);
   const index: ScryfallIndex = {};
   for (const card of cards) {
     if (shouldExcludeCard(card)) {
@@ -129,12 +132,19 @@ export const SCRYFALL_FILE_INDEX = new LazySingleton(async () => {
 
 export const getAllCardsByType = async (
   cardType: CardType
-): Promise<ScryfallCard[]> =>
-  (await readScryfallFile("scryfall-unique-artwork.json.gz")).filter(
+): Promise<ScryfallCard[]> => {
+  const scryfallFilePath = path.join(
+    process.cwd(),
+    "data",
+    "scryfall-unique-artwork.json.gz"
+  );
+  const scryfallCards = await readScryfallFile(scryfallFilePath);
+  return scryfallCards.filter(
     (card) =>
       !shouldExcludeCard(card) &&
       card.type_line?.toLowerCase().includes(cardType)
   );
+};
 
 export const fetchCards = async (set: MagicSet): Promise<ScryfallCard[]> => {
   const cards: ScryfallCard[] = [];

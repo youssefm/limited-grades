@@ -1,3 +1,8 @@
+import os from "os";
+import path from "path";
+
+import download from "download";
+
 import { FILE_CACHE, REDIS_CACHE, REDIS_CLIENT } from "./cache";
 import { ALL_GRADES } from "./constants";
 import Deck from "./Deck";
@@ -5,8 +10,12 @@ import getCardStore from "./getCardStore";
 import MagicSet from "./MagicSet";
 import { generateIndexFile } from "./scryfall";
 import { Grade } from "./types";
-import { groupBy, sortBy } from "./util";
+import { fetchJson, groupBy, sortBy } from "./util";
 import { indexBy } from "./util.server";
+
+interface ScryfallBulkData {
+  download_uri: string;
+}
 
 const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
   "check-redis-keys": async (output) => {
@@ -54,7 +63,17 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
     output.push("SNC cache value deleted!");
   },
   "generate-scryfall-index": async (output) => {
-    await generateIndexFile();
+    const bulkData = await fetchJson<ScryfallBulkData>(
+      "https://api.scryfall.com/bulk-data/oracle-cards"
+    );
+    const tempFolder = os.tmpdir();
+    const tempFileName = "oracle_cards.json";
+    await download(bulkData.download_uri, tempFolder, {
+      filename: tempFileName,
+    });
+
+    const tempFilePath = path.join(tempFolder, tempFileName);
+    await generateIndexFile(tempFilePath);
     output.push(`Scryfall index generated!`);
   },
   "populate-redis-cache": async (output) => {
