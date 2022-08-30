@@ -1,68 +1,33 @@
-import { gzip, ungzip } from "node-gzip";
-import {
-  commandOptions,
-  createClient,
-  RedisClientType,
-  RedisModules,
-  RedisScripts,
-} from "redis";
+import { PrismaClient } from "@prisma/client";
 
-import { LazySingleton, readJsonFile, writeJsonFile } from "./util.server";
+import { readJsonFile, writeJsonFile } from "./util.server";
 
 export interface Cache {
   get: <T>(key: string) => Promise<T | null>;
   set: (key: string, value: any, expirationInSeconds: number) => Promise<void>;
 }
 
-type RedisClient = RedisClientType<RedisModules, RedisScripts>;
-
-const IS_REDIS_ENABLED = process.env.USE_REDIS_CACHE === "true";
-const REDIS_CLIENT = new LazySingleton(async (): Promise<RedisClient> => {
-  const url = process.env.REDIS_URL;
-  if (!url) {
-    throw new Error(
-      "Redis is not configured with a REDIS_URL environment variable"
-    );
-  }
-
-  const client = createClient({
-    url,
-    socket: {
-      tls: true,
-      rejectUnauthorized: false,
-      reconnectStrategy: (retries) => Math.min(retries * 1000, 10000),
-    },
-  });
-
-  client.on("error", (error) => console.log("Redis Client Error:", error));
-
-  await client.connect();
-  return client;
-});
-
-export const REDIS_CACHE = {
+const IS_POSTGRES_ENABLED = process.env.USE_POSTGRES_CACHE === "true";
+export const POSTGRES_CACHE = {
   get: async <T>(key: string): Promise<T | null> => {
-    const redisClient = await REDIS_CLIENT.get();
-    const zippedValue = await redisClient.get(
-      commandOptions({ returnBuffers: true }),
-      key
-    );
-    if (zippedValue === null) {
-      return zippedValue;
-    }
-    const buffer = await ungzip(zippedValue);
-    return JSON.parse(buffer.toString());
+    const prisma = new PrismaClient();
+    const cacheRow = await prisma.cache.findFirst({
+      where: { key, expiresAt: { gte: new Date() } },
+    });
+    await prisma.$disconnect();
+    return cacheRow === null ? null : (cacheRow.value as T);
   },
   set: async (key: string, value: any, expirationInSeconds: number) => {
-    const zippedValue = await gzip(JSON.stringify(value));
-    const redisClient = await REDIS_CLIENT.get();
-    await redisClient.set(key, zippedValue, {
-      EX: expirationInSeconds,
+    const prisma = new PrismaClient();
+    const expiresAt = new Date(
+      new Date().getTime() + expirationInSeconds * 1000
+    );
+    await prisma.cache.upsert({
+      where: { key },
+      update: { value, expiresAt },
+      create: { key, value, expiresAt },
     });
-  },
-  clear: async () => {
-    const redisClient = await REDIS_CLIENT.get();
-    await redisClient.flushDb();
+    await prisma.$disconnect();
   },
 };
 
@@ -86,4 +51,4 @@ export const FILE_CACHE = {
   },
 };
 
-export const CACHE = IS_REDIS_ENABLED ? REDIS_CACHE : FILE_CACHE;
+export const CACHE = IS_POSTGRES_ENABLED ? POSTGRES_CACHE : FILE_CACHE;

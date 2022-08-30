@@ -3,7 +3,7 @@ import path from "path";
 
 import download from "download";
 
-import { FILE_CACHE, REDIS_CACHE } from "./cache";
+import { FILE_CACHE, POSTGRES_CACHE } from "./cache";
 import { ALL_GRADES } from "./constants";
 import Deck from "./Deck";
 import getCardStore from "./getCardStore";
@@ -18,30 +18,26 @@ interface ScryfallBulkData {
 }
 
 const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
-  "check-redis-keys": async (output) => {
+  "check-postgres-keys": async (output) => {
     for (const set of MagicSet.ALL) {
-      const cardStore = await REDIS_CACHE.get(set.code);
+      const cardStore = await POSTGRES_CACHE.get(set.code);
       output.push(
         `${set.code.toUpperCase()}: ${cardStore ? "Cached" : "Not Cached"}`
       );
     }
   },
-  "clear-redis-cache": async (output) => {
-    await REDIS_CACHE.clear();
-    output.push("Redis cache cleared!");
-  },
-  "compare-file-and-redis-scores": async (output) => {
+  "compare-file-and-postgres-scores": async (output) => {
     const set = MagicSet.NEW_CAPENNA;
-    const redisCards = (await getCardStore(set, REDIS_CACHE)).cards;
+    const pgCards = (await getCardStore(set, POSTGRES_CACHE)).cards;
     const fileCards = (await getCardStore(set, FILE_CACHE)).cards;
     const fileCardsByUrl = indexBy(fileCards, (card) => card.cardUrl);
-    for (const redisCard of redisCards) {
-      const fileCard = fileCardsByUrl[redisCard.cardUrl];
+    for (const pgCard of pgCards) {
+      const fileCard = fileCardsByUrl[pgCard.cardUrl];
       if (!fileCard) {
         continue;
       }
       output.push(
-        `${redisCard.name}\t${redisCard.rarity}\t${redisCard.stats.all?.score}\t${redisCard.stats.all?.grade}\t${fileCard.stats.all?.score}\t${fileCard.stats.all?.grade}`
+        `${pgCard.name}\t${pgCard.rarity}\t${pgCard.stats.all?.score}\t${pgCard.stats.all?.grade}\t${fileCard.stats.all?.score}\t${fileCard.stats.all?.grade}`
       );
     }
   },
@@ -70,15 +66,15 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
     await generateIndexFile(tempFilePath);
     output.push(`Scryfall index generated!`);
   },
-  "populate-redis-cache": async (output) => {
+  "populate-postgres-cache": async (output) => {
     for (const set of MagicSet.ALL) {
-      await getCardStore(set, REDIS_CACHE);
+      await getCardStore(set, POSTGRES_CACHE);
       output.push(`${set.code.toUpperCase()}: Cache Populated`);
     }
   },
   "update-file-cache": async (output) => {
     for (const set of MagicSet.ALL) {
-      const cardStore = await REDIS_CACHE.get(set.code);
+      const cardStore = await POSTGRES_CACHE.get(set.code);
       if (cardStore) {
         output.push(`Updating file cache for ${set.code.toUpperCase()}`);
         await FILE_CACHE.set(set.code, cardStore);
