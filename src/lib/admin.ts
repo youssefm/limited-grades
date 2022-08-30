@@ -1,21 +1,12 @@
-import os from "os";
-import path from "path";
-
-import download from "download";
-
 import { FILE_CACHE, POSTGRES_CACHE } from "./cache";
 import { ALL_GRADES } from "./constants";
 import Deck from "./Deck";
 import getCardStore from "./getCardStore";
 import MagicSet from "./MagicSet";
-import { generateIndexFile } from "./scryfall";
+import { generateIndexFile, generateLandImageFile } from "./scryfall";
 import { Grade } from "./types";
-import { fetchJson, groupBy, sortBy } from "./util";
+import { groupBy, sortBy } from "./util";
 import { indexBy } from "./util.server";
-
-interface ScryfallBulkData {
-  download_uri: string;
-}
 
 const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
   "check-postgres-keys": async (output) => {
@@ -52,18 +43,12 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
       output.push(`${grade}: ${gradeCards ? gradeCards.length : 0}`);
     }
   },
+  "generate-land-image-file": async (output) => {
+    await generateLandImageFile();
+    output.push(`Land image file generated!`);
+  },
   "generate-scryfall-index": async (output) => {
-    const bulkData = await fetchJson<ScryfallBulkData>(
-      "https://api.scryfall.com/bulk-data/oracle-cards"
-    );
-    const tempFolder = os.tmpdir();
-    const tempFileName = "oracle_cards.json";
-    await download(bulkData.download_uri, tempFolder, {
-      filename: tempFileName,
-    });
-
-    const tempFilePath = path.join(tempFolder, tempFileName);
-    await generateIndexFile(tempFilePath);
+    await generateIndexFile();
     output.push(`Scryfall index generated!`);
   },
   "populate-postgres-cache": async (output) => {

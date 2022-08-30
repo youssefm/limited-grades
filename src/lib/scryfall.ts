@@ -1,4 +1,7 @@
+import os from "os";
 import path from "path";
+
+import download from "download";
 
 import { ALL_CARD_TYPES } from "./constants";
 import MagicSet from "./MagicSet";
@@ -12,6 +15,15 @@ import {
 } from "./util.server";
 
 const INDEX_FILE_PATH = path.join(process.cwd(), "data", "scryfall-index.json");
+const LAND_IMAGE_FILE_PATH = path.join(
+  process.cwd(),
+  "data",
+  "land-image-file.json"
+);
+
+interface ScryfallBulkData {
+  download_uri: string;
+}
 
 type ScryfallColor = "W" | "U" | "B" | "R" | "G";
 
@@ -103,9 +115,21 @@ const readScryfallFile = async (
   return await readJsonFile<ScryfallCard[]>(scryfallFilePath);
 };
 
-export const generateIndexFile = async (
-  scryfallFilePath: string
-): Promise<void> => {
+const downloadBulkDataFile = async (type: string): Promise<string> => {
+  const bulkData = await fetchJson<ScryfallBulkData>(
+    `https://api.scryfall.com/bulk-data/${type}`
+  );
+  const tempFolder = os.tmpdir();
+  const tempFileName = `scryfall_${type}.json`;
+  await download(bulkData.download_uri, tempFolder, {
+    filename: tempFileName,
+  });
+
+  return path.join(tempFolder, tempFileName);
+};
+
+export const generateIndexFile = async (): Promise<void> => {
+  const scryfallFilePath = await downloadBulkDataFile("oracle-cards");
   const cards = await readScryfallFile(scryfallFilePath);
   const index: ScryfallIndex = {};
   for (const card of cards) {
@@ -130,21 +154,32 @@ export const SCRYFALL_FILE_INDEX = new LazySingleton(async () => {
   return readJsonFile<ScryfallIndex>(INDEX_FILE_PATH);
 });
 
-export const getAllCardsByType = async (
-  cardType: CardType
-): Promise<ScryfallCard[]> => {
-  const scryfallFilePath = path.join(
-    process.cwd(),
-    "data",
-    "scryfall-unique-artwork.json.gz"
-  );
-  const scryfallCards = await readScryfallFile(scryfallFilePath);
-  return scryfallCards.filter(
-    (card) =>
-      !shouldExcludeCard(card) &&
-      card.type_line?.toLowerCase().includes(cardType)
-  );
+export const generateLandImageFile = async (): Promise<void> => {
+  const scryfallFilePath = await downloadBulkDataFile("unique-artwork");
+  const cards = await readScryfallFile(scryfallFilePath);
+  const landImageUrls: string[] = [];
+  for (const card of cards) {
+    if (shouldExcludeCard(card)) {
+      continue;
+    }
+    if (card.type_line?.toLowerCase().includes(CardType.LAND)) {
+      if (card.image_uris) {
+        landImageUrls.push(card.image_uris.border_crop);
+      } else if (card.card_faces) {
+        for (const cardFace of card.card_faces) {
+          if (cardFace.type_line.toLowerCase().includes(CardType.LAND)) {
+            landImageUrls.push(cardFace.image_uris.border_crop);
+          }
+        }
+      }
+    }
+  }
+  await writeJsonFile(LAND_IMAGE_FILE_PATH, landImageUrls);
 };
+
+export const LAND_IMAGES = new LazySingleton(async () =>
+  readJsonFile<string[]>(LAND_IMAGE_FILE_PATH)
+);
 
 export const fetchCards = async (set: MagicSet): Promise<ScryfallCard[]> => {
   const cards: ScryfallCard[] = [];

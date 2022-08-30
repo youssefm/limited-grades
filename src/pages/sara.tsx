@@ -6,34 +6,17 @@ import SwiperCore from "swiper";
 import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 
-import { getAllCardsByType } from "lib/scryfall";
-import { CardType } from "lib/types";
+import { LAND_IMAGES } from "lib/scryfall";
 
 interface StaticProps {
   imageUrls: string[];
 }
 
-export const getStaticProps: GetStaticProps<StaticProps> = async () => {
-  const landCards = await getAllCardsByType(CardType.LAND);
-  const imageUrls = [];
-  for (const card of landCards) {
-    if (card.image_uris) {
-      imageUrls.push(card.image_uris.border_crop);
-    } else if (card.card_faces) {
-      for (const cardFace of card.card_faces) {
-        if (cardFace.type_line.toLowerCase().includes(CardType.LAND)) {
-          imageUrls.push(cardFace.image_uris.border_crop);
-        }
-      }
-    }
-  }
-
-  return {
-    props: {
-      imageUrls,
-    },
-  };
-};
+export const getStaticProps: GetStaticProps<StaticProps> = async () => ({
+  props: {
+    imageUrls: await LAND_IMAGES.get(),
+  },
+});
 
 const Page: NextPage<StaticProps> = ({ imageUrls }) => {
   const swiperRef = useRef<SwiperCore>();
