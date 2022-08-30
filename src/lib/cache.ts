@@ -28,7 +28,7 @@ export const POSTGRES_CACHE = {
   },
 };
 
-const getFileCachePath = (key: string) => `./data/cache/${key}.json`;
+const getFileCachePath = (key: string) => `data/cache/${key}.json`;
 
 export const FILE_CACHE = {
   get: async <T>(key: string): Promise<T | null> => {

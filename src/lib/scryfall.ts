@@ -14,12 +14,8 @@ import {
   writeJsonFile,
 } from "./util.server";
 
-const INDEX_FILE_PATH = path.join(process.cwd(), "data", "scryfall-index.json");
-const LAND_IMAGE_FILE_PATH = path.join(
-  process.cwd(),
-  "data",
-  "land-image-file.json"
-);
+const INDEX_FILE_PATH = "data/scryfall-index.json";
+const LAND_IMAGE_FILE_PATH = "data/land-image-file.json";
 
 interface ScryfallBulkData {
   download_uri: string;
@@ -120,7 +116,7 @@ const downloadBulkDataFile = async (type: string): Promise<string> => {
     `https://api.scryfall.com/bulk-data/${type}`
   );
   const tempFolder = os.tmpdir();
-  const tempFileName = `scryfall_${type}.json`;
+  const tempFileName = `scryfall-${type}.json`;
   await download(bulkData.download_uri, tempFolder, {
     filename: tempFileName,
   });
