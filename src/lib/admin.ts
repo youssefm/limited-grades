@@ -43,13 +43,17 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
       output.push(`${grade}: ${gradeCards ? gradeCards.length : 0}`);
     }
   },
+  "delete-dmu-cache": async (output) => {
+    await POSTGRES_CACHE.delete("dmu");
+    output.push("DMU cache deleted");
+  },
   "generate-land-image-file": async (output) => {
     await generateLandImageFile();
-    output.push(`Land image file generated!`);
+    output.push("Land image file generated!");
   },
   "generate-scryfall-index": async (output) => {
     await generateIndexFile();
-    output.push(`Scryfall index generated!`);
+    output.push("Scryfall index generated!");
   },
   "populate-postgres-cache": async (output) => {
     for (const set of MagicSet.ALL) {

@@ -26,6 +26,11 @@ export const POSTGRES_CACHE = {
       create: { key, value, expiresAt },
     });
   },
+  delete: async (key: string) => {
+    await PRISMA.cache.delete({
+      where: { key },
+    });
+  },
 };
 
 const getFileCachePath = (key: string) => `data/cache/${key}.json`;
