@@ -148,7 +148,7 @@ export const generateIndexFile = async (): Promise<void> => {
 
 export const SCRYFALL_FILE_INDEX = new LazySingleton(async () => {
   console.log(`Reading Scryfall index from ${INDEX_FILE_PATH}`);
-  const index = readJsonFile<ScryfallIndex>(INDEX_FILE_PATH);
+  const index = await readJsonFile<ScryfallIndex>(INDEX_FILE_PATH);
   return new CaseInsensitiveMap(Object.entries(index));
 });
 
