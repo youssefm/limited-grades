@@ -3,6 +3,7 @@ import path from "path";
 
 import download from "download";
 
+import CaseInsensitiveMap from "./CaseInsensitiveMap";
 import { ALL_CARD_TYPES } from "./constants";
 import MagicSet from "./MagicSet";
 import { CardType, Color } from "./types";
@@ -147,7 +148,8 @@ export const generateIndexFile = async (): Promise<void> => {
 
 export const SCRYFALL_FILE_INDEX = new LazySingleton(async () => {
   console.log(`Reading Scryfall index from ${INDEX_FILE_PATH}`);
-  return readJsonFile<ScryfallIndex>(INDEX_FILE_PATH);
+  const index = readJsonFile<ScryfallIndex>(INDEX_FILE_PATH);
+  return new CaseInsensitiveMap(Object.entries(index));
 });
 
 export const generateLandImageFile = async (): Promise<void> => {

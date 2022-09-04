@@ -89,7 +89,7 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
     }
     // For some reason, Amonkhet split cards are mistakently referenced by 17lands with three slashes
     const cardName = apiCard.name.replace("///", "//");
-    const scryfallIndexEntry = scryfallIndex[cardName];
+    const scryfallIndexEntry = scryfallIndex.get(cardName);
     if (!scryfallIndexEntry) {
       throw Error(
         `Card named '${cardName}' could not be found in the Scryfall DB`
