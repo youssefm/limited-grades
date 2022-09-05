@@ -136,16 +136,16 @@ const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
 
 const computeCacheExpirationInSeconds = (set: MagicSet): number => {
   if (set.isRecent()) {
-    // If the set is recently released (< 30 days ago), expire cache entry until the next day
-    // 1AM UTC is when 17Lands refreshes their daily data
+    // If the set is recently released (<30 days ago), expire cache entry until the next day
+    // 2AM UTC is when 17Lands refreshes their daily data
     const now = new Date();
     const currentDate = now.getUTCDate();
     const nextRefreshAt = new Date(
       Date.UTC(
         now.getUTCFullYear(),
         now.getUTCMonth(),
-        now.getUTCHours() < 1 ? currentDate : currentDate + 1,
-        1
+        now.getUTCHours() < 2 ? currentDate : currentDate + 1,
+        2
       )
     );
     return Math.ceil((nextRefreshAt.getTime() - now.getTime()) / 1000);
