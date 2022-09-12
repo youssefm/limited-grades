@@ -22,7 +22,7 @@
     "keyrune": "^3.10.0",
     "mana-font": "^1.14.0",
     "mathjs": "^9.5.0",
-    "next": "^12.1.0",
+    "next": "^12.3.0",
     "normal-distribution": "^1.1.1",
     "prisma": "^4.2.1",
     "react": "^17.0.2",
