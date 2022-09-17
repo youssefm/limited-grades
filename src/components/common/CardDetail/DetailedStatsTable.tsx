@@ -17,14 +17,14 @@ const StatsRow: FC<{
   <tr className={className}>
     <td className="py-2 pr-12 pl-4">
       <Tippy
-        content={<div className="p-2 max-w-sm">{tooltipText}</div>}
+        content={<div className="max-w-sm p-2">{tooltipText}</div>}
         placement="bottom-start"
         animation={false}
       >
         <span className="cursor-pointer">{label}</span>
       </Tippy>
     </td>
-    <td className="pr-4 font-mono text-sm text-right">{children}</td>
+    <td className="pr-4 text-right font-mono text-sm">{children}</td>
   </tr>
 );
 

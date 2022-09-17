@@ -21,10 +21,10 @@ const Admin: NextPage = () => {
   }, []);
 
   return (
-    <div className="overflow-y-auto p-12 h-full text-neutral-800 dark:text-neutral-100 dark:bg-neutral-900">
+    <div className="h-full overflow-y-auto p-12 text-neutral-800 dark:bg-neutral-900 dark:text-neutral-100">
       <div className="mx-auto w-[720px]">
-        <div className="p-8 bg-neutral-100 dark:bg-neutral-800 rounded-t-lg">
-          <h1 className="mb-8 text-3xl text-center">Run an Admin Action</h1>
+        <div className="rounded-t-lg bg-neutral-100 p-8 dark:bg-neutral-800">
+          <h1 className="mb-8 text-center text-3xl">Run an Admin Action</h1>
           <form
             className="flex gap-4"
             onSubmit={async (e) => {
@@ -53,7 +53,7 @@ const Admin: NextPage = () => {
               className="grow"
             />
             <button
-              className="w-24 bg-blue-500 dark:bg-amber-600 rounded"
+              className="w-24 rounded bg-blue-500 dark:bg-amber-600"
               type="submit"
             >
               {!loading && <span className="text-neutral-100">Run</span>}
@@ -61,7 +61,7 @@ const Admin: NextPage = () => {
                 <SpinnerIcon
                   width="1em"
                   height="1em"
-                  className="mx-auto text-black animate-spin fill-white"
+                  className="mx-auto animate-spin fill-white text-black"
                 />
               )}
             </button>
@@ -70,7 +70,7 @@ const Admin: NextPage = () => {
         {actionOutput.length > 0 && (
           <div className="p-4 font-mono">
             <div className="pb-2">Output:</div>
-            <div className="text-sm whitespace-pre-wrap break-words">
+            <div className="whitespace-pre-wrap break-words text-sm">
               {actionOutput.join("\n")}
             </div>
           </div>

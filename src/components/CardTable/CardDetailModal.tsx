@@ -15,7 +15,7 @@ const CardDetailModal: FC<Props> = ({ card, set, onClose }) => (
   <Modal
     title={card.name}
     onClose={onClose}
-    className="w-full h-full lg:w-fit lg:h-fit"
+    className="h-full w-full lg:h-fit lg:w-fit"
   >
     <CardDetail card={card} set={set} />
   </Modal>

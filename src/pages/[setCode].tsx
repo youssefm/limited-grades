@@ -49,7 +49,7 @@ const Page: NextPage<StaticProps> = ({
       </Head>
       <div
         className={clsx(
-          "flex flex-col px-2 mx-auto max-w-[1800px] min-h-full",
+          "mx-auto flex min-h-full max-w-[1800px] flex-col px-2",
           "text-neutral-800 dark:text-neutral-100",
           TRANSITION_CLASSES
         )}

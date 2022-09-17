@@ -20,7 +20,7 @@ const LoadingCardImage: FC<Props> = ({ card }) => {
   return (
     <>
       {showSpinner && (
-        <Center className="w-[240px] h-[340px]">
+        <Center className="h-[340px] w-[240px]">
           <Spinner className="text-5xl" />
         </Center>
       )}

@@ -45,7 +45,7 @@ const ColorIcon: FC<Props> = ({ color, className }) => {
       width="1.375em"
       height="1.375em"
       className={clsx(
-        "inline-block text-black rounded-full border-[0.0625em] border-neutral-300 dark:border-black",
+        "inline-block rounded-full border-[0.0625em] border-neutral-300 text-black dark:border-black",
         BG_COLOR_CLASSES[color],
         TRANSITION_CLASSES,
         className

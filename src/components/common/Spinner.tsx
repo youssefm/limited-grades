@@ -12,7 +12,7 @@ const Spinner: FC<Props> = ({ className }) => (
     width="1em"
     height="1em"
     className={clsx(
-      "text-neutral-200 dark:text-neutral-600 animate-spin fill-blue-500 dark:fill-amber-600",
+      "animate-spin fill-blue-500 text-neutral-200 dark:fill-amber-600 dark:text-neutral-600",
       className
     )}
   />

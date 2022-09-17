@@ -30,9 +30,9 @@ const CardBubble = forwardRef<HTMLButtonElement, Props>(
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
       className={clsx(
-        "px-2 mb-1 last:mb-0 w-full text-left",
-        "hover:underline underline-offset-2",
-        "bg-white dark:bg-neutral-700 border-l-[3px]",
+        "mb-1 w-full px-2 text-left last:mb-0",
+        "underline-offset-2 hover:underline",
+        "border-l-[3px] bg-white dark:bg-neutral-700",
         HOVER_CLASSES,
         TRANSITION_CLASSES,
         BORDER_COLORS[card.rarity]

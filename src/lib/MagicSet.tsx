@@ -256,7 +256,7 @@ export default class MagicSet {
         width="1.28571429em"
         height="1em"
         className={clsx(
-          "stroke-neutral-300 dark:stroke-black paint-order-stroke",
+          "paint-order-stroke stroke-neutral-300 dark:stroke-black",
           rarity && RARITY_ICON_CLASSES[rarity],
           TRANSITION_CLASSES,
           className

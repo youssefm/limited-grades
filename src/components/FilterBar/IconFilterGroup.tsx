@@ -42,8 +42,8 @@ const IconFilterGroup = <T extends unknown>({
         <div
           key={label}
           className={clsx(
-            "overflow-hidden hover:z-20 focus:z-10 -ml-px first:ml-0",
-            "grow min-w-[46px] h-[38px] last:rounded-r first:rounded-l",
+            "-ml-px overflow-hidden first:ml-0 hover:z-20 focus:z-10",
+            "h-[38px] min-w-[46px] grow first:rounded-l last:rounded-r",
             "border border-neutral-300 hover:border-neutral-500 dark:border-black",
             TRANSITION_CLASSES
           )}
@@ -69,10 +69,10 @@ const IconFilterGroup = <T extends unknown>({
             />
             <Center
               className={clsx(
-                "w-full h-full text-2xl",
-                "bg-neutral-200 peer-checked:bg-white hover:!bg-neutral-200",
-                "dark:bg-neutral-900 dark:peer-checked:bg-neutral-700 dark:hover:!bg-neutral-900",
-                "opacity-30 peer-checked:opacity-100 transition"
+                "h-full w-full text-2xl",
+                "bg-neutral-200 hover:!bg-neutral-200 peer-checked:bg-white",
+                "dark:bg-neutral-900 dark:hover:!bg-neutral-900 dark:peer-checked:bg-neutral-700",
+                "opacity-30 transition peer-checked:opacity-100"
               )}
             >
               {icon}

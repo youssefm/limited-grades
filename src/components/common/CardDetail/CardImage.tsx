@@ -22,7 +22,7 @@ const DoubleFacedCardImage: FC<Props> = ({ card, className, onLoad }) => {
       <button onClick={toggleFlipped} type="button" aria-label="Flip card">
         <div
           className={clsx(
-            "transition-transform duration-500 ease-in-out backface-invisible",
+            "backface-invisible transition-transform duration-500 ease-in-out",
             {
               "rotate-y-0": !flipped,
               "rotate-y-180": flipped,
@@ -33,7 +33,7 @@ const DoubleFacedCardImage: FC<Props> = ({ card, className, onLoad }) => {
         </div>
         <div
           className={clsx(
-            "absolute inset-0 transition-transform duration-500 ease-in-out backface-invisible",
+            "backface-invisible absolute inset-0 transition-transform duration-500 ease-in-out",
             {
               "rotate-y-0": flipped,
               "rotate-y-180": !flipped,
@@ -46,7 +46,7 @@ const DoubleFacedCardImage: FC<Props> = ({ card, className, onLoad }) => {
       <div className="absolute inset-x-0 -bottom-6">
         <button
           className={clsx(
-            "block p-2 mx-auto text-2xl bg-neutral-200 dark:bg-neutral-800 rounded-full",
+            "mx-auto block rounded-full bg-neutral-200 p-2 text-2xl dark:bg-neutral-800",
             HOVER_CLASSES,
             TRANSITION_CLASSES
           )}

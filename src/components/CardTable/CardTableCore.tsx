@@ -29,7 +29,7 @@ const CardTableCore: FC<Props> = ({
     <>
       <div
         className={clsx(
-          "hidden sticky top-0 text-lg border-b-2 border-neutral-900 lg:grid lg:grid-cols-[4rem_repeat(7,_1fr)]",
+          "sticky top-0 hidden border-b-2 border-neutral-900 text-lg lg:grid lg:grid-cols-[4rem_repeat(7,_1fr)]",
           HEADER_BG_CLASSES,
           TRANSITION_CLASSES
         )}
@@ -57,13 +57,13 @@ const CardTableCore: FC<Props> = ({
               "lg:mb-0.5": grade !== Grade.F,
             })}
           >
-            <div className="py-2 text-xl font-bold text-center lg:hidden">
+            <div className="py-2 text-center text-xl font-bold lg:hidden">
               {grade}
             </div>
             <div className="grid grid-cols-[1fr] gap-0.5 lg:grid-cols-[4rem_repeat(7,_1fr)] lg:gap-0">
               <div
                 className={clsx(
-                  "hidden items-center pl-4 text-xl font-bold border-l-4 lg:flex",
+                  "hidden items-center border-l-4 pl-4 text-xl font-bold lg:flex",
                   HEADER_BG_CLASSES,
                   GRADE_BORDER_COLORS[grade],
                   TRANSITION_CLASSES
@@ -83,7 +83,7 @@ const CardTableCore: FC<Props> = ({
                   >
                     <Center
                       className={clsx(
-                        "shrink-0 w-16 border-l-4 lg:hidden",
+                        "w-16 shrink-0 border-l-4 lg:hidden",
                         HEADER_BG_CLASSES,
                         GRADE_BORDER_COLORS[grade],
                         TRANSITION_CLASSES
@@ -93,7 +93,7 @@ const CardTableCore: FC<Props> = ({
                     </Center>
                     <div
                       className={clsx(
-                        "grow p-2 bg-neutral-100 dark:bg-neutral-800 lg:px-1 lg:h-full",
+                        "grow bg-neutral-100 p-2 dark:bg-neutral-800 lg:h-full lg:px-1",
                         TRANSITION_CLASSES
                       )}
                     >
@@ -102,7 +102,7 @@ const CardTableCore: FC<Props> = ({
                           return (
                             <div
                               key={card.cardUrl}
-                              className="mb-1 last:mb-0 h-6 bg-neutral-200 dark:bg-neutral-700 animate-pulse"
+                              className="mb-1 h-6 animate-pulse bg-neutral-200 last:mb-0 dark:bg-neutral-700"
                             />
                           );
                         }

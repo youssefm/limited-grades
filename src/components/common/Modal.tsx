@@ -42,7 +42,7 @@ const Modal: FC<Props> = ({
     <Transition appear show as={Fragment}>
       <Dialog
         onClose={internalOnClose}
-        className="grid fixed inset-0 place-items-center"
+        className="fixed inset-0 grid place-items-center"
         initialFocus={initialFocus}
       >
         <Transition.Child
@@ -61,12 +61,12 @@ const Modal: FC<Props> = ({
         >
           <div
             className={clsx(
-              "overflow-y-auto z-20 max-w-[95%] max-h-[95%] dark:text-neutral-100",
-              "bg-white dark:bg-neutral-900 rounded-lg border border-black shadow-xl",
+              "z-20 max-h-[95%] max-w-[95%] overflow-y-auto dark:text-neutral-100",
+              "rounded-lg border border-black bg-white shadow-xl dark:bg-neutral-900",
               className
             )}
           >
-            <Dialog.Title className="flex items-center p-4 text-2xl border-b border-neutral-200 dark:border-black">
+            <Dialog.Title className="flex items-center border-b border-neutral-200 p-4 text-2xl dark:border-black">
               <span className="grow font-medium">{title}</span>
               <button
                 onClick={internalOnClose}

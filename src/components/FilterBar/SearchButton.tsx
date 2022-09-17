@@ -40,7 +40,7 @@ const SearchButton: FC<Props> = ({ cards, set }) => {
           trackEvent("search modal button clicked");
         }}
         className={clsx(
-          "py-1 px-6 w-full h-full hover:text-white rounded lg:text-2xl lg:rounded-lg",
+          "h-full w-full rounded py-1 px-6 hover:text-white lg:rounded-lg lg:text-2xl",
           "bg-white hover:bg-blue-500 dark:bg-neutral-700 dark:hover:bg-amber-600",
           "border border-neutral-300 dark:border-black",
           TRANSITION_CLASSES
@@ -48,7 +48,7 @@ const SearchButton: FC<Props> = ({ cards, set }) => {
         type="button"
         aria-label="Search"
       >
-        <FaSearch className="inline-block relative bottom-0.5 mr-1.5 lg:block lg:static lg:mr-0" />
+        <FaSearch className="relative bottom-0.5 mr-1.5 inline-block lg:static lg:mr-0 lg:block" />
         <span className="lg:hidden">Search</span>
       </button>
       {isModalOpen && (

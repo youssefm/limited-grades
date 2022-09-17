@@ -51,7 +51,7 @@ const FilterBar: FC<Props> = ({
     <>
       <div
         className={clsx(
-          "p-4 bg-neutral-100 dark:bg-neutral-800 rounded-t-lg lg:pl-8",
+          "rounded-t-lg bg-neutral-100 p-4 dark:bg-neutral-800 lg:pl-8",
           FLEX_CLASSES,
           TRANSITION_CLASSES
         )}
@@ -78,7 +78,7 @@ const FilterBar: FC<Props> = ({
         <Collapsible
           isExpanded={isExpanded}
           className={clsx(
-            "grow lg:!flex lg:!overflow-visible lg:!max-h-[none]",
+            "grow lg:!flex lg:!max-h-[none] lg:!overflow-visible",
             FLEX_CLASSES
           )}
         >
@@ -103,7 +103,7 @@ const FilterBar: FC<Props> = ({
       <Collapsible isExpanded={!isExpanded} className="lg:hidden">
         <button
           className={clsx(
-            "pt-1 w-full text-neutral-300 dark:text-neutral-700",
+            "w-full pt-1 text-neutral-300 dark:text-neutral-700",
             HOVER_CLASSES,
             TRANSITION_CLASSES
           )}

@@ -33,7 +33,7 @@ const PageHeader = () => {
         <button
           onClick={() => setShowInfoModal(true)}
           className={clsx(
-            "flex gap-1 items-center",
+            "flex items-center gap-1",
             HOVER_CLASSES,
             TRANSITION_CLASSES
           )}

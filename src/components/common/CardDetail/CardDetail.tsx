@@ -18,7 +18,7 @@ const CardDetail: FC<Props> = ({ card, set, showLoadingState = false }) => {
   const underEmbargo = set.isUnderEmbargo();
   return (
     <div className="flex flex-col gap-6 lg:flex-row">
-      <div className="self-center lg:self-start lg:mt-9">
+      <div className="self-center lg:mt-9 lg:self-start">
         {showLoadingState ? (
           <LoadingCardImage card={card} />
         ) : (

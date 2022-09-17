@@ -45,10 +45,10 @@ const DeckStatsRow = ({
       <div className="flex">
         <div
           className={clsx(
-            "py-3 mx-auto text-2xl font-bold text-black",
+            "mx-auto py-3 text-2xl font-bold text-black",
             {
-              "pl-4 w-16": showStats,
-              "pl-12 w-32": !showStats,
+              "w-16 pl-4": showStats,
+              "w-32 pl-12": !showStats,
             },
             GRADE_BG_COLORS[stats.grade]
           )}
@@ -112,7 +112,7 @@ const DeckAnalysisTable: FC<Props> = ({ card, showStats }) => {
         <Collapsible isExpanded={!isExpanded}>
           <button
             className={clsx(
-              "pt-1 w-full text-neutral-300 dark:text-neutral-700",
+              "w-full pt-1 text-neutral-300 dark:text-neutral-700",
               HOVER_CLASSES,
               TRANSITION_CLASSES
             )}
