@@ -4,7 +4,7 @@ import Deck from "./Deck";
 import getCardStore from "./getCardStore";
 import MagicSet from "./MagicSet";
 import { generateIndexFile, generateLandImageFile } from "./scryfall";
-import { Grade } from "./types";
+import { Grade, Rarity } from "./types";
 import { groupBy, sortBy } from "./util";
 import { indexBy } from "./util.server";
 
@@ -44,8 +44,33 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
     }
   },
   "delete-dmu-cache": async (output) => {
-    await POSTGRES_CACHE.delete("dmu");
+    await POSTGRES_CACHE.delete(MagicSet.DOMINARIA_UNITED.code);
     output.push("DMU cache deleted");
+  },
+  "find-deck-outliers": async (output) => {
+    let { cards } = await getCardStore(
+      MagicSet.DOMINARIA_UNITED,
+      POSTGRES_CACHE
+    );
+    cards = cards.filter(
+      (card) => card.rarity === Rarity.COMMON || card.rarity === Rarity.UNCOMMON
+    );
+    sortBy(
+      cards,
+      (card) => {
+        const overallScore = card.stats[Deck.ALL.code]!.score;
+        return Math.max(
+          ...Object.values(card.stats).map((stats) =>
+            Math.abs(stats.score - overallScore)
+          )
+        );
+      },
+      true
+    );
+
+    for (const card of cards.slice(0, 30)) {
+      output.push(card.name);
+    }
   },
   "generate-land-image-file": async (output) => {
     await generateLandImageFile();
