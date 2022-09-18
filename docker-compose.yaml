@@ -9,8 +9,6 @@ services:
     environment:
       - USE_POSTGRES_CACHE=true
       - DATABASE_URL=postgres://postgres:secret@db/postgres
-    expose:
-      - 3000
     ports:
       - 3000:3000
     volumes:
