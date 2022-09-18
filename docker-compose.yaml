@@ -2,6 +2,7 @@ version: '3'
 services:
   web:
     image: node:16
+    user: node
     command: sh -c "npm install && npx prisma migrate && npm run dev"
     ports:
       - 3000:3000
