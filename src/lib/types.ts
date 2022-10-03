@@ -1,3 +1,8 @@
+export enum Format {
+  PREMIER_DRAFT = "PremierDraft",
+  TRADITIONAL_DRAFT = "TradDraft",
+}
+
 export enum Color {
   WHITE = "white",
   BLUE = "blue",

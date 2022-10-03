@@ -5,7 +5,7 @@ import CardGrader from "./CardGrader";
 import Deck from "./Deck";
 import MagicSet from "./MagicSet";
 import { SCRYFALL_FILE_INDEX } from "./scryfall";
-import { Card, CardStore, Rarity } from "./types";
+import { Card, CardStore, Format, Rarity } from "./types";
 import { sortBy } from "./util";
 import { buildUrl, round } from "./util.server";
 
@@ -26,10 +26,14 @@ interface ApiCard {
   win_rate: number;
 }
 
-const fetchApiCards = async (set: MagicSet, deck: Deck): Promise<ApiCard[]> => {
+const fetchApiCards = async (
+  set: MagicSet,
+  deck: Deck,
+  format: Format
+): Promise<ApiCard[]> => {
   const queryParams: Record<string, string> = {
     expansion: set.code,
-    format: "PremierDraft",
+    format,
     start_date: set.startDate,
     end_date: new Date().toISOString().slice(0, 10),
   };
@@ -52,13 +56,16 @@ const fetchApiCards = async (set: MagicSet, deck: Deck): Promise<ApiCard[]> => {
   return response.json();
 };
 
-const buildCardStore = async (set: MagicSet): Promise<CardStore> => {
+const buildCardStore = async (
+  set: MagicSet,
+  format: Format
+): Promise<CardStore> => {
   const cards: Card[] = [];
   const setDecks = set.decks;
   const [apiCardStore, scryfallIndex] = await Promise.all([
     Promise.all(
       setDecks.map(async (deck): Promise<[Deck, ApiCard[]]> => {
-        const apiCards = await fetchApiCards(set, deck);
+        const apiCards = await fetchApiCards(set, deck, format);
         return [deck, apiCards];
       })
     ),
@@ -155,10 +162,13 @@ const computeCacheExpirationInSeconds = (set: MagicSet): number => {
 
 const getCardStore = async (
   set: MagicSet,
+  format: Format = Format.PREMIER_DRAFT,
   cache: Cache = CACHE
 ): Promise<CardStore> => {
-  console.log(`attempting to fetch 17lands data for ${set.code} from cache`);
-  const cacheHit = await cache.get<CardStore>(set.code);
+  const cacheKey =
+    format === Format.PREMIER_DRAFT ? set.code : `${set}_${format}`;
+  console.log(`attempting to fetch 17lands data for ${cacheKey} from cache`);
+  const cacheHit = await cache.get<CardStore>(cacheKey);
   if (cacheHit) {
     console.log("cache hit");
     return {
@@ -168,9 +178,9 @@ const getCardStore = async (
   }
   console.log("cache miss");
 
-  const cardStore = await buildCardStore(set);
+  const cardStore = await buildCardStore(set, format);
   const expirationInSeconds = computeCacheExpirationInSeconds(set);
-  await cache.set(set.code, cardStore, expirationInSeconds);
+  await cache.set(cacheKey, cardStore, expirationInSeconds);
   return cardStore;
 };
 
