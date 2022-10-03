@@ -3,6 +3,7 @@ import AfrIcon from "keyrune/svg/afr.svg";
 import AkrIcon from "keyrune/svg/akr.svg";
 import DmuIcon from "keyrune/svg/dmu.svg";
 import DomIcon from "keyrune/svg/dom.svg";
+import EldIcon from "keyrune/svg/eld.svg";
 import GrnIcon from "keyrune/svg/grn.svg";
 import IkoIcon from "keyrune/svg/iko.svg";
 import KhmIcon from "keyrune/svg/khm.svg";
@@ -159,6 +160,13 @@ export default class MagicSet {
     "Theros Beyond Death",
     "2020-04-16",
     ThbIcon
+  );
+
+  static ELDRAINE = new MagicSet(
+    "eld",
+    "Throne of Eldraine",
+    "2020-04-16",
+    EldIcon
   );
 
   static WAR_OF_THE_SPARK = new MagicSet(
