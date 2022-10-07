@@ -3,7 +3,7 @@ services:
   web:
     image: node:16
     user: node
-    command: sh -c "npm install && npx prisma migrate && npx prisma migrate deploy && npm run dev"
+    command: sh -c "npm install && npx prisma migrate deploy && npm run dev"
     depends_on:
       - db
     environment:
