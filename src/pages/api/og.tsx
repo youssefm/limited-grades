@@ -27,11 +27,7 @@ const handler = () =>
         />
         <div style={{ marginTop: 48, color: "#f5f5f5" }}>Limited Grades</div>
       </div>
-    ),
-    {
-      width: 1200,
-      height: 627,
-    }
+    )
   );
 
 export default handler;
