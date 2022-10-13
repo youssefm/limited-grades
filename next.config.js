@@ -1,7 +1,6 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
   output: "standalone",
-  outputFileTracing: true,
   reactStrictMode: true,
   redirects: async () => [
     {
