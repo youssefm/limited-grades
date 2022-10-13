@@ -15,11 +15,8 @@ const Layout: FC = ({ children }) => {
         />
         <meta
           property="og:image"
-          content="https://www.limitedgrades.com/android-chrome-512x512.png"
+          content="https://www.limitedgrades.com/api/og"
         />
-        <meta property="og:image:type" content="image/png" />
-        <meta property="og:image:width" content="512" />
-        <meta property="og:image:height" content="512" />
         <meta
           name="color-scheme"
           content={darkModeEnabled ? "dark" : "light"}
