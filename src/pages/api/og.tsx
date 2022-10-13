@@ -17,17 +17,18 @@ const handler = () =>
           alignItems: "center",
           justifyContent: "center",
           backgroundColor: "#171717",
-          fontSize: 64,
+          fontSize: 32,
           fontWeight: 600,
         }}
       >
         <img
           src="https://www.limitedgrades.com/android-chrome-512x512.png"
-          height={384}
+          height={192}
         />
-        <div style={{ marginTop: 48, color: "#f5f5f5" }}>Limited Grades</div>
+        <div style={{ marginTop: 24, color: "#f5f5f5" }}>Limited Grades</div>
       </div>
-    )
+    ),
+    { width: 600, height: 315 }
   );
 
 export default handler;
