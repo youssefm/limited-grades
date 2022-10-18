@@ -22,7 +22,9 @@ const PageFooter = ({ lastUpdatedAt }: Props) => (
       {lastUpdatedAt.toLocaleString("en-US", {
         dateStyle: "long",
         timeStyle: "short",
-      })}
+        timeZone: "UTC",
+      })}{" "}
+      UTC
     </em>
   </div>
 );
