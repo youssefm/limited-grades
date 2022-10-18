@@ -3,7 +3,7 @@ services:
   web:
     image: node:16
     user: node
-    command: sh -c "npm install && npx prisma migrate deploy && npm run dev"
+    command: sh -c "npm install && npx prisma migrate deploy && node --inspect=0.0.0.0:9229 node_modules/next/dist/bin/next dev"
     depends_on:
       - db
     environment:
@@ -11,6 +11,7 @@ services:
       - DATABASE_URL=postgres://postgres:secret@db/postgres
     ports:
       - 3000:3000
+      - 9229:9229
     volumes:
       - .:/app
     working_dir: /app
