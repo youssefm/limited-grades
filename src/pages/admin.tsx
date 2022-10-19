@@ -1,24 +1,15 @@
 import { NextPage } from "next";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import SpinnerIcon from "assets/spinner.svg";
 import Select from "components/common/Select";
-import { fetchJson } from "lib/util";
+import useFetch from "hooks/useFetch";
 
 const Admin: NextPage = () => {
   const [selectedAction, setSelectedAction] = useState<string>();
-  const [actionOptions, setActionOptions] = useState<string[]>([]);
+  const { data: actionOptions } = useFetch<string[]>("/api/admin", []);
   const [actionOutput, setActionOutput] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    const fetchOptions = async () => {
-      const fetchedOptions = await fetchJson<string[]>("/api/admin");
-      setActionOptions(fetchedOptions);
-    };
-
-    fetchOptions().catch((error) => console.log(error));
-  }, []);
 
   return (
     <div className="h-full overflow-y-auto p-12 text-neutral-800 dark:bg-neutral-900 dark:text-neutral-100">
