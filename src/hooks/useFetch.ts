@@ -24,15 +24,27 @@ const useFetch: UseFetch = <TData, TError = unknown>(
   const [error, setError] = useState<TError>();
 
   useEffect(() => {
+    const abortController = new AbortController();
+
     const fetchData = async () => {
-      const fetchedData = await fetchJson<TData>(url);
+      const fetchedData = await fetchJson<TData>(url, {
+        signal: abortController.signal,
+      });
       setData(fetchedData);
     };
 
     setIsLoading(true);
     fetchData()
-      .catch((e) => setError(e))
+      .catch((e) => {
+        if (!abortController.signal.aborted) {
+          setError(e);
+        }
+      })
       .finally(() => setIsLoading(false));
+
+    return () => {
+      abortController.abort();
+    };
   }, [url]);
 
   return { data, isLoading, error };

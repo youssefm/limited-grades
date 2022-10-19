@@ -78,8 +78,11 @@ export const extractUrlQuery = (url: string) => {
   return url.slice(questionMarkIndex + 1);
 };
 
-export const fetchJson = async <T>(url: string): Promise<T> => {
-  const response = await fetch(url);
+export const fetchJson = async <T>(
+  url: RequestInfo | URL,
+  init?: RequestInit
+): Promise<T> => {
+  const response = await fetch(url, init);
   if (!response.ok) {
     throw new Error("request failed");
   }
