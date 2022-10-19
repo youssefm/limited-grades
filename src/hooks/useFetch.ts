@@ -15,7 +15,7 @@ type UseFetch = {
   };
 };
 
-const useFetch: UseFetch = <TData, TError = unknown>(
+const useFetch: UseFetch = <TData, TError>(
   url: string,
   initialData?: TData
 ) => {
