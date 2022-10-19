@@ -7,7 +7,10 @@ import useFetch from "hooks/useFetch";
 
 const Admin: NextPage = () => {
   const [selectedAction, setSelectedAction] = useState<string>();
-  const { data: actionOptions } = useFetch<string[]>("/api/admin", []);
+  const { data: actionOptions, isLoading } = useFetch<string[]>(
+    "/api/admin",
+    []
+  );
   const [actionOutput, setActionOutput] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
 
@@ -39,6 +42,7 @@ const Admin: NextPage = () => {
               getLabel={(action) => action}
               isClearable
               placeholder="Select an admin action..."
+              isLoading={isLoading}
               autoFocus
               instanceId="admin-action-select"
               className="grow"
