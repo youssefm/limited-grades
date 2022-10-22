@@ -11,13 +11,13 @@ import KlrIcon from "keyrune/svg/klr.svg";
 import MidIcon from "keyrune/svg/mid.svg";
 import NeoIcon from "keyrune/svg/neo.svg";
 import DefaultIcon from "keyrune/svg/pmtg1.svg";
-import CubeIcon from "keyrune/svg/pz1.svg";
 import RnaIcon from "keyrune/svg/rna.svg";
 import SncIcon from "keyrune/svg/snc.svg";
 import StxIcon from "keyrune/svg/stx.svg";
 import ThbIcon from "keyrune/svg/thb.svg";
 import VowIcon from "keyrune/svg/vow.svg";
 import WarIcon from "keyrune/svg/war.svg";
+import CubeIcon from "keyrune/svg/xlcu.svg";
 import ZnrIcon from "keyrune/svg/znr.svg";
 import { FC, ReactElement, SVGProps } from "react";
 
