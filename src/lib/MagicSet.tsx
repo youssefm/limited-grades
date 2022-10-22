@@ -165,7 +165,7 @@ export default class MagicSet {
   static ELDRAINE = new MagicSet(
     "eld",
     "Throne of Eldraine",
-    "2020-04-16",
+    "2022-10-21",
     EldIcon
   );
 
