@@ -11,6 +11,7 @@ import KlrIcon from "keyrune/svg/klr.svg";
 import MidIcon from "keyrune/svg/mid.svg";
 import NeoIcon from "keyrune/svg/neo.svg";
 import DefaultIcon from "keyrune/svg/pmtg1.svg";
+import CubeIcon from "keyrune/svg/pz1.svg";
 import RnaIcon from "keyrune/svg/rna.svg";
 import SncIcon from "keyrune/svg/snc.svg";
 import StxIcon from "keyrune/svg/stx.svg";
@@ -201,15 +202,8 @@ export default class MagicSet {
   static ARENA_CUBE = new MagicSet(
     "cube",
     "Arena Cube",
-    "2022-08-12",
-    DefaultIcon
-  );
-
-  static DOUBLE_FEATURE = new MagicSet(
-    "dbl",
-    "Double Feature",
-    "2022-01-28",
-    DefaultIcon
+    "2022-10-21",
+    CubeIcon
   );
 
   private constructor(
