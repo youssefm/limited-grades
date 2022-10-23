@@ -11,6 +11,16 @@ export default class Deck {
 
   static ALL = new Deck("all", "All decks", []);
 
+  static MONO_WHITE = new Deck("w", "Mono White", [Color.WHITE]);
+
+  static MONO_BLUE = new Deck("u", "Mono Blue", [Color.BLUE]);
+
+  static MONO_BLACK = new Deck("b", "Mono Black", [Color.BLACK]);
+
+  static MONO_RED = new Deck("r", "Mono Red", [Color.RED]);
+
+  static MONO_GREEN = new Deck("g", "Mono Green", [Color.GREEN]);
+
   static AZORIUS = new Deck("wu", "Azorius", [Color.WHITE, Color.BLUE]);
 
   static DIMIR = new Deck("ub", "Dimir", [Color.BLUE, Color.BLACK]);
@@ -48,6 +58,27 @@ export default class Deck {
   static NAYA = new Deck("wrg", "Naya", [Color.RED, Color.GREEN, Color.WHITE]);
 
   static BANT = new Deck("wug", "Bant", [Color.GREEN, Color.WHITE, Color.BLUE]);
+
+  static MONO_COLOR_DECKS = [
+    Deck.MONO_WHITE,
+    Deck.MONO_BLUE,
+    Deck.MONO_BLACK,
+    Deck.MONO_RED,
+    Deck.MONO_GREEN,
+  ];
+
+  static TWO_COLOR_DECKS = [
+    Deck.AZORIUS,
+    Deck.DIMIR,
+    Deck.RAKDOS,
+    Deck.GRUUL,
+    Deck.SELESNYA,
+    Deck.ORZHOV,
+    Deck.IZZET,
+    Deck.GOLGARI,
+    Deck.BOROS,
+    Deck.SIMIC,
+  ];
 
   private constructor(code: string, defaultLabel: string, colors: Color[]) {
     this.code = code;

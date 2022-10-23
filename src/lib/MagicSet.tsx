@@ -28,20 +28,6 @@ import { Rarity } from "./types";
 const RECENT_SET_THRESHOLD_IN_DAYS = 30;
 const EMBARGO_DURATION_IN_DAYS = 12;
 
-const TWO_COLOR_DECKS = [
-  Deck.ALL,
-  Deck.AZORIUS,
-  Deck.DIMIR,
-  Deck.RAKDOS,
-  Deck.GRUUL,
-  Deck.SELESNYA,
-  Deck.ORZHOV,
-  Deck.IZZET,
-  Deck.GOLGARI,
-  Deck.BOROS,
-  Deck.SIMIC,
-];
-
 const RARITY_ICON_CLASSES: Record<Rarity, string> = {
   [Rarity.COMMON]: "text-common dark:text-neutral-300",
   [Rarity.UNCOMMON]: "text-uncommon",
@@ -66,7 +52,7 @@ export default class MagicSet {
 
   #SvgIcon: FC<SVGProps<SVGSVGElement>>;
 
-  readonly decks: Deck[] = [];
+  readonly decks: Deck[] = [Deck.ALL];
 
   readonly customDeckLabels: Record<string, string> = {};
 
@@ -94,7 +80,6 @@ export default class MagicSet {
     "2022-04-28",
     SncIcon,
     [
-      Deck.ALL,
       Deck.AZORIUS,
       Deck.DIMIR,
       Deck.RAKDOS,
@@ -137,7 +122,6 @@ export default class MagicSet {
   );
 
   static STRIXHAVEN = new MagicSet("stx", "Strixhaven", "2021-04-15", StxIcon, [
-    Deck.ALL,
     [Deck.ORZHOV, "Silverquill"],
     [Deck.IZZET, "Prismari"],
     [Deck.GOLGARI, "Witherbloom"],
@@ -167,7 +151,8 @@ export default class MagicSet {
     "eld",
     "Throne of Eldraine",
     "2022-10-21",
-    EldIcon
+    EldIcon,
+    Deck.MONO_COLOR_DECKS.concat(Deck.TWO_COLOR_DECKS)
   );
 
   static WAR_OF_THE_SPARK = new MagicSet(
@@ -182,7 +167,7 @@ export default class MagicSet {
     "Ravnica Allegiance",
     "2020-04-16",
     RnaIcon,
-    [Deck.ALL, Deck.AZORIUS, Deck.RAKDOS, Deck.GRUUL, Deck.ORZHOV, Deck.SIMIC]
+    [Deck.AZORIUS, Deck.RAKDOS, Deck.GRUUL, Deck.ORZHOV, Deck.SIMIC]
   );
 
   static GUILDS_OF_RAVNICA = new MagicSet(
@@ -190,7 +175,7 @@ export default class MagicSet {
     "Guilds of Ravnica",
     "2020-04-16",
     GrnIcon,
-    [Deck.ALL, Deck.DIMIR, Deck.SELESNYA, Deck.IZZET, Deck.GOLGARI, Deck.BOROS]
+    [Deck.DIMIR, Deck.SELESNYA, Deck.IZZET, Deck.GOLGARI, Deck.BOROS]
   );
 
   static DOMINARIA = new MagicSet("dom", "Dominaria", "2020-04-16", DomIcon);
@@ -211,7 +196,7 @@ export default class MagicSet {
     label: string,
     startDate: string,
     SvgIcon: FC<SVGProps<SVGSVGElement>>,
-    decks: (Deck | [Deck, string])[] = TWO_COLOR_DECKS
+    decks: (Deck | [Deck, string])[] = Deck.TWO_COLOR_DECKS
   ) {
     this.code = code;
     this.label = label;
