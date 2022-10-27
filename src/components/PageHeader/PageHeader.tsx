@@ -1,11 +1,8 @@
 import clsx from "clsx";
 import Image from "next/image";
-import Router from "next/router";
 import { useState } from "react";
-import { BsFillExclamationCircleFill } from "react-icons/bs";
 import { FaInfoCircle } from "react-icons/fa";
 
-import Banner from "components/common/Banner";
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 
 import AboutProjectModal from "./AboutProjectModal";
@@ -49,24 +46,6 @@ const PageHeader = () => {
 
         <DarkModeToggle />
       </div>
-
-      <Banner>
-        <BsFillExclamationCircleFill className="relative bottom-0.5 mr-2 inline" />
-        Early grades for{" "}
-        <button
-          type="button"
-          onClick={async () =>
-            await Router.push({
-              pathname: Router.pathname,
-              query: { ...Router.query, setCode: "eld" },
-            })
-          }
-          className={clsx("underline", HOVER_CLASSES, TRANSITION_CLASSES)}
-        >
-          Throne of Eldraine
-        </button>{" "}
-        are now available
-      </Banner>
 
       <PageInfoBanner onLearnMore={() => setShowInfoModal(true)} />
 
