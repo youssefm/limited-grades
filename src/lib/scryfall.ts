@@ -1,8 +1,3 @@
-import os from "os";
-import path from "path";
-
-import download from "download";
-
 import CaseInsensitiveMap from "./CaseInsensitiveMap";
 import { ALL_CARD_TYPES } from "./constants";
 import MagicSet from "./MagicSet";
@@ -105,29 +100,16 @@ const getCardTypes = (card: ScryfallCard) =>
     card.type_line?.toLowerCase().includes(cardType)
   );
 
-const readScryfallFile = async (
-  scryfallFilePath: string
-): Promise<ScryfallCard[]> => {
-  console.log(`Reading Scryfall data from ${scryfallFilePath}`);
-  return await readJsonFile<ScryfallCard[]>(scryfallFilePath);
-};
-
-const downloadBulkDataFile = async (type: string): Promise<string> => {
+const fetchBulkData = async (type: string): Promise<ScryfallCard[]> => {
   const bulkData = await fetchJson<ScryfallBulkData>(
     `https://api.scryfall.com/bulk-data/${type}`
   );
-  const tempFolder = os.tmpdir();
-  const tempFileName = `scryfall-${type}.json`;
-  await download(bulkData.download_uri, tempFolder, {
-    filename: tempFileName,
-  });
-
-  return path.join(tempFolder, tempFileName);
+  console.log(`Fetching Scryfall bulk data from ${bulkData.download_uri}`);
+  return await fetchJson<ScryfallCard[]>(bulkData.download_uri);
 };
 
 export const generateIndexFile = async (): Promise<void> => {
-  const scryfallFilePath = await downloadBulkDataFile("oracle-cards");
-  const cards = await readScryfallFile(scryfallFilePath);
+  const cards = await fetchBulkData("oracle-cards");
   const index: ScryfallIndex = {};
   for (const card of cards) {
     if (shouldExcludeCard(card)) {
@@ -153,8 +135,7 @@ export const SCRYFALL_FILE_INDEX = new LazySingleton(async () => {
 });
 
 export const generateLandImageFile = async (): Promise<void> => {
-  const scryfallFilePath = await downloadBulkDataFile("unique-artwork");
-  const cards = await readScryfallFile(scryfallFilePath);
+  const cards = await fetchBulkData("unique-artwork");
   const landImageUrls: string[] = [];
   for (const card of cards) {
     if (shouldExcludeCard(card)) {
