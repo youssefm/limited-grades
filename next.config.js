@@ -26,6 +26,7 @@ module.exports = {
             replaceAttrValues: { "#444": "currentColor" },
             svgoConfig: {
               plugins: [
+                // Prevent SVGO from stripping the viewBox from SVGs
                 {
                   name: "removeViewBox",
                   active: false,
