@@ -215,9 +215,6 @@ export default class MagicSet {
 
     MagicSet.#setsByCode[code] = this;
     MagicSet.ALL.push(this);
-
-    // React components don't auto-bind methods to themselves, we need to this manually
-    this.Icon = this.Icon.bind(this);
   }
 
   static lookup(code: string): MagicSet | undefined {
@@ -236,7 +233,9 @@ export default class MagicSet {
     return computeDaysSinceDate(this.startDate) < EMBARGO_DURATION_IN_DAYS;
   }
 
-  Icon({ rarity, className }: IconProps): ReactElement {
+  // React components don't auto-bind methods to themselves
+  // Use an arrow function here to force it to
+  Icon = ({ rarity, className }: IconProps): ReactElement => {
     const SvgIcon = this.#SvgIcon;
     return (
       <SvgIcon
@@ -250,5 +249,5 @@ export default class MagicSet {
         )}
       />
     );
-  }
+  };
 }
