@@ -150,7 +150,7 @@ export default class MagicSet {
   static ELDRAINE = new MagicSet(
     "eld",
     "Throne of Eldraine",
-    "2022-10-21",
+    "2020-04-16",
     EldIcon,
     Deck.MONO_COLOR_DECKS.concat(Deck.TWO_COLOR_DECKS)
   );
