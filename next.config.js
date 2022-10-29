@@ -1,5 +1,7 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+const withPreact = require("next-plugin-preact");
+
+module.exports = withPreact({
   output: "standalone",
   reactStrictMode: true,
   redirects: async () => [
@@ -40,4 +42,4 @@ module.exports = {
 
     return config;
   },
-};
+});
