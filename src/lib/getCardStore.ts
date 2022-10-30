@@ -167,9 +167,7 @@ const getCardStore = async (
 ): Promise<CardStore> => {
   const cacheKey =
     format === Format.PREMIER_DRAFT ? set.code : `${set.code}_${format}`;
-  console.log(
-    `Attempting to fetch 17lands data for ${cacheKey} from ${cache.name} cache`
-  );
+  console.log(`Fetching card store for ${cacheKey} from ${cache.name} cache`);
   const cacheHit = await cache.get<CardStore>(cacheKey);
   if (cacheHit) {
     console.log(`Cache hit for ${cacheKey}`);
