@@ -1,14 +1,22 @@
+# Limited Grades
+
+Visualize MTG draft win rates as a tier list, powered by 17Lands data.
+
+## Prerequisites
+
+Node.js version 16
+
 ## Getting Started
 
 After cloning the repo, run:
 
-```bash
+```
 npm install
 ```
 
 to install dependencies. Next, run the development server:
 
-```bash
+```
 npm run dev
 ```
 
