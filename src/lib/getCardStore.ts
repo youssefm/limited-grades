@@ -50,9 +50,9 @@ const fetchApiCards = async (
   console.log(`Making API request to ${url}`);
   const response = await fetch(url);
   if (!response.ok) {
-    throw new Error("request failed");
+    throw new Error(`Request to ${url} failed`);
   }
-  console.log("request succeeded");
+  console.log(`API Request to ${url} succeeded`);
   return response.json();
 };
 
@@ -167,16 +167,20 @@ const getCardStore = async (
 ): Promise<CardStore> => {
   const cacheKey =
     format === Format.PREMIER_DRAFT ? set.code : `${set.code}_${format}`;
-  console.log(`attempting to fetch 17lands data for ${cacheKey} from cache`);
+  console.log(
+    `Attempting to fetch 17lands data for ${cacheKey} from ${cache.name} cache`
+  );
   const cacheHit = await cache.get<CardStore>(cacheKey);
   if (cacheHit) {
-    console.log("cache hit");
+    console.log(`Cache hit for ${cacheKey}`);
     return {
       ...cacheHit,
       updatedAt: new Date(cacheHit.updatedAt),
     };
   }
-  console.log("cache miss");
+  console.log(
+    `Cache miss for ${cacheKey}: Attempting to generate the card store`
+  );
 
   const cardStore = await buildCardStore(set, format);
   const expirationInSeconds = computeCacheExpirationInSeconds(set);

@@ -3,6 +3,7 @@ import { PrismaClient } from "@prisma/client";
 import { readJsonFile, writeJsonFile } from "./util.server";
 
 export interface Cache {
+  name: string;
   get: <T>(key: string) => Promise<T | null>;
   set: (key: string, value: any, expirationInSeconds: number) => Promise<void>;
 }
@@ -10,6 +11,7 @@ export interface Cache {
 const IS_POSTGRES_ENABLED = process.env.USE_POSTGRES_CACHE === "true";
 const PRISMA = new PrismaClient();
 export const POSTGRES_CACHE = {
+  name: "postgres",
   get: async <T>(key: string): Promise<T | null> => {
     const cacheRow = await PRISMA.cache.findFirst({
       where: { key, expiresAt: { gte: new Date() } },
@@ -36,6 +38,7 @@ export const POSTGRES_CACHE = {
 const getFileCachePath = (key: string) => `data/cache/${key}.json`;
 
 export const FILE_CACHE = {
+  name: "file",
   get: async <T>(key: string): Promise<T | null> => {
     const filePath = getFileCachePath(key);
     try {
