@@ -13,6 +13,7 @@ const Layout: FC = ({ children }) => {
           name="description"
           content="Visualize MTG draft win rates as a tier list, powered by 17Lands data"
         />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
           property="og:image"
           content="https://www.limitedgrades.com/og.png"
