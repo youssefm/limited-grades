@@ -11,7 +11,6 @@ const LinkOut: FC<Props> = ({ url, children }) => (
   <a
     href={url}
     target="_blank"
-    rel="noreferrer"
     className={clsx("underline", HOVER_CLASSES, TRANSITION_CLASSES)}
   >
     {children}

@@ -53,6 +53,7 @@
         "unnamedComponents": "arrow-function"
       }
     ],
+    "react/jsx-no-target-blank": "off",
     "react/jsx-props-no-spreading": "off",
     "react/require-default-props": "off",
     "sort-imports": [
