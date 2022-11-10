@@ -84,7 +84,9 @@ export const fetchJson = async <T>(
 ): Promise<T> => {
   const response = await fetch(url, init);
   if (!response.ok) {
-    throw new Error("request failed");
+    throw new Error(
+      `Request failed: ${response.status} ${response.statusText}`
+    );
   }
   return await response.json();
 };
