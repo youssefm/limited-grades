@@ -10,7 +10,6 @@ import KhmIcon from "keyrune/svg/khm.svg";
 import KlrIcon from "keyrune/svg/klr.svg";
 import MidIcon from "keyrune/svg/mid.svg";
 import NeoIcon from "keyrune/svg/neo.svg";
-import DefaultIcon from "keyrune/svg/pmtg1.svg";
 import RnaIcon from "keyrune/svg/rna.svg";
 import SncIcon from "keyrune/svg/snc.svg";
 import StxIcon from "keyrune/svg/stx.svg";
@@ -20,6 +19,8 @@ import WarIcon from "keyrune/svg/war.svg";
 import CubeIcon from "keyrune/svg/xlcu.svg";
 import ZnrIcon from "keyrune/svg/znr.svg";
 import { FC, ReactElement, SVGProps } from "react";
+
+import HbgIcon from "assets/hbg.svg";
 
 import Deck from "./Deck";
 import { TRANSITION_CLASSES } from "./styles";
@@ -71,7 +72,7 @@ export default class MagicSet {
     "hbg",
     "Baldur's Gate",
     "2022-07-07",
-    DefaultIcon
+    HbgIcon
   );
 
   static NEW_CAPENNA = new MagicSet(
