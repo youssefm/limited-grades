@@ -20,6 +20,7 @@ import CubeIcon from "keyrune/svg/xlcu.svg";
 import ZnrIcon from "keyrune/svg/znr.svg";
 import { FC, ReactElement, SVGProps } from "react";
 
+import BroIcon from "assets/bro.svg";
 import HbgIcon from "assets/hbg.svg";
 
 import Deck from "./Deck";
@@ -60,6 +61,13 @@ export default class MagicSet {
   static #setsByCode: Record<string, MagicSet> = {};
 
   static ALL: MagicSet[] = [];
+
+  static BROTHERS_WAR = new MagicSet(
+    "bro",
+    "Brother's War",
+    "2022-11-15",
+    BroIcon
+  );
 
   static DOMINARIA_UNITED = new MagicSet(
     "dmu",
