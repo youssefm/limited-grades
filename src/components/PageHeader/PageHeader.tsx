@@ -1,13 +1,17 @@
 import clsx from "clsx";
 import Image from "next/image";
 import { useState } from "react";
+import { BsFillExclamationCircleFill } from "react-icons/bs";
 import { FaInfoCircle } from "react-icons/fa";
 
+import Banner from "components/common/Banner";
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 
 import AboutProjectModal from "./AboutProjectModal";
 import DarkModeToggle from "./DarkModeToggle";
 import PageInfoBanner from "./PageInfoBanner";
+
+const BANNER_MESSAGE = process.env.NEXT_PUBLIC_BANNER_MESSAGE;
 
 const PageHeader = () => {
   const [showInfoModal, setShowInfoModal] = useState(false);
@@ -46,6 +50,13 @@ const PageHeader = () => {
 
         <DarkModeToggle />
       </div>
+
+      {BANNER_MESSAGE && (
+        <Banner>
+          <BsFillExclamationCircleFill className="relative bottom-0.5 mr-2 inline" />
+          {BANNER_MESSAGE}
+        </Banner>
+      )}
 
       <PageInfoBanner onLearnMore={() => setShowInfoModal(true)} />
 
