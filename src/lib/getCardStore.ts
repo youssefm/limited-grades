@@ -181,8 +181,10 @@ const getCardStore = async (
   );
 
   const cardStore = await buildCardStore(set, format);
-  const expirationInSeconds = computeCacheExpirationInSeconds(set);
-  await cache.set(cacheKey, cardStore, expirationInSeconds);
+  if (cardStore.cards.length > 0) {
+    const expirationInSeconds = computeCacheExpirationInSeconds(set);
+    await cache.set(cacheKey, cardStore, expirationInSeconds);
+  }
   return cardStore;
 };
 

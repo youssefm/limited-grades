@@ -51,9 +51,9 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
       output.push(`${grade}: ${gradeCards ? gradeCards.length : 0}`);
     }
   },
-  "delete-eld-cache": async (output) => {
-    await POSTGRES_CACHE.delete(MagicSet.ELDRAINE.code);
-    output.push("ELD cache deleted");
+  "delete-bro-cache": async (output) => {
+    await POSTGRES_CACHE.delete(MagicSet.BROTHERS_WAR.code);
+    output.push("BRO cache deleted");
   },
   "find-deck-outliers": async (output) => {
     let { cards } = await getCardStore(
