@@ -9,11 +9,11 @@ export interface Cache {
 }
 
 const IS_POSTGRES_ENABLED = process.env.USE_POSTGRES_CACHE === "true";
-const PRISMA = new PrismaClient();
+const prisma = new PrismaClient();
 export const POSTGRES_CACHE = {
   name: "postgres",
   get: async <T>(key: string): Promise<T | null> => {
-    const cacheRow = await PRISMA.cache.findFirst({
+    const cacheRow = await prisma.cache.findFirst({
       where: { key, expiresAt: { gte: new Date() } },
     });
     return cacheRow === null ? null : (cacheRow.value as T);
@@ -22,14 +22,14 @@ export const POSTGRES_CACHE = {
     const expiresAt = new Date(
       new Date().getTime() + expirationInSeconds * 1000
     );
-    await PRISMA.cache.upsert({
+    await prisma.cache.upsert({
       where: { key },
       update: { value, expiresAt },
       create: { key, value, expiresAt },
     });
   },
   delete: async (key: string) => {
-    await PRISMA.cache.delete({
+    await prisma.cache.delete({
       where: { key },
     });
   },
