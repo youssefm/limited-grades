@@ -105,7 +105,7 @@ const fetchBulkData = async (type: string): Promise<ScryfallCard[]> => {
     `https://api.scryfall.com/bulk-data/${type}`
   );
   console.log(`Fetching Scryfall bulk data from ${bulkData.download_uri}`);
-  return await fetchJson<ScryfallCard[]>(bulkData.download_uri);
+  return fetchJson<ScryfallCard[]>(bulkData.download_uri);
 };
 
 export const generateIndexFile = async (): Promise<void> => {

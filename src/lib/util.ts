@@ -88,7 +88,7 @@ export const fetchJson = async <T>(
       `Request failed: ${response.status} ${response.statusText}`
     );
   }
-  return await response.json();
+  return response.json();
 };
 
 export const setEquals = <T>(setA: Set<T>, setB: Set<T>): boolean => {

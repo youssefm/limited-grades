@@ -15,7 +15,6 @@
     "@typescript-eslint/no-floating-promises": "error",
     // superseded by unused-imports
     "@typescript-eslint/no-unused-vars": "off",
-    "@typescript-eslint/return-await": "off",
     "import/order": [
       "error",
       {
