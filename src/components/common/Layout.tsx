@@ -15,17 +15,17 @@ const Layout: FC = ({ children }) => {
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta
+          name="color-scheme"
+          content={darkModeEnabled ? "dark" : "light"}
+        />
+        <meta name="theme-color" content="#171717" />
+        <meta
           property="og:image"
           content="https://www.limitedgrades.com/og.png"
         />
         <meta property="og:image:type" content="image/png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="630" />
-        <meta
-          name="color-scheme"
-          content={darkModeEnabled ? "dark" : "light"}
-        />
-        <meta name="theme-color" content="#171717" />
         <link
           rel="apple-touch-icon"
           sizes="180x180"
