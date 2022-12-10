@@ -4,7 +4,7 @@ FROM node:16-alpine AS deps
 RUN apk add --no-cache libc6-compat
 WORKDIR /app
 COPY package.json package-lock.json ./
-COPY src/prisma ./src/prisma
+COPY prisma ./prisma
 RUN npm ci
 RUN npx prisma generate
 
