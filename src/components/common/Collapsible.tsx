@@ -35,7 +35,9 @@ const Collapsible: FC<Props> = ({ isExpanded, id, className, children }) => {
     }
   }, [isExpanded]);
 
-  const onTransitionEnd = (event: React.TransitionEvent<HTMLDivElement>) => {
+  const onTransitionEnd = (
+    event: React.TransitionEvent<HTMLDivElement>
+  ): void => {
     const element = ref.current;
     if (event.target === element) {
       if (isExpanded) {

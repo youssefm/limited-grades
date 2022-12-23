@@ -2,7 +2,10 @@ import { useCallback, useEffect, useRef } from "react";
 
 import useForceUpdate from "./useForceUpdate";
 
-const useDelayedLoading = (isLoaded: boolean, minDelay: number) => {
+const useDelayedLoading = (
+  isLoaded: boolean,
+  minDelay: number
+): (() => boolean) => {
   const delayEndTime = useRef<number>();
   const forceUpdate = useForceUpdate();
 

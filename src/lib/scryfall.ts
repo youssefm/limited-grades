@@ -69,10 +69,10 @@ const EXCLUDED_LAYOUTS = [
 
 const NAMED_BY_CARD_FACE_LAYOUTS = ["transform", "modal_dfc", "adventure"];
 
-const shouldExcludeCard = (card: ScryfallCard) =>
+const shouldExcludeCard = (card: ScryfallCard): boolean =>
   EXCLUDED_LAYOUTS.includes(card.layout);
 
-const getCardName = (card: ScryfallCard) => {
+const getCardName = (card: ScryfallCard): string => {
   if (
     NAMED_BY_CARD_FACE_LAYOUTS.includes(card.layout) &&
     card.card_faces &&
@@ -83,7 +83,7 @@ const getCardName = (card: ScryfallCard) => {
   return card.name;
 };
 
-const getCardColor = (card: ScryfallCard) => {
+const getCardColor = (card: ScryfallCard): Color => {
   const colors = card.colors ?? card.card_faces?.[0]?.colors;
 
   if (!colors || colors.length === 0) {
@@ -95,7 +95,7 @@ const getCardColor = (card: ScryfallCard) => {
   return COLORS[colors[0]!];
 };
 
-const getCardTypes = (card: ScryfallCard) =>
+const getCardTypes = (card: ScryfallCard): CardType[] =>
   ALL_CARD_TYPES.filter((cardType) =>
     card.type_line?.toLowerCase().includes(cardType)
   );

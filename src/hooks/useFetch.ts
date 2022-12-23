@@ -26,7 +26,7 @@ const useFetch: UseFetch = <TData, TError>(
   useEffect(() => {
     const abortController = new AbortController();
 
-    const fetchData = async () => {
+    const fetchData = async (): Promise<void> => {
       const fetchedData = await fetchJson<TData>(url, {
         signal: abortController.signal,
       });

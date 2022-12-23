@@ -7,7 +7,7 @@ import useDarkMode from "hooks/useDarkMode";
 
 const TAILWIND_AMBER_550 = "#e78b09";
 
-const getDarkModeColors = (baseColors: Colors) => ({
+const getDarkModeColors = (baseColors: Colors): Partial<Colors> => ({
   neutral0: "#404040", // tailwind neutral-700
   neutral5: baseColors.neutral90,
   neutral10: baseColors.neutral90,
@@ -44,7 +44,7 @@ const Select = <T extends unknown>({
   getLabel,
   selectRef,
   ...extraProps
-}: Props<T>) => {
+}: Props<T>): JSX.Element => {
   const [darkModeEnabled] = useDarkMode();
 
   interface TOption {

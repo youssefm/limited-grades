@@ -1,6 +1,6 @@
 import { useReducer } from "react";
 
-const reducer = (value: number) => value + 1;
+const reducer = (value: number): number => value + 1;
 
 const useForceUpdate = (): (() => void) => {
   const [, update] = useReducer(reducer, 0);

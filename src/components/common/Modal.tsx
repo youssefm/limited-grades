@@ -32,7 +32,7 @@ const Modal: FC<Props> = ({
     }
   });
 
-  const internalOnClose = () => {
+  const internalOnClose = (): void => {
     document.documentElement.classList.add("scrollbar-gutter-stable");
     document.body.style.removeProperty("padding-right");
     onClose();

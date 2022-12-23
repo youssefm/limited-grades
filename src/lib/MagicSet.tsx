@@ -47,19 +47,12 @@ interface IconProps {
 
 export default class MagicSet {
   readonly code: string;
-
   readonly label: string;
-
   readonly startDate: string;
-
   #SvgIcon: FC<SVGProps<SVGSVGElement>>;
-
   readonly decks: Deck[] = [Deck.ALL];
-
   readonly customDeckLabels: Record<string, string> = {};
-
   static #setsByCode: Record<string, MagicSet> = {};
-
   static ALL: MagicSet[] = [];
 
   static BROTHERS_WAR = new MagicSet(
@@ -188,9 +181,7 @@ export default class MagicSet {
   );
 
   static DOMINARIA = new MagicSet("dom", "Dominaria", "2020-04-16", DomIcon);
-
   static AMONKHET = new MagicSet("akr", "Amonkhet", "2020-08-13", AkrIcon);
-
   static KALADESH = new MagicSet("klr", "Kaladesh", "2020-11-12", KlrIcon);
 
   static ARENA_CUBE = new MagicSet(

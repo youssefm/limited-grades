@@ -1,7 +1,6 @@
 import "@saeris/typeface-beleren-bold";
 import { AppProps } from "next/dist/shared/lib/router/router";
 import Script from "next/script";
-import React from "react";
 import "tippy.js/dist/tippy.css";
 
 import Analytics from "components/common/Analytics";
@@ -10,7 +9,7 @@ import "global.css";
 import { DarkModeProvider } from "hooks/useDarkMode";
 import { IS_UMAMI_ENABLED, UMAMI_HOST_URL, UMAMI_SITE_ID } from "lib/analytics";
 
-const MyApp = ({ Component, pageProps }: AppProps) => (
+const MyApp = ({ Component, pageProps }: AppProps): JSX.Element => (
   <>
     {IS_UMAMI_ENABLED && (
       <Script

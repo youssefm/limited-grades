@@ -4,7 +4,7 @@ import { ReactElement } from "react";
 import Center from "components/common/Center";
 import { TRANSITION_CLASSES } from "lib/styles";
 
-interface Filter<T> {
+export interface Filter<T> {
   label: string;
   values: T[];
   icon: ReactElement;
@@ -22,11 +22,11 @@ const IconFilterGroup = <T extends unknown>({
   setValues,
   filters,
   className,
-}: Props<T>) => (
+}: Props<T>): JSX.Element => (
   <div className={clsx("flex", className)}>
     {filters.map(({ label, values: filterValues, icon }) => {
       const checked = filterValues.every((value) => values.has(value));
-      const toggle = () => {
+      const toggle = (): void => {
         const newValues = new Set(values);
         for (const value of filterValues) {
           if (newValues.has(value)) {

@@ -4,7 +4,7 @@ import DarkModeInitializer from "components/common/DarkModeInitializer";
 import HideBannerInitializer from "components/common/HideBannerInitializer";
 
 class MyDocument extends Document {
-  render() {
+  render(): JSX.Element {
     return (
       <Html lang="en" className="scrollbar-gutter-stable">
         <Head />

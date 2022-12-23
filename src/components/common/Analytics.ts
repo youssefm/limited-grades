@@ -5,7 +5,7 @@ import { trackView } from "lib/analytics";
 
 const Analytics: FC = () => {
   useEffect(() => {
-    const trackPageLoad = () => {
+    const trackPageLoad = (): void => {
       if (document.readyState === "complete") {
         trackView();
       }
@@ -19,7 +19,7 @@ const Analytics: FC = () => {
     const handleRouteChange = (
       url: string,
       { shallow }: { shallow: boolean }
-    ) => {
+    ): void => {
       if (!shallow) {
         trackView(url);
       }

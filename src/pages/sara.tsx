@@ -40,7 +40,7 @@ const Page: NextPage<StaticProps> = ({ imageUrls }) => {
     setActiveImageUrls(initialActiveImageUrls);
   }, [getRandomImageUrl]);
 
-  const onSlideChange = () => {
+  const onSlideChange = (): void => {
     const swiper = swiperRef.current;
     if (swiper) {
       if (swiper.activeIndex <= 2) {
@@ -62,7 +62,7 @@ const Page: NextPage<StaticProps> = ({ imageUrls }) => {
   };
 
   useEffect(() => {
-    const handleRightArrowPress = (e: KeyboardEvent) => {
+    const handleRightArrowPress = (e: KeyboardEvent): void => {
       if (swiperRef.current) {
         if (e.key === "ArrowRight") {
           swiperRef.current.slideNext();

@@ -8,7 +8,7 @@ import {
 
 // This script prevents the screen from flickering from light to dark when a user prefers dark mode
 // Thorough explanation here: https://blog.maximeheckel.com/posts/switching-off-the-lights-part-2-fixing-dark-mode-flashing-on-servered-rendered-website/
-const DarkModeInitializer = () => (
+const DarkModeInitializer = (): JSX.Element => (
   <script
     // eslint-disable-next-line react/no-danger
     dangerouslySetInnerHTML={{

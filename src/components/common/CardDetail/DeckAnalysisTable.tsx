@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { FC, useState } from "react";
+import { FC, useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 
 import Center from "components/common/Center";
@@ -26,7 +26,7 @@ const DeckStatsRow = ({
   deck: Deck;
   stats: CardStats;
   showStats: boolean;
-}) => (
+}): JSX.Element => (
   <div className="flex">
     <Center
       className={clsx("shrink-0 p-2 text-xl font-bold", ROW_HEADER_CLASSES)}

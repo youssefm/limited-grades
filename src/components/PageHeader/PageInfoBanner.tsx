@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { FC } from "react";
+import { FC } from "react";
 import { ImInfo } from "react-icons/im";
 
 import Banner from "components/common/Banner";
@@ -15,7 +15,7 @@ interface Props {
 }
 
 const PageInfoBanner: FC<Props> = ({ onLearnMore }) => {
-  const onClose = () => {
+  const onClose = (): void => {
     localStorage.setItem(
       LOCAL_STORAGE_HIDE_BANNER_KEY,
       LOCAL_STORAGE_HIDE_BANNER_VALUE

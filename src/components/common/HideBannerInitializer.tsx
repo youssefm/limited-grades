@@ -5,7 +5,7 @@ import {
   LOCAL_STORAGE_HIDE_BANNER_VALUE,
 } from "lib/constants";
 
-const HideBannerInitializer = () => (
+const HideBannerInitializer = (): JSX.Element => (
   <script
     // eslint-disable-next-line react/no-danger
     dangerouslySetInnerHTML={{

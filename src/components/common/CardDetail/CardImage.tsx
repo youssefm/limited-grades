@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import React, { FC, ReactEventHandler, useState } from "react";
+import { FC, ReactEventHandler, useState } from "react";
 import { GrRotateLeft, GrRotateRight } from "react-icons/gr";
 
 import BackCardImage from "components/common/BackCardImage";
@@ -16,7 +16,7 @@ interface Props {
 const DoubleFacedCardImage: FC<Props> = ({ card, className, onLoad }) => {
   const [flipped, setFlipped] = useState(false);
 
-  const toggleFlipped = () => setFlipped(!flipped);
+  const toggleFlipped = (): void => setFlipped(!flipped);
   return (
     <div className={clsx("relative mb-6", className)}>
       <button onClick={toggleFlipped} type="button" aria-label="Flip card">

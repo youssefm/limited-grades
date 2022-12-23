@@ -12,6 +12,21 @@ import useDelayedLoading from "./useDelayedLoading";
 import useUrlSetState from "./useUrlSetState";
 import useUrlState from "./useUrlState";
 
+interface PageBodyState {
+  displayedSet: MagicSet;
+  displayedCards: Card[];
+  selectedSet: MagicSet;
+  changeSet: (newSet: MagicSet) => Promise<void>;
+  deck: Deck;
+  setDeck: (newDeck: Deck) => void;
+  visibleRarities: Set<Rarity>;
+  setVisibleRarities: (value: Set<Rarity>) => void;
+  visibleCardTypes: Set<CardType>;
+  setVisibleCardTypes: (value: Set<CardType>) => void;
+  cardDictionary: CardTableDictionary;
+  showSkeletons: boolean;
+}
+
 const ALL_RARITIES_SET = new Set(ALL_RARITIES);
 const ALL_CARD_TYPES_SET = new Set(ALL_CARD_TYPES);
 
@@ -32,7 +47,7 @@ const CARD_TYPE_CHARACTER_MAP: Record<CardType, string> = {
   [CardType.LAND]: "l",
 };
 
-const usePageBodyState = (set: MagicSet, cards: Card[]) => {
+const usePageBodyState = (set: MagicSet, cards: Card[]): PageBodyState => {
   const [selectedSet, setSelectedSet] = useState(set);
   const [urlDeck, setUrlDeck] = useUrlState("deck");
   const [visibleRarities, setVisibleRarities] = useUrlSetState(
@@ -54,7 +69,7 @@ const usePageBodyState = (set: MagicSet, cards: Card[]) => {
     const handleRouteChange = (
       url: string,
       { shallow }: { shallow: boolean }
-    ) => {
+    ): void => {
       if (shallow) {
         return;
       }

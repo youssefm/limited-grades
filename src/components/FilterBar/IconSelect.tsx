@@ -11,7 +11,7 @@ const IconSelect = <T extends unknown>({
   getIcon,
   formatOptionText,
   ...extraProps
-}: Props<T>) => {
+}: Props<T>): JSX.Element => {
   interface TOption {
     value: T;
     label: string;

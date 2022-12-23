@@ -20,7 +20,7 @@ const useDarkModeValue = (): [boolean, () => void] => {
     }
   }, []);
 
-  const toggle = () => {
+  const toggle = (): void => {
     const documentElementClasses = window.document.documentElement.classList;
     const newValue = !enabled;
     if (newValue) {

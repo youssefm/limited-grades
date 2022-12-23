@@ -2,12 +2,15 @@ import { NextApiRequest, NextApiResponse } from "next";
 
 import { ADMIN_ACTIONS } from "lib/admin";
 
-const formatOutput = (output: any[]) =>
+const formatOutput = (output: any[]): string[] =>
   output.map((line) =>
     typeof line === "string" ? line : JSON.stringify(line, null, 2)
   );
 
-const handler = async (request: NextApiRequest, response: NextApiResponse) => {
+const handler = async (
+  request: NextApiRequest,
+  response: NextApiResponse
+): Promise<void> => {
   const { actionName } = request.query;
 
   const action = ADMIN_ACTIONS[actionName as string];

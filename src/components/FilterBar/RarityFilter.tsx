@@ -3,9 +3,9 @@ import { FC } from "react";
 import MagicSet from "lib/MagicSet";
 import { Rarity } from "lib/types";
 
-import IconFilterGroup from "./IconFilterGroup";
+import IconFilterGroup, { Filter } from "./IconFilterGroup";
 
-const getFilters = (set: MagicSet) => [
+const getFilters = (set: MagicSet): Filter<Rarity>[] => [
   {
     label: "commons",
     values: [Rarity.COMMON],

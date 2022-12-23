@@ -4,7 +4,7 @@ interface Props {
   lastUpdatedAt: Date;
 }
 
-const PageFooter = ({ lastUpdatedAt }: Props) => (
+const PageFooter = ({ lastUpdatedAt }: Props): JSX.Element => (
   <div className="mt-32 border-t border-neutral-400 pt-1 pb-2">
     Developed by <LinkOut url="https://github.com/youssefm">youssefm</LinkOut>{" "}
     using <LinkOut url="https://nextjs.org/">Next.js</LinkOut>, based on designs

@@ -12,6 +12,15 @@
   "plugins": ["prettier", "tailwindcss", "unused-imports"],
   "rules": {
     "@next/next/no-img-element": "off",
+    "@typescript-eslint/explicit-function-return-type": [
+      "error",
+      { "allowExpressions": true }
+    ],
+    "@typescript-eslint/lines-between-class-members": [
+      "error",
+      "always",
+      { "exceptAfterSingleLine": true }
+    ],
     "@typescript-eslint/no-floating-promises": "error",
     // superseded by unused-imports
     "@typescript-eslint/no-unused-vars": "off",

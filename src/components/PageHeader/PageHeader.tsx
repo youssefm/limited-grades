@@ -13,7 +13,7 @@ import PageInfoBanner from "./PageInfoBanner";
 
 const BANNER_MESSAGE = process.env.NEXT_PUBLIC_BANNER_MESSAGE;
 
-const PageHeader = () => {
+const PageHeader = (): JSX.Element => {
   const [showInfoModal, setShowInfoModal] = useState(false);
 
   return (

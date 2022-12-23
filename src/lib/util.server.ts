@@ -40,7 +40,6 @@ export const writeJsonFile = async (
 
 export class LazySingleton<T> {
   #creator: () => T;
-
   #instance: T | null = null;
 
   constructor(creator: () => T) {
@@ -87,7 +86,7 @@ export function* zip<T1, T2>(
 export const indexBy = <T>(
   iterable: Iterable<T>,
   getKey: (item: T) => string
-) => {
+): Record<string, T> => {
   const result: Record<string, T> = {};
   for (const item of iterable) {
     const key = getKey(item);

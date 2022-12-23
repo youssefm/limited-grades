@@ -20,7 +20,7 @@ const useUrlState = (
     const handleRouteChange = (
       url: string,
       { shallow }: { shallow: boolean }
-    ) => {
+    ): void => {
       if (shallow) {
         return;
       }

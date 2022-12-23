@@ -49,7 +49,7 @@ const CardBubbleWithPreview: FC<{ card: Card; onClick: () => void }> = ({
   let tippyElement = null;
 
   if (isTippyMounted) {
-    const onLoad = () => {
+    const onLoad = (): void => {
       imagesLoadedCount.current += 1;
       showPreviewIfReady();
     };

@@ -35,7 +35,7 @@ export const POSTGRES_CACHE = {
   },
 };
 
-const getFileCachePath = (key: string) => `data/cache/${key}.json`;
+const getFileCachePath = (key: string): string => `data/cache/${key}.json`;
 
 export const FILE_CACHE = {
   name: "file",

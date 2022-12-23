@@ -4,7 +4,10 @@ import MagicSet from "lib/MagicSet";
 
 const BASE_URL = "https://www.limitedgrades.com";
 
-const handler = async (request: NextApiRequest, response: NextApiResponse) => {
+const handler = async (
+  request: NextApiRequest,
+  response: NextApiResponse
+): Promise<void> => {
   const urls = [BASE_URL].concat(
     MagicSet.ALL.map((set) => `${BASE_URL}/${set.code}`)
   );

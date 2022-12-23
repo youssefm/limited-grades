@@ -33,7 +33,6 @@ interface CardRecord {
 
 export default class CardGrader {
   #cardRecordsByDeck = new DefaultMap<Deck, CardRecord[]>(() => []);
-
   #cardStats = new DefaultMap<string, Record<string, CardStats>>(() => ({}));
 
   add(cardKey: string, deck: Deck, winrate: number, gameCount: number): void {

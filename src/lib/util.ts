@@ -1,7 +1,7 @@
 export const groupBy = <T>(
   iterable: Iterable<T>,
   getKey: (item: T) => string
-) => {
+): Record<string, [T, ...T[]]> => {
   const result: Record<string, [T, ...T[]]> = {};
   for (const item of iterable) {
     const key = getKey(item);
@@ -15,7 +15,7 @@ export const groupBy = <T>(
   return result;
 };
 
-const compare = <T>(a: T, b: T) => {
+const compare = <T>(a: T, b: T): number => {
   if (a > b) return 1;
   if (b > a) return -1;
   return 0;
@@ -24,7 +24,7 @@ const compare = <T>(a: T, b: T) => {
 const createComparer = <T>(
   getKey: (item: T) => number | string,
   descending = false
-) =>
+): ((a: T, b: T) => number) =>
   descending
     ? (a: T, b: T) => compare(getKey(b), getKey(a))
     : (a: T, b: T) => compare(getKey(a), getKey(b));
@@ -33,33 +33,36 @@ export const sortBy = <T>(
   array: T[],
   getKey: (item: T) => number | string,
   descending = false
-) => {
+): T[] => {
   array.sort(createComparer(getKey, descending));
   return array;
 };
 
-export const matchesMedia = (mediaQuery: string) =>
+export const matchesMedia = (mediaQuery: string): boolean =>
   typeof window !== "undefined" && window.matchMedia(mediaQuery).matches;
 
-export const sleep = (ms: number) =>
+export const sleep = (ms: number): Promise<void> =>
   new Promise((resolve) => {
     setTimeout(resolve, ms);
   });
 
-export const formatNumber = (value: number, fractionDigits: number = 0) =>
+export const formatNumber = (
+  value: number,
+  fractionDigits: number = 0
+): string =>
   value.toLocaleString(undefined, {
     minimumFractionDigits: fractionDigits,
     maximumFractionDigits: fractionDigits,
   });
 
-export const formatPercentage = (value: number) =>
+export const formatPercentage = (value: number): string =>
   value.toLocaleString(undefined, {
     style: "percent",
     minimumFractionDigits: 1,
     maximumFractionDigits: 1,
   });
 
-export const formatPercentageDifference = (value: number) => {
+export const formatPercentageDifference = (value: number): string => {
   const difference = (value * 100).toLocaleString(undefined, {
     minimumFractionDigits: 1,
     maximumFractionDigits: 1,
@@ -67,10 +70,10 @@ export const formatPercentageDifference = (value: number) => {
   return value > 0 ? `+${difference}pp` : `${difference}pp`;
 };
 
-export const extractPathnameSegments = (url: string) =>
+export const extractPathnameSegments = (url: string): string[] =>
   new URL(url, window.location.origin).pathname.slice(1).split("/");
 
-export const extractUrlQuery = (url: string) => {
+export const extractUrlQuery = (url: string): string => {
   const questionMarkIndex = url.indexOf("?");
   if (questionMarkIndex === -1) {
     return "";

@@ -43,7 +43,10 @@ const normalizeString = (value: string): CandidateIndex => {
   return [result, deletedPositions];
 };
 
-const adjustPosition = (position: number, deletedPositions: number[]) => {
+const adjustPosition = (
+  position: number,
+  deletedPositions: number[]
+): number => {
   let originalIndex = position;
   for (const deletedPosition of deletedPositions) {
     if (originalIndex > deletedPosition) {
@@ -55,7 +58,7 @@ const adjustPosition = (position: number, deletedPositions: number[]) => {
   return originalIndex;
 };
 
-const compareMatches = (match1: Match, match2: Match) => {
+const compareMatches = (match1: Match, match2: Match): number => {
   if (match1.atStartOfWord && !match2.atStartOfWord) {
     return -1;
   }
@@ -94,7 +97,6 @@ const getBestMatch = (candidate: string, query: string): Match | null => {
 
 class SearchIndex<T> {
   #items: T[];
-
   candidateIndices: CandidateIndex[];
 
   constructor(items: T[], key: (item: T) => string) {
