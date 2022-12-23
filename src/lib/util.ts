@@ -83,15 +83,46 @@ export const extractUrlQuery = (url: string): string => {
 
 export const fetchJson = async <T>(
   url: RequestInfo | URL,
-  init?: RequestInit
+  init?: RequestInit,
+  timeout?: number
 ): Promise<T> => {
-  const response = await fetch(url, init);
+  let response: Response;
+  if (timeout === undefined) {
+    response = await fetch(url, init);
+  } else {
+    const controller = new AbortController();
+    const timeoutHandle = setTimeout(() => controller.abort(), timeout);
+    response = await fetch(url, { ...init, signal: controller.signal });
+    clearTimeout(timeoutHandle);
+  }
+
   if (!response.ok) {
     throw new Error(
-      `Request failed: ${response.status} ${response.statusText}`
+      `Request failed: ${response.status} ${
+        response.statusText
+      } - ${await response.text()}`
     );
   }
   return response.json();
+};
+
+const JSON_MEDIA_TYPE = "application/json";
+
+export const postJson = async <T>(
+  url: string,
+  data: any,
+  headers?: Record<string, string>,
+  timeout?: number
+): Promise<T> => {
+  const requestHeaders = new Headers(headers);
+  requestHeaders.set("Accept", JSON_MEDIA_TYPE);
+  requestHeaders.set("Content-Type", JSON_MEDIA_TYPE);
+  const init = {
+    method: "POST",
+    headers: requestHeaders,
+    body: JSON.stringify(data),
+  };
+  return fetchJson(url, init, timeout);
 };
 
 export const setEquals = <T>(setA: Set<T>, setB: Set<T>): boolean => {
