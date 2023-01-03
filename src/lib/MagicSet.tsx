@@ -57,7 +57,7 @@ export default class MagicSet {
 
   static BROTHERS_WAR = new MagicSet(
     "bro",
-    "Brother's War",
+    "Brothers' War",
     "2022-11-15",
     BroIcon
   );
