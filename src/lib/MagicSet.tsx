@@ -22,6 +22,7 @@ import { FC, ReactElement, SVGProps } from "react";
 
 import BroIcon from "assets/bro.svg";
 import HbgIcon from "assets/hbg.svg";
+import OneIcon from "assets/one.svg";
 
 import Deck from "./Deck";
 import { TRANSITION_CLASSES } from "./styles";
@@ -54,6 +55,8 @@ export default class MagicSet {
   readonly customDeckLabels: Record<string, string> = {};
   static #setsByCode: Record<string, MagicSet> = {};
   static ALL: MagicSet[] = [];
+
+  static PHYREXIA = new MagicSet("one", "Phyrexia", "2023-02-07", OneIcon);
 
   static BROTHERS_WAR = new MagicSet(
     "bro",
