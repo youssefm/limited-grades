@@ -28,7 +28,7 @@ const SetSelector: FC<Props> = ({ value, onChange, inputId }) => {
       getIcon={getIcon}
       instanceId="set-select"
       inputId={inputId}
-      className="min-w-[230px] lg:min-w-[260px]"
+      className="min-w-[230px] lg:min-w-[270px]"
     />
   );
 };
