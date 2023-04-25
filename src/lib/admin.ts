@@ -52,7 +52,7 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
     }
   },
   "delete-one-cache": async (output) => {
-    await POSTGRES_CACHE.delete(MagicSet.PHYREXIA.code);
+    await POSTGRES_CACHE.delete(MagicSet.ALL_WILL_BE_ONE.code);
     output.push("ONE cache deleted");
   },
   "find-deck-outliers": async (output) => {

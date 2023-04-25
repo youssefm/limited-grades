@@ -72,7 +72,12 @@ export default class MagicSet {
     SirIcon
   );
 
-  static PHYREXIA = new MagicSet("one", "Phyrexia", "2023-02-07", OneIcon);
+  static ALL_WILL_BE_ONE = new MagicSet(
+    "one",
+    "All Will Be One",
+    "2023-02-07",
+    OneIcon
+  );
 
   static BROTHERS_WAR = new MagicSet(
     "bro",
