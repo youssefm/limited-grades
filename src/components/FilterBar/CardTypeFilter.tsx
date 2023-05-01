@@ -31,8 +31,13 @@ const FILTERS = [
     icon: <InstantIcon {...ICON_PROPS} />,
   },
   {
-    label: "artifacts, enchantments, and planeswalkers",
-    values: [CardType.ARTIFACT, CardType.ENCHANTMENT, CardType.PLANESWALKER],
+    label: "artifacts, enchantments, battles, and planeswalkers",
+    values: [
+      CardType.ARTIFACT,
+      CardType.ENCHANTMENT,
+      CardType.BATTLE,
+      CardType.PLANESWALKER,
+    ],
     icon: <EnchantmentIcon {...ICON_PROPS} />,
   },
   {

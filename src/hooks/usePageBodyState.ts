@@ -43,6 +43,7 @@ const CARD_TYPE_CHARACTER_MAP: Record<CardType, string> = {
   [CardType.SORCERY]: "s",
   [CardType.ARTIFACT]: "a",
   [CardType.ENCHANTMENT]: "e",
+  [CardType.BATTLE]: "b",
   [CardType.PLANESWALKER]: "p",
   [CardType.LAND]: "l",
 };

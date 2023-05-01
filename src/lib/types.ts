@@ -70,6 +70,7 @@ export enum CardType {
   SORCERY = "sorcery",
   ARTIFACT = "artifact",
   ENCHANTMENT = "enchantment",
+  BATTLE = "battle",
   PLANESWALKER = "planeswalker",
   LAND = "land",
 }

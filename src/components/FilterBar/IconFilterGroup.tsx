@@ -29,7 +29,7 @@ const IconFilterGroup = <T extends unknown>({
       const toggle = (): void => {
         const newValues = new Set(values);
         for (const value of filterValues) {
-          if (newValues.has(value)) {
+          if (checked) {
             newValues.delete(value);
           } else {
             newValues.add(value);
