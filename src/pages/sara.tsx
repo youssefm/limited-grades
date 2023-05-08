@@ -78,12 +78,10 @@ const Page: NextPage<StaticProps> = ({ imageUrls }) => {
   return (
     <>
       <Head>
-        <title>For Sara ❤️</title>
+        <title>For Sara</title>
       </Head>
       <div className="h-full bg-neutral-900">
-        <h1 className="p-4 text-center text-4xl text-neutral-100">
-          For Sara ❤️
-        </h1>
+        <h1 className="p-4 text-center text-4xl text-neutral-100">For Sara</h1>
         <Swiper
           initialSlide={3}
           onSlideChangeTransitionEnd={onSlideChange}
