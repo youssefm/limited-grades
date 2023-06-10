@@ -33,7 +33,7 @@ export const writeJsonFile = async (
   filePath: string,
   value: any
 ): Promise<void> => {
-  const json = JSON.stringify(value);
+  const json = JSON.stringify(value, null, 2);
   const buffer = Buffer.from(json, "utf8");
   await writeFile(filePath, buffer);
 };
