@@ -22,6 +22,7 @@ import { FC, ReactElement, SVGProps } from "react";
 
 import BroIcon from "assets/bro.svg";
 import HbgIcon from "assets/hbg.svg";
+import LtrIcon from "assets/ltr.svg";
 import MomIcon from "assets/mom.svg";
 import OneIcon from "assets/one.svg";
 import SirIcon from "assets/sir.svg";
@@ -57,6 +58,13 @@ export default class MagicSet {
   readonly customDeckLabels: Record<string, string> = {};
   static #setsByCode: Record<string, MagicSet> = {};
   static ALL: MagicSet[] = [];
+
+  static LORD_OF_THE_RINGS = new MagicSet(
+    "ltr",
+    "Lord of the Rings",
+    "2023-06-20",
+    LtrIcon
+  );
 
   static MARCH_OF_THE_MACHINE = new MagicSet(
     "mom",
