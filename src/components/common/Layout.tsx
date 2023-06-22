@@ -1,9 +1,9 @@
 import Head from "next/head";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 import useDarkMode from "hooks/useDarkMode";
 
-const Layout: FC = ({ children }) => {
+const Layout: FC<{ children: ReactNode }> = ({ children }) => {
   const [darkModeEnabled] = useDarkMode();
   return (
     <>

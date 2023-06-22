@@ -1,6 +1,6 @@
 import { Dialog, Transition } from "@headlessui/react";
 import clsx from "clsx";
-import { FC, Fragment, useLayoutEffect } from "react";
+import { FC, Fragment, ReactNode, useLayoutEffect } from "react";
 import { IoClose } from "react-icons/io5";
 
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
@@ -10,6 +10,7 @@ interface Props {
   onClose: () => void;
   initialFocus?: React.MutableRefObject<HTMLElement | null>;
   className?: string;
+  children: ReactNode;
 }
 
 const Modal: FC<Props> = ({
