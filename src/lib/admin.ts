@@ -51,9 +51,10 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
       output.push(`${grade}: ${gradeCards ? gradeCards.length : 0}`);
     }
   },
-  "delete-one-cache": async (output) => {
-    await POSTGRES_CACHE.delete(MagicSet.ALL_WILL_BE_ONE.code);
-    output.push("ONE cache deleted");
+  "delete-ltr-cache": async (output) => {
+    const setCode = MagicSet.LORD_OF_THE_RINGS.code;
+    await POSTGRES_CACHE.delete(setCode);
+    output.push(`${setCode.toUpperCase()} cache deleted`);
   },
   "find-deck-outliers": async (output) => {
     let { cards } = await getCardStore(
