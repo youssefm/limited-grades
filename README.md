@@ -4,7 +4,7 @@ Visualize MTG draft win rates as a tier list, powered by 17Lands data.
 
 ## Prerequisites
 
-Node.js version 16
+Node.js version 18
 
 ## Getting Started
 

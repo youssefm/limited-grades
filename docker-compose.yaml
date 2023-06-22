@@ -1,7 +1,7 @@
 version: '3'
 services:
   web:
-    image: node:16
+    image: node:18
     user: node
     command: sh -c "npm install && npx prisma migrate deploy && node --inspect=0.0.0.0:9229 node_modules/next/dist/bin/next dev"
     depends_on:
