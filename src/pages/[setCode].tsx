@@ -45,7 +45,7 @@ const Page: NextPage<StaticProps> = ({
   return (
     <>
       <Head>
-        <title>Limited Grades – {set.label}</title>
+        <title>{`Limited Grades – ${set.label}`}</title>
       </Head>
       <div
         className={clsx(
