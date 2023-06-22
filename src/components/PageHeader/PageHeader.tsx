@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import { useState } from "react";
 import { BsFillExclamationCircleFill } from "react-icons/bs";
 import { FaInfoCircle } from "react-icons/fa";
