@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import Image from "next/legacy/image";
+import Image from "next/image";
 import { useState } from "react";
 import { BsFillExclamationCircleFill } from "react-icons/bs";
 import { FaInfoCircle } from "react-icons/fa";
@@ -26,7 +26,6 @@ const PageHeader = (): JSX.Element => {
             height={32}
             width={32}
             priority
-            layout="fixed"
           />
         </div>
 
