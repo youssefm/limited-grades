@@ -1,5 +1,11 @@
 /** @type {import('next').NextConfig} */
 module.exports = {
+  experimental: {
+    outputFileTracingIncludes: {
+      '/[setCode]': ["data/scryfall-index.json"],
+      '/api/cards/[setCode]': ["data/scryfall-index.json"],
+    }
+  },
   output: "standalone",
   reactStrictMode: true,
   redirects: async () => [

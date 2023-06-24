@@ -63,7 +63,3 @@ const Page: NextPage<StaticProps> = ({
 };
 
 export default memo(Page);
-
-export const config = {
-  unstable_includeFiles: ["data/scryfall-index.json"],
-};
