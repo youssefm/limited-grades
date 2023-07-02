@@ -3,7 +3,6 @@ import { ALL_GRADES } from "./constants";
 import Deck from "./Deck";
 import getCardStore from "./getCardStore";
 import MagicSet from "./MagicSet";
-import { generateLandImageFile } from "./scryfall";
 import { Format, Grade, Rarity } from "./types";
 import { groupBy, sortBy } from "./util";
 import { indexBy } from "./util.server";
@@ -81,10 +80,6 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
     for (const card of cards.slice(0, 30)) {
       output.push(card.name);
     }
-  },
-  "generate-land-image-file": async (output) => {
-    await generateLandImageFile();
-    output.push("Land image file generated!");
   },
   "populate-postgres-cache": async (output) => {
     for (const set of MagicSet.ALL) {

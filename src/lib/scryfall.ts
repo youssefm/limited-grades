@@ -4,10 +4,10 @@ import { ALL_CARD_TYPES, DAY_IN_SECONDS } from "./constants";
 import MagicSet from "./MagicSet";
 import { CardType, Color } from "./types";
 import { fetchJson } from "./util";
-import { buildUrl, Lazy, readJsonFile, writeJsonFile } from "./util.server";
+import { buildUrl, Lazy } from "./util.server";
 
 const INDEX_CACHE_KEY = "scryfall-index";
-const LAND_IMAGE_FILE_PATH = "data/land-image-file.json";
+const LAND_IMAGES_CACHE_KEY = "land-images";
 
 interface ScryfallBulkData {
   download_uri: string;
@@ -104,7 +104,7 @@ const fetchBulkData = async (type: string): Promise<ScryfallCard[]> => {
   return fetchJson<ScryfallCard[]>(bulkData.download_uri);
 };
 
-export const generateIndexFile = async (): Promise<ScryfallIndex> => {
+const generateIndex = async (): Promise<ScryfallIndex> => {
   const cards = await fetchBulkData("oracle-cards");
   const index: ScryfallIndex = {};
   for (const card of cards) {
@@ -129,14 +129,14 @@ export const SCRYFALL_FILE_INDEX = new Lazy(async () => {
   let index = await CACHE.get<ScryfallIndex>(INDEX_CACHE_KEY);
   if (!index) {
     console.log("Scryfall index not found in cache, generating...");
-    index = await generateIndexFile();
+    index = await generateIndex();
     console.log("Writing Scryfall index to cache");
     await CACHE.set(INDEX_CACHE_KEY, index, 7 * DAY_IN_SECONDS);
   }
   return new CaseInsensitiveMap(Object.entries(index));
 });
 
-export const generateLandImageFile = async (): Promise<void> => {
+const generateLandImages = async (): Promise<string[]> => {
   const cards = await fetchBulkData("unique-artwork");
   const landImageUrls: string[] = [];
   for (const card of cards) {
@@ -155,12 +155,17 @@ export const generateLandImageFile = async (): Promise<void> => {
       }
     }
   }
-  await writeJsonFile(LAND_IMAGE_FILE_PATH, landImageUrls);
+  return landImageUrls;
 };
 
-export const LAND_IMAGES = new Lazy(async () =>
-  readJsonFile<string[]>(LAND_IMAGE_FILE_PATH)
-);
+export const LAND_IMAGES = new Lazy(async () => {
+  let landImages = await CACHE.get<string[]>(LAND_IMAGES_CACHE_KEY);
+  if (!landImages) {
+    landImages = await generateLandImages();
+    await CACHE.set(LAND_IMAGES_CACHE_KEY, landImages, 7 * DAY_IN_SECONDS);
+  }
+  return landImages;
+});
 
 export const fetchCards = async (set: MagicSet): Promise<ScryfallCard[]> => {
   const cards: ScryfallCard[] = [];
