@@ -3,12 +3,7 @@ import { ALL_CARD_TYPES } from "./constants";
 import MagicSet from "./MagicSet";
 import { CardType, Color } from "./types";
 import { fetchJson } from "./util";
-import {
-  buildUrl,
-  LazySingleton,
-  readJsonFile,
-  writeJsonFile,
-} from "./util.server";
+import { buildUrl, Lazy, readJsonFile, writeJsonFile } from "./util.server";
 
 const INDEX_FILE_PATH = "data/scryfall-index.json";
 const LAND_IMAGE_FILE_PATH = "data/land-image-file.json";
@@ -128,7 +123,7 @@ export const generateIndexFile = async (): Promise<void> => {
   await writeJsonFile(INDEX_FILE_PATH, index);
 };
 
-export const SCRYFALL_FILE_INDEX = new LazySingleton(async () => {
+export const SCRYFALL_FILE_INDEX = new Lazy(async () => {
   console.log(`Reading Scryfall index from ${INDEX_FILE_PATH}`);
   const index = await readJsonFile<ScryfallIndex>(INDEX_FILE_PATH);
   return new CaseInsensitiveMap(Object.entries(index));
@@ -156,7 +151,7 @@ export const generateLandImageFile = async (): Promise<void> => {
   await writeJsonFile(LAND_IMAGE_FILE_PATH, landImageUrls);
 };
 
-export const LAND_IMAGES = new LazySingleton(async () =>
+export const LAND_IMAGES = new Lazy(async () =>
   readJsonFile<string[]>(LAND_IMAGE_FILE_PATH)
 );
 

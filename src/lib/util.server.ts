@@ -38,7 +38,7 @@ export const writeJsonFile = async (
   await writeFile(filePath, buffer);
 };
 
-export class LazySingleton<T> {
+export class Lazy<T> {
   #creator: () => T;
   #instance: T | null = null;
 
