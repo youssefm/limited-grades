@@ -3,7 +3,7 @@ import { ALL_GRADES } from "./constants";
 import Deck from "./Deck";
 import getCardStore from "./getCardStore";
 import MagicSet from "./MagicSet";
-import { generateIndexFile, generateLandImageFile } from "./scryfall";
+import { generateLandImageFile } from "./scryfall";
 import { Format, Grade, Rarity } from "./types";
 import { groupBy, sortBy } from "./util";
 import { indexBy } from "./util.server";
@@ -85,10 +85,6 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
   "generate-land-image-file": async (output) => {
     await generateLandImageFile();
     output.push("Land image file generated!");
-  },
-  "generate-scryfall-index": async (output) => {
-    await generateIndexFile();
-    output.push("Scryfall index generated!");
   },
   "populate-postgres-cache": async (output) => {
     for (const set of MagicSet.ALL) {

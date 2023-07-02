@@ -1,11 +1,12 @@
+import { CACHE } from "./cache";
 import CaseInsensitiveMap from "./CaseInsensitiveMap";
-import { ALL_CARD_TYPES } from "./constants";
+import { ALL_CARD_TYPES, DAY_IN_SECONDS } from "./constants";
 import MagicSet from "./MagicSet";
 import { CardType, Color } from "./types";
 import { fetchJson } from "./util";
 import { buildUrl, Lazy, readJsonFile, writeJsonFile } from "./util.server";
 
-const INDEX_FILE_PATH = "data/scryfall-index.json";
+const INDEX_CACHE_KEY = "scryfall-index";
 const LAND_IMAGE_FILE_PATH = "data/land-image-file.json";
 
 interface ScryfallBulkData {
@@ -103,7 +104,7 @@ const fetchBulkData = async (type: string): Promise<ScryfallCard[]> => {
   return fetchJson<ScryfallCard[]>(bulkData.download_uri);
 };
 
-export const generateIndexFile = async (): Promise<void> => {
+export const generateIndexFile = async (): Promise<ScryfallIndex> => {
   const cards = await fetchBulkData("oracle-cards");
   const index: ScryfallIndex = {};
   for (const card of cards) {
@@ -120,12 +121,18 @@ export const generateIndexFile = async (): Promise<void> => {
       types: getCardTypes(card),
     };
   }
-  await writeJsonFile(INDEX_FILE_PATH, index);
+  return index;
 };
 
 export const SCRYFALL_FILE_INDEX = new Lazy(async () => {
-  console.log(`Reading Scryfall index from ${INDEX_FILE_PATH}`);
-  const index = await readJsonFile<ScryfallIndex>(INDEX_FILE_PATH);
+  console.log("Reading Scryfall index from cache");
+  let index = await CACHE.get<ScryfallIndex>(INDEX_CACHE_KEY);
+  if (!index) {
+    console.log("Scryfall index not found in cache, generating...");
+    index = await generateIndexFile();
+    console.log("Writing Scryfall index to cache");
+    await CACHE.set(INDEX_CACHE_KEY, index, 7 * DAY_IN_SECONDS);
+  }
   return new CaseInsensitiveMap(Object.entries(index));
 });
 

@@ -5124,6 +5124,10 @@
       "creature"
     ]
   },
+  "Marauders": {
+    "color": "red",
+    "types": []
+  },
   "Mist-Syndicate Naga": {
     "color": "blue",
     "types": [
@@ -28225,6 +28229,10 @@
     "types": [
       "land"
     ]
+  },
+  "Tricksy": {
+    "color": "blue",
+    "types": []
   },
   "Timmerian Fiends": {
     "color": "black",
@@ -57624,6 +57632,10 @@
       "sorcery"
     ]
   },
+  "Courageous": {
+    "color": "white",
+    "types": []
+  },
   "Shinen of Fury's Fire": {
     "color": "red",
     "types": [
@@ -80093,6 +80105,10 @@
     "types": [
       "creature"
     ]
+  },
+  "Mordor": {
+    "color": "black",
+    "types": []
   },
   "Carnival Elephant Meteor": {
     "color": "colorless",
@@ -151304,6 +151320,10 @@
     "types": [
       "creature"
     ]
+  },
+  "Journey": {
+    "color": "green",
+    "types": []
   },
   "Aspirant's Ascent": {
     "color": "blue",
