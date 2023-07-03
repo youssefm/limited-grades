@@ -1,8 +1,9 @@
 import { FILE_CACHE, POSTGRES_CACHE } from "./cache";
-import { ALL_GRADES } from "./constants";
+import { ALL_GRADES, DAY_IN_SECONDS } from "./constants";
 import Deck from "./Deck";
 import getCardStore from "./getCardStore";
 import MagicSet from "./MagicSet";
+import { generateIndex, INDEX_CACHE_KEY } from "./scryfall";
 import { Format, Grade, Rarity } from "./types";
 import { groupBy, sortBy } from "./util";
 import { indexBy } from "./util.server";
@@ -86,6 +87,11 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
       await getCardStore(set, Format.PREMIER_DRAFT, POSTGRES_CACHE);
       output.push(`${set.code.toUpperCase()}: Cache Populated`);
     }
+  },
+  "populate-scryfall-index": async (output) => {
+    const index = await generateIndex();
+    await POSTGRES_CACHE.set(INDEX_CACHE_KEY, index, 120 * DAY_IN_SECONDS);
+    output.push("Scryfall Index populated");
   },
   "update-file-cache": async (output) => {
     for (const set of MagicSet.ALL) {

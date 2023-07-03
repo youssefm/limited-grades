@@ -6,7 +6,7 @@ import { CardType, Color } from "./types";
 import { fetchJson } from "./util";
 import { buildUrl, Lazy } from "./util.server";
 
-const INDEX_CACHE_KEY = "scryfall-index";
+export const INDEX_CACHE_KEY = "scryfall-index";
 const LAND_IMAGES_CACHE_KEY = "land-images";
 
 interface ScryfallBulkData {
@@ -104,7 +104,7 @@ const fetchBulkData = async (type: string): Promise<ScryfallCard[]> => {
   return fetchJson<ScryfallCard[]>(bulkData.download_uri);
 };
 
-const generateIndex = async (): Promise<ScryfallIndex> => {
+export const generateIndex = async (): Promise<ScryfallIndex> => {
   const cards = await fetchBulkData("oracle-cards");
   const index: ScryfallIndex = {};
   for (const card of cards) {
