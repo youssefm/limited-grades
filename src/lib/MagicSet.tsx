@@ -26,6 +26,7 @@ import LtrIcon from "assets/ltr.svg";
 import MomIcon from "assets/mom.svg";
 import OneIcon from "assets/one.svg";
 import SirIcon from "assets/sir.svg";
+import WoeIcon from "assets/woe.svg";
 
 import Deck from "./Deck";
 import { TRANSITION_CLASSES } from "./styles";
@@ -58,6 +59,13 @@ export default class MagicSet {
   readonly customDeckLabels: Record<string, string> = {};
   static #setsByCode: Record<string, MagicSet> = {};
   static ALL: MagicSet[] = [];
+
+  static WILDS_OF_ELDRAINE = new MagicSet(
+    "woe",
+    "Wilds of Eldraine",
+    "2023-09-05",
+    WoeIcon
+  );
 
   static LORD_OF_THE_RINGS = new MagicSet(
     "ltr",

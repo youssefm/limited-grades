@@ -5,7 +5,7 @@ module.exports = {
   redirects: async () => [
     {
       source: "/",
-      destination: "/ltr",
+      destination: "/woe",
       permanent: false,
     },
     {
