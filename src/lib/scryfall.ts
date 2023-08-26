@@ -162,7 +162,7 @@ export const LAND_IMAGES = new Lazy(async () => {
   let landImages = await CACHE.get<string[]>(LAND_IMAGES_CACHE_KEY);
   if (!landImages) {
     landImages = await generateLandImages();
-    await CACHE.set(LAND_IMAGES_CACHE_KEY, landImages, 7 * DAY_IN_SECONDS);
+    await CACHE.set(LAND_IMAGES_CACHE_KEY, landImages, 30 * DAY_IN_SECONDS);
   }
   return landImages;
 });
