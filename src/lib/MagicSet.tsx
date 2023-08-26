@@ -219,7 +219,7 @@ export default class MagicSet {
   static ARENA_CUBE = new MagicSet(
     "cube",
     "Arena Cube",
-    "2022-12-13",
+    "2023-08-21",
     CubeIcon
   );
 
