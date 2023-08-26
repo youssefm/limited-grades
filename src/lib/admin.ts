@@ -51,6 +51,11 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
       output.push(`${grade}: ${gradeCards ? gradeCards.length : 0}`);
     }
   },
+  "delete-cube-cache": async (output) => {
+    const setCode = MagicSet.ARENA_CUBE.code;
+    await POSTGRES_CACHE.delete(setCode);
+    output.push(`${setCode.toUpperCase()} cache deleted`);
+  },
   "delete-ltr-cache": async (output) => {
     const setCode = MagicSet.LORD_OF_THE_RINGS.code;
     await POSTGRES_CACHE.delete(setCode);
