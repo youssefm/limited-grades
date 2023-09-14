@@ -68,38 +68,47 @@ const DetailedStatsTable: FC<Props> = ({ card }) => (
       >
         {formatPercentage(card.overallStats.playedWinrate)}
       </StatsRow>
-      <StatsRow
-        label="Opening hand win rate"
-        tooltipText="The win rate of games where this card was in the opening hand"
-      >
-        {formatPercentage(card.overallStats.openingHandWinrate)}
-      </StatsRow>
-      <StatsRow
-        label="Games drawn win rate"
-        tooltipText="The win rate of games where this card was drawn, not counting cards from the opening hand"
-      >
-        {formatPercentage(card.overallStats.drawnWinrate)}
-      </StatsRow>
+      {card.overallStats.openingHandWinrate !== null && (
+        <StatsRow
+          label="Opening hand win rate"
+          tooltipText="The win rate of games where this card was in the opening hand"
+        >
+          {formatPercentage(card.overallStats.openingHandWinrate)}
+        </StatsRow>
+      )}
+      {card.overallStats.drawnWinrate !== null && (
+        <StatsRow
+          label="Games drawn win rate"
+          tooltipText="The win rate of games where this card was drawn, not counting cards from the opening hand"
+        >
+          {formatPercentage(card.overallStats.drawnWinrate)}
+        </StatsRow>
+      )}
       <StatsRow
         label="Games in hand win rate"
         tooltipText="The win rate of games where this card was drawn, either in the opening hand or later"
       >
         {formatPercentage(card.stats[Deck.ALL.code]!.winrate)}
       </StatsRow>
-      <StatsRow
-        label="Games not drawn win rate"
-        tooltipText="The win rate of games where this card was in the maindeck, but was never drawn"
-      >
-        {formatPercentage(card.overallStats.notDrawnWinrate)}
-      </StatsRow>
-      <StatsRow
-        label="Improvement when drawn"
-        tooltipText="The difference between Games in hand win rate and Games not drawn win rate"
-      >
-        {formatPercentageDifference(
-          card.stats[Deck.ALL.code]!.winrate - card.overallStats.notDrawnWinrate
-        )}
-      </StatsRow>
+      {card.overallStats.notDrawnWinrate !== null && (
+        <>
+          <StatsRow
+            label="Games not drawn win rate"
+            tooltipText="The win rate of games where this card was in the maindeck, but was never drawn"
+          >
+            {formatPercentage(card.overallStats.notDrawnWinrate)}
+          </StatsRow>
+          <StatsRow
+            label="Improvement when drawn"
+            tooltipText="The difference between Games in hand win rate and Games not drawn win rate"
+          >
+            {formatPercentageDifference(
+              card.stats[Deck.ALL.code]!.winrate -
+                card.overallStats.notDrawnWinrate
+            )}
+          </StatsRow>
+        </>
+      )}
     </tbody>
   </table>
 );

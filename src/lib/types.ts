@@ -59,9 +59,9 @@ export interface OverallCardStats {
   lastSeenAt: number;
   takenAt: number;
   playedWinrate: number;
-  openingHandWinrate: number;
-  drawnWinrate: number;
-  notDrawnWinrate: number;
+  openingHandWinrate: number | null;
+  drawnWinrate: number | null;
+  notDrawnWinrate: number | null;
 }
 
 export enum CardType {
