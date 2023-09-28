@@ -43,7 +43,7 @@ const PageHeader = (): JSX.Element => {
           type="button"
           aria-label="About this project"
         >
-          <FaInfoCircle />
+          <FaInfoCircle className="-mb-1" />
           <span className="hidden lg:inline">About this project</span>
         </button>
 
