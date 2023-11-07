@@ -20,13 +20,14 @@ import CubeIcon from "keyrune/svg/xlcu.svg";
 import ZnrIcon from "keyrune/svg/znr.svg";
 import { FC, ReactElement, SVGProps } from "react";
 
-import BroIcon from "assets/bro.svg";
-import HbgIcon from "assets/hbg.svg";
-import LtrIcon from "assets/ltr.svg";
-import MomIcon from "assets/mom.svg";
-import OneIcon from "assets/one.svg";
-import SirIcon from "assets/sir.svg";
-import WoeIcon from "assets/woe.svg";
+import BroIcon from "assets/sets/bro.svg";
+import HbgIcon from "assets/sets/hbg.svg";
+import LciIcon from "assets/sets/lci.svg";
+import LtrIcon from "assets/sets/ltr.svg";
+import MomIcon from "assets/sets/mom.svg";
+import OneIcon from "assets/sets/one.svg";
+import SirIcon from "assets/sets/sir.svg";
+import WoeIcon from "assets/sets/woe.svg";
 
 import Deck from "./Deck";
 import { TRANSITION_CLASSES } from "./styles";
@@ -59,6 +60,13 @@ export default class MagicSet {
   readonly customDeckLabels: Record<string, string> = {};
   static #setsByCode: Record<string, MagicSet> = {};
   static ALL: MagicSet[] = [];
+
+  static CAVERNS_OF_IXALAN = new MagicSet(
+    "lci",
+    "Caverns of Ixalan",
+    "2023-11-14",
+    LciIcon
+  );
 
   static WILDS_OF_ELDRAINE = new MagicSet(
     "woe",
