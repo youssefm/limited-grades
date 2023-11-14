@@ -98,9 +98,10 @@ const buildCardStore = async (
     const cardName = apiCard.name.replace("///", "//");
     const scryfallIndexEntry = scryfallIndex.get(cardName);
     if (!scryfallIndexEntry) {
-      throw Error(
+      console.warn(
         `Card named '${cardName}' could not be found in the Scryfall DB`
       );
+      continue;
     }
 
     cards.push({
