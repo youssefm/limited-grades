@@ -124,7 +124,7 @@ export const generateIndex = async (): Promise<ScryfallIndex> => {
   return index;
 };
 
-export const SCRYFALL_FILE_INDEX = new Lazy(async () => {
+export const SCRYFALL_INDEX = new Lazy(async () => {
   console.log("Reading Scryfall index from cache");
   let index = await CACHE.get<ScryfallIndex>(INDEX_CACHE_KEY);
   if (!index) {

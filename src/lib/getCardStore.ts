@@ -4,7 +4,7 @@ import { CACHE, Cache } from "./cache";
 import CardGrader from "./CardGrader";
 import Deck from "./Deck";
 import MagicSet from "./MagicSet";
-import { SCRYFALL_FILE_INDEX } from "./scryfall";
+import { SCRYFALL_INDEX } from "./scryfall";
 import { Card, CardStore, Format, Rarity } from "./types";
 import { sortBy } from "./util";
 import { buildUrl, round } from "./util.server";
@@ -69,7 +69,7 @@ const buildCardStore = async (
         return [deck, apiCards];
       })
     ),
-    SCRYFALL_FILE_INDEX.get(),
+    SCRYFALL_INDEX.get(),
   ]);
 
   const grader = new CardGrader();
