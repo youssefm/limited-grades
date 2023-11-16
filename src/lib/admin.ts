@@ -56,8 +56,8 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
     await POSTGRES_CACHE.delete(setCode);
     output.push(`${setCode.toUpperCase()} cache deleted`);
   },
-  "delete-ltr-cache": async (output) => {
-    const setCode = MagicSet.LORD_OF_THE_RINGS.code;
+  "delete-lci-cache": async (output) => {
+    const setCode = MagicSet.CAVERNS_OF_IXALAN.code;
     await POSTGRES_CACHE.delete(setCode);
     output.push(`${setCode.toUpperCase()} cache deleted`);
   },
