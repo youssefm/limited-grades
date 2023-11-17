@@ -59,7 +59,7 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
   "delete-lci-cache": async (output) => {
     const setCode = MagicSet.CAVERNS_OF_IXALAN.code;
     await POSTGRES_CACHE.delete(setCode);
-    output.push("LCI cache deleted");
+    output.push(`${setCode.toUpperCase()} cache deleted`);
   },
   "find-deck-outliers": async (output) => {
     let { cards } = await getCardStore(
