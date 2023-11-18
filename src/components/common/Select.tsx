@@ -1,4 +1,4 @@
-import { FC, Ref, useCallback } from "react";
+import { Ref } from "react";
 import ReactSelect, {
   Colors,
   components,
@@ -40,15 +40,6 @@ export interface Props<T>
   options: T[];
   getLabel: (value: T) => string;
   selectRef?: Ref<ReactSelectRef<{ value: T; label: string }, false>>;
-  enterKeyHint?:
-    | "search"
-    | "enter"
-    | "done"
-    | "go"
-    | "next"
-    | "previous"
-    | "send"
-    | undefined;
 }
 
 export interface Option<T> {
@@ -56,26 +47,22 @@ export interface Option<T> {
   label: string;
 }
 
+const InputComponent = <T extends unknown>(
+  props: InputProps<Option<T>, false>
+): JSX.Element => <components.Input {...props} enterKeyHint="go" />;
+
 const Select = <T extends unknown>({
   value,
   onChange,
   options,
   getLabel,
   selectRef,
-  enterKeyHint,
   ...extraProps
 }: Props<T>): JSX.Element => {
   const [darkModeEnabled] = useDarkMode();
-  const InputComponent: FC<InputProps<Option<T>, false>> = useCallback(
-    (props) => <components.Input {...props} enterKeyHint={enterKeyHint} />,
-    [enterKeyHint]
-  );
 
   const { components: componentsProp, ...extraPropsWithoutComponents } =
     extraProps;
-  const newComponents = enterKeyHint
-    ? { ...componentsProp, Input: InputComponent }
-    : componentsProp;
 
   const selectProps: StateManagerProps<Option<T>, false> = {
     ...extraPropsWithoutComponents,
@@ -87,7 +74,7 @@ const Select = <T extends unknown>({
       value: option,
       label: getLabel(option),
     })),
-    components: newComponents,
+    components: { ...componentsProp, Input: InputComponent },
     isMulti: false,
     classNamePrefix: "rs",
     styles: {
