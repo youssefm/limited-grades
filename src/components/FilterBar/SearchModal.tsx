@@ -98,6 +98,7 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
         }}
         isClearable
         autoFocus
+        enterKeyHint="search"
       />
       {!selectedOption && (
         <div

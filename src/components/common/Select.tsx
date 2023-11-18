@@ -1,5 +1,10 @@
-import { Ref } from "react";
-import ReactSelect, { Colors, CSSObjectWithLabel } from "react-select";
+import { FC, Ref, useCallback } from "react";
+import ReactSelect, {
+  Colors,
+  components,
+  CSSObjectWithLabel,
+  InputProps,
+} from "react-select";
 import ReactSelectRef from "react-select/dist/declarations/src/Select";
 import { StateManagerProps } from "react-select/dist/declarations/src/stateManager";
 
@@ -35,6 +40,20 @@ export interface Props<T>
   options: T[];
   getLabel: (value: T) => string;
   selectRef?: Ref<ReactSelectRef<{ value: T; label: string }, false>>;
+  enterKeyHint?:
+    | "search"
+    | "enter"
+    | "done"
+    | "go"
+    | "next"
+    | "previous"
+    | "send"
+    | undefined;
+}
+
+export interface Option<T> {
+  value: T;
+  label: string;
 }
 
 const Select = <T extends unknown>({
@@ -43,25 +62,32 @@ const Select = <T extends unknown>({
   options,
   getLabel,
   selectRef,
+  enterKeyHint,
   ...extraProps
 }: Props<T>): JSX.Element => {
   const [darkModeEnabled] = useDarkMode();
+  const InputComponent: FC<InputProps<Option<T>, false>> = useCallback(
+    (props) => <components.Input {...props} enterKeyHint={enterKeyHint} />,
+    [enterKeyHint]
+  );
 
-  interface TOption {
-    value: T;
-    label: string;
-  }
+  const { components: componentsProp, ...extraPropsWithoutComponents } =
+    extraProps;
+  const newComponents = enterKeyHint
+    ? { ...componentsProp, Input: InputComponent }
+    : componentsProp;
 
-  const selectProps: StateManagerProps<TOption, false> = {
-    ...extraProps,
+  const selectProps: StateManagerProps<Option<T>, false> = {
+    ...extraPropsWithoutComponents,
     value: value ? { value, label: getLabel(value) } : undefined,
-    onChange: (selectedOption: TOption | null) => {
+    onChange: (selectedOption: Option<T> | null) => {
       onChange(selectedOption?.value);
     },
     options: options.map((option: T) => ({
       value: option,
       label: getLabel(option),
     })),
+    components: newComponents,
     isMulti: false,
     classNamePrefix: "rs",
     styles: {

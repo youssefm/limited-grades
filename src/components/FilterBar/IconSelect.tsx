@@ -1,7 +1,7 @@
 import { FC, ReactElement, ReactNode, useCallback } from "react";
 import { components, OptionProps, SingleValueProps } from "react-select";
 
-import Select, { Props as SelectProps } from "components/common/Select";
+import Select, { Option, Props as SelectProps } from "components/common/Select";
 
 interface Props<T> extends SelectProps<T> {
   getIcon: (value: T) => ReactNode;
@@ -12,11 +12,6 @@ const IconSelect = <T extends unknown>({
   formatOptionText,
   ...extraProps
 }: Props<T>): JSX.Element => {
-  interface TOption {
-    value: T;
-    label: string;
-  }
-
   const SingleValueView: FC<{ optionValue: T; children: ReactNode }> =
     useCallback(
       ({ optionValue, children }) => {
@@ -52,18 +47,19 @@ const IconSelect = <T extends unknown>({
     [SingleValueView, formatOptionText]
   );
 
-  const SingleValue: FC<SingleValueProps<TOption, false>> = useCallback(
-    ({ children, ...props }) => (
-      <components.SingleValue {...props}>
-        <SingleValueView optionValue={props.data.value}>
-          {children}
-        </SingleValueView>
-      </components.SingleValue>
-    ),
-    [SingleValueView]
-  );
+  const SingleValueComponent: FC<SingleValueProps<Option<T>, false>> =
+    useCallback(
+      ({ children, ...props }) => (
+        <components.SingleValue {...props}>
+          <SingleValueView optionValue={props.data.value}>
+            {children}
+          </SingleValueView>
+        </components.SingleValue>
+      ),
+      [SingleValueView]
+    );
 
-  const Option: FC<OptionProps<TOption, false>> = useCallback(
+  const OptionComponent: FC<OptionProps<Option<T>, false>> = useCallback(
     ({ children, ...props }) => (
       <components.Option {...props}>
         <OptionView
@@ -77,7 +73,15 @@ const IconSelect = <T extends unknown>({
     [OptionView]
   );
 
-  return <Select components={{ SingleValue, Option }} {...extraProps} />;
+  return (
+    <Select
+      components={{
+        SingleValue: SingleValueComponent,
+        Option: OptionComponent,
+      }}
+      {...extraProps}
+    />
+  );
 };
 
 export default IconSelect;
