@@ -1,6 +1,6 @@
 import { Dialog, Transition } from "@headlessui/react";
 import clsx from "clsx";
-import { FC, Fragment, ReactNode, useLayoutEffect } from "react";
+import { FC, Fragment, ReactNode, useEffect, useLayoutEffect } from "react";
 import { IoClose } from "react-icons/io5";
 
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
@@ -32,6 +32,17 @@ const Modal: FC<Props> = ({
       document.body.style.paddingRight = `${scrollbarWidth}px`;
     }
   });
+
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent): void => {
+      if (event.key === "Escape") {
+        onClose();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscape);
+    return () => document.removeEventListener("keydown", handleEscape);
+  }, [onClose]);
 
   const internalOnClose = (): void => {
     document.documentElement.classList.add("scrollbar-gutter-stable");
