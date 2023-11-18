@@ -7,7 +7,6 @@ import Modal from "components/common/Modal";
 import MagicSet from "lib/MagicSet";
 import SearchIndex, { Match } from "lib/SearchIndex";
 import { Card } from "lib/types";
-import { isIOS } from "lib/util";
 
 import IconSelect from "./IconSelect";
 
@@ -64,7 +63,6 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
       title="Search"
       onClose={onClose}
       initialFocus={inputRef}
-      useTransition={!isIOS()}
       className="h-full w-full lg:h-fit lg:w-fit"
     >
       <IconSelect

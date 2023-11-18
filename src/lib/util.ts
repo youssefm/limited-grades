@@ -147,9 +147,3 @@ export const reverseLookup = <K extends string, V>(
   }
   return undefined;
 };
-
-const IOS_NAVIGATOR_PLATFORMS = ["iPhone", "iPad"];
-
-export const isIOS = (): boolean =>
-  // @ts-ignore
-  navigator.platform && IOS_NAVIGATOR_PLATFORMS.includes(navigator.platform);
