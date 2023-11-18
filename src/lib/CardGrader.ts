@@ -6,7 +6,7 @@ import DefaultMap from "./DefaultMap";
 import { CardStats, Grade } from "./types";
 
 const MIN_GAMES_DRAWN_FOR_INFERENCE = 100;
-const MIN_GAMES_DRAWN = 400;
+const MIN_GAMES_DRAWN = 500;
 
 const GRADE_THRESHOLDS: [Grade, number][] = [
   [Grade.A_PLUS, 99],
@@ -36,9 +36,6 @@ export default class CardGrader {
   #cardStats = new DefaultMap<string, Record<string, CardStats>>(() => ({}));
 
   add(cardKey: string, deck: Deck, winrate: number, gameCount: number): void {
-    if (!winrate) {
-      return;
-    }
     const cardRecord = { cardKey, deck, winrate, gameCount };
     this.#cardRecordsByDeck.get(deck).push(cardRecord);
   }

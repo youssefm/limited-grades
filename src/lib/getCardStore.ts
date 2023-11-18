@@ -14,16 +14,16 @@ interface ApiCard {
   rarity: Rarity | "basic";
   url: string;
   url_back: string;
-  avg_seen: number;
-  avg_pick: number;
-  drawn_improvement_win_rate: number;
-  drawn_win_rate: number;
+  avg_seen: number | null;
+  avg_pick: number | null;
+  drawn_improvement_win_rate: number | null;
+  drawn_win_rate: number | null;
   ever_drawn_game_count: number;
-  ever_drawn_win_rate: number;
+  ever_drawn_win_rate: number | null;
   game_count: number;
-  never_drawn_win_rate: number;
-  opening_hand_win_rate: number;
-  win_rate: number;
+  never_drawn_win_rate: number | null;
+  opening_hand_win_rate: number | null;
+  win_rate: number | null;
 }
 
 const fetchApiCards = async (
@@ -75,6 +75,9 @@ const buildCardStore = async (
   const grader = new CardGrader();
   for (const [deck, apiCards] of apiCardStore) {
     for (const apiCard of apiCards) {
+      if (apiCard.ever_drawn_win_rate === null) {
+        continue;
+      }
       grader.add(
         apiCard.url,
         deck,
@@ -113,12 +116,23 @@ const buildCardStore = async (
       cardBackUrl: apiCard.url_back,
       overallStats: {
         gameCount: apiCard.game_count,
-        lastSeenAt: round(apiCard.avg_seen, 2),
-        takenAt: round(apiCard.avg_pick, 2),
-        playedWinrate: round(apiCard.win_rate, 4),
-        openingHandWinrate: round(apiCard.opening_hand_win_rate, 4),
-        drawnWinrate: round(apiCard.drawn_win_rate, 4),
-        notDrawnWinrate: round(apiCard.never_drawn_win_rate, 4),
+        lastSeenAt:
+          apiCard.avg_seen === null ? null : round(apiCard.avg_seen, 2),
+        takenAt: apiCard.avg_pick === null ? null : round(apiCard.avg_pick, 2),
+        playedWinrate:
+          apiCard.win_rate === null ? null : round(apiCard.win_rate, 4),
+        openingHandWinrate:
+          apiCard.opening_hand_win_rate === null
+            ? null
+            : round(apiCard.opening_hand_win_rate, 4),
+        drawnWinrate:
+          apiCard.drawn_win_rate === null
+            ? null
+            : round(apiCard.drawn_win_rate, 4),
+        notDrawnWinrate:
+          apiCard.never_drawn_win_rate === null
+            ? null
+            : round(apiCard.never_drawn_win_rate, 4),
       },
       stats: Object.fromEntries(
         Object.entries(cardStats).map(

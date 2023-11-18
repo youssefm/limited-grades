@@ -56,9 +56,9 @@ export interface CardStats {
 
 export interface OverallCardStats {
   gameCount: number;
-  lastSeenAt: number;
-  takenAt: number;
-  playedWinrate: number;
+  lastSeenAt: number | null;
+  takenAt: number | null;
+  playedWinrate: number | null;
   openingHandWinrate: number | null;
   drawnWinrate: number | null;
   notDrawnWinrate: number | null;

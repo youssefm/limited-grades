@@ -36,18 +36,22 @@ interface Props {
 const DetailedStatsTable: FC<Props> = ({ card }) => (
   <table className="w-full border border-neutral-200 dark:border-black lg:w-[21em]">
     <tbody>
-      <StatsRow
-        label="Average last seen at"
-        tooltipText="The average pick number where this card was last seen in packs"
-      >
-        {formatNumber(card.overallStats.lastSeenAt, 2)}
-      </StatsRow>
-      <StatsRow
-        label="Average taken at"
-        tooltipText="The average pick number at which this card was taken by 17Lands drafters"
-      >
-        {formatNumber(card.overallStats.takenAt, 2)}
-      </StatsRow>
+      {card.overallStats.lastSeenAt !== null && (
+        <StatsRow
+          label="Average last seen at"
+          tooltipText="The average pick number where this card was last seen in packs"
+        >
+          {formatNumber(card.overallStats.lastSeenAt, 2)}
+        </StatsRow>
+      )}
+      {card.overallStats.takenAt !== null && (
+        <StatsRow
+          label="Average taken at"
+          tooltipText="The average pick number at which this card was taken by 17Lands drafters"
+        >
+          {formatNumber(card.overallStats.takenAt, 2)}
+        </StatsRow>
+      )}
       <StatsRow
         label="Number of games played"
         tooltipText="The number of games played with this card in the maindeck"
@@ -61,13 +65,15 @@ const DetailedStatsTable: FC<Props> = ({ card }) => (
       >
         {formatNumber(card.stats[Deck.ALL.code]!.gameCount)}
       </StatsRow>
-      <StatsRow
-        label="Games played win rate"
-        tooltipText="The win rate of decks with this card in the maindeck"
-        className="border-t border-neutral-200 dark:border-black"
-      >
-        {formatPercentage(card.overallStats.playedWinrate)}
-      </StatsRow>
+      {card.overallStats.playedWinrate !== null && (
+        <StatsRow
+          label="Games played win rate"
+          tooltipText="The win rate of decks with this card in the maindeck"
+          className="border-t border-neutral-200 dark:border-black"
+        >
+          {formatPercentage(card.overallStats.playedWinrate)}
+        </StatsRow>
+      )}
       {card.overallStats.openingHandWinrate !== null && (
         <StatsRow
           label="Opening hand win rate"
