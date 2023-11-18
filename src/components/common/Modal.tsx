@@ -1,6 +1,13 @@
 import { Dialog, Transition } from "@headlessui/react";
 import clsx from "clsx";
-import { FC, Fragment, ReactNode, useEffect, useLayoutEffect } from "react";
+import {
+  FC,
+  Fragment,
+  ReactNode,
+  useCallback,
+  useEffect,
+  useLayoutEffect,
+} from "react";
 import { IoClose } from "react-icons/io5";
 
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
@@ -33,22 +40,22 @@ const Modal: FC<Props> = ({
     }
   });
 
+  const internalOnClose = useCallback((): void => {
+    document.documentElement.classList.add("scrollbar-gutter-stable");
+    document.body.style.removeProperty("padding-right");
+    onClose();
+  }, [onClose]);
+
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent): void => {
       if (event.key === "Escape") {
-        onClose();
+        internalOnClose();
       }
     };
 
     document.addEventListener("keydown", handleEscape);
     return () => document.removeEventListener("keydown", handleEscape);
-  }, [onClose]);
-
-  const internalOnClose = (): void => {
-    document.documentElement.classList.add("scrollbar-gutter-stable");
-    document.body.style.removeProperty("padding-right");
-    onClose();
-  };
+  }, [internalOnClose]);
 
   return (
     <Transition appear show as={Fragment}>
