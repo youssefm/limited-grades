@@ -129,7 +129,7 @@ const Modal: FC<Props> = ({
           enterTo={OVERLAY_TO_CLASS}
           as={Fragment}
         >
-          <Overlay />
+          <Dialog.Overlay className="fixed inset-0 z-10 bg-black/60 backdrop-blur-xs" />
         </Transition.Child>
         <Transition.Child
           enter="transition-opacity duration-50"
@@ -137,13 +137,25 @@ const Modal: FC<Props> = ({
           enterTo={MODAL_TO_CLASS}
           as={Fragment}
         >
-          <ModalBody
-            title={title}
-            onClose={internalOnClose}
-            className={className}
+          <div
+            className={clsx(
+              "z-20 max-h-[95%] max-w-[95%] overflow-y-auto dark:text-neutral-100",
+              "rounded-lg border border-black bg-white shadow-xl dark:bg-neutral-900",
+              className
+            )}
           >
-            {children}
-          </ModalBody>
+            <Dialog.Title className="flex items-center border-b border-neutral-200 p-4 text-2xl dark:border-black">
+              <span className="grow font-medium">{title}</span>
+              <button
+                onClick={internalOnClose}
+                type="button"
+                aria-label="Close Modal"
+              >
+                <IoClose className={clsx(HOVER_CLASSES, TRANSITION_CLASSES)} />
+              </button>
+            </Dialog.Title>
+            <div className="p-4">{children}</div>
+          </div>
         </Transition.Child>
       </Dialog>
     </Transition>
