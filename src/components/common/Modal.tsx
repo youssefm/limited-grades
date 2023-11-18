@@ -137,9 +137,13 @@ const Modal: FC<Props> = ({
           enterTo={MODAL_TO_CLASS}
           as={Fragment}
         >
-          <Modal title={title} onClose={internalOnClose} className={className}>
+          <ModalBody
+            title={title}
+            onClose={internalOnClose}
+            className={className}
+          >
             {children}
-          </Modal>
+          </ModalBody>
         </Transition.Child>
       </Dialog>
     </Transition>
