@@ -1,0 +1,2750 @@
+{
+  "updatedAt": "2023-12-13T05:11:37.345Z",
+  "cards": [
+    {
+      "name": "Abomination of Gudul",
+      "color": "multicolor",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/7/d/7df9759e-1072-4a6a-be57-f73b15bf3847.jpg?1562789157",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2477,
+        "lastSeenAt": 5.22,
+        "takenAt": 7.18,
+        "playedWinrate": 0.5373,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.5597,
+        "notDrawnWinrate": 0.516
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5599,
+          "gameCount": 1186,
+          "grade": "C",
+          "score": 56.75
+        },
+        "ubg": {
+          "winrate": 0.576,
+          "gameCount": 743,
+          "grade": "D",
+          "score": 22.36
+        }
+      }
+    },
+    {
+      "name": "Abzan Charm",
+      "color": "multicolor",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "instant"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/8/f/8f7b7598-35b0-4bb5-8347-8c868500f846.jpg?1562790259",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1194,
+        "lastSeenAt": 2.78,
+        "takenAt": null,
+        "playedWinrate": 0.5595,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.53
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5879,
+          "gameCount": 529,
+          "grade": "B+",
+          "score": 87.08
+        }
+      }
+    },
+    {
+      "name": "Abzan Falconer",
+      "color": "white",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/2/1/21ee4f3c-dc94-4156-b0ed-60fe6310451a.jpg?1562783594",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1431,
+        "lastSeenAt": 2.13,
+        "takenAt": null,
+        "playedWinrate": 0.5584,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5494
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.567,
+          "gameCount": 612,
+          "grade": "C+",
+          "score": 66.28
+        }
+      }
+    },
+    {
+      "name": "Abzan Guide",
+      "color": "multicolor",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/1/b/1b7f7158-4a31-4a1c-bf3b-574c0b09276a.jpg?1562783275",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 3226,
+        "lastSeenAt": 4.14,
+        "takenAt": 5.54,
+        "playedWinrate": 0.5552,
+        "openingHandWinrate": 0.5803,
+        "drawnWinrate": 0.5706,
+        "notDrawnWinrate": 0.5376
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5746,
+          "gameCount": 1448,
+          "grade": "B-",
+          "score": 75.17
+        },
+        "wbg": {
+          "winrate": 0.5806,
+          "gameCount": 813,
+          "grade": "B",
+          "score": 82.64
+        }
+      }
+    },
+    {
+      "name": "Ainok Bond-Kin",
+      "color": "white",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/2/2/22d2a844-17fc-4628-9591-684555e98f7b.jpg?1562783624",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 3891,
+        "lastSeenAt": 3.23,
+        "takenAt": 4.14,
+        "playedWinrate": 0.5672,
+        "openingHandWinrate": 0.5814,
+        "drawnWinrate": 0.5673,
+        "notDrawnWinrate": 0.5627
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5736,
+          "gameCount": 1623,
+          "grade": "B-",
+          "score": 73.89
+        },
+        "wbg": {
+          "winrate": 0.5465,
+          "gameCount": 505,
+          "grade": "D",
+          "score": 21.77
+        }
+      }
+    },
+    {
+      "name": "Ainok Tracker",
+      "color": "red",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/0/f/0ff9400d-4842-471f-bf7e-3b21df352e0a.jpg?1562782629",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2006,
+        "lastSeenAt": 6.46,
+        "takenAt": 9.34,
+        "playedWinrate": 0.5479,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.568
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5199,
+          "gameCount": 806,
+          "grade": "D-",
+          "score": 11.7
+        }
+      }
+    },
+    {
+      "name": "Alabaster Kirin",
+      "color": "white",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/a/d/ad1ce529-06ed-4e85-9988-8c8b58401ed5.jpg?1562791877",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2892,
+        "lastSeenAt": 5.21,
+        "takenAt": 7.36,
+        "playedWinrate": 0.5602,
+        "openingHandWinrate": 0.5757,
+        "drawnWinrate": 0.5836,
+        "notDrawnWinrate": 0.5458
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5802,
+          "gameCount": 1184,
+          "grade": "B",
+          "score": 80.78
+        }
+      }
+    },
+    {
+      "name": "Alpine Grizzly",
+      "color": "green",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/3/8/38bbf983-df71-4403-86f3-2e86aa8765b8.jpg?1562784926",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2003,
+        "lastSeenAt": 6.32,
+        "takenAt": 8.66,
+        "playedWinrate": 0.5357,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5406
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5292,
+          "gameCount": 839,
+          "grade": "D",
+          "score": 19.22
+        }
+      }
+    },
+    {
+      "name": "Arc Lightning",
+      "color": "red",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "sorcery"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/3/5/35c7c392-6782-40c8-bb24-6aad24f14660.jpg?1562784760",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1595,
+        "lastSeenAt": 2.26,
+        "takenAt": null,
+        "playedWinrate": 0.5699,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5395
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.6142,
+          "gameCount": 674,
+          "grade": "A",
+          "score": 97.88
+        }
+      }
+    },
+    {
+      "name": "Archers' Parapet",
+      "color": "green",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/6/4/64ac0667-8ecc-4034-89bb-dce0af531014.jpg?1562787707",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2226,
+        "lastSeenAt": 5.64,
+        "takenAt": 8.14,
+        "playedWinrate": 0.5252,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.5254,
+        "notDrawnWinrate": 0.5401
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5115,
+          "gameCount": 999,
+          "grade": "D-",
+          "score": 6.94
+        }
+      }
+    },
+    {
+      "name": "Armament Corps",
+      "color": "multicolor",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/a/5/a5c69876-809d-4af3-9fd6-3bac41541dad.jpg?1562791520",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1229,
+        "lastSeenAt": 3.14,
+        "takenAt": null,
+        "playedWinrate": 0.5403,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.513
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5674,
+          "gameCount": 527,
+          "grade": "C+",
+          "score": 66.64
+        }
+      }
+    },
+    {
+      "name": "Arrow Storm",
+      "color": "red",
+      "rarity": "common",
+      "cardTypes": [
+        "sorcery"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/c/5/c57534fb-2591-4003-aeec-6452faa4a759.jpg?1562793262",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2924,
+        "lastSeenAt": 4.7,
+        "takenAt": 6.42,
+        "playedWinrate": 0.5417,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.5401,
+        "notDrawnWinrate": 0.534
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5521,
+          "gameCount": 1141,
+          "grade": "C",
+          "score": 46.41
+        }
+      }
+    },
+    {
+      "name": "Awaken the Bear",
+      "color": "green",
+      "rarity": "common",
+      "cardTypes": [
+        "instant"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/8/0/803a6ac7-9327-4c2f-b023-93f5f65f83b8.jpg?1562789301",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1304,
+        "lastSeenAt": 7.37,
+        "takenAt": 10.49,
+        "playedWinrate": 0.5567,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.567
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5408,
+          "gameCount": 503,
+          "grade": "D+",
+          "score": 31.56
+        }
+      }
+    },
+    {
+      "name": "Bellowing Saddlebrute",
+      "color": "black",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/a/1/a1939b5d-e24f-4e4b-b4c5-8bdb232d8926.jpg?1562791292",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1323,
+        "lastSeenAt": 3.66,
+        "takenAt": null,
+        "playedWinrate": 0.5495,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5583
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.537,
+          "gameCount": 514,
+          "grade": "D+",
+          "score": 27.09
+        }
+      }
+    },
+    {
+      "name": "Bitter Revelation",
+      "color": "black",
+      "rarity": "common",
+      "cardTypes": [
+        "sorcery"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/e/4/e42f5aa9-2a47-47c3-ab87-dc25735b0e54.jpg?1562795020",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2221,
+        "lastSeenAt": 6.34,
+        "takenAt": 9.01,
+        "playedWinrate": 0.5489,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.5367,
+        "notDrawnWinrate": 0.5548
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5401,
+          "gameCount": 985,
+          "grade": "D+",
+          "score": 30.85
+        }
+      }
+    },
+    {
+      "name": "Bloodfell Caves",
+      "color": "colorless",
+      "rarity": "common",
+      "cardTypes": [
+        "land"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/1/5/15a7b30a-c59f-4a87-9e8a-b29daea27422.jpg?1562782962",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 3497,
+        "lastSeenAt": 4.81,
+        "takenAt": 6.78,
+        "playedWinrate": 0.5633,
+        "openingHandWinrate": 0.6,
+        "drawnWinrate": 0.565,
+        "notDrawnWinrate": 0.5511
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5803,
+          "gameCount": 1489,
+          "grade": "B",
+          "score": 80.78
+        },
+        "wbr": {
+          "winrate": 0.5997,
+          "gameCount": 747,
+          "grade": "B",
+          "score": 76.42
+        }
+      }
+    },
+    {
+      "name": "Bloodfire Expert",
+      "color": "red",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/0/7/0742564e-f7a7-4107-b9ed-63703ca4702c.jpg?1562782152",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1595,
+        "lastSeenAt": 6.55,
+        "takenAt": 9.67,
+        "playedWinrate": 0.5404,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.559
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.511,
+          "gameCount": 636,
+          "grade": "D-",
+          "score": 6.81
+        }
+      }
+    },
+    {
+      "name": "Blossoming Sands",
+      "color": "colorless",
+      "rarity": "common",
+      "cardTypes": [
+        "land"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/a/3/a32a1c0b-f6ea-475a-aa01-3618ea7d8647.jpg?1562791365",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 3403,
+        "lastSeenAt": 4.85,
+        "takenAt": 6.7,
+        "playedWinrate": 0.5416,
+        "openingHandWinrate": 0.5338,
+        "drawnWinrate": 0.5461,
+        "notDrawnWinrate": 0.5405
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5409,
+          "gameCount": 1566,
+          "grade": "D+",
+          "score": 31.92
+        },
+        "wbg": {
+          "winrate": 0.5526,
+          "gameCount": 751,
+          "grade": "D+",
+          "score": 31.92
+        }
+      }
+    },
+    {
+      "name": "Bring Low",
+      "color": "red",
+      "rarity": "common",
+      "cardTypes": [
+        "instant"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/9/b/9ba5e7bf-2ad8-4061-937a-ef1e9b63da3d.jpg?1562790998",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2720,
+        "lastSeenAt": 4.73,
+        "takenAt": 6.43,
+        "playedWinrate": 0.5316,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.4972,
+        "notDrawnWinrate": 0.541
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5187,
+          "gameCount": 1176,
+          "grade": "D-",
+          "score": 10.93
+        }
+      }
+    },
+    {
+      "name": "Burn Away",
+      "color": "red",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "instant"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/f/4/f4b24e40-c0f0-4472-973e-d3b0e88fc93e.jpg?1562795996",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1321,
+        "lastSeenAt": 3.43,
+        "takenAt": null,
+        "playedWinrate": 0.5473,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5326
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5678,
+          "gameCount": 553,
+          "grade": "C+",
+          "score": 67
+        }
+      }
+    },
+    {
+      "name": "Canyon Lurkers",
+      "color": "red",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/e/f/ef6c56d1-6eca-43be-9834-0478bea67b48.jpg?1562795756",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1807,
+        "lastSeenAt": 7,
+        "takenAt": 9.98,
+        "playedWinrate": 0.5407,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5486
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.533,
+          "gameCount": 758,
+          "grade": "D",
+          "score": 22.96
+        }
+      }
+    },
+    {
+      "name": "Chief of the Scale",
+      "color": "multicolor",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/a/2/a227b8cc-cbe5-4955-ad1b-a354704a82e8.jpg?1562791315",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1357,
+        "lastSeenAt": 2.99,
+        "takenAt": null,
+        "playedWinrate": 0.5917,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5811
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.6054,
+          "gameCount": 555,
+          "grade": "A",
+          "score": 95.82
+        }
+      }
+    },
+    {
+      "name": "Crippling Chill",
+      "color": "blue",
+      "rarity": "common",
+      "cardTypes": [
+        "instant"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/a/c/acf53a79-7573-43c2-bd3a-93abea58ba80.jpg?1562791864",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2443,
+        "lastSeenAt": 5.98,
+        "takenAt": 8.26,
+        "playedWinrate": 0.5485,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.5699,
+        "notDrawnWinrate": 0.552
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5434,
+          "gameCount": 1014,
+          "grade": "D+",
+          "score": 34.83
+        }
+      }
+    },
+    {
+      "name": "Debilitating Injury",
+      "color": "black",
+      "rarity": "common",
+      "cardTypes": [
+        "enchantment"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/0/9/09b2b263-34db-4961-bf41-1eaaba3701da.jpg?1562782284",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 4143,
+        "lastSeenAt": 3.36,
+        "takenAt": 4.18,
+        "playedWinrate": 0.572,
+        "openingHandWinrate": 0.5669,
+        "drawnWinrate": 0.6148,
+        "notDrawnWinrate": 0.5542
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5944,
+          "gameCount": 1790,
+          "grade": "A-",
+          "score": 91.15
+        }
+      }
+    },
+    {
+      "name": "Defiant Strike",
+      "color": "white",
+      "rarity": "common",
+      "cardTypes": [
+        "instant"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/3/9/39ec83fa-5cb4-4633-8827-36d874a2d2e7.jpg?1562785005",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1780,
+        "lastSeenAt": 6.26,
+        "takenAt": 9.21,
+        "playedWinrate": 0.5489,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5569
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5365,
+          "gameCount": 712,
+          "grade": "D",
+          "score": 26.76
+        }
+      }
+    },
+    {
+      "name": "Disdainful Stroke",
+      "color": "blue",
+      "rarity": "common",
+      "cardTypes": [
+        "instant"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/1/8/180425c9-1898-48d4-9932-ddfb1a28e6b0.jpg?1562783110",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1205,
+        "lastSeenAt": 6.62,
+        "takenAt": 9.88,
+        "playedWinrate": 0.5353,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5334
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5403,
+          "gameCount": 533,
+          "grade": "D+",
+          "score": 31.21
+        }
+      }
+    },
+    {
+      "name": "Dismal Backwater",
+      "color": "colorless",
+      "rarity": "common",
+      "cardTypes": [
+        "land"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/6/3/63742780-47ee-4a66-993a-69e06c14967d.jpg?1562787616",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 3042,
+        "lastSeenAt": 5.17,
+        "takenAt": 6.99,
+        "playedWinrate": 0.5355,
+        "openingHandWinrate": 0.5367,
+        "drawnWinrate": 0.5709,
+        "notDrawnWinrate": 0.5195
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5574,
+          "gameCount": 1349,
+          "grade": "C",
+          "score": 53.59
+        },
+        "ubg": {
+          "winrate": 0.58,
+          "gameCount": 669,
+          "grade": "D+",
+          "score": 35.57
+        }
+      }
+    },
+    {
+      "name": "Disowned Ancestor",
+      "color": "black",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/2/d/2d8bd496-632d-4d6d-a529-f35cf3222de7.jpg?1562784359",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2641,
+        "lastSeenAt": 4.92,
+        "takenAt": 6.96,
+        "playedWinrate": 0.543,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.5509,
+        "notDrawnWinrate": 0.5366
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.554,
+          "gameCount": 1157,
+          "grade": "C",
+          "score": 48.8
+        }
+      }
+    },
+    {
+      "name": "Dragonscale Boon",
+      "color": "green",
+      "rarity": "common",
+      "cardTypes": [
+        "instant"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/5/a/5aadb382-f912-4ccb-98bc-1abdef733126.jpg?1562787056",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1158,
+        "lastSeenAt": 6.88,
+        "takenAt": 10.15,
+        "playedWinrate": 0.5268,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.54
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5089,
+          "gameCount": 503,
+          "grade": "D-",
+          "score": 5.94
+        }
+      }
+    },
+    {
+      "name": "Dutiful Return",
+      "color": "black",
+      "rarity": "common",
+      "cardTypes": [
+        "sorcery"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/d/5/d5f83b3a-ce34-4179-8745-059181dd79b8.jpg?1562794193",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1493,
+        "lastSeenAt": 7.03,
+        "takenAt": 10.05,
+        "playedWinrate": 0.5238,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5291
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5097,
+          "gameCount": 616,
+          "grade": "D-",
+          "score": 6.18
+        }
+      }
+    },
+    {
+      "name": "Efreet Weaponmaster",
+      "color": "multicolor",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/8/9/8986cb2e-76e0-41f3-8810-3d11c39a527a.jpg?1562789935",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2632,
+        "lastSeenAt": 5.36,
+        "takenAt": 7.46,
+        "playedWinrate": 0.5426,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.5974,
+        "notDrawnWinrate": 0.5277
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5614,
+          "gameCount": 1149,
+          "grade": "C+",
+          "score": 58.71
+        },
+        "wur": {
+          "winrate": 0.5673,
+          "gameCount": 698,
+          "grade": "C+",
+          "score": 67.72
+        }
+      }
+    },
+    {
+      "name": "Embodiment of Spring",
+      "color": "blue",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/8/8/88e07226-f180-4972-b7f8-90c743d45fb8.jpg?1562789879",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1158,
+        "lastSeenAt": 6.64,
+        "takenAt": 9.67,
+        "playedWinrate": 0.4965,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.4687
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5309,
+          "gameCount": 501,
+          "grade": "D",
+          "score": 20.9
+        }
+      }
+    },
+    {
+      "name": "Feat of Resistance",
+      "color": "white",
+      "rarity": "common",
+      "cardTypes": [
+        "instant"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/b/6/b6173466-30db-4b95-a556-dd69e03b731e.jpg?1562792351",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 4828,
+        "lastSeenAt": 3.51,
+        "takenAt": 4.44,
+        "playedWinrate": 0.581,
+        "openingHandWinrate": 0.5824,
+        "drawnWinrate": 0.6049,
+        "notDrawnWinrate": 0.5714
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5959,
+          "gameCount": 1960,
+          "grade": "A-",
+          "score": 91.92
+        },
+        "wbg": {
+          "winrate": 0.5876,
+          "gameCount": 502,
+          "grade": "A-",
+          "score": 90.32
+        }
+      }
+    },
+    {
+      "name": "Force Away",
+      "color": "blue",
+      "rarity": "common",
+      "cardTypes": [
+        "instant"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/d/d/dda70b3e-4b70-404e-a579-41dd126be084.jpg?1562794644",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2814,
+        "lastSeenAt": 5.29,
+        "takenAt": 7.25,
+        "playedWinrate": 0.5387,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.5906,
+        "notDrawnWinrate": 0.5231
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5572,
+          "gameCount": 1224,
+          "grade": "C",
+          "score": 53.19
+        }
+      }
+    },
+    {
+      "name": "Frontier Bivouac",
+      "color": "colorless",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "land"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/e/4/e4335951-e73e-45cb-b2a5-6e9d14ba87ee.jpg?1562795027",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1249,
+        "lastSeenAt": 3.04,
+        "takenAt": null,
+        "playedWinrate": 0.5452,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5308
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5589,
+          "gameCount": 560,
+          "grade": "C",
+          "score": 55.57
+        }
+      }
+    },
+    {
+      "name": "Glacial Stalker",
+      "color": "blue",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/8/8/8821c7b9-702b-416f-b006-941ad57f9e11.jpg?1562789833",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2750,
+        "lastSeenAt": 6.21,
+        "takenAt": 8.71,
+        "playedWinrate": 0.5487,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.6121,
+        "notDrawnWinrate": 0.5294
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5745,
+          "gameCount": 1194,
+          "grade": "B-",
+          "score": 74.86
+        }
+      }
+    },
+    {
+      "name": "Highland Game",
+      "color": "green",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/7/f/7fbb10a9-486a-4b9a-b3f5-c17f661af2b2.jpg?1562789268",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2596,
+        "lastSeenAt": 6.05,
+        "takenAt": 8.8,
+        "playedWinrate": 0.5455,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.5241,
+        "notDrawnWinrate": 0.5551
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5336,
+          "gameCount": 1100,
+          "grade": "D",
+          "score": 23.58
+        }
+      }
+    },
+    {
+      "name": "Hooting Mandrills",
+      "color": "green",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/0/9/090d678c-f0e4-4757-8900-93dfe67aefe9.jpg?1562782269",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2102,
+        "lastSeenAt": 4.8,
+        "takenAt": 6.71,
+        "playedWinrate": 0.5147,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.53,
+        "notDrawnWinrate": 0.5092
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.522,
+          "gameCount": 885,
+          "grade": "D-",
+          "score": 13.14
+        }
+      }
+    },
+    {
+      "name": "Horde Ambusher",
+      "color": "red",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/5/3/53926b92-adf0-4bb2-873f-103d9a1bdda8.jpg?1562786709",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1299,
+        "lastSeenAt": 4.11,
+        "takenAt": null,
+        "playedWinrate": 0.5781,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5622
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5993,
+          "gameCount": 554,
+          "grade": "A-",
+          "score": 93.57
+        }
+      }
+    },
+    {
+      "name": "Hordeling Outburst",
+      "color": "red",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "sorcery"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/a/5/a5c1bf52-2737-423a-b340-07448afcaea6.jpg?1562791519",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1289,
+        "lastSeenAt": 3.68,
+        "takenAt": null,
+        "playedWinrate": 0.5849,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5837
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5866,
+          "gameCount": 554,
+          "grade": "B+",
+          "score": 86.21
+        }
+      }
+    },
+    {
+      "name": "Icefeather Aven",
+      "color": "multicolor",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/e/c/ecdee089-8e89-4c99-9390-e8f4c189cffb.jpg?1562795587",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1402,
+        "lastSeenAt": 2.9,
+        "takenAt": null,
+        "playedWinrate": 0.5735,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5539
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.6034,
+          "gameCount": 595,
+          "grade": "A",
+          "score": 95.15
+        }
+      }
+    },
+    {
+      "name": "Jeskai Student",
+      "color": "white",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/9/0/9007c528-0107-40fd-a97e-e5576f297eb2.jpg?1562790315",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2317,
+        "lastSeenAt": 5.31,
+        "takenAt": 7.84,
+        "playedWinrate": 0.5537,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.5378,
+        "notDrawnWinrate": 0.5566
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5504,
+          "gameCount": 1001,
+          "grade": "C-",
+          "score": 44.04
+        }
+      }
+    },
+    {
+      "name": "Jeskai Windscout",
+      "color": "blue",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/6/6/66356e38-38e1-4b09-80c2-be26007ff99c.jpg?1562787785",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2862,
+        "lastSeenAt": 4.5,
+        "takenAt": 6.26,
+        "playedWinrate": 0.5625,
+        "openingHandWinrate": 0.5515,
+        "drawnWinrate": 0.5807,
+        "notDrawnWinrate": 0.5585
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5688,
+          "gameCount": 1280,
+          "grade": "B-",
+          "score": 68.44
+        },
+        "wur": {
+          "winrate": 0.5627,
+          "gameCount": 622,
+          "grade": "C",
+          "score": 55.57
+        }
+      }
+    },
+    {
+      "name": "Jungle Hollow",
+      "color": "colorless",
+      "rarity": "common",
+      "cardTypes": [
+        "land"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/f/e/fea27aa7-7fcf-4198-b03a-5034a03ba81f.jpg?1562796625",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 3536,
+        "lastSeenAt": 4.12,
+        "takenAt": 5.56,
+        "playedWinrate": 0.5594,
+        "openingHandWinrate": 0.5687,
+        "drawnWinrate": 0.5569,
+        "notDrawnWinrate": 0.5582
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5619,
+          "gameCount": 1566,
+          "grade": "C+",
+          "score": 59.48
+        },
+        "wbg": {
+          "winrate": 0.5372,
+          "gameCount": 538,
+          "grade": "D-",
+          "score": 10.56
+        }
+      }
+    },
+    {
+      "name": "Kill Shot",
+      "color": "white",
+      "rarity": "common",
+      "cardTypes": [
+        "instant"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/f/3/f30d4136-78a3-4760-83af-d365cc97d118.jpg?1562795914",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2184,
+        "lastSeenAt": 4.33,
+        "takenAt": 6.27,
+        "playedWinrate": 0.5444,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.5722,
+        "notDrawnWinrate": 0.5299
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5656,
+          "gameCount": 900,
+          "grade": "C+",
+          "score": 64.43
+        }
+      }
+    },
+    {
+      "name": "Krumar Bond-Kin",
+      "color": "black",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/5/7/57f38391-ffb7-4420-9a38-f791627b12b3.jpg?1562786941",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2366,
+        "lastSeenAt": 6,
+        "takenAt": 8.6,
+        "playedWinrate": 0.5706,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.5917,
+        "notDrawnWinrate": 0.5725
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5679,
+          "gameCount": 1002,
+          "grade": "C+",
+          "score": 67.36
+        }
+      }
+    },
+    {
+      "name": "Leaping Master",
+      "color": "red",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/0/f/0f786a1d-4703-4bac-abba-632506d2726c.jpg?1562782598",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2506,
+        "lastSeenAt": 6.18,
+        "takenAt": 8.74,
+        "playedWinrate": 0.5658,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.5382,
+        "notDrawnWinrate": 0.5619
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5716,
+          "gameCount": 992,
+          "grade": "B-",
+          "score": 71.57
+        }
+      }
+    },
+    {
+      "name": "Longshot Squad",
+      "color": "green",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/d/d/dd9edd62-dc18-4887-a020-4464e31b79c2.jpg?1562794643",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2207,
+        "lastSeenAt": 4.94,
+        "takenAt": 7.12,
+        "playedWinrate": 0.5251,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.5009,
+        "notDrawnWinrate": 0.536
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5091,
+          "gameCount": 931,
+          "grade": "D-",
+          "score": 5.94
+        }
+      }
+    },
+    {
+      "name": "Mardu Hateblade",
+      "color": "white",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/f/1/f1d1cdfa-834c-4028-8036-c4bfb7da071b.jpg?1562795845",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2568,
+        "lastSeenAt": 5.28,
+        "takenAt": 7.6,
+        "playedWinrate": 0.5775,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.5559,
+        "notDrawnWinrate": 0.5777
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.577,
+          "gameCount": 1071,
+          "grade": "B",
+          "score": 77.64
+        }
+      }
+    },
+    {
+      "name": "Mardu Heart-Piercer",
+      "color": "red",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/d/1/d17b6eee-da22-48aa-ba8a-cbd1a3389bcb.jpg?1562793937",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1607,
+        "lastSeenAt": 2.5,
+        "takenAt": null,
+        "playedWinrate": 0.5818,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5594
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.6156,
+          "gameCount": 640,
+          "grade": "A",
+          "score": 98.12
+        }
+      }
+    },
+    {
+      "name": "Mardu Hordechief",
+      "color": "white",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/2/3/23426221-30a8-4be2-9c70-f0eb022edad7.jpg?1562783652",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 4224,
+        "lastSeenAt": 3.51,
+        "takenAt": 4.45,
+        "playedWinrate": 0.5852,
+        "openingHandWinrate": 0.6169,
+        "drawnWinrate": 0.5892,
+        "notDrawnWinrate": 0.574
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.6007,
+          "gameCount": 1738,
+          "grade": "A-",
+          "score": 94.18
+        },
+        "wbr": {
+          "winrate": 0.5988,
+          "gameCount": 673,
+          "grade": "B-",
+          "score": 75.49
+        }
+      }
+    },
+    {
+      "name": "Mardu Skullhunter",
+      "color": "black",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/d/d/dd3ca5e7-96f3-4326-9315-34bb396a054c.jpg?1562794625",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 3324,
+        "lastSeenAt": 4.06,
+        "takenAt": 5.43,
+        "playedWinrate": 0.5602,
+        "openingHandWinrate": 0.5701,
+        "drawnWinrate": 0.5252,
+        "notDrawnWinrate": 0.5704
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5457,
+          "gameCount": 1389,
+          "grade": "C-",
+          "score": 37.83
+        },
+        "wbr": {
+          "winrate": 0.5315,
+          "gameCount": 523,
+          "grade": "F",
+          "score": 2.56
+        }
+      }
+    },
+    {
+      "name": "Mardu Warshrieker",
+      "color": "red",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/1/3/1381ae25-0d44-4d06-beae-48e4bbb4bb45.jpg?1562782862",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2926,
+        "lastSeenAt": 5.64,
+        "takenAt": 7.84,
+        "playedWinrate": 0.5666,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.5832,
+        "notDrawnWinrate": 0.5563
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5819,
+          "gameCount": 1141,
+          "grade": "B",
+          "score": 82.38
+        },
+        "wbr": {
+          "winrate": 0.5925,
+          "gameCount": 665,
+          "grade": "C+",
+          "score": 67
+        }
+      }
+    },
+    {
+      "name": "Master the Way",
+      "color": "multicolor",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "sorcery"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/7/0/704743a8-27d6-4db9-8fe1-f65f5f3a955f.jpg?1562788383",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1221,
+        "lastSeenAt": 4.06,
+        "takenAt": null,
+        "playedWinrate": 0.5733,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5434
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.6098,
+          "gameCount": 510,
+          "grade": "A",
+          "score": 96.99
+        }
+      }
+    },
+    {
+      "name": "Mistfire Weaver",
+      "color": "blue",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/8/0/8003a31f-7662-4e9e-8165-1ceea04fdf20.jpg?1562789282",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1395,
+        "lastSeenAt": 3.37,
+        "takenAt": null,
+        "playedWinrate": 0.5477,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5382
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5602,
+          "gameCount": 648,
+          "grade": "C+",
+          "score": 57.14
+        }
+      }
+    },
+    {
+      "name": "Monastery Flock",
+      "color": "blue",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/e/5/e53c0e50-4b0b-43d8-80c0-2c216722c87a.jpg?1562795087",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1906,
+        "lastSeenAt": 6.67,
+        "takenAt": 9.49,
+        "playedWinrate": 0.5278,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.5543,
+        "notDrawnWinrate": 0.519
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.541,
+          "gameCount": 878,
+          "grade": "D+",
+          "score": 31.92
+        }
+      }
+    },
+    {
+      "name": "Murderous Cut",
+      "color": "black",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "instant"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/b/2/b2dadff2-883f-4134-a881-be145cdcbd84.jpg?1562792142",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1591,
+        "lastSeenAt": 1.98,
+        "takenAt": null,
+        "playedWinrate": 0.5984,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5652
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.6394,
+          "gameCount": 710,
+          "grade": "A+",
+          "score": 99.81
+        }
+      }
+    },
+    {
+      "name": "Mystic Monastery",
+      "color": "colorless",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "land"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/b/a/bae51d77-e06b-4e5a-9543-a17dd0b2a333.jpg?1562792634",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1495,
+        "lastSeenAt": 2.93,
+        "takenAt": null,
+        "playedWinrate": 0.5565,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5516
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5626,
+          "gameCount": 679,
+          "grade": "C+",
+          "score": 60.64
+        }
+      }
+    },
+    {
+      "name": "Mystic of the Hidden Way",
+      "color": "blue",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/7/b/7b5de843-e05d-43b5-a5d0-a737484fbd71.jpg?1562789034",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2912,
+        "lastSeenAt": 4.94,
+        "takenAt": 6.9,
+        "playedWinrate": 0.558,
+        "openingHandWinrate": 0.5234,
+        "drawnWinrate": 0.5544,
+        "notDrawnWinrate": 0.5708
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5419,
+          "gameCount": 1266,
+          "grade": "D+",
+          "score": 33
+        }
+      }
+    },
+    {
+      "name": "Nomad Outpost",
+      "color": "colorless",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "land"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/f/b/fb6ae4a5-227d-465b-9e99-bae158b7d410.jpg?1562796466",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1627,
+        "lastSeenAt": 2.73,
+        "takenAt": null,
+        "playedWinrate": 0.5298,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5192
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5429,
+          "gameCount": 711,
+          "grade": "D+",
+          "score": 34.09
+        }
+      }
+    },
+    {
+      "name": "Opulent Palace",
+      "color": "colorless",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "land"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/2/1/21326575-80b9-4a4e-a93c-6880ec6575d5.jpg?1562783524",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1371,
+        "lastSeenAt": 2.85,
+        "takenAt": null,
+        "playedWinrate": 0.5339,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5007
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5736,
+          "gameCount": 645,
+          "grade": "B-",
+          "score": 73.89
+        }
+      }
+    },
+    {
+      "name": "Pine Walker",
+      "color": "green",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/9/3/93a49d9c-8fe7-494b-9a26-cf4bde71e420.jpg?1562790508",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1367,
+        "lastSeenAt": 3.12,
+        "takenAt": null,
+        "playedWinrate": 0.5538,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5475
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5628,
+          "gameCount": 629,
+          "grade": "C+",
+          "score": 60.64
+        }
+      }
+    },
+    {
+      "name": "Ponyback Brigade",
+      "color": "multicolor",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/1/9/192d77ef-e8b5-44e2-842b-2c1f342c1e69.jpg?1562783191",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 3421,
+        "lastSeenAt": 4.35,
+        "takenAt": 5.77,
+        "playedWinrate": 0.5589,
+        "openingHandWinrate": 0.5364,
+        "drawnWinrate": 0.6017,
+        "notDrawnWinrate": 0.5444
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5746,
+          "gameCount": 1427,
+          "grade": "B-",
+          "score": 75.17
+        },
+        "wbr": {
+          "winrate": 0.5809,
+          "gameCount": 909,
+          "grade": "C",
+          "score": 49.2
+        }
+      }
+    },
+    {
+      "name": "Rakshasa's Secret",
+      "color": "black",
+      "rarity": "common",
+      "cardTypes": [
+        "sorcery"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/a/e/ae62a43e-36ce-471e-93f1-21fe674858b5.jpg?1562791960",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1961,
+        "lastSeenAt": 6.24,
+        "takenAt": 8.74,
+        "playedWinrate": 0.5411,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.546,
+        "notDrawnWinrate": 0.5303
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5525,
+          "gameCount": 847,
+          "grade": "C",
+          "score": 46.81
+        }
+      }
+    },
+    {
+      "name": "Rite of the Serpent",
+      "color": "black",
+      "rarity": "common",
+      "cardTypes": [
+        "sorcery"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/0/0/005b9fec-66de-4079-88e0-c7de7e22d18e.jpg?1562781741",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1873,
+        "lastSeenAt": 5.88,
+        "takenAt": 8.64,
+        "playedWinrate": 0.543,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.5589,
+        "notDrawnWinrate": 0.5403
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5453,
+          "gameCount": 794,
+          "grade": "C-",
+          "score": 37.45
+        }
+      }
+    },
+    {
+      "name": "Rugged Highlands",
+      "color": "colorless",
+      "rarity": "common",
+      "cardTypes": [
+        "land"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/5/0/501ce6cb-0324-4cca-bc79-903cefe1ac1f.jpg?1562786462",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 3021,
+        "lastSeenAt": 5.27,
+        "takenAt": 7.32,
+        "playedWinrate": 0.5167,
+        "openingHandWinrate": 0.5743,
+        "drawnWinrate": 0.5125,
+        "notDrawnWinrate": 0.5027
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5375,
+          "gameCount": 1345,
+          "grade": "D+",
+          "score": 27.76
+        },
+        "urg": {
+          "winrate": 0.5418,
+          "gameCount": 526,
+          "grade": "D",
+          "score": 23.89
+        }
+      }
+    },
+    {
+      "name": "Rush of Battle",
+      "color": "white",
+      "rarity": "common",
+      "cardTypes": [
+        "sorcery"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/0/d/0d47d8aa-59c8-4e2c-bb48-328ae924dbb3.jpg?1562782475",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1998,
+        "lastSeenAt": 6.4,
+        "takenAt": 9,
+        "playedWinrate": 0.5606,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5612
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5599,
+          "gameCount": 743,
+          "grade": "C",
+          "score": 56.75
+        }
+      }
+    },
+    {
+      "name": "Ruthless Ripper",
+      "color": "black",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/c/9/c9c67b11-a82e-4a25-88a4-5771ab5c4f00.jpg?1562793470",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1237,
+        "lastSeenAt": 3.01,
+        "takenAt": null,
+        "playedWinrate": 0.5635,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5608
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5661,
+          "gameCount": 507,
+          "grade": "C+",
+          "score": 65.17
+        }
+      }
+    },
+    {
+      "name": "Sage-Eye Harrier",
+      "color": "white",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/3/c/3cc7b4c3-647e-48da-86f8-f55e3e990ac1.jpg?1562785176",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2143,
+        "lastSeenAt": 6.41,
+        "takenAt": 9.06,
+        "playedWinrate": 0.546,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.5286,
+        "notDrawnWinrate": 0.5622
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5229,
+          "gameCount": 872,
+          "grade": "D-",
+          "score": 13.79
+        }
+      }
+    },
+    {
+      "name": "Sagu Archer",
+      "color": "green",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/3/a/3a26baca-467e-4d94-873e-f266bebd5fd8.jpg?1562785028",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2316,
+        "lastSeenAt": 6.52,
+        "takenAt": 9.31,
+        "playedWinrate": 0.5406,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.55,
+        "notDrawnWinrate": 0.5411
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5409,
+          "gameCount": 991,
+          "grade": "D+",
+          "score": 31.92
+        }
+      }
+    },
+    {
+      "name": "Salt Road Patrol",
+      "color": "white",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/2/c/2c5ee84d-e5b9-4103-8ba7-ccd79a272c0f.jpg?1562784258",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1803,
+        "lastSeenAt": 6.29,
+        "takenAt": 9.17,
+        "playedWinrate": 0.5336,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5437
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.521,
+          "gameCount": 737,
+          "grade": "D-",
+          "score": 12.51
+        }
+      }
+    },
+    {
+      "name": "Sandsteppe Citadel",
+      "color": "colorless",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "land"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/2/d/2dd40d90-c939-458a-9a98-27d10da6ff2f.jpg?1562784373",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1433,
+        "lastSeenAt": 2.63,
+        "takenAt": null,
+        "playedWinrate": 0.5422,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5378
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5499,
+          "gameCount": 631,
+          "grade": "C-",
+          "score": 43.25
+        }
+      }
+    },
+    {
+      "name": "Savage Punch",
+      "color": "green",
+      "rarity": "common",
+      "cardTypes": [
+        "sorcery"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/6/c/6c6b50dc-244a-4df5-a9a9-5a2b8f30d40c.jpg?1562788166",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 3148,
+        "lastSeenAt": 3.47,
+        "takenAt": 4.38,
+        "playedWinrate": 0.5337,
+        "openingHandWinrate": 0.5323,
+        "drawnWinrate": 0.5663,
+        "notDrawnWinrate": 0.5151
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5529,
+          "gameCount": 1333,
+          "grade": "C",
+          "score": 47.61
+        }
+      }
+    },
+    {
+      "name": "Scaldkin",
+      "color": "blue",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/8/1/8110eb0a-63dc-43df-b55a-9241f45b1cc6.jpg?1562789336",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1201,
+        "lastSeenAt": 6.95,
+        "takenAt": 10.01,
+        "playedWinrate": 0.4871,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.4891
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.4832,
+          "gameCount": 507,
+          "grade": "F",
+          "score": 0.73
+        }
+      }
+    },
+    {
+      "name": "Scoured Barrens",
+      "color": "colorless",
+      "rarity": "common",
+      "cardTypes": [
+        "land"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/0/8/0824a960-dd89-45c5-90f0-3ec9eb47d9ce.jpg?1562782193",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 3999,
+        "lastSeenAt": 3.96,
+        "takenAt": 5.4,
+        "playedWinrate": 0.5579,
+        "openingHandWinrate": 0.584,
+        "drawnWinrate": 0.5508,
+        "notDrawnWinrate": 0.5528
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.566,
+          "gameCount": 1721,
+          "grade": "C+",
+          "score": 64.8
+        },
+        "wbg": {
+          "winrate": 0.567,
+          "gameCount": 552,
+          "grade": "C+",
+          "score": 60.26
+        }
+      }
+    },
+    {
+      "name": "Secret Plans",
+      "color": "multicolor",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "enchantment"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/0/1/01589046-a969-400f-b4ac-90cbbb814504.jpg?1562781791",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1300,
+        "lastSeenAt": 3.82,
+        "takenAt": null,
+        "playedWinrate": 0.5215,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5281
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5155,
+          "gameCount": 582,
+          "grade": "D-",
+          "score": 9.01
+        }
+      }
+    },
+    {
+      "name": "Seeker of the Way",
+      "color": "white",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/3/c/3c17e350-44f7-4413-ad24-7c5d6616effd.jpg?1562785152",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1426,
+        "lastSeenAt": 2.4,
+        "takenAt": null,
+        "playedWinrate": 0.5891,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5657
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.6202,
+          "gameCount": 595,
+          "grade": "A",
+          "score": 98.71
+        }
+      }
+    },
+    {
+      "name": "Sidisi's Pet",
+      "color": "black",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/e/6/e6e02a99-da37-4cea-9182-39ccb1e35ee9.jpg?1562795181",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1585,
+        "lastSeenAt": 6.47,
+        "takenAt": 9.43,
+        "playedWinrate": 0.5438,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5651
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5145,
+          "gameCount": 655,
+          "grade": "D-",
+          "score": 8.53
+        }
+      }
+    },
+    {
+      "name": "Smite the Monstrous",
+      "color": "white",
+      "rarity": "common",
+      "cardTypes": [
+        "instant"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/1/4/1405bb2e-2204-43ab-82a3-5d0c8537325a.jpg?1562782881",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1987,
+        "lastSeenAt": 5.21,
+        "takenAt": 7.81,
+        "playedWinrate": 0.536,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5573
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5055,
+          "gameCount": 815,
+          "grade": "F",
+          "score": 4.65
+        }
+      }
+    },
+    {
+      "name": "Smoke Teller",
+      "color": "green",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/1/9/1916a2d9-4747-4118-b1b2-7a5ce492e3fc.jpg?1562783190",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1805,
+        "lastSeenAt": 7.16,
+        "takenAt": 10.12,
+        "playedWinrate": 0.5141,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5185
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5047,
+          "gameCount": 743,
+          "grade": "F",
+          "score": 4.36
+        }
+      }
+    },
+    {
+      "name": "Snowhorn Rider",
+      "color": "multicolor",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/f/5/f5d9aa9b-1ed4-46db-89d1-6c9593c29f55.jpg?1562796087",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2550,
+        "lastSeenAt": 5.41,
+        "takenAt": 7.59,
+        "playedWinrate": 0.5322,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.5159,
+        "notDrawnWinrate": 0.5284
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5362,
+          "gameCount": 1076,
+          "grade": "D",
+          "score": 26.43
+        },
+        "urg": {
+          "winrate": 0.5561,
+          "gameCount": 597,
+          "grade": "B",
+          "score": 76.11
+        }
+      }
+    },
+    {
+      "name": "Sultai Scavenger",
+      "color": "black",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/2/c/2cb8e423-f7e7-4ac3-acc2-2a3722e409e7.jpg?1562784280",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2581,
+        "lastSeenAt": 4.91,
+        "takenAt": 7.04,
+        "playedWinrate": 0.5393,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.587,
+        "notDrawnWinrate": 0.5163
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5689,
+          "gameCount": 1081,
+          "grade": "B-",
+          "score": 68.44
+        }
+      }
+    },
+    {
+      "name": "Suspension Field",
+      "color": "white",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "enchantment"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/b/a/ba5c9628-1801-43d9-8bb4-4cca168510b2.jpg?1562792611",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1447,
+        "lastSeenAt": 2.4,
+        "takenAt": null,
+        "playedWinrate": 0.5867,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.586
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5878,
+          "gameCount": 621,
+          "grade": "B+",
+          "score": 87.08
+        }
+      }
+    },
+    {
+      "name": "Swiftwater Cliffs",
+      "color": "colorless",
+      "rarity": "common",
+      "cardTypes": [
+        "land"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/e/7/e782d005-a563-4738-978a-73a3465de78f.jpg?1562795257",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 3537,
+        "lastSeenAt": 4.53,
+        "takenAt": 6.16,
+        "playedWinrate": 0.5482,
+        "openingHandWinrate": 0.5735,
+        "drawnWinrate": 0.5646,
+        "notDrawnWinrate": 0.5331
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5682,
+          "gameCount": 1540,
+          "grade": "C+",
+          "score": 67.72
+        },
+        "wur": {
+          "winrate": 0.5726,
+          "gameCount": 592,
+          "grade": "B",
+          "score": 79.67
+        }
+      }
+    },
+    {
+      "name": "Thornwood Falls",
+      "color": "colorless",
+      "rarity": "common",
+      "cardTypes": [
+        "land"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/9/e/9e57abd9-e864-4047-a3c8-618952071858.jpg?1562791123",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 3473,
+        "lastSeenAt": 4.47,
+        "takenAt": 5.88,
+        "playedWinrate": 0.5442,
+        "openingHandWinrate": 0.5401,
+        "drawnWinrate": 0.5753,
+        "notDrawnWinrate": 0.5319
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5607,
+          "gameCount": 1564,
+          "grade": "C+",
+          "score": 57.93
+        },
+        "ubg": {
+          "winrate": 0.5954,
+          "gameCount": 561,
+          "grade": "B+",
+          "score": 87.08
+        }
+      }
+    },
+    {
+      "name": "Throttle",
+      "color": "black",
+      "rarity": "common",
+      "cardTypes": [
+        "instant"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/b/6/b6b71c00-3f38-47dc-90bc-6464d346c098.jpg?1562792396",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2468,
+        "lastSeenAt": 4.33,
+        "takenAt": 6.14,
+        "playedWinrate": 0.5413,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.5549,
+        "notDrawnWinrate": 0.538
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5374,
+          "gameCount": 1042,
+          "grade": "D+",
+          "score": 27.76
+        }
+      }
+    },
+    {
+      "name": "Tormenting Voice",
+      "color": "red",
+      "rarity": "common",
+      "cardTypes": [
+        "sorcery"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/2/5/25af9ac1-a03b-4be7-b726-fb66427b1caa.jpg?1562783820",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1773,
+        "lastSeenAt": 6.44,
+        "takenAt": 9.49,
+        "playedWinrate": 0.5618,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5672
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5537,
+          "gameCount": 764,
+          "grade": "C",
+          "score": 48.4
+        }
+      }
+    },
+    {
+      "name": "Tranquil Cove",
+      "color": "colorless",
+      "rarity": "common",
+      "cardTypes": [
+        "land"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/0/f/0f840bd2-c4f5-4ac4-918c-91b4feeb8783.jpg?1562782605",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 3349,
+        "lastSeenAt": 5.24,
+        "takenAt": 7.12,
+        "playedWinrate": 0.5434,
+        "openingHandWinrate": 0.5242,
+        "drawnWinrate": 0.5424,
+        "notDrawnWinrate": 0.5511
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.535,
+          "gameCount": 1471,
+          "grade": "D",
+          "score": 25.14
+        },
+        "wur": {
+          "winrate": 0.5398,
+          "gameCount": 654,
+          "grade": "D-",
+          "score": 7.49
+        }
+      }
+    },
+    {
+      "name": "Treasure Cruise",
+      "color": "blue",
+      "rarity": "common",
+      "cardTypes": [
+        "sorcery"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/7/a/7a59d4b1-6cf4-44ec-8a96-1bb7094fea21.jpg?1562788963",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2667,
+        "lastSeenAt": 4.4,
+        "takenAt": 5.93,
+        "playedWinrate": 0.5324,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.5676,
+        "notDrawnWinrate": 0.5303
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5375,
+          "gameCount": 1120,
+          "grade": "D+",
+          "score": 27.76
+        }
+      }
+    },
+    {
+      "name": "Tuskguard Captain",
+      "color": "green",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/b/3/b341cc65-d316-41bb-95b8-294afa019a71.jpg?1562792160",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1240,
+        "lastSeenAt": 3.12,
+        "takenAt": null,
+        "playedWinrate": 0.5339,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5402
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5263,
+          "gameCount": 513,
+          "grade": "D-",
+          "score": 16.6
+        }
+      }
+    },
+    {
+      "name": "Unyielding Krumar",
+      "color": "black",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/a/2/a232d196-490d-4712-b2a2-466751b28d11.jpg?1562791316",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1721,
+        "lastSeenAt": 6.16,
+        "takenAt": 9.13,
+        "playedWinrate": 0.5584,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5615
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5551,
+          "gameCount": 690,
+          "grade": "C",
+          "score": 50.4
+        }
+      }
+    },
+    {
+      "name": "Valley Dasher",
+      "color": "red",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/8/5/8543adbd-0dd1-47d3-ac41-2ec72d6a5d35.jpg?1562789625",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1956,
+        "lastSeenAt": 6.19,
+        "takenAt": 8.88,
+        "playedWinrate": 0.5491,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5414
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5619,
+          "gameCount": 783,
+          "grade": "C+",
+          "score": 59.48
+        }
+      }
+    },
+    {
+      "name": "War Behemoth",
+      "color": "white",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/6/5/652109b9-d607-42b6-945d-0c0dd5bba89c.jpg?1562787724",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1712,
+        "lastSeenAt": 6.88,
+        "takenAt": 9.75,
+        "playedWinrate": 0.5426,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5507
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5271,
+          "gameCount": 738,
+          "grade": "D",
+          "score": 17.36
+        }
+      }
+    },
+    {
+      "name": "Weave Fate",
+      "color": "blue",
+      "rarity": "common",
+      "cardTypes": [
+        "instant"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/a/4/a4a1f9c1-25a3-465f-b3d8-98f0867c9bb6.jpg?1562791439",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1437,
+        "lastSeenAt": 6.87,
+        "takenAt": 9.95,
+        "playedWinrate": 0.5344,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5372
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5297,
+          "gameCount": 640,
+          "grade": "D",
+          "score": 19.49
+        }
+      }
+    },
+    {
+      "name": "Wetland Sambar",
+      "color": "blue",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/f/7/f71a86e0-d15a-4fba-94f6-bfbaade8d837.jpg?1562796153",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1474,
+        "lastSeenAt": 8.07,
+        "takenAt": 10.92,
+        "playedWinrate": 0.5387,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5443
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5314,
+          "gameCount": 636,
+          "grade": "D",
+          "score": 21.19
+        }
+      }
+    },
+    {
+      "name": "Wind-Scarred Crag",
+      "color": "colorless",
+      "rarity": "common",
+      "cardTypes": [
+        "land"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/3/b/3b296781-78ac-411f-88fc-2d924ad22986.jpg?1562785094",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 3930,
+        "lastSeenAt": 4.16,
+        "takenAt": 5.67,
+        "playedWinrate": 0.5588,
+        "openingHandWinrate": 0.573,
+        "drawnWinrate": 0.5804,
+        "notDrawnWinrate": 0.5446
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5772,
+          "gameCount": 1670,
+          "grade": "B",
+          "score": 77.94
+        },
+        "wbr": {
+          "winrate": 0.5844,
+          "gameCount": 628,
+          "grade": "C",
+          "score": 54.78
+        }
+      }
+    },
+    {
+      "name": "Woolly Loxodon",
+      "color": "green",
+      "rarity": "common",
+      "cardTypes": [
+        "creature"
+      ],
+      "cardUrl": "https://cards.scryfall.io/large/front/a/8/a890c55a-8746-4233-b75a-19cc760c1e8e.jpg?1562791638",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 3895,
+        "lastSeenAt": 4.56,
+        "takenAt": 6.08,
+        "playedWinrate": 0.5522,
+        "openingHandWinrate": 0.5237,
+        "drawnWinrate": 0.5747,
+        "notDrawnWinrate": 0.5476
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5541,
+          "gameCount": 1673,
+          "grade": "C",
+          "score": 49.2
+        }
+      }
+    }
+  ]
+}

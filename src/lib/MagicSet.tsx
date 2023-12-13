@@ -22,6 +22,7 @@ import { FC, ReactElement, SVGProps } from "react";
 
 import BroIcon from "assets/sets/bro.svg";
 import HbgIcon from "assets/sets/hbg.svg";
+import KtkIcon from "assets/sets/ktk.svg";
 import LciIcon from "assets/sets/lci.svg";
 import LtrIcon from "assets/sets/ltr.svg";
 import MomIcon from "assets/sets/mom.svg";
@@ -60,6 +61,25 @@ export default class MagicSet {
   readonly customDeckLabels: Record<string, string> = {};
   static #setsByCode: Record<string, MagicSet> = {};
   static ALL: MagicSet[] = [];
+
+  static KHANS_OF_TARKIR = new MagicSet(
+    "ktk",
+    "Khans of Tarkir",
+    "2023-12-12",
+    KtkIcon,
+    [
+      Deck.ABZAN,
+      Deck.JESKAI,
+      Deck.SULTAI,
+      Deck.MARDU,
+      Deck.TEMUR,
+      Deck.ORZHOV,
+      Deck.IZZET,
+      Deck.GOLGARI,
+      Deck.BOROS,
+      Deck.SIMIC,
+    ]
+  );
 
   static CAVERNS_OF_IXALAN = new MagicSet(
     "lci",
@@ -130,16 +150,16 @@ export default class MagicSet {
     "2022-04-28",
     SncIcon,
     [
-      Deck.AZORIUS,
-      Deck.DIMIR,
-      Deck.RAKDOS,
-      Deck.GRUUL,
-      Deck.SELESNYA,
       [Deck.ESPER, "Obscura"],
       [Deck.GRIXIS, "Maestros"],
       [Deck.JUND, "Riveteers"],
       [Deck.NAYA, "Cabaretti"],
       [Deck.BANT, "Brokers"],
+      Deck.AZORIUS,
+      Deck.DIMIR,
+      Deck.RAKDOS,
+      Deck.GRUUL,
+      Deck.SELESNYA,
     ]
   );
 

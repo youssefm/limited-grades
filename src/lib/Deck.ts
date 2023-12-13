@@ -38,6 +38,32 @@ export default class Deck {
   static NAYA = new Deck("wrg", "Naya", [Color.RED, Color.GREEN, Color.WHITE]);
   static BANT = new Deck("wug", "Bant", [Color.GREEN, Color.WHITE, Color.BLUE]);
 
+  static ABZAN = new Deck("wbg", "Abzan", [
+    Color.WHITE,
+    Color.BLACK,
+    Color.GREEN,
+  ]);
+
+  static JESKAI = new Deck("wur", "Jeskai", [
+    Color.BLUE,
+    Color.RED,
+    Color.WHITE,
+  ]);
+
+  static SULTAI = new Deck("ubg", "Sultai", [
+    Color.BLACK,
+    Color.GREEN,
+    Color.BLUE,
+  ]);
+
+  static MARDU = new Deck("wbr", "Mardu", [
+    Color.RED,
+    Color.WHITE,
+    Color.BLACK,
+  ]);
+
+  static TEMUR = new Deck("urg", "Temur", [Color.GREEN, Color.BLUE, Color.RED]);
+
   static MONO_COLOR_DECKS = [
     Deck.MONO_WHITE,
     Deck.MONO_BLUE,
