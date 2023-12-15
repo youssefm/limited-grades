@@ -59,7 +59,7 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
   "delete-ktk-cache": async (output) => {
     const setCode = MagicSet.KHANS_OF_TARKIR.code;
     await POSTGRES_CACHE.delete(setCode);
-    output.push(`${setCode.toUpperCase()} cache deleted`);
+    output.push(`${setCode.toUpperCase()} cache deleted!`);
   },
   "find-deck-outliers": async (output) => {
     let { cards } = await getCardStore(
