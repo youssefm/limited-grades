@@ -16,6 +16,10 @@ const handler = async (
   }
 
   const cardStore = await getCardStore(set);
+  response.setHeader(
+    "Cache-Control",
+    "public, s-maxage=3600, stale-while-revalidate=600"
+  );
   response.status(200).json(cardStore);
 };
 
