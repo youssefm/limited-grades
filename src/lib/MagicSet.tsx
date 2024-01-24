@@ -62,25 +62,6 @@ export default class MagicSet {
   static #setsByCode: Record<string, MagicSet> = {};
   static ALL: MagicSet[] = [];
 
-  static KHANS_OF_TARKIR = new MagicSet(
-    "ktk",
-    "Khans of Tarkir",
-    "2023-12-12",
-    KtkIcon,
-    [
-      Deck.ABZAN,
-      Deck.JESKAI,
-      Deck.SULTAI,
-      Deck.MARDU,
-      Deck.TEMUR,
-      Deck.ORZHOV,
-      Deck.IZZET,
-      Deck.GOLGARI,
-      Deck.BOROS,
-      Deck.SIMIC,
-    ]
-  );
-
   static CAVERNS_OF_IXALAN = new MagicSet(
     "lci",
     "Caverns of Ixalan",
@@ -107,13 +88,6 @@ export default class MagicSet {
     "March of the Machine",
     "2023-04-18",
     MomIcon
-  );
-
-  static SHADOWS_OVER_INNISTRAD = new MagicSet(
-    "sir",
-    "Shadows over Innistrad",
-    "2023-03-21",
-    SirIcon
   );
 
   static ALL_WILL_BE_ONE = new MagicSet(
@@ -252,10 +226,36 @@ export default class MagicSet {
   static AMONKHET = new MagicSet("akr", "Amonkhet", "2020-08-13", AkrIcon);
   static KALADESH = new MagicSet("klr", "Kaladesh", "2020-11-12", KlrIcon);
 
+  static SHADOWS_OVER_INNISTRAD = new MagicSet(
+    "sir",
+    "Shadows over Innistrad",
+    "2023-03-21",
+    SirIcon
+  );
+
+  static KHANS_OF_TARKIR = new MagicSet(
+    "ktk",
+    "Khans of Tarkir",
+    "2023-12-12",
+    KtkIcon,
+    [
+      Deck.ABZAN,
+      Deck.JESKAI,
+      Deck.SULTAI,
+      Deck.MARDU,
+      Deck.TEMUR,
+      Deck.ORZHOV,
+      Deck.IZZET,
+      Deck.GOLGARI,
+      Deck.BOROS,
+      Deck.SIMIC,
+    ]
+  );
+
   static ARENA_CUBE = new MagicSet(
     "cube",
     "Arena Cube",
-    "2023-08-21",
+    "2024-01-23",
     CubeIcon
   );
 
