@@ -78,7 +78,7 @@
     "tailwindcss/no-custom-classname": [
       "error",
       {
-        "whitelist": []
+        "whitelist": ["icon-selected"]
       }
     ],
     // Allows us to automatically remove unused imports

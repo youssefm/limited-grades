@@ -18,7 +18,6 @@
     "@tippyjs/react": "^4.2.6",
     "clsx": "^1.1.1",
     "constate": "^3.3.0",
-    "keyrune": "^3.10.0",
     "mana-font": "^1.14.0",
     "mathjs": "^9.5.0",
     "next": "^13.5.4",

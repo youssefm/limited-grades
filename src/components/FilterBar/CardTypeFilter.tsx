@@ -11,8 +11,8 @@ import { CardType } from "lib/types";
 import IconFilterGroup from "./IconFilterGroup";
 
 const ICON_PROPS = {
-  width: "1.28571429em",
-  height: "1em",
+  width: "1.15714286em",
+  height: "0.9em",
   className: clsx(
     "paint-order-stroke stroke-neutral-300 dark:stroke-black",
     TRANSITION_CLASSES

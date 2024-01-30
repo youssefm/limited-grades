@@ -13,9 +13,8 @@ const PageFooter = ({ lastUpdatedAt }: Props): JSX.Element => (
     Made possible thanks to{" "}
     <LinkOut url="https://www.17lands.com">17Lands</LinkOut>,{" "}
     <LinkOut url="https://scryfall.com">Scryfall</LinkOut>,{" "}
-    <LinkOut url="https://www.flaticon.com/authors/freepik">Freepik</LinkOut>,{" "}
-    <LinkOut url="https://keyrune.andrewgioia.com">Keyrune</LinkOut>, and{" "}
-    <LinkOut url="https://mana.andrewgioia.com">Mana</LinkOut>
+    <LinkOut url="https://www.flaticon.com/authors/freepik">Freepik</LinkOut>,
+    and <LinkOut url="https://mana.andrewgioia.com">Mana</LinkOut>
     <br />
     <em>
       Last updated on{" "}

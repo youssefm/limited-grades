@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import { FC, useCallback } from "react";
 
 import MagicSet from "lib/MagicSet";
@@ -12,8 +13,12 @@ interface Props {
 
 const SetSelector: FC<Props> = ({ value, onChange, inputId }) => {
   const getIcon = useCallback(
-    (set: MagicSet) => <set.Icon className="text-2xl" />,
-    []
+    (set: MagicSet) => (
+      <set.Icon
+        className={clsx("text-2xl", set === value && "icon-selected")}
+      />
+    ),
+    [value]
   );
   return (
     <IconSelect
