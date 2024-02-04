@@ -67,7 +67,7 @@ const buildCardStore = async (
   const apiCardStore: [Deck, ApiCard[]][] = [];
   for (const deck of setDecks) {
     const apiCards = await fetchApiCards(set, deck, format);
-    apiCardStore.push([deck, apiCards])
+    apiCardStore.push([deck, apiCards]);
   }
 
   const grader = new CardGrader();
