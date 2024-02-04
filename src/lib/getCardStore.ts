@@ -62,15 +62,13 @@ const buildCardStore = async (
 ): Promise<CardStore> => {
   const cards: Card[] = [];
   const setDecks = set.decks;
-  const [apiCardStore, scryfallIndex] = await Promise.all([
-    Promise.all(
-      setDecks.map(async (deck): Promise<[Deck, ApiCard[]]> => {
-        const apiCards = await fetchApiCards(set, deck, format);
-        return [deck, apiCards];
-      })
-    ),
-    SCRYFALL_INDEX.get(),
-  ]);
+  
+  const scryfallIndex = await SCRYFALL_INDEX.get();
+  const apiCardStore: [Deck, ApiCard[]] = [];
+  for (const deck of setDecks) {
+    const apiCards = await fetchApiCards(set, deck, format);
+    apiCardStore.push([deck, apiCards])
+  }
 
   const grader = new CardGrader();
   for (const [deck, apiCards] of apiCardStore) {
