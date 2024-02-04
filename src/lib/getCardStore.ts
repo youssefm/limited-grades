@@ -64,7 +64,7 @@ const buildCardStore = async (
   const setDecks = set.decks;
   
   const scryfallIndex = await SCRYFALL_INDEX.get();
-  const apiCardStore: [Deck, ApiCard[]] = [];
+  const apiCardStore: [Deck, ApiCard[]][] = [];
   for (const deck of setDecks) {
     const apiCards = await fetchApiCards(set, deck, format);
     apiCardStore.push([deck, apiCards])
