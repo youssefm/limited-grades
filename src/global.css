@@ -91,13 +91,11 @@
   stop-color: #9e9e9e;
 }
 
-.icon-rare .icon-side-stop,
-.dark .icon-selected .icon-side-stop {
+.icon-rare .icon-side-stop {
   stop-color: #876a3b;
 }
 
-.icon-rare .icon-middle-stop,
-.dark .icon-selected .icon-middle-stop {
+.icon-rare .icon-middle-stop {
   stop-color: #dfbd6b;
 }
 
