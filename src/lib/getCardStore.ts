@@ -7,7 +7,7 @@ import MagicSet from "./MagicSet";
 import { SCRYFALL_INDEX } from "./scryfall";
 import { Card, CardStore, Format, Rarity } from "./types";
 import { sortBy } from "./util";
-import { buildUrl, round } from "./util.server";
+import { buildUrl, retry, round } from "./util.server";
 
 interface ApiCard {
   name: string;
@@ -66,7 +66,10 @@ const buildCardStore = async (
   const scryfallIndex = await SCRYFALL_INDEX.get();
   const apiCardStore: [Deck, ApiCard[]][] = [];
   for (const deck of setDecks) {
-    const apiCards = await fetchApiCards(set, deck, format);
+    const apiCards = await retry(
+      () => fetchApiCards(set, deck, format),
+      (n) => (n > 10 ? null : 1_000 * 4 ** n)
+    );
     apiCardStore.push([deck, apiCards]);
   }
 

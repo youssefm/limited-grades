@@ -1,5 +1,7 @@
 import { readFile, writeFile } from "fs/promises";
 
+import { sleep } from "./util";
+
 // Adapted from https://github.com/lodash/lodash/blob/2da024c3b4f9947a48517639de7560457cd4ec6c/.internal/createRound.js
 export const round = (n: number, precision: number = 0): number => {
   let [significand, exponent] = `${n}e`.split("e");
@@ -93,4 +95,24 @@ export const indexBy = <T>(
     result[key] = item;
   }
   return result;
+};
+
+export const retry = async <T>(
+  callback: () => Promise<T>,
+  retryStrategy: (n: number) => number | null
+): Promise<T> => {
+  let retries = 0;
+  for (;;) {
+    try {
+      return await callback();
+    } catch (error) {
+      retries += 1;
+      const delay = retryStrategy(retries);
+      if (delay === null) {
+        throw error;
+      } else {
+        await sleep(delay);
+      }
+    }
+  }
 };
