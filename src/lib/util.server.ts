@@ -111,6 +111,7 @@ export const retry = async <T>(
       if (delay === null) {
         throw error;
       } else {
+        console.log("Retrying after error:", error);
         await sleep(delay);
       }
     }

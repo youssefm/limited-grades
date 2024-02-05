@@ -14,6 +14,7 @@ module.exports = {
       permanent: false,
     },
   ],
+  staticPageGenerationTimeout: 1_200,
   webpack: (config) => {
     config.module.rules.push({
       test: /\.svg$/i,
