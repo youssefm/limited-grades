@@ -187,7 +187,10 @@ const getCardStore = async (
   const cacheHit = await cache.get<CardStore>(cacheKey);
   if (cacheHit) {
     console.log(`Cache hit for ${cacheKey}`);
-    return cacheHit;
+    return {
+      ...cacheHit,
+      updatedAt: new Date(cacheHit.updatedAt),
+    };
   }
   console.log(
     `Cache miss for ${cacheKey}: Attempting to generate the card store`
