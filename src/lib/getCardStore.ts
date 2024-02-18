@@ -75,6 +75,9 @@ function isExactMatch(previousStore: CardStore, apiCards: ApiCard[]): boolean {
   for (const apiCard of apiCards) {
     const previousGameCount = previousGameCounts[apiCard.url];
     if (previousGameCount !== apiCard.game_count) {
+      console.log(
+        `Match failed for ${apiCard.name}: ${previousGameCount} != ${apiCard.game_count}`
+      );
       return false;
     }
   }
