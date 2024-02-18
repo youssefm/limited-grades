@@ -66,17 +66,15 @@ function fetchApiCardsWithRetry(
 }
 
 function isExactMatch(previousStore: CardStore, apiCards: ApiCard[]): boolean {
-  const previousGameCounts = Object.fromEntries(
-    previousStore.cards.map((card) => [
-      card.cardUrl,
-      card.overallStats.gameCount,
-    ])
+  const apiGameCounts = Object.fromEntries(
+    apiCards.map((card) => [card.url, card.game_count])
   );
-  for (const apiCard of apiCards) {
-    const previousGameCount = previousGameCounts[apiCard.url];
-    if (previousGameCount !== apiCard.game_count) {
+  for (const card of previousStore.cards) {
+    const apiGameCount = apiGameCounts[card.cardUrl];
+    const previousGameCount = card.overallStats.gameCount;
+    if (apiGameCount !== previousGameCount) {
       console.log(
-        `Match failed for ${apiCard.name}: ${previousGameCount} != ${apiCard.game_count}`
+        `Match failed for ${card.name}: ${apiGameCount} != ${previousGameCount}`
       );
       return false;
     }
