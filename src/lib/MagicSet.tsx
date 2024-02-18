@@ -29,7 +29,7 @@ export default class MagicSet {
   readonly label: string;
   readonly startDate: string;
   #SvgIcon: FC<SVGProps<SVGSVGElement>>;
-  readonly decks: Deck[] = [Deck.ALL];
+  readonly decks: Deck[] = [];
   readonly customDeckLabels: Record<string, string> = {};
   static #setsByCode: Record<string, MagicSet> = {};
   static ALL: MagicSet[] = [];

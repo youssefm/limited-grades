@@ -34,7 +34,7 @@ const DeckSelector: FC<Props> = ({ set, value, onChange, inputId }) => {
           onChange(selectedValue);
         }
       }}
-      options={set.decks}
+      options={[Deck.ALL].concat(set.decks)}
       getLabel={(deck) => set.getDeckLabel(deck)}
       getIcon={getIcon}
       instanceId="deck-select"

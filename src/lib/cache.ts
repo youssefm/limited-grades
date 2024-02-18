@@ -2,10 +2,16 @@ import { PrismaClient } from "@prisma/client";
 
 import { readJsonFile, writeJsonFile } from "./util.server";
 
+export interface CacheResult<T> {
+  value: T;
+  isExpired: boolean;
+}
+
 export interface Cache {
   name: string;
   get: <T>(key: string) => Promise<T | null>;
   set: (key: string, value: any, expirationInSeconds: number) => Promise<void>;
+  getLatest<T>(key: string): Promise<CacheResult<T> | null>;
 }
 
 const IS_POSTGRES_ENABLED = process.env.USE_POSTGRES_CACHE === "true";
@@ -33,13 +39,26 @@ export const POSTGRES_CACHE = {
       where: { key },
     });
   },
+  async getLatest<T>(key: string): Promise<CacheResult<T> | null> {
+    const cacheRow = await prisma.cache.findFirst({
+      where: { key },
+      orderBy: { expiresAt: "desc" },
+    });
+    if (cacheRow === null) {
+      return null;
+    }
+    return {
+      value: cacheRow.value as T,
+      isExpired: cacheRow.expiresAt < new Date(),
+    };
+  },
 };
 
 const getFileCachePath = (key: string): string => `data/${key}.json`;
 
 export const FILE_CACHE = {
   name: "file",
-  get: async <T>(key: string): Promise<T | null> => {
+  async get<T>(key: string): Promise<T | null> {
     const filePath = getFileCachePath(key);
     try {
       return await readJsonFile<T>(filePath);
@@ -50,9 +69,12 @@ export const FILE_CACHE = {
       throw error;
     }
   },
-  set: async (key: string, value: any) => {
+  async set(key: string, value: any) {
     const filePath = getFileCachePath(key);
     await writeJsonFile(filePath, value);
+  },
+  getLatest<T>(key: string): Promise<CacheResult<T> | null> {
+    return this.get(key);
   },
 };
 

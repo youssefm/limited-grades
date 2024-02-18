@@ -1,5 +1,3 @@
-import assert from "assert";
-
 import { CACHE, Cache } from "./cache";
 import CardGrader from "./CardGrader";
 import Deck from "./Deck";
@@ -56,26 +54,65 @@ const fetchApiCards = async (
   return response.json();
 };
 
+function fetchApiCardsWithRetry(
+  set: MagicSet,
+  deck: Deck,
+  format: Format
+): Promise<ApiCard[]> {
+  return retry(
+    () => fetchApiCards(set, deck, format),
+    (n) => (n > 10 ? null : 1_000 * 4 ** n)
+  );
+}
+
+function isExactMatch(previousStore: CardStore, apiCards: ApiCard[]): boolean {
+  const previousGameCounts = Object.fromEntries(
+    previousStore.cards.map((card) => [
+      card.cardUrl,
+      card.overallStats.gameCount,
+    ])
+  );
+  for (const apiCard of apiCards) {
+    const previousGameCount = previousGameCounts[apiCard.url];
+    if (previousGameCount !== apiCard.game_count) {
+      return false;
+    }
+  }
+  return true;
+}
+
 const buildCardStore = async (
   set: MagicSet,
-  format: Format
+  format: Format,
+  previousStore?: CardStore
 ): Promise<CardStore> => {
+  const apiCards = await fetchApiCardsWithRetry(set, Deck.ALL, format);
+  if (apiCards.length === 0) {
+    return { cards: [], updatedAt: new Date() };
+  }
+  if (previousStore && isExactMatch(previousStore, apiCards)) {
+    console.log(
+      `${set.code.toUpperCase()}: All decks game count is identical to the previous store`
+    );
+    return {
+      cards: previousStore.cards,
+      updatedAt: new Date(),
+    };
+  }
+
   const cards: Card[] = [];
   const setDecks = set.decks;
 
   const scryfallIndex = await SCRYFALL_INDEX.get();
-  const apiCardStore: [Deck, ApiCard[]][] = [];
+  const apiCardStore: [Deck, ApiCard[]][] = [[Deck.ALL, apiCards]];
   for (const deck of setDecks) {
-    const apiCards = await retry(
-      () => fetchApiCards(set, deck, format),
-      (n) => (n > 10 ? null : 1_000 * 4 ** n)
-    );
-    apiCardStore.push([deck, apiCards]);
+    const deckApiCards = await fetchApiCardsWithRetry(set, deck, format);
+    apiCardStore.push([deck, deckApiCards]);
   }
 
   const grader = new CardGrader();
-  for (const [deck, apiCards] of apiCardStore) {
-    for (const apiCard of apiCards) {
+  for (const [deck, deckApiCards] of apiCardStore) {
+    for (const apiCard of deckApiCards) {
       if (apiCard.ever_drawn_win_rate === null) {
         continue;
       }
@@ -89,9 +126,6 @@ const buildCardStore = async (
   }
 
   grader.computeGrades();
-
-  const [deck, apiCards] = apiCardStore[0]!;
-  assert(deck === Deck.ALL);
 
   for (const apiCard of apiCards) {
     const cardStats = grader.getCardStats(apiCard.url);
@@ -184,19 +218,19 @@ const getCardStore = async (
   const cacheKey =
     format === Format.PREMIER_DRAFT ? set.code : `${set.code}_${format}`;
   console.log(`Fetching card store for ${cacheKey} from ${cache.name} cache`);
-  const cacheHit = await cache.get<CardStore>(cacheKey);
-  if (cacheHit) {
+  const cacheHit = await cache.getLatest<CardStore>(cacheKey);
+  if (cacheHit && !cacheHit.isExpired) {
     console.log(`Cache hit for ${cacheKey}`);
     return {
-      ...cacheHit,
-      updatedAt: new Date(cacheHit.updatedAt),
+      ...cacheHit.value,
+      updatedAt: new Date(cacheHit.value.updatedAt),
     };
   }
   console.log(
     `Cache miss for ${cacheKey}: Attempting to generate the card store`
   );
 
-  const cardStore = await buildCardStore(set, format);
+  const cardStore = await buildCardStore(set, format, cacheHit?.value);
   if (cardStore.cards.length > 0) {
     const expirationInSeconds = computeCacheExpirationInSeconds(set);
     console.log(`Storing card store for ${cacheKey}`);
