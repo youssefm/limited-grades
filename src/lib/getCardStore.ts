@@ -104,7 +104,6 @@ const buildCardStore = async (
   const cards: Card[] = [];
   const setDecks = set.decks;
 
-  const scryfallIndex = await SCRYFALL_INDEX.get();
   const apiCardStore: [Deck, ApiCard[]][] = [[Deck.ALL, apiCards]];
   for (const deck of setDecks) {
     const deckApiCards = await fetchApiCardsWithRetry(set, deck, format);
@@ -125,9 +124,9 @@ const buildCardStore = async (
       );
     }
   }
-
   grader.computeGrades();
 
+  const scryfallIndex = await SCRYFALL_INDEX.get();
   for (const apiCard of apiCards) {
     const cardStats = grader.getCardStats(apiCard.url);
     if (Object.keys(cardStats).length === 0) {
