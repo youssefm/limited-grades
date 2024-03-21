@@ -191,9 +191,8 @@ const buildCardStore = async (
   };
 };
 
-const computeCacheExpirationInSeconds = (set: MagicSet): number => {
-  // If the set is recently released (<30 days ago), expire cache entry until the next day
-  // 2AM UTC is when 17Lands refreshes their daily data
+const computeCacheExpirationInSeconds = (): number => {
+  // Expire cache entry until the next day 2AM UTC is when 17Lands refreshes their daily data
   const now = new Date();
   const currentDate = now.getUTCDate();
   const nextRefreshAt = new Date(
@@ -229,7 +228,7 @@ const getCardStore = async (
 
   const cardStore = await buildCardStore(set, format, cacheHit?.value);
   if (cardStore.cards.length > 0) {
-    const expirationInSeconds = computeCacheExpirationInSeconds(set);
+    const expirationInSeconds = computeCacheExpirationInSeconds();
     console.log(`Storing card store for ${cacheKey}`);
     await cache.set(cacheKey, cardStore, expirationInSeconds);
   }
