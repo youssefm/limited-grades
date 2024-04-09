@@ -73,8 +73,12 @@ export const FILE_CACHE = {
     const filePath = getFileCachePath(key);
     await writeJsonFile(filePath, value);
   },
-  getLatest<T>(key: string): Promise<CacheResult<T> | null> {
-    return this.get(key);
+  async getLatest<T>(key: string): Promise<CacheResult<T> | null> {
+    const value = await this.get<T>(key);
+    if (value === null) {
+      return null;
+    }
+    return { value, isExpired: false };
   },
 };
 
