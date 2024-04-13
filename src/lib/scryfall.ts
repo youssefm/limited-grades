@@ -27,6 +27,7 @@ interface ScryfallCardFace {
 
 interface ScryfallCard {
   name: string;
+  cmc: number;
   card_faces?: ScryfallCardFace[];
   colors?: ScryfallColor[];
   layout: string;
@@ -43,6 +44,7 @@ interface ScryfallCardPage {
 
 export interface ScryfallIndexEntry {
   color: Color;
+  cmc: number;
   types: CardType[];
 }
 
@@ -118,6 +120,7 @@ export const generateIndex = async (): Promise<ScryfallIndex> => {
 
     index[name] = {
       color: getCardColor(card),
+      cmc: card.cmc,
       types: getCardTypes(card),
     };
   }

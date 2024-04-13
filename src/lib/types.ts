@@ -41,6 +41,7 @@ export interface Card {
   color: Color;
   rarity: Rarity;
   cardTypes: CardType[];
+  manaValue: number;
   cardUrl: string;
   cardBackUrl: string;
   overallStats: OverallCardStats;

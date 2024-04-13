@@ -147,6 +147,7 @@ const buildCardStore = async (
       color: scryfallIndexEntry.color,
       rarity: apiCard.rarity === "basic" ? Rarity.COMMON : apiCard.rarity,
       cardTypes: scryfallIndexEntry.types,
+      manaValue: scryfallIndexEntry.cmc,
       cardUrl: apiCard.url,
       cardBackUrl: apiCard.url_back,
       overallStats: {
