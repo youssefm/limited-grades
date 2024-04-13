@@ -53,7 +53,12 @@ interface Props {
 }
 
 const CardTypeFilter: FC<Props> = ({ values, setValues }) => (
-  <IconFilterGroup values={values} setValues={setValues} filters={FILTERS} />
+  <IconFilterGroup
+    values={values}
+    setValues={setValues}
+    filters={FILTERS}
+    className="text-2xl"
+  />
 );
 
 export default CardTypeFilter;

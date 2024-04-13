@@ -5,6 +5,11 @@ import CardTableDictionary from "lib/CardTableDictionary";
 import { ALL_CARD_TYPES, ALL_RARITIES } from "lib/constants";
 import Deck from "lib/Deck";
 import MagicSet from "lib/MagicSet";
+import {
+  getCardManaValue,
+  MANA_VALUE_CHARACTER_MAP,
+  ManaValue,
+} from "lib/mana-value";
 import { Card, CardType, Rarity } from "lib/types";
 import { extractPathnameSegments } from "lib/util";
 
@@ -23,6 +28,8 @@ interface PageBodyState {
   setVisibleRarities: (value: Set<Rarity>) => void;
   visibleCardTypes: Set<CardType>;
   setVisibleCardTypes: (value: Set<CardType>) => void;
+  visibleManaValues: Set<ManaValue>;
+  setVisibleManaValues: (value: Set<ManaValue>) => void;
   cardDictionary: CardTableDictionary;
   showSkeletons: boolean;
 }
@@ -60,6 +67,11 @@ const usePageBodyState = (set: MagicSet, cards: Card[]): PageBodyState => {
     "type",
     CARD_TYPE_CHARACTER_MAP,
     ALL_CARD_TYPES_SET
+  );
+  const [visibleManaValues, setVisibleManaValues] = useUrlSetState(
+    "manaValue",
+    MANA_VALUE_CHARACTER_MAP,
+    new Set(Object.values(ManaValue))
   );
 
   const isLoading = useDelayedLoading(set === selectedSet, 300);
@@ -101,9 +113,19 @@ const usePageBodyState = (set: MagicSet, cards: Card[]): PageBodyState => {
       .filter((card) => visibleRarities.has(card.rarity))
       .filter((card) =>
         card.cardTypes.some((cardType) => visibleCardTypes.has(cardType))
-      );
+      )
+      .filter((card) => {
+        const manaValue = getCardManaValue(card);
+        return manaValue && visibleManaValues.has(manaValue);
+      });
     return new CardTableDictionary(filteredCards, deck);
-  }, [displayedCards, deck, visibleRarities, visibleCardTypes]);
+  }, [
+    displayedCards,
+    deck,
+    visibleRarities,
+    visibleCardTypes,
+    visibleManaValues,
+  ]);
 
   const changeSet = useCallback(async (newSet: MagicSet) => {
     await Router.push({
@@ -129,6 +151,8 @@ const usePageBodyState = (set: MagicSet, cards: Card[]): PageBodyState => {
     setVisibleRarities,
     visibleCardTypes,
     setVisibleCardTypes,
+    visibleManaValues,
+    setVisibleManaValues,
     cardDictionary,
     showSkeletons,
   };

@@ -24,6 +24,8 @@ const PageBody: FC<Props> = ({ set, cards, className }) => {
     setVisibleRarities,
     visibleCardTypes,
     setVisibleCardTypes,
+    visibleManaValues,
+    setVisibleManaValues,
     cardDictionary,
     showSkeletons,
   } = usePageBodyState(set, cards);
@@ -39,6 +41,8 @@ const PageBody: FC<Props> = ({ set, cards, className }) => {
         setVisibleRarities={setVisibleRarities}
         visibleCardTypes={visibleCardTypes}
         setVisibleCardTypes={setVisibleCardTypes}
+        visibleManaValues={visibleManaValues}
+        setVisibleManaValues={setVisibleManaValues}
         searchCards={displayedCards}
         searchSet={displayedSet}
       />

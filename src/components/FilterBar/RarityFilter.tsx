@@ -39,6 +39,7 @@ const RarityFilter: FC<Props> = ({ set, values, setValues }) => (
     values={values}
     setValues={setValues}
     filters={getFilters(set)}
+    className="text-2xl"
   />
 );
 

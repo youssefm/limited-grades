@@ -5,12 +5,14 @@ import { FaChevronDown } from "react-icons/fa";
 import Collapsible from "components/common/Collapsible";
 import Deck from "lib/Deck";
 import MagicSet from "lib/MagicSet";
+import { ManaValue } from "lib/mana-value";
 import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 import { Card, CardType, Rarity } from "lib/types";
 
 import CardTypeFilter from "./CardTypeFilter";
 import DeckSelector from "./DeckSelector";
 import FilterGroup from "./FilterGroup";
+import ManaValueFilter from "./ManaValueFilter";
 import RarityFilter from "./RarityFilter";
 import SearchButton from "./SearchButton";
 import SetSelector from "./SetSelector";
@@ -29,6 +31,8 @@ interface Props {
   setVisibleRarities: (newRarities: Set<Rarity>) => void;
   visibleCardTypes: Set<CardType>;
   setVisibleCardTypes: (newCardTypes: Set<CardType>) => void;
+  visibleManaValues: Set<ManaValue>;
+  setVisibleManaValues: (newManaValues: Set<ManaValue>) => void;
   searchSet: MagicSet;
   searchCards: Card[];
 }
@@ -42,6 +46,8 @@ const FilterBar: FC<Props> = ({
   setVisibleRarities,
   visibleCardTypes,
   setVisibleCardTypes,
+  visibleManaValues,
+  setVisibleManaValues,
   searchCards,
   searchSet,
 }) => {
@@ -93,6 +99,12 @@ const FilterBar: FC<Props> = ({
             <CardTypeFilter
               values={visibleCardTypes}
               setValues={setVisibleCardTypes}
+            />
+          </FilterGroup>
+          <FilterGroup label="Mana Value" className={GAP_CLASSES}>
+            <ManaValueFilter
+              values={visibleManaValues}
+              setValues={setVisibleManaValues}
             />
           </FilterGroup>
           <div className={clsx("lg:ml-auto", GAP_CLASSES)}>

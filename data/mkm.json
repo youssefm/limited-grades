@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2024-04-13T22:53:54.304Z",
+  "updatedAt": "2024-04-13T23:29:49.397Z",
   "cards": [
     {
       "name": "A Killer Among Us",
@@ -8,6 +8,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/2/c/2c1392c5-91a5-4e6e-803d-ed032e4d594b.jpg?1706242059",
       "cardBackUrl": "",
       "overallStats": {
@@ -59,6 +60,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/b/d/bd6e71a1-713e-4eca-bd65-9f0638c16794.jpg?1706389555",
       "cardBackUrl": "",
       "overallStats": {
@@ -110,6 +112,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/1/c/1c1aa6f8-2d34-4f4b-9184-0eab2e4745f7.jpg?1706241934",
       "cardBackUrl": "",
       "overallStats": {
@@ -161,6 +164,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/d/6/d63f2c23-e877-42e3-9362-5d003a173c6d.jpg?1706241661",
       "cardBackUrl": "",
       "overallStats": {
@@ -212,6 +216,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 6,
       "cardUrl": "https://cards.scryfall.io/large/front/8/1/8112f133-535e-4264-8357-9cbf97957710.jpg?1706241552",
       "cardBackUrl": "",
       "overallStats": {
@@ -263,6 +268,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/5/8/58aeac7c-1275-49d4-9915-7604ae4bfdff.jpg?1706242105",
       "cardBackUrl": "",
       "overallStats": {
@@ -314,6 +320,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/b/f/bffbbe21-0a1d-48b9-903e-81c109aa11de.jpg?1706241938",
       "cardBackUrl": "",
       "overallStats": {
@@ -365,6 +372,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/e/d/edf238c9-61de-4f3a-b82f-05af46e5e81b.jpg?1706241664",
       "cardBackUrl": "",
       "overallStats": {
@@ -416,6 +424,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/4/1/41129b44-4fa7-473b-b2b7-48c6a58be03c.jpg?1706242110",
       "cardBackUrl": "",
       "overallStats": {
@@ -461,6 +470,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/5/5/5563967f-09fd-4ccf-8892-4dd0c2544c98.jpg?1706241940",
       "cardBackUrl": "",
       "overallStats": {
@@ -512,6 +522,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/7/0/70e9d8b8-4b32-4414-b32f-1f47523239c5.jpg?1706242114",
       "cardBackUrl": "",
       "overallStats": {
@@ -557,6 +568,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/5/c/5caae5ae-845f-42c2-b1ae-956df2739433.jpg?1706241943",
       "cardBackUrl": "",
       "overallStats": {
@@ -608,6 +620,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/e/d/ed6c7d29-71b4-4134-b591-5598f479d592.jpg?1706242115",
       "cardBackUrl": "",
       "overallStats": {
@@ -641,6 +654,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/f/5/f5bcb21a-8559-4791-8cd0-482e7b8dcfd2.jpg?1706241452",
       "cardBackUrl": "",
       "overallStats": {
@@ -692,6 +706,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/a/8/a8e23d15-33af-4fd8-964b-8ca4efdebc37.jpg?1706241948",
       "cardBackUrl": "",
       "overallStats": {
@@ -725,6 +740,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/5/9/5901dff4-e09b-4747-9297-797a1a057cd5.jpg?1706241453",
       "cardBackUrl": "",
       "overallStats": {
@@ -782,6 +798,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/8/f/8f80c6e7-e9f9-4ca6-87f7-a52c96079e4a.jpg?1706242118",
       "cardBackUrl": "",
       "overallStats": {
@@ -851,6 +868,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/5/1/5180c85c-6add-4066-83c4-27fb1fd4de16.jpg?1706241453",
       "cardBackUrl": "",
       "overallStats": {
@@ -902,6 +920,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/6/1/610a0de4-a4f7-446b-8477-00c917cb4789.jpg?1706241949",
       "cardBackUrl": "",
       "overallStats": {
@@ -954,6 +973,7 @@
         "creature",
         "artifact"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/1/c/1c34e4ae-9bf3-4098-88f1-267e7d6cfa35.jpg?1706241668",
       "cardBackUrl": "",
       "overallStats": {
@@ -1005,6 +1025,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 6,
       "cardUrl": "https://cards.scryfall.io/large/front/f/d/fdafea8f-283d-4f19-a74a-669bfbdfed98.jpg?1706241669",
       "cardBackUrl": "",
       "overallStats": {
@@ -1056,6 +1077,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/e/5/e522b043-fbd8-48a4-9f20-39e2a66a35ec.jpg?1706241555",
       "cardBackUrl": "",
       "overallStats": {
@@ -1101,6 +1123,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/2/8/283b6b5a-acdf-4255-a294-0964d9c62686.jpg?1706241559",
       "cardBackUrl": "",
       "overallStats": {
@@ -1152,6 +1175,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/2/9/29bbfe93-8225-444c-835b-33ffa006ef66.jpg?1706241952",
       "cardBackUrl": "",
       "overallStats": {
@@ -1203,6 +1227,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/2/b/2b80feb8-5cc8-4e91-ac22-a733305a67de.jpg?1706242123",
       "cardBackUrl": "",
       "overallStats": {
@@ -1236,6 +1261,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 6,
       "cardUrl": "https://cards.scryfall.io/large/front/b/8/b87683f7-8a61-4e4a-8b8b-3bf812454096.jpg?1706241824",
       "cardBackUrl": "",
       "overallStats": {
@@ -1287,6 +1313,7 @@
       "cardTypes": [
         "land"
       ],
+      "manaValue": 0,
       "cardUrl": "https://cards.scryfall.io/large/front/7/3/73a8169f-b858-47a5-9c76-2e7c50ad4ecd.jpg?1706242330",
       "cardBackUrl": "",
       "overallStats": {
@@ -1374,6 +1401,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/8/c/8c628476-0987-47d4-8d2a-cfc3977b2357.jpg?1706242124",
       "cardBackUrl": "",
       "overallStats": {
@@ -1407,6 +1435,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/6/b/6b863ee0-d9f3-4b1e-993d-5212731d9353.jpg?1706241560",
       "cardBackUrl": "",
       "overallStats": {
@@ -1458,6 +1487,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/d/7/d7440288-6c55-4502-bf20-3c5b50a2de5a.jpg?1562946355",
       "cardBackUrl": "",
       "overallStats": {
@@ -1485,6 +1515,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/4/e/4ea29c34-4b55-4170-9120-0a8dda61f2eb.jpg?1706241564",
       "cardBackUrl": "",
       "overallStats": {
@@ -1536,6 +1567,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/7/e/7e144609-e1f6-4bdc-8d14-b735ef4140d3.jpg?1706242126",
       "cardBackUrl": "",
       "overallStats": {
@@ -1593,6 +1625,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/f/5/f5148def-cf1a-460e-8dfd-856103940892.jpg?1706241460",
       "cardBackUrl": "",
       "overallStats": {
@@ -1644,6 +1677,7 @@
       "cardTypes": [
         "artifact"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/5/a/5aeae6fb-3834-4891-924e-3d1fb3e19e09.jpg?1706241568",
       "cardBackUrl": "",
       "overallStats": {
@@ -1695,6 +1729,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/7/0/70a52038-9d1c-4be1-8dbe-6f0ee916ba94.jpg?1706241461",
       "cardBackUrl": "",
       "overallStats": {
@@ -1746,6 +1781,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/2/9/29ee07df-215f-45a6-9a5a-708143d73e45.jpg?1706241824",
       "cardBackUrl": "",
       "overallStats": {
@@ -1797,6 +1833,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/b/b/bb18b1de-bc08-4522-b891-6117a8271534.jpg?1706241824",
       "cardBackUrl": "",
       "overallStats": {
@@ -1848,6 +1885,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/2/6/266be5bd-71ba-4511-8b71-d0b03885a28d.jpg?1706241568",
       "cardBackUrl": "",
       "overallStats": {
@@ -1899,6 +1937,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/0/8/0862bf07-8a76-4e80-bba2-20d22f8eee30.jpg?1706735531",
       "cardBackUrl": "",
       "overallStats": {
@@ -1950,6 +1989,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/4/5/45e4c07a-3205-4193-8163-b0e63e6242a4.jpg?1706241675",
       "cardBackUrl": "",
       "overallStats": {
@@ -2001,6 +2041,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/0/9/0929a1bd-e35c-4ca5-8c8c-dd304cf4b830.jpg?1706241956",
       "cardBackUrl": "",
       "overallStats": {
@@ -2052,6 +2093,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/3/2/32927bf2-63c1-4402-99dc-3a0f2f8e0f9c.jpg?1706241469",
       "cardBackUrl": "",
       "overallStats": {
@@ -2103,6 +2145,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/2/a/2a70f0ae-d49b-4cc8-9f76-895039c3dc39.jpg?1706241444",
       "cardBackUrl": "",
       "overallStats": {
@@ -2160,6 +2203,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/4/b/4b120cbe-f0af-46c5-863f-03ecadf0435c.jpg?1706241678",
       "cardBackUrl": "",
       "overallStats": {
@@ -2211,6 +2255,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/9/e/9e80f5c7-ae29-473c-ac64-04bcbc629385.jpg?1706241957",
       "cardBackUrl": "",
       "overallStats": {
@@ -2262,6 +2307,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/a/c/ac63941b-3f78-4bd3-8b05-ca12aaaa006c.jpg?1706241469",
       "cardBackUrl": "",
       "overallStats": {
@@ -2289,6 +2335,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/9/5/95bc5f89-2f01-40c4-9883-4c90ab89fcbb.jpg?1706241833",
       "cardBackUrl": "",
       "overallStats": {
@@ -2329,6 +2376,7 @@
         "instant",
         "sorcery"
       ],
+      "manaValue": 8,
       "cardUrl": "https://cards.scryfall.io/large/front/c/b/cb59130a-a134-4383-b983-e4b526d11fb4.jpg?1706242296",
       "cardBackUrl": "",
       "overallStats": {
@@ -2386,6 +2434,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/3/c/3c3c3d15-b775-44a2-91ea-4abcc3cf2dba.jpg?1706241678",
       "cardBackUrl": "",
       "overallStats": {
@@ -2437,6 +2486,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/b/3/b3ff56c1-4153-4e15-9ac6-06d93fa2ae50.jpg?1706241961",
       "cardBackUrl": "",
       "overallStats": {
@@ -2482,6 +2532,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/2/e/2e069de0-3218-456c-b191-93e755634783.jpg?1706241684",
       "cardBackUrl": "",
       "overallStats": {
@@ -2533,6 +2584,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/2/d/2dc9f352-5076-4b5f-9815-cf47abb63d5b.jpg?1706242132",
       "cardBackUrl": "",
       "overallStats": {
@@ -2602,6 +2654,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/f/0/f082111b-9b1c-4a25-8c5d-d6ef77533a9b.jpg?1706241576",
       "cardBackUrl": "",
       "overallStats": {
@@ -2653,6 +2706,7 @@
       "cardTypes": [
         "artifact"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/f/7/f7d54ec2-a458-4e13-97b8-be99b7338548.jpg?1626098209",
       "cardBackUrl": "",
       "overallStats": {
@@ -2686,6 +2740,7 @@
       "cardTypes": [
         "land"
       ],
+      "manaValue": 0,
       "cardUrl": "https://cards.scryfall.io/large/front/b/f/bf220c06-3cce-4bdd-aa58-83940c223e9c.jpg?1706242338",
       "cardBackUrl": "",
       "overallStats": {
@@ -2749,6 +2804,7 @@
       "cardTypes": [
         "artifact"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/3/8/38e31fa6-a445-47c6-a73f-135087f6d760.jpg?1706241834",
       "cardBackUrl": "",
       "overallStats": {
@@ -2800,6 +2856,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/8/e/8e02731a-8698-4b41-99c3-f0a19fc31430.jpg?1706241841",
       "cardBackUrl": "",
       "overallStats": {
@@ -2852,6 +2909,7 @@
         "instant",
         "sorcery"
       ],
+      "manaValue": 7,
       "cardUrl": "https://cards.scryfall.io/large/front/1/c/1c1ead90-10d8-4217-80e4-6f40320c5569.jpg?1562791309",
       "cardBackUrl": "",
       "overallStats": {
@@ -2885,6 +2943,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 7,
       "cardUrl": "https://cards.scryfall.io/large/front/8/8/88e791fc-bf9f-49b6-b5f2-a24d4b3e360e.jpg?1706241576",
       "cardBackUrl": "",
       "overallStats": {
@@ -2930,6 +2989,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/2/d/2d2cf2ae-9152-41c4-9dc4-a19da5812869.jpg?1706241843",
       "cardBackUrl": "",
       "overallStats": {
@@ -2981,6 +3041,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/a/3/a3aff1ea-1d25-49c3-a2d9-f435124a5969.jpg?1706241844",
       "cardBackUrl": "",
       "overallStats": {
@@ -3033,6 +3094,7 @@
         "creature",
         "artifact"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/b/c/bc936987-d58b-4e7c-870f-379bcae77727.jpg?1706241580",
       "cardBackUrl": "",
       "overallStats": {
@@ -3084,6 +3146,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 0,
       "cardUrl": "https://cards.scryfall.io/large/front/5/6/564eb8e2-e3fb-44b6-a36d-a74e2374f9ff.jpg?1707429351",
       "cardBackUrl": "",
       "overallStats": {
@@ -3111,6 +3174,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/1/4/14a5cd7c-b0b1-4ffa-a806-bb0e73baffad.jpg?1706241850",
       "cardBackUrl": "",
       "overallStats": {
@@ -3162,6 +3226,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/d/c/dc4ac597-38f0-48b5-ac2d-dfb0b169f834.jpg?1706241584",
       "cardBackUrl": "",
       "overallStats": {
@@ -3213,6 +3278,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/c/d/cdf0578f-4966-4ecd-81e1-83ae13126f13.jpg?1706242133",
       "cardBackUrl": "",
       "overallStats": {
@@ -3282,6 +3348,7 @@
       "cardTypes": [
         "artifact"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/f/9/f92a2563-6cfb-4d12-9513-b44d1a7a20ab.jpg?1706242309",
       "cardBackUrl": "",
       "overallStats": {
@@ -3315,6 +3382,7 @@
       "cardTypes": [
         "artifact"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/0/c/0c3d7e2c-a104-4757-9984-fb31088f92c4.jpg?1706241584",
       "cardBackUrl": "",
       "overallStats": {
@@ -3384,6 +3452,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/2/c/2ccdc58b-1e7e-402c-88f9-c789ff1dae31.jpg?1706241967",
       "cardBackUrl": "",
       "overallStats": {
@@ -3435,6 +3504,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/2/8/2893aef8-835d-4935-b532-d8670585e489.jpg?1706242134",
       "cardBackUrl": "",
       "overallStats": {
@@ -3480,6 +3550,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/5/a/5a3603c6-92df-45c7-b402-1f0a552ea398.jpg?1706241588",
       "cardBackUrl": "",
       "overallStats": {
@@ -3531,6 +3602,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/7/c/7c68981c-037c-42e7-9b7f-6f07edab5f2e.jpg?1706242142",
       "cardBackUrl": "",
       "overallStats": {
@@ -3564,6 +3636,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/3/8/3876aa0f-b199-43f5-8a91-c2d620b8ef84.jpg?1706241687",
       "cardBackUrl": "",
       "overallStats": {
@@ -3615,6 +3688,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/7/c/7cbb17af-e17e-438a-ad72-0c942e6706b6.jpg?1706241592",
       "cardBackUrl": "",
       "overallStats": {
@@ -3666,6 +3740,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 6,
       "cardUrl": "https://cards.scryfall.io/large/front/8/b/8b284304-c3bf-4413-9fd3-b44eb4eb642a.jpg?1706572515",
       "cardBackUrl": "",
       "overallStats": {
@@ -3717,6 +3792,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/b/e/be219928-3d0e-4d00-b124-152ce8a8c13b.jpg?1706241477",
       "cardBackUrl": "",
       "overallStats": {
@@ -3768,6 +3844,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/e/c/eca092fc-7c67-4a73-989e-5297bbaaea76.jpg?1706241852",
       "cardBackUrl": "",
       "overallStats": {
@@ -3819,6 +3896,7 @@
       "cardTypes": [
         "artifact"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/2/c/2c05bf2d-7d4f-4717-b1ea-ec4284854f4f.jpg?1706242142",
       "cardBackUrl": "",
       "overallStats": {
@@ -3870,6 +3948,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/a/6/a6e0adb7-a030-4dcc-9284-cd91c7598a22.jpg?1706242142",
       "cardBackUrl": "",
       "overallStats": {
@@ -3939,6 +4018,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/8/0/80a1cd28-d2a5-4d1a-aa03-a6a5958ae432.jpg?1706241478",
       "cardBackUrl": "",
       "overallStats": {
@@ -3990,6 +4070,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/a/2/a2daec58-78ed-4da5-b3b0-b04f12b0acbd.jpg?1706242152",
       "cardBackUrl": "",
       "overallStats": {
@@ -4059,6 +4140,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/5/0/508d7096-2be3-4d4b-a55c-d4dbd3c9019c.jpg?1706242152",
       "cardBackUrl": "",
       "overallStats": {
@@ -4092,6 +4174,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/2/c/2ca93438-a132-45ca-9fa8-364aeb519594.jpg?1706241593",
       "cardBackUrl": "",
       "overallStats": {
@@ -4143,6 +4226,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/0/3/03c8654e-900a-4720-a4a1-1107d6271c70.jpg?1707355192",
       "cardBackUrl": "",
       "overallStats": {
@@ -4170,6 +4254,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/0/7/076d9f76-a247-4727-9e0f-a0289c51059e.jpg?1706363820",
       "cardBackUrl": "",
       "overallStats": {
@@ -4221,6 +4306,7 @@
       "cardTypes": [
         "land"
       ],
+      "manaValue": 0,
       "cardUrl": "https://cards.scryfall.io/large/front/7/2/72c6d541-e2cb-4d6e-acac-90a8f53b7006.jpg?1706242338",
       "cardBackUrl": "",
       "overallStats": {
@@ -4290,6 +4376,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/4/8/486f1cc2-c162-448e-91a9-577d7d796584.jpg?1706241597",
       "cardBackUrl": "",
       "overallStats": {
@@ -4341,6 +4428,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 6,
       "cardUrl": "https://cards.scryfall.io/large/front/6/6/66605149-3959-4a51-8400-350e6fac2ab2.jpg?1562641740",
       "cardBackUrl": "",
       "overallStats": {
@@ -4374,6 +4462,7 @@
       "cardTypes": [
         "land"
       ],
+      "manaValue": 0,
       "cardUrl": "https://cards.scryfall.io/large/front/9/3/93ddde4f-d35e-4128-8f43-d0eadbd715de.jpg?1706242339",
       "cardBackUrl": "",
       "overallStats": {
@@ -4462,6 +4551,7 @@
         "creature",
         "artifact"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/a/e/aee2945d-bf6d-4328-a482-df24c2973b56.jpg?1706241485",
       "cardBackUrl": "",
       "overallStats": {
@@ -4513,6 +4603,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/4/4/4410db5a-62af-43ac-979d-88a7c975f7bd.jpg?1706242152",
       "cardBackUrl": "",
       "overallStats": {
@@ -4558,6 +4649,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/f/5/f53a6ee7-86e1-4d2d-994c-214e0ec08dad.jpg?1706242160",
       "cardBackUrl": "",
       "overallStats": {
@@ -4603,6 +4695,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/2/6/268f142d-9fb1-4673-b804-add1f08dacb9.jpg?1706241600",
       "cardBackUrl": "",
       "overallStats": {
@@ -4654,6 +4747,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/3/1/31aadd3d-5ce1-44ba-ac6d-b192a9ea491b.jpg?1706241859",
       "cardBackUrl": "",
       "overallStats": {
@@ -4693,6 +4787,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/2/5/256c8b6e-4031-458b-8eb9-bbfe58405a0c.jpg?1706241687",
       "cardBackUrl": "",
       "overallStats": {
@@ -4750,6 +4845,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/9/5/9554d5f2-7a33-4734-8cf3-dfae2ccc3596.jpg?1706242161",
       "cardBackUrl": "",
       "overallStats": {
@@ -4795,6 +4891,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/d/9/d9caa4eb-ed8c-4d05-8029-2a42163938a7.jpg?1706241603",
       "cardBackUrl": "",
       "overallStats": {
@@ -4846,6 +4943,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/2/0/20267dab-8898-4b44-8ef4-8a239967662c.jpg?1706242161",
       "cardBackUrl": "",
       "overallStats": {
@@ -4915,6 +5013,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/4/9/4941fa74-c7b9-4468-8080-de8057d3d27b.jpg?1706241967",
       "cardBackUrl": "",
       "overallStats": {
@@ -4966,6 +5065,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/4/5/4538d6a8-a24a-40e3-b894-45a30882c92a.jpg?1706241861",
       "cardBackUrl": "",
       "overallStats": {
@@ -5017,6 +5117,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/8/3/83a6fa37-8351-403b-ae05-b67e9bf74bbb.jpg?1706241694",
       "cardBackUrl": "",
       "overallStats": {
@@ -5069,6 +5170,7 @@
         "instant",
         "sorcery"
       ],
+      "manaValue": 8,
       "cardUrl": "https://cards.scryfall.io/large/front/c/1/c1500cbf-5619-465e-a97b-75e676ce789b.jpg?1706900060",
       "cardBackUrl": "",
       "overallStats": {
@@ -5126,6 +5228,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/5/d/5ddcb31e-9301-44f1-b138-0573fbf56a47.jpg?1706241970",
       "cardBackUrl": "",
       "overallStats": {
@@ -5177,6 +5280,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/9/7/97d08a15-e61c-4421-a541-c68a4f87cb74.jpg?1706241606",
       "cardBackUrl": "",
       "overallStats": {
@@ -5228,6 +5332,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/1/3/1384df5d-d705-49cb-a982-1588cbf303d8.jpg?1706241609",
       "cardBackUrl": "",
       "overallStats": {
@@ -5279,6 +5384,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/b/0/b06a243d-acc8-42cd-926c-98a4cc96ab21.jpg?1706241486",
       "cardBackUrl": "",
       "overallStats": {
@@ -5330,6 +5436,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/e/b/eb81e343-7242-44b1-9ce6-1dddd104f764.jpg?1706241862",
       "cardBackUrl": "",
       "overallStats": {
@@ -5381,6 +5488,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/b/6/b682bf8a-06dc-4828-bc46-9e1427bf981f.jpg?1706241868",
       "cardBackUrl": "",
       "overallStats": {
@@ -5432,6 +5540,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/6/f/6f359fc2-b9e4-4a01-9d04-442bb160b01e.jpg?1706241613",
       "cardBackUrl": "",
       "overallStats": {
@@ -5484,6 +5593,7 @@
         "instant",
         "sorcery"
       ],
+      "manaValue": 9,
       "cardUrl": "https://cards.scryfall.io/large/front/2/6/269a031e-0b89-40e1-b11b-ae870d72161c.jpg?1706242301",
       "cardBackUrl": "",
       "overallStats": {
@@ -5559,6 +5669,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/3/b/3b489a54-ee43-4962-be7b-16e0e28800e0.jpg?1706242168",
       "cardBackUrl": "",
       "overallStats": {
@@ -5628,6 +5739,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/6/4/64ed3bfa-3294-45dd-825e-3afc2580f0d4.jpg?1706241871",
       "cardBackUrl": "",
       "overallStats": {
@@ -5685,6 +5797,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/6/9/6900a344-a155-4ee1-a3ac-d6c28e024270.jpg?1706241871",
       "cardBackUrl": "",
       "overallStats": {
@@ -5736,6 +5849,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/3/4/34e61e0f-d0f3-492a-92f1-36f72a91583a.jpg?1706241982",
       "cardBackUrl": "",
       "overallStats": {
@@ -5787,6 +5901,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/d/0/d0ae5ac7-4cd9-40d7-b3a7-e7d493f2bf7a.jpg?1707429366",
       "cardBackUrl": "",
       "overallStats": {
@@ -5815,6 +5930,7 @@
         "creature",
         "artifact"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/c/a/cabb5875-42ff-4e3a-a32e-aab392fccff8.jpg?1706242169",
       "cardBackUrl": "",
       "overallStats": {
@@ -5854,6 +5970,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 7,
       "cardUrl": "https://cards.scryfall.io/large/front/c/8/c8eff4d0-67ad-4900-b33d-605659b59161.jpg?1706241982",
       "cardBackUrl": "",
       "overallStats": {
@@ -5905,6 +6022,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/6/1/6154a991-c602-4fca-91a3-3830060da60e.jpg?1706241877",
       "cardBackUrl": "",
       "overallStats": {
@@ -5957,6 +6075,7 @@
         "creature",
         "artifact"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/d/a/daee9d98-f8c6-4980-8f23-c6c636b69430.jpg?1706242170",
       "cardBackUrl": "",
       "overallStats": {
@@ -6027,6 +6146,7 @@
         "creature",
         "artifact"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/1/f/1f952d8d-c089-432c-822a-8ef1e605ae38.jpg?1706242312",
       "cardBackUrl": "",
       "overallStats": {
@@ -6114,6 +6234,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/8/8/88e62346-cc62-4938-970c-b56beeb79fa6.jpg?1706241982",
       "cardBackUrl": "",
       "overallStats": {
@@ -6165,6 +6286,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/9/5/95f5d048-226f-49a4-a2ce-a6fa99aa9e8a.jpg?1706241488",
       "cardBackUrl": "",
       "overallStats": {
@@ -6216,6 +6338,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/5/2/5277fe72-dc33-4d19-a439-63b5344c6034.jpg?1706241495",
       "cardBackUrl": "",
       "overallStats": {
@@ -6267,6 +6390,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/5/0/501599d6-1072-4124-b05d-01f96de153f3.jpg?1626094482",
       "cardBackUrl": "",
       "overallStats": {
@@ -6318,6 +6442,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/8/a/8ad807c2-14a7-4464-bf57-c323fb3c0bd0.jpg?1706242021",
       "cardBackUrl": "",
       "overallStats": {
@@ -6369,6 +6494,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/3/6/36cb25ee-3c84-40a8-ba45-7e44893deecf.jpg?1706241879",
       "cardBackUrl": "",
       "overallStats": {
@@ -6420,6 +6546,7 @@
       "cardTypes": [
         "land"
       ],
+      "manaValue": 0,
       "cardUrl": "https://cards.scryfall.io/large/front/5/2/5260f8ae-805b-4eae-badf-62de0f768867.jpg?1706242346",
       "cardBackUrl": "",
       "overallStats": {
@@ -6489,6 +6616,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/4/6/4627adcd-ace7-4777-a7e6-fc80ac6b9dfe.jpg?1706242021",
       "cardBackUrl": "",
       "overallStats": {
@@ -6540,6 +6668,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/d/8/d87c1ed8-c644-4ad5-9a21-c7bd9a7e8d20.jpg?1706277224",
       "cardBackUrl": "",
       "overallStats": {
@@ -6591,6 +6720,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/2/1/21d6accd-167a-4b21-a488-44d54cdfa608.jpg?1706241698",
       "cardBackUrl": "",
       "overallStats": {
@@ -6642,6 +6772,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 6,
       "cardUrl": "https://cards.scryfall.io/large/front/8/d/8dc3b23b-04d6-4ac0-b698-596ea90b7781.jpg?1706241616",
       "cardBackUrl": "",
       "overallStats": {
@@ -6693,6 +6824,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/a/4/a4ca0e10-8b7c-4ce2-888b-752fc909757a.jpg?1706241698",
       "cardBackUrl": "",
       "overallStats": {
@@ -6745,6 +6877,7 @@
         "instant",
         "sorcery"
       ],
+      "manaValue": 7,
       "cardUrl": "https://cards.scryfall.io/large/front/5/f/5f664827-e22e-43af-82f1-861b3c7607f1.jpg?1706378738",
       "cardBackUrl": "",
       "overallStats": {
@@ -6808,6 +6941,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/0/b/0b5cdb01-eaa4-4a0a-b42a-332bcf4d6fff.jpg?1706980244",
       "cardBackUrl": "",
       "overallStats": {
@@ -6865,6 +6999,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/2/a/2a7a3ec4-afaa-45e1-8cde-f15bf4bd7379.jpg?1706241704",
       "cardBackUrl": "",
       "overallStats": {
@@ -6916,6 +7051,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 6,
       "cardUrl": "https://cards.scryfall.io/large/front/0/c/0c6aca64-a554-45c1-9f23-4f7878abeda5.jpg?1706241880",
       "cardBackUrl": "",
       "overallStats": {
@@ -6967,6 +7103,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/0/8/085f4595-4ae5-428e-a934-e918774df6fd.jpg?1706241885",
       "cardBackUrl": "",
       "overallStats": {
@@ -7018,6 +7155,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/1/5/1548d181-3f83-457a-b2d3-eb88cfb2afda.jpg?1706241496",
       "cardBackUrl": "",
       "overallStats": {
@@ -7069,6 +7207,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/0/b/0bb91a22-2040-4a37-85f8-5f22de8c5907.jpg?1706242178",
       "cardBackUrl": "",
       "overallStats": {
@@ -7108,6 +7247,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/f/b/fbe62f47-df17-4646-88ca-89a8ec4deee9.jpg?1706241618",
       "cardBackUrl": "",
       "overallStats": {
@@ -7159,6 +7299,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/f/a/fa02dbc2-ad01-47fd-b39e-f0a695029f26.jpg?1706241707",
       "cardBackUrl": "",
       "overallStats": {
@@ -7210,6 +7351,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 6,
       "cardUrl": "https://cards.scryfall.io/large/front/7/0/70ea66cd-587a-4ca9-9ca8-d7d2046bfbed.jpg?1706242180",
       "cardBackUrl": "",
       "overallStats": {
@@ -7279,6 +7421,7 @@
       "cardTypes": [
         "planeswalker"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/6/a/6adb7d73-4482-4930-8497-cffd169b57e2.jpg?1557576232",
       "cardBackUrl": "",
       "overallStats": {
@@ -7306,6 +7449,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/2/8/2807dcfb-d99c-483b-835f-2606eae4bd30.jpg?1706241622",
       "cardBackUrl": "",
       "overallStats": {
@@ -7357,6 +7501,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/3/e/3eaa19ce-cace-499e-8b23-ef9e56b23700.jpg?1706242185",
       "cardBackUrl": "",
       "overallStats": {
@@ -7396,6 +7541,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/7/9/79cfb366-ae2a-4b3d-9a80-383a32db1509.jpg?1706241500",
       "cardBackUrl": "",
       "overallStats": {
@@ -7447,6 +7593,7 @@
       "cardTypes": [
         "planeswalker"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/a/2/a2827593-4951-4ba7-b73e-c27de56f2606.jpg?1706242186",
       "cardBackUrl": "",
       "overallStats": {
@@ -7505,6 +7652,7 @@
         "creature",
         "sorcery"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/c/4/c49690c7-c282-4eb4-8da3-5e0c46a80fc4.jpg?1707428999",
       "cardBackUrl": "",
       "overallStats": {
@@ -7568,6 +7716,7 @@
       "cardTypes": [
         "artifact"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/b/6/b6883788-e1ee-4ddd-add2-24d6bc367717.jpg?1706241889",
       "cardBackUrl": "",
       "overallStats": {
@@ -7619,6 +7768,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/0/c/0c08ed44-2c13-4029-af2e-68585a76bb03.jpg?1706242194",
       "cardBackUrl": "",
       "overallStats": {
@@ -7653,6 +7803,7 @@
         "creature",
         "artifact"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/0/e/0edcda2a-071b-40c5-9fb3-8a4ff87ca00e.jpg?1706241894",
       "cardBackUrl": "",
       "overallStats": {
@@ -7704,6 +7855,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/5/5/5524b712-c67d-4d2e-9344-9e85a6ce3227.jpg?1706241890",
       "cardBackUrl": "",
       "overallStats": {
@@ -7755,6 +7907,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 7,
       "cardUrl": "https://cards.scryfall.io/large/front/0/b/0b872f85-60c5-44c4-956d-a8aa8132908b.jpg?1562897602",
       "cardBackUrl": "",
       "overallStats": {
@@ -7800,6 +7953,7 @@
       "cardTypes": [
         "artifact"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/f/6/f663cd86-39e6-467b-85b7-dd27536251a6.jpg?1706241503",
       "cardBackUrl": "",
       "overallStats": {
@@ -7851,6 +8005,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/7/e/7ee07266-a95d-4cd8-9863-1664922e9490.jpg?1562819546",
       "cardBackUrl": "",
       "overallStats": {
@@ -7878,6 +8033,7 @@
       "cardTypes": [
         "artifact"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/8/6/86a8a1af-b1cf-47fc-ab42-7efa07a1c95b.jpg?1706242197",
       "cardBackUrl": "",
       "overallStats": {
@@ -7911,6 +8067,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 7,
       "cardUrl": "https://cards.scryfall.io/large/front/0/0/00faa272-91ad-407b-9175-8fa1d02585b8.jpg?1706242196",
       "cardBackUrl": "",
       "overallStats": {
@@ -7944,6 +8101,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/2/f/2faa0e56-527c-4be5-b8c9-b10ccde275f5.jpg?1706241899",
       "cardBackUrl": "",
       "overallStats": {
@@ -7995,6 +8153,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/c/c/cc264d1d-689d-41ac-b624-3fc7bb890e58.jpg?1706242204",
       "cardBackUrl": "",
       "overallStats": {
@@ -8052,6 +8211,7 @@
       "cardTypes": [
         "artifact"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/8/7/87f69249-c6e4-40c1-9870-b9c45ce24c39.jpg?1706241707",
       "cardBackUrl": "",
       "overallStats": {
@@ -8103,6 +8263,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/d/c/dc687588-9c57-411d-b666-b9699949d48f.jpg?1706241713",
       "cardBackUrl": "",
       "overallStats": {
@@ -8154,6 +8315,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/d/d/dd0900e1-df78-466d-b747-33f22c273d67.jpg?1562615358",
       "cardBackUrl": "",
       "overallStats": {
@@ -8199,6 +8361,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/b/f/bf6e59be-f959-4f4a-8c2d-b7c441e88135.jpg?1706242205",
       "cardBackUrl": "",
       "overallStats": {
@@ -8226,6 +8389,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/4/1/4101e3fe-b0e7-4f0f-b9ac-9b61a4d628b3.jpg?1706242208",
       "cardBackUrl": "",
       "overallStats": {
@@ -8283,6 +8447,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/9/7/97fb11c7-7b7f-4bdb-a022-53e28ebadecc.jpg?1706241624",
       "cardBackUrl": "",
       "overallStats": {
@@ -8334,6 +8499,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/c/3/c3896705-bbd2-4ffb-a590-ee78e0eabdc5.jpg?1706241715",
       "cardBackUrl": "",
       "overallStats": {
@@ -8385,6 +8551,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/6/3/6308dc62-d945-4761-aa4c-ef8e9271e901.jpg?1706241626",
       "cardBackUrl": "",
       "overallStats": {
@@ -8436,6 +8603,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/b/b/bbbf8c3a-6c74-42fd-bb8d-61e3f0a77848.jpg?1706242059",
       "cardBackUrl": "",
       "overallStats": {
@@ -8488,6 +8656,7 @@
         "creature",
         "artifact"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/0/8/080ad039-1669-4735-9864-76f4c61fc59e.jpg?1706242318",
       "cardBackUrl": "",
       "overallStats": {
@@ -8527,6 +8696,7 @@
       "cardTypes": [
         "land"
       ],
+      "manaValue": 0,
       "cardUrl": "https://cards.scryfall.io/large/front/c/1/c17816e8-28b1-4295-a637-efb0e5c18873.jpg?1706242346",
       "cardBackUrl": "",
       "overallStats": {
@@ -8590,6 +8760,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/a/b/abb6184c-e3d0-4275-b25b-95e4a64b26f3.jpg?1706241717",
       "cardBackUrl": "",
       "overallStats": {
@@ -8641,6 +8812,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/0/8/08c571fe-54ef-4234-98c3-5d4a7b07e7d2.jpg?1547517315",
       "cardBackUrl": "",
       "overallStats": {
@@ -8681,6 +8853,7 @@
         "creature",
         "artifact"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/7/0/70476534-2fc7-4872-a009-3380dd5ce2ab.jpg?1706242319",
       "cardBackUrl": "",
       "overallStats": {
@@ -8726,6 +8899,7 @@
       "cardTypes": [
         "artifact"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/c/6/c606a71f-8fb0-486b-955f-727ebf436946.jpg?1706242321",
       "cardBackUrl": "",
       "overallStats": {
@@ -8777,6 +8951,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/7/3/73475d29-2673-4614-86d3-404232426aa8.jpg?1706241505",
       "cardBackUrl": "",
       "overallStats": {
@@ -8828,6 +9003,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/e/4/e45d2e0c-d70d-40e5-8c3d-db6803393516.jpg?1706241508",
       "cardBackUrl": "",
       "overallStats": {
@@ -8897,6 +9073,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/d/a/daf6a392-3fc4-45d1-b85d-3b1381b3ab7d.jpg?1706241510",
       "cardBackUrl": "",
       "overallStats": {
@@ -8948,6 +9125,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/c/b/cb1c8800-9d33-485c-b776-042003b9ea92.jpg?1706241722",
       "cardBackUrl": "",
       "overallStats": {
@@ -8999,6 +9177,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/1/0/1022eb7c-4195-41dc-acdb-ac42ddaec45e.jpg?1561758876",
       "cardBackUrl": "",
       "overallStats": {
@@ -9032,6 +9211,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/a/f/af12417c-b082-4379-a850-c72e2652c6fb.jpg?1706242212",
       "cardBackUrl": "",
       "overallStats": {
@@ -9065,6 +9245,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/1/0/10c78b83-49d4-48c6-8aef-497541431c77.jpg?1673147023",
       "cardBackUrl": "",
       "overallStats": {
@@ -9116,6 +9297,7 @@
       "cardTypes": [
         "artifact"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/9/b/9b1639c3-f22d-4246-9252-219a4b2b2999.jpg?1707764860",
       "cardBackUrl": "",
       "overallStats": {
@@ -9143,6 +9325,7 @@
       "cardTypes": [
         "land"
       ],
+      "manaValue": 0,
       "cardUrl": "https://cards.scryfall.io/large/front/6/5/652236c2-84ef-45e4-b5fc-ed6170bc3d6c.jpg?1706242349",
       "cardBackUrl": "",
       "overallStats": {
@@ -9212,6 +9395,7 @@
       "cardTypes": [
         "land"
       ],
+      "manaValue": 0,
       "cardUrl": "https://cards.scryfall.io/large/front/7/2/724acbe2-4c82-4360-a738-38cc6aa0c4a4.jpg?1547518720",
       "cardBackUrl": "",
       "overallStats": {
@@ -9239,6 +9423,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/e/8/e8578839-046f-4afd-a0e7-4737ded9e6eb.jpg?1706241631",
       "cardBackUrl": "",
       "overallStats": {
@@ -9290,6 +9475,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/1/e/1ea6438b-0e6c-4d65-8bcd-34a988717c81.jpg?1706241725",
       "cardBackUrl": "",
       "overallStats": {
@@ -9341,6 +9527,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/3/7/37860682-4973-4a0f-a43a-3056037bd2dc.jpg?1706241514",
       "cardBackUrl": "",
       "overallStats": {
@@ -9392,6 +9579,7 @@
       "cardTypes": [
         "artifact"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/8/8/8894a0f5-2e1d-474f-9400-bdaa91b19fda.jpg?1674135691",
       "cardBackUrl": "",
       "overallStats": {
@@ -9425,6 +9613,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/0/4/0438d482-b74c-4d5e-a2bc-7063c1ae73fa.jpg?1706241518",
       "cardBackUrl": "",
       "overallStats": {
@@ -9476,6 +9665,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/9/3/93b747c7-b342-47f8-a190-16c393b20607.jpg?1706242060",
       "cardBackUrl": "",
       "overallStats": {
@@ -9527,6 +9717,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/c/e/ce043cba-aea4-4156-b1d0-545eda06c400.jpg?1706241726",
       "cardBackUrl": "",
       "overallStats": {
@@ -9578,6 +9769,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/3/2/32a8fda6-8614-45cd-879c-0cb7fa29647e.jpg?1706242214",
       "cardBackUrl": "",
       "overallStats": {
@@ -9605,6 +9797,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/1/e/1e0c695d-62f9-4805-9e2f-7032e8464136.jpg?1706242217",
       "cardBackUrl": "",
       "overallStats": {
@@ -9638,6 +9831,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/f/9/f98db67a-c39c-45a8-ae21-85133be46ed5.jpg?1706241519",
       "cardBackUrl": "",
       "overallStats": {
@@ -9689,6 +9883,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/7/0/700294fc-7c16-4f7d-bce0-7452d8e9c401.jpg?1706241525",
       "cardBackUrl": "",
       "overallStats": {
@@ -9740,6 +9935,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/0/a/0ad38866-fc5f-4f62-89c1-afc0f50765aa.jpg?1706241527",
       "cardBackUrl": "",
       "overallStats": {
@@ -9792,6 +9988,7 @@
         "creature",
         "enchantment"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/0/e/0e8553cc-8f61-4022-97c9-e31183b65059.jpg?1707764829",
       "cardBackUrl": "",
       "overallStats": {
@@ -9825,6 +10022,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/f/0/f096ff4a-85f4-46f1-9478-e8921f21309d.jpg?1706241900",
       "cardBackUrl": "",
       "overallStats": {
@@ -9876,6 +10074,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/a/4/a433ca4c-82d0-4e49-bc8e-98e18dd174e9.jpg?1706242223",
       "cardBackUrl": "",
       "overallStats": {
@@ -9909,6 +10108,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/4/8/48b92629-4196-4943-91fd-8c8d5f3fcaef.jpg?1706241527",
       "cardBackUrl": "",
       "overallStats": {
@@ -9960,6 +10160,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/a/a/aabfada0-3c1b-4237-b06c-573071ccd68d.jpg?1706241633",
       "cardBackUrl": "",
       "overallStats": {
@@ -10011,6 +10212,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/b/8/b87813fa-ad12-4062-bb9e-436d8418fba5.jpg?1706241733",
       "cardBackUrl": "",
       "overallStats": {
@@ -10062,6 +10264,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/1/f/1f88d077-5082-4a67-91e4-97aafb9a5e91.jpg?1706378680",
       "cardBackUrl": "",
       "overallStats": {
@@ -10113,6 +10316,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/7/d/7d56ebff-67c8-4bc7-a533-ddde4ce0c2af.jpg?1706241902",
       "cardBackUrl": "",
       "overallStats": {
@@ -10164,6 +10368,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 6,
       "cardUrl": "https://cards.scryfall.io/large/front/f/0/f0713025-581f-451b-97a3-97d891285dcc.jpg?1706241734",
       "cardBackUrl": "",
       "overallStats": {
@@ -10215,6 +10420,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/f/5/f58cfb23-4d99-4133-bf4b-d7e7c7d17cea.jpg?1708201628",
       "cardBackUrl": "",
       "overallStats": {
@@ -10266,6 +10472,7 @@
       "cardTypes": [
         "artifact"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/a/6/a6cc4c6f-4a84-4d42-89fa-7405f7ad6ba0.jpg?1706241736",
       "cardBackUrl": "",
       "overallStats": {
@@ -10317,6 +10524,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/6/d/6d803b93-c1df-4a02-9dbb-d347c841d4d7.jpg?1706242068",
       "cardBackUrl": "",
       "overallStats": {
@@ -10368,6 +10576,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/4/d/4dd64e5c-ea0b-4ea0-aba3-88e7e96ac7ba.jpg?1706241744",
       "cardBackUrl": "",
       "overallStats": {
@@ -10419,6 +10628,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/b/6/b6a50807-058e-45dc-847c-8ffd13b1bd48.jpg?1706242223",
       "cardBackUrl": "",
       "overallStats": {
@@ -10470,6 +10680,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/a/f/af5b29b3-974c-4200-8df8-b072c11e1600.jpg?1706241635",
       "cardBackUrl": "",
       "overallStats": {
@@ -10521,6 +10732,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/a/d/ad378843-e2b0-48d6-90dc-b584e857473d.jpg?1706241642",
       "cardBackUrl": "",
       "overallStats": {
@@ -10572,6 +10784,7 @@
       "cardTypes": [
         "land"
       ],
+      "manaValue": 0,
       "cardUrl": "https://cards.scryfall.io/large/front/1/f/1f8b915f-3e82-4b05-b963-01ebff7a8f7b.jpg?1706242355",
       "cardBackUrl": "",
       "overallStats": {
@@ -10659,6 +10872,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 8,
       "cardUrl": "https://cards.scryfall.io/large/front/8/5/85835473-b9b6-4f4a-bb93-fef93d5ec57b.jpg?1707213761",
       "cardBackUrl": "",
       "overallStats": {
@@ -10734,6 +10948,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/1/7/17fce298-3338-4f41-8156-ab6322951a76.jpg?1562900768",
       "cardBackUrl": "",
       "overallStats": {
@@ -10767,6 +10982,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/0/f/0fa5671b-2651-4944-a50a-c768ec70229e.jpg?1706241909",
       "cardBackUrl": "",
       "overallStats": {
@@ -10818,6 +11034,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/0/6/06c55ef1-8e62-4d43-bd4c-b2c3c5203338.jpg?1624739626",
       "cardBackUrl": "",
       "overallStats": {
@@ -10845,6 +11062,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 6,
       "cardUrl": "https://cards.scryfall.io/large/front/c/c/cc6fd2d5-8eb2-4265-a1bf-d4ae635285af.jpg?1706242226",
       "cardBackUrl": "",
       "overallStats": {
@@ -10914,6 +11132,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/6/a/6aaa8c6b-7ef7-45db-99c9-4a6e7f177b94.jpg?1706242231",
       "cardBackUrl": "",
       "overallStats": {
@@ -10983,6 +11202,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/a/f/af3928b4-813a-4120-8799-de34235d60ac.jpg?1623189435",
       "cardBackUrl": "",
       "overallStats": {
@@ -11016,6 +11236,7 @@
       "cardTypes": [
         "land"
       ],
+      "manaValue": 0,
       "cardUrl": "https://cards.scryfall.io/large/front/b/5/b598c93e-dae1-4d71-a9e4-917abf76d2d0.jpg?1706242355",
       "cardBackUrl": "",
       "overallStats": {
@@ -11085,6 +11306,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/2/7/270570a3-8637-4e4e-92d9-e985474cd5d2.jpg?1706241643",
       "cardBackUrl": "",
       "overallStats": {
@@ -11136,6 +11358,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/1/8/18da1a1d-e6ba-47e5-a545-0bacd427b782.jpg?1706241909",
       "cardBackUrl": "",
       "overallStats": {
@@ -11187,6 +11410,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/6/c/6c137a44-9ab6-4e59-8324-34d9dca8f5a6.jpg?1708201632",
       "cardBackUrl": "",
       "overallStats": {
@@ -11238,6 +11462,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/d/9/d942e4ce-f582-4264-89aa-9b4a743e6b29.jpg?1706241643",
       "cardBackUrl": "",
       "overallStats": {
@@ -11265,6 +11490,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 7,
       "cardUrl": "https://cards.scryfall.io/large/front/2/0/20948cd2-e40c-4648-832f-ab0f1cc21610.jpg?1706242233",
       "cardBackUrl": "",
       "overallStats": {
@@ -11298,6 +11524,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/0/c/0c2ca1e7-e0de-4d29-a81b-62185ccd295f.jpg?1706241744",
       "cardBackUrl": "",
       "overallStats": {
@@ -11349,6 +11576,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/7/1/71701c28-f113-4d38-8fd3-a19cd9749661.jpg?1706242235",
       "cardBackUrl": "",
       "overallStats": {
@@ -11418,6 +11646,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 7,
       "cardUrl": "https://cards.scryfall.io/large/front/9/f/9fae9044-a859-434d-8dc6-4f9d455ca5e1.jpg?1706242241",
       "cardBackUrl": "",
       "overallStats": {
@@ -11487,6 +11716,7 @@
       "cardTypes": [
         "artifact"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/6/8/6881946c-5036-4d9f-926f-932c9a592aff.jpg?1706242076",
       "cardBackUrl": "",
       "overallStats": {
@@ -11532,6 +11762,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/0/2/023b0142-663a-47e7-a9f1-0b565a172b60.jpg?1706241745",
       "cardBackUrl": "",
       "overallStats": {
@@ -11583,6 +11814,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/f/9/f90f8691-210a-4bf0-9fc2-fb2efcf057fb.jpg?1706241918",
       "cardBackUrl": "",
       "overallStats": {
@@ -11634,6 +11866,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/8/1/81c7ff67-b9e1-4d2e-b1ae-da9b946da00b.jpg?1706242077",
       "cardBackUrl": "",
       "overallStats": {
@@ -11685,6 +11918,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/5/2/5288cf17-9d79-4d35-85f1-bf4d0a73494b.jpg?1706378665",
       "cardBackUrl": "",
       "overallStats": {
@@ -11718,6 +11952,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/7/6/76f7480c-82cc-4ddd-b619-c1a609c29a13.jpg?1706242077",
       "cardBackUrl": "",
       "overallStats": {
@@ -11770,6 +12005,7 @@
         "creature",
         "artifact"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/4/a/4a009ba2-c7b9-4cf6-bb90-9d6fd589e932.jpg?1706241535",
       "cardBackUrl": "",
       "overallStats": {
@@ -11821,6 +12057,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/9/c/9cba5503-ba99-43d8-8062-66d905e0d86b.jpg?1706242243",
       "cardBackUrl": "",
       "overallStats": {
@@ -11891,6 +12128,7 @@
         "creature",
         "artifact"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/5/2/52608ba4-c47d-44e4-b624-dee2a3a42ae2.jpg?1706716416",
       "cardBackUrl": "",
       "overallStats": {
@@ -11979,6 +12217,7 @@
         "artifact",
         "land"
       ],
+      "manaValue": 0,
       "cardUrl": "https://cards.scryfall.io/large/front/d/e/de039992-631b-4feb-a522-acdb0a6d1f26.jpg?1706242358",
       "cardBackUrl": "",
       "overallStats": {
@@ -12066,6 +12305,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/c/0/c0ebfe5d-8819-495d-bf72-b9c28c6fd23e.jpg?1706241537",
       "cardBackUrl": "",
       "overallStats": {
@@ -12117,6 +12357,7 @@
       "cardTypes": [
         "land"
       ],
+      "manaValue": 0,
       "cardUrl": "https://cards.scryfall.io/large/front/6/9/69c1b656-1d67-499c-bf0f-417682a86c7d.jpg?1706242364",
       "cardBackUrl": "",
       "overallStats": {
@@ -12186,6 +12427,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/0/d/0de36e63-8190-415f-b65b-bae1e595845d.jpg?1706242250",
       "cardBackUrl": "",
       "overallStats": {
@@ -12255,6 +12497,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/3/d/3d5d4788-a970-4e09-89a1-740eca9331d9.jpg?1706242085",
       "cardBackUrl": "",
       "overallStats": {
@@ -12306,6 +12549,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/2/9/298747bb-eb40-4b58-bb22-4ac2bc1d795c.jpg?1706241920",
       "cardBackUrl": "",
       "overallStats": {
@@ -12357,6 +12601,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/3/1/317800b3-6b2d-4de6-8e44-7e54dd623055.jpg?1706241753",
       "cardBackUrl": "",
       "overallStats": {
@@ -12408,6 +12653,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/1/e/1eb21318-d32e-4724-8908-c0d7613de2f4.jpg?1706242086",
       "cardBackUrl": "",
       "overallStats": {
@@ -12459,6 +12705,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/4/b/4bc803ad-f8a2-4198-a8a6-8d987b3d00fb.jpg?1706241753",
       "cardBackUrl": "",
       "overallStats": {
@@ -12510,6 +12757,7 @@
       "cardTypes": [
         "artifact"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/7/8/7832abb5-5107-4603-904e-491b221bd3e3.jpg?1705435031",
       "cardBackUrl": "",
       "overallStats": {
@@ -12537,6 +12785,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/9/3/93ab3e11-8584-406f-b9ae-9e1df4396cbc.jpg?1706241754",
       "cardBackUrl": "",
       "overallStats": {
@@ -12588,6 +12837,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/6/f/6f22ac67-06ce-47cc-a515-d216d30b9cae.jpg?1706241766",
       "cardBackUrl": "",
       "overallStats": {
@@ -12639,6 +12889,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/0/f/0f852937-381d-4445-99d3-2ecb8af6bb6a.jpg?1706242252",
       "cardBackUrl": "",
       "overallStats": {
@@ -12672,6 +12923,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/6/b/6bbf7394-9b17-45f8-a25b-d865e8452b2c.jpg?1706241651",
       "cardBackUrl": "",
       "overallStats": {
@@ -12723,6 +12975,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/5/b/5bfcca87-04f8-480a-bae6-ae87f7afb7e1.jpg?1562916666",
       "cardBackUrl": "",
       "overallStats": {
@@ -12756,6 +13009,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/0/b/0b9e5fd6-a5ea-4ae5-83f5-89ed6a658dd3.jpg?1706241652",
       "cardBackUrl": "",
       "overallStats": {
@@ -12807,6 +13061,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/3/b/3b9d4691-59d1-4e97-9b5d-8017788fbcb3.jpg?1706242253",
       "cardBackUrl": "",
       "overallStats": {
@@ -12846,6 +13101,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/7/0/703b874d-6739-4063-9891-e9c040dd9618.jpg?1706241653",
       "cardBackUrl": "",
       "overallStats": {
@@ -12903,6 +13159,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/6/e/6e280482-ed7e-4011-899e-096ff7bd4c41.jpg?1706241923",
       "cardBackUrl": "",
       "overallStats": {
@@ -12954,6 +13211,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/a/8/a808868f-aea8-4651-9357-85a4d7b4f290.jpg?1572490254",
       "cardBackUrl": "",
       "overallStats": {
@@ -13005,6 +13263,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/7/c/7c65a79e-f28a-4f30-95a4-1ea55fd84564.jpg?1706241542",
       "cardBackUrl": "",
       "overallStats": {
@@ -13056,6 +13315,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/9/b/9b5a13dd-c2fd-432e-bc49-cc62d94d62a0.jpg?1706242259",
       "cardBackUrl": "",
       "overallStats": {
@@ -13125,6 +13385,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/1/d/1d54d596-f7aa-4b05-ab13-19b246698c04.jpg?1706241834",
       "cardBackUrl": "",
       "overallStats": {
@@ -13176,6 +13437,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 11,
       "cardUrl": "https://cards.scryfall.io/large/front/e/d/edb40ab9-e552-4eb5-9c35-09094136dd4f.jpg?1706242068",
       "cardBackUrl": "",
       "overallStats": {
@@ -13209,6 +13471,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/f/4/f4a31d4a-34bc-46b4-b20f-a5460191b35d.jpg?1706242086",
       "cardBackUrl": "",
       "overallStats": {
@@ -13260,6 +13523,7 @@
       "cardTypes": [
         "artifact"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/6/d/6d2565e1-dd7b-462b-8270-a17913277793.jpg?1706242328",
       "cardBackUrl": "",
       "overallStats": {
@@ -13329,6 +13593,7 @@
       "cardTypes": [
         "land"
       ],
+      "manaValue": 0,
       "cardUrl": "https://cards.scryfall.io/large/front/1/7/17260fff-b239-4af4-9306-3236ae3fa5a5.jpg?1706242364",
       "cardBackUrl": "",
       "overallStats": {
@@ -13392,6 +13657,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/4/0/4094b13f-28d4-48b6-8cce-3c44656745b7.jpg?1706242261",
       "cardBackUrl": "",
       "overallStats": {
@@ -13431,6 +13697,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/b/3/b3364018-aeba-4f58-8233-b0026c488dd0.jpg?1707355189",
       "cardBackUrl": "",
       "overallStats": {
@@ -13464,6 +13731,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/0/8/08d22402-c41d-43d7-be1f-42be1e300726.jpg?1706242263",
       "cardBackUrl": "",
       "overallStats": {
@@ -13527,6 +13795,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 6,
       "cardUrl": "https://cards.scryfall.io/large/front/0/3/03d0365e-6dee-4236-a997-6761e3cde90d.jpg?1706242093",
       "cardBackUrl": "",
       "overallStats": {
@@ -13578,6 +13847,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/2/2/22bbf709-d8e9-4e3b-8ec8-206f1b2162b3.jpg?1706241928",
       "cardBackUrl": "",
       "overallStats": {
@@ -13641,6 +13911,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/0/e/0eda1aff-c1f4-4171-a800-605396cc8168.jpg?1706241766",
       "cardBackUrl": "",
       "overallStats": {
@@ -13692,6 +13963,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/8/c/8cf5c0b7-dd26-4515-9034-1483437fbd7e.jpg?1707355167",
       "cardBackUrl": "",
       "overallStats": {
@@ -13719,6 +13991,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/e/4/e4b9260b-0993-42c5-9bcf-87ab394d51db.jpg?1706242268",
       "cardBackUrl": "",
       "overallStats": {
@@ -13752,6 +14025,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 8,
       "cardUrl": "https://cards.scryfall.io/large/front/1/2/12a439ea-4454-4178-b005-0ab254d369cd.jpg?1562389088",
       "cardBackUrl": "",
       "overallStats": {
@@ -13779,6 +14053,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/3/2/329f3aca-6db7-41d3-95b2-c479d14b7fa3.jpg?1706242270",
       "cardBackUrl": "",
       "overallStats": {
@@ -13824,6 +14099,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/3/e/3e29b890-35b9-4e2a-9b4c-9417ca7db31d.jpg?1706242095",
       "cardBackUrl": "",
       "overallStats": {
@@ -13875,6 +14151,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/8/a/8a458474-d721-46d7-b487-6a47dc063cfd.jpg?1706241660",
       "cardBackUrl": "",
       "overallStats": {
@@ -13926,6 +14203,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/a/6/a67a4c5e-215b-4f03-87f7-c1af4f9f0a63.jpg?1706241766",
       "cardBackUrl": "",
       "overallStats": {
@@ -13977,6 +14255,7 @@
       "cardTypes": [
         "land"
       ],
+      "manaValue": 0,
       "cardUrl": "https://cards.scryfall.io/large/front/2/b/2b5801fb-2026-4f25-98bc-ebb2f99684b9.jpg?1706242367",
       "cardBackUrl": "",
       "overallStats": {
@@ -14046,6 +14325,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 6,
       "cardUrl": "https://cards.scryfall.io/large/front/5/b/5bc669c8-6f39-4d52-82d3-a4005d41c8a5.jpg?1706242271",
       "cardBackUrl": "",
       "overallStats": {
@@ -14115,6 +14395,7 @@
       "cardTypes": [
         "land"
       ],
+      "manaValue": 0,
       "cardUrl": "https://cards.scryfall.io/large/front/f/6/f6ca59cd-8779-4a84-a54b-e863b79c61f0.jpg?1706242372",
       "cardBackUrl": "",
       "overallStats": {
@@ -14178,6 +14459,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/3/7/37692f9a-3825-43aa-aacb-1bb92cb5bd07.jpg?1706241798",
       "cardBackUrl": "",
       "overallStats": {
@@ -14229,6 +14511,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/f/3/f3a0d597-d2df-4aaf-8084-c8eeda64ce60.jpg?1706241543",
       "cardBackUrl": "",
       "overallStats": {
@@ -14280,6 +14563,7 @@
       "cardTypes": [
         "instant"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/d/2/d2ac346a-fc46-4023-aa60-4d55170697dc.jpg?1706242279",
       "cardBackUrl": "",
       "overallStats": {
@@ -14319,6 +14603,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/f/6/f6d381eb-6cb6-4505-aebe-995c1ddc8527.jpg?1706242279",
       "cardBackUrl": "",
       "overallStats": {
@@ -14382,6 +14667,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 6,
       "cardUrl": "https://cards.scryfall.io/large/front/0/7/078933b3-6d82-45f2-94e8-addf54cf1704.jpg?1706241798",
       "cardBackUrl": "",
       "overallStats": {
@@ -14433,6 +14719,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 5,
       "cardUrl": "https://cards.scryfall.io/large/front/7/a/7a914416-effd-4eda-b609-2773c53a08ec.jpg?1706242102",
       "cardBackUrl": "",
       "overallStats": {
@@ -14484,6 +14771,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/a/2/a247c9a0-0c65-47bc-92fd-bebe95cd35a3.jpg?1706241931",
       "cardBackUrl": "",
       "overallStats": {
@@ -14535,6 +14823,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/e/7/e7e7cbed-83d7-41e5-b495-9850d631ad56.jpg?1707429369",
       "cardBackUrl": "",
       "overallStats": {
@@ -14562,6 +14851,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/6/6/664d15d7-2724-4a9b-b5a7-8042d4b7da7b.jpg?1706242104",
       "cardBackUrl": "",
       "overallStats": {
@@ -14613,6 +14903,7 @@
       "cardTypes": [
         "enchantment"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/b/3/b3e8f8bd-1c8b-4a7c-96c4-57a247ce9ccc.jpg?1706242282",
       "cardBackUrl": "",
       "overallStats": {
@@ -14670,6 +14961,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/a/3/a3490c05-d12c-4483-acbc-1b4ae68877f0.jpg?1706242287",
       "cardBackUrl": "",
       "overallStats": {
@@ -14721,6 +15013,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 3,
       "cardUrl": "https://cards.scryfall.io/large/front/2/9/296574c6-3933-4ab3-b591-72514b244da9.jpg?1706241546",
       "cardBackUrl": "",
       "overallStats": {
@@ -14772,6 +15065,7 @@
       "cardTypes": [
         "sorcery"
       ],
+      "manaValue": 2,
       "cardUrl": "https://cards.scryfall.io/large/front/f/c/fc3340bd-1d8c-4c21-a59d-e092fcbe02e3.jpg?1706378647",
       "cardBackUrl": "",
       "overallStats": {
@@ -14811,6 +15105,7 @@
       "cardTypes": [
         "artifact"
       ],
+      "manaValue": 1,
       "cardUrl": "https://cards.scryfall.io/large/front/c/3/c36cc39b-8f3b-4297-b118-86fa624308b4.jpg?1706241551",
       "cardBackUrl": "",
       "overallStats": {
@@ -14862,6 +15157,7 @@
       "cardTypes": [
         "creature"
       ],
+      "manaValue": 4,
       "cardUrl": "https://cards.scryfall.io/large/front/3/2/326845a7-7502-4dc3-8f3e-867d6c84e931.jpg?1706242292",
       "cardBackUrl": "",
       "overallStats": {

@@ -1,5 +1,5 @@
 import clsx from "clsx";
-import { ReactElement } from "react";
+import { ReactNode } from "react";
 
 import Center from "components/common/Center";
 import { TRANSITION_CLASSES } from "lib/styles";
@@ -7,7 +7,7 @@ import { TRANSITION_CLASSES } from "lib/styles";
 export interface Filter<T> {
   label: string;
   values: T[];
-  icon: ReactElement;
+  icon: ReactNode;
 }
 
 interface Props<T> {
@@ -43,7 +43,7 @@ const IconFilterGroup = <T extends unknown>({
           key={label}
           className={clsx(
             "-ml-px overflow-hidden first:ml-0 hover:z-20 focus:z-10",
-            "h-[38px] min-w-[46px] grow first:rounded-l last:rounded-r",
+            "h-[38px] min-w-[44px] grow first:rounded-l last:rounded-r lg:min-w-[46px]",
             "border border-neutral-300 hover:border-neutral-500 dark:border-black",
             TRANSITION_CLASSES
           )}
@@ -69,7 +69,7 @@ const IconFilterGroup = <T extends unknown>({
             />
             <Center
               className={clsx(
-                "h-full w-full text-2xl",
+                "h-full w-full",
                 "bg-neutral-200 hover:!bg-neutral-200 peer-checked:bg-white",
                 "dark:bg-neutral-900 dark:hover:!bg-neutral-900 dark:peer-checked:bg-neutral-700",
                 "opacity-30 transition peer-checked:opacity-100"
