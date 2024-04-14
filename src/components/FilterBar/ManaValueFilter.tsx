@@ -6,32 +6,32 @@ import IconFilterGroup, { Filter } from "./IconFilterGroup";
 
 const FILTERS: Filter<ManaValue>[] = [
   {
-    label: "1",
+    label: "cards with mana value 1",
     values: [ManaValue.ONE],
     icon: "1",
   },
   {
-    label: "2",
+    label: "cards with mana value 2",
     values: [ManaValue.TWO],
     icon: "2",
   },
   {
-    label: "3",
+    label: "cards with mana value 3",
     values: [ManaValue.THREE],
     icon: "3",
   },
   {
-    label: "4",
+    label: "cards with mana value 4",
     values: [ManaValue.FOUR],
     icon: "4",
   },
   {
-    label: "5",
+    label: "cards with mana value 5",
     values: [ManaValue.FIVE],
     icon: "5",
   },
   {
-    label: "6+",
+    label: "cards with mana value 6 or more",
     values: [ManaValue.SIX_PLUS],
     icon: (
       <div className="flex items-center gap-0.5">
