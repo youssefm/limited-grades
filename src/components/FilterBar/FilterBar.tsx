@@ -101,7 +101,10 @@ const FilterBar: FC<Props> = ({
               setValues={setVisibleCardTypes}
             />
           </FilterGroup>
-          <FilterGroup label="Mana Value" className={GAP_CLASSES}>
+          <FilterGroup
+            label="Mana Value"
+            className={clsx(GAP_CLASSES, "lg:hidden 1.5xl:block")}
+          >
             <ManaValueFilter
               values={visibleManaValues}
               setValues={setVisibleManaValues}

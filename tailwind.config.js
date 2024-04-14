@@ -36,6 +36,9 @@ module.exports = {
       fontFamily: {
         belerenSmallCaps: "Beleren SmallCaps Bold",
       },
+      screens: {
+        "1.5xl": "1340px",
+      },
       transitionTimingFunction: {
         DEFAULT: "ease",
       },
