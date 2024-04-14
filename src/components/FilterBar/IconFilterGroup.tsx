@@ -101,7 +101,7 @@ const IconFilterGroup = <T extends unknown>({
               />
               <Center
                 className={clsx(
-                  "h-full w-full",
+                  "h-full w-full select-none",
                   "bg-neutral-200 hover:!bg-neutral-200 peer-checked:bg-white",
                   "dark:bg-neutral-900 dark:hover:!bg-neutral-900 dark:peer-checked:bg-neutral-700",
                   "opacity-30 transition peer-checked:opacity-100"
