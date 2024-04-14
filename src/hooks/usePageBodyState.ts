@@ -69,7 +69,7 @@ const usePageBodyState = (set: MagicSet, cards: Card[]): PageBodyState => {
     ALL_CARD_TYPES_SET
   );
   const [visibleManaValues, setVisibleManaValues] = useUrlSetState(
-    "manaValue",
+    "mana",
     MANA_VALUE_CHARACTER_MAP,
     new Set(Object.values(ManaValue))
   );
