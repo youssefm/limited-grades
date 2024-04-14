@@ -9,6 +9,8 @@ export enum ManaValue {
   SIX_PLUS = "6+",
 }
 
+export const ALL_MANA_VALUES = Object.values(ManaValue);
+
 export const MANA_VALUE_CHARACTER_MAP: Record<ManaValue, string> = {
   [ManaValue.ONE]: "1",
   [ManaValue.TWO]: "2",
