@@ -3,6 +3,7 @@ import { FC, useState } from "react";
 import { FaChevronDown } from "react-icons/fa";
 
 import Collapsible from "components/common/Collapsible";
+import { trackEvent } from "lib/analytics";
 import Deck from "lib/Deck";
 import MagicSet from "lib/MagicSet";
 import { ManaValue } from "lib/mana-value";
@@ -92,13 +93,19 @@ const FilterBar: FC<Props> = ({
             <RarityFilter
               set={selectedSet}
               values={visibleRarities}
-              setValues={setVisibleRarities}
+              setValues={(rarities) => {
+                trackEvent("filter by rarity");
+                setVisibleRarities(rarities);
+              }}
             />
           </FilterGroup>
           <FilterGroup label="Type" className={GAP_CLASSES}>
             <CardTypeFilter
               values={visibleCardTypes}
-              setValues={setVisibleCardTypes}
+              setValues={(cardTypes) => {
+                trackEvent("filter by card type");
+                setVisibleCardTypes(cardTypes);
+              }}
             />
           </FilterGroup>
           <FilterGroup
@@ -107,7 +114,10 @@ const FilterBar: FC<Props> = ({
           >
             <ManaValueFilter
               values={visibleManaValues}
-              setValues={setVisibleManaValues}
+              setValues={(manaValues) => {
+                trackEvent("filter by mana value");
+                setVisibleManaValues(manaValues);
+              }}
             />
           </FilterGroup>
           <div className={clsx("lg:ml-auto", GAP_CLASSES)}>

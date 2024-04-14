@@ -26,11 +26,11 @@ interface PageBodyState {
   deck: Deck;
   setDeck: (newDeck: Deck) => void;
   visibleRarities: Set<Rarity>;
-  setVisibleRarities: (value: Set<Rarity>) => void;
+  setVisibleRarities: (rarities: Set<Rarity>) => void;
   visibleCardTypes: Set<CardType>;
-  setVisibleCardTypes: (value: Set<CardType>) => void;
+  setVisibleCardTypes: (cardTypes: Set<CardType>) => void;
   visibleManaValues: Set<ManaValue>;
-  setVisibleManaValues: (value: Set<ManaValue>) => void;
+  setVisibleManaValues: (manaValues: Set<ManaValue>) => void;
   cardDictionary: CardTableDictionary;
   showSkeletons: boolean;
 }

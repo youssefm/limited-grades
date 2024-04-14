@@ -44,7 +44,7 @@ const FILTERS: Filter<ManaValue>[] = [
 
 interface Props {
   values: Set<ManaValue>;
-  setValues: (rarities: Set<ManaValue>) => void;
+  setValues: (manaValues: Set<ManaValue>) => void;
 }
 
 const ManaValueFilter: FC<Props> = ({ values, setValues }) => (
