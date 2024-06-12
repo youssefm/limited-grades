@@ -95,7 +95,7 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
   },
   "populate-scryfall-index": async (output) => {
     const index = await generateIndex();
-    await POSTGRES_CACHE.set(INDEX_CACHE_KEY, index, 120 * DAY_IN_SECONDS);
+    await POSTGRES_CACHE.set(INDEX_CACHE_KEY, index, 30 * DAY_IN_SECONDS);
     output.push("Scryfall Index populated");
   },
   "update-file-cache": async (output) => {
