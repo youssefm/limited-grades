@@ -192,19 +192,23 @@ const buildCardStore = async (
   };
 };
 
-const computeCacheExpirationInSeconds = (): number => {
-  // Expire cache entry until the next day 2AM UTC is when 17Lands refreshes their daily data
-  const now = new Date();
-  const currentDate = now.getUTCDate();
-  const nextRefreshAt = new Date(
-    Date.UTC(
-      now.getUTCFullYear(),
-      now.getUTCMonth(),
-      now.getUTCHours() < 2 ? currentDate : currentDate + 1,
-      2
-    )
-  );
-  return Math.ceil((nextRefreshAt.getTime() - now.getTime()) / 1000);
+const computeCacheExpirationInSeconds = (set: MagicSet): number => {
+  if (set.isRecent()) {
+    // If the set is recently released (<30 days ago), expire cache entry until the next day
+    // 2AM UTC is when 17Lands refreshes their daily data
+    const now = new Date();
+    const currentDate = now.getUTCDate();
+    const nextRefreshAt = new Date(
+      Date.UTC(
+        now.getUTCFullYear(),
+        now.getUTCMonth(),
+        now.getUTCHours() < 2 ? currentDate : currentDate + 1,
+        2
+      )
+    );
+    return Math.ceil((nextRefreshAt.getTime() - now.getTime()) / 1000);
+  }
+  return 7 * 24 * 60 * 60;
 };
 
 const getCardStore = async (
