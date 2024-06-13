@@ -22,6 +22,7 @@ interface ScryfallCardFace {
   name: string;
   colors?: ScryfallColor[];
   type_line: string;
+  mana_cost?: string;
   image_uris: ImageUris;
 }
 
@@ -32,6 +33,8 @@ interface ScryfallCard {
   colors?: ScryfallColor[];
   layout: string;
   type_line?: string;
+  keywords: string[];
+  mana_cost?: string;
   image_uris?: ImageUris;
 }
 
@@ -85,6 +88,25 @@ const getCardColor = (card: ScryfallCard): Color => {
   const colors = card.colors ?? card.card_faces?.[0]?.colors;
 
   if (!colors || colors.length === 0) {
+    if (card.keywords.includes("Devoid")) {
+      const manaCost = card.mana_cost ?? card.card_faces?.[0]?.mana_cost;
+      if (manaCost) {
+        const manaCostColors: Color[] = [];
+
+        for (const [symbol, color] of Object.entries(COLORS)) {
+          if (manaCost.includes(symbol)) {
+            manaCostColors.push(color);
+          }
+        }
+
+        if (manaCostColors.length === 1) {
+          return manaCostColors[0]!;
+        }
+        if (manaCostColors.length > 1) {
+          return Color.MULTICOLOR;
+        }
+      }
+    }
     return Color.COLORLESS;
   }
   if (colors.length > 1) {

@@ -56,8 +56,8 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
     await POSTGRES_CACHE.delete(setCode);
     output.push(`${setCode.toUpperCase()} cache deleted`);
   },
-  "delete-lci-cache": async (output) => {
-    const setCode = MagicSet.CAVERNS_OF_IXALAN.code;
+  "delete-mh3-cache": async (output) => {
+    const setCode = MagicSet.MODERN_HORIZONS_3.code;
     await POSTGRES_CACHE.delete(setCode);
     output.push(`${setCode.toUpperCase()} cache deleted!`);
   },
@@ -95,6 +95,7 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
   },
   "populate-scryfall-index": async (output) => {
     const index = await generateIndex();
+    await FILE_CACHE.set(INDEX_CACHE_KEY, index);
     await POSTGRES_CACHE.set(INDEX_CACHE_KEY, index, 30 * DAY_IN_SECONDS);
     output.push("Scryfall Index populated");
   },

@@ -1,0 +1,173 @@
+{
+  "updatedAt": "2024-06-13T02:00:41.759Z",
+  "cards": [
+    {
+      "name": "Annoyed Altisaur",
+      "color": "green",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "creature"
+      ],
+      "manaValue": 7,
+      "cardUrl": "https://cards.scryfall.io/large/front/4/a/4aa9354d-3496-47f4-81c9-aead15efb8bb.jpg?1717013698",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2652,
+        "lastSeenAt": 3.9,
+        "takenAt": 4.68,
+        "playedWinrate": 0.5758,
+        "openingHandWinrate": null,
+        "drawnWinrate": 0.6072,
+        "notDrawnWinrate": 0.5584
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.6026,
+          "gameCount": 994,
+          "grade": "B+",
+          "score": 88.49
+        }
+      }
+    },
+    {
+      "name": "Deep Analysis",
+      "color": "blue",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "sorcery"
+      ],
+      "manaValue": 4,
+      "cardUrl": "https://cards.scryfall.io/large/front/0/f/0f33818e-6f6e-47a9-ae5d-406bdd47b292.jpg?1717013576",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1475,
+        "lastSeenAt": 5.26,
+        "takenAt": null,
+        "playedWinrate": 0.5369,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5365
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5382,
+          "gameCount": 641,
+          "grade": "D",
+          "score": 21.19
+        }
+      }
+    },
+    {
+      "name": "It That Heralds the End",
+      "color": "colorless",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "creature"
+      ],
+      "manaValue": 2,
+      "cardUrl": "https://cards.scryfall.io/large/front/c/8/c8c47679-0fac-466f-be3c-794f23576e55.jpg?1717011262",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1865,
+        "lastSeenAt": 3.58,
+        "takenAt": null,
+        "playedWinrate": 0.5442,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5478
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5344,
+          "gameCount": 741,
+          "grade": "D",
+          "score": 17.88
+        }
+      }
+    },
+    {
+      "name": "Scurry of Gremlins",
+      "color": "multicolor",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "enchantment"
+      ],
+      "manaValue": 4,
+      "cardUrl": "https://cards.scryfall.io/large/front/4/7/470ce8e9-64b9-403c-bee0-66a4c47ca6d4.jpg?1717012840",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 2190,
+        "lastSeenAt": 5.35,
+        "takenAt": 6.48,
+        "playedWinrate": 0.5986,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5806
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.6272,
+          "gameCount": 802,
+          "grade": "A",
+          "score": 97.5
+        }
+      }
+    },
+    {
+      "name": "Victimize",
+      "color": "black",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "sorcery"
+      ],
+      "manaValue": 3,
+      "cardUrl": "https://cards.scryfall.io/large/front/8/3/83379f7f-3766-43f5-bd5e-e11ef9070ddb.jpg?1717013655",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1323,
+        "lastSeenAt": 5.05,
+        "takenAt": null,
+        "playedWinrate": 0.5004,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5068
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.4904,
+          "gameCount": 520,
+          "grade": "F",
+          "score": 1.1
+        }
+      }
+    },
+    {
+      "name": "Worn Powerstone",
+      "color": "colorless",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "artifact"
+      ],
+      "manaValue": 3,
+      "cardUrl": "https://cards.scryfall.io/large/front/a/c/ace686ad-9e3f-41b3-b8eb-d1b6d45eb4e1.jpg?1717013811",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 1442,
+        "lastSeenAt": 4.43,
+        "takenAt": null,
+        "playedWinrate": 0.5347,
+        "openingHandWinrate": null,
+        "drawnWinrate": null,
+        "notDrawnWinrate": 0.5386
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5253,
+          "gameCount": 592,
+          "grade": "D-",
+          "score": 11.51
+        }
+      }
+    }
+  ]
+}
