@@ -4,31 +4,38 @@ import { ManaValue } from "lib/mana-value";
 
 import IconFilterGroup, { Filter } from "./IconFilterGroup";
 
+const SMALL_WIDTH_CLASSNAME = "min-w-[36px] lg:min-w-[38px]";
+
 const FILTERS: Filter<ManaValue>[] = [
   {
     label: "cards with mana value 1",
     values: [ManaValue.ONE],
     icon: "1",
+    widthClassName: SMALL_WIDTH_CLASSNAME,
   },
   {
     label: "cards with mana value 2",
     values: [ManaValue.TWO],
     icon: "2",
+    widthClassName: SMALL_WIDTH_CLASSNAME,
   },
   {
     label: "cards with mana value 3",
     values: [ManaValue.THREE],
     icon: "3",
+    widthClassName: SMALL_WIDTH_CLASSNAME,
   },
   {
     label: "cards with mana value 4",
     values: [ManaValue.FOUR],
     icon: "4",
+    widthClassName: SMALL_WIDTH_CLASSNAME,
   },
   {
     label: "cards with mana value 5",
     values: [ManaValue.FIVE],
     icon: "5",
+    widthClassName: SMALL_WIDTH_CLASSNAME,
   },
   {
     label: "cards with mana value 6 or more",
