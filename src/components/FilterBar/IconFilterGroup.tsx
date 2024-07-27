@@ -82,9 +82,7 @@ const IconFilterGroup = <T extends unknown>({
                 "-ml-px overflow-hidden first:ml-0 hover:z-20 focus:z-10",
                 "h-[38px] grow first:rounded-l last:rounded-r",
                 "border border-neutral-300 hover:border-neutral-500 dark:border-black",
-                widthClassName
-                  ? widthClassName
-                  : "min-w-[44px] lg:min-w-[46px]",
+                widthClassName || "min-w-[44px] lg:min-w-[46px]",
                 TRANSITION_CLASSES
               )}
               tabIndex={0}
