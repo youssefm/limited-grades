@@ -8,6 +8,7 @@ export interface Filter<T> {
   label: string;
   values: T[];
   icon: ReactNode;
+  widthClassName?: string;
 }
 
 interface Props<T> {
@@ -31,88 +32,91 @@ const IconFilterGroup = <T extends unknown>({
   const oneChecked = checkedCount === 1;
   return (
     <div className={clsx("flex", className)}>
-      {filters.map(({ label, values: filterValues, icon }, index) => {
-        const checked = filtersChecked[index];
-        const toggle = (): void => {
+      {filters.map(
+        ({ label, values: filterValues, icon, widthClassName }, index) => {
+          const checked = filtersChecked[index];
+          const toggle = (): void => {
+            if (allChecked) {
+              setValues(new Set(filterValues));
+              return;
+            }
+
+            if (oneChecked && checked) {
+              const allValues = new Set<T>();
+              for (const filter of filters) {
+                for (const value of filter.values) {
+                  allValues.add(value);
+                }
+              }
+              setValues(allValues);
+              return;
+            }
+
+            const newValues = new Set<T>(values);
+            for (const value of filterValues) {
+              if (checked) {
+                newValues.delete(value);
+              } else {
+                newValues.add(value);
+              }
+            }
+            setValues(newValues);
+          };
+
+          let labelTitle;
           if (allChecked) {
-            setValues(new Set(filterValues));
-            return;
+            labelTitle = `Show only ${label}`;
           }
-
           if (oneChecked && checked) {
-            const allValues = new Set<T>();
-            for (const filter of filters) {
-              for (const value of filter.values) {
-                allValues.add(value);
-              }
-            }
-            setValues(allValues);
-            return;
+            labelTitle = "Show All";
+          } else if (checked) {
+            labelTitle = `Hide ${label}`;
+          } else {
+            labelTitle = `Show ${label}`;
           }
 
-          const newValues = new Set<T>(values);
-          for (const value of filterValues) {
-            if (checked) {
-              newValues.delete(value);
-            } else {
-              newValues.add(value);
-            }
-          }
-          setValues(newValues);
-        };
-
-        let labelTitle;
-        if (allChecked) {
-          labelTitle = `Show only ${label}`;
+          return (
+            <div
+              key={label}
+              className={clsx(
+                "-ml-px overflow-hidden first:ml-0 hover:z-20 focus:z-10",
+                "h-[38px] grow first:rounded-l last:rounded-r",
+                "border border-neutral-300 hover:border-neutral-500 dark:border-black",
+                widthClassName || "min-w-[44px] lg:min-w-[46px]",
+                TRANSITION_CLASSES
+              )}
+              tabIndex={0}
+              role="checkbox"
+              aria-checked={checked}
+              onKeyDown={(event) => {
+                if (event.code === "Space") {
+                  event.preventDefault();
+                  toggle();
+                }
+              }}
+            >
+              <label className="cursor-pointer" title={labelTitle}>
+                <input
+                  type="checkbox"
+                  checked={checked}
+                  onChange={toggle}
+                  className="peer hidden"
+                />
+                <Center
+                  className={clsx(
+                    "h-full w-full select-none",
+                    "bg-neutral-200 hover:!bg-neutral-200 peer-checked:bg-white",
+                    "dark:bg-neutral-900 dark:hover:!bg-neutral-900 dark:peer-checked:bg-neutral-700",
+                    "opacity-30 transition peer-checked:opacity-100"
+                  )}
+                >
+                  {icon}
+                </Center>
+              </label>
+            </div>
+          );
         }
-        if (oneChecked && checked) {
-          labelTitle = "Show All";
-        } else if (checked) {
-          labelTitle = `Hide ${label}`;
-        } else {
-          labelTitle = `Show ${label}`;
-        }
-
-        return (
-          <div
-            key={label}
-            className={clsx(
-              "-ml-px overflow-hidden first:ml-0 hover:z-20 focus:z-10",
-              "h-[38px] min-w-[44px] grow first:rounded-l last:rounded-r lg:min-w-[46px]",
-              "border border-neutral-300 hover:border-neutral-500 dark:border-black",
-              TRANSITION_CLASSES
-            )}
-            tabIndex={0}
-            role="checkbox"
-            aria-checked={checked}
-            onKeyDown={(event) => {
-              if (event.code === "Space") {
-                event.preventDefault();
-                toggle();
-              }
-            }}
-          >
-            <label className="cursor-pointer" title={labelTitle}>
-              <input
-                type="checkbox"
-                checked={checked}
-                onChange={toggle}
-                className="peer hidden"
-              />
-              <Center
-                className={clsx(
-                  "h-full w-full select-none",
-                  "bg-neutral-200 hover:!bg-neutral-200 peer-checked:bg-white",
-                  "dark:bg-neutral-900 dark:hover:!bg-neutral-900 dark:peer-checked:bg-neutral-700",
-                  "opacity-30 transition peer-checked:opacity-100"
-                )}
-              >
-                {icon}
-              </Center>
-            </label>
-          </div>
-        );
-      })}
+      )}
     </div>
   );
 };
