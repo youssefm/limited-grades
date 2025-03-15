@@ -156,7 +156,7 @@ export const SCRYFALL_INDEX = new Lazy(async () => {
     console.log("Scryfall index not found in cache, generating...");
     index = await generateIndex();
     console.log("Writing Scryfall index to cache");
-    await CACHE.set(INDEX_CACHE_KEY, index, 7 * DAY_IN_SECONDS);
+    await CACHE.set(INDEX_CACHE_KEY, index, 365 * DAY_IN_SECONDS);
   }
   return new CaseInsensitiveMap(Object.entries(index));
 });
