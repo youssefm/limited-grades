@@ -34,7 +34,6 @@ interface Props {
   setVisibleCardTypes: (newCardTypes: Set<CardType>) => void;
   visibleManaValues: Set<ManaValue>;
   setVisibleManaValues: (newManaValues: Set<ManaValue>) => void;
-  searchSet: MagicSet;
   searchCards: Card[];
 }
 
@@ -50,7 +49,6 @@ const FilterBar: FC<Props> = ({
   visibleManaValues,
   setVisibleManaValues,
   searchCards,
-  searchSet,
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
@@ -121,7 +119,7 @@ const FilterBar: FC<Props> = ({
             />
           </FilterGroup>
           <div className={clsx("lg:ml-auto", GAP_CLASSES)}>
-            <SearchButton cards={searchCards} set={searchSet} />
+            <SearchButton cards={searchCards} />
           </div>
         </Collapsible>
       </div>

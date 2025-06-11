@@ -28,20 +28,6 @@ const AboutProjectModal: FC<Props> = ({ onClose }) => (
         a breakdown of how well the card does in different decks along with the
         full 17Lands stats.
       </p>
-      <p className="mb-4">
-        This site is not endorsed by{" "}
-        <LinkOut url="https://www.17lands.com">17Lands</LinkOut> or affliated
-        with 17Lands in any way. With that said, the best way to support this
-        project is to support 17Lands by{" "}
-        <LinkOut url="https://www.17lands.com/getting_started">
-          installing the client
-        </LinkOut>{" "}
-        or{" "}
-        <LinkOut url="https://www.patreon.com/17lands">
-          becoming a patron
-        </LinkOut>
-        .
-      </p>
       <p>
         The source code for this site can be found on{" "}
         <LinkOut url="https://github.com/youssefm/limited-grades">

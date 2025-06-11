@@ -1,10 +1,8 @@
-import clsx from "clsx";
 import { FC, useCallback, useMemo, useRef, useState } from "react";
 
 import CardDetail from "components/common/CardDetail";
 import ColorIcon from "components/common/ColorIcon";
 import Modal from "components/common/Modal";
-import MagicSet from "lib/MagicSet";
 import SearchIndex, { Match } from "lib/SearchIndex";
 import { Card } from "lib/types";
 
@@ -12,7 +10,6 @@ import IconSelect from "./IconSelect";
 
 interface Props {
   cards: Card[];
-  set: MagicSet;
   onClose: () => void;
 }
 
@@ -21,7 +18,7 @@ interface SearchOption {
   match?: Match;
 }
 
-const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
+const SearchModal: FC<Props> = ({ cards, onClose }) => {
   const [options, setOptions] = useState<SearchOption[]>();
   const [selectedOption, setSelectedOption] = useState<SearchOption>();
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -31,7 +28,6 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
     [cards]
   );
 
-  const underEmbargo = set.isUnderEmbargo();
   const getIcon = useCallback(
     (option: SearchOption) => (
       <ColorIcon
@@ -97,16 +93,9 @@ const SearchModal: FC<Props> = ({ cards, set, onClose }) => {
         isClearable
         autoFocus
       />
-      {!selectedOption && (
-        <div
-          className={clsx("lg:h-[440px]", {
-            "lg:w-[928.22px]": !underEmbargo,
-            "lg:w-[538px]": underEmbargo,
-          })}
-        />
-      )}
+      {!selectedOption && <div className="lg:h-[440px] lg:w-[928.22px]" />}
       {selectedOption && (
-        <CardDetail card={selectedOption.item} set={set} showLoadingState />
+        <CardDetail card={selectedOption.item} showLoadingState />
       )}
     </Modal>
   );

@@ -3,7 +3,6 @@ import { FC, useEffect, useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
 import { trackEvent } from "lib/analytics";
-import MagicSet from "lib/MagicSet";
 import { TRANSITION_CLASSES } from "lib/styles";
 import { Card } from "lib/types";
 
@@ -11,10 +10,9 @@ import SearchModal from "./SearchModal";
 
 interface Props {
   cards: Card[];
-  set: MagicSet;
 }
 
-const SearchButton: FC<Props> = ({ cards, set }) => {
+const SearchButton: FC<Props> = ({ cards }) => {
   const [isModalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
@@ -52,11 +50,7 @@ const SearchButton: FC<Props> = ({ cards, set }) => {
         <span className="lg:hidden">Search</span>
       </button>
       {isModalOpen && (
-        <SearchModal
-          cards={cards}
-          set={set}
-          onClose={() => setModalOpen(false)}
-        />
+        <SearchModal cards={cards} onClose={() => setModalOpen(false)} />
       )}
     </>
   );

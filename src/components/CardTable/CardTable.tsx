@@ -1,7 +1,6 @@
 import { FC, useState } from "react";
 
 import CardTableDictionary from "lib/CardTableDictionary";
-import MagicSet from "lib/MagicSet";
 import { Card } from "lib/types";
 
 import CardDetailModal from "./CardDetailModal";
@@ -9,11 +8,10 @@ import CardTableCore from "./CardTableCore";
 
 interface Props {
   cardDictionary: CardTableDictionary;
-  set: MagicSet;
   showSkeletons: boolean;
 }
 
-const CardTable: FC<Props> = ({ cardDictionary, set, showSkeletons }) => {
+const CardTable: FC<Props> = ({ cardDictionary, showSkeletons }) => {
   const [modalCard, setModalCard] = useState<Card>();
 
   return (
@@ -26,7 +24,6 @@ const CardTable: FC<Props> = ({ cardDictionary, set, showSkeletons }) => {
       {modalCard && (
         <CardDetailModal
           card={modalCard}
-          set={set}
           onClose={() => setModalCard(undefined)}
         />
       )}

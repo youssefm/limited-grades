@@ -14,7 +14,6 @@ interface Props {
 
 const PageBody: FC<Props> = ({ set, cards, className }) => {
   const {
-    displayedSet,
     displayedCards,
     selectedSet,
     changeSet,
@@ -44,11 +43,9 @@ const PageBody: FC<Props> = ({ set, cards, className }) => {
         visibleManaValues={visibleManaValues}
         setVisibleManaValues={setVisibleManaValues}
         searchCards={displayedCards}
-        searchSet={displayedSet}
       />
       <CardTable
         cardDictionary={cardDictionary}
-        set={set}
         showSkeletons={showSkeletons}
       />
     </div>

@@ -19,7 +19,6 @@ import useUrlSetState from "./useUrlSetState";
 import useUrlState from "./useUrlState";
 
 interface PageBodyState {
-  displayedSet: MagicSet;
   displayedCards: Card[];
   selectedSet: MagicSet;
   changeSet: (newSet: MagicSet) => Promise<void>;
@@ -106,7 +105,6 @@ const usePageBodyState = (set: MagicSet, cards: Card[]): PageBodyState => {
 
   const deck = urlDeck ? Deck.lookup(urlDeck) || Deck.ALL : Deck.ALL;
   const showSkeletons = isLoading();
-  const displayedSet = showSkeletons ? loadingSet.current : set;
   const displayedCards = showSkeletons ? loadingCards.current : cards;
 
   const cardDictionary = useMemo(() => {
@@ -151,7 +149,6 @@ const usePageBodyState = (set: MagicSet, cards: Card[]): PageBodyState => {
   );
 
   return {
-    displayedSet,
     displayedCards,
     selectedSet,
     changeSet,
