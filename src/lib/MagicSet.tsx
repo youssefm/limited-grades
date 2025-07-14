@@ -47,7 +47,7 @@ export default class MagicSet {
 
   static TARKIR_DRAGONSTORM = new MagicSet(
     "tdm",
-    "Tarkir: Dragonstorm",
+    "Dragonstorm",
     "2025-04-08",
     (props) => (
       <GradientIcon viewBox="0 0 1024 1024" {...props}>
