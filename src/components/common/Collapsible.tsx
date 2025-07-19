@@ -16,10 +16,15 @@ const Collapsible: FC<Props> = ({ isExpanded, id, className, children }) => {
   useEffect(() => {
     const element = ref.current;
     if (element) {
+      console.log(
+        `Collapsible: ${element.className} isExpanded=${isExpanded}, pendingFirstExpansion=${pendingFirstExpansion.current}, scrollHeight=${element.scrollHeight}`
+      );
       if (isMounted.current) {
         if (isExpanded) {
           element.style.removeProperty("display");
-          element.style.maxHeight = `${element.scrollHeight}px`;
+          if (element.scrollHeight > 0) {
+            element.style.maxHeight = `${element.scrollHeight}px`;
+          }
           pendingFirstExpansion.current = false;
         } else {
           element.style.maxHeight = `${element.scrollHeight}px`;
