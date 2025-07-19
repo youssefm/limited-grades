@@ -10,11 +10,7 @@ interface Props {
 }
 
 const CardDetailModal: FC<Props> = ({ card, onClose }) => (
-  <Modal
-    title={card.name}
-    onClose={onClose}
-    className="h-full w-full lg:h-fit lg:w-fit"
-  >
+  <Modal title={card.name} onClose={onClose} className="size-full lg:size-fit">
     <CardDetail card={card} />
   </Modal>
 );

@@ -18,7 +18,7 @@ const PageHeader = (): JSX.Element => {
 
   return (
     <>
-      <div className="flex items-center py-4 px-2 lg:px-6">
+      <div className="flex items-center px-2 py-4 lg:px-6">
         <div className="mr-2">
           <Image
             src="/apple-touch-icon.png"

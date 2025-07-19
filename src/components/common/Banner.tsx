@@ -20,7 +20,7 @@ const Banner: FC<Props> = ({ id, dismissable, onClose, children }) => {
     <Collapsible isExpanded={!isCollapsed} id={id} className="flex flex-col">
       <div
         className={clsx(
-          "mb-2 flex items-center rounded-lg bg-neutral-100 py-1.5 px-2 dark:bg-neutral-800 lg:px-4",
+          "mb-2 flex items-center rounded-lg bg-neutral-100 px-2 py-1.5 dark:bg-neutral-800 lg:px-4",
           TRANSITION_CLASSES
         )}
       >

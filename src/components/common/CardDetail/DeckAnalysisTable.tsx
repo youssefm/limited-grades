@@ -41,7 +41,7 @@ const DeckStatsRow = ({
         </div>
       )}
     </Center>
-    <div className="grow py-2 px-4">
+    <div className="grow px-4 py-2">
       <div className="flex">
         <div
           className={clsx(

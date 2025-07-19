@@ -16,7 +16,7 @@ const StatsRow: FC<{
   children: ReactNode;
 }> = ({ label, tooltipText, className, children }) => (
   <tr className={className}>
-    <td className="py-2 pr-12 pl-4">
+    <td className="py-2 pl-4 pr-12">
       <Tippy
         content={<div className="max-w-sm p-2">{tooltipText}</div>}
         placement="bottom-start"
