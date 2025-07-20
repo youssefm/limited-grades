@@ -7,13 +7,19 @@ export const IS_UMAMI_ENABLED =
 export const trackView = (url?: string): void => {
   if (IS_UMAMI_ENABLED && typeof umami !== "undefined") {
     // Wait for call stack to be empty before issuing web request
-    setTimeout(() => umami.trackView(url));
+    setTimeout(() => {
+      if (url) {
+        umami.track((props) => ({ ...props, url }));
+      } else {
+        umami.track();
+      }
+    });
   }
 };
 
 export const trackEvent = (eventValue: string): void => {
   if (IS_UMAMI_ENABLED && typeof umami !== "undefined") {
     // Wait for call stack to be empty before issuing web request
-    setTimeout(() => umami.trackEvent(eventValue));
+    setTimeout(() => umami.track(eventValue));
   }
 };
