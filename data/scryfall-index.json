@@ -6,6 +6,13 @@
       "creature"
     ]
   },
+  "Mine Security": {
+    "color": "red",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Static Orb": {
     "color": "colorless",
     "cmc": 3,
@@ -18,6 +25,13 @@
     "cmc": 1,
     "types": [
       "enchantment"
+    ]
+  },
+  "Kavaron Consumed": {
+    "color": "red",
+    "cmc": 5,
+    "types": [
+      "sorcery"
     ]
   },
   "Road of Return": {
@@ -3103,6 +3117,13 @@
       "creature"
     ]
   },
+  "Cosmic Spider-Man": {
+    "color": "multicolor",
+    "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
   "Torrent Elemental": {
     "color": "blue",
     "cmc": 5,
@@ -3269,6 +3290,13 @@
       "sorcery"
     ]
   },
+  "Earth Village Ruffians": {
+    "color": "multicolor",
+    "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
   "Unliving Psychopath": {
     "color": "black",
     "cmc": 4,
@@ -3295,6 +3323,13 @@
     "cmc": 5,
     "types": [
       "creature"
+    ]
+  },
+  "Strength of Will": {
+    "color": "green",
+    "cmc": 2,
+    "types": [
+      "instant"
     ]
   },
   "Patron of the Nezumi": {
@@ -3423,6 +3458,20 @@
       "creature"
     ]
   },
+  "Spider-Punk": {
+    "color": "red",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
+  "Appa, Steadfast Guardian": {
+    "color": "white",
+    "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
   "Terisiare's Devastation": {
     "color": "black",
     "cmc": 4,
@@ -3454,6 +3503,13 @@
   "Bonds of Quicksilver": {
     "color": "blue",
     "cmc": 4,
+    "types": [
+      "enchantment"
+    ]
+  },
+  "Parker Luck": {
+    "color": "black",
+    "cmc": 3,
     "types": [
       "enchantment"
     ]
@@ -3659,6 +3715,13 @@
   "Mourning Thrull": {
     "color": "multicolor",
     "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
+  "Vulture, Scheming Scavenger": {
+    "color": "multicolor",
+    "cmc": 6,
     "types": [
       "creature"
     ]
@@ -4087,6 +4150,13 @@
     "cmc": 2,
     "types": [
       "creature"
+    ]
+  },
+  "Amazing Acrobatics": {
+    "color": "blue",
+    "cmc": 3,
+    "types": [
+      "instant"
     ]
   },
   "Ebony Treefolk": {
@@ -5686,6 +5756,13 @@
       "enchantment"
     ]
   },
+  "Ambassador of Evendo": {
+    "color": "multicolor",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Living Lectern": {
     "color": "blue",
     "cmc": 2,
@@ -6725,6 +6802,13 @@
       "sorcery"
     ]
   },
+  "Costume Closet": {
+    "color": "white",
+    "cmc": 2,
+    "types": [
+      "artifact"
+    ]
+  },
   "Pest Control": {
     "color": "multicolor",
     "cmc": 2,
@@ -7203,6 +7287,13 @@
   "Mercurial Pretender": {
     "color": "blue",
     "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
+  "Gravitic Herald": {
+    "color": "black",
+    "cmc": 4,
     "types": [
       "creature"
     ]
@@ -7935,6 +8026,13 @@
   },
   "Azorius First-Wing": {
     "color": "multicolor",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
+  "Fire Sages": {
+    "color": "red",
     "cmc": 2,
     "types": [
       "creature"
@@ -9407,6 +9505,13 @@
     "cmc": 5,
     "types": [
       "creature"
+    ]
+  },
+  "Rhino's Rampage": {
+    "color": "multicolor",
+    "cmc": 1,
+    "types": [
+      "sorcery"
     ]
   },
   "Daring Fiendbonder": {
@@ -10886,6 +10991,13 @@
     "cmc": 3,
     "types": [
       "instant"
+    ]
+  },
+  "Loyal Fire Sage": {
+    "color": "red",
+    "cmc": 3,
+    "types": [
+      "creature"
     ]
   },
   "Skyhunter Skirmisher": {
@@ -12971,6 +13083,13 @@
       "enchantment"
     ]
   },
+  "Beetle-Headed Merchants": {
+    "color": "black",
+    "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
   "Boxing Ring": {
     "color": "green",
     "cmc": 2,
@@ -13483,6 +13602,13 @@
     "cmc": 3,
     "types": [
       "creature"
+    ]
+  },
+  "The Clone Saga": {
+    "color": "blue",
+    "cmc": 4,
+    "types": [
+      "enchantment"
     ]
   },
   "Serra Disciple": {
@@ -14922,6 +15048,13 @@
       "creature"
     ]
   },
+  "Peter Parker's Camera": {
+    "color": "colorless",
+    "cmc": 1,
+    "types": [
+      "artifact"
+    ]
+  },
   "Last-Minute Chopping": {
     "color": "multicolor",
     "cmc": 3,
@@ -15265,6 +15398,13 @@
       "sorcery"
     ]
   },
+  "Swarm, Being of Bees": {
+    "color": "black",
+    "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
   "Wellgabber Apothecary": {
     "color": "white",
     "cmc": 5,
@@ -15284,6 +15424,13 @@
     "cmc": 3,
     "types": [
       "creature"
+    ]
+  },
+  "A-Sorin, Imperious Bloodlord": {
+    "color": "black",
+    "cmc": 3,
+    "types": [
+      "planeswalker"
     ]
   },
   "Dog Walker": {
@@ -15453,6 +15600,13 @@
     "cmc": 3,
     "types": [
       "creature"
+    ]
+  },
+  "Friendly Neighborhood": {
+    "color": "white",
+    "cmc": 4,
+    "types": [
+      "enchantment"
     ]
   },
   "Join Shields": {
@@ -17019,6 +17173,13 @@
       "creature"
     ]
   },
+  "Kraven, Proud Predator": {
+    "color": "multicolor",
+    "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
   "Inside Source": {
     "color": "white",
     "cmc": 3,
@@ -17660,6 +17821,13 @@
       "creature"
     ]
   },
+  "Bagel and Schmear": {
+    "color": "colorless",
+    "cmc": 1,
+    "types": [
+      "artifact"
+    ]
+  },
   "Pistus Strike": {
     "color": "green",
     "cmc": 3,
@@ -17817,6 +17985,13 @@
     "cmc": 0,
     "types": [
       "land"
+    ]
+  },
+  "Scarlet Spider, Ben Reilly": {
+    "color": "multicolor",
+    "cmc": 3,
+    "types": [
+      "creature"
     ]
   },
   "Arwen's Gift": {
@@ -18040,6 +18215,13 @@
     "cmc": 4,
     "types": [
       "sorcery"
+    ]
+  },
+  "Fated Firepower": {
+    "color": "red",
+    "cmc": 3,
+    "types": [
+      "enchantment"
     ]
   },
   "Lifecraft Cavalry": {
@@ -18775,6 +18957,11 @@
       "creature"
     ]
   },
+  "Counters": {
+    "color": "colorless",
+    "cmc": 0,
+    "types": []
+  },
   "Mistvein Borderpost": {
     "color": "multicolor",
     "cmc": 3,
@@ -18904,6 +19091,13 @@
   "Jon Irenicus, the Exile": {
     "color": "multicolor",
     "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
+  "Agent Venom": {
+    "color": "black",
+    "cmc": 3,
     "types": [
       "creature"
     ]
@@ -19375,6 +19569,13 @@
     "cmc": 2,
     "types": [
       "enchantment"
+    ]
+  },
+  "Gilacorn": {
+    "color": "black",
+    "cmc": 1,
+    "types": [
+      "creature"
     ]
   },
   "Jaheira, Stirring Harper": {
@@ -20102,6 +20303,13 @@
       "creature"
     ]
   },
+  "Axavar, Fate Thief": {
+    "color": "multicolor",
+    "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
   "Grimclaw Bats": {
     "color": "black",
     "cmc": 2,
@@ -20187,6 +20395,13 @@
   "Sunbond": {
     "color": "white",
     "cmc": 4,
+    "types": [
+      "enchantment"
+    ]
+  },
+  "Spider-Man No More": {
+    "color": "blue",
+    "cmc": 2,
     "types": [
       "enchantment"
     ]
@@ -20471,6 +20686,13 @@
     "cmc": 2,
     "types": [
       "sorcery"
+    ]
+  },
+  "Lion Vulture": {
+    "color": "black",
+    "cmc": 4,
+    "types": [
+      "creature"
     ]
   },
   "Vaporkin": {
@@ -20943,6 +21165,13 @@
       "creature"
     ]
   },
+  "Volatile Orbit": {
+    "color": "multicolor",
+    "cmc": 2,
+    "types": [
+      "enchantment"
+    ]
+  },
   "Echo Circlet": {
     "color": "colorless",
     "cmc": 2,
@@ -21299,6 +21528,13 @@
     "cmc": 6,
     "types": [
       "sorcery"
+    ]
+  },
+  "Multiversal Passage": {
+    "color": "colorless",
+    "cmc": 0,
+    "types": [
+      "land"
     ]
   },
   "Minamo, School at Water's Edge": {
@@ -21979,6 +22215,13 @@
     "cmc": 1,
     "types": [
       "creature"
+    ]
+  },
+  "Urban Retreat": {
+    "color": "colorless",
+    "cmc": 0,
+    "types": [
+      "land"
     ]
   },
   "Anje, Maid of Dishonor": {
@@ -22692,6 +22935,13 @@
       "creature"
     ]
   },
+  "Kyoshi Warrior Guard": {
+    "color": "white",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Cage of Hands": {
     "color": "white",
     "cmc": 3,
@@ -22848,6 +23098,19 @@
       "artifact"
     ]
   },
+  "Allies": {
+    "color": "colorless",
+    "cmc": 0,
+    "types": []
+  },
+  "News Helicopter": {
+    "color": "colorless",
+    "cmc": 3,
+    "types": [
+      "creature",
+      "artifact"
+    ]
+  },
   "Geistchanneler": {
     "color": "blue",
     "cmc": 2,
@@ -22974,6 +23237,13 @@
     "types": [
       "creature",
       "artifact"
+    ]
+  },
+  "Alien Symbiosis": {
+    "color": "black",
+    "cmc": 2,
+    "types": [
+      "enchantment"
     ]
   },
   "Desert": {
@@ -24135,6 +24405,13 @@
       "instant"
     ]
   },
+  "Morbius the Living Vampire": {
+    "color": "multicolor",
+    "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
   "Fang-Druid Summoner": {
     "color": "green",
     "cmc": 4,
@@ -24400,6 +24677,13 @@
       "sorcery"
     ]
   },
+  "Savage Mansion": {
+    "color": "colorless",
+    "cmc": 0,
+    "types": [
+      "land"
+    ]
+  },
   "Hazy Homunculus": {
     "color": "blue",
     "cmc": 2,
@@ -24493,6 +24777,13 @@
   "Catacomb Slug": {
     "color": "black",
     "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
+  "Sledding Otter-Penguin": {
+    "color": "white",
+    "cmc": 3,
     "types": [
       "creature"
     ]
@@ -25625,6 +25916,13 @@
       "creature"
     ]
   },
+  "Aardvark Sloth": {
+    "color": "white",
+    "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
   "Forerunner of Slaughter": {
     "color": "multicolor",
     "cmc": 2,
@@ -25846,6 +26144,13 @@
     "cmc": 4,
     "types": [
       "creature"
+    ]
+  },
+  "Villainous Wrath": {
+    "color": "black",
+    "cmc": 5,
+    "types": [
+      "sorcery"
     ]
   },
   "Make Your Mark": {
@@ -26126,6 +26431,13 @@
     "types": [
       "creature",
       "artifact"
+    ]
+  },
+  "Chameleon, Master of Disguise": {
+    "color": "blue",
+    "cmc": 4,
+    "types": [
+      "creature"
     ]
   },
   "Bloodstone Cameo": {
@@ -26410,6 +26722,13 @@
   "Deathforge Shaman": {
     "color": "red",
     "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
+  "Hobgoblin, Mantled Marauder": {
+    "color": "red",
+    "cmc": 2,
     "types": [
       "creature"
     ]
@@ -28509,6 +28828,13 @@
       "creature"
     ]
   },
+  "Squadron Carrier": {
+    "color": "white",
+    "cmc": 3,
+    "types": [
+      "artifact"
+    ]
+  },
   "Oak Street Innkeeper": {
     "color": "green",
     "cmc": 3,
@@ -28815,6 +29141,13 @@
   "Mass Production": {
     "color": "white",
     "cmc": 6,
+    "types": [
+      "sorcery"
+    ]
+  },
+  "Water Whip": {
+    "color": "blue",
+    "cmc": 2,
     "types": [
       "sorcery"
     ]
@@ -29212,6 +29545,13 @@
   "Guardian of the Guildpact": {
     "color": "white",
     "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
+  "Badgermole": {
+    "color": "green",
+    "cmc": 5,
     "types": [
       "creature"
     ]
@@ -29780,6 +30120,13 @@
     ]
   },
   "Heidegger, Shinra Executive": {
+    "color": "white",
+    "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
+  "Appa, Aang's Companion": {
     "color": "white",
     "cmc": 4,
     "types": [
@@ -31249,6 +31596,13 @@
       "creature"
     ]
   },
+  "Sliver Weftwinder": {
+    "color": "multicolor",
+    "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
   "Void Stalker": {
     "color": "blue",
     "cmc": 2,
@@ -31467,6 +31821,13 @@
       "instant"
     ]
   },
+  "Katara, Water Tribe's Hope": {
+    "color": "multicolor",
+    "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
   "Acquisition Octopus": {
     "color": "blue",
     "cmc": 3,
@@ -31656,6 +32017,13 @@
     "cmc": 4,
     "types": [
       "enchantment"
+    ]
+  },
+  "Merchant of Many Hats": {
+    "color": "black",
+    "cmc": 2,
+    "types": [
+      "creature"
     ]
   },
   "Eggnogger's 'Stache": {
@@ -33105,6 +33473,13 @@
       "creature"
     ]
   },
+  "Eel-Hounds": {
+    "color": "green",
+    "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
   "Mishra's Command": {
     "color": "red",
     "cmc": 1,
@@ -33964,6 +34339,13 @@
       "sorcery"
     ]
   },
+  "The Death of Gwen Stacy": {
+    "color": "black",
+    "cmc": 3,
+    "types": [
+      "enchantment"
+    ]
+  },
   "Hickory Woodlot": {
     "color": "colorless",
     "cmc": 0,
@@ -34243,6 +34625,13 @@
     "cmc": 3,
     "types": [
       "enchantment"
+    ]
+  },
+  "How to Start a Riot": {
+    "color": "red",
+    "cmc": 3,
+    "types": [
+      "instant"
     ]
   },
   "Mistform Seaswift": {
@@ -34794,6 +35183,13 @@
     "cmc": 6,
     "types": [
       "planeswalker"
+    ]
+  },
+  "Morlun, Devourer of Spiders": {
+    "color": "black",
+    "cmc": 2,
+    "types": [
+      "creature"
     ]
   },
   "Divination": {
@@ -36157,6 +36553,13 @@
       "sorcery"
     ]
   },
+  "Arachne, Psionic Weaver": {
+    "color": "white",
+    "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
   "Incendiary Sabotage": {
     "color": "red",
     "cmc": 4,
@@ -37143,6 +37546,13 @@
   "Riddlemaster Sphinx": {
     "color": "blue",
     "cmc": 6,
+    "types": [
+      "creature"
+    ]
+  },
+  "Buzzard-Wasp Colony": {
+    "color": "black",
+    "cmc": 4,
     "types": [
       "creature"
     ]
@@ -38252,6 +38662,13 @@
   "Deft Duelist": {
     "color": "multicolor",
     "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
+  "Ostrich-Horse": {
+    "color": "green",
+    "cmc": 3,
     "types": [
       "creature"
     ]
@@ -39501,6 +39918,13 @@
       "creature"
     ]
   },
+  "Toph, the Blind Bandit": {
+    "color": "green",
+    "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
   "_____ Bird Gets the Worm": {
     "color": "white",
     "cmc": 5,
@@ -39966,6 +40390,13 @@
       "creature"
     ]
   },
+  "Sun-Spider, Nimble Webber": {
+    "color": "multicolor",
+    "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
   "Meandering River": {
     "color": "colorless",
     "cmc": 0,
@@ -40091,6 +40522,13 @@
     "cmc": 5,
     "types": [
       "creature"
+    ]
+  },
+  "Candela, Aegis of Adagia": {
+    "color": "white",
+    "cmc": 1,
+    "types": [
+      "artifact"
     ]
   },
   "Zilortha, Strength Incarnate": {
@@ -40515,6 +40953,13 @@
       "creature"
     ]
   },
+  "Katara, Waterbending Master": {
+    "color": "blue",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Cruel Reality": {
     "color": "black",
     "cmc": 7,
@@ -40732,6 +41177,13 @@
     "cmc": 2,
     "types": [
       "instant"
+    ]
+  },
+  "Fire Nation Archers": {
+    "color": "red",
+    "cmc": 4,
+    "types": [
+      "creature"
     ]
   },
   "Rafter Demon": {
@@ -41342,6 +41794,13 @@
     "cmc": 2,
     "types": [
       "enchantment"
+    ]
+  },
+  "Machinist's Dismissal": {
+    "color": "blue",
+    "cmc": 5,
+    "types": [
+      "instant"
     ]
   },
   "Kozilek's Command": {
@@ -42105,6 +42564,13 @@
       "enchantment"
     ]
   },
+  "Gallant Citizen": {
+    "color": "multicolor",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Boreal Druid": {
     "color": "green",
     "cmc": 1,
@@ -42261,6 +42727,13 @@
     "types": [
       "creature",
       "artifact"
+    ]
+  },
+  "Doctor Octopus, Master Planner": {
+    "color": "multicolor",
+    "cmc": 7,
+    "types": [
+      "creature"
     ]
   },
   "Talons of Wildwood": {
@@ -42422,6 +42895,13 @@
     "cmc": 5,
     "types": [
       "artifact"
+    ]
+  },
+  "Bumi, Eclectic Earthbender": {
+    "color": "green",
+    "cmc": 5,
+    "types": [
+      "creature"
     ]
   },
   "Seven-Tail Mentor": {
@@ -44177,6 +44657,13 @@
       "creature"
     ]
   },
+  "Zuko, Exiled Prince": {
+    "color": "red",
+    "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
   "Kutzil, Malamet Exemplar": {
     "color": "multicolor",
     "cmc": 3,
@@ -45662,6 +46149,13 @@
       "creature"
     ]
   },
+  "Web of Life and Destiny": {
+    "color": "green",
+    "cmc": 8,
+    "types": [
+      "enchantment"
+    ]
+  },
   "Last Word": {
     "color": "blue",
     "cmc": 4,
@@ -46366,6 +46860,13 @@
   "Fire Dragon": {
     "color": "red",
     "cmc": 9,
+    "types": [
+      "creature"
+    ]
+  },
+  "Cat-Gator": {
+    "color": "black",
+    "cmc": 7,
     "types": [
       "creature"
     ]
@@ -48835,6 +49336,13 @@
       "artifact"
     ]
   },
+  "Hide on the Ceiling": {
+    "color": "blue",
+    "cmc": 1,
+    "types": [
+      "instant"
+    ]
+  },
   "Ajani, Sleeper Agent": {
     "color": "multicolor",
     "cmc": 4,
@@ -48939,6 +49447,13 @@
     "cmc": 5,
     "types": [
       "creature"
+    ]
+  },
+  "Pumpkin Bombardment": {
+    "color": "multicolor",
+    "cmc": 1,
+    "types": [
+      "sorcery"
     ]
   },
   "Winged Portent": {
@@ -49216,6 +49731,13 @@
   "Ahriman": {
     "color": "black",
     "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
+  "Purple Pentapus": {
+    "color": "black",
+    "cmc": 1,
     "types": [
       "creature"
     ]
@@ -49787,6 +50309,13 @@
     "cmc": 2,
     "types": [
       "sorcery"
+    ]
+  },
+  "Wraith, Vicious Vigilante": {
+    "color": "multicolor",
+    "cmc": 3,
+    "types": [
+      "creature"
     ]
   },
   "Baral and Kari Zev": {
@@ -50932,6 +51461,13 @@
       "creature"
     ]
   },
+  "Fire Nation Attacks": {
+    "color": "red",
+    "cmc": 5,
+    "types": [
+      "instant"
+    ]
+  },
   "Empty-Shrine Kannushi": {
     "color": "white",
     "cmc": 1,
@@ -51245,6 +51781,13 @@
     "cmc": 4,
     "types": [
       "sorcery"
+    ]
+  },
+  "Steel Wrecking Ball": {
+    "color": "colorless",
+    "cmc": 5,
+    "types": [
+      "artifact"
     ]
   },
   "Weather the Storm": {
@@ -51754,6 +52297,13 @@
       "artifact"
     ]
   },
+  "Thendar, the Overminer": {
+    "color": "red",
+    "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
   "Ornithopter of Paradise": {
     "color": "colorless",
     "cmc": 2,
@@ -51942,6 +52492,13 @@
       "creature"
     ]
   },
+  "Rough Rhino Cavalry": {
+    "color": "red",
+    "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
   "Champion's Drake": {
     "color": "blue",
     "cmc": 2,
@@ -51989,6 +52546,14 @@
     "cmc": 6,
     "types": [
       "creature"
+    ]
+  },
+  "Network Marauder": {
+    "color": "blue",
+    "cmc": 3,
+    "types": [
+      "creature",
+      "artifact"
     ]
   },
   "Satyr Nyx-Smith": {
@@ -52310,6 +52875,13 @@
     "cmc": 4,
     "types": [
       "instant"
+    ]
+  },
+  "Web-Warriors": {
+    "color": "multicolor",
+    "cmc": 5,
+    "types": [
+      "creature"
     ]
   },
   "Wild Elephant": {
@@ -52831,6 +53403,13 @@
       "sorcery"
     ]
   },
+  "Bender's Waterskin": {
+    "color": "colorless",
+    "cmc": 3,
+    "types": [
+      "artifact"
+    ]
+  },
   "Homicidal Seclusion": {
     "color": "black",
     "cmc": 5,
@@ -53267,6 +53846,13 @@
       "creature"
     ]
   },
+  "Spider-Mobile": {
+    "color": "colorless",
+    "cmc": 3,
+    "types": [
+      "artifact"
+    ]
+  },
   "Incursion Specialist": {
     "color": "blue",
     "cmc": 2,
@@ -53469,6 +54055,13 @@
     "cmc": 3,
     "types": [
       "artifact"
+    ]
+  },
+  "Anti-Venom, Horrifying Healer": {
+    "color": "white",
+    "cmc": 5,
+    "types": [
+      "creature"
     ]
   },
   "Tome of the Guildpact": {
@@ -53928,6 +54521,13 @@
       "creature"
     ]
   },
+  "The Spot's Portal": {
+    "color": "black",
+    "cmc": 3,
+    "types": [
+      "instant"
+    ]
+  },
   "Gloomwidow's Feast": {
     "color": "green",
     "cmc": 4,
@@ -54174,6 +54774,13 @@
     "cmc": 2,
     "types": [
       "creature"
+    ]
+  },
+  "Waterbending Lesson": {
+    "color": "blue",
+    "cmc": 4,
+    "types": [
+      "sorcery"
     ]
   },
   "Unshakable Tail": {
@@ -54648,6 +55255,13 @@
       "creature"
     ]
   },
+  "Electro, Assaulting Battery": {
+    "color": "red",
+    "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
   "Dwarfhold Champion": {
     "color": "white",
     "cmc": 2,
@@ -54772,6 +55386,13 @@
     "cmc": 2,
     "types": [
       "artifact"
+    ]
+  },
+  "Professional Wrestler": {
+    "color": "green",
+    "cmc": 4,
+    "types": [
+      "creature"
     ]
   },
   "Mindwrack Demon": {
@@ -55083,6 +55704,13 @@
     "cmc": 1,
     "types": [
       "enchantment"
+    ]
+  },
+  "Kraven the Hunter": {
+    "color": "multicolor",
+    "cmc": 3,
+    "types": [
+      "creature"
     ]
   },
   "Gerrard's Wisdom": {
@@ -56587,6 +57215,13 @@
       "creature"
     ]
   },
+  "Rent Is Due": {
+    "color": "white",
+    "cmc": 1,
+    "types": [
+      "enchantment"
+    ]
+  },
   "Words of Waste": {
     "color": "black",
     "cmc": 3,
@@ -57008,6 +57643,13 @@
       "sorcery"
     ]
   },
+  "Ezekiel Sims, Spider-Totem": {
+    "color": "green",
+    "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
   "Spiritual Visit": {
     "color": "white",
     "cmc": 1,
@@ -57190,9 +57832,23 @@
       "land"
     ]
   },
+  "Inner Demons Gangsters": {
+    "color": "black",
+    "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
   "A-Kargan Intimidator": {
     "color": "red",
     "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
+  "Silver Sable, Mercenary Leader": {
+    "color": "white",
+    "cmc": 3,
     "types": [
       "creature"
     ]
@@ -57388,6 +58044,13 @@
   },
   "Exuberant Wolfbear": {
     "color": "green",
+    "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
+  "Mysterio, Master of Illusion": {
+    "color": "blue",
     "cmc": 4,
     "types": [
       "creature"
@@ -58808,6 +59471,13 @@
       "creature"
     ]
   },
+  "Sokka, Lateral Strategist": {
+    "color": "multicolor",
+    "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
   "Flitterstep Eidolon": {
     "color": "blue",
     "cmc": 2,
@@ -58836,6 +59506,13 @@
     "types": [
       "creature",
       "artifact"
+    ]
+  },
+  "Earth Kingdom Soldier": {
+    "color": "multicolor",
+    "cmc": 5,
+    "types": [
+      "creature"
     ]
   },
   "Tide Drifter": {
@@ -59370,6 +60047,13 @@
       "instant"
     ]
   },
+  "Terrific Team-Up": {
+    "color": "green",
+    "cmc": 4,
+    "types": [
+      "instant"
+    ]
+  },
   "Grim Bauble": {
     "color": "black",
     "cmc": 1,
@@ -59424,6 +60108,13 @@
     "cmc": 5,
     "types": [
       "creature"
+    ]
+  },
+  "Heroes' Hangout": {
+    "color": "red",
+    "cmc": 1,
+    "types": [
+      "sorcery"
     ]
   },
   "Talrand's Invocation": {
@@ -59916,6 +60607,13 @@
     "cmc": 7,
     "types": [
       "sorcery"
+    ]
+  },
+  "Vindictive Warden": {
+    "color": "multicolor",
+    "cmc": 3,
+    "types": [
+      "creature"
     ]
   },
   "Danitha, Benalia's Hope": {
@@ -61471,6 +62169,13 @@
       "creature"
     ]
   },
+  "Interdimensional Web Watch": {
+    "color": "colorless",
+    "cmc": 4,
+    "types": [
+      "artifact"
+    ]
+  },
   "Trip Noose": {
     "color": "colorless",
     "cmc": 2,
@@ -62413,6 +63118,13 @@
       "creature"
     ]
   },
+  "Hydroponics Architect": {
+    "color": "blue",
+    "cmc": 1,
+    "types": [
+      "creature"
+    ]
+  },
   "Mindswipe": {
     "color": "multicolor",
     "cmc": 2,
@@ -63147,6 +63859,13 @@
       "enchantment"
     ]
   },
+  "Mob Lookout": {
+    "color": "multicolor",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Sliver Legion": {
     "color": "multicolor",
     "cmc": 5,
@@ -63671,6 +64390,13 @@
       "sorcery"
     ]
   },
+  "Rabaroo Troop": {
+    "color": "white",
+    "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
   "Bribe Taker": {
     "color": "green",
     "cmc": 6,
@@ -63689,6 +64415,14 @@
     "color": "colorless",
     "cmc": 6,
     "types": [
+      "artifact"
+    ]
+  },
+  "Spirited Simulacrum": {
+    "color": "colorless",
+    "cmc": 4,
+    "types": [
+      "creature",
       "artifact"
     ]
   },
@@ -63748,6 +64482,13 @@
     "types": [
       "artifact",
       "planeswalker"
+    ]
+  },
+  "Daily Bugle Building": {
+    "color": "colorless",
+    "cmc": 0,
+    "types": [
+      "land"
     ]
   },
   "Deathcoil Wurm": {
@@ -64299,6 +65040,13 @@
   },
   "Angel of Finality": {
     "color": "white",
+    "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
+  "Lizard, Connors's Curse": {
+    "color": "green",
     "cmc": 4,
     "types": [
       "creature"
@@ -65518,6 +66266,13 @@
       "instant"
     ]
   },
+  "Wall Crawl": {
+    "color": "green",
+    "cmc": 4,
+    "types": [
+      "enchantment"
+    ]
+  },
   "Dion, Bahamut's Dominant": {
     "color": "white",
     "cmc": 4,
@@ -65800,6 +66555,13 @@
     "cmc": 0,
     "types": [
       "land"
+    ]
+  },
+  "Dragon Moose": {
+    "color": "red",
+    "cmc": 4,
+    "types": [
+      "creature"
     ]
   },
   "The Howling Abomination": {
@@ -66938,6 +67700,13 @@
     "cmc": 4,
     "types": [
       "enchantment"
+    ]
+  },
+  "Fire Nation Sentinels": {
+    "color": "black",
+    "cmc": 5,
+    "types": [
+      "creature"
     ]
   },
   "Cloudseeder": {
@@ -69652,6 +70421,13 @@
       "creature"
     ]
   },
+  "Scarlet Spider, Kaine": {
+    "color": "multicolor",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Spyglass Siren": {
     "color": "blue",
     "cmc": 1,
@@ -70734,6 +71510,13 @@
       "artifact"
     ]
   },
+  "Pictures of Spider-Man": {
+    "color": "green",
+    "cmc": 3,
+    "types": [
+      "artifact"
+    ]
+  },
   "Dread Slag": {
     "color": "multicolor",
     "cmc": 5,
@@ -71118,6 +71901,13 @@
       "sorcery"
     ]
   },
+  "Silk, Web Weaver": {
+    "color": "multicolor",
+    "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
   "Back-Alley Gardener": {
     "color": "multicolor",
     "cmc": 3,
@@ -71362,6 +72152,13 @@
     "cmc": 0,
     "types": [
       "artifact"
+    ]
+  },
+  "Mutable Pupa": {
+    "color": "green",
+    "cmc": 1,
+    "types": [
+      "creature"
     ]
   },
   "Scuzzback Scrapper": {
@@ -72624,6 +73421,13 @@
       "creature"
     ]
   },
+  "Watery Grasp": {
+    "color": "blue",
+    "cmc": 1,
+    "types": [
+      "enchantment"
+    ]
+  },
   "Will of the Naga": {
     "color": "blue",
     "cmc": 6,
@@ -72664,6 +73468,13 @@
     "cmc": 3,
     "types": [
       "creature"
+    ]
+  },
+  "Spaghetti Junction": {
+    "color": "colorless",
+    "cmc": 0,
+    "types": [
+      "land"
     ]
   },
   "Keiga, the Tide Star": {
@@ -73826,6 +74637,13 @@
       "enchantment"
     ]
   },
+  "Monoist Gravliner": {
+    "color": "black",
+    "cmc": 2,
+    "types": [
+      "artifact"
+    ]
+  },
   "This Is How It Ends": {
     "color": "black",
     "cmc": 4,
@@ -74969,6 +75787,13 @@
       "creature"
     ]
   },
+  "Wolf Cove Villager": {
+    "color": "white",
+    "cmc": 1,
+    "types": [
+      "creature"
+    ]
+  },
   "Zabaz, the Glimmerwasp": {
     "color": "colorless",
     "cmc": 1,
@@ -75717,6 +76542,13 @@
       "creature"
     ]
   },
+  "Dai Li Indoctrination": {
+    "color": "black",
+    "cmc": 2,
+    "types": [
+      "sorcery"
+    ]
+  },
   "Serene Steward": {
     "color": "white",
     "cmc": 2,
@@ -75803,6 +76635,13 @@
   },
   "Darkwatch Elves": {
     "color": "green",
+    "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
+  "Katara, Bending Prodigy": {
+    "color": "blue",
     "cmc": 3,
     "types": [
       "creature"
@@ -76616,6 +77455,13 @@
       "enchantment"
     ]
   },
+  "Cantor of the Refrain": {
+    "color": "black",
+    "cmc": 1,
+    "types": [
+      "creature"
+    ]
+  },
   "Banishment Decree": {
     "color": "white",
     "cmc": 5,
@@ -77290,6 +78136,13 @@
   "Reckless Embermage": {
     "color": "red",
     "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
+  "Shriek, Treblemaker": {
+    "color": "multicolor",
+    "cmc": 3,
     "types": [
       "creature"
     ]
@@ -79041,6 +79894,13 @@
       "sorcery"
     ]
   },
+  "Fire Lord Ozai": {
+    "color": "black",
+    "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
   "Winter Blast": {
     "color": "green",
     "cmc": 1,
@@ -79338,6 +80198,13 @@
       "creature"
     ]
   },
+  "Jackal, Genius Geneticist": {
+    "color": "multicolor",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Stromkirk Captain": {
     "color": "multicolor",
     "cmc": 3,
@@ -79573,6 +80440,13 @@
     "cmc": 2,
     "types": [
       "instant"
+    ]
+  },
+  "Flying Dolphin-Fish": {
+    "color": "blue",
+    "cmc": 2,
+    "types": [
+      "creature"
     ]
   },
   "Barbarian Class": {
@@ -81380,6 +82254,13 @@
       "creature"
     ]
   },
+  "Raucous Audience": {
+    "color": "green",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Malicious Eclipse": {
     "color": "black",
     "cmc": 3,
@@ -82883,6 +83764,13 @@
     "cmc": 0,
     "types": []
   },
+  "Rocket-Powered Goblin Glider": {
+    "color": "colorless",
+    "cmc": 3,
+    "types": [
+      "artifact"
+    ]
+  },
   "Great Oak Guardian": {
     "color": "green",
     "cmc": 6,
@@ -83136,6 +84024,13 @@
     "cmc": 3,
     "types": [
       "creature"
+    ]
+  },
+  "Earthbending Lesson": {
+    "color": "green",
+    "cmc": 4,
+    "types": [
+      "sorcery"
     ]
   },
   "Combat Celebrant": {
@@ -83985,6 +84880,13 @@
     "cmc": 3,
     "types": [
       "sorcery"
+    ]
+  },
+  "Gwen Stacy": {
+    "color": "red",
+    "cmc": 2,
+    "types": [
+      "creature"
     ]
   },
   "Aetherflux Reservoir": {
@@ -87829,6 +88731,13 @@
       "creature"
     ]
   },
+  "Superior Spider-Man": {
+    "color": "multicolor",
+    "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
   "Qal Sisma Behemoth": {
     "color": "red",
     "cmc": 3,
@@ -88166,6 +89075,13 @@
   "Hermes, Overseer of Elpis": {
     "color": "blue",
     "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
+  "Yuyan Archers": {
+    "color": "red",
+    "cmc": 2,
     "types": [
       "creature"
     ]
@@ -88636,6 +89552,13 @@
     "cmc": 4,
     "types": [
       "creature"
+    ]
+  },
+  "Aang's Iceberg": {
+    "color": "white",
+    "cmc": 3,
+    "types": [
+      "enchantment"
     ]
   },
   "Extravagant Spirit": {
@@ -91039,6 +91962,13 @@
       "creature"
     ]
   },
+  "Green Goblin, Revenant": {
+    "color": "multicolor",
+    "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
   "Bring to Light": {
     "color": "multicolor",
     "cmc": 5,
@@ -91292,6 +92222,13 @@
     "cmc": 3,
     "types": [
       "artifact"
+    ]
+  },
+  "Ominous Asylum": {
+    "color": "colorless",
+    "cmc": 0,
+    "types": [
+      "land"
     ]
   },
   "Renata, Called to the Hunt": {
@@ -92790,6 +93727,13 @@
       "creature"
     ]
   },
+  "Tundra Wall": {
+    "color": "white",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Beast Walkers": {
     "color": "white",
     "cmc": 3,
@@ -94051,6 +94995,13 @@
       "creature"
     ]
   },
+  "Jeong Jeong's Deserters": {
+    "color": "white",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Dwarven Priest": {
     "color": "white",
     "cmc": 4,
@@ -94096,6 +95047,13 @@
   "Striking Sliver": {
     "color": "red",
     "cmc": 1,
+    "types": [
+      "creature"
+    ]
+  },
+  "Fire Nation Soldier": {
+    "color": "red",
+    "cmc": 3,
     "types": [
       "creature"
     ]
@@ -94419,6 +95377,13 @@
     "cmc": 3,
     "types": [
       "enchantment"
+    ]
+  },
+  "Vibrant Cityscape": {
+    "color": "colorless",
+    "cmc": 0,
+    "types": [
+      "land"
     ]
   },
   "Mirror Mockery": {
@@ -96674,6 +97639,20 @@
       "creature"
     ]
   },
+  "Subway Train": {
+    "color": "colorless",
+    "cmc": 2,
+    "types": [
+      "artifact"
+    ]
+  },
+  "Mary Jane Watson": {
+    "color": "multicolor",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Ragnar": {
     "color": "multicolor",
     "cmc": 3,
@@ -98139,6 +99118,13 @@
       "creature"
     ]
   },
+  "Suburban Sanctuary": {
+    "color": "colorless",
+    "cmc": 0,
+    "types": [
+      "land"
+    ]
+  },
   "Phyrexian Rebirth": {
     "color": "white",
     "cmc": 6,
@@ -98746,6 +99732,13 @@
       "creature"
     ]
   },
+  "Behold the Sinister Six!": {
+    "color": "black",
+    "cmc": 7,
+    "types": [
+      "sorcery"
+    ]
+  },
   "Dawnbreak Reclaimer": {
     "color": "white",
     "cmc": 6,
@@ -99149,6 +100142,13 @@
       "enchantment"
     ]
   },
+  "Katara, Heroic Healer": {
+    "color": "white",
+    "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
   "Naya Sojourners": {
     "color": "multicolor",
     "cmc": 5,
@@ -99166,6 +100166,13 @@
   "Krosan Colossus": {
     "color": "green",
     "cmc": 9,
+    "types": [
+      "creature"
+    ]
+  },
+  "Rebellious Captives": {
+    "color": "green",
+    "cmc": 2,
     "types": [
       "creature"
     ]
@@ -99252,6 +100259,13 @@
     "cmc": 3,
     "types": [
       "instant"
+    ]
+  },
+  "Aang, the Last Airbender": {
+    "color": "white",
+    "cmc": 4,
+    "types": [
+      "creature"
     ]
   },
   "The Ash Lizard": {
@@ -102110,6 +103124,13 @@
       "creature"
     ]
   },
+  "Maximum Carnage": {
+    "color": "red",
+    "cmc": 5,
+    "types": [
+      "enchantment"
+    ]
+  },
   "Dromoka, the Eternal": {
     "color": "multicolor",
     "cmc": 5,
@@ -102524,6 +103545,13 @@
       "artifact"
     ]
   },
+  "Deserter's Disciple": {
+    "color": "red",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Retreat to Hagra": {
     "color": "black",
     "cmc": 3,
@@ -102817,6 +103845,13 @@
     "cmc": 4,
     "types": [
       "sorcery"
+    ]
+  },
+  "Rowdy Snowballers": {
+    "color": "blue",
+    "cmc": 3,
+    "types": [
+      "creature"
     ]
   },
   "Scion of Ugin": {
@@ -103186,6 +104221,13 @@
   },
   "Eddytrail Hawk": {
     "color": "white",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
+  "Haru, Hidden Talent": {
+    "color": "green",
     "cmc": 2,
     "types": [
       "creature"
@@ -104869,6 +105911,13 @@
       "creature"
     ]
   },
+  "Prowler, Clawed Thief": {
+    "color": "multicolor",
+    "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
   "Trynn, Champion of Freedom": {
     "color": "white",
     "cmc": 4,
@@ -105398,6 +106447,13 @@
   "Lurching Rotbeast": {
     "color": "black",
     "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
+  "The Terror of Serpent's Pass": {
+    "color": "blue",
+    "cmc": 7,
     "types": [
       "creature"
     ]
@@ -107734,6 +108790,13 @@
       "creature"
     ]
   },
+  "Match the Odds": {
+    "color": "green",
+    "cmc": 3,
+    "types": [
+      "sorcery"
+    ]
+  },
   "Goblin Negotiation": {
     "color": "red",
     "cmc": 2,
@@ -108463,6 +109526,13 @@
     "cmc": 0,
     "types": []
   },
+  "Brood Astronomer": {
+    "color": "green",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Serra's Emissary": {
     "color": "white",
     "cmc": 7,
@@ -108969,6 +110039,13 @@
       "creature"
     ]
   },
+  "Saber-Tooth Moose-Lion": {
+    "color": "green",
+    "cmc": 6,
+    "types": [
+      "creature"
+    ]
+  },
   "Karplusan Hound": {
     "color": "red",
     "cmc": 4,
@@ -109068,6 +110145,13 @@
     "cmc": 3,
     "types": [
       "sorcery"
+    ]
+  },
+  "Avatar Enthusiasts": {
+    "color": "white",
+    "cmc": 3,
+    "types": [
+      "creature"
     ]
   },
   "Luminesce": {
@@ -109766,6 +110850,13 @@
     "cmc": 5,
     "types": [
       "creature"
+    ]
+  },
+  "Impostor Syndrome": {
+    "color": "blue",
+    "cmc": 6,
+    "types": [
+      "enchantment"
     ]
   },
   "Ouphe Vandals": {
@@ -110968,6 +112059,13 @@
       "creature"
     ]
   },
+  "Biorganic Carapace": {
+    "color": "multicolor",
+    "cmc": 4,
+    "types": [
+      "artifact"
+    ]
+  },
   "Three Tree Scribe": {
     "color": "green",
     "cmc": 2,
@@ -111571,6 +112669,13 @@
     "cmc": 3,
     "types": [
       "planeswalker"
+    ]
+  },
+  "Sokka, Wolf Cove's Protector": {
+    "color": "white",
+    "cmc": 3,
+    "types": [
+      "creature"
     ]
   },
   "Scurrid Colony": {
@@ -112483,6 +113588,13 @@
       "instant"
     ]
   },
+  "Seismic Tutelage": {
+    "color": "green",
+    "cmc": 4,
+    "types": [
+      "enchantment"
+    ]
+  },
   "Etched Oracle": {
     "color": "colorless",
     "cmc": 4,
@@ -112629,6 +113741,13 @@
     "cmc": 3,
     "types": [
       "sorcery"
+    ]
+  },
+  "Spider-Verse": {
+    "color": "red",
+    "cmc": 5,
+    "types": [
+      "enchantment"
     ]
   },
   "Guardians of Akrasa": {
@@ -113453,6 +114572,13 @@
       "creature"
     ]
   },
+  "Komodo Rhino": {
+    "color": "red",
+    "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
   "Liliana's Influence": {
     "color": "black",
     "cmc": 6,
@@ -113877,6 +115003,13 @@
       "enchantment"
     ]
   },
+  "Song of Point Prime": {
+    "color": "black",
+    "cmc": 2,
+    "types": [
+      "sorcery"
+    ]
+  },
   "Mistcaller": {
     "color": "blue",
     "cmc": 1,
@@ -114104,6 +115237,13 @@
       "creature"
     ]
   },
+  "Sinister Hideout": {
+    "color": "colorless",
+    "cmc": 0,
+    "types": [
+      "land"
+    ]
+  },
   "Ice Over": {
     "color": "blue",
     "cmc": 2,
@@ -114318,6 +115458,13 @@
   },
   "Vincent's Limit Break": {
     "color": "black",
+    "cmc": 2,
+    "types": [
+      "instant"
+    ]
+  },
+  "Sudden Strike": {
+    "color": "white",
     "cmc": 2,
     "types": [
       "instant"
@@ -115182,6 +116329,13 @@
       "sorcery"
     ]
   },
+  "Abandon Attachments": {
+    "color": "multicolor",
+    "cmc": 2,
+    "types": [
+      "instant"
+    ]
+  },
   "A-Mishra, Excavation Prodigy": {
     "color": "red",
     "cmc": 2,
@@ -115414,6 +116568,13 @@
   "Gruul Spellbreaker": {
     "color": "multicolor",
     "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
+  "Spider Manifestation": {
+    "color": "multicolor",
+    "cmc": 2,
     "types": [
       "creature"
     ]
@@ -117076,6 +118237,13 @@
       "creature"
     ]
   },
+  "Elephant-Rat": {
+    "color": "black",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Atalya, Samite Master": {
     "color": "white",
     "cmc": 5,
@@ -118031,6 +119199,13 @@
     "cmc": 3,
     "types": [
       "creature"
+    ]
+  },
+  "Robotics Mastery": {
+    "color": "blue",
+    "cmc": 5,
+    "types": [
+      "enchantment"
     ]
   },
   "Whoosh!": {
@@ -120415,6 +121590,13 @@
       "enchantment"
     ]
   },
+  "Sokka's Haiku": {
+    "color": "blue",
+    "cmc": 5,
+    "types": [
+      "instant"
+    ]
+  },
   "Slimebind": {
     "color": "blue",
     "cmc": 2,
@@ -120986,6 +122168,13 @@
       "instant"
     ]
   },
+  "Momo, Rambunctious Rascal": {
+    "color": "white",
+    "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
   "Dark Triumph": {
     "color": "black",
     "cmc": 5,
@@ -121166,6 +122355,13 @@
     "cmc": 2,
     "types": [
       "creature"
+    ]
+  },
+  "Fire Nation's Conquest": {
+    "color": "red",
+    "cmc": 3,
+    "types": [
+      "enchantment"
     ]
   },
   "Need for Speed": {
@@ -121677,6 +122873,13 @@
     "cmc": 5,
     "types": [
       "instant"
+    ]
+  },
+  "Spider-Man India": {
+    "color": "multicolor",
+    "cmc": 5,
+    "types": [
+      "creature"
     ]
   },
   "Slayer's Bounty": {
@@ -123429,6 +124632,13 @@
       "creature"
     ]
   },
+  "Eumidian Lifeseed": {
+    "color": "green",
+    "cmc": 1,
+    "types": [
+      "artifact"
+    ]
+  },
   "Chittering Witch": {
     "color": "black",
     "cmc": 4,
@@ -123461,6 +124671,13 @@
   "Indulgent Tormentor": {
     "color": "black",
     "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
+  "Sandman, Shifting Scoundrel": {
+    "color": "green",
+    "cmc": 3,
     "types": [
       "creature"
     ]
@@ -124313,6 +125530,13 @@
       "sorcery"
     ]
   },
+  "Thought Partition": {
+    "color": "white",
+    "cmc": 1,
+    "types": [
+      "sorcery"
+    ]
+  },
   "Nature's Way": {
     "color": "green",
     "cmc": 2,
@@ -125112,6 +126336,13 @@
     "cmc": 3,
     "types": [
       "artifact"
+    ]
+  },
+  "Flexible Waterbender": {
+    "color": "blue",
+    "cmc": 4,
+    "types": [
+      "creature"
     ]
   },
   "Ponyback Brigade": {
@@ -126070,6 +127301,13 @@
       "creature"
     ]
   },
+  "Iroh, Firebending Instructor": {
+    "color": "red",
+    "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
   "Guardian of Faith": {
     "color": "white",
     "cmc": 3,
@@ -126349,6 +127587,13 @@
   "Smog Elemental": {
     "color": "black",
     "cmc": 6,
+    "types": [
+      "creature"
+    ]
+  },
+  "Lady Octopus, Inspired Inventor": {
+    "color": "blue",
+    "cmc": 1,
     "types": [
       "creature"
     ]
@@ -126754,6 +127999,13 @@
   "Sakashima of a Thousand Faces": {
     "color": "blue",
     "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
+  "Fire Nation Ambushers": {
+    "color": "black",
+    "cmc": 3,
     "types": [
       "creature"
     ]
@@ -127321,6 +128573,13 @@
       "sorcery"
     ]
   },
+  "Hei Bai, Spirit of Balance": {
+    "color": "multicolor",
+    "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
   "Spectacular Pileup": {
     "color": "white",
     "cmc": 5,
@@ -127433,6 +128692,13 @@
     "cmc": 3,
     "types": [
       "artifact"
+    ]
+  },
+  "Earthbending Student": {
+    "color": "green",
+    "cmc": 3,
+    "types": [
+      "creature"
     ]
   },
   "Exquisite Blood": {
@@ -128337,6 +129603,13 @@
     "cmc": 3,
     "types": [
       "creature"
+    ]
+  },
+  "Zuko's Offense": {
+    "color": "red",
+    "cmc": 1,
+    "types": [
+      "sorcery"
     ]
   },
   "Ghost-Lit Stalker": {
@@ -129767,6 +131040,13 @@
       "creature"
     ]
   },
+  "Suki, Kyoshi Warrior": {
+    "color": "multicolor",
+    "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
   "Sidewinder Naga": {
     "color": "green",
     "cmc": 3,
@@ -130311,6 +131591,13 @@
       "sorcery"
     ]
   },
+  "Aang's Defense": {
+    "color": "white",
+    "cmc": 1,
+    "types": [
+      "instant"
+    ]
+  },
   "Molten Duplication": {
     "color": "red",
     "cmc": 2,
@@ -130416,11 +131703,25 @@
       "creature"
     ]
   },
+  "Zhao, the Seething Flame": {
+    "color": "red",
+    "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
   "Watcher of the Roost": {
     "color": "white",
     "cmc": 3,
     "types": [
       "creature"
+    ]
+  },
+  "The Soul Stone": {
+    "color": "black",
+    "cmc": 2,
+    "types": [
+      "artifact"
     ]
   },
   "Wild Swing": {
@@ -132229,6 +133530,13 @@
       "enchantment"
     ]
   },
+  "A-Cori-Steel Cutter": {
+    "color": "red",
+    "cmc": 2,
+    "types": [
+      "artifact"
+    ]
+  },
   "Clone Shell": {
     "color": "colorless",
     "cmc": 5,
@@ -132727,6 +134035,13 @@
     "cmc": 5,
     "types": [
       "instant"
+    ]
+  },
+  "Voidcalled Devotee": {
+    "color": "black",
+    "cmc": 3,
+    "types": [
+      "creature"
     ]
   },
   "Slimy Kavu": {
@@ -133340,6 +134655,13 @@
     "cmc": 4,
     "types": [
       "instant"
+    ]
+  },
+  "Yue, the Moon Spirit": {
+    "color": "blue",
+    "cmc": 4,
+    "types": [
+      "creature"
     ]
   },
   "Glimmerpoint Stag": {
@@ -134744,7 +136066,7 @@
   },
   "Shellfish Scholar": {
     "color": "blue",
-    "cmc": 3,
+    "cmc": 2,
     "types": [
       "creature"
     ]
@@ -135403,6 +136725,13 @@
       "sorcery"
     ]
   },
+  "Southern Air Temple": {
+    "color": "white",
+    "cmc": 4,
+    "types": [
+      "enchantment"
+    ]
+  },
   "Dogged Pursuit": {
     "color": "black",
     "cmc": 4,
@@ -135720,6 +137049,13 @@
       "creature"
     ]
   },
+  "Serpent of the Pass": {
+    "color": "blue",
+    "cmc": 7,
+    "types": [
+      "creature"
+    ]
+  },
   "How Is This a Par Three?!": {
     "color": "blue",
     "cmc": 4,
@@ -135732,6 +137068,13 @@
     "cmc": 3,
     "types": [
       "creature"
+    ]
+  },
+  "University Campus": {
+    "color": "colorless",
+    "cmc": 0,
+    "types": [
+      "land"
     ]
   },
   "Enduring Tenacity": {
@@ -136074,6 +137417,13 @@
   "Jackal Pup": {
     "color": "red",
     "cmc": 1,
+    "types": [
+      "creature"
+    ]
+  },
+  "Mysterio's Phantasm": {
+    "color": "blue",
+    "cmc": 2,
     "types": [
       "creature"
     ]
@@ -137085,6 +138435,13 @@
       "creature"
     ]
   },
+  "Rhino, Barreling Brute": {
+    "color": "multicolor",
+    "cmc": 7,
+    "types": [
+      "creature"
+    ]
+  },
   "Skittering Crustacean": {
     "color": "blue",
     "cmc": 3,
@@ -137166,6 +138523,13 @@
     "cmc": 2,
     "types": [
       "enchantment"
+    ]
+  },
+  "Fire Nation Engineer": {
+    "color": "black",
+    "cmc": 3,
+    "types": [
+      "creature"
     ]
   },
   "Bog Serpent": {
@@ -137746,6 +139110,14 @@
     "cmc": 3,
     "types": [
       "creature"
+    ]
+  },
+  "The Rise of Sozin": {
+    "color": "black",
+    "cmc": 6,
+    "types": [
+      "creature",
+      "enchantment"
     ]
   },
   "The Mending of Dominaria": {
@@ -138576,6 +139948,13 @@
       "creature"
     ]
   },
+  "Long Feng, Grand Secretariat": {
+    "color": "multicolor",
+    "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
   "Return to Action": {
     "color": "black",
     "cmc": 2,
@@ -138994,6 +140373,13 @@
     "cmc": 1,
     "types": [
       "instant"
+    ]
+  },
+  "Prison Break": {
+    "color": "black",
+    "cmc": 5,
+    "types": [
+      "sorcery"
     ]
   },
   "Cybership": {
@@ -140648,6 +142034,13 @@
     "cmc": 2,
     "types": [
       "enchantment"
+    ]
+  },
+  "Hog-Monkey Rampage": {
+    "color": "multicolor",
+    "cmc": 2,
+    "types": [
+      "instant"
     ]
   },
   "Flamebreak": {
@@ -143038,6 +144431,13 @@
       "creature"
     ]
   },
+  "Fire Lord Zuko": {
+    "color": "multicolor",
+    "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
   "Reptilian Recruiter": {
     "color": "red",
     "cmc": 5,
@@ -143245,6 +144645,13 @@
   "Thundermane Dragon": {
     "color": "red",
     "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
+  "Araña, Heart of the Spider": {
+    "color": "multicolor",
+    "cmc": 3,
     "types": [
       "creature"
     ]
@@ -145065,6 +146472,13 @@
       "creature"
     ]
   },
+  "Lost in the Spirit World": {
+    "color": "blue",
+    "cmc": 3,
+    "types": [
+      "sorcery"
+    ]
+  },
   "Sentinel Spider": {
     "color": "green",
     "cmc": 5,
@@ -145183,6 +146597,13 @@
     "cmc": 3,
     "types": [
       "artifact"
+    ]
+  },
+  "Pillar Launch": {
+    "color": "green",
+    "cmc": 1,
+    "types": [
+      "instant"
     ]
   },
   "Funeral Room // Awakening Hall": {
@@ -145403,6 +146824,13 @@
     "cmc": 4,
     "types": [
       "enchantment"
+    ]
+  },
+  "Momo, Friendly Flier": {
+    "color": "white",
+    "cmc": 1,
+    "types": [
+      "creature"
     ]
   },
   "Raksha Golden Cub": {
@@ -146828,6 +148256,13 @@
       "creature"
     ]
   },
+  "Doc Ock's Tentacles": {
+    "color": "colorless",
+    "cmc": 1,
+    "types": [
+      "artifact"
+    ]
+  },
   "Clergy en-Vec": {
     "color": "white",
     "cmc": 2,
@@ -146991,6 +148426,13 @@
   },
   "Repentant Vampire": {
     "color": "black",
+    "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
+  "The Spot, Living Portal": {
+    "color": "multicolor",
     "cmc": 5,
     "types": [
       "creature"
@@ -147176,6 +148618,13 @@
     "cmc": 11,
     "types": [
       "instant"
+    ]
+  },
+  "Explosive Shot": {
+    "color": "red",
+    "cmc": 2,
+    "types": [
+      "sorcery"
     ]
   },
   "Clockwork Swarm": {
@@ -147725,6 +149174,13 @@
   },
   "Blightwing Whelp": {
     "color": "black",
+    "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
+  "Superior Foes of Spider-Man": {
+    "color": "red",
     "cmc": 3,
     "types": [
       "creature"
@@ -148775,6 +150231,13 @@
       "creature"
     ]
   },
+  "Deny Entry": {
+    "color": "blue",
+    "cmc": 3,
+    "types": [
+      "instant"
+    ]
+  },
   "Cauldron Familiar": {
     "color": "black",
     "cmc": 1,
@@ -149339,6 +150802,13 @@
       "enchantment"
     ]
   },
+  "Flopsie, Bumi's Buddy": {
+    "color": "green",
+    "cmc": 6,
+    "types": [
+      "creature"
+    ]
+  },
   "Dwarven Scorcher": {
     "color": "red",
     "cmc": 1,
@@ -149837,6 +151307,13 @@
       "creature"
     ]
   },
+  "Hydro-Man, Fluid Felon": {
+    "color": "blue",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Nezumi Prowler": {
     "color": "black",
     "cmc": 2,
@@ -150289,6 +151766,13 @@
       "creature"
     ]
   },
+  "Mongoose Lizard": {
+    "color": "red",
+    "cmc": 6,
+    "types": [
+      "creature"
+    ]
+  },
   "Gideon of the Trials": {
     "color": "white",
     "cmc": 3,
@@ -150404,6 +151888,13 @@
   "The Watcher in the Water": {
     "color": "blue",
     "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
+  "Val, Marooned Surveyor": {
+    "color": "multicolor",
+    "cmc": 2,
     "types": [
       "creature"
     ]
@@ -150834,6 +152325,13 @@
       "enchantment"
     ]
   },
+  "Norman Osborn": {
+    "color": "blue",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Wall of Wood": {
     "color": "green",
     "cmc": 1,
@@ -151116,7 +152614,7 @@
   },
   "Ribald Shanty": {
     "color": "red",
-    "cmc": 2,
+    "cmc": 1,
     "types": [
       "instant"
     ]
@@ -151914,6 +153412,13 @@
       "enchantment"
     ]
   },
+  "Ozai's Cruelty": {
+    "color": "black",
+    "cmc": 3,
+    "types": [
+      "sorcery"
+    ]
+  },
   "Spectral Arcanist": {
     "color": "blue",
     "cmc": 4,
@@ -152686,6 +154191,13 @@
       "creature"
     ]
   },
+  "City Pigeon": {
+    "color": "white",
+    "cmc": 1,
+    "types": [
+      "creature"
+    ]
+  },
   "Snow-Covered Plains": {
     "color": "colorless",
     "cmc": 0,
@@ -152740,6 +154252,13 @@
     "cmc": 2,
     "types": [
       "creature"
+    ]
+  },
+  "Path to Redemption": {
+    "color": "white",
+    "cmc": 2,
+    "types": [
+      "enchantment"
     ]
   },
   "Soul of Shandalar": {
@@ -155131,6 +156650,13 @@
       "instant"
     ]
   },
+  "School Daze": {
+    "color": "blue",
+    "cmc": 5,
+    "types": [
+      "instant"
+    ]
+  },
   "Atmosphere Surgeon": {
     "color": "blue",
     "cmc": 2,
@@ -155820,6 +157346,13 @@
     "types": [
       "creature",
       "artifact"
+    ]
+  },
+  "Capital Guard": {
+    "color": "red",
+    "cmc": 2,
+    "types": [
+      "creature"
     ]
   },
   "The Scorpion God": {
@@ -156981,6 +158514,13 @@
       "creature"
     ]
   },
+  "Supportive Parents": {
+    "color": "green",
+    "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
   "Storm Fleet Aerialist": {
     "color": "blue",
     "cmc": 2,
@@ -157224,6 +158764,13 @@
   "Steppe Lynx": {
     "color": "white",
     "cmc": 1,
+    "types": [
+      "creature"
+    ]
+  },
+  "Master Pakku": {
+    "color": "blue",
+    "cmc": 2,
     "types": [
       "creature"
     ]
@@ -157571,6 +159118,13 @@
   },
   "Miasma Demon": {
     "color": "black",
+    "cmc": 6,
+    "types": [
+      "creature"
+    ]
+  },
+  "Madame Web, Clairvoyant": {
+    "color": "blue",
     "cmc": 6,
     "types": [
       "creature"
@@ -158027,6 +159581,14 @@
     "cmc": 1,
     "types": [
       "creature"
+    ]
+  },
+  "Living Brain, Mechanical Marvel": {
+    "color": "colorless",
+    "cmc": 4,
+    "types": [
+      "creature",
+      "artifact"
     ]
   },
   "Lithoform Blight": {
@@ -161069,6 +162631,13 @@
       "creature"
     ]
   },
+  "Ultimate Green Goblin": {
+    "color": "multicolor",
+    "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
   "Canyon Drake": {
     "color": "red",
     "cmc": 4,
@@ -163166,6 +164735,13 @@
       "sorcery"
     ]
   },
+  "Stoic Star-Captain": {
+    "color": "white",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Map the Wastes": {
     "color": "green",
     "cmc": 3,
@@ -163207,6 +164783,13 @@
     "types": [
       "creature",
       "enchantment"
+    ]
+  },
+  "Frog-Squirrels": {
+    "color": "green",
+    "cmc": 2,
+    "types": [
+      "creature"
     ]
   },
   "Uthgardt Fury": {
@@ -164800,6 +166383,13 @@
       "enchantment"
     ]
   },
+  "Spider-Suit": {
+    "color": "colorless",
+    "cmc": 1,
+    "types": [
+      "artifact"
+    ]
+  },
   "Rooftop Bypass": {
     "color": "multicolor",
     "cmc": 3,
@@ -165134,6 +166724,13 @@
   "Mausoleum Harpy": {
     "color": "black",
     "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
+  "Cat-Owl": {
+    "color": "multicolor",
+    "cmc": 4,
     "types": [
       "creature"
     ]
@@ -166662,6 +168259,13 @@
       "creature"
     ]
   },
+  "Symbiote Spider-Man": {
+    "color": "multicolor",
+    "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
   "Boros Challenger": {
     "color": "multicolor",
     "cmc": 2,
@@ -168026,6 +169630,13 @@
     "cmc": 0,
     "types": []
   },
+  "Sokka, Bold Boomeranger": {
+    "color": "multicolor",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Sage of Hours": {
     "color": "blue",
     "cmc": 2,
@@ -168474,6 +170085,13 @@
       "enchantment"
     ]
   },
+  "Spider-Woman, Stunning Savior": {
+    "color": "multicolor",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Sinister Cryologist": {
     "color": "blue",
     "cmc": 3,
@@ -168550,6 +170168,13 @@
     "cmc": 6,
     "types": [
       "sorcery"
+    ]
+  },
+  "Miles Morales": {
+    "color": "green",
+    "cmc": 2,
+    "types": [
+      "creature"
     ]
   },
   "Rionya, Fire Dancer": {
@@ -170895,11 +172520,25 @@
       "artifact"
     ]
   },
+  "Carnage, Crimson Chaos": {
+    "color": "multicolor",
+    "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
   "Violent Outburst": {
     "color": "multicolor",
     "cmc": 3,
     "types": [
       "instant"
+    ]
+  },
+  "Damage Control Crew": {
+    "color": "green",
+    "cmc": 4,
+    "types": [
+      "creature"
     ]
   },
   "Sovereign's Realm": {
@@ -171733,6 +173372,13 @@
     "cmc": 3,
     "types": [
       "creature"
+    ]
+  },
+  "Drix Interlacer": {
+    "color": "colorless",
+    "cmc": 1,
+    "types": [
+      "artifact"
     ]
   },
   "Wings of Hope": {
@@ -173888,6 +175534,13 @@
       "creature"
     ]
   },
+  "Spider-Sense": {
+    "color": "blue",
+    "cmc": 2,
+    "types": [
+      "instant"
+    ]
+  },
   "Symbol of Unsummoning": {
     "color": "blue",
     "cmc": 3,
@@ -174118,6 +175771,13 @@
     "cmc": 3,
     "types": [
       "artifact"
+    ]
+  },
+  "Gwenom, Remorseless": {
+    "color": "black",
+    "cmc": 5,
+    "types": [
+      "creature"
     ]
   },
   "Charming Prince": {
@@ -175421,6 +177081,13 @@
       "creature"
     ]
   },
+  "Redirect Lightning": {
+    "color": "red",
+    "cmc": 1,
+    "types": [
+      "instant"
+    ]
+  },
   "Magnetic Web": {
     "color": "colorless",
     "cmc": 2,
@@ -176070,6 +177737,13 @@
       "creature"
     ]
   },
+  "Barrels of Blasting Jelly": {
+    "color": "colorless",
+    "cmc": 1,
+    "types": [
+      "artifact"
+    ]
+  },
   "Skittering Monstrosity": {
     "color": "black",
     "cmc": 5,
@@ -176233,6 +177907,13 @@
   "Guul Draz Assassin": {
     "color": "black",
     "cmc": 1,
+    "types": [
+      "creature"
+    ]
+  },
+  "Molten Man, Inferno Incarnate": {
+    "color": "red",
+    "cmc": 3,
     "types": [
       "creature"
     ]
@@ -177166,6 +178847,13 @@
       "sorcery"
     ]
   },
+  "Raging Goblinoids": {
+    "color": "red",
+    "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
   "Charging Hooligan": {
     "color": "red",
     "cmc": 4,
@@ -177906,6 +179594,13 @@
       "land"
     ]
   },
+  "Mister Negative": {
+    "color": "multicolor",
+    "cmc": 7,
+    "types": [
+      "creature"
+    ]
+  },
   "Molting Harpy": {
     "color": "black",
     "cmc": 1,
@@ -177960,6 +179655,13 @@
     "cmc": 2,
     "types": [
       "instant"
+    ]
+  },
+  "Worldweave": {
+    "color": "green",
+    "cmc": 3,
+    "types": [
+      "enchantment"
     ]
   },
   "Chaos Harlequin": {
@@ -178279,6 +179981,13 @@
     "cmc": 4,
     "types": [
       "artifact"
+    ]
+  },
+  "Giant Koi": {
+    "color": "blue",
+    "cmc": 6,
+    "types": [
+      "creature"
     ]
   },
   "Viridian Emissary": {
@@ -179306,6 +181015,14 @@
       "land"
     ]
   },
+  "Spider-Slayer, Hatred Honed": {
+    "color": "colorless",
+    "cmc": 2,
+    "types": [
+      "creature",
+      "artifact"
+    ]
+  },
   "Descendant of Storms": {
     "color": "white",
     "cmc": 1,
@@ -179920,6 +181637,13 @@
     "cmc": 1,
     "types": [
       "artifact"
+    ]
+  },
+  "It'll Quench Ya!": {
+    "color": "blue",
+    "cmc": 2,
+    "types": [
+      "instant"
     ]
   },
   "Smashing Success": {
@@ -180598,6 +182322,13 @@
     "cmc": 4,
     "types": [
       "sorcery"
+    ]
+  },
+  "First-Time Flyer": {
+    "color": "blue",
+    "cmc": 2,
+    "types": [
+      "creature"
     ]
   },
   "Equilibrium": {
@@ -183261,6 +184992,13 @@
       "artifact"
     ]
   },
+  "Allied Teamwork": {
+    "color": "white",
+    "cmc": 3,
+    "types": [
+      "enchantment"
+    ]
+  },
   "Howlpack Piper": {
     "color": "green",
     "cmc": 4,
@@ -183566,6 +185304,13 @@
     "cmc": 3,
     "types": [
       "creature"
+    ]
+  },
+  "Hot Dog Cart": {
+    "color": "colorless",
+    "cmc": 3,
+    "types": [
+      "artifact"
     ]
   },
   "Hypergenesis": {
@@ -186446,6 +188191,13 @@
       "creature"
     ]
   },
+  "Spiders-Man, Heroic Horde": {
+    "color": "green",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Phantasmal Form": {
     "color": "blue",
     "cmc": 3,
@@ -188490,6 +190242,13 @@
       "artifact"
     ]
   },
+  "Zuko, Avatar Hunter": {
+    "color": "red",
+    "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
   "Wasteful Harvest": {
     "color": "green",
     "cmc": 3,
@@ -188541,6 +190300,13 @@
     "color": "colorless",
     "cmc": 0,
     "types": []
+  },
+  "Spider-Girl, Legacy Hero": {
+    "color": "multicolor",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
   },
   "Incendiary Command": {
     "color": "red",
@@ -189390,6 +191156,13 @@
   "Dolmen Gate": {
     "color": "colorless",
     "cmc": 2,
+    "types": [
+      "artifact"
+    ]
+  },
+  "Mechanical Glider": {
+    "color": "colorless",
+    "cmc": 1,
     "types": [
       "artifact"
     ]
@@ -190792,6 +192565,13 @@
     "cmc": 1,
     "types": [
       "enchantment"
+    ]
+  },
+  "Skyward Spider": {
+    "color": "multicolor",
+    "cmc": 2,
+    "types": [
+      "creature"
     ]
   },
   "Reincarnation": {
@@ -194481,6 +196261,13 @@
       "creature"
     ]
   },
+  "Spinneret and Spiderling": {
+    "color": "red",
+    "cmc": 1,
+    "types": [
+      "creature"
+    ]
+  },
   "Geralf's Masterpiece": {
     "color": "blue",
     "cmc": 5,
@@ -197187,6 +198974,13 @@
       "creature"
     ]
   },
+  "Aang's Journey": {
+    "color": "colorless",
+    "cmc": 2,
+    "types": [
+      "sorcery"
+    ]
+  },
   "Thoughtweft Gambit": {
     "color": "multicolor",
     "cmc": 6,
@@ -197377,6 +199171,13 @@
   "Jurin, Leading the Charge": {
     "color": "red",
     "cmc": 6,
+    "types": [
+      "creature"
+    ]
+  },
+  "Hakoda, Selfless Commander": {
+    "color": "white",
+    "cmc": 4,
     "types": [
       "creature"
     ]
@@ -197659,6 +199460,13 @@
     "cmc": 4,
     "types": [
       "enchantment"
+    ]
+  },
+  "J. Jonah Jameson": {
+    "color": "red",
+    "cmc": 3,
+    "types": [
+      "creature"
     ]
   },
   "Oasis Ritualist": {
@@ -198653,6 +200461,13 @@
       "sorcery"
     ]
   },
+  "Geyser Leaper": {
+    "color": "blue",
+    "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
   "Crawling Barrens": {
     "color": "colorless",
     "cmc": 0,
@@ -198728,6 +200543,13 @@
     "cmc": 3,
     "types": [
       "artifact"
+    ]
+  },
+  "With Great Power...": {
+    "color": "white",
+    "cmc": 4,
+    "types": [
+      "enchantment"
     ]
   },
   "Knighted Myr": {
@@ -198887,6 +200709,13 @@
     ]
   },
   "Brine Hag": {
+    "color": "blue",
+    "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
+  "Turtle-Seals": {
     "color": "blue",
     "cmc": 4,
     "types": [
@@ -199798,6 +201627,13 @@
       "creature"
     ]
   },
+  "Airbending Lesson": {
+    "color": "white",
+    "cmc": 3,
+    "types": [
+      "instant"
+    ]
+  },
   "First-Sphere Gargantua": {
     "color": "black",
     "cmc": 6,
@@ -199868,11 +201704,25 @@
       "artifact"
     ]
   },
+  "Hog-Monkey": {
+    "color": "black",
+    "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
   "Swelter": {
     "color": "red",
     "cmc": 4,
     "types": [
       "sorcery"
+    ]
+  },
+  "Cheering Crowd": {
+    "color": "multicolor",
+    "cmc": 2,
+    "types": [
+      "creature"
     ]
   },
   "Sandbar Crocodile": {
@@ -199957,6 +201807,14 @@
     "cmc": 7,
     "types": [
       "creature"
+    ]
+  },
+  "Iron Spider, Stark Upgrade": {
+    "color": "colorless",
+    "cmc": 3,
+    "types": [
+      "creature",
+      "artifact"
     ]
   },
   "Ordeal of Erebos": {
@@ -200834,6 +202692,13 @@
       "sorcery"
     ]
   },
+  "Otter-Penguin": {
+    "color": "blue",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Free-Range Chicken": {
     "color": "green",
     "cmc": 4,
@@ -201284,6 +203149,13 @@
       "sorcery"
     ]
   },
+  "Master Piandao": {
+    "color": "white",
+    "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
   "Capashen Knight": {
     "color": "white",
     "cmc": 2,
@@ -201691,6 +203563,13 @@
       "creature"
     ]
   },
+  "The Cabbage Merchant": {
+    "color": "green",
+    "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
   "Bannerhide Krushok": {
     "color": "green",
     "cmc": 4,
@@ -202007,6 +203886,11 @@
     "types": [
       "instant"
     ]
+  },
+  "Big Creatures": {
+    "color": "colorless",
+    "cmc": 0,
+    "types": []
   },
   "Vexilus Praetor": {
     "color": "white",
@@ -202675,6 +204559,13 @@
     "types": [
       "creature",
       "artifact"
+    ]
+  },
+  "Aang, Air Nomad": {
+    "color": "white",
+    "cmc": 5,
+    "types": [
+      "creature"
     ]
   },
   "Galadriel's Dismissal": {
@@ -203614,6 +205505,13 @@
       "creature"
     ]
   },
+  "Roku's Mastery": {
+    "color": "red",
+    "cmc": 2,
+    "types": [
+      "instant"
+    ]
+  },
   "Quakestrider Ceratops": {
     "color": "green",
     "cmc": 6,
@@ -204372,6 +206270,13 @@
     "cmc": 4,
     "types": [
       "creature"
+    ]
+  },
+  "Secret Identity": {
+    "color": "blue",
+    "cmc": 1,
+    "types": [
+      "instant"
     ]
   },
   "Keskit, the Flesh Sculptor": {
@@ -205272,6 +207177,13 @@
     "cmc": 2,
     "types": [
       "sorcery"
+    ]
+  },
+  "Kraven's Last Hunt": {
+    "color": "green",
+    "cmc": 4,
+    "types": [
+      "enchantment"
     ]
   },
   "Thorough Investigation": {
@@ -207146,6 +209058,13 @@
       "creature"
     ]
   },
+  "Turtle-Duck": {
+    "color": "green",
+    "cmc": 1,
+    "types": [
+      "creature"
+    ]
+  },
   "Kami of Ancient Law": {
     "color": "white",
     "cmc": 2,
@@ -207376,6 +209295,13 @@
     "cmc": 1,
     "types": [
       "creature"
+    ]
+  },
+  "Passenger Ferry": {
+    "color": "colorless",
+    "cmc": 3,
+    "types": [
+      "artifact"
     ]
   },
   "Sylvan Hierophant": {
@@ -207620,6 +209546,13 @@
   "Bottle-Cap Blast": {
     "color": "red",
     "cmc": 5,
+    "types": [
+      "instant"
+    ]
+  },
+  "Wisecrack": {
+    "color": "red",
+    "cmc": 3,
     "types": [
       "instant"
     ]
@@ -209037,6 +210970,13 @@
       "creature"
     ]
   },
+  "Cosmic Sovereign": {
+    "color": "red",
+    "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
   "Runaway Steam-Kin": {
     "color": "red",
     "cmc": 2,
@@ -209122,6 +211062,13 @@
       "creature"
     ]
   },
+  "Venomized Cat": {
+    "color": "black",
+    "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
   "Subjugate the Hobbits": {
     "color": "blue",
     "cmc": 7,
@@ -209135,6 +211082,13 @@
     "types": [
       "creature",
       "artifact"
+    ]
+  },
+  "Razor Rings": {
+    "color": "white",
+    "cmc": 2,
+    "types": [
+      "instant"
     ]
   },
   "Advent of the Wurm": {
@@ -209471,6 +211425,13 @@
       "planeswalker"
     ]
   },
+  "Common Crook": {
+    "color": "black",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Sylvan Smite": {
     "color": "green",
     "cmc": 2,
@@ -209673,6 +211634,13 @@
   "Chulane, Teller of Tales": {
     "color": "multicolor",
     "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
+  "Spider-UK": {
+    "color": "white",
+    "cmc": 4,
     "types": [
       "creature"
     ]
@@ -209927,6 +211895,13 @@
   "Culling Scales": {
     "color": "colorless",
     "cmc": 3,
+    "types": [
+      "artifact"
+    ]
+  },
+  "Web-Shooters": {
+    "color": "white",
+    "cmc": 2,
     "types": [
       "artifact"
     ]
@@ -211401,6 +213376,13 @@
     "cmc": 0,
     "types": []
   },
+  "Iguana Parrot": {
+    "color": "blue",
+    "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
   "Discordant Dirge": {
     "color": "black",
     "cmc": 5,
@@ -212409,6 +214391,13 @@
       "instant"
     ]
   },
+  "Spectacular Spider-Man": {
+    "color": "white",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Swirl the Mists": {
     "color": "blue",
     "cmc": 4,
@@ -212500,6 +214489,13 @@
       "creature"
     ]
   },
+  "Vv'viza, Orbital Overseer": {
+    "color": "multicolor",
+    "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
   "Boneyard Scourge": {
     "color": "black",
     "cmc": 4,
@@ -212568,6 +214564,14 @@
     "cmc": 6,
     "types": [
       "creature"
+    ]
+  },
+  "Prototype X-8": {
+    "color": "multicolor",
+    "cmc": 8,
+    "types": [
+      "creature",
+      "artifact"
     ]
   },
   "Devoted Mardu": {
@@ -213450,6 +215454,11 @@
       "creature"
     ]
   },
+  "Aang Tutorial": {
+    "color": "colorless",
+    "cmc": 0,
+    "types": []
+  },
   "Jeskai Brushmaster": {
     "color": "multicolor",
     "cmc": 4,
@@ -213680,6 +215689,13 @@
       "instant"
     ]
   },
+  "Earth Rumble": {
+    "color": "green",
+    "cmc": 4,
+    "types": [
+      "sorcery"
+    ]
+  },
   "A-Guide of Souls": {
     "color": "white",
     "cmc": 1,
@@ -213858,6 +215874,13 @@
   "Final-Word Phantom": {
     "color": "blue",
     "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
+  "Warship Scout": {
+    "color": "red",
+    "cmc": 1,
     "types": [
       "creature"
     ]
@@ -214592,6 +216615,13 @@
   "Chatterfang, Squirrel General": {
     "color": "green",
     "cmc": 3,
+    "types": [
+      "creature"
+    ]
+  },
+  "Radioactive Spider": {
+    "color": "green",
+    "cmc": 1,
     "types": [
       "creature"
     ]
@@ -215795,6 +217825,13 @@
       "creature"
     ]
   },
+  "Sandman's Quicksand": {
+    "color": "black",
+    "cmc": 3,
+    "types": [
+      "sorcery"
+    ]
+  },
   "Sulfurous Blast": {
     "color": "red",
     "cmc": 4,
@@ -216102,6 +218139,13 @@
       "instant"
     ]
   },
+  "Aang, Airbending Master": {
+    "color": "white",
+    "cmc": 5,
+    "types": [
+      "creature"
+    ]
+  },
   "Castle": {
     "color": "white",
     "cmc": 4,
@@ -216268,6 +218312,13 @@
     "cmc": 4,
     "types": [
       "creature"
+    ]
+  },
+  "Shadow of the Goblin": {
+    "color": "red",
+    "cmc": 2,
+    "types": [
+      "enchantment"
     ]
   },
   "Volatile Chimera": {
@@ -217066,6 +219117,13 @@
       "creature"
     ]
   },
+  "Oscorp Industries": {
+    "color": "colorless",
+    "cmc": 0,
+    "types": [
+      "land"
+    ]
+  },
   "Mount Velus Manticore": {
     "color": "red",
     "cmc": 4,
@@ -217285,6 +219343,11 @@
     "types": [
       "sorcery"
     ]
+  },
+  "Earthbending": {
+    "color": "colorless",
+    "cmc": 0,
+    "types": []
   },
   "Witchstalker Frenzy": {
     "color": "red",
@@ -217951,6 +220014,13 @@
       "creature"
     ]
   },
+  "Flash Thompson, Spider-Fan": {
+    "color": "white",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Pit Spawn": {
     "color": "black",
     "cmc": 7,
@@ -218120,6 +220190,18 @@
       "creature",
       "artifact"
     ]
+  },
+  "Azula Always Lies": {
+    "color": "black",
+    "cmc": 2,
+    "types": [
+      "instant"
+    ]
+  },
+  "Attacking": {
+    "color": "colorless",
+    "cmc": 0,
+    "types": []
   },
   "Alchemist's Vial": {
     "color": "colorless",
@@ -218402,6 +220484,13 @@
     "cmc": 2,
     "types": [
       "instant"
+    ]
+  },
+  "Black Cat, Cunning Thief": {
+    "color": "black",
+    "cmc": 5,
+    "types": [
+      "creature"
     ]
   },
   "Nikko-Onna": {
@@ -219012,6 +221101,13 @@
   "Frostburn Weird": {
     "color": "multicolor",
     "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
+  "Hippo-Cows": {
+    "color": "green",
+    "cmc": 5,
     "types": [
       "creature"
     ]
@@ -220258,6 +222354,13 @@
     "cmc": 2,
     "types": [
       "instant"
+    ]
+  },
+  "Cloudsculpt Armorer": {
+    "color": "blue",
+    "cmc": 4,
+    "types": [
+      "creature"
     ]
   },
   "Tip the Scales": {
@@ -224105,6 +226208,13 @@
       "creature"
     ]
   },
+  "Toph, the First Metalbender": {
+    "color": "multicolor",
+    "cmc": 4,
+    "types": [
+      "creature"
+    ]
+  },
   "Crystal Chimes": {
     "color": "colorless",
     "cmc": 3,
@@ -225477,6 +227587,13 @@
       "land"
     ]
   },
+  "Rocky Rebuke": {
+    "color": "green",
+    "cmc": 2,
+    "types": [
+      "instant"
+    ]
+  },
   "Paladin en-Vec": {
     "color": "white",
     "cmc": 3,
@@ -225862,6 +227979,13 @@
     "cmc": 2,
     "types": [
       "sorcery"
+    ]
+  },
+  "Eddie Brock": {
+    "color": "black",
+    "cmc": 3,
+    "types": [
+      "creature"
     ]
   },
   "Thornwatch Scarecrow": {
@@ -226772,6 +228896,13 @@
       "instant"
     ]
   },
+  "Pretending Poxbearers": {
+    "color": "multicolor",
+    "cmc": 2,
+    "types": [
+      "creature"
+    ]
+  },
   "Tempest Drake": {
     "color": "multicolor",
     "cmc": 3,
@@ -227128,6 +229259,13 @@
     "cmc": 2,
     "types": [
       "sorcery"
+    ]
+  },
+  "Glider Kids": {
+    "color": "white",
+    "cmc": 3,
+    "types": [
+      "creature"
     ]
   },
   "Zephyr Spirit": {
