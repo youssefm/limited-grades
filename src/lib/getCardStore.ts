@@ -202,9 +202,9 @@ const computeCacheExpirationInSeconds = (set: MagicSet): number => {
 
 const getCardStore = async (
   set: MagicSet,
-  format: Format = Format.PREMIER_DRAFT,
   cache: Cache = CACHE
 ): Promise<CardStore> => {
+  const { format } = set;
   const cacheKey =
     format === Format.PREMIER_DRAFT ? set.code : `${set.code}_${format}`;
   console.log(`Fetching card store for ${cacheKey} from ${cache.name} cache`);

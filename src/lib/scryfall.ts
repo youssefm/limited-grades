@@ -28,6 +28,7 @@ interface ScryfallCardFace {
 
 interface ScryfallCard {
   name: string;
+  set: string;
   cmc: number;
   card_faces?: ScryfallCardFace[];
   colors?: ScryfallColor[];
@@ -36,6 +37,7 @@ interface ScryfallCard {
   keywords: string[];
   mana_cost?: string;
   image_uris?: ImageUris;
+  printed_name?: string;
 }
 
 interface ScryfallCardPage {
@@ -74,6 +76,10 @@ const shouldExcludeCard = (card: ScryfallCard): boolean =>
   EXCLUDED_LAYOUTS.includes(card.layout);
 
 const getCardName = (card: ScryfallCard): string => {
+  if (card.set === "om1" && card.printed_name) {
+    return card.printed_name;
+  }
+
   if (
     NAMED_BY_CARD_FACE_LAYOUTS.includes(card.layout) &&
     card.card_faces &&
@@ -129,7 +135,7 @@ const fetchBulkData = async (type: string): Promise<ScryfallCard[]> => {
 };
 
 export const generateIndex = async (): Promise<ScryfallIndex> => {
-  const cards = await fetchBulkData("oracle-cards");
+  const cards = await fetchBulkData("default-cards");
   const index: ScryfallIndex = {};
   for (const card of cards) {
     if (shouldExcludeCard(card)) {

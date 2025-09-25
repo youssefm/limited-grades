@@ -1,6 +1,7 @@
 export enum Format {
   PREMIER_DRAFT = "PremierDraft",
   TRADITIONAL_DRAFT = "TradDraft",
+  PICK_TWO_DRAFT = "PickTwoDraft",
 }
 
 export enum Color {

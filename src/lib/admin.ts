@@ -4,7 +4,7 @@ import Deck from "./Deck";
 import getCardStore from "./getCardStore";
 import MagicSet from "./MagicSet";
 import { generateIndex, INDEX_CACHE_KEY } from "./scryfall";
-import { Format, Grade, Rarity } from "./types";
+import { Grade, Rarity } from "./types";
 import { groupBy, sortBy } from "./util";
 import { indexBy } from "./util.server";
 
@@ -19,12 +19,8 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
   },
   "compare-file-and-postgres-scores": async (output) => {
     const set = MagicSet.NEW_CAPENNA;
-    const pgCards = (
-      await getCardStore(set, Format.PREMIER_DRAFT, POSTGRES_CACHE)
-    ).cards;
-    const fileCards = (
-      await getCardStore(set, Format.PREMIER_DRAFT, FILE_CACHE)
-    ).cards;
+    const pgCards = (await getCardStore(set, POSTGRES_CACHE)).cards;
+    const fileCards = (await getCardStore(set, FILE_CACHE)).cards;
     const fileCardsByUrl = indexBy(fileCards, (card) => card.cardUrl);
     for (const pgCard of pgCards) {
       const fileCard = fileCardsByUrl[pgCard.cardUrl];
@@ -37,11 +33,7 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
     }
   },
   "compute-grade-distributions": async (output) => {
-    const { cards } = await getCardStore(
-      MagicSet.NEW_CAPENNA,
-      Format.PREMIER_DRAFT,
-      FILE_CACHE
-    );
+    const { cards } = await getCardStore(MagicSet.NEW_CAPENNA, FILE_CACHE);
     const cardsByGrade = groupBy(
       cards,
       (card) => card.stats[Deck.ALL.code]!.grade
@@ -64,7 +56,6 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
   "find-deck-outliers": async (output) => {
     let { cards } = await getCardStore(
       MagicSet.DOMINARIA_UNITED,
-      Format.PREMIER_DRAFT,
       POSTGRES_CACHE
     );
     cards = cards.filter(
@@ -89,7 +80,7 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
   },
   "populate-postgres-cache": async (output) => {
     for (const set of MagicSet.ALL) {
-      await getCardStore(set, Format.PREMIER_DRAFT, POSTGRES_CACHE);
+      await getCardStore(set, POSTGRES_CACHE);
       output.push(`${set.code.toUpperCase()}: Cache Populated`);
     }
   },
@@ -110,11 +101,7 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
     output.push("Done updating all file caches!");
   },
   "visualize-card-scores": async (output) => {
-    const { cards } = await getCardStore(
-      MagicSet.MIDNIGHT_HUNT,
-      Format.PREMIER_DRAFT,
-      FILE_CACHE
-    );
+    const { cards } = await getCardStore(MagicSet.MIDNIGHT_HUNT, FILE_CACHE);
     const sortedCards = sortBy(
       [...cards],
       (card) => -card.stats[Deck.ALL.code]!.score
