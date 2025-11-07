@@ -18,6 +18,12 @@ const RARITY_ICON_CLASSES: Record<Rarity, string> = {
 const computeDaysSinceDate = (dateString: string): number =>
   (Date.now() - new Date(dateString).getTime()) / (24 * 60 * 60 * 1000);
 
+const CubeSvg: FC<SVGProps<SVGSVGElement>> = (props) => (
+  <GradientIcon viewBox="0 0 28 32" {...props}>
+    <path d="M3.077 7.569c3.496-2.017 6.977-4.060 10.474-6.076 3.555 2.053 7.16 4.020 10.713 6.076-2.127 0.465-4.169 1.312-6.005 2.484-1.744 1.106-3.304 2.482-4.707 3.994-1.937-1.795-3.988-3.501-6.31-4.779-1.316-0.726-2.715-1.307-4.166-1.699zM0.062 11.887c0 4.047 0 8.094 0 12.141 2.289 0.387 4.482 1.268 6.435 2.517 1.742 1.107 3.304 2.475 4.732 3.961-0.039-4.093 0.042-8.186 0.001-12.278-1.965-0.307-3.867-0.979-5.613-1.928-2.093-1.132-3.901-2.717-5.554-4.412zM21.869 16.295c-1.748 0.972-3.669 1.633-5.648 1.93 0.037 4.094-0.038 8.188-0.003 12.282 1.184-1.236 2.448-2.401 3.842-3.398 2.178-1.577 4.712-2.687 7.379-3.082 0-4.047 0-8.093 0-12.139-1.657 1.698-3.486 3.256-5.57 4.407z" />
+  </GradientIcon>
+);
+
 interface IconProps {
   rarity?: Rarity;
   className?: string;
@@ -25,6 +31,7 @@ interface IconProps {
 
 export default class MagicSet {
   readonly code: string;
+  readonly code17Lands?: string;
   readonly label: string;
   readonly startDate: string;
   readonly format: Format;
@@ -33,6 +40,16 @@ export default class MagicSet {
   readonly customDeckLabels: Record<string, string> = {};
   static #setsByCode: Record<string, MagicSet> = {};
   static ALL: MagicSet[] = [];
+
+  static POWERED_CUBE = new MagicSet(
+    "powered",
+    "Powered Cube",
+    "2025-10-28",
+    CubeSvg,
+    Deck.TWO_COLOR_DECKS,
+    Format.PREMIER_DRAFT,
+    "cube - powered"
+  );
 
   static THROUGH_THE_OMENPATHS = new MagicSet(
     "om1",
@@ -487,16 +504,7 @@ export default class MagicSet {
     ]
   );
 
-  static ARENA_CUBE = new MagicSet(
-    "cube",
-    "Arena Cube",
-    "2024-10-29",
-    (props) => (
-      <GradientIcon viewBox="0 0 28 32" {...props}>
-        <path d="M3.077 7.569c3.496-2.017 6.977-4.060 10.474-6.076 3.555 2.053 7.16 4.020 10.713 6.076-2.127 0.465-4.169 1.312-6.005 2.484-1.744 1.106-3.304 2.482-4.707 3.994-1.937-1.795-3.988-3.501-6.31-4.779-1.316-0.726-2.715-1.307-4.166-1.699zM0.062 11.887c0 4.047 0 8.094 0 12.141 2.289 0.387 4.482 1.268 6.435 2.517 1.742 1.107 3.304 2.475 4.732 3.961-0.039-4.093 0.042-8.186 0.001-12.278-1.965-0.307-3.867-0.979-5.613-1.928-2.093-1.132-3.901-2.717-5.554-4.412zM21.869 16.295c-1.748 0.972-3.669 1.633-5.648 1.93 0.037 4.094-0.038 8.188-0.003 12.282 1.184-1.236 2.448-2.401 3.842-3.398 2.178-1.577 4.712-2.687 7.379-3.082 0-4.047 0-8.093 0-12.139-1.657 1.698-3.486 3.256-5.57 4.407z" />
-      </GradientIcon>
-    )
-  );
+  static ARENA_CUBE = new MagicSet("cube", "Arena Cube", "2024-10-29", CubeSvg);
 
   static REMIX_ARTIFACTS = new MagicSet(
     "chaos",
@@ -515,9 +523,11 @@ export default class MagicSet {
     startDate: string,
     SvgIcon: FC<SVGProps<SVGSVGElement>>,
     decks: (Deck | [Deck, string])[] = Deck.TWO_COLOR_DECKS,
-    format: Format = Format.PREMIER_DRAFT
+    format: Format = Format.PREMIER_DRAFT,
+    code17Lands?: string
   ) {
     this.code = code;
+    this.code17Lands = code17Lands;
     this.label = label;
     this.startDate = startDate;
     this.format = format;

@@ -30,7 +30,7 @@ const fetchApiCards = async (
   format: Format
 ): Promise<ApiCard[]> => {
   const queryParams: Record<string, string> = {
-    expansion: set.code,
+    expansion: set.code17Lands ?? set.code,
     format,
     start_date: set.startDate,
     end_date: new Date().toISOString().slice(0, 10),
