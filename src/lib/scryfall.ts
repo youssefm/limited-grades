@@ -20,6 +20,7 @@ interface ImageUris {
 }
 interface ScryfallCardFace {
   name: string;
+  printed_name?: string;
   colors?: ScryfallColor[];
   type_line: string;
   mana_cost?: string;
@@ -85,7 +86,11 @@ const getCardName = (card: ScryfallCard): string => {
     card.card_faces &&
     card.card_faces.length > 0
   ) {
-    return card.card_faces[0]!.name;
+    const face = card.card_faces[0]!;
+    if (card.set === "om1" && face.printed_name) {
+      return face.printed_name;
+    }
+    return face.name;
   }
   return card.name;
 };
