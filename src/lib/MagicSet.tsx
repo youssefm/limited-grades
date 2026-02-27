@@ -12,7 +12,7 @@ const RARITY_ICON_CLASSES: Record<Rarity, string> = {
   [Rarity.COMMON]: "",
   [Rarity.UNCOMMON]: "icon-uncommon",
   [Rarity.RARE]: "icon-rare",
-  [Rarity.MYTHIC]: "icon-mythic",
+  [Rarity.MYTHIC]: "icon-mythic"
 };
 
 const computeDaysSinceDate = (dateString: string): number =>
@@ -40,6 +40,19 @@ export default class MagicSet {
   readonly customDeckLabels: Record<string, string> = {};
   static #setsByCode: Record<string, MagicSet> = {};
   static ALL: MagicSet[] = [];
+
+  static TEENAGE_MUTANT_NINJA_TURTLES = new MagicSet(
+    "tmt",
+    "Ninja Turtles",
+    "2026-03-03",
+    (props) => (
+      <GradientIcon viewBox="-12.5 -9.5 125 95" {...props}>
+        <path d="M96.903 43.536c7.694 14.289.963 26.582-19.216 28.113 3.929-2.235 6.727-5.551 7.611-10.703-10.41 19.113-40.913 19.477-50.85-.143.325 4.472 2.626 8.165 7.136 10.988-18.433-1.214-27.61-13.397-19.004-28.207 6.574 3.564 13.904 5.173 22 4.804l-2.996 3.663c12.352-7.63 24.512-7.544 36.484.048l-3.092-3.71c7.659.188 15.03-1.109 21.927-4.853Zm-6.897-26.262c2.053 3.021 3.08 7.443 3.39 12.843 2.37 3.126 3.514 6.744 3.507 10.821-8.458 3.417-17.089 5.107-25.864 5.352-7.334-3.528-15.063-3.568-23.19-.12-10.135.29-17.988-1.952-25.27-5.47.256-4.054 1.41-7.659 3.568-10.762.283-4.732 1.342-8.922 3.21-12.545 19.51 14.258 39.713 14.48 60.649-.12ZM9.048 1.82c9.373-1.014 16.82 2.091 20.74 12.748-3.67 3.492-4.649 9.138-5.138 15.174-2.458 2.673-3.393 6.192-3.568 10.133-8.411 2.11-15.334-.319-21.082-6.328 3.349-5.396 8.3-8.969 15.327-10.179 1.302 3.857 4.046 5.31 7.253 5.993-12.745-8.372.814-17.216-13.532-27.54Zm30.299 26.81c-2.081 2.41-3.037 5.254-3.092 8.444 4.618 2.582 9.537 3.41 14.778 2.356-3.131-4.695-6.996-8.339-11.686-10.8Zm40.814 0c-5.358 3.086-9.274 6.708-11.982 10.78 4.965.86 9.946.453 14.963-2.533-.185-2.776-1.237-5.523-2.98-8.247Zm8.359-13.794c-19.547 14.11-38.685 13.856-57.438.06 15.5-19.923 42.603-19.747 57.438-.06Z" />
+      </GradientIcon>
+    ),
+    [Deck.ORZHOV, Deck.IZZET, Deck.GOLGARI, Deck.BOROS, Deck.SIMIC],
+    Format.PICK_TWO_DRAFT
+  );
 
   static LORWYN_ECLIPSED = new MagicSet(
     "ecl",
@@ -124,7 +137,7 @@ export default class MagicSet {
       Deck.IZZET,
       Deck.GOLGARI,
       Deck.BOROS,
-      Deck.SIMIC,
+      Deck.SIMIC
     ]
   );
 
@@ -323,7 +336,7 @@ export default class MagicSet {
       Deck.DIMIR,
       Deck.RAKDOS,
       Deck.GRUUL,
-      Deck.SELESNYA,
+      Deck.SELESNYA
     ]
   );
 
@@ -385,7 +398,7 @@ export default class MagicSet {
       [Deck.IZZET, "Prismari"],
       [Deck.GOLGARI, "Witherbloom"],
       [Deck.BOROS, "Lorehold"],
-      [Deck.SIMIC, "Quandrix"],
+      [Deck.SIMIC, "Quandrix"]
     ]
   );
 
@@ -518,7 +531,7 @@ export default class MagicSet {
       Deck.IZZET,
       Deck.GOLGARI,
       Deck.BOROS,
-      Deck.SIMIC,
+      Deck.SIMIC
     ]
   );
 
