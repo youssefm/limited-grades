@@ -33,7 +33,7 @@ const fetchApiCards = async (
     expansion: set.code17Lands ?? set.code,
     format,
     start_date: set.startDate,
-    end_date: new Date().toISOString().slice(0, 10)
+    end_date: new Date().toISOString().slice(0, 10),
   };
 
   if (deck !== Deck.ALL) {
@@ -97,7 +97,7 @@ const buildCardStore = async (
     );
     return {
       cards: previousStore.cards,
-      updatedAt: new Date()
+      updatedAt: new Date(),
     };
   }
 
@@ -168,7 +168,7 @@ const buildCardStore = async (
         notDrawnWinrate:
           apiCard.never_drawn_win_rate === null
             ? null
-            : round(apiCard.never_drawn_win_rate, 4)
+            : round(apiCard.never_drawn_win_rate, 4),
       },
       stats: Object.fromEntries(
         Object.entries(cardStats).map(
@@ -178,17 +178,17 @@ const buildCardStore = async (
               winrate: round(winrate, 4),
               gameCount,
               grade,
-              score: round(score, 2)
-            }
+              score: round(score, 2),
+            },
           ]
         )
-      )
+      ),
     });
   }
 
   return {
     updatedAt: new Date(),
-    cards: sortBy(cards, (card) => card.name)
+    cards: sortBy(cards, (card) => card.name),
   };
 };
 
@@ -213,7 +213,7 @@ const getCardStore = async (
     console.log(`Cache hit for ${cacheKey}`);
     return {
       ...cacheHit.value,
-      updatedAt: new Date(cacheHit.value.updatedAt)
+      updatedAt: new Date(cacheHit.value.updatedAt),
     };
   }
   console.log(

@@ -60,14 +60,14 @@ const COLORS: Record<ScryfallColor, Color> = {
   U: Color.BLUE,
   B: Color.BLACK,
   R: Color.RED,
-  G: Color.GREEN
+  G: Color.GREEN,
 };
 
 const EXCLUDED_LAYOUTS = [
   "art_series",
   "token",
   "double_faced_token",
-  "emblem"
+  "emblem",
 ];
 
 const NAMED_BY_CARD_FACE_LAYOUTS = ["transform", "modal_dfc", "adventure"];
@@ -149,7 +149,7 @@ export const generateIndex = async (): Promise<ScryfallIndex> => {
     index[name] = {
       color: getCardColor(card),
       cmc: card.cmc,
-      types: getCardTypes(card)
+      types: getCardTypes(card),
     };
   }
   return index;
@@ -201,7 +201,7 @@ export const LAND_IMAGES = new Lazy(async () => {
 export const fetchCards = async (set: MagicSet): Promise<ScryfallCard[]> => {
   const cards: ScryfallCard[] = [];
   let url = buildUrl("https://api.scryfall.com/cards/search", {
-    q: `e:${set.code} is:booster`
+    q: `e:${set.code} is:booster`,
   });
   for (;;) {
     console.log(`Making a Scryfall request to: ${url}`);

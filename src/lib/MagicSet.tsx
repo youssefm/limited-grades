@@ -12,7 +12,7 @@ const RARITY_ICON_CLASSES: Record<Rarity, string> = {
   [Rarity.COMMON]: "",
   [Rarity.UNCOMMON]: "icon-uncommon",
   [Rarity.RARE]: "icon-rare",
-  [Rarity.MYTHIC]: "icon-mythic"
+  [Rarity.MYTHIC]: "icon-mythic",
 };
 
 const computeDaysSinceDate = (dateString: string): number =>
@@ -137,7 +137,7 @@ export default class MagicSet {
       Deck.IZZET,
       Deck.GOLGARI,
       Deck.BOROS,
-      Deck.SIMIC
+      Deck.SIMIC,
     ]
   );
 
@@ -336,7 +336,7 @@ export default class MagicSet {
       Deck.DIMIR,
       Deck.RAKDOS,
       Deck.GRUUL,
-      Deck.SELESNYA
+      Deck.SELESNYA,
     ]
   );
 
@@ -398,7 +398,7 @@ export default class MagicSet {
       [Deck.IZZET, "Prismari"],
       [Deck.GOLGARI, "Witherbloom"],
       [Deck.BOROS, "Lorehold"],
-      [Deck.SIMIC, "Quandrix"]
+      [Deck.SIMIC, "Quandrix"],
     ]
   );
 
@@ -531,7 +531,7 @@ export default class MagicSet {
       Deck.IZZET,
       Deck.GOLGARI,
       Deck.BOROS,
-      Deck.SIMIC
+      Deck.SIMIC,
     ]
   );
 
