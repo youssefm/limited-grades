@@ -46,10 +46,6 @@
   }
 }
 
-.hide-banner #page-info-banner {
-  display: none;
-}
-
 /* Tippy overrides */
 .tippy-box {
   @apply max-w-none !important;

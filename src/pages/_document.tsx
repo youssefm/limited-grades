@@ -1,7 +1,6 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
 import DarkModeInitializer from "components/common/DarkModeInitializer";
-import HideBannerInitializer from "components/common/HideBannerInitializer";
 
 class MyDocument extends Document {
   render(): JSX.Element {
@@ -10,7 +9,6 @@ class MyDocument extends Document {
         <Head />
         <body>
           <DarkModeInitializer />
-          <HideBannerInitializer />
           <Main />
           <NextScript />
         </body>

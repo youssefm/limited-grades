@@ -9,7 +9,6 @@ import { HOVER_CLASSES, TRANSITION_CLASSES } from "lib/styles";
 
 import AboutProjectModal from "./AboutProjectModal";
 import DarkModeToggle from "./DarkModeToggle";
-import PageInfoBanner from "./PageInfoBanner";
 
 const BANNER_MESSAGE = process.env.NEXT_PUBLIC_BANNER_MESSAGE;
 
@@ -56,8 +55,6 @@ const PageHeader = (): JSX.Element => {
           {BANNER_MESSAGE}
         </Banner>
       )}
-
-      <PageInfoBanner onLearnMore={() => setShowInfoModal(true)} />
 
       {showInfoModal && (
         <AboutProjectModal onClose={() => setShowInfoModal(false)} />
