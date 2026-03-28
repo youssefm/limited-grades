@@ -18,4 +18,16 @@ describe("CaseInsensitiveMap", () => {
     map.set("D\u00e9j\u00e0 Vu", 2);
     expect(map.get("Deja Vu")).toEqual(2);
   });
+
+  it("matches ? as a wildcard for corrupted non-ASCII characters", () => {
+    const map = new CaseInsensitiveMap();
+    map.set("Bespoke B\u014d", 1);
+    expect(map.get("Bespoke B?")).toEqual(1);
+  });
+
+  it("returns undefined for ? when no match exists", () => {
+    const map = new CaseInsensitiveMap();
+    map.set("Hello", 1);
+    expect(map.get("Xyz?")).toBeUndefined();
+  });
 });
