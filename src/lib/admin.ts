@@ -53,6 +53,11 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
     await POSTGRES_CACHE.delete(setCode);
     output.push(`${setCode.toUpperCase()} cache deleted!`);
   },
+  "delete-tmt-cache": async (output) => {
+    const set = MagicSet.TEENAGE_MUTANT_NINJA_TURTLES;
+    await POSTGRES_CACHE.delete(set.code);
+    output.push(`${set.code.toUpperCase()} postgres cache deleted`);
+  },
   "find-deck-outliers": async (output) => {
     let { cards } = await getCardStore(
       MagicSet.DOMINARIA_UNITED,
