@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-03-28T02:26:05.532Z",
+  "updatedAt": "2026-03-28T03:03:21.261Z",
   "cards": [
     {
       "name": "Action News Crew",
@@ -386,6 +386,46 @@
           "gameCount": 3968,
           "grade": "D-",
           "score": 14.92
+        }
+      }
+    },
+    {
+      "name": "Bespoke Bō",
+      "color": "blue",
+      "rarity": "uncommon",
+      "cardTypes": [
+        "artifact"
+      ],
+      "manaValue": 3,
+      "cardUrl": "https://cards.scryfall.io/large/front/6/c/6c517308-831b-4e41-a82c-02ddf6383a0c.jpg?1771586788",
+      "cardBackUrl": "",
+      "overallStats": {
+        "gameCount": 33852,
+        "lastSeenAt": 4.44,
+        "takenAt": 5.55,
+        "playedWinrate": 0.5504,
+        "openingHandWinrate": 0.5305,
+        "drawnWinrate": 0.5821,
+        "notDrawnWinrate": 0.5381
+      },
+      "stats": {
+        "all": {
+          "winrate": 0.5628,
+          "gameCount": 15225,
+          "grade": "C",
+          "score": 46.02
+        },
+        "ur": {
+          "winrate": 0.5748,
+          "gameCount": 8848,
+          "grade": "C",
+          "score": 53.98
+        },
+        "ug": {
+          "winrate": 0.5227,
+          "gameCount": 2843,
+          "grade": "D",
+          "score": 24.83
         }
       }
     },

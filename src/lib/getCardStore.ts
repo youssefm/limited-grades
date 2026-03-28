@@ -143,7 +143,7 @@ const buildCardStore = async (
     }
 
     cards.push({
-      name: cardName,
+      name: scryfallIndexEntry.name,
       color: scryfallIndexEntry.color,
       rarity: apiCard.rarity === "basic" ? Rarity.COMMON : apiCard.rarity,
       cardTypes: scryfallIndexEntry.types,

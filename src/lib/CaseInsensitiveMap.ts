@@ -8,7 +8,17 @@ const replaceNonAscii = (key: string): string =>
   key.replace(/[^\u0020-\u007e]/g, "?");
 
 export default class CaseInsensitiveMap<V> extends Map<string, V> {
-  #fallbackMap = new Map<string, V>();
+  #fallbackMap: Map<string, V>;
+
+  constructor(entries?: Iterable<[string, V]>) {
+    super();
+    this.#fallbackMap = new Map<string, V>();
+    if (entries) {
+      for (const [key, value] of entries) {
+        this.set(key, value);
+      }
+    }
+  }
 
   get(key: string): V | undefined {
     const normalized = normalizeKey(key);

@@ -48,13 +48,17 @@ interface ScryfallCardPage {
   data: ScryfallCard[];
 }
 
-export interface ScryfallIndexEntry {
+interface PersistedScryfallIndexEntry {
   color: Color;
   cmc: number;
   types: CardType[];
 }
 
-export type ScryfallIndex = Record<string, ScryfallIndexEntry>;
+export interface ScryfallIndexEntry extends PersistedScryfallIndexEntry {
+  name: string;
+}
+
+export type ScryfallIndex = Record<string, PersistedScryfallIndexEntry>;
 
 const COLORS: Record<ScryfallColor, Color> = {
   W: Color.WHITE,
@@ -169,7 +173,9 @@ export const SCRYFALL_INDEX = new Lazy(async () => {
     console.log("Writing Scryfall index to cache");
     await CACHE.set(INDEX_CACHE_KEY, index, 365 * DAY_IN_SECONDS);
   }
-  return new CaseInsensitiveMap(Object.entries(index));
+  return new CaseInsensitiveMap(
+    Object.entries(index).map(([key, entry]) => [key, { ...entry, name: key }])
+  );
 });
 
 const generateLandImages = async (): Promise<string[]> => {
