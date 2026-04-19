@@ -1,6 +1,6 @@
 ---
 name: add-magic-set
-description: Add a new Magic: The Gathering set to the project. Use when asked to add a new MTG set, expansion, or draft format. Involves researching the set on mtg.wiki, downloading its SVG icon from Scryfall, adding a static entry in MagicSet.tsx, and updating the Next.js redirect config.
+description: "Add a new Magic: The Gathering set to the project. Use when asked to add a new MTG set, expansion, or draft format. Involves researching the set on mtg.wiki, downloading its SVG icon from Scryfall, adding a static entry in MagicSet.tsx, and updating the Next.js redirect config."
 disable-model-invocation: true
 argument-hint: "[set-name]"
 ---
