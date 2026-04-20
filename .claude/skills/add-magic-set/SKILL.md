@@ -139,7 +139,17 @@ static POWERED_CUBE = new MagicSet(
 );
 ```
 
-### Step 4: Update next.config.js Redirect
+### Step 4: Populate the Scryfall Index Cache
+
+After adding the `MagicSet` entry, populate the Scryfall index cache so the new set's card images are available. Run this via the admin CLI:
+
+```bash
+npm run admin -- populate-scryfall-index
+```
+
+Wait for it to complete. It fetches Scryfall bulk data and writes the index to both the file cache and Postgres cache. This ensures card image URLs are available for the new set.
+
+### Step 5: Update next.config.js Redirect
 
 Edit `next.config.js` to change the root redirect destination to the new set's code:
 
@@ -160,6 +170,10 @@ redirects: async () => [
 | ---------------------- | ------------------------------------------------- |
 | `src/lib/MagicSet.tsx` | Add new static `MagicSet` instance (newest first) |
 | `next.config.js`       | Update root `/` redirect to new set code          |
+
+## Admin CLI
+
+The project has an admin CLI at `scripts/admin.ts` (run via `npm run admin`). Use it to populate caches when adding a new set. Run `npm run admin` with no args to see all available actions.
 
 ## Naming Convention for Static Field
 
