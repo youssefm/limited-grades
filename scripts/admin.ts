@@ -1,3 +1,6 @@
+import { loadEnvConfig } from "@next/env";
+loadEnvConfig(process.cwd());
+
 import ADMIN_ACTIONS from "lib/admin";
 
 const formatLine = (line: any): string =>
