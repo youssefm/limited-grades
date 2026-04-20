@@ -8,7 +8,9 @@ import { Grade, Rarity } from "./types";
 import { groupBy, sortBy } from "./util";
 import { indexBy } from "./util.server";
 
-const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
+export type AdminAction = (output: any[]) => Promise<void>;
+
+const ADMIN_ACTIONS: Record<string, AdminAction> = {
   "check-postgres-keys": async (output) => {
     for (const set of MagicSet.ALL) {
       const cardStore = await POSTGRES_CACHE.get(set.code);
@@ -128,7 +130,4 @@ const ACTIONS: Record<string, (output: any[]) => Promise<void>> = {
   },
 };
 
-export const ADMIN_ACTIONS =
-  process.env.ADMIN_ENABLED === "true" ? ACTIONS : {};
-
-export const ADMIN_ACTION_KEYS = Object.keys(ADMIN_ACTIONS);
+export default ADMIN_ACTIONS;

@@ -1,6 +1,8 @@
 import { NextApiRequest, NextApiResponse } from "next";
 
-import { ADMIN_ACTIONS } from "lib/admin";
+import ADMIN_ACTIONS from "lib/admin";
+
+const IS_ADMIN_ENABLED = process.env.ADMIN_ENABLED === "true";
 
 const formatOutput = (output: any[]): string[] =>
   output.map((line) =>
@@ -13,7 +15,9 @@ const handler = async (
 ): Promise<void> => {
   const { actionName } = request.query;
 
-  const action = ADMIN_ACTIONS[actionName as string];
+  const action = IS_ADMIN_ENABLED
+    ? ADMIN_ACTIONS[actionName as string]
+    : undefined;
   if (!action) {
     response.status(404).send(null);
     return;

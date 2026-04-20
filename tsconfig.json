@@ -23,6 +23,7 @@
     "next-env.d.ts",
     "src/**/*.ts",
     "src/**/*.tsx",
+    "scripts/**/*.ts",
     "test/**/*.ts",
     "test/**/*.tsx"
   ]
