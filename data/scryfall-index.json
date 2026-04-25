@@ -4488,7 +4488,7 @@
       "creature"
     ]
   },
-  "Jinnie Fay, Jetmir's Second // Jinnie Fay, Jetmir's Second": {
+  "Jinnie Fay, Jetmir's Second": {
     "color": "multicolor",
     "types": []
   },
@@ -10738,7 +10738,7 @@
       "artifact"
     ]
   },
-  "Scathing Shadelock // Venomous Words": {
+  "Scathing Shadelock": {
     "color": "black",
     "cmc": 5,
     "types": [
@@ -12366,10 +12366,6 @@
       "creature"
     ]
   },
-  "Ghalta, Primal Hunger // Ghalta, Primal Hunger": {
-    "color": "green",
-    "types": []
-  },
   "Fathom Fleet Firebrand": {
     "color": "red",
     "cmc": 2,
@@ -12391,7 +12387,7 @@
       "creature"
     ]
   },
-  "Tuvasa the Sunlit // Tuvasa the Sunlit": {
+  "Tuvasa the Sunlit": {
     "color": "multicolor",
     "types": []
   },
@@ -15875,7 +15871,7 @@
       "artifact"
     ]
   },
-  "Reckoner Bankbuster // Reckoner Bankbuster": {
+  "Reckoner Bankbuster": {
     "color": "colorless",
     "types": []
   },
@@ -21295,7 +21291,7 @@
       "land"
     ]
   },
-  "Bloomvine Regent // Claim Territory // Bloomvine Regent": {
+  "Bloomvine Regent": {
     "color": "green",
     "types": []
   },
@@ -22411,7 +22407,7 @@
       "sorcery"
     ]
   },
-  "Stitch in Time // Stitch in Time": {
+  "Stitch in Time": {
     "color": "multicolor",
     "types": []
   },
@@ -25783,7 +25779,7 @@
       "instant"
     ]
   },
-  "Eiganjo Dynastorian // Replenish": {
+  "Eiganjo Dynastorian": {
     "color": "white",
     "cmc": 3,
     "types": [
@@ -29357,7 +29353,7 @@
       "sorcery"
     ]
   },
-  "Erayo, Soratami Ascendant // Erayo's Essence": {
+  "Erayo, Soratami Ascendant": {
     "color": "blue",
     "cmc": 2,
     "types": [
@@ -36732,7 +36728,7 @@
       "creature"
     ]
   },
-  "Budoka Pupil // Ichiga, Who Topples Oaks": {
+  "Budoka Pupil": {
     "color": "green",
     "cmc": 3,
     "types": [
@@ -41446,14 +41442,6 @@
     "cmc": 3,
     "types": [
       "instant"
-    ]
-  },
-  "Bloomvine Regent": {
-    "color": "green",
-    "cmc": 5,
-    "types": [
-      "creature",
-      "sorcery"
     ]
   },
   "Jiang Yanggu, Wildcrafter": {
@@ -50478,7 +50466,7 @@
       "instant"
     ]
   },
-  "Striding Shotcaller // Run the Play": {
+  "Striding Shotcaller": {
     "color": "multicolor",
     "cmc": 2,
     "types": [
@@ -50841,7 +50829,7 @@
       "creature"
     ]
   },
-  "Joined Researchers // Secret Rendezvous": {
+  "Joined Researchers": {
     "color": "white",
     "cmc": 2,
     "types": [
@@ -51276,7 +51264,7 @@
       "creature"
     ]
   },
-  "Initiate of Blood // Goka the Unjust": {
+  "Initiate of Blood": {
     "color": "red",
     "cmc": 4,
     "types": [
@@ -53567,7 +53555,7 @@
       "creature"
     ]
   },
-  "Sanar, Unfinished Genius // Wild Idea": {
+  "Sanar, Unfinished Genius": {
     "color": "multicolor",
     "cmc": 2,
     "types": [
@@ -58045,10 +58033,6 @@
     "types": [
       "creature"
     ]
-  },
-  "Hallowed Fountain // Hallowed Fountain": {
-    "color": "colorless",
-    "types": []
   },
   "Shadowfeed": {
     "color": "black",
@@ -62687,7 +62671,7 @@
       "sorcery"
     ]
   },
-  "Scheming Silvertongue // Sign in Blood": {
+  "Scheming Silvertongue": {
     "color": "black",
     "cmc": 2,
     "types": [
@@ -63862,7 +63846,7 @@
       "creature"
     ]
   },
-  "Grave Researcher // Reanimate": {
+  "Grave Researcher": {
     "color": "black",
     "cmc": 3,
     "types": [
@@ -66866,7 +66850,7 @@
       "creature"
     ]
   },
-  "Rune-Tail, Kitsune Ascendant // Rune-Tail's Essence": {
+  "Rune-Tail, Kitsune Ascendant": {
     "color": "white",
     "cmc": 3,
     "types": [
@@ -68094,7 +68078,7 @@
       "instant"
     ]
   },
-  "Cunning Bandit // Azamuki, Treachery Incarnate": {
+  "Cunning Bandit": {
     "color": "red",
     "cmc": 3,
     "types": [
@@ -69466,7 +69450,7 @@
       "creature"
     ]
   },
-  "Anje Falkenrath // Anje Falkenrath": {
+  "Anje Falkenrath": {
     "color": "multicolor",
     "types": []
   },
@@ -72458,13 +72442,6 @@
       "creature"
     ]
   },
-  "Reckoner Bankbuster": {
-    "color": "colorless",
-    "cmc": 2,
-    "types": [
-      "artifact"
-    ]
-  },
   "Herald of Serra": {
     "color": "white",
     "cmc": 4,
@@ -73745,7 +73722,7 @@
       "creature"
     ]
   },
-  "Anointed Procession // Anointed Procession": {
+  "Anointed Procession": {
     "color": "white",
     "types": []
   },
@@ -76192,7 +76169,7 @@
       "creature"
     ]
   },
-  "Studious First-Year // Rampant Growth": {
+  "Studious First-Year": {
     "color": "green",
     "cmc": 1,
     "types": [
@@ -78117,7 +78094,7 @@
       "land"
     ]
   },
-  "Emeritus of Woe // Demonic Tutor": {
+  "Emeritus of Woe": {
     "color": "black",
     "cmc": 4,
     "types": [
@@ -80371,7 +80348,7 @@
       "creature"
     ]
   },
-  "Monster // Virtuous": {
+  "Monster": {
     "color": "colorless",
     "cmc": 0,
     "types": [
@@ -82139,10 +82116,6 @@
       "artifact"
     ]
   },
-  "Blood Crypt // Blood Crypt": {
-    "color": "colorless",
-    "types": []
-  },
   "Malanthrope": {
     "color": "multicolor",
     "cmc": 3,
@@ -82425,7 +82398,7 @@
       "creature"
     ]
   },
-  "Hired Muscle // Scarmaker": {
+  "Hired Muscle": {
     "color": "black",
     "cmc": 3,
     "types": [
@@ -83101,7 +83074,7 @@
       "artifact"
     ]
   },
-  "Elite Interceptor // Rejoinder": {
+  "Elite Interceptor": {
     "color": "white",
     "cmc": 1,
     "types": [
@@ -83769,7 +83742,7 @@
       "artifact"
     ]
   },
-  "Inspired Skypainter // Maestro's Gift": {
+  "Inspired Skypainter": {
     "color": "multicolor",
     "cmc": 2,
     "types": [
@@ -84268,7 +84241,7 @@
       "creature"
     ]
   },
-  "Nezumi Graverobber // Nighteyes the Desecrator": {
+  "Nezumi Graverobber": {
     "color": "black",
     "cmc": 2,
     "types": [
@@ -86001,7 +85974,7 @@
       "sorcery"
     ]
   },
-  "Emeritus of Abundance // Regrowth": {
+  "Emeritus of Abundance": {
     "color": "green",
     "cmc": 3,
     "types": [
@@ -93062,10 +93035,6 @@
       "creature"
     ]
   },
-  "Overgrown Tomb // Overgrown Tomb": {
-    "color": "colorless",
-    "types": []
-  },
   "Adventurous Impulse": {
     "color": "green",
     "cmc": 1,
@@ -97351,13 +97320,6 @@
       "creature"
     ]
   },
-  "Stitch in Time": {
-    "color": "multicolor",
-    "cmc": 3,
-    "types": [
-      "sorcery"
-    ]
-  },
   "Rancid Rats": {
     "color": "black",
     "cmc": 2,
@@ -97642,7 +97604,7 @@
       "creature"
     ]
   },
-  "Jushi Apprentice // Tomoya the Revealer": {
+  "Jushi Apprentice": {
     "color": "blue",
     "cmc": 2,
     "types": [
@@ -101968,7 +101930,7 @@
       "instant"
     ]
   },
-  "Steely Resolve // Steely Resolve": {
+  "Steely Resolve": {
     "color": "green",
     "types": []
   },
@@ -105250,10 +105212,6 @@
       "creature"
     ]
   },
-  "Jetmir, Nexus of Revels // Jetmir, Nexus of Revels": {
-    "color": "multicolor",
-    "types": []
-  },
   "Medicine Bag": {
     "color": "colorless",
     "cmc": 3,
@@ -107706,7 +107664,7 @@
       "creature"
     ]
   },
-  "Blazing Firesinger // Seething Song": {
+  "Blazing Firesinger": {
     "color": "red",
     "cmc": 3,
     "types": [
@@ -108369,7 +108327,7 @@
       "creature"
     ]
   },
-  "Cheerful Osteomancer // Raise Dead": {
+  "Cheerful Osteomancer": {
     "color": "black",
     "cmc": 4,
     "types": [
@@ -109013,10 +108971,6 @@
     "types": [
       "artifact"
     ]
-  },
-  "Jace Beleren // Jace Beleren": {
-    "color": "blue",
-    "types": []
   },
   "Brokers Confluence": {
     "color": "multicolor",
@@ -110097,7 +110051,7 @@
       "enchantment"
     ]
   },
-  "Norin the Wary // Norin the Wary": {
+  "Norin the Wary": {
     "color": "red",
     "types": []
   },
@@ -110915,10 +110869,6 @@
     "types": [
       "instant"
     ]
-  },
-  "Propaganda // Propaganda": {
-    "color": "blue",
-    "types": []
   },
   "Xanathar, Guild Kingpin": {
     "color": "multicolor",
@@ -113498,10 +113448,6 @@
       "creature"
     ]
   },
-  "Peacewalker Colossus // Peacewalker Colossus": {
-    "color": "colorless",
-    "types": []
-  },
   "Wings of the Guard": {
     "color": "white",
     "cmc": 2,
@@ -114075,7 +114021,7 @@
       "sorcery"
     ]
   },
-  "Kuon, Ogre Ascendant // Kuon's Essence": {
+  "Kuon, Ogre Ascendant": {
     "color": "black",
     "cmc": 3,
     "types": [
@@ -116798,10 +116744,6 @@
     "cmc": 0,
     "types": []
   },
-  "Dragonlord Kolaghan // Dragonlord Kolaghan": {
-    "color": "multicolor",
-    "types": []
-  },
   "Weatherlight": {
     "color": "colorless",
     "cmc": 4,
@@ -117250,13 +117192,6 @@
     "color": "colorless",
     "cmc": 0,
     "types": []
-  },
-  "Jinnie Fay, Jetmir's Second": {
-    "color": "multicolor",
-    "cmc": 3,
-    "types": [
-      "creature"
-    ]
   },
   "Groom's Finery": {
     "color": "black",
@@ -118971,13 +118906,6 @@
   "Raksha Golden Cub": {
     "color": "white",
     "cmc": 7,
-    "types": [
-      "creature"
-    ]
-  },
-  "Norin the Wary": {
-    "color": "red",
-    "cmc": 1,
     "types": [
       "creature"
     ]
@@ -121290,7 +121218,7 @@
       "sorcery"
     ]
   },
-  "Vastlands Scavenger // Bind to Life": {
+  "Vastlands Scavenger": {
     "color": "green",
     "cmc": 3,
     "types": [
@@ -122280,7 +122208,7 @@
       "creature"
     ]
   },
-  "Marang River Regent // Coil and Catch // Marang River Regent": {
+  "Marang River Regent": {
     "color": "blue",
     "types": []
   },
@@ -123530,7 +123458,7 @@
       "creature"
     ]
   },
-  "Magmatic Hellkite // Magmatic Hellkite": {
+  "Magmatic Hellkite": {
     "color": "red",
     "types": []
   },
@@ -123642,7 +123570,7 @@
       "enchantment"
     ]
   },
-  "Budoka Gardener // Dokai, Weaver of Life": {
+  "Budoka Gardener": {
     "color": "green",
     "cmc": 2,
     "types": [
@@ -126685,7 +126613,7 @@
       "creature"
     ]
   },
-  "Kitsune Mystic // Autumn-Tail, Kitsune Sage": {
+  "Kitsune Mystic": {
     "color": "white",
     "cmc": 4,
     "types": [
@@ -127332,10 +127260,6 @@
   "Shapeshifters": {
     "color": "colorless",
     "cmc": 0,
-    "types": []
-  },
-  "Blightsteel Colossus // Blightsteel Colossus": {
-    "color": "colorless",
     "types": []
   },
   "Desolation Twin": {
@@ -128825,10 +128749,6 @@
       "enchantment"
     ]
   },
-  "Dragonlord Silumgar // Dragonlord Silumgar": {
-    "color": "multicolor",
-    "types": []
-  },
   "Clavileño, First of the Blessed": {
     "color": "multicolor",
     "cmc": 3,
@@ -129041,7 +128961,7 @@
       "enchantment"
     ]
   },
-  "Skycoach Conductor // All Aboard": {
+  "Skycoach Conductor": {
     "color": "blue",
     "cmc": 3,
     "types": [
@@ -129229,7 +129149,7 @@
       "creature"
     ]
   },
-  "Chulane, Teller of Tales // Chulane, Teller of Tales": {
+  "Chulane, Teller of Tales": {
     "color": "multicolor",
     "types": []
   },
@@ -130726,7 +130646,7 @@
       "instant"
     ]
   },
-  "Eccentric Pestfinder // Turn Stones": {
+  "Eccentric Pestfinder": {
     "color": "multicolor",
     "cmc": 4,
     "types": [
@@ -133937,10 +133857,6 @@
     "types": [
       "instant"
     ]
-  },
-  "Ugin, Eye of the Storms // Ugin, Eye of the Storms": {
-    "color": "colorless",
-    "types": []
   },
   "Colossal Plow": {
     "color": "colorless",
@@ -141103,10 +141019,6 @@
       "instant"
     ]
   },
-  "Chandra Nalaar // Chandra Nalaar": {
-    "color": "red",
-    "types": []
-  },
   "Tuknir Deathlock": {
     "color": "multicolor",
     "cmc": 4,
@@ -142905,7 +142817,7 @@
       "creature"
     ]
   },
-  "Maelstrom Artisan // Rocket Volley": {
+  "Maelstrom Artisan": {
     "color": "red",
     "cmc": 3,
     "types": [
@@ -143396,7 +143308,7 @@
       "enchantment"
     ]
   },
-  "Mechtitan // Mechtitan": {
+  "Mechtitan": {
     "color": "multicolor",
     "types": []
   },
@@ -147029,10 +146941,6 @@
       "creature"
     ]
   },
-  "Terror // Terror": {
-    "color": "black",
-    "types": []
-  },
   "Paranormal Analyst": {
     "color": "blue",
     "cmc": 2,
@@ -147572,7 +147480,7 @@
       "creature"
     ]
   },
-  "Harmonized Trio // Brainstorm": {
+  "Harmonized Trio": {
     "color": "blue",
     "cmc": 1,
     "types": [
@@ -148760,7 +148668,7 @@
       "creature"
     ]
   },
-  "Quill-Blade Laureate // Twofold Intent": {
+  "Quill-Blade Laureate": {
     "color": "white",
     "cmc": 2,
     "types": [
@@ -150900,13 +150808,6 @@
       "creature"
     ]
   },
-  "Anje Falkenrath": {
-    "color": "multicolor",
-    "cmc": 3,
-    "types": [
-      "creature"
-    ]
-  },
   "Fall of the Gavel": {
     "color": "multicolor",
     "cmc": 5,
@@ -151781,10 +151682,6 @@
       "instant"
     ]
   },
-  "Plains // Plains": {
-    "color": "colorless",
-    "types": []
-  },
   "Maelstrom Archangel": {
     "color": "multicolor",
     "cmc": 5,
@@ -152385,7 +152282,7 @@
       "instant"
     ]
   },
-  "Stensian Sanguinist // Exsanguinate": {
+  "Stensian Sanguinist": {
     "color": "black",
     "cmc": 2,
     "types": [
@@ -152832,10 +152729,6 @@
       "creature"
     ]
   },
-  "Krark, the Thumbless // Krark, the Thumbless": {
-    "color": "red",
-    "types": []
-  },
   "Psychatog": {
     "color": "multicolor",
     "cmc": 3,
@@ -152920,7 +152813,7 @@
       "creature"
     ]
   },
-  "Kirol, History Buff // Pack a Punch": {
+  "Kirol, History Buff": {
     "color": "multicolor",
     "cmc": 2,
     "types": [
@@ -153687,14 +153580,6 @@
     "cmc": 3,
     "types": [
       "creature"
-    ]
-  },
-  "Marang River Regent": {
-    "color": "blue",
-    "cmc": 6,
-    "types": [
-      "creature",
-      "instant"
     ]
   },
   "Training Drone": {
@@ -155121,10 +155006,6 @@
       "artifact"
     ]
   },
-  "Parhelion II // Parhelion II": {
-    "color": "white",
-    "types": []
-  },
   "Grip of the Roil": {
     "color": "blue",
     "cmc": 3,
@@ -155704,10 +155585,6 @@
       "creature"
     ]
   },
-  "Adrix and Nev, Twincasters // Adrix and Nev, Twincasters": {
-    "color": "multicolor",
-    "types": []
-  },
   "Scourge of the Nobilis": {
     "color": "multicolor",
     "cmc": 3,
@@ -156265,13 +156142,6 @@
     "cmc": 4,
     "types": [
       "creature"
-    ]
-  },
-  "Monster // Sorcerer": {
-    "color": "colorless",
-    "cmc": 0,
-    "types": [
-      "enchantment"
     ]
   },
   "Divine Smite": {
@@ -157044,10 +156914,6 @@
     "types": [
       "creature"
     ]
-  },
-  "Unholy Grotto // Unholy Grotto": {
-    "color": "colorless",
-    "types": []
   },
   "Mechanical Mobster": {
     "color": "colorless",
@@ -158789,7 +158655,7 @@
       "sorcery"
     ]
   },
-  "Akki Lavarunner // Tok-Tok, Volcano Born": {
+  "Akki Lavarunner": {
     "color": "red",
     "cmc": 4,
     "types": [
@@ -160606,7 +160472,7 @@
       "land"
     ]
   },
-  "Tam, Observant Sequencer // Deep Sight": {
+  "Tam, Observant Sequencer": {
     "color": "multicolor",
     "cmc": 4,
     "types": [
@@ -161627,7 +161493,7 @@
       "enchantment"
     ]
   },
-  "Encouraging Aviator // Jump": {
+  "Encouraging Aviator": {
     "color": "blue",
     "cmc": 3,
     "types": [
@@ -164299,7 +164165,7 @@
       "creature"
     ]
   },
-  "Faithful Squire // Kaiso, Memory of Loyalty": {
+  "Faithful Squire": {
     "color": "white",
     "cmc": 3,
     "types": [
@@ -164342,7 +164208,7 @@
       "land"
     ]
   },
-  "Emeritus of Ideation // Ancestral Recall": {
+  "Emeritus of Ideation": {
     "color": "blue",
     "cmc": 5,
     "types": [
@@ -165274,10 +165140,6 @@
       "creature"
     ]
   },
-  "Island // Island": {
-    "color": "colorless",
-    "types": []
-  },
   "Thornscape Familiar": {
     "color": "green",
     "cmc": 2,
@@ -165692,7 +165554,7 @@
       "creature"
     ]
   },
-  "Abigale, Poet Laureate // Heroic Stanza": {
+  "Abigale, Poet Laureate": {
     "color": "multicolor",
     "cmc": 3,
     "types": [
@@ -165950,13 +165812,6 @@
   "Venomthrope": {
     "color": "multicolor",
     "cmc": 3,
-    "types": [
-      "creature"
-    ]
-  },
-  "Magmatic Hellkite": {
-    "color": "red",
-    "cmc": 4,
     "types": [
       "creature"
     ]
@@ -167502,7 +167357,7 @@
       "creature"
     ]
   },
-  "Honorbound Page // Forum's Favor": {
+  "Honorbound Page": {
     "color": "white",
     "cmc": 4,
     "types": [
@@ -169162,7 +169017,7 @@
       "sorcery"
     ]
   },
-  "Dirgur Focusmage // Braingeyser": {
+  "Dirgur Focusmage": {
     "color": "blue",
     "cmc": 3,
     "types": [
@@ -171074,10 +170929,6 @@
     "types": [
       "creature"
     ]
-  },
-  "Forest // Forest": {
-    "color": "colorless",
-    "types": []
   },
   "Elvish Pioneer": {
     "color": "green",
@@ -174176,10 +174027,6 @@
       "creature"
     ]
   },
-  "Dragonlord Ojutai // Dragonlord Ojutai": {
-    "color": "multicolor",
-    "types": []
-  },
   "Stensia Banquet": {
     "color": "red",
     "cmc": 3,
@@ -174488,10 +174335,6 @@
     "types": [
       "creature"
     ]
-  },
-  "Ulamog, the Ceaseless Hunger // Ulamog, the Ceaseless Hunger": {
-    "color": "colorless",
-    "types": []
   },
   "Stratus Dancer": {
     "color": "blue",
@@ -175180,13 +175023,6 @@
       "enchantment"
     ]
   },
-  "Chulane, Teller of Tales": {
-    "color": "multicolor",
-    "cmc": 5,
-    "types": [
-      "creature"
-    ]
-  },
   "Gelectrode": {
     "color": "multicolor",
     "cmc": 3,
@@ -175327,7 +175163,7 @@
       "creature"
     ]
   },
-  "Okaun, Eye of Chaos // Okaun, Eye of Chaos": {
+  "Okaun, Eye of Chaos": {
     "color": "red",
     "types": []
   },
@@ -175393,10 +175229,6 @@
     "types": [
       "creature"
     ]
-  },
-  "Swamp // Swamp": {
-    "color": "colorless",
-    "types": []
   },
   "Wei Elite Companions": {
     "color": "black",
@@ -175627,7 +175459,7 @@
       "land"
     ]
   },
-  "Homura, Human Ascendant // Homura's Essence": {
+  "Homura, Human Ascendant": {
     "color": "red",
     "cmc": 6,
     "types": [
@@ -175694,7 +175526,7 @@
       "planeswalker"
     ]
   },
-  "Nezumi Shortfang // Stabwhisker the Odious": {
+  "Nezumi Shortfang": {
     "color": "black",
     "cmc": 2,
     "types": [
@@ -176879,7 +176711,7 @@
       "creature"
     ]
   },
-  "Bushi Tenderfoot // Kenzo the Hardhearted": {
+  "Bushi Tenderfoot": {
     "color": "white",
     "cmc": 1,
     "types": [
@@ -177782,13 +177614,6 @@
   "Arbor Colossus": {
     "color": "green",
     "cmc": 5,
-    "types": [
-      "creature"
-    ]
-  },
-  "Tuvasa the Sunlit": {
-    "color": "multicolor",
-    "cmc": 3,
     "types": [
       "creature"
     ]
@@ -180510,10 +180335,6 @@
       "creature"
     ]
   },
-  "Darksteel Colossus // Darksteel Colossus": {
-    "color": "colorless",
-    "types": []
-  },
   "Undercity Plunder": {
     "color": "black",
     "cmc": 2,
@@ -180902,10 +180723,6 @@
   "Morbid": {
     "color": "colorless",
     "cmc": 0,
-    "types": []
-  },
-  "Zombie Master // Zombie Master": {
-    "color": "black",
     "types": []
   },
   "Chiss-Goria, Forge Tyrant": {
@@ -182271,7 +182088,7 @@
       "creature"
     ]
   },
-  "Strife Scholar // Awaken the Ages": {
+  "Strife Scholar": {
     "color": "red",
     "cmc": 3,
     "types": [
@@ -182683,13 +182500,6 @@
     "cmc": 3,
     "types": [
       "creature"
-    ]
-  },
-  "Anointed Procession": {
-    "color": "white",
-    "cmc": 4,
-    "types": [
-      "enchantment"
     ]
   },
   "Burglar Rat": {
@@ -183904,10 +183714,6 @@
       "creature"
     ]
   },
-  "Doubling Cube // Doubling Cube": {
-    "color": "colorless",
-    "types": []
-  },
   "Rune of Protection: Green": {
     "color": "white",
     "cmc": 2,
@@ -184473,7 +184279,7 @@
       "enchantment"
     ]
   },
-  "Infirmary Healer // Stream of Life": {
+  "Infirmary Healer": {
     "color": "green",
     "cmc": 2,
     "types": [
@@ -184530,10 +184336,6 @@
       "creature"
     ]
   },
-  "Dragonlord Dromoka // Dragonlord Dromoka": {
-    "color": "multicolor",
-    "types": []
-  },
   "A-Psionic Snoop": {
     "color": "blue",
     "cmc": 3,
@@ -184575,10 +184377,6 @@
     "types": [
       "creature"
     ]
-  },
-  "Mechtitan Core // Mechtitan Core": {
-    "color": "colorless",
-    "types": []
   },
   "Emptiness": {
     "color": "multicolor",
@@ -184629,7 +184427,7 @@
       "instant"
     ]
   },
-  "Defacing Duskmage // Vandal's Edit": {
+  "Defacing Duskmage": {
     "color": "multicolor",
     "cmc": 2,
     "types": [
@@ -185678,7 +185476,7 @@
       "sorcery"
     ]
   },
-  "Jadzi, Steward of Fate // Oracle's Gift": {
+  "Jadzi, Steward of Fate": {
     "color": "blue",
     "cmc": 3,
     "types": [
@@ -186500,10 +186298,6 @@
     "types": [
       "instant"
     ]
-  },
-  "Liliana Vess // Liliana Vess": {
-    "color": "black",
-    "types": []
   },
   "Darigaaz Reincarnated": {
     "color": "multicolor",
@@ -187816,10 +187610,6 @@
     "types": [
       "instant"
     ]
-  },
-  "Estrid's Invocation // Estrid's Invocation": {
-    "color": "blue",
-    "types": []
   },
   "Gleam of Authority": {
     "color": "white",
@@ -189225,7 +189015,7 @@
       "creature"
     ]
   },
-  "Emeritus of Truce // Swords to Plowshares": {
+  "Emeritus of Truce": {
     "color": "white",
     "cmc": 3,
     "types": [
@@ -191992,10 +191782,6 @@
       "instant"
     ]
   },
-  "Ajani Goldmane // Ajani Goldmane": {
-    "color": "white",
-    "types": []
-  },
   "Search the City": {
     "color": "blue",
     "cmc": 5,
@@ -192079,10 +191865,6 @@
     "types": [
       "creature"
     ]
-  },
-  "Scavenger Regent // Exude Toxin // Scavenger Regent": {
-    "color": "black",
-    "types": []
   },
   "Agent of Raffine": {
     "color": "blue",
@@ -192440,10 +192222,6 @@
       "artifact"
     ]
   },
-  "Kardur, Doomscourge // Kardur, Doomscourge": {
-    "color": "multicolor",
-    "types": []
-  },
   "Rune-Cervin Rider": {
     "color": "white",
     "cmc": 4,
@@ -192684,7 +192462,7 @@
       "creature"
     ]
   },
-  "Student of Elements // Tobita, Master of Winds": {
+  "Student of Elements": {
     "color": "blue",
     "cmc": 2,
     "types": [
@@ -192980,10 +192758,6 @@
     "types": [
       "sorcery"
     ]
-  },
-  "Noxious Ghoul // Noxious Ghoul": {
-    "color": "black",
-    "types": []
   },
   "Carrion": {
     "color": "black",
@@ -193393,10 +193167,6 @@
     "types": [
       "creature"
     ]
-  },
-  "Krark's Thumb // Krark's Thumb": {
-    "color": "colorless",
-    "types": []
   },
   "Runeblade Raiser": {
     "color": "black",
@@ -194236,7 +194006,7 @@
       "creature"
     ]
   },
-  "Lluwen, Exchange Student // Pest Friend": {
+  "Lluwen, Exchange Student": {
     "color": "multicolor",
     "cmc": 4,
     "types": [
@@ -194415,10 +194185,6 @@
     "types": [
       "instant"
     ]
-  },
-  "Rin and Seri, Inseparable // Rin and Seri, Inseparable": {
-    "color": "multicolor",
-    "types": []
   },
   "Weeping Angel": {
     "color": "multicolor",
@@ -195414,7 +195180,7 @@
       "artifact"
     ]
   },
-  "Orochi Eggwatcher // Shidako, Broodmistress": {
+  "Orochi Eggwatcher": {
     "color": "green",
     "cmc": 3,
     "types": [
@@ -198167,10 +197933,6 @@
       "instant"
     ]
   },
-  "Estrid, the Masked // Estrid, the Masked": {
-    "color": "multicolor",
-    "types": []
-  },
   "Tidal Visionary": {
     "color": "blue",
     "cmc": 1,
@@ -199663,7 +199425,7 @@
       "creature"
     ]
   },
-  "Wicked // Cursed": {
+  "Wicked": {
     "color": "colorless",
     "cmc": 0,
     "types": [
@@ -200414,10 +200176,6 @@
     "types": [
       "instant"
     ]
-  },
-  "Mountain // Mountain": {
-    "color": "colorless",
-    "types": []
   },
   "Reverse the Sands": {
     "color": "white",
@@ -201421,7 +201179,7 @@
       "creature"
     ]
   },
-  "Naktamun Lorespinner // Wheel of Fortune": {
+  "Naktamun Lorespinner": {
     "color": "red",
     "cmc": 3,
     "types": [
@@ -201526,10 +201284,6 @@
     "types": [
       "sorcery"
     ]
-  },
-  "Aesi, Tyrant of Gyre Strait // Aesi, Tyrant of Gyre Strait": {
-    "color": "multicolor",
-    "types": []
   },
   "A-Llanowar Loamspeaker": {
     "color": "green",
@@ -205198,10 +204952,6 @@
       "creature"
     ]
   },
-  "Clarion Conqueror // Clarion Conqueror": {
-    "color": "white",
-    "types": []
-  },
   "Cylian Elf": {
     "color": "green",
     "cmc": 2,
@@ -207753,10 +207503,6 @@
       "creature"
     ]
   },
-  "Teferi's Ageless Insight // Teferi's Ageless Insight": {
-    "color": "blue",
-    "types": []
-  },
   "Quicksilver Gargantuan": {
     "color": "blue",
     "cmc": 7,
@@ -207937,13 +207683,6 @@
     "cmc": 4,
     "types": [
       "creature"
-    ]
-  },
-  "Steely Resolve": {
-    "color": "green",
-    "cmc": 2,
-    "types": [
-      "enchantment"
     ]
   },
   "Myth Unbound": {
@@ -208419,10 +208158,6 @@
     "types": [
       "sorcery"
     ]
-  },
-  "Etali, Primal Storm // Etali, Primal Storm": {
-    "color": "red",
-    "types": []
   },
   "One-Clown Band": {
     "color": "red",
@@ -212008,10 +211743,6 @@
       "enchantment"
     ]
   },
-  "Command Tower // Command Tower": {
-    "color": "colorless",
-    "types": []
-  },
   "Domineer": {
     "color": "blue",
     "cmc": 3,
@@ -212087,7 +211818,7 @@
       "enchantment"
     ]
   },
-  "Curse of the Fire Penguin // Curse of the Fire Penguin Creature": {
+  "Curse of the Fire Penguin": {
     "color": "red",
     "cmc": 6,
     "types": [
@@ -212229,10 +211960,6 @@
       "creature",
       "artifact"
     ]
-  },
-  "Garruk Wildspeaker // Garruk Wildspeaker": {
-    "color": "green",
-    "types": []
   },
   "Aven Reedstalker": {
     "color": "blue",
@@ -212408,7 +212135,7 @@
       "sorcery"
     ]
   },
-  "Spiritcall Enthusiast // Scrollboost": {
+  "Spiritcall Enthusiast": {
     "color": "white",
     "cmc": 3,
     "types": [
@@ -212437,7 +212164,7 @@
       "creature"
     ]
   },
-  "Landscape Painter // Vibrant Idea": {
+  "Landscape Painter": {
     "color": "blue",
     "cmc": 2,
     "types": [
@@ -213297,7 +213024,7 @@
       "enchantment"
     ]
   },
-  "Yavimaya Bloomsage // Channel": {
+  "Yavimaya Bloomsage": {
     "color": "green",
     "cmc": 3,
     "types": [
@@ -213643,7 +213370,7 @@
       "creature"
     ]
   },
-  "Pigment Wrangler // Striking Palette": {
+  "Pigment Wrangler": {
     "color": "red",
     "cmc": 5,
     "types": [
@@ -214291,10 +214018,6 @@
     "types": [
       "enchantment"
     ]
-  },
-  "Dragonlord Atarka // Dragonlord Atarka": {
-    "color": "multicolor",
-    "types": []
   },
   "Cycling": {
     "color": "colorless",
@@ -215589,7 +215312,7 @@
       "creature"
     ]
   },
-  "Leech Collector // Bloodletting": {
+  "Leech Collector": {
     "color": "black",
     "cmc": 2,
     "types": [
@@ -216026,7 +215749,7 @@
     "cmc": 0,
     "types": []
   },
-  "Goblin Glasswright // Craft with Pride": {
+  "Goblin Glasswright": {
     "color": "red",
     "cmc": 2,
     "types": [
@@ -216799,7 +216522,7 @@
       "artifact"
     ]
   },
-  "Callow Jushi // Jaraku the Interloper": {
+  "Callow Jushi": {
     "color": "blue",
     "cmc": 3,
     "types": [
@@ -217474,7 +217197,7 @@
       "artifact"
     ]
   },
-  "Lorehold Archivist // Restore Relic": {
+  "Lorehold Archivist": {
     "color": "multicolor",
     "cmc": 3,
     "types": [
@@ -217834,7 +217557,7 @@
       "sorcery"
     ]
   },
-  "Spellbook Seeker // Careful Study": {
+  "Spellbook Seeker": {
     "color": "blue",
     "cmc": 4,
     "types": [
@@ -218554,10 +218277,6 @@
       "enchantment"
     ]
   },
-  "Smuggler's Copter // Smuggler's Copter": {
-    "color": "colorless",
-    "types": []
-  },
   "Deadhead": {
     "color": "black",
     "cmc": 4,
@@ -218873,7 +218592,7 @@
       "artifact"
     ]
   },
-  "Royal // Virtuous": {
+  "Royal": {
     "color": "colorless",
     "cmc": 0,
     "types": [
@@ -219546,13 +219265,6 @@
       "creature"
     ]
   },
-  "Royal // Young Hero": {
-    "color": "colorless",
-    "cmc": 0,
-    "types": [
-      "enchantment"
-    ]
-  },
   "Sala, Deck Boss": {
     "color": "multicolor",
     "cmc": 3,
@@ -219566,10 +219278,6 @@
     "types": [
       "sorcery"
     ]
-  },
-  "Yargle, Glutton of Urborg // Yargle, Glutton of Urborg": {
-    "color": "black",
-    "types": []
   },
   "Ambitious Assault": {
     "color": "red",
@@ -220621,7 +220329,7 @@
       "instant"
     ]
   },
-  "Sasaya, Orochi Ascendant // Sasaya's Essence": {
+  "Sasaya, Orochi Ascendant": {
     "color": "green",
     "cmc": 3,
     "types": [
@@ -221570,7 +221278,7 @@
       "creature"
     ]
   },
-  "Adventurous Eater // Have a Bite": {
+  "Adventurous Eater": {
     "color": "black",
     "cmc": 3,
     "types": [
@@ -222110,13 +221818,6 @@
       "enchantment"
     ]
   },
-  "Okaun, Eye of Chaos": {
-    "color": "red",
-    "cmc": 5,
-    "types": [
-      "creature"
-    ]
-  },
   "Foreshadow": {
     "color": "blue",
     "cmc": 2,
@@ -222411,10 +222112,6 @@
     "types": [
       "creature"
     ]
-  },
-  "Zndrsplt, Eye of Wisdom // Zndrsplt, Eye of Wisdom": {
-    "color": "blue",
-    "types": []
   },
   "Horn of Plenty": {
     "color": "colorless",
@@ -223136,10 +222833,6 @@
     "types": [
       "artifact"
     ]
-  },
-  "Sol Ring // Sol Ring": {
-    "color": "colorless",
-    "types": []
   },
   "Jackhammer": {
     "color": "red",
@@ -224670,10 +224363,6 @@
     "types": [
       "creature"
     ]
-  },
-  "Birds of Paradise // Birds of Paradise": {
-    "color": "green",
-    "types": []
   },
   "Domineering Will": {
     "color": "blue",
@@ -226519,10 +226208,6 @@
     "types": [
       "land"
     ]
-  },
-  "Radha, Heart of Keld // Radha, Heart of Keld": {
-    "color": "multicolor",
-    "types": []
   },
   "Accorder Paladin": {
     "color": "white",
@@ -231717,10 +231402,6 @@
       "sorcery"
     ]
   },
-  "Steam Vents // Steam Vents": {
-    "color": "colorless",
-    "types": []
-  },
   "Kitsune Palliator": {
     "color": "white",
     "cmc": 3,
@@ -232164,10 +231845,6 @@
     "types": [
       "sorcery"
     ]
-  },
-  "Temple Garden // Temple Garden": {
-    "color": "colorless",
-    "types": []
   },
   "Caldera Pyremaw": {
     "color": "red",
@@ -233957,7 +233634,7 @@
       "creature"
     ]
   },
-  "Emeritus of Conflict // Lightning Bolt": {
+  "Emeritus of Conflict": {
     "color": "red",
     "cmc": 2,
     "types": [
@@ -235670,10 +235347,6 @@
     "types": [
       "creature"
     ]
-  },
-  "Death Baron // Death Baron": {
-    "color": "black",
-    "types": []
   },
   "Rise of the Varmints": {
     "color": "green",
@@ -237705,10 +237378,6 @@
       "creature"
     ]
   },
-  "Sakashima of a Thousand Faces // Sakashima of a Thousand Faces": {
-    "color": "blue",
-    "types": []
-  },
   "Eternal Student": {
     "color": "black",
     "cmc": 4,
@@ -238222,7 +237891,7 @@
       "artifact"
     ]
   },
-  "Campus Composer // Aqueous Aria": {
+  "Campus Composer": {
     "color": "blue",
     "cmc": 4,
     "types": [
@@ -239558,10 +239227,6 @@
     "types": [
       "creature"
     ]
-  },
-  "Grimgrin, Corpse-Born // Grimgrin, Corpse-Born": {
-    "color": "multicolor",
-    "types": []
   },
   "Rabid Elephant": {
     "color": "green",
