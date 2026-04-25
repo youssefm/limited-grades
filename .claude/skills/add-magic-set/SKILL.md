@@ -1,13 +1,24 @@
 ---
 name: add-magic-set
-description: "Add a new Magic: The Gathering set to the project. Use when asked to add a new MTG set, expansion, or draft format. Involves researching the set on mtg.wiki, downloading its SVG icon from Scryfall, adding a static entry in MagicSet.tsx, and updating the Next.js redirect config."
+description: "Add a new Magic: The Gathering set to the project. Use when asked to add a new MTG set, expansion, or draft format. Involves researching the set on mtg.wiki, downloading its SVG icon from Scryfall, adding a static entry in MagicSet.tsx, adding icon data in setIconPaths.ts, and updating the Next.js redirect config."
 disable-model-invocation: true
 argument-hint: "[set-name]"
 ---
 
 # Skill: Add a New Magic Set to Limited Grades
 
-Use this skill when the user asks to add a new Magic: The Gathering set to the project. This involves researching the set, downloading its SVG icon, adding a static entry in `MagicSet.tsx`, and updating the Next.js redirect config.
+Use this skill when the user asks to add a new Magic: The Gathering set to the project. This involves researching the set, downloading its SVG icon, adding a static entry in `MagicSet.tsx`, adding icon path data in `setIconPaths.ts`, and updating the Next.js redirect config.
+
+## Architecture Overview
+
+Set icon SVG data is **not** stored inline in `MagicSet.tsx`. Instead, it lives in a separate file (`setIconPaths.ts`) that is **dynamically imported** at runtime for code splitting. This keeps the initial JS bundle small — only the current page's icon is loaded eagerly via `getStaticProps`, while all other icons load asynchronously in the background.
+
+Key files in the icon system:
+- `src/lib/MagicSet.tsx` — set metadata and the `SetIcon` component (no SVG data)
+- `src/lib/setIconPaths.ts` — all SVG path data, keyed by `[MagicSet.SET_NAME.code]`
+- `src/lib/setIconLoader.ts` — cached async loader that dynamically imports `setIconPaths.ts`
+- `src/lib/SetIconDataContext.ts` — React context for the eagerly-loaded current page icon
+- `src/pages/[setCode].tsx` — passes the current set's icon data via `getStaticProps`
 
 ## Step-by-step Process
 
@@ -42,11 +53,13 @@ fetch_webpage({
 The SVG will contain `<path>` elements with `d` attributes. Extract:
 
 - The `viewBox` attribute from the `<svg>` element
-- All `<path d="...">` elements
+- All `<path d="...">` values (just the `d` attribute strings)
 
 ### Step 3: Add a New Static Entry in MagicSet.tsx
 
 Edit `src/lib/MagicSet.tsx` to add a new static field. The entry should be placed at the **top** of the static fields (just after the class fields and before the existing first set), since sets are ordered newest-first.
+
+**Important:** The constructor does not take an SVG icon parameter. SVG data goes in `setIconPaths.ts` (Step 4).
 
 #### Basic constructor signature:
 
@@ -55,11 +68,6 @@ static SET_NAME = new MagicSet(
   "setCode",           // lowercase set code (e.g., "dsk")
   "Display Name",      // human-readable name (e.g., "Duskmourn")
   "YYYY-MM-DD",        // MTG Arena release date
-  (props) => (         // SVG icon component
-    <GradientIcon viewBox="<viewBox from SVG>" {...props}>
-      <path d="<path data>" />
-    </GradientIcon>
-  ),
   // Optional parameters below — omit to use defaults:
   // decks: defaults to Deck.TWO_COLOR_DECKS
   // format: defaults to Format.PREMIER_DRAFT
@@ -69,24 +77,14 @@ static SET_NAME = new MagicSet(
 
 #### Constructor parameters:
 
-| Parameter     | Type                          | Default                | Description                     |
-| ------------- | ----------------------------- | ---------------------- | ------------------------------- |
-| `code`        | `string`                      | required               | Lowercase set code              |
-| `label`       | `string`                      | required               | Display name                    |
-| `startDate`   | `string`                      | required               | Arena release date (YYYY-MM-DD) |
-| `SvgIcon`     | `FC<SVGProps<SVGSVGElement>>` | required               | SVG wrapped in GradientIcon     |
-| `decks`       | `(Deck \| [Deck, string])[]`  | `Deck.TWO_COLOR_DECKS` | Available deck archetypes       |
-| `format`      | `Format`                      | `Format.PREMIER_DRAFT` | Draft format                    |
-| `code17Lands` | `string`                      | `undefined`            | Override 17Lands set code       |
-
-#### SVG Icon guidelines:
-
-- Wrap the SVG paths in a `<GradientIcon>` component
-- Set the `viewBox` to match the original SVG's viewBox
-- Pass `{...props}` to `GradientIcon`
-- Remove any `fill`, `stroke`, or style attributes from paths (GradientIcon handles the fill via gradient)
-- If the SVG has a single color fill like `fill="#000"`, just remove it
-- Keep all `<path>` elements with their `d` attributes
+| Parameter     | Type                         | Default                | Description                     |
+| ------------- | ---------------------------- | ---------------------- | ------------------------------- |
+| `code`        | `string`                     | required               | Lowercase set code              |
+| `label`       | `string`                     | required               | Display name                    |
+| `startDate`   | `string`                     | required               | Arena release date (YYYY-MM-DD) |
+| `decks`       | `(Deck \| [Deck, string])[]` | `Deck.TWO_COLOR_DECKS` | Available deck archetypes       |
+| `format`      | `Format`                     | `Format.PREMIER_DRAFT` | Draft format                    |
+| `code17Lands` | `string`                     | `undefined`            | Override 17Lands set code       |
 
 #### Special deck configurations:
 
@@ -97,7 +95,6 @@ static TARKIR_DRAGONSTORM = new MagicSet(
   "tdm",
   "Dragonstorm",
   "2025-04-08",
-  (props) => ( /* SVG */ ),
   [
     Deck.ABZAN, Deck.JESKAI, Deck.SULTAI,
     Deck.MARDU, Deck.TEMUR, Deck.ORZHOV,
@@ -119,7 +116,6 @@ static THROUGH_THE_OMENPATHS = new MagicSet(
   "om1",
   "Through the Omenpaths",
   "2025-09-22",
-  (props) => ( /* SVG */ ),
   Deck.TWO_COLOR_DECKS,
   Format.PICK_TWO_DRAFT  // non-default format
 );
@@ -132,14 +128,40 @@ static POWERED_CUBE = new MagicSet(
   "powered",
   "Powered Cube",
   "2025-10-28",
-  CubeSvg,
   Deck.TWO_COLOR_DECKS,
   Format.PREMIER_DRAFT,
   "cube - powered"       // code17Lands override
 );
 ```
 
-### Step 4: Populate the Scryfall Index Cache
+### Step 4: Add Icon Data in setIconPaths.ts
+
+Edit `src/lib/setIconPaths.ts` to add the SVG icon data for the new set. Add the entry at the **top** of the `SET_ICON_PATHS` object (matching the order in `MagicSet.tsx`).
+
+Use the `MagicSet` static field reference as the computed property key — **do not** hardcode the set code string. This avoids duplicating set codes across files.
+
+```tsx
+const SET_ICON_PATHS: Record<string, SetIconData> = {
+  [MagicSet.NEW_SET_NAME.code]: {
+    viewBox: "<viewBox from SVG>",    // e.g., "0 0 400 400"
+    paths: [
+      "<first path d attribute>",
+      "<second path d attribute>",    // one string per <path> element
+    ],
+  },
+  // ... existing entries
+};
+```
+
+#### SVG data guidelines:
+
+- Copy the `viewBox` exactly from the `<svg>` element
+- Each `<path d="...">` becomes a string in the `paths` array
+- Remove any `fill`, `stroke`, or style attributes — `GradientIcon` handles styling
+- If the SVG has `fill="#000"` or similar single-color fills, just omit them
+- Keep all path data intact; do not simplify or modify the `d` attributes
+
+### Step 5: Populate the Scryfall Index Cache
 
 After adding the `MagicSet` entry, populate the Scryfall index cache so the new set's card images are available. Run this via the admin CLI:
 
@@ -149,7 +171,7 @@ npm run admin -- populate-scryfall-index
 
 Wait for it to complete. It fetches Scryfall bulk data and writes the index to both the file cache and Postgres cache. This ensures card image URLs are available for the new set.
 
-### Step 5: Update next.config.js Redirect
+### Step 6: Update next.config.js Redirect
 
 Edit `next.config.js` to change the root redirect destination to the new set's code:
 
@@ -166,10 +188,11 @@ redirects: async () => [
 
 ## File Locations Summary
 
-| File                   | Change                                            |
-| ---------------------- | ------------------------------------------------- |
-| `src/lib/MagicSet.tsx` | Add new static `MagicSet` instance (newest first) |
-| `next.config.js`       | Update root `/` redirect to new set code          |
+| File                       | Change                                                    |
+| -------------------------- | --------------------------------------------------------- |
+| `src/lib/MagicSet.tsx`     | Add new static `MagicSet` instance (newest first)         |
+| `src/lib/setIconPaths.ts`  | Add SVG icon data entry using `[MagicSet.NAME.code]` key  |
+| `next.config.js`           | Update root `/` redirect to new set code                  |
 
 ## Admin CLI
 
