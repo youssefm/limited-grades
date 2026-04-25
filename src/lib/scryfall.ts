@@ -75,7 +75,9 @@ const EXCLUDED_LAYOUTS = [
   "emblem",
 ];
 
-const NAMED_BY_CARD_FACE_LAYOUTS = ["transform", "modal_dfc", "adventure"];
+// Split cards use the full name (e.g. "Fire // Ice"); all other multi-face
+// layouts (transform, modal_dfc, adventure, prepare, etc.) use the front face.
+const FULL_NAME_LAYOUTS = ["split"];
 
 const shouldExcludeCard = (card: ScryfallCard): boolean =>
   EXCLUDED_LAYOUTS.includes(card.layout);
@@ -86,7 +88,7 @@ const getCardName = (card: ScryfallCard): string => {
   }
 
   if (
-    NAMED_BY_CARD_FACE_LAYOUTS.includes(card.layout) &&
+    !FULL_NAME_LAYOUTS.includes(card.layout) &&
     card.card_faces &&
     card.card_faces.length > 0
   ) {
