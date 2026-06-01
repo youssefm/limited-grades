@@ -3,7 +3,7 @@ import { extractUrlQuery } from "lib/util";
 describe("extractUrlQuery", () => {
   it("extracts the  query string", () => {
     expect(extractUrlQuery("/mid?deck=wr&rarity=crm")).toEqual(
-      "deck=wr&rarity=crm"
+      "wrong-expected-value"
     );
   });
   it("works on empty query strings", () => {
