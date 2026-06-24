@@ -6,6 +6,9 @@
 # next.js
 /.next
 
+# typescript
+/tsconfig.tsbuildinfo
+
 # misc
 .DS_Store
 

@@ -68,6 +68,12 @@ export default class MagicSet {
   static #setsByCode: Record<string, MagicSet> = {};
   static ALL: MagicSet[] = [];
 
+  static MARVEL_SUPER_HEROES = new MagicSet(
+    "msh",
+    "Marvel Super Heroes",
+    "2026-06-23"
+  );
+
   static SECRETS_OF_STRIXHAVEN = new MagicSet(
     "sos",
     "Secrets of Strixhaven",

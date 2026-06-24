@@ -1,3 +1,8 @@
+import { Readable } from "stream";
+import { ReadableStream } from "stream/web";
+
+import StreamArray from "stream-json/streamers/StreamArray";
+
 import { CACHE } from "./cache";
 import CaseInsensitiveMap from "./CaseInsensitiveMap";
 import { ALL_CARD_TYPES, DAY_IN_SECONDS } from "./constants";
@@ -8,6 +13,16 @@ import { buildUrl, Lazy } from "./util.server";
 
 export const INDEX_CACHE_KEY = "scryfall-index";
 const LAND_IMAGES_CACHE_KEY = "land-images";
+
+// Scryfall requires every request to identify the calling application via a
+// custom User-Agent and to send an explicit Accept header.
+const SCRYFALL_REQUEST_INIT: RequestInit = {
+  headers: {
+    "User-Agent":
+      "limited-grades/1.0 (https://github.com/youssefm/limited-grades)",
+    Accept: "application/json",
+  },
+};
 
 interface ScryfallBulkData {
   download_uri: string;
@@ -137,18 +152,33 @@ const getCardTypes = (card: ScryfallCard): CardType[] =>
     card.type_line?.toLowerCase().includes(cardType)
   );
 
-const fetchBulkData = async (type: string): Promise<ScryfallCard[]> => {
+// The bulk data files can exceed Node's maximum string length, so they are
+// parsed incrementally as a stream rather than buffered and passed through
+// JSON.parse (which would require materializing the whole file as a string).
+async function* streamBulkData(type: string): AsyncGenerator<ScryfallCard> {
   const bulkData = await fetchJson<ScryfallBulkData>(
-    `https://api.scryfall.com/bulk-data/${type}`
+    `https://api.scryfall.com/bulk-data/${type}`,
+    SCRYFALL_REQUEST_INIT
   );
   console.log(`Fetching Scryfall bulk data from ${bulkData.download_uri}`);
-  return fetchJson<ScryfallCard[]>(bulkData.download_uri);
-};
+  const response = await fetch(bulkData.download_uri, SCRYFALL_REQUEST_INIT);
+  if (!response.ok || !response.body) {
+    throw new Error(
+      `Request failed: ${response.status} ${response.statusText}`
+    );
+  }
+
+  const cardStream = Readable.fromWeb(
+    response.body as ReadableStream<Uint8Array>
+  ).pipe(StreamArray.withParser());
+  for await (const { value } of cardStream) {
+    yield value as ScryfallCard;
+  }
+}
 
 export const generateIndex = async (): Promise<ScryfallIndex> => {
-  const cards = await fetchBulkData("default-cards");
   const index: ScryfallIndex = {};
-  for (const card of cards) {
+  for await (const card of streamBulkData("default-cards")) {
     if (shouldExcludeCard(card)) {
       continue;
     }
@@ -181,9 +211,8 @@ export const SCRYFALL_INDEX = new Lazy(async () => {
 });
 
 const generateLandImages = async (): Promise<string[]> => {
-  const cards = await fetchBulkData("unique-artwork");
   const landImageUrls: string[] = [];
-  for (const card of cards) {
+  for await (const card of streamBulkData("unique-artwork")) {
     if (shouldExcludeCard(card)) {
       continue;
     }
@@ -218,7 +247,7 @@ export const fetchCards = async (set: MagicSet): Promise<ScryfallCard[]> => {
   });
   for (;;) {
     console.log(`Making a Scryfall request to: ${url}`);
-    const page = await fetchJson<ScryfallCardPage>(url);
+    const page = await fetchJson<ScryfallCardPage>(url, SCRYFALL_REQUEST_INIT);
     cards.push(...page.data);
     if (!page.next_page) {
       break;
