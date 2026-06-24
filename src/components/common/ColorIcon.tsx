@@ -11,23 +11,27 @@ import MulticolorIcon from "lib/MulticolorIcon";
 import { TRANSITION_CLASSES } from "lib/styles";
 import { Color } from "lib/types";
 
-const BG_COLOR_CLASSES: Record<Color, string> = {
-  [Color.WHITE]: "p-[0.125em] bg-[#f0f2c0]",
-  [Color.BLUE]: "p-[0.125em] bg-[#b5cde3]",
-  [Color.BLACK]: "p-[0.125em] bg-[#aca29a]",
-  [Color.RED]: "p-[0.125em] bg-[#db8664]",
-  [Color.GREEN]: "p-[0.125em] bg-[#93b483]",
-  [Color.MULTICOLOR]: "",
-  [Color.COLORLESS]: "p-[0.125em] bg-[#beb9b2]",
+type GlyphColor = Exclude<Color, Color.MULTICOLOR>;
+
+// The disc behind each glyph is drawn as a vector <circle> rather than a CSS
+// rounded-full background: an SVG circle antialiases its edge more cleanly than
+// a border-radius clip at small sizes (most visibly in Firefox), matching the
+// crispness of the self-contained MulticolorIcon.
+const DISC_COLORS: Record<GlyphColor, string> = {
+  [Color.WHITE]: "#f0f2c0",
+  [Color.BLUE]: "#b5cde3",
+  [Color.BLACK]: "#aca29a",
+  [Color.RED]: "#db8664",
+  [Color.GREEN]: "#93b483",
+  [Color.COLORLESS]: "#beb9b2",
 };
 
-const COLOR_ICONS: Record<Color, FC<SVGProps<SVGSVGElement>>> = {
+const COLOR_ICONS: Record<GlyphColor, FC<SVGProps<SVGSVGElement>>> = {
   [Color.WHITE]: WhiteIcon,
   [Color.BLUE]: BlueIcon,
   [Color.BLACK]: BlackIcon,
   [Color.RED]: RedIcon,
   [Color.GREEN]: GreenIcon,
-  [Color.MULTICOLOR]: MulticolorIcon,
   [Color.COLORLESS]: ColorlessIcon,
 };
 
@@ -37,19 +41,27 @@ interface Props {
 }
 
 const ColorIcon: FC<Props> = ({ color, className }) => {
-  const SvgIcon = COLOR_ICONS[color];
+  // 1.375em = 1em glyph + 0.125em padding * 2 + 0.0625em border * 2
+  const containerClasses = clsx(
+    "inline-block size-[1.375em] rounded-full border-[0.0625em] border-neutral-300 text-black dark:border-black",
+    TRANSITION_CLASSES,
+    className
+  );
+
+  // Multicolor bakes its own gradient disc and ring into a single SVG.
+  if (color === Color.MULTICOLOR) {
+    return <MulticolorIcon className={containerClasses} />;
+  }
+
+  // A single <svg> (one replaced element, like before) holding the disc circle
+  // and the glyph nested inside it. The glyph is inset to 0.8 of the viewBox
+  // (25.6 / 32), reproducing the previous 0.125em padding around a 1em glyph.
+  const GlyphIcon = COLOR_ICONS[color];
   return (
-    // 1.375em = 1em + 0.125em padding * 2 + 0.0625em border * 2
-    <SvgIcon
-      width="1.375em"
-      height="1.375em"
-      className={clsx(
-        "inline-block rounded-full border-[0.0625em] border-neutral-300 text-black dark:border-black",
-        BG_COLOR_CLASSES[color],
-        TRANSITION_CLASSES,
-        className
-      )}
-    />
+    <svg viewBox="0 0 32 32" className={containerClasses}>
+      <circle cx="16" cy="16" r="16" fill={DISC_COLORS[color]} />
+      <GlyphIcon x="3.2" y="3.2" width="25.6" height="25.6" />
+    </svg>
   );
 };
 
