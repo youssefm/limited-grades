@@ -39,6 +39,7 @@ interface ScryfallCardFace {
   colors?: ScryfallColor[];
   type_line: string;
   mana_cost?: string;
+  cmc?: number;
   image_uris: ImageUris;
 }
 
@@ -152,6 +153,11 @@ const getCardTypes = (card: ScryfallCard): CardType[] =>
     card.type_line?.toLowerCase().includes(cardType)
   );
 
+// reversible_card layouts have no top-level cmc; it lives on the faces, which
+// share the same value, so fall back to the front face when it is missing.
+const getCardManaValue = (card: ScryfallCard): number =>
+  card.cmc ?? card.card_faces?.[0]?.cmc ?? 0;
+
 // The bulk data files can exceed Node's maximum string length, so they are
 // parsed incrementally as a stream rather than buffered and passed through
 // JSON.parse (which would require materializing the whole file as a string).
@@ -189,7 +195,7 @@ export const generateIndex = async (): Promise<ScryfallIndex> => {
 
     index[name] = {
       color: getCardColor(card),
-      cmc: card.cmc,
+      cmc: getCardManaValue(card),
       types: getCardTypes(card),
     };
   }

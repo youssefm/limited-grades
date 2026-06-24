@@ -4524,6 +4524,7 @@
   },
   "Jinnie Fay, Jetmir's Second": {
     "color": "multicolor",
+    "cmc": 3,
     "types": []
   },
   "Grim Haruspex": {
@@ -12537,6 +12538,7 @@
   },
   "Tuvasa the Sunlit": {
     "color": "multicolor",
+    "cmc": 3,
     "types": []
   },
   "Teferi's Imp": {
@@ -16074,6 +16076,7 @@
   },
   "Reckoner Bankbuster": {
     "color": "colorless",
+    "cmc": 2,
     "types": []
   },
   "Geode Golem": {
@@ -21597,6 +21600,7 @@
   },
   "Bloomvine Regent": {
     "color": "green",
+    "cmc": 5,
     "types": []
   },
   "Spirit of the Hunt": {
@@ -22729,6 +22733,7 @@
   },
   "Stitch in Time": {
     "color": "multicolor",
+    "cmc": 3,
     "types": []
   },
   "Enchanted Prairie": {
@@ -70463,6 +70468,7 @@
   },
   "Anje Falkenrath": {
     "color": "multicolor",
+    "cmc": 3,
     "types": []
   },
   "Carnage Gladiator": {
@@ -74794,6 +74800,7 @@
   },
   "Anointed Procession": {
     "color": "white",
+    "cmc": 4,
     "types": []
   },
   "Deathbloom Thallid": {
@@ -103514,6 +103521,7 @@
   },
   "Steely Resolve": {
     "color": "green",
+    "cmc": 2,
     "types": []
   },
   "Forced March": {
@@ -111757,6 +111765,7 @@
   },
   "Norin the Wary": {
     "color": "red",
+    "cmc": 1,
     "types": []
   },
   "Dread Slaver": {
@@ -124061,6 +124070,7 @@
   },
   "Marang River Regent": {
     "color": "blue",
+    "cmc": 6,
     "types": []
   },
   "Bilbo, Thief in the Night": {
@@ -125343,6 +125353,7 @@
   },
   "Magmatic Hellkite": {
     "color": "red",
+    "cmc": 4,
     "types": []
   },
   "Airdrop Aeronauts": {
@@ -131169,6 +131180,7 @@
   },
   "Chulane, Teller of Tales": {
     "color": "multicolor",
+    "cmc": 5,
     "types": []
   },
   "Knight of Grace": {
@@ -145611,6 +145623,7 @@
   },
   "Mechtitan": {
     "color": "multicolor",
+    "cmc": 0,
     "types": []
   },
   "Pollen Lullaby": {
@@ -178125,6 +178138,7 @@
   },
   "Okaun, Eye of Chaos": {
     "color": "red",
+    "cmc": 5,
     "types": []
   },
   "Harbor Bandit": {
