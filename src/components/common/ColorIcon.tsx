@@ -7,7 +7,7 @@ import BlueIcon from "mana-font/svg/u.svg";
 import WhiteIcon from "mana-font/svg/w.svg";
 import { FC, SVGProps } from "react";
 
-import MulticolorIcon from "assets/multicolor.svg";
+import MulticolorIcon from "lib/MulticolorIcon";
 import { TRANSITION_CLASSES } from "lib/styles";
 import { Color } from "lib/types";
 
@@ -17,8 +17,7 @@ const BG_COLOR_CLASSES: Record<Color, string> = {
   [Color.BLACK]: "p-[0.125em] bg-[#aca29a]",
   [Color.RED]: "p-[0.125em] bg-[#db8664]",
   [Color.GREEN]: "p-[0.125em] bg-[#93b483]",
-  [Color.MULTICOLOR]:
-    "bg-gradient-to-tr from-[#cca54f] via-[#e0d3bb] to-[#cca54f]",
+  [Color.MULTICOLOR]: "",
   [Color.COLORLESS]: "p-[0.125em] bg-[#beb9b2]",
 };
 
