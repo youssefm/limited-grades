@@ -130,7 +130,7 @@ static POWERED_CUBE = new MagicSet(
   "2025-10-28",
   Deck.TWO_COLOR_DECKS,
   Format.PREMIER_DRAFT,
-  "cube - powered"       // code17Lands override
+  "Cube - Powered"       // code17Lands override
 );
 ```
 
