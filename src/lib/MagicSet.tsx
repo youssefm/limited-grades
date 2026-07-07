@@ -104,7 +104,7 @@ export default class MagicSet {
     "2025-10-28",
     Deck.TWO_COLOR_DECKS,
     Format.PREMIER_DRAFT,
-    "cube - powered"
+    "Cube - Powered"
   );
 
   static THROUGH_THE_OMENPATHS = new MagicSet(
