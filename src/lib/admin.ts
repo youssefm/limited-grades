@@ -55,6 +55,11 @@ const ADMIN_ACTIONS: Record<string, AdminAction> = {
     await POSTGRES_CACHE.delete(setCode);
     output.push(`${setCode.toUpperCase()} cache deleted!`);
   },
+  "delete-msh-cache": async (output) => {
+    const setCode = MagicSet.MARVEL_SUPER_HEROES.code;
+    await POSTGRES_CACHE.delete(setCode);
+    output.push(`${setCode.toUpperCase()} cache deleted`);
+  },
   "delete-tmt-cache": async (output) => {
     const set = MagicSet.TEENAGE_MUTANT_NINJA_TURTLES;
     await POSTGRES_CACHE.delete(set.code);
