@@ -4,6 +4,11 @@ export enum Format {
   PICK_TWO_DRAFT = "PickTwoDraft",
 }
 
+export enum TimePeriod {
+  ALL_TIME = "ALL_TIME",
+  LATEST_EVENT = "LATEST_EVENT",
+}
+
 export enum Color {
   WHITE = "white",
   BLUE = "blue",

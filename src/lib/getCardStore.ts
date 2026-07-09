@@ -24,34 +24,56 @@ interface ApiCard {
   win_rate: number | null;
 }
 
+// The api/card_data endpoint wraps the card array in an envelope, unlike the
+// older card_ratings/data endpoint which returned a bare array.
+interface ApiCardDataResponse {
+  data: ApiCard[];
+}
+
+const CARD_DATA_REQUEST_INIT: RequestInit = {
+  headers: {
+    "User-Agent":
+      "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 " +
+      "(KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+    Accept: "application/json, text/plain, */*",
+    "Accept-Language": "en-US,en;q=0.9",
+    Referer: "https://www.17lands.com/card_data",
+    "X-Requested-With": "XMLHttpRequest",
+    "Sec-Fetch-Dest": "empty",
+    "Sec-Fetch-Mode": "cors",
+    "Sec-Fetch-Site": "same-origin",
+  },
+};
+
 const fetchApiCards = async (
   set: MagicSet,
   deck: Deck,
   format: Format
 ): Promise<ApiCard[]> => {
   const queryParams: Record<string, string> = {
+    // code17Lands, when set, is already the exact expansion string the endpoint
+    // expects (e.g. "Cube - Powered"); otherwise the set code needs uppercasing
+    // (e.g. "msh" -> "MSH") to match case-sensitively.
     expansion: set.code17Lands ?? set.code.toUpperCase(),
-    format,
-    start_date: set.startDate,
-    end_date: new Date().toISOString().slice(0, 10),
+    event_type: format,
+    time_period: set.timePeriod,
   };
 
   if (deck !== Deck.ALL) {
-    queryParams.colors = deck.code;
+    // 17lands expects uppercase color codes (e.g. "WU"); deck.code is lowercase.
+    queryParams.colors = deck.code.toUpperCase();
   }
 
-  const url = buildUrl(
-    "https://www.17lands.com/card_ratings/data",
-    queryParams
-  );
+  const url = buildUrl("https://www.17lands.com/api/card_data", queryParams);
 
   console.log(`Making API request to ${url}`);
-  const response = await fetch(url);
+  const response = await fetch(url, CARD_DATA_REQUEST_INIT);
   if (!response.ok) {
     throw new Error(`Request to ${url} failed`);
   }
   console.log(`API Request to ${url} succeeded`);
-  return response.json();
+  const body: ApiCardDataResponse = await response.json();
+  return body.data;
 };
 
 function fetchApiCardsWithRetry(

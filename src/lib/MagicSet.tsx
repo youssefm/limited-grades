@@ -7,7 +7,7 @@ import SetIconDataContext from "./SetIconDataContext";
 // eslint-disable-next-line import/no-cycle
 import { getSetIconData, preloadSetIcons } from "./setIconLoader";
 import { TRANSITION_CLASSES } from "./styles";
-import { Format, Rarity } from "./types";
+import { Format, Rarity, TimePeriod } from "./types";
 
 const RECENT_SET_THRESHOLD_IN_DAYS = 30;
 
@@ -63,6 +63,7 @@ export default class MagicSet {
   readonly label: string;
   readonly startDate: string;
   readonly format: Format;
+  readonly timePeriod: TimePeriod;
   readonly decks: Deck[] = [];
   readonly customDeckLabels: Record<string, string> = {};
   static #setsByCode: Record<string, MagicSet> = {};
@@ -104,7 +105,8 @@ export default class MagicSet {
     "2025-10-28",
     Deck.TWO_COLOR_DECKS,
     Format.PREMIER_DRAFT,
-    "Cube - Powered"
+    "Cube - Powered",
+    TimePeriod.LATEST_EVENT
   );
 
   static THROUGH_THE_OMENPATHS = new MagicSet(
@@ -298,12 +300,24 @@ export default class MagicSet {
     ]
   );
 
-  static ARENA_CUBE = new MagicSet("cube", "Arena Cube", "2024-10-29");
+  static ARENA_CUBE = new MagicSet(
+    "cube",
+    "Arena Cube",
+    "2024-10-29",
+    undefined,
+    undefined,
+    "Cube",
+    TimePeriod.LATEST_EVENT
+  );
 
   static REMIX_ARTIFACTS = new MagicSet(
     "chaos",
     "Remix: Artifacts",
-    "2024-04-02"
+    "2024-04-02",
+    undefined,
+    undefined,
+    "Remix - Artifacts",
+    TimePeriod.LATEST_EVENT
   );
 
   private constructor(
@@ -312,13 +326,15 @@ export default class MagicSet {
     startDate: string,
     decks: (Deck | [Deck, string])[] = Deck.TWO_COLOR_DECKS,
     format: Format = Format.PREMIER_DRAFT,
-    code17Lands?: string
+    code17Lands?: string,
+    timePeriod: TimePeriod = TimePeriod.ALL_TIME
   ) {
     this.code = code;
     this.code17Lands = code17Lands;
     this.label = label;
     this.startDate = startDate;
     this.format = format;
+    this.timePeriod = timePeriod;
 
     for (const item of decks) {
       if (Array.isArray(item)) {
