@@ -1,7 +1,7 @@
+import { createInterface } from "readline";
 import { Readable } from "stream";
 import { ReadableStream } from "stream/web";
-
-import StreamArray from "stream-json/streamers/StreamArray";
+import { createGunzip } from "zlib";
 
 import { CACHE } from "./cache";
 import CaseInsensitiveMap from "./CaseInsensitiveMap";
@@ -25,7 +25,7 @@ const SCRYFALL_REQUEST_INIT: RequestInit = {
 };
 
 interface ScryfallBulkData {
-  download_uri: string;
+  jsonl_download_uri: string;
 }
 
 type ScryfallColor = "W" | "U" | "B" | "R" | "G";
@@ -158,27 +158,38 @@ const getCardTypes = (card: ScryfallCard): CardType[] =>
 const getCardManaValue = (card: ScryfallCard): number =>
   card.cmc ?? card.card_faces?.[0]?.cmc ?? 0;
 
-// The bulk data files can exceed Node's maximum string length, so they are
-// parsed incrementally as a stream rather than buffered and passed through
-// JSON.parse (which would require materializing the whole file as a string).
+// The bulk data files are served as gzipped JSON Lines and can exceed Node's
+// maximum string length, so they are decompressed and parsed one line at a time
+// rather than buffered and passed through JSON.parse (which would require
+// materializing the whole file as a string).
 async function* streamBulkData(type: string): AsyncGenerator<ScryfallCard> {
   const bulkData = await fetchJson<ScryfallBulkData>(
     `https://api.scryfall.com/bulk-data/${type}`,
     SCRYFALL_REQUEST_INIT
   );
-  console.log(`Fetching Scryfall bulk data from ${bulkData.download_uri}`);
-  const response = await fetch(bulkData.download_uri, SCRYFALL_REQUEST_INIT);
+  console.log(
+    `Fetching Scryfall bulk data from ${bulkData.jsonl_download_uri}`
+  );
+  const response = await fetch(
+    bulkData.jsonl_download_uri,
+    SCRYFALL_REQUEST_INIT
+  );
   if (!response.ok || !response.body) {
     throw new Error(
       `Request failed: ${response.status} ${response.statusText}`
     );
   }
 
-  const cardStream = Readable.fromWeb(
-    response.body as ReadableStream<Uint8Array>
-  ).pipe(StreamArray.withParser());
-  for await (const { value } of cardStream) {
-    yield value as ScryfallCard;
+  const cardLines = createInterface({
+    input: Readable.fromWeb(response.body as ReadableStream<Uint8Array>).pipe(
+      createGunzip()
+    ),
+    crlfDelay: Infinity,
+  });
+  for await (const line of cardLines) {
+    if (line) {
+      yield JSON.parse(line) as ScryfallCard;
+    }
   }
 }
 
