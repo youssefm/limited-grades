@@ -69,7 +69,13 @@ export default class MagicSet {
   static #setsByCode: Record<string, MagicSet> = {};
   static ALL: MagicSet[] = [];
 
-  static THE_HOBBIT = new MagicSet("hob", "The Hobbit", "2026-08-11");
+  static THE_HOBBIT = new MagicSet("hob", "The Hobbit", "2026-08-11", [
+    Deck.AZORIUS,
+    Deck.RAKDOS,
+    Deck.GOLGARI,
+    Deck.BOROS,
+    Deck.SIMIC,
+  ]);
 
   static MARVEL_SUPER_HEROES = new MagicSet(
     "msh",
