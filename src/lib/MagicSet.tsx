@@ -69,6 +69,24 @@ export default class MagicSet {
   static #setsByCode: Record<string, MagicSet> = {};
   static ALL: MagicSet[] = [];
 
+  static REALITY_FRACTURE = new MagicSet(
+    "fra",
+    "Reality Fracture",
+    "2026-09-29",
+    [
+      [Deck.AZORIUS, "Fatehold"],
+      [Deck.DIMIR, "Theorix"],
+      [Deck.RAKDOS, "Stingerquill"],
+      [Deck.GRUUL, "Konstrari"],
+      [Deck.SELESNYA, "Vigorbloom"],
+      [Deck.ORZHOV, "Liliana"],
+      [Deck.IZZET, "Chandra"],
+      [Deck.GOLGARI, "Garruk"],
+      [Deck.BOROS, "Ajani"],
+      [Deck.SIMIC, "Jace"],
+    ]
+  );
+
   static THE_HOBBIT = new MagicSet("hob", "The Hobbit", "2026-08-11", [
     Deck.AZORIUS,
     Deck.RAKDOS,
