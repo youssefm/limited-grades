@@ -213,6 +213,28 @@ export const generateIndex = async (): Promise<ScryfallIndex> => {
   return index;
 };
 
+// Scryfall bulk data no longer includes rebalanced Alchemy cards (named
+// "A-..."), but Arena Cube card data from 17Lands still references them. Keep
+// any such entries from the previous index that the regenerated one lacks.
+// Only Alchemy entries are carried over so that cards Scryfall renames or
+// removes do not linger in the index.
+const ALCHEMY_REBALANCED_PREFIX = "A-";
+
+export const carryOverAlchemyEntries = (
+  previousIndex: ScryfallIndex,
+  regeneratedIndex: ScryfallIndex
+): { index: ScryfallIndex; carriedOverCount: number } => {
+  const index = { ...regeneratedIndex };
+  let carriedOverCount = 0;
+  for (const [name, entry] of Object.entries(previousIndex)) {
+    if (name.startsWith(ALCHEMY_REBALANCED_PREFIX) && !(name in index)) {
+      index[name] = entry;
+      carriedOverCount += 1;
+    }
+  }
+  return { index, carriedOverCount };
+};
+
 export const SCRYFALL_INDEX = new Lazy(async () => {
   console.log("Reading Scryfall index from cache");
   let index = await CACHE.get<ScryfallIndex>(INDEX_CACHE_KEY);

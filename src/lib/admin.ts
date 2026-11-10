@@ -3,7 +3,12 @@ import { ALL_GRADES, DAY_IN_SECONDS } from "./constants";
 import Deck from "./Deck";
 import getCardStore from "./getCardStore";
 import MagicSet from "./MagicSet";
-import { generateIndex, INDEX_CACHE_KEY } from "./scryfall";
+import {
+  carryOverAlchemyEntries,
+  generateIndex,
+  INDEX_CACHE_KEY,
+  ScryfallIndex,
+} from "./scryfall";
 import { Grade, Rarity } from "./types";
 import { groupBy, sortBy } from "./util";
 import { indexBy } from "./util.server";
@@ -97,7 +102,15 @@ const ADMIN_ACTIONS: Record<string, AdminAction> = {
     }
   },
   "populate-scryfall-index": async (output) => {
-    const index = await generateIndex();
+    const previousIndex =
+      (await FILE_CACHE.get<ScryfallIndex>(INDEX_CACHE_KEY)) ?? {};
+    const { index, carriedOverCount } = carryOverAlchemyEntries(
+      previousIndex,
+      await generateIndex()
+    );
+    output.push(
+      `Carried over ${carriedOverCount} Alchemy entries from the previous index`
+    );
     await FILE_CACHE.set(INDEX_CACHE_KEY, index);
     await POSTGRES_CACHE.set(INDEX_CACHE_KEY, index, 365 * DAY_IN_SECONDS);
     output.push("Scryfall Index populated");
