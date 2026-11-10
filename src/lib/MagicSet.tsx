@@ -69,6 +69,8 @@ export default class MagicSet {
   static #setsByCode: Record<string, MagicSet> = {};
   static ALL: MagicSet[] = [];
 
+  static STAR_TREK = new MagicSet("trk", "Star Trek", "2026-11-10");
+
   static REALITY_FRACTURE = new MagicSet(
     "fra",
     "Reality Fracture",
